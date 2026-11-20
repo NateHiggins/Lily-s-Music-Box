@@ -50,6 +50,10 @@ const COVER_SIZE := Vector2(0.30, 0.22)
 const COVER_REACH := 0.30
 ## How far the hand draws the scissors to make a cut, and how many cuttings sit in a row over the board.
 const SNIP_REACH := 0.12
+## A print on the wall, in metres, and how many hang in a row under the board.
+const PRINT_SIZE := Vector2(0.17, 0.1275)
+const PRINT_COLUMNS := 5
+const PlateCamera := preload("res://scripts/props/plate_camera.gd")
 ## How far through the case the windows begin to be papered, and the sheets over each.
 const WINDOWS_FROM := 0.70
 const WINDOW_COLUMNS := 3
@@ -96,6 +100,9 @@ var covers: Dictionary = {}
 var window_spots: Array[Dictionary] = []
 var window_papers: Array[Node3D] = []
 var windows_found := false
+## Her camera, and her prints on the wall by picture number.
+var plate_camera: CanvasLayer
+var print_cards: Dictionary = {}
 var scissors: Node3D
 var scissors_grip: Node
 ## "<paper>:<date>" -> the cutting on the wall.
@@ -188,6 +195,10 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 		_tuck()
 		_cover_wall()
 		_hang_scissors()
+		plate_camera = PlateCamera.new()
+		plate_camera.name = "PlateCamera"
+		plate_camera.setup(world)
+		add_child(plate_camera)
 		_dress_wall()
 	loop.changed.connect(_sync)
 	loop.stage_reset.connect(_put_back)
@@ -588,6 +599,54 @@ func _sync_clippings() -> void:
 		clip_cards[key] = card
 
 
+## Her own prints, under the board in the order they were made (Lily's rulings wall_photos and
+## wall_photos_how_20261120). Each is a sheet of paper with the picture the plate took on it. The picture is read
+## from the file the camera wrote; a print whose file is gone hangs blank.
+func _sync_prints() -> void:
+	var made: Array = PhotoSales.pictured_prints()
+	for index in made.size():
+		var number := int(made[index])
+		if print_cards.has(number):
+			continue
+		var column := index % PRINT_COLUMNS
+		var row := index / PRINT_COLUMNS
+		var roll := (fposmod(float(index) * 0.618, 1.0) - 0.5) * 0.16
+		var level: Vector3 = _wall_frame.basis.x.rotated(_wall_frame.basis.z, roll)
+		var up: Vector3 = _wall_frame.basis.z.cross(level)
+		var at: Vector3 = _wall_frame * Vector3((-0.24 + 0.72 * float(column) / float(PRINT_COLUMNS - 1)) * _wall_size.x,
+				-_wall_size.y * 0.5 - 0.34 - 0.17 * float(row), 0.005 + 0.0006 * float(index))
+		var card := _copy_paper()
+		card.name = "LoopPrint_%d" % number
+		add_child(card)
+		_place(card, _sized(Basis(level, up, _wall_frame.basis.z), PRINT_SIZE.x, PRINT_SIZE.y), at)
+		var path := PhotoSales.picture_path(number)
+		var image := Image.load_from_file(ProjectSettings.globalize_path(path)) if FileAccess.file_exists(path) else null
+		if image != null and not image.is_empty():
+			image.generate_mipmaps()
+			var quad := QuadMesh.new()
+			quad.size = PRINT_SIZE * 0.88
+			var sheet := ArrayMesh.new()
+			sheet.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, quad.get_mesh_arrays())
+			var finish := MatLib.get_mat("paper").duplicate() as StandardMaterial3D
+			finish.uv1_triplanar = false
+			finish.uv1_scale = Vector3.ONE
+			finish.uv1_offset = Vector3.ZERO
+			finish.albedo_texture = ImageTexture.create_from_image(image)
+			# A silver print gone a little warm.
+			finish.albedo_color = Color(0.96, 0.90, 0.80)
+			finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+			var picture := MeshInstance3D.new()
+			picture.name = "Picture"
+			picture.mesh = sheet
+			picture.material_override = finish
+			picture.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			picture.visibility_range_end = 9.0
+			card.add_child(picture)
+			picture.global_transform = Transform3D(Basis(level, up, _wall_frame.basis.z), at + _wall_frame.basis.z * 0.0022)
+			card.set_meta("picture", picture)
+		print_cards[number] = card
+
+
 ## Her household papers on the wall before it is the case wall: one sheet each, in her hand, to be pulled down by
 ## hand. A paper already taken down in the save is not put back up.
 func _cover_wall() -> void:
@@ -763,6 +822,7 @@ func _sync() -> void:
 			grip.put_back()
 		card.visible = ready
 	_sync_clippings()
+	_sync_prints()
 	if tucked == null:
 		return
 	var waiting: Array[String] = loop.carried()

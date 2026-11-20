@@ -262,6 +262,23 @@ func _ready() -> void:
 	_check(stage.clip_cards.size() == 1 and not (stage.clip_cards["record:1928-11-10"] as Node3D).find_children("*", "Label3D", true, false).is_empty(), "and the cutting hangs over the board with its headline in live text")
 	_check(not _carry(stage.scissors_grip), "a paper is cut once")
 	await _snap("wall_cutting")
+	# Her own prints: a print that carries a picture hangs under the board with that picture on it.
+	_check(stage.plate_camera != null and not stage.plate_camera.raised and stage.print_cards.is_empty(), "her camera is in the case, down, and no prints hang yet")
+	var plate := Image.create(64, 48, false, Image.FORMAT_RGB8)
+	plate.fill(Color(0.4, 0.4, 0.4))
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PhotoSales.PICTURES))
+	plate.save_webp(PhotoSales.picture_path(9001), true, 0.8)
+	PhotoSales.book()["prints"] = [9001, 9002]
+	loop.changed.emit()
+	await _frames(4)
+	_check(stage.print_cards.size() == 2 and (stage.print_cards[9001] as Node3D).has_meta("picture")
+			and not (stage.print_cards[9002] as Node3D).has_meta("picture"), "a print hangs with its picture, and one whose file is gone hangs blank")
+	var hung: MeshInstance3D = (stage.print_cards[9001] as Node3D).get_meta("picture")
+	var worn := hung.material_override as StandardMaterial3D
+	_check(worn != null and worn.albedo_texture != null and worn.albedo_texture.get_image().has_mipmaps() and worn.roughness_texture != null,
+			"the picture is on the paper finish with a mip chain")
+	await _snap("wall_prints")
+	PhotoSales.book()["prints"] = []
 	var wall_face: Vector3 = stage.slot_position(1)
 	var out: Vector3 = stage._wall_frame.basis.z
 	_feet = Vector3(wall_face.x, floorf((wall_face.y + 0.05) / 3.2) * 3.2, wall_face.z) + out * 1.3
