@@ -42,7 +42,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		if body == null: continue
 		mounted_ids.append(body.get_instance_id())
 		var anchor: Dictionary = anchors[identity]
-		var placement: Dictionary = first_floor_moves.get(identity, anchor)
+		var placement: Dictionary = first_floor_moves.get(identity, OrisonV2RuntimeRoot.lived_in_place(anchor, anchors))
 		var level := "F01" if first_floor_moves.has(identity) else str(anchor.level)
 		var position: Array = placement.position
 		var expected_position: Vector3 = world.adapter.root.to_global(Vector3(position[0],float(position[1])+float(levels[level]),position[2]))

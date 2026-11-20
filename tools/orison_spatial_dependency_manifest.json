@@ -150920,6 +150920,846 @@
    "target_exists": true
   },
   {
+   "key": "c2edd699b1e847a5",
+   "kind": "id_reference",
+   "token": "1A_reading_chair",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ae28b719ea192079",
+   "kind": "id_reference",
+   "token": "1D_bed_chair",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1f922866042820d3",
+   "kind": "id_reference",
+   "token": "1D_daybed",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d61b4e2edeb7c935",
+   "kind": "id_reference",
+   "token": "1D_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1934cff7a8e425bd",
+   "kind": "id_reference",
+   "token": "2B_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "272a78eae7a62dbe",
+   "kind": "id_reference",
+   "token": "2B_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0e723be5c9d90901",
+   "kind": "id_reference",
+   "token": "2C_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "28cc706ae0be8b81",
+   "kind": "id_reference",
+   "token": "2C_hall_boots",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "533c62fc5a4b0101",
+   "kind": "id_reference",
+   "token": "2C_session_chair",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cb809319b760cec1",
+   "kind": "id_reference",
+   "token": "3A_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7e7a192b7cb6f4f7",
+   "kind": "id_reference",
+   "token": "3B_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2f065f56d38629b9",
+   "kind": "id_reference",
+   "token": "3B_stool",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "755ace504cef5227",
+   "kind": "id_reference",
+   "token": "3D_bedside",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3217582d59801e51",
+   "kind": "id_reference",
+   "token": "3D_card_index",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a2b674297d8698e4",
+   "kind": "id_reference",
+   "token": "4A_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3210353fee5890b0",
+   "kind": "id_reference",
+   "token": "4C_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d40c9a0e70f41a85",
+   "kind": "id_reference",
+   "token": "4D_case",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9436a5cd1822d022",
+   "kind": "id_reference",
+   "token": "5A_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6e64818fae660a1b",
+   "kind": "id_reference",
+   "token": "5A_floorstack",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "49793e23ee50a298",
+   "kind": "id_reference",
+   "token": "5B_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4c6f65b044a3305",
+   "kind": "id_reference",
+   "token": "5B_hall_hamper",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d85761d37a525d6b",
+   "kind": "id_reference",
+   "token": "5B_radio_chair",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e1a7fe16a39d73cf",
+   "kind": "id_reference",
+   "token": "5C_bed0_ns",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b2893c4566ea563d",
+   "kind": "id_reference",
+   "token": "5C_din_dc2",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8b838d36999d264",
+   "kind": "id_reference",
+   "token": "5C_hall_boots",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e5813c0ddc567b80",
+   "kind": "id_reference",
+   "token": "5C_studio_stool",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d1c390a3d6592d1a",
+   "kind": "id_reference",
+   "token": "6A_archive_box_b",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "64a3024eb630ec29",
+   "kind": "id_reference",
+   "token": "6A_coil1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b2361a4de878a3c1",
+   "kind": "id_reference",
+   "token": "6B_din_dc1",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "01807122ba4b62b3",
+   "kind": "id_reference",
+   "token": "6B_hall_hamper",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c54097c2c8d22d3d",
+   "kind": "id_reference",
+   "token": "6C_bed0_ns",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "14bfd6d594e221dc",
    "kind": "floor_reference",
    "token": "F01",
@@ -230547,7 +231387,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1575
+    1579
    ],
    "count": 1,
    "context": [
@@ -230577,7 +231417,7 @@
     "_redistribute_first_floor"
    ],
    "lines": [
-    1682
+    1686
    ],
    "count": 1,
    "context": [
@@ -230607,8 +231447,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1655,
-    1658
+    1659,
+    1662
    ],
    "count": 2,
    "context": [
@@ -230639,7 +231479,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    979
+    983
    ],
    "count": 1,
    "context": [
@@ -230849,7 +231689,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1835
+    1913
    ],
    "count": 1,
    "context": [
@@ -230910,9 +231750,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1569,
-    1572,
-    1634
+    1573,
+    1576,
+    1638
    ],
    "count": 3,
    "context": [
@@ -230944,7 +231784,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1584
+    1588
    ],
    "count": 1,
    "context": [
@@ -230974,7 +231814,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1576
+    1580
    ],
    "count": 1,
    "context": [
@@ -231004,7 +231844,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1593
+    1597
    ],
    "count": 1,
    "context": [
@@ -231034,7 +231874,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1833
+    1911
    ],
    "count": 1,
    "context": [
@@ -231094,7 +231934,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1585
+    1589
    ],
    "count": 1,
    "context": [
@@ -231124,7 +231964,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1829
+    1907
    ],
    "count": 1,
    "context": [
@@ -231154,7 +231994,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1831
+    1909
    ],
    "count": 1,
    "context": [
@@ -231184,7 +232024,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    879
+    883
    ],
    "count": 1,
    "context": [
@@ -231214,7 +232054,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1831
+    1909
    ],
    "count": 1,
    "context": [
@@ -231244,7 +232084,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1829
+    1907
    ],
    "count": 1,
    "context": [
@@ -231304,7 +232144,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    880
+    884
    ],
    "count": 1,
    "context": [
@@ -231334,7 +232174,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    880
+    884
    ],
    "count": 1,
    "context": [
@@ -231364,7 +232204,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1829
+    1907
    ],
    "count": 1,
    "context": [
@@ -231394,7 +232234,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1829
+    1907
    ],
    "count": 1,
    "context": [
@@ -231424,7 +232264,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    879
+    883
    ],
    "count": 1,
    "context": [
@@ -231484,9 +232324,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1652,
     1656,
-    1659
+    1660,
+    1663
    ],
    "count": 3,
    "context": [
@@ -231518,7 +232358,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    673
+    677
    ],
    "count": 1,
    "context": [
@@ -231548,7 +232388,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    673
+    677
    ],
    "count": 1,
    "context": [
@@ -231578,7 +232418,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    672
+    676
    ],
    "count": 1,
    "context": [
@@ -231608,7 +232448,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    672
+    676
    ],
    "count": 1,
    "context": [
@@ -231638,7 +232478,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1560
+    1564
    ],
    "count": 1,
    "context": [
@@ -231668,7 +232508,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1561
+    1565
    ],
    "count": 1,
    "context": [
@@ -231698,7 +232538,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    673
+    677
    ],
    "count": 1,
    "context": [
@@ -231788,7 +232628,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1462
+    1466
    ],
    "count": 1,
    "context": [
@@ -231818,7 +232658,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    724
+    728
    ],
    "count": 1,
    "context": [
@@ -231849,8 +232689,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1280,
-    1447
+    1284,
+    1451
    ],
    "count": 2,
    "context": [
@@ -231881,7 +232721,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1448
+    1452
    ],
    "count": 1,
    "context": [
@@ -232001,7 +232841,7 @@
     "_ready"
    ],
    "lines": [
-    298
+    302
    ],
    "count": 1,
    "context": [
@@ -232031,7 +232871,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1618
+    1622
    ],
    "count": 1,
    "context": [
@@ -232061,7 +232901,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1619
+    1623
    ],
    "count": 1,
    "context": [
@@ -232091,7 +232931,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1620
+    1624
    ],
    "count": 1,
    "context": [
@@ -232121,7 +232961,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1617
+    1621
    ],
    "count": 1,
    "context": [
@@ -232182,7 +233022,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    716
+    720
    ],
    "count": 1,
    "context": [
@@ -232214,8 +233054,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1553,
-    1618
+    1557,
+    1622
    ],
    "count": 2,
    "context": [
@@ -232248,8 +233088,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1556,
-    1619
+    1560,
+    1623
    ],
    "count": 2,
    "context": [
@@ -232282,8 +233122,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1559,
-    1620
+    1563,
+    1624
    ],
    "count": 2,
    "context": [
@@ -232316,8 +233156,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1550,
-    1617
+    1554,
+    1621
    ],
    "count": 2,
    "context": [
@@ -232349,7 +233189,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    714
+    718
    ],
    "count": 1,
    "context": [
@@ -232380,7 +233220,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    590
+    594
    ],
    "count": 1,
    "context": [
@@ -232412,8 +233252,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    293,
-    595
+    297,
+    599
    ],
    "count": 2,
    "context": [
@@ -232445,7 +233285,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    721
+    725
    ],
    "count": 1,
    "context": [
@@ -232476,7 +233316,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    598
+    602
    ],
    "count": 1,
    "context": [
@@ -232508,8 +233348,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    714,
-    1658
+    718,
+    1662
    ],
    "count": 2,
    "context": [
@@ -232540,7 +233380,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1517
+    1521
    ],
    "count": 1,
    "context": [
@@ -232570,7 +233410,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1518
+    1522
    ],
    "count": 1,
    "context": [
@@ -293560,6 +294400,34 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bd392d7042c3fa28",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_room_survey.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
   },
