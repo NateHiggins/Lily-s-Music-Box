@@ -1717,6 +1717,13 @@ static func lived_in_moves() -> Dictionary:
 		var by: Array = move.get("by", [0.0, 0.0])
 		var row := {"by": Vector3(float(by[0]), 0.0, float(by[1])), "turn": deg_to_rad(float(move.get("turn_degrees", 0.0))),
 				"pivot_of": str(move.id), "why": str(move.get("why", ""))}
+		# A room layout places a piece outright: where it stands ("to", blockout x and z) and which way it faces
+		# ("yaw_degrees"), instead of a nudge from where it was drawn.
+		var to: Variant = move.get("to")
+		if to is Array and (to as Array).size() == 2:
+			row["to"] = Vector3(float(to[0]), 0.0, float(to[1]))
+		if move.has("yaw_degrees"):
+			row["yaw"] = deg_to_rad(float(move.yaw_degrees))
 		moves[str(move.id)] = row
 		for companion: Variant in move.get("companions", []):
 			moves[str(companion)] = row
@@ -1735,10 +1742,45 @@ static func lived_in_place(record: Dictionary, anchors: Dictionary) -> Dictionar
 	var row: Dictionary = moves[identity]
 	var pivot_record: Dictionary = anchors.get(row.pivot_of, record)
 	var pivot := Vector3(float(pivot_record.position[0]), 0.0, float(pivot_record.position[2]))
+	var turn := float(row.turn)
+	if row.has("yaw"):
+		turn = float(row.yaw) - float(pivot_record.get("yaw", 0.0))
+	var target: Vector3 = row.to if row.has("to") else pivot + (row.by as Vector3)
 	var here := Vector3(float(record.position[0]), float(record.position[1]), float(record.position[2]))
-	var flat := Vector3(here.x, 0.0, here.z) - pivot
-	var moved := pivot + Basis(Vector3.UP, float(row.turn)) * flat + (row.by as Vector3)
-	return {"position": [moved.x, here.y, moved.z], "yaw": float(record.get("yaw", 0.0)) + float(row.turn)}
+	var moved := target + Basis(Vector3.UP, turn) * (Vector3(here.x, 0.0, here.z) - pivot)
+	var placed := record.duplicate()
+	placed["position"] = [moved.x, here.y, moved.z]
+	placed["yaw"] = float(record.get("yaw", 0.0)) + turn
+	return placed
+
+
+## Something placed from fixed coordinates on a support (a possessed object on a table, a witness clock on a shelf)
+## follows its support's move: `position` is blockout-local, `yaw_degrees` its facing. Returns [position, yaw_degrees].
+static func lived_in_follow(support: String, position: Vector3, yaw_degrees: float) -> Array:
+	var moves := lived_in_moves()
+	if support.is_empty() or not moves.has(support):
+		return [position, yaw_degrees]
+	var anchors := _blockout_anchor_records()
+	if not anchors.has(support):
+		return [position, yaw_degrees]
+	var before: Dictionary = anchors[support]
+	var after := lived_in_place(before, anchors)
+	var from := Vector3(float(before.position[0]), 0.0, float(before.position[2]))
+	var to := Vector3(float(after.position[0]), 0.0, float(after.position[2]))
+	var turn := float(after.yaw) - float(before.get("yaw", 0.0))
+	var flat := Basis(Vector3.UP, turn) * (Vector3(position.x, 0.0, position.z) - from)
+	return [Vector3(to.x + flat.x, position.y, to.z + flat.z), yaw_degrees + rad_to_deg(turn)]
+
+
+static var _anchor_records_cache: Dictionary = {}
+
+static func _blockout_anchor_records() -> Dictionary:
+	if _anchor_records_cache.is_empty():
+		var layout_source: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2_blockout.json"))
+		if layout_source is Dictionary:
+			for record: Dictionary in layout_source.get("anchors", []):
+				_anchor_records_cache[str(record.id)] = record
+	return _anchor_records_cache
 
 
 func _arrange_lived_in() -> bool:

@@ -3,49 +3,121 @@
  "order": "w075b9311d5b0",
  "moves": [
   {
-   "id": "1A_reading_chair",
-   "by": [
-    0.0,
-    0.0
+   "id": "1A_dressing_table",
+   "to": [
+    -15.38,
+    -8.5
    ],
-   "turn_degrees": 15,
-   "why": "evening chair angled toward the wireless"
+   "yaw_degrees": -90,
+   "why": "turned to face the room from the west wall; the medication organizer is laid out here each morning"
+  },
+  {
+   "id": "1A_bed_chair",
+   "to": [
+    -14.75,
+    -8.5
+   ],
+   "yaw_degrees": 90,
+   "why": "taken from the foot of the bed and set square at the dressing table, seat facing it"
+  },
+  {
+   "id": "1A_reading_chair",
+   "to": [
+    -14.65,
+    -5.55
+   ],
+   "yaw_degrees": -60,
+   "why": "back to the window so the light falls over her shoulder for marking; faces the wireless across the room"
+  },
+  {
+   "id": "1A_side_table",
+   "to": [
+    -14.2,
+    -4.45
+   ],
+   "yaw_degrees": 0,
+   "why": "at the chair's right hand for the tea service and the spare cup"
+  },
+  {
+   "id": "1D_abed",
+   "to": [
+    10.55,
+    -11.15
+   ],
+   "yaw_degrees": -90,
+   "why": "head pulled off the window wall to the west wall: she sleeps by day and keeps her face out of the light"
+  },
+  {
+   "id": "1D_bedside",
+   "to": [
+    9.76,
+    -10.15
+   ],
+   "yaw_degrees": -90,
+   "why": "at the head on the door side, the side she gets up from for a night shift"
   },
   {
    "id": "1D_bed_chair",
-   "by": [
-    -0.2,
-    0.35
+   "to": [
+    12.45,
+    -9.95
    ],
-   "turn_degrees": -20,
-   "why": "dragged to the bed as a scrubs landing"
+   "yaw_degrees": 90,
+   "why": "by the door, where the scrubs land on the way in"
+  },
+  {
+   "id": "1D_din_t",
+   "to": [
+    15.2,
+    -1.75
+   ],
+   "yaw_degrees": 90,
+   "why": "small table at the east window for the half meal at dawn"
   },
   {
    "id": "1D_din_dc1",
-   "by": [
-    -0.12,
-    0.1
+   "to": [
+    14.35,
+    -1.75
    ],
-   "turn_degrees": -15,
-   "why": "left out after a half-eaten meal"
+   "yaw_degrees": -90,
+   "why": "facing the table and the window"
+  },
+  {
+   "id": "1D_din_dc2",
+   "to": [
+    12.55,
+    -3.1
+   ],
+   "yaw_degrees": 0,
+   "why": "the second chair pulled off the table to face the wireless"
   },
   {
    "id": "1D_daybed",
-   "by": [
-    0.0,
-    -0.08
+   "to": [
+    14.45,
+    -0.23
    ],
-   "turn_degrees": 4,
-   "why": "shoved off the wall by post-shift collapses"
+   "yaw_degrees": 0,
+   "why": "shifted east along the south wall: where she collapses after a shift"
   },
   {
-   "id": "2B_din_dc2",
-   "by": [
-    0.0,
-    -0.1
+   "id": "1D_fabric_worktable",
+   "to": [
+    12.4,
+    -0.15
    ],
-   "turn_degrees": 30,
-   "why": "dining chair swung round to the sewing machine"
+   "yaw_degrees": 0,
+   "why": "the station table against the south wall, freed of the chest that stood in it"
+  },
+  {
+   "id": "1D_alarm_chest",
+   "to": [
+    15.3,
+    -3.95
+   ],
+   "yaw_degrees": 180,
+   "why": "the silenced alarm clock's drawer, kept across the room from the daybed so she has to get up"
   },
   {
    "id": "2B_din_dc1",
@@ -57,22 +129,22 @@
    "why": "pulled out, table kept for feeding others"
   },
   {
-   "id": "2C_session_chair",
-   "by": [
-    0.12,
-    -0.1
+   "id": "2B_din_dc2",
+   "to": [
+    14.65,
+    -1.8
    ],
-   "turn_degrees": -20,
-   "why": "pushed back askew after a night session"
+   "yaw_degrees": -90,
+   "why": "the seat at the sewing machine, facing it and the window light"
   },
   {
-   "id": "2C_din_dc1",
-   "by": [
-    -0.2,
-    -0.1
+   "id": "2B_dress_form",
+   "to": [
+    14.75,
+    -3.05
    ],
-   "turn_degrees": 20,
-   "why": "left out after a takeout meal"
+   "yaw_degrees": 115,
+   "why": "out of the hall opening into the window light beside the machine, turned mid-fitting toward the room"
   },
   {
    "id": "2C_hall_boots",
@@ -84,13 +156,40 @@
    "why": "kicked askew coming home at dawn"
   },
   {
-   "id": "3A_din_dc2",
-   "by": [
-    -0.35,
-    0.35
+   "id": "2C_din_dc2",
+   "to": [
+    -1.0,
+    10.75
    ],
-   "turn_degrees": 30,
-   "why": "dragged toward the potting bench to sit and prune"
+   "yaw_degrees": 172,
+   "why": "turned to sit at the rig table and the deck, a little askew"
+  },
+  {
+   "id": "2C_din_dc1",
+   "to": [
+    -0.85,
+    9.95
+   ],
+   "yaw_degrees": -72,
+   "why": "the takeout chair, shoved back from the table at an angle"
+  },
+  {
+   "id": "2C_session_chair",
+   "to": [
+    5.3,
+    10.4
+   ],
+   "yaw_degrees": 165,
+   "why": "pushed back from the session table and left askew after a night take"
+  },
+  {
+   "id": "3A_din_dc2",
+   "to": [
+    -14.5,
+    0.0
+   ],
+   "yaw_degrees": 90,
+   "why": "taken from the table to the potting bench between the windows: where he sits to prune and repot"
   },
   {
    "id": "3B_stool",
@@ -102,13 +201,31 @@
    "why": "stool dragged to the end of the workbench and turned to the work"
   },
   {
-   "id": "3B_din_dc1",
-   "by": [
-    0.25,
-    0.0
+   "id": "3B_teardown",
+   "to": [
+    15.35,
+    -2.0
    ],
-   "turn_degrees": 15,
-   "why": "his chair pushed back from the table and left turned toward the bench"
+   "yaw_degrees": 90,
+   "why": "the broken appliance brought out of the far corner into the window light beside the bench end, where he strips it for parts"
+  },
+  {
+   "id": "3B_partscrate",
+   "to": [
+    15.35,
+    -3.0
+   ],
+   "yaw_degrees": 90,
+   "why": "parts crate kept at the teardown's elbow, so what comes off it goes straight in"
+  },
+  {
+   "id": "3B_din_dc1",
+   "to": [
+    14.55,
+    -2.3
+   ],
+   "yaw_degrees": -120,
+   "why": "his chair turned from the table toward the teardown: he eats with it for company"
   },
   {
    "id": "3D_bedside",
@@ -129,13 +246,49 @@
    "why": "take-sheet index angled toward where she stands in the booth"
   },
   {
-   "id": "4A_din_dc1",
-   "by": [
-    -0.2,
-    0.05
+   "id": "3D_chaise",
+   "to": [
+    -11.84,
+    -4.36
    ],
-   "turn_degrees": -15,
-   "why": "chair pushed back where he rose to check a form at the writing table"
+   "yaw_degrees": 0,
+   "why": "the chaise stood against the south wall with its seat to the wall; turned to face the room and the wireless across it"
+  },
+  {
+   "id": "4A_writing_table",
+   "to": [
+    15.38,
+    -1.8
+   ],
+   "yaw_degrees": 90,
+   "why": "the document staging table moved under the east window, the only good light, where he re-checks forms"
+  },
+  {
+   "id": "4A_din_dc1",
+   "to": [
+    14.85,
+    -1.8
+   ],
+   "yaw_degrees": -90,
+   "why": "his chair set square at the writing table, facing the window"
+  },
+  {
+   "id": "4A_din_t",
+   "to": [
+    12.5,
+    -0.35
+   ],
+   "yaw_degrees": 0,
+   "why": "the dining table moved to the quiet south-west corner under his two framed pictures, out of the work light"
+  },
+  {
+   "id": "4A_din_dc2",
+   "to": [
+    12.5,
+    -1.15
+   ],
+   "yaw_degrees": 180,
+   "why": "one chair at the table, square to it, facing the frames while he eats the same meal"
   },
   {
    "id": "4C_din_dc2",
@@ -147,6 +300,24 @@
    "why": "one chair of the shared table left out: they eat at different times"
   },
   {
+   "id": "4C_bed0_ns",
+   "to": [
+    2.42,
+    10.93
+   ],
+   "yaw_degrees": 0,
+   "why": "nightstand brought from the far corner to the bed's head, within reach of whoever sleeps here"
+  },
+  {
+   "id": "4C_bed1_ns",
+   "to": [
+    5.72,
+    10.93
+   ],
+   "yaw_degrees": 0,
+   "why": "the other nightstand likewise at its bed's head: two rooms laid out alike, slept in apart"
+  },
+  {
    "id": "4D_case",
    "by": [
     0.0,
@@ -154,6 +325,15 @@
    ],
    "turn_degrees": 20,
    "why": "the guest's case set down at an angle by the door, not put away"
+  },
+  {
+   "id": "4D_settee",
+   "to": [
+    -11.6,
+    -4.36
+   ],
+   "yaw_degrees": 0,
+   "why": "the settee stood against the south wall with its seat to the wall; turned to face the room as a host would set it"
   },
   {
    "id": "5A_floorstack",
@@ -174,13 +354,31 @@
    "why": "pushed back a little where she sits over tenant lists"
   },
   {
-   "id": "5B_radio_chair",
-   "by": [
-    0.0,
-    0.0
+   "id": "5A_bed0",
+   "to": [
+    -14.6,
+    -8.55
    ],
-   "turn_degrees": -20,
-   "why": "the hero chair worn round to face the wireless"
+   "yaw_degrees": -90,
+   "why": "head to the west wall between window and door, square; the north window corner and the door line left empty"
+  },
+  {
+   "id": "5A_bed0_ns",
+   "to": [
+    -15.37,
+    -7.52
+   ],
+   "yaw_degrees": -90,
+   "why": "on the south side she gets up from, toward the door"
+  },
+  {
+   "id": "5A_planshelf",
+   "to": [
+    -8.47,
+    -11.3
+   ],
+   "yaw_degrees": 90,
+   "why": "plan shelf off the window onto the east wall so the drafting light falls on the model table"
   },
   {
    "id": "5B_din_dc2",
@@ -201,22 +399,31 @@
    "why": "knocked out of line"
   },
   {
-   "id": "5C_studio_stool",
-   "by": [
-    -0.3,
-    0.0
+   "id": "5B_radio_chair",
+   "to": [
+    -14.3,
+    3.4
    ],
-   "turn_degrees": 15,
-   "why": "dragged back from the easel to step back and look"
+   "yaw_degrees": -81,
+   "why": "the hero chair dragged to the window and worn round to the radio on the table, its back to the wireless table"
   },
   {
-   "id": "5C_bed0_ns",
-   "by": [
-    -0.55,
-    0.0
+   "id": "5B_abed",
+   "to": [
+    -14.62,
+    10.32
    ],
-   "turn_degrees": 8,
-   "why": "out of reach of the bed beside the wardrobe; brought to the bedside"
+   "yaw_degrees": -88,
+   "why": "head off the south window to the west wall, left a little out of square"
+  },
+  {
+   "id": "5B_abed_ns",
+   "to": [
+    -15.39,
+    9.3
+   ],
+   "yaw_degrees": -80,
+   "why": "on the door side he rolls out from, knocked askew"
   },
   {
    "id": "5C_din_dc2",
@@ -237,6 +444,51 @@
    "why": "kicked askew by a late riser"
   },
   {
+   "id": "5C_easel",
+   "to": [
+    4.45,
+    10.55
+   ],
+   "yaw_degrees": -90,
+   "why": "easel turned so the south window lights the canvas from the side"
+  },
+  {
+   "id": "5C_studio_stool",
+   "to": [
+    5.35,
+    10.45
+   ],
+   "yaw_degrees": 100,
+   "why": "stool backed off the easel to step back and look, pigments behind her"
+  },
+  {
+   "id": "5C_failed_canvases",
+   "to": [
+    6.55,
+    7.97
+   ],
+   "yaw_degrees": 0,
+   "why": "the failures stacked carefully against the north wall, faces to the plaster"
+  },
+  {
+   "id": "5C_bed0",
+   "to": [
+    1.55,
+    10.35
+   ],
+   "yaw_degrees": -90,
+   "why": "head to the west wall, clear of the window; a late riser sleeps out of the morning light"
+  },
+  {
+   "id": "5C_bed0_ns",
+   "to": [
+    0.76,
+    9.33
+   ],
+   "yaw_degrees": -82,
+   "why": "on the door side she gets up from"
+  },
+  {
    "id": "6A_coil1",
    "by": [
     -0.35,
@@ -255,6 +507,24 @@
    "why": "half drawn out from under the desk for tonight's filing"
   },
   {
+   "id": "6A_bed0",
+   "to": [
+    -14.6,
+    -8.55
+   ],
+   "yaw_degrees": -87,
+   "why": "head to the west wall out of the window light for a late sleeper, not quite square"
+  },
+  {
+   "id": "6A_bed0_ns",
+   "to": [
+    -15.37,
+    -9.6
+   ],
+   "yaw_degrees": -80,
+   "why": "on the window side, an alarm she ignores"
+  },
+  {
    "id": "6B_din_dc1",
    "by": [
     0.0,
@@ -271,6 +541,24 @@
    ],
    "turn_degrees": -8,
    "why": "drifted out of square"
+  },
+  {
+   "id": "6B_abed",
+   "to": [
+    -14.6,
+    10.3
+   ],
+   "yaw_degrees": -90,
+   "why": "slid off the west window; foot still faces the door toward the desk"
+  },
+  {
+   "id": "6B_abed_ns",
+   "to": [
+    -15.39,
+    11.37
+   ],
+   "yaw_degrees": -100,
+   "why": "kept at the head, drifted"
   },
   {
    "id": "6C_bed0_ns",
