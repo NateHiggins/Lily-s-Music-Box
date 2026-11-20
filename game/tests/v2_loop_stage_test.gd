@@ -266,7 +266,7 @@ func _ready() -> void:
 	_check(stage.plate_camera != null and not stage.plate_camera.raised and stage.print_cards.is_empty(), "her camera is in the case, down, and no prints hang yet")
 	var plate := Image.create(64, 48, false, Image.FORMAT_RGB8)
 	plate.fill(Color(0.4, 0.4, 0.4))
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PhotoSales.PICTURES))
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PhotoSales.pictures_dir()))
 	plate.save_webp(PhotoSales.picture_path(9001), true, 0.8)
 	PhotoSales.book()["prints"] = [9001, 9002]
 	loop.changed.emit()
