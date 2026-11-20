@@ -30,7 +30,7 @@ func configure(owner: Node3D,_controls: RefCounted) -> void:
 		var body := RigidBody3D.new()
 		body.name="PhysicalFuse%d"%RATINGS[i]
 		body.mass=.08;body.freeze=true;body.can_sleep=true
-		body.continuous_cd=true
+		body.continuous_cd=false
 		panel.add_child(body)
 		var shape := CollisionShape3D.new()
 		var cap := CylinderShape3D.new()
@@ -169,8 +169,15 @@ func _release(index: int) -> void:
 		if row.body.position.distance_to(PARKS[slot])<.03:
 			row.station=slot+1;row.body.position=PARKS[slot];row.body.basis=Basis.IDENTITY
 			refresh();return
-	# No invisible parking plane: unplaced stock falls against actual collision.
-	row.body.freeze=false;row.body.sleeping=false
+	# No physics (Lily, 20 Nov): a fuse let go away from the thread or a park goes to the nearest free park.
+	var nearest := -1
+	for slot in PARKS.size():
+		if rows.any(func(other): return other.station==slot+1): continue
+		if nearest<0 or row.body.position.distance_to(PARKS[slot])<row.body.position.distance_to(PARKS[nearest]): nearest=slot
+	if nearest>=0:
+		row.station=nearest+1;row.body.position=PARKS[nearest];row.body.basis=Basis.IDENTITY
+	row.body.freeze=true
+	refresh()
 
 func refresh() -> void:
 	for row: Dictionary in rows:
@@ -274,6 +281,5 @@ func restore(value: Dictionary) -> void:
 		row.body.basis=Basis(Quaternion(saved.rotation[0],saved.rotation[1],saved.rotation[2],saved.rotation[3]).normalized())
 		row.body.linear_velocity=Vector3.ZERO;row.body.angular_velocity=Vector3.ZERO
 		if row.station==0: _place_thread(row)
-		row.body.freeze=row.station!=-1
-		row.body.sleeping=false
+		row.body.freeze=true
 	update_facts();refresh()

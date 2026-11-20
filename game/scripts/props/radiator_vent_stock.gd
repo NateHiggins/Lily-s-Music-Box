@@ -67,7 +67,8 @@ func _add_part(identity: String,grade: int,slot: String,rack: int) -> void:
 	body.identity=identity
 	body.mass=.003
 	body.freeze=true
-	body.continuous_cd=true
+	# No physics (Lily, 20 Nov): inserts keep preset places (a radiator mouth, a rack pocket, or where taken from).
+	body.continuous_cd=false
 	body.collision_layer=0
 	body.collision_mask=1
 	add_child(body)
@@ -209,7 +210,8 @@ func _finish_inspection_borrow() -> void:
 	_inspection_pending={};_inspection_borrow={}
 	var row:=_part_row(part)
 	if not row.is_empty() and row.slot.is_empty() and row.rack<0 and held!=part.identity:
-		row.body.freeze=false;row.body.sleeping=false
+		row.body.freeze=true
+		if row.has("before"):row.body.global_transform=row.before
 
 func borrow_inspection_end(context: Node3D) -> void:
 	if not _inspection_borrow.is_empty() and _inspection_borrow.context.get_ref()==context:
@@ -237,6 +239,7 @@ func grip(identity: String) -> Dictionary:
 			_held_radiator=context if context!=self else null
 			if _held_radiator!=null: _held_radiator._native_held="vent_orifice"
 			held=identity
+			row.before=row.body.global_transform;row.before_rack=row.rack
 			if mounted: radiator.physical_action.emit("inspect_vent",{"condition":radiator.open_shift_condition,"observation":"vent_grade_%d"%row.grade})
 			row.body.freeze=true
 			row.body.linear_velocity=Vector3.ZERO
@@ -283,13 +286,17 @@ func _release(row: Dictionary) -> void:
 	for index in 5:
 		if rows.values().any(func(other): return other!=row and other.rack==index): continue
 		if row.body.position.distance_to(rack_pose(index).origin)<.008: row.rack=index;return
+	# Let go anywhere else, it goes back where it was taken from: inserts rest only at preset places.
+	if row.has("before"):
+		row.body.global_transform=row.before
+		row.rack=int(row.get("before_rack",-1))
+		if row.rack>=0:return
 	_drop(row)
 
 func _drop(row: Dictionary) -> void:
 	row.rack=-1
 	row.body.collision_layer=1
-	row.body.freeze=_borrowed(row.body)
-	row.body.sleeping=false
+	row.body.freeze=true
 
 func _process(_delta: float) -> void:
 	if not _inspection_borrow.is_empty() and not is_instance_valid(_inspection_borrow.context.get_ref()):_finish_inspection_borrow()

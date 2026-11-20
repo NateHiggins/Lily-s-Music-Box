@@ -42,8 +42,9 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 		failures.append("legacy cap preserves withdrawal depth with matched new thread phase")
 	legacy.records.F02_B_RADIATOR_01.value.vent_cap={"loose":false,"turn":TAU*2}
 	codec._restore(legacy)
-	if not cap.loose or absf((cap.home().affine_inverse()*cap.global_position).y-.014)>.000001:
-		failures.append("legacy cap beyond new engagement becomes free at its original depth")
+	# No physics (Lily, 20 Nov): an old save past the new thread restores the cap loose, parked beside the vent.
+	if not cap.loose or not cap.freeze or not cap.global_transform.is_equal_approx(preload("res://scripts/props/radiator_part_park.gd").pose(cap.radiator,cap,cap.draw,cap.home().origin,.09)):
+		failures.append("legacy cap beyond new engagement comes back loose and parked")
 	var malformed := saved.duplicate(true)
 	malformed.records.F02_B_RADIATOR_01.value.vent_cap.thread_version=true
 	if codec.validate(malformed,codec._kinds):failures.append("cap thread version rejects booleans")

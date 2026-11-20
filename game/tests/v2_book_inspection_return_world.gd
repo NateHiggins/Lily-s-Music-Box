@@ -204,7 +204,8 @@ func _inspect_stock_review(book: Node3D) -> void:
 	for frame in 3:await get_tree().process_frame
 	profile_phase="nook_return_release"
 	_click_library()
-	_require(not player._grab.active() and not book._held and not book.freeze,"next primary releases returned world binding")
+	# Books carry no physics (Lily, 20 Nov): released, the binding stays frozen at a preset place.
+	_require(not player._grab.active() and not book._held and book.freeze,"next primary releases returned world binding")
 	_require(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"world primary release restores carrier collision")
 	for frame in 40:await get_tree().process_frame
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("return.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","stock_id":book.stock_id,"held_error_m":error,"failures":failures},"\t"))
@@ -227,7 +228,7 @@ func _export_nook_title_fixture(book: Node3D) -> void:
 	var previous: Transform3D = book.transform
 	for frame in 360:
 		await get_tree().physics_frame
-		if book.sleeping and book.transform.is_equal_approx(previous):
+		if (book.sleeping or book.freeze) and book.transform.is_equal_approx(previous):
 			stable += 1
 			if stable >= 8:
 				break
@@ -239,8 +240,8 @@ func _export_nook_title_fixture(book: Node3D) -> void:
 	_park_observe("nook_title_export_rest", book)
 	var checks := {
 		# Godot can retain solver velocity in a naturally sleeping body.
-		"rest": stable >= 8 and book.sleeping and bool(row.get("body", {}).get("sleeping", false)),
-		"loose": book.shelf_slot == -1 and not book.freeze and not book._held and int(row.get("slot", 0)) == -1,
+		"rest": stable >= 8 and (book.sleeping or book.freeze),
+		"loose": book.shelf_slot == -1 and book.freeze and not book._held and int(row.get("slot", 0)) == -1,
 		"hands": not player.inspecting() and not player._grab.active() and shelf._hand_node == null,
 		"collisions": not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),
 		"identity": shelf._books.get(stock_id) == book and played.books.keys() == _original_library.books.keys(),

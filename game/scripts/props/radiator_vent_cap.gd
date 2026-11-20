@@ -22,9 +22,10 @@ func configure(owner: Node3D) -> void:
 	radiator=owner
 	mass=.025
 	freeze=true
-	continuous_cd=true
-	contact_monitor=true
-	max_contacts_reported=64
+	# No physics (Lily, 20 Nov): the cap is threaded on, carried by hand, or parked beside the vent.
+	continuous_cd=false
+	contact_monitor=false
+	max_contacts_reported=0
 	collision_layer=0
 	collision_mask=1
 	physics_material_override=PhysicsMaterial.new()
@@ -197,8 +198,8 @@ func _release() -> void:
 
 func _drop() -> void:
 	collision_layer=1
-	freeze=false
-	sleeping=false
+	freeze=true
+	global_transform=preload("res://scripts/props/radiator_part_park.gd").pose(radiator,self,draw,home().origin,.09)
 
 func snapshot() -> Dictionary:
 	if not loose: return {"loose":false,"turn":turn,"thread_version":2}
@@ -241,8 +242,7 @@ func restore(value: Dictionary) -> void:
 		position=Vector3(value.position[0],value.position[1],value.position[2])
 		basis=Basis(Quaternion(value.rotation[0],value.rotation[1],value.rotation[2],value.rotation[3]).normalized())
 		collision_layer=1
-		freeze=false
-		sleeping=false
+		freeze=true
 		_sync_insert()
 	else:
 		turn=float(value.turn) if value.has("thread_version") else float(value.turn)/LEGACY_TURN_END*LEGACY_TRAVEL/THREAD_TRAVEL*TURN_END

@@ -76,7 +76,8 @@ func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 
 func _ready() -> void:
 	super._ready()
-	contact_monitor=true;max_contacts_reported=8
+	# No physics (Lily, 20 Nov): the stock never settles by contact; it keeps preset places.
+	contact_monitor=false;max_contacts_reported=0
 	freeze=true
 	set_physics_process(false)
 
