@@ -226673,8 +226673,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    911,
-    971
+    980,
+    1040
    ],
    "count": 2,
    "context": [
@@ -226705,7 +226705,7 @@
     "_card_for"
    ],
    "lines": [
-    458
+    478
    ],
    "count": 1,
    "context": [
@@ -226735,7 +226735,7 @@
     "_cover_wall"
    ],
    "lines": [
-    599
+    667
    ],
    "count": 1,
    "context": [
@@ -226765,7 +226765,7 @@
     "_dress_wall"
    ],
    "lines": [
-    913
+    982
    ],
    "count": 1,
    "context": [
@@ -226795,7 +226795,7 @@
     "_grip_for"
    ],
    "lines": [
-    264
+    284
    ],
    "count": 1,
    "context": [
@@ -226825,15 +226825,17 @@
     "_grow"
    ],
    "lines": [
-    1121,
-    1144,
-    1162
+    1190,
+    1213,
+    1231,
+    1249
    ],
-   "count": 3,
+   "count": 4,
    "context": [
     "\"LoopPaper_%d\" % index",
     "\"LoopPile_%d\" % index",
-    "\"LoopBundle_%d\" % pile_tops.size()"
+    "\"LoopBundle_%d\" % pile_tops.size()",
+    "\"LoopWindowPaper_%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -226859,8 +226861,8 @@
     "_sync"
    ],
    "lines": [
-    767,
-    804
+    836,
+    873
    ],
    "count": 2,
    "context": [
@@ -226891,7 +226893,7 @@
     "_sync_clippings"
    ],
    "lines": [
-    575
+    595
    ],
    "count": 1,
    "context": [
@@ -226921,11 +226923,41 @@
     "_sync_filing"
    ],
    "lines": [
-    997
+    1066
    ],
    "count": 1,
    "context": [
     "\"LoopDated_\" + item_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ff45e8a18ab152cb",
+   "kind": "generated_name",
+   "token": "_sync_prints",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_sync_prints"
+   ],
+   "lines": [
+    619
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopPrint_%d\" % number"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -226951,7 +226983,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    74
    ],
    "count": 1,
    "context": [
@@ -226979,7 +227011,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    73
    ],
    "count": 1,
    "context": [
@@ -227009,7 +227041,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    74
    ],
    "count": 1,
    "context": [
@@ -227037,7 +227069,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    74
    ],
    "count": 1,
    "context": [
@@ -227066,7 +227098,7 @@
    ],
    "lines": [
     19,
-    64
+    73
    ],
    "count": 2,
    "context": [
@@ -227095,7 +227127,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    73
    ],
    "count": 1,
    "context": [
@@ -227123,7 +227155,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    73
    ],
    "count": 1,
    "context": [
@@ -227151,7 +227183,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    73
    ],
    "count": 1,
    "context": [
@@ -227179,7 +227211,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    74
    ],
    "count": 1,
    "context": [
@@ -227209,7 +227241,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    74
    ],
    "count": 1,
    "context": [
@@ -227234,18 +227266,22 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
-    "_survey"
+    "_survey",
+    "_find_windows"
    ],
    "lines": [
-    1036,
-    1061,
-    1076
+    1105,
+    1130,
+    1145,
+    1307,
+    1325
    ],
-   "count": 3,
+   "count": 5,
    "context": [
     "if thing != null and world.unit_at_world(thing.global_position) == \"4B\":",
     "if world.unit_at_world(where) != \"4B\":",
-    "if hit.is_empty() or (hit.normal as Vector3).y < 0.9 or world.unit_at_world(hit.position as Vector3) != \"4B\":"
+    "if hit.is_empty() or (hit.normal as Vector3).y < 0.9 or world.unit_at_world(hit.position as Vector3) != \"4B\":",
+    "if world.unit_at_world(dressing.global_position) != \"4B\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -291184,14 +291220,16 @@
    ],
    "lines": [
     112,
-    270,
-    343
+    287,
+    360,
+    411
    ],
-   "count": 3,
+   "count": 4,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
     "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",
-    "inside = inside and world.unit_at_world(sheet.global_position) == \"4B\""
+    "inside = inside and world.unit_at_world(sheet.global_position) == \"4B\"",
+    "if sheet.visible and world.unit_at_world(sheet.global_position) == \"4B\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -291217,7 +291255,7 @@
     "_ready"
    ],
    "lines": [
-    309
+    326
    ],
    "count": 1,
    "context": [
@@ -291248,7 +291286,7 @@
    ],
    "lines": [
     173,
-    311
+    328
    ],
    "count": 2,
    "context": [
