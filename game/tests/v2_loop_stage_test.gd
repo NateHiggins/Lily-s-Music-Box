@@ -443,7 +443,7 @@ func _ready() -> void:
 			"the wreath is up from mid-December to Twelfth Night, and the flag for the year's other holidays")
 	_check(loop.occasion_for("1928-11-27") == "occasion_turkey" and loop.occasion_for("1929-03-29") == "occasion_egg"
 			and loop.occasion_for("1929-04-02").is_empty(), "a paper turkey for Thanksgiving week, a paper egg for Easter week")
-	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1928, 12, 24], "occasion_wreath"], [[1928, 11, 28], "occasion_turkey"], [[1929, 3, 30], "occasion_egg"], [[1929, 8, 1], ""]]:
+	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1928, 12, 24], "occasion_wreath"], [[1928, 11, 28], "occasion_turkey"], [[1929, 3, 30], "occasion_egg"], [[1929, 7, 2], "occasion_flag"], [[1929, 8, 1], ""]]:
 		var day: Array = pair[0]
 		CampaignClock.new().configure_date(int(day[0]), int(day[1]), int(day[2]), 12 * 60)
 		loop.changed.emit()
@@ -457,6 +457,30 @@ func _ready() -> void:
 			_feet.y = stage._wall_frame.origin.y - 1.45
 			_look = stage.occasion.global_position
 			await _snap(str(pair[1]))
+	# The ice card, May to September, turned to the day's pounds: more in the heat.
+	_check(loop.ice_for("1929-07-20") == 75 and loop.ice_for("1929-06-01") == 50 and loop.ice_for("1929-09-30") == 25
+			and loop.ice_for("1929-10-01") == 0 and loop.ice_for("1929-04-30") == 0, "ice in the season, more in the heat, none out of it")
+	CampaignClock.new().configure_date(1929, 7, 20, 12 * 60)
+	loop.changed.emit()
+	await _frames(4)
+	var top_figure := ""
+	if stage.ice_card != null:
+		var highest := -INF
+		for label: Label3D in stage.ice_card.find_children("Pounds*", "Label3D", true, false):
+			if label.global_position.y > highest:
+				highest = label.global_position.y
+				top_figure = label.text
+	_check(stage.ice_card != null and world.unit_at_world(stage.ice_card.global_position) == "4B" and top_figure == "75",
+			"on 20 July the ice card hangs in 4B's window turned to 75 pounds (%s at the top)" % top_figure)
+	if stage.ice_card != null:
+		_feet = stage.ice_card.global_position - stage.ice_card.global_basis.z * -1.2
+		_feet.y = stage._wall_frame.origin.y - 1.45
+		_look = stage.ice_card.global_position
+		await _snap("ice_card_july")
+	CampaignClock.new().configure_date(1929, 10, 2, 12 * 60)
+	loop.changed.emit()
+	await _frames(4)
+	_check(stage.ice_card == null, "in October the card is taken down")
 	_pinned = false
 	_finish()
 

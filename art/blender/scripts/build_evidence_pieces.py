@@ -45,6 +45,7 @@ TINTS = {
     "turkey": (0.36, 0.20, 0.10), "feather1": (0.72, 0.30, 0.08), "feather2": (0.80, 0.56, 0.12),
     "feather3": (0.55, 0.14, 0.08), "wattle": (0.74, 0.08, 0.06), "beak": (0.88, 0.56, 0.10),
     "eggshell": (0.56, 0.34, 0.72), "eggband1": (0.94, 0.70, 0.08), "eggband2": (0.14, 0.40, 0.74),
+    "icecard": (0.96, 0.93, 0.84), "iceborder": (0.12, 0.22, 0.46), "ice": (0.66, 0.80, 0.88),
 }
 ALPHA = {"glassine": 0.6}
 # Drawn after the pane it wraps: two blended surfaces at one place need an order.
@@ -979,8 +980,26 @@ def occasion_egg():
         plate("paper:eggband2", circle(0.0055, 10, at=(-0.036 + 0.018 * k, 0.046)), 0.0008, 0.0012)
 
 
+def ice_card():
+    """The iceman's card for the window, May to September: a square card with a blue border and a block of ice drawn
+    in the middle. Its four figures (25, 50, 75, 100 pounds, one to each edge) are live text in the game (RUL-008);
+    the household turns the card so the figure it wants today stands at the top."""
+    begin("ice_card")
+    w = 0.18
+    plate("paper:icecard", [(-w / 2, -w / 2), (w / 2, -w / 2), (w / 2, w / 2), (-w / 2, w / 2)], 0.0, 0.0008)
+    edge = 0.008
+    inner = w / 2 - edge
+    plate("paper:iceborder", [(-w / 2 + 0.003, -w / 2 + 0.003), (w / 2 - 0.003, -w / 2 + 0.003), (w / 2 - 0.003, w / 2 - 0.003),
+                              (-w / 2 + 0.003, w / 2 - 0.003)], 0.0008, 0.0010,
+          holes=([(-inner, -inner), (inner, -inner), (inner, inner), (-inner, inner)],))
+    block = [(-0.030, -0.024), (0.026, -0.024), (0.034, -0.016), (0.034, 0.026), (-0.022, 0.026), (-0.030, 0.018)]
+    plate("paper:ice", block, 0.0008, 0.0011)
+    plate("paper:icecard", [(-0.022, 0.006), (-0.004, 0.006), (-0.004, 0.016), (-0.022, 0.016)], 0.0011, 0.0013)
+    plate("paper:iceborder", [(-0.030, 0.018), (-0.022, 0.026), (0.034, 0.026), (0.026, 0.018)], 0.0011, 0.0013)
+
+
 BUILDERS = [order_slip, route_leaf, nurse_note, jonah_page, button_leaf, glove_scrap, disc_label, dark_slide,
-            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy, occasion_wreath, occasion_turkey, occasion_egg]
+            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy, occasion_wreath, occasion_turkey, occasion_egg, ice_card]
 
 
 # ---------------------------------------------------------------------------
@@ -1097,7 +1116,7 @@ def review(objects, sizes):
         "sheet_3_bundle": ["bundle"],
         "sheet_4_small": ["glove_scrap", "button_leaf", "pin"],
         "sheet_5_cutting": ["scissors", "clipping"],
-        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy", "occasion_wreath", "occasion_turkey", "occasion_egg"],
+        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy", "occasion_wreath", "occasion_turkey", "occasion_egg", "ice_card"],
     }
     for sheet, names in sheets.items():
         for objs in objects.values():

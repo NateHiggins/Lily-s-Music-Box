@@ -209,6 +209,12 @@ static func _load_table() -> Dictionary:
 		return {}
 	if parsed.get("occasions") is not Array:
 		return {}
+	var ice: Variant = parsed.get("ice_card")
+	if ice is not Dictionary or (ice as Dictionary).get("figures") is not Array or (ice as Dictionary).get("pounds_by_month") is not Array 			or (ice.pounds_by_month as Array).size() != 12:
+		return {}
+	for wanted: Variant in ice.pounds_by_month:
+		if int(wanted) != 0 and not (ice.figures as Array).has(wanted):
+			return {}
 	for occasion: Variant in parsed.occasions:
 		if occasion is not Dictionary or str(occasion.get("piece", "")).is_empty() or int(occasion.get("month", 0)) < 1 \
 				or int(occasion.get("day", 0)) < 1 or int(occasion.get("before", -1)) < 0:
@@ -881,6 +887,15 @@ func occasion_for(date: String) -> String:
 			if ahead >= -float(occasion.get("after", 0)) - 0.5 and ahead <= float(occasion.before) + 0.5:
 				return str(occasion.piece)
 	return ""
+
+
+## The pounds of ice a household takes on a civil day ("YYYY-MM-DD"): the figure its card in the window is turned to,
+## more in the heat. 0 out of the ice season, when no card hangs (plan, section 5.2: the ice card).
+func ice_for(date: String) -> int:
+	if date.length() < 7:
+		return 0
+	var month := int(date.substr(5, 2))
+	return 0 if month < 1 or month > 12 else int((table.ice_card.pounds_by_month as Array)[month - 1])
 
 
 func today() -> String:

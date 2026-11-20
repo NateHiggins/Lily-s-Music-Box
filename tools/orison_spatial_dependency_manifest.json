@@ -226701,8 +226701,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    1068,
-    1128
+    1140,
+    1200
    ],
    "count": 2,
    "context": [
@@ -226733,7 +226733,7 @@
     "_card_for"
    ],
    "lines": [
-    485
+    488
    ],
    "count": 1,
    "context": [
@@ -226763,7 +226763,7 @@
     "_cover_wall"
    ],
    "lines": [
-    710
+    713
    ],
    "count": 1,
    "context": [
@@ -226793,7 +226793,7 @@
     "_dress_wall"
    ],
    "lines": [
-    1070
+    1142
    ],
    "count": 1,
    "context": [
@@ -226823,7 +226823,7 @@
     "_grip_for"
    ],
    "lines": [
-    291
+    294
    ],
    "count": 1,
    "context": [
@@ -226853,10 +226853,10 @@
     "_grow"
    ],
    "lines": [
-    1278,
-    1301,
-    1319,
-    1337
+    1350,
+    1373,
+    1391,
+    1409
    ],
    "count": 4,
    "context": [
@@ -226889,8 +226889,8 @@
     "_sync"
    ],
    "lines": [
-    924,
-    961
+    996,
+    1033
    ],
    "count": 2,
    "context": [
@@ -226921,7 +226921,7 @@
     "_sync_clippings"
    ],
    "lines": [
-    608
+    611
    ],
    "count": 1,
    "context": [
@@ -226951,11 +226951,41 @@
     "_sync_filing"
    ],
    "lines": [
-    1154
+    1226
    ],
    "count": 1,
    "context": [
     "\"LoopDated_\" + item_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f9bae4568f613b02",
+   "kind": "generated_name",
+   "token": "_sync_ice_card",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_sync_ice_card"
+   ],
+   "lines": [
+    915
+   ],
+   "count": 1,
+   "context": [
+    "\"Pounds%d\" % int(figures[index])"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -226981,7 +227011,7 @@
     "_sync_prints"
    ],
    "lines": [
-    633
+    636
    ],
    "count": 1,
    "context": [
@@ -227294,20 +227324,23 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
+    "_sync_ice_card",
     "_sync_occasion",
     "_survey",
     "_find_windows"
    ],
    "lines": [
-    862,
-    864,
-    1193,
-    1218,
-    1233,
-    1395,
-    1413
+    867,
+    869,
+    932,
+    934,
+    1265,
+    1290,
+    1305,
+    1467,
+    1485
    ],
-   "count": 7,
+   "count": 9,
    "context": [
     "var unit := \"4B\"",
     "unit = str(loop.table.anchors.get(loop.visit_anchor(), {}).get(\"place\", \"4B\"))",
@@ -291254,9 +291287,10 @@
     294,
     367,
     418,
-    454
+    454,
+    473
    ],
-   "count": 5,
+   "count": 6,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
     "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",
