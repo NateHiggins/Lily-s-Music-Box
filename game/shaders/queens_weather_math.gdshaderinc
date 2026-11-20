@@ -219,6 +219,15 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// Reuse the existing warp tap rather than adding another noise octave.
 		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
 		if(genus==1 && living_fluid_enabled) family=mix(family,far_family,far_field);
+		if(genus==1) {
+			// Cirrocumulus gathers in patches with clear sky between them. The family test above reads one warp tap
+			// whose values crowd the middle, so at low coverage it passed a little of every cell and the small
+			// cells covered the whole dome evenly (Lily, 2026-11-19: "a field of small streaks"). A broad mass of
+			// the existing macro volume groups them at every distance, fluid or not.
+			vec2 patch_uv=q*.043+drift.xy;
+			float patch_mass=textureLod(cloud_macro,vec3(patch_uv.x+patch_uv.y,patch_uv.y-patch_uv.x,.31+motion.z),2.0).r;
+			family*=smoothstep(.50-.10*coverage,.68-.10*coverage,patch_mass);
+		}
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 		// The high plane reaches 100 km and more. Past what the eye could resolve
 		// it is a thin even veil, not a pattern repeated thirty times over.
