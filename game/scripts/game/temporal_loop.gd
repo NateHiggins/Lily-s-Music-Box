@@ -207,6 +207,12 @@ static func _load_table() -> Dictionary:
 		return {}
 	if parsed.get("wall_covers") is not Array or (parsed.wall_covers as Array).is_empty():
 		return {}
+	if parsed.get("occasions") is not Array:
+		return {}
+	for occasion: Variant in parsed.occasions:
+		if occasion is not Dictionary or str(occasion.get("piece", "")).is_empty() or int(occasion.get("month", 0)) < 1 \
+				or int(occasion.get("day", 0)) < 1 or int(occasion.get("before", -1)) < 0:
+			return {}
 	for cover: Variant in parsed.wall_covers:
 		if cover is not Dictionary or str(cover.get("id", "")).is_empty() or cover.get("lines") is not Array:
 			return {}
@@ -857,6 +863,24 @@ func _transact(identity: String, cents: int) -> bool:
 
 
 # --- The year's events ---------------------------------------------------------------
+
+## The occasion a house is dressed for on a civil day ("YYYY-MM-DD"): the piece of the first occasion whose day falls
+## on that day or within its `before` days after it (plan, section 5: Flag Day, Hallowe'en, Armistice Day). Empty on
+## an ordinary day. The same rule serves a lead's own day in a visit and the present at home.
+func occasion_for(date: String) -> String:
+	if date.length() < 10:
+		return ""
+	var year := int(date.substr(0, 4))
+	var month := int(date.substr(5, 2))
+	var day := int(date.substr(8, 2))
+	var at := Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": 12})
+	for occasion: Dictionary in table.get("occasions", []):
+		var when := Time.get_unix_time_from_datetime_dict({"year": year, "month": int(occasion.month), "day": int(occasion.day), "hour": 12})
+		var ahead := (when - at) / 86400.0
+		if ahead >= -0.5 and ahead <= float(occasion.before) + 0.5:
+			return str(occasion.piece)
+	return ""
+
 
 func today() -> String:
 	var now := clock.local_datetime()
