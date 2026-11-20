@@ -221446,7 +221446,7 @@
     "_notebooks"
    ],
    "lines": [
-    48
+    51
    ],
    "count": 1,
    "context": [
@@ -221481,6 +221481,34 @@
    "count": 1,
    "context": [
     "const SWITCH := \"B1_BOILER_ROOM_SWITCH\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6191a028b87eaf5d",
+   "kind": "id_reference",
+   "token": "F02_2C_BOOKSHELF_01",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "const JUNO_SHELF := \"F02_2C_BOOKSHELF_01\""
    ],
    "gameplay_binding": false,
    "authority": [

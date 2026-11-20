@@ -239,7 +239,7 @@ static func _disc_twelve(world: Node3D, shelf: Node3D) -> Node3D:
 	prop.name = "JunoDiscTwelve"
 	world.add_child(prop)
 	# Lying on the top of the case, a little over its front edge, so the hand can draw it out toward the room.
-	prop.global_transform = shelf.global_transform * Transform3D(Basis(), Vector3(centre.x + 0.08, top + 0.002, front - 0.10))
+	prop.global_transform = shelf.global_transform * Transform3D(Basis(Vector3.UP, 0.35), Vector3(centre.x + 0.05, top + 0.002, front - 0.06))
 	prop.axis = Vector3.BACK
 	prop.reach = 0.10
 	prop.from_date = "1929-08-24"
@@ -251,7 +251,7 @@ static func _disc_twelve(world: Node3D, shelf: Node3D) -> Node3D:
 	prop.add_child(sleeve)
 	var paper := BoxMesh.new()
 	paper.size = Vector3(0.262, 0.0024, 0.262)
-	paper.material = MatLib.get_mat("paper", Color(0.62, 0.48, 0.32))
+	paper.material = MatLib.get_mat("paper", Color(0.86, 0.80, 0.66))
 	var cover := MeshInstance3D.new()
 	cover.name = "Cover"
 	cover.mesh = paper
