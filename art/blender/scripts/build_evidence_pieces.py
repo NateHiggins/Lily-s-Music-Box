@@ -807,8 +807,47 @@ def pin():
     lathe("billiard_resin:red", prof, segs=10)
 
 
+def scissors():
+    """Her paper scissors, lying flat and a little open (Lily's ruling wall_clippings: clippings are cut out by hand,
+    with scissors, at home). Two steel blades on a brass screw, black japanned bows."""
+    begin("scissors")
+    for side, lift in ((1.0, 0.0), (-1.0, 0.0016)):
+        turn = 7.0 * side
+        blade = [(-0.012, -0.0045 * side), (-0.012, 0.0045 * side), (0.004, 0.0075 * side), (0.050, 0.0058 * side),
+                 (0.102, 0.0006 * side), (0.102, -0.0006 * side), (0.004, -0.0030 * side)]
+        plate("fire_hardware_steel", blade, lift, lift + 0.0015, rot=(0, 0, turn))
+        shank = [(-0.012, -0.0045 * side), (-0.012, 0.0045 * side), (-0.046, -0.0040 * side), (-0.046, -0.0125 * side)]
+        plate("iron_blackened", shank, lift, lift + 0.0015, rot=(0, 0, turn))
+        bow_at = (-0.057, -0.016 * side)
+        plate("iron_blackened", circle(0.0165, 16, at=bow_at), lift - 0.0006, lift + 0.0021, rot=(0, 0, turn),
+              holes=(circle(0.0105, 14, at=bow_at),))
+    lathe("brass", [(0, 0.0030), (0.0030, 0.0030), (0.0030, 0.0040), (0.0012, 0.0046, "s"), (0, 0.0047, "s")], segs=10)
+
+
+def clipping():
+    """A cutting from one of the papers, cut by hand: the edges straight but not square. Headline and columns are
+    ruled bars and scribble, never letters (RUL-008); the wall names it in live text."""
+    begin("clipping")
+    w, h = 0.104, 0.128
+
+    def cut(i, j, ni, nj):
+        skew = 0.0018 * (j / max(1, nj - 1) - 0.5) if i in (0, ni - 1) else 0.0
+        drop = 0.0014 * (i / max(1, ni - 1) - 0.5) if j in (0, nj - 1) else 0.0
+        return (skew if i == 0 else -skew, drop if j == 0 else -drop)
+    leaf = Sheet("paper:newsprint", span(-w / 2, w / 2, 6), span(-h / 2, h / 2, 7), curl(w, h, 0.0010, 0.0026), edge=cut)
+    leaf.stroke(INK, (-0.044, 0.052), (0.044, 0.052), 0.0050)
+    leaf.stroke(INK, (-0.044, 0.043), (0.018, 0.043), 0.0032)
+    leaf.stroke(INK, (-0.044, 0.036), (0.044, 0.036), 0.0005)
+    for column in range(3):
+        left = -0.044 + 0.031 * column
+        for row in range(11):
+            leaf.writing(INK, left, left + 0.026, 0.029 - 0.0078 * row, 300 + column * 20 + row, width=0.0010, step=0.011)
+        if column:
+            leaf.stroke(INK, (left - 0.0025, 0.034), (left - 0.0025, -0.056), 0.0003)
+
+
 BUILDERS = [order_slip, route_leaf, nurse_note, jonah_page, button_leaf, glove_scrap, disc_label, dark_slide,
-            duplicate_negative, plate_half, kept_papers, bundle, pin]
+            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping]
 
 
 # ---------------------------------------------------------------------------
@@ -924,6 +963,7 @@ def review(objects, sizes):
         "sheet_2_things": ["glove_scrap", "disc_label", "dark_slide", "duplicate_negative", "plate_half", "kept_papers"],
         "sheet_3_bundle": ["bundle"],
         "sheet_4_small": ["glove_scrap", "button_leaf", "pin"],
+        "sheet_5_cutting": ["scissors", "clipping"],
     }
     for sheet, names in sheets.items():
         for objs in objects.values():

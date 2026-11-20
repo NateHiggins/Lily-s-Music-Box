@@ -254,6 +254,14 @@ func _ready() -> void:
 	await _frames(4)
 	_check(taken == cover_count and loop.wall_cleared(), "each is pulled down by hand, and the wall is clear (%d)" % taken)
 	_check(not loop.cover_down(str(loop.table.wall_covers[0].id)), "a paper comes down once")
+	# The scissors: with a paper kept, drawn by hand they make a cutting, and it goes up over the board.
+	_check(stage.scissors != null and stage.scissors_grip != null and not _carry(stage.scissors_grip) and stage.clip_cards.is_empty(), "the scissors hang by the wall and cut nothing when there is no paper")
+	RealityState.data["newspapers_collected"] = ["record:1928-11-10"]
+	_check(_carry(stage.scissors_grip) and loop.clippings() == ["record:1928-11-10"], "drawn by hand they cut the kept paper")
+	await _frames(4)
+	_check(stage.clip_cards.size() == 1 and not (stage.clip_cards["record:1928-11-10"] as Node3D).find_children("*", "Label3D", true, false).is_empty(), "and the cutting hangs over the board with its headline in live text")
+	_check(not _carry(stage.scissors_grip), "a paper is cut once")
+	await _snap("wall_cutting")
 	var wall_face: Vector3 = stage.slot_position(1)
 	var out: Vector3 = stage._wall_frame.basis.z
 	_feet = Vector3(wall_face.x, floorf((wall_face.y + 0.05) / 3.2) * 3.2, wall_face.z) + out * 1.3

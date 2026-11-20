@@ -235,6 +235,12 @@ func _ready() -> void:
 		loop.cover_down(str(cover.id))
 	check(loop.wall_cleared() and loop.covers_down().size() == (loop.table.wall_covers as Array).size(), "with every paper down the wall is clear")
 	check(str(loop.home_hint()).contains("Pin it to the case wall"), "and then the companion says to pin it")
+	# Clippings: cut at home from her own papers, each paper once.
+	RealityState.data["newspapers_collected"] = ["record:1928-11-10", "speaker:1928-11-12"]
+	check(loop.clippings().is_empty() and loop.next_cutting() == "speaker:1928-11-12", "with papers kept, the newest is next under the scissors")
+	var cut: Dictionary = loop.cut_clipping()
+	check(cut.ok and str(cut.paper) == "speaker:1928-11-12" and loop.clippings() == ["speaker:1928-11-12"], "a cutting is made and kept")
+	check(loop.cut_clipping().ok and loop.next_cutting().is_empty() and str(loop.cut_clipping().get("code", "")) == "no_paper", "each paper is cut once, and then there is nothing left to cut")
 	var pin: Dictionary = loop.pin_next()
 	check(pin.ok and str(pin.item) == "order_slip" and loop.pinned("order_slip") and int(loop.ledger().items.order_slip.slot) == 0, "pinned, in the first place on the wall")
 	check("friday" in pin.opened and "stairs" in pin.opened and loop.unlocked().size() == 3, "the wall opens two leads (%s)" % str(pin.opened))

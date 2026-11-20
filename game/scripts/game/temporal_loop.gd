@@ -580,6 +580,46 @@ func answered(anchor_id: String) -> bool:
 
 ## Pin the next carried item to the wall. Home only: the wall is in 4B, in the
 ## present. Returns the item, the leads it opened and any deduction drawn.
+# --- Clippings ---------------------------------------------------------------
+
+## Cuttings she has made from her own papers, oldest first, each as "<paper>:<date>" (Lily's ruling wall_clippings:
+## "cut out by hand with scissors at home, from a paper or comic in the case"). A paper is cut once.
+func clippings() -> Array:
+	var made: Variant = ledger().get("clippings", [])
+	return made if made is Array else []
+
+
+## The paper a cut would be made from now: the one riding in the case, else the newest kept paper not yet cut.
+## Empty away from home, or when there is nothing left to cut.
+func next_cutting() -> String:
+	if in_visit():
+		return ""
+	var made := clippings()
+	var riding := PaperPocket.transit_news()
+	if not riding.is_empty() and riding not in made:
+		return riding
+	var kept: Variant = RealityState.data.get("newspapers_collected", [])
+	if kept is Array:
+		for index in range((kept as Array).size() - 1, -1, -1):
+			if str(kept[index]) not in made:
+				return str(kept[index])
+	return ""
+
+
+func cut_clipping() -> Dictionary:
+	if not wall_cleared():
+		return {"ok": false, "code": "wall"}
+	var key := next_cutting()
+	if key.is_empty():
+		return {"ok": false, "code": "no_paper"}
+	var made: Array = clippings().duplicate()
+	made.append(key)
+	ledger()["clippings"] = made
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "paper": key}
+
+
 # --- The wall, before it is the case wall --------------------------------------
 
 ## The case wall begins as an ordinary wall with her household papers pinned to it (Lily's ruling wall_place: "a
