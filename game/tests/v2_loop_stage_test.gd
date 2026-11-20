@@ -441,7 +441,9 @@ func _ready() -> void:
 			and loop.occasion_for("1929-01-08").is_empty() and loop.occasion_for("1928-12-09").is_empty()
 			and loop.occasion_for("1929-05-28") == "occasion_flag" and loop.occasion_for("1929-02-21") == "occasion_flag",
 			"the wreath is up from mid-December to Twelfth Night, and the flag for the year's other holidays")
-	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1928, 12, 24], "occasion_wreath"], [[1929, 8, 1], ""]]:
+	_check(loop.occasion_for("1928-11-27") == "occasion_turkey" and loop.occasion_for("1929-03-29") == "occasion_egg"
+			and loop.occasion_for("1929-04-02").is_empty(), "a paper turkey for Thanksgiving week, a paper egg for Easter week")
+	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1928, 12, 24], "occasion_wreath"], [[1928, 11, 28], "occasion_turkey"], [[1929, 3, 30], "occasion_egg"], [[1929, 8, 1], ""]]:
 		var day: Array = pair[0]
 		CampaignClock.new().configure_date(int(day[0]), int(day[1]), int(day[2]), 12 * 60)
 		loop.changed.emit()
