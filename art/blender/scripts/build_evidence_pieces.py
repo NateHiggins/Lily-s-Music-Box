@@ -41,6 +41,7 @@ TINTS = {
     "string": (0.72, 0.58, 0.38), "thread": (0.22, 0.20, 0.18), "red": (0.70, 0.07, 0.06),
     "flagred": (0.62, 0.08, 0.10), "flagwhite": (0.93, 0.91, 0.86), "flagblue": (0.10, 0.14, 0.34),
     "pumpkin": (0.86, 0.42, 0.08), "soot": (0.08, 0.07, 0.07), "poppy": (0.78, 0.07, 0.07), "leaf": (0.22, 0.36, 0.16),
+    "holly": (0.10, 0.24, 0.12), "berry": (0.66, 0.05, 0.06), "ribbon": (0.60, 0.06, 0.08),
 }
 ALPHA = {"glassine": 0.6}
 # Drawn after the pane it wraps: two blended surfaces at one place need an order.
@@ -903,8 +904,40 @@ def occasion_poppy():
     tube("paper:leaf", [(0.0, -0.010, -0.001), (0.004, -0.060, -0.001), (0.010, -0.110, -0.001)], 0.0016, segs=5)
 
 
+def occasion_wreath():
+    """A Christmas wreath for the window: a ring of holly in two layers, clusters of red berries, and a red ribbon
+    bow at the foot with two tails."""
+    begin("occasion_wreath")
+    leaf = [(-0.026, 0.0), (-0.016, 0.008), (-0.004, 0.011), (0.010, 0.009), (0.022, 0.005), (0.027, 0.0),
+            (0.022, -0.005), (0.010, -0.009), (-0.004, -0.011), (-0.016, -0.008)]
+    for layer, (radius, count, lift) in enumerate(((0.118, 22, 0.0), (0.098, 18, 0.0060), (0.136, 18, 0.0030))):
+        for k in range(count):
+            ang = math.tau * (k + 0.5 * layer) / count
+            jitter = (rng(k, 70 + layer) - 0.5) * 40.0
+            # Each leaf a little above its neighbour, so no two leaves share a plane.
+            at = (radius * math.cos(ang), radius * math.sin(ang), lift + 0.00012 * k)
+            plate("paper:holly", leaf, 0.0, 0.0007, at=at, rot=(0, 0, math.degrees(ang) + 90.0 + jitter))
+    berry = 0.0055
+    sphere = [(0.0, -berry), (berry * 0.7, -berry * 0.7, "s"), (berry, 0.0, "s"), (berry * 0.7, berry * 0.7, "s"),
+              (0.0, berry, "s")]
+    for k in range(7):
+        ang = math.tau * k / 7 + 0.3
+        for j in range(3):
+            off = math.tau * j / 3 + k
+            at = (0.117 * math.cos(ang) + 0.008 * math.cos(off), 0.117 * math.sin(ang) + 0.008 * math.sin(off), 0.0125)
+            lathe("paper:berry", sphere, at=at, segs=8)
+    # The bow at the foot: two loops, a knot and two tails.
+    for side in (1.0, -1.0):
+        loop = [(0.0, 0.0), (0.030 * side, 0.020), (0.052 * side, 0.016), (0.056 * side, -0.004), (0.036 * side, -0.014)]
+        plate("paper:ribbon", loop, 0.0100, 0.0112, at=(0.0, -0.128, 0.0))
+        tail = [(0.004 * side, -0.004), (0.016 * side, -0.004), (0.034 * side, -0.070), (0.026 * side, -0.062),
+                (0.018 * side, -0.074)]
+        plate("paper:ribbon", tail, 0.0090, 0.0098, at=(0.0, -0.128, 0.0))
+    plate("paper:ribbon", circle(0.009, 10), 0.0114, 0.0128, at=(0.0, -0.128, 0.0))
+
+
 BUILDERS = [order_slip, route_leaf, nurse_note, jonah_page, button_leaf, glove_scrap, disc_label, dark_slide,
-            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy]
+            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy, occasion_wreath]
 
 
 # ---------------------------------------------------------------------------
@@ -1021,7 +1054,7 @@ def review(objects, sizes):
         "sheet_3_bundle": ["bundle"],
         "sheet_4_small": ["glove_scrap", "button_leaf", "pin"],
         "sheet_5_cutting": ["scissors", "clipping"],
-        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy"],
+        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy", "occasion_wreath"],
     }
     for sheet, names in sheets.items():
         for objs in objects.values():

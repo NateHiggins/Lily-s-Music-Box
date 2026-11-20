@@ -864,9 +864,8 @@ func _transact(identity: String, cents: int) -> bool:
 
 # --- The year's events ---------------------------------------------------------------
 
-## The occasion a house is dressed for on a civil day ("YYYY-MM-DD"): the piece of the first occasion whose day falls
-## on that day or within its `before` days after it (plan, section 5: Flag Day, Hallowe'en, Armistice Day). Empty on
-## an ordinary day. The same rule serves a lead's own day in a visit and the present at home.
+## The occasion a house is dressed for on a civil day ("YYYY-MM-DD"): the piece of the first occasion whose day is
+## up to `before` days ahead of it or up to `after` days behind it (plan, section 5). Empty on an ordinary day. The same rule serves a lead's own day in a visit and the present at home.
 func occasion_for(date: String) -> String:
 	if date.length() < 10:
 		return ""
@@ -875,10 +874,12 @@ func occasion_for(date: String) -> String:
 	var day := int(date.substr(8, 2))
 	var at := Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": 12})
 	for occasion: Dictionary in table.get("occasions", []):
-		var when := Time.get_unix_time_from_datetime_dict({"year": year, "month": int(occasion.month), "day": int(occasion.day), "hour": 12})
-		var ahead := (when - at) / 86400.0
-		if ahead >= -0.5 and ahead <= float(occasion.before) + 0.5:
-			return str(occasion.piece)
+		# This year's day, or last year's for a piece that stays up past New Year (the wreath to Twelfth Night).
+		for of_year: int in [year, year - 1]:
+			var when := Time.get_unix_time_from_datetime_dict({"year": of_year, "month": int(occasion.month), "day": int(occasion.day), "hour": 12})
+			var ahead := (when - at) / 86400.0
+			if ahead >= -float(occasion.get("after", 0)) - 0.5 and ahead <= float(occasion.before) + 0.5:
+				return str(occasion.piece)
 	return ""
 
 

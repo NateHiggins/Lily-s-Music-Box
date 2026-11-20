@@ -1128,6 +1128,28 @@
 	],
 	"occasions": [
 		{
+			"id": "christmas",
+			"piece": "occasion_wreath",
+			"month": 12,
+			"day": 25,
+			"before": 14,
+			"after": 12
+		},
+		{
+			"id": "washingtons_birthday",
+			"piece": "occasion_flag",
+			"month": 2,
+			"day": 22,
+			"before": 2
+		},
+		{
+			"id": "memorial_day",
+			"piece": "occasion_flag",
+			"month": 5,
+			"day": 30,
+			"before": 3
+		},
+		{
 			"id": "flag_day",
 			"piece": "occasion_flag",
 			"month": 6,
@@ -1140,6 +1162,20 @@
 			"month": 7,
 			"day": 4,
 			"before": 4
+		},
+		{
+			"id": "labor_day",
+			"piece": "occasion_flag",
+			"month": 9,
+			"day": 2,
+			"before": 2
+		},
+		{
+			"id": "columbus_day",
+			"piece": "occasion_flag",
+			"month": 10,
+			"day": 12,
+			"before": 2
 		},
 		{
 			"id": "halloween",
