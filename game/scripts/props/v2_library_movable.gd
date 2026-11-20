@@ -46,7 +46,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func _ready() -> void:
 	collision_layer=1;collision_mask=1
-	continuous_cd=true
+	# Lily, 20 Nov: no physics for books or maintenance stock. The body never simulates; a hand moves it by
+	# the swept queries below, and on release it keeps a preset place (see _release).
+	continuous_cd=false
+	freeze=true
 	can_sleep=true
 	freeze_mode=RigidBody3D.FREEZE_MODE_KINEMATIC
 	var contact:=PhysicsMaterial.new()
@@ -77,7 +80,12 @@ func _claim(tag: String) -> bool:
 func _release() -> void:
 	var changed:=not transform.is_equal_approx(_before)
 	_held=false;_hand_tag=""
-	freeze=shelf.has_method("supports_inspected_stock") and shelf.supports_inspected_stock(self);sleeping=false
+	freeze=true
+	# Let go away from a place the shelf accepts, it goes back where it was taken from: stock rests only at preset
+	# places, never wherever physics would drop it.
+	if not (shelf.has_method("supports_inspected_stock") and shelf.supports_inspected_stock(self)):
+		transform=_before
+		changed=false
 	shelf.release_library_hand(self,changed)
 
 func grip() -> Dictionary:
@@ -303,5 +311,4 @@ func restore_stock(value: Dictionary) -> void:
 	basis=Basis(Quaternion(value.rotation[0],value.rotation[1],value.rotation[2],value.rotation[3]))
 	linear_velocity=Vector3(value.velocity[0],value.velocity[1],value.velocity[2])
 	angular_velocity=Vector3(value.spin[0],value.spin[1],value.spin[2])
-	freeze=false;sleeping=bool(value.sleeping)
-	if sleeping: start_at_rest()
+	freeze=true

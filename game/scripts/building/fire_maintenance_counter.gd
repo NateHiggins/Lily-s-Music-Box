@@ -226,7 +226,7 @@ func return_case_washer(holder: PlayerController) -> bool:
 	CarriedCase.remove(GASKET_ID)
 	body.global_transform=pose
 	body.set_gasket_retired(false)
-	body.freeze=false
+	body.freeze=true
 	var grip: Dictionary=body.grip()
 	grip.hit_position=pose*Vector3(.020,.004,0.)
 	if not holder._grab.acquire(grip):
@@ -271,7 +271,9 @@ func inspection_started() -> void:
 
 func inspection_ended() -> void:
 	if _inspection_stock!=null:
-		_inspection_stock.end_static_inspection();_inspection_stock.freeze=false
+		# Inspected stock goes back where it was taken from, rather than dropping from where it was held up.
+		_inspection_stock.end_static_inspection();_inspection_stock.freeze=true
+		_inspection_stock.transform=_inspection_stock._before
 	_inspection_stock=null;_pending_inspection_stock=null
 
 func apply_dressing(body: Node3D, contact: Vector3) -> void:

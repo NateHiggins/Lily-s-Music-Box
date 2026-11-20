@@ -106,8 +106,8 @@ func _arrange(order: Array) -> void:
 		# adjacent bindings; their authored bearings below include its height.
 		end.position=Vector3(start-.011 if side=="left" else start+width+.008,end_y,front+.00155-heel.position.z if side=="left" else front-widest-.00335+heel.position.z)
 		end.rotation=Vector3(0,0 if side=="left" else PI,0)
-		# Author placed stock at rest. Real hand movement wakes the body.
-		end.freeze=false;end.sleeping=true
+		# Author placed stock at rest, held there: no physics (Lily, 20 Nov: books lock to preset places).
+		end.freeze=true
 
 	for index in upright:
 		var identity:=str(order[index]);var book: Node3D=_books[identity]
@@ -125,7 +125,7 @@ func _arrange(order: Array) -> void:
 			if minf(bounds.end.x,foot.end.x)-maxf(bounds.position.x,foot.position.x)>.000001 and minf(bounds.end.z,foot.end.z)-maxf(bounds.position.z,foot.position.z)>.000001:
 				bearing=maxf(bearing,foot.end.y)
 		book.position.y=bearing-bounds.position.y+.00035
-		book._apply_opening(0.);book.freeze=false;book.sleeping=true
+		book._apply_opening(0.);book.freeze=true
 		cursor+=thickness*cos(lean)+float(native_stock.data.books[identity].height)*sin(lean)+.003
 	var height:=float(tops[0])+.00035
 	for index in range(order.size()-1,upright-1,-1):
@@ -135,7 +135,7 @@ func _arrange(order: Array) -> void:
 		book.freeze=true;book.linear_velocity=Vector3.ZERO;book.angular_velocity=Vector3.ZERO
 		book.basis=Basis(Vector3.BACK,PI*.5)*Basis(Vector3.UP,PI*.5)
 		book.position=Vector3(float(dimensions.height)*.5-.03,height+thickness*.5,front)
-		book._apply_opening(0.);book.freeze=false;book.sleeping=true
+		book._apply_opening(0.);book.freeze=true
 		height+=thickness+.00035
 
 	# Books occupy authored spots. They remain collision stock, but never

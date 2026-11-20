@@ -20,10 +20,10 @@ func configure(owner: Node3D) -> void:
 	radiator=owner
 	mass=.012
 	freeze=true
-	continuous_cd=true
+	continuous_cd=false
 	can_sleep=true
-	contact_monitor=true
-	max_contacts_reported=128
+	contact_monitor=false
+	max_contacts_reported=0
 	physics_material_override=PhysicsMaterial.new()
 	physics_material_override.friction=1.0
 	physics_material_override.rough=true
@@ -180,9 +180,10 @@ func _release() -> void:
 		refresh()
 		radiator._update_balance()
 		return
+	# Let go away from its seat, the packing is set down beside the joint (no physics, Lily 20 Nov).
 	collision_layer=1
-	freeze=false
-	sleeping=false
+	freeze=true
+	global_transform=preload("res://scripts/props/radiator_part_park.gd").pose(radiator,self,draw,radiator.to_global(home().origin),.16)
 	radiator._update_balance()
 
 func refresh() -> void:
@@ -227,6 +228,5 @@ func restore(value: Dictionary) -> void:
 		position=Vector3(value.position[0],value.position[1],value.position[2])
 		basis=Basis(Quaternion(value.rotation[0],value.rotation[1],value.rotation[2],value.rotation[3]).normalized())
 		collision_layer=1
-		freeze=false
-		sleeping=false
+		freeze=true
 	refresh()

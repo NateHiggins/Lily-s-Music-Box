@@ -589,7 +589,7 @@ func return_after_reading() -> void:
 	linear_velocity=Vector3.ZERO
 	angular_velocity=Vector3.ZERO
 	if slot>=0: park_in_slot(slot,source_pose)
-	else: freeze=false
+	else: freeze=true
 	_contact_mode(freeze)
 	shelf.library_stock_changed(self)
 

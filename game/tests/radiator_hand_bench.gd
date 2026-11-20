@@ -207,13 +207,9 @@ func _contact_orientations(prop: Node3D,failures: Array) -> void:
 		var at: Vector3=prop.to_local(Vector3(-1.0,.22,-.6))
 		fixture.packing={"station":1,"position":[at.x,at.y,at.z],"rotation":[q.x,q.y,q.z,q.w]}
 		prop.restore_mechanism(fixture)
-		await get_tree().create_timer(2.0).timeout
-		var minimum := INF
-		for collider: Node in part.get_children():
-			if not collider is CollisionShape3D: continue
-			for point: Vector3 in collider.shape.points: minimum=minf(minimum,collider.to_global(point).y)
-		print("PACKING ORIENTATION SUPPORT ",angles," MIN ",minimum)
-		if minimum<-.001 or minimum>.004: failures.append("packing skin contact across released orientations")
+		await get_tree().create_timer(.5).timeout
+		# No physics: a restored loose packing keeps its saved place and orientation exactly.
+		if not part.freeze or part.position.distance_to(at)>.000001: failures.append("restored loose packing keeps its saved place")
 	prop.restore_mechanism(original)
 
 func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerController) -> void:
@@ -397,7 +393,8 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	await _capture_part(player,prop,part,"packing_lifted")
 	var height := part.global_position.y
 	reviewer._click(player)
-	if part.station!=1 or part.freeze: failures.append("packing becomes a real loose body")
+	# No physics (Lily, 20 Nov): let go away from its seat, the packing is set down at its park beside the joint.
+	if part.station!=1 or not part.freeze: failures.append("packing becomes a loose part held still")
 	if not prop.inventory.has_item(prop.PACKING_ITEM): failures.append("one historical part acquisition")
 	await get_tree().create_timer(1.5).timeout
 	print("PACKING FALL ",height," -> ",part.global_position.y," SPEED ",part.linear_velocity)
@@ -406,8 +403,8 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 		for vertex: Vector3 in collider.shape.points: lowest=minf(lowest,collider.to_global(vertex).y)
 	print("PACKING ACTUAL LOWER SURFACE ",lowest)
 	print("PACKING SUPPORT CORRECTION ",part.support_correction)
-	if lowest<-.001 or lowest>.004: failures.append("actual packing skin rests on floor without penetration or hovering")
-	if part.global_position.y>=height-.05 or part.global_position.y<-.02: failures.append("loose packing falls onto actual floor")
+	var parked: Transform3D=preload("res://scripts/props/radiator_part_park.gd").pose(prop,part,part.draw,prop.to_global(part.home().origin),.16)
+	if not part.global_transform.is_equal_approx(parked): failures.append("loose packing is set down at its park beside the joint")
 	await _capture_part(player,prop,part,"packing_on_floor")
 	var loose_save: Dictionary=JSON.parse_string(JSON.stringify(codec.snapshot()))
 	if not codec.validate(loose_save,codec._kinds): failures.append("loose packing save validation")
