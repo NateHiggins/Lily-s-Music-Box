@@ -589,8 +589,9 @@ func clippings() -> Array:
 	return made if made is Array else []
 
 
-## The paper a cut would be made from now: the one riding in the case, else the newest kept paper not yet cut.
-## Empty away from home, or when there is nothing left to cut.
+## The paper a cut would be made from now: the one riding in the case, else the newest kept paper not yet cut,
+## else a comic in the case ("comic:<id>"), else one of Lily's strips ("strip:<id>"). Empty away from home, or when
+## there is nothing left to cut.
 func next_cutting() -> String:
 	if in_visit():
 		return ""
@@ -603,7 +604,47 @@ func next_cutting() -> String:
 		for index in range((kept as Array).size() - 1, -1, -1):
 			if str(kept[index]) not in made:
 				return str(kept[index])
+	var case: Dictionary = PaperPocket.book()
+	for list: String in ["comics", "strips"]:
+		var held: Variant = case.get(list, [])
+		if held is not Array:
+			continue
+		for index in range((held as Array).size() - 1, -1, -1):
+			var key := "%s:%s" % [list.trim_suffix("s"), str(held[index])]
+			if key not in made:
+				return key
 	return ""
+
+
+# --- Her prints on the wall -----------------------------------------------------
+
+## Pictured prints she has pinned up by hand, oldest first, as picture numbers (Lily's ruling wall_photos).
+func prints_up() -> Array:
+	var up: Variant = ledger().get("prints_up", [])
+	return up if up is Array else []
+
+
+## The oldest pictured print not yet on the wall, or 0.
+func next_print() -> int:
+	if in_visit() or not wall_cleared():
+		return 0
+	var up := prints_up()
+	for number: Variant in PhotoSales.pictured_prints():
+		if int(number) not in up:
+			return int(number)
+	return 0
+
+
+func pin_print() -> Dictionary:
+	var number := next_print()
+	if number <= 0:
+		return {"ok": false, "code": "nothing"}
+	var up: Array = prints_up().duplicate()
+	up.append(number)
+	ledger()["prints_up"] = up
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "print": number}
 
 
 func cut_clipping() -> Dictionary:

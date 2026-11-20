@@ -54,6 +54,7 @@ const SNIP_REACH := 0.12
 const PRINT_SIZE := Vector2(0.17, 0.1275)
 const PRINT_COLUMNS := 5
 const PlateCamera := preload("res://scripts/props/plate_camera.gd")
+const PaperPocket := preload("res://scripts/game/paper_pocket.gd")
 ## How far through the case the windows begin to be papered, and the sheets over each.
 const WINDOWS_FROM := 0.70
 const WINDOW_COLUMNS := 3
@@ -103,6 +104,9 @@ var windows_found := false
 ## Her camera, and her prints on the wall by picture number.
 var plate_camera: CanvasLayer
 var print_cards: Dictionary = {}
+## The print waiting at the foot of the wall to be pinned, and its picture number (0 for none).
+var waiting_print: Node3D
+var waiting_print_number := 0
 var scissors: Node3D
 var scissors_grip: Node
 ## "<paper>:<date>" -> the cutting on the wall.
@@ -569,6 +573,12 @@ func _snipped() -> void:
 func _headline(key: String) -> String:
 	var paper_id := key.get_slice(":", 0)
 	var date := key.get_slice(":", 1)
+	if paper_id == "comic":
+		var issue: Dictionary = PaperPocket.issue(date)
+		return "LILITH No. %d, %s" % [int(issue.get("number", 0)), str(issue.get("title", ""))] if not issue.is_empty() else "LILITH"
+	if paper_id == "strip":
+		var day: Dictionary = PaperPocket.strip(date)
+		return str(day.get("title", "A strip")) if not day.is_empty() else "A strip"
 	var catalog := get_tree().get_first_node_in_group("newspaper_catalog")
 	if catalog != null:
 		var page: Dictionary = catalog.call("issue", paper_id, date)
@@ -603,7 +613,8 @@ func _sync_clippings() -> void:
 ## wall_photos_how_20261120). Each is a sheet of paper with the picture the plate took on it. The picture is read
 ## from the file the camera wrote; a print whose file is gone hangs blank.
 func _sync_prints() -> void:
-	var made: Array = PhotoSales.pictured_prints()
+	_sync_waiting_print()
+	var made: Array = loop.prints_up()
 	for index in made.size():
 		var number := int(made[index])
 		if print_cards.has(number):
@@ -645,6 +656,35 @@ func _sync_prints() -> void:
 			picture.global_transform = Transform3D(Basis(level, up, _wall_frame.basis.z), at + _wall_frame.basis.z * 0.0022)
 			card.set_meta("picture", picture)
 		print_cards[number] = card
+
+
+## The oldest print not yet up waits at the foot of the wall, left of the carried evidence, and is pinned by hand.
+func _sync_waiting_print() -> void:
+	var number: int = loop.next_print()
+	if number == waiting_print_number and (number == 0 or waiting_print != null):
+		return
+	if waiting_print != null:
+		waiting_print.queue_free()
+		waiting_print = null
+	waiting_print_number = number
+	if number <= 0:
+		return
+	var at: Vector3 = _wall_frame * Vector3(-_wall_size.x * 0.10, -_wall_size.y * 0.42, 0.004)
+	waiting_print = _copy_paper()
+	waiting_print.name = "LoopPrintWaiting"
+	add_child(waiting_print)
+	_place(waiting_print, _sized(_wall_frame.basis, PRINT_SIZE.x, PRINT_SIZE.y), at)
+	var grip := Grip.new()
+	grip.name = "PinPrint"
+	waiting_print.add_child(grip)
+	grip.configure(waiting_print, Vector3.UP, PIN_REACH)
+	grip.live = func() -> bool: return loop.next_print() > 0
+	grip.carried = func() -> void:
+		grip.put_back()
+		if bool(loop.pin_print().ok):
+			_note(wall, "A PRINT", "Plate %d, pinned under the board." % number, "PINNED")
+		_sync()
+	waiting_print.set_meta("grip", grip)
 
 
 ## Her household papers on the wall before it is the case wall: one sheet each, in her hand, to be pulled down by

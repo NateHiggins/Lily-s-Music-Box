@@ -271,6 +271,12 @@ func _ready() -> void:
 	PhotoSales.book()["prints"] = [9001, 9002]
 	loop.changed.emit()
 	await _frames(4)
+	_check(stage.print_cards.is_empty() and stage.waiting_print != null and stage.waiting_print_number == 9001, "a new print waits at the foot of the wall")
+	_check(_carry(stage.waiting_print.get_meta("grip")), "and is pinned by hand")
+	await _frames(4)
+	_check(stage.waiting_print_number == 9002 and _carry(stage.waiting_print.get_meta("grip")), "then the next")
+	await _frames(4)
+	_check(stage.waiting_print == null and loop.prints_up() == [9001, 9002], "until none is left waiting")
 	_check(stage.print_cards.size() == 2 and (stage.print_cards[9001] as Node3D).has_meta("picture")
 			and not (stage.print_cards[9002] as Node3D).has_meta("picture"), "a print hangs with its picture, and one whose file is gone hangs blank")
 	var hung: MeshInstance3D = (stage.print_cards[9001] as Node3D).get_meta("picture")
@@ -279,6 +285,7 @@ func _ready() -> void:
 			"the picture is on the paper finish with a mip chain")
 	await _snap("wall_prints")
 	PhotoSales.book()["prints"] = []
+	loop.ledger()["prints_up"] = []
 	var wall_face: Vector3 = stage.slot_position(1)
 	var out: Vector3 = stage._wall_frame.basis.z
 	_feet = Vector3(wall_face.x, floorf((wall_face.y + 0.05) / 3.2) * 3.2, wall_face.z) + out * 1.3
