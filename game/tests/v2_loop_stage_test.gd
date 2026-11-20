@@ -433,6 +433,24 @@ func _ready() -> void:
 		await _snap("flat_side_b")
 		_look = _feet + out * 2.0 + Vector3.UP * 1.4
 		await _snap("flat_behind")
+	# The year dressed: an occasion in a window of 4B, by the clock's day.
+	_check(loop.occasion_for("1929-10-28") == "occasion_pumpkin" and loop.occasion_for("1929-06-10") == "occasion_flag"
+			and loop.occasion_for("1929-11-09") == "occasion_poppy" and loop.occasion_for("1929-08-01").is_empty()
+			and loop.occasion_for("1929-11-01").is_empty(), "the year's occasions fall in their weeks and not outside them")
+	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1929, 8, 1], ""]]:
+		var day: Array = pair[0]
+		CampaignClock.new().configure_date(int(day[0]), int(day[1]), int(day[2]), 12 * 60)
+		loop.changed.emit()
+		await _frames(4)
+		if str(pair[1]).is_empty():
+			_check(stage.occasion == null, "on an ordinary day nothing hangs")
+		else:
+			_check(stage.occasion != null and world.unit_at_world(stage.occasion.global_position) == "4B"
+					and str(stage.occasion_key).ends_with(str(pair[1])), "the week before Hallowe'en, a paper pumpkin hangs in 4B's window")
+			_feet = stage.occasion.global_position - stage.occasion.global_basis.z * -1.6
+			_feet.y = stage._wall_frame.origin.y - 1.45
+			_look = stage.occasion.global_position
+			await _snap("occasion_halloween")
 	_pinned = false
 	_finish()
 

@@ -226701,8 +226701,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    1020,
-    1080
+    1068,
+    1128
    ],
    "count": 2,
    "context": [
@@ -226733,7 +226733,7 @@
     "_card_for"
    ],
    "lines": [
-    482
+    485
    ],
    "count": 1,
    "context": [
@@ -226763,7 +226763,7 @@
     "_cover_wall"
    ],
    "lines": [
-    707
+    710
    ],
    "count": 1,
    "context": [
@@ -226793,7 +226793,7 @@
     "_dress_wall"
    ],
    "lines": [
-    1022
+    1070
    ],
    "count": 1,
    "context": [
@@ -226823,7 +226823,7 @@
     "_grip_for"
    ],
    "lines": [
-    288
+    291
    ],
    "count": 1,
    "context": [
@@ -226853,10 +226853,10 @@
     "_grow"
    ],
    "lines": [
-    1230,
-    1253,
-    1271,
-    1289
+    1278,
+    1301,
+    1319,
+    1337
    ],
    "count": 4,
    "context": [
@@ -226889,8 +226889,8 @@
     "_sync"
    ],
    "lines": [
-    876,
-    913
+    924,
+    961
    ],
    "count": 2,
    "context": [
@@ -226921,7 +226921,7 @@
     "_sync_clippings"
    ],
    "lines": [
-    605
+    608
    ],
    "count": 1,
    "context": [
@@ -226951,7 +226951,7 @@
     "_sync_filing"
    ],
    "lines": [
-    1106
+    1154
    ],
    "count": 1,
    "context": [
@@ -226981,7 +226981,7 @@
     "_sync_prints"
    ],
    "lines": [
-    630
+    633
    ],
    "count": 1,
    "context": [
@@ -227294,22 +227294,25 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
+    "_sync_occasion",
     "_survey",
     "_find_windows"
    ],
    "lines": [
-    1145,
-    1170,
-    1185,
-    1347,
-    1365
+    862,
+    864,
+    1193,
+    1218,
+    1233,
+    1395,
+    1413
    ],
-   "count": 5,
+   "count": 7,
    "context": [
+    "var unit := \"4B\"",
+    "unit = str(loop.table.anchors.get(loop.visit_anchor(), {}).get(\"place\", \"4B\"))",
     "if thing != null and world.unit_at_world(thing.global_position) == \"4B\":",
-    "if world.unit_at_world(where) != \"4B\":",
-    "if hit.is_empty() or (hit.normal as Vector3).y < 0.9 or world.unit_at_world(hit.position as Vector3) != \"4B\":",
-    "if world.unit_at_world(dressing.global_position) != \"4B\":"
+    "if world.unit_at_world(where) != \"4B\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -291250,9 +291253,10 @@
     112,
     294,
     367,
-    418
+    418,
+    448
    ],
-   "count": 4,
+   "count": 5,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
     "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",

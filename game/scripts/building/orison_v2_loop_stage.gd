@@ -107,6 +107,9 @@ var print_cards: Dictionary = {}
 ## The print waiting at the foot of the wall to be pinned, and its picture number (0 for none).
 var waiting_print: Node3D
 var waiting_print_number := 0
+## The year's occasion hung in a window of the room she is in, and the room and piece it was hung for.
+var occasion: Node3D
+var occasion_key := ""
 var scissors: Node3D
 var scissors_grip: Node
 ## "<paper>:<date>" -> the cutting on the wall.
@@ -853,6 +856,50 @@ func _deduction_place(deduction_id: String) -> Vector3:
 
 
 ## Bring every card in line with the ledger.
+## The year's occasion in a window of the room she is in: 4B at home, the lead's own flat in a visit, dressed for the
+## day the clock shows. One piece, hung on the room side of the first window there; gone on an ordinary day.
+func _sync_occasion() -> void:
+	var unit := "4B"
+	if loop.in_visit():
+		unit = str(loop.table.anchors.get(loop.visit_anchor(), {}).get("place", "4B"))
+	var piece: String = loop.occasion_for(loop.today())
+	var key := "%s|%s" % [unit, piece]
+	if key == occasion_key:
+		return
+	occasion_key = key
+	if occasion != null:
+		occasion.queue_free()
+		occasion = null
+	if piece.is_empty() or not stock.has(piece):
+		return
+	for node: Node in world.find_children("*", "Node3D", true, false):
+		if node.get_script() != WindowTreatment or world.unit_at_world((node as Node3D).global_position) != unit:
+			continue
+		var dressing := node as Node3D
+		var box := AABB()
+		var first := true
+		for draw: Node in dressing.find_children("*", "VisualInstance3D", true, false):
+			var part: AABB = (dressing.global_transform.affine_inverse() * (draw as VisualInstance3D).global_transform) * (draw as VisualInstance3D).get_aabb()
+			if part.size.length() < 0.01:
+				continue
+			box = part if first else box.merge(part)
+			first = false
+		if first:
+			continue
+		var thin := box.size.min_axis_index()
+		var out := Vector3.ZERO
+		out[thin] = 1.0
+		var normal: Vector3 = (dressing.global_basis * out).normalized()
+		var centre: Vector3 = dressing.global_transform * box.get_center()
+		if world.unit_at_world(centre + normal * 0.45) != unit:
+			normal = -normal
+		var across := normal.cross(Vector3.UP).normalized()
+		var at: Vector3 = centre + Vector3.UP * box.size.y * 0.18 + normal * (box.size[thin] * 0.5 + 0.03)
+		occasion = _piece(piece, Basis(across, Vector3.UP, normal), at)
+		occasion.name = "LoopOccasion"
+		return
+
+
 func _sync() -> void:
 	for clue_id: String in cards:
 		var card: Node3D = cards[clue_id]
@@ -862,6 +909,7 @@ func _sync() -> void:
 			grip.put_back()
 		card.visible = ready
 	_sync_clippings()
+	_sync_occasion()
 	_sync_prints()
 	if tucked == null:
 		return

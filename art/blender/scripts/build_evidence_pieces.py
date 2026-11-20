@@ -39,6 +39,8 @@ TINTS = {
     "manila": (0.86, 0.70, 0.46), "card": (0.50, 0.48, 0.46), "glassine": (0.90, 0.94, 0.98),
     "ink": (0.13, 0.15, 0.26), "kid": (0.98, 0.96, 0.90), "pearl": (0.97, 0.95, 0.92),
     "string": (0.72, 0.58, 0.38), "thread": (0.22, 0.20, 0.18), "red": (0.70, 0.07, 0.06),
+    "flagred": (0.62, 0.08, 0.10), "flagwhite": (0.93, 0.91, 0.86), "flagblue": (0.10, 0.14, 0.34),
+    "pumpkin": (0.86, 0.42, 0.08), "soot": (0.08, 0.07, 0.07), "poppy": (0.78, 0.07, 0.07), "leaf": (0.22, 0.36, 0.16),
 }
 ALPHA = {"glassine": 0.6}
 # Drawn after the pane it wraps: two blended surfaces at one place need an order.
@@ -846,8 +848,63 @@ def clipping():
             leaf.stroke(INK, (left - 0.0025, 0.034), (left - 0.0025, -0.056), 0.0003)
 
 
+# ---------------------------------------------------------------------------
+# The year's occasions (plan, section 5: "Flags, bunting, wreaths, poppies, cut-paper pumpkins ... New small props,
+# built once and placed by date"). Each hangs in a window; each lies on w = 0 with its face toward +w.
+# ---------------------------------------------------------------------------
+
+def occasion_flag():
+    """A small muslin flag on a stick, the kind sold on the street for Flag Day and the Fourth: thirteen stripes, a
+    blue canton with white dots for stars (no lettering)."""
+    begin("occasion_flag")
+    w, h = 0.30, 0.20
+    stripe = h / 13.0
+    for k in range(13):
+        tint = "flagred" if k % 2 == 0 else "flagwhite"
+        y = h / 2 - stripe * (k + 0.5)
+        box("paper:" + tint, (w, stripe, 0.0006), at=(0.0, y, 0.0))
+    cw, ch = w * 0.40, stripe * 7
+    box("paper:flagblue", (cw, ch, 0.0009), at=(-w / 2 + cw / 2, h / 2 - ch / 2, 0.0004))
+    # Forty-eight stars in 1929: six even rows of eight.
+    for row in range(6):
+        for col in range(8):
+            x = -w / 2 + cw * (0.07 + 0.122 * col)
+            y = h / 2 - ch * (0.09 + 0.164 * row)
+            box("paper:flagwhite", (0.0038, 0.0038, 0.0004), at=(x, y, 0.0012), rot=(0, 0, 45))
+    # The stick along the hoist, a little longer than the flag.
+    lathe("wood_dark", [(0.0, -0.17), (0.0035, -0.17), (0.0035, 0.115), (0.0045, 0.12, "s"), (0.0, 0.126, "s")],
+          at=(-w / 2 - 0.004, 0.0, 0.0), rot=(-90, 0, 0), segs=8)
+
+
+def occasion_pumpkin():
+    """A cut-paper jack-o'-lantern for the window, as children made for Hallowe'en: orange paper, black eyes, nose
+    and mouth laid on it, a green stalk."""
+    begin("occasion_pumpkin")
+    body = [(0.13 * math.cos(math.tau * k / 28) * (1.0 + 0.08 * math.cos(math.tau * k * 3 / 28)),
+             0.105 * math.sin(math.tau * k / 28)) for k in range(28)]
+    plate("paper:pumpkin", body, 0.0, 0.0008)
+    plate("paper:soot", [(-0.075, 0.015), (-0.030, 0.015), (-0.052, 0.050)], 0.0008, 0.0012)
+    plate("paper:soot", [(0.030, 0.015), (0.075, 0.015), (0.052, 0.050)], 0.0008, 0.0012)
+    plate("paper:soot", [(-0.012, -0.005), (0.012, -0.005), (0.0, 0.015)], 0.0008, 0.0012)
+    mouth = [(-0.085, -0.030), (-0.055, -0.045), (-0.040, -0.035), (-0.020, -0.050), (0.0, -0.040), (0.020, -0.050),
+             (0.040, -0.035), (0.055, -0.045), (0.085, -0.030), (0.060, -0.070), (0.0, -0.080), (-0.060, -0.070)]
+    plate("paper:soot", mouth, 0.0008, 0.0012)
+    plate("paper:leaf", [(-0.012, 0.100), (0.010, 0.100), (0.016, 0.135), (-0.004, 0.140)], 0.0, 0.0008)
+
+
+def occasion_poppy():
+    """A paper remembrance poppy for Armistice Day: four red petals, a black centre, a green wire stem."""
+    begin("occasion_poppy")
+    for k in range(4):
+        angle = math.tau * k / 4 + 0.4
+        cx, cy = 0.022 * math.cos(angle), 0.022 * math.sin(angle)
+        plate("paper:poppy", circle(0.026, 14, at=(cx, cy)), 0.0003 * k, 0.0003 * k + 0.0005)
+    plate("paper:soot", circle(0.010, 12), 0.0016, 0.0024)
+    tube("paper:leaf", [(0.0, -0.010, -0.001), (0.004, -0.060, -0.001), (0.010, -0.110, -0.001)], 0.0016, segs=5)
+
+
 BUILDERS = [order_slip, route_leaf, nurse_note, jonah_page, button_leaf, glove_scrap, disc_label, dark_slide,
-            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping]
+            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy]
 
 
 # ---------------------------------------------------------------------------
@@ -964,6 +1021,7 @@ def review(objects, sizes):
         "sheet_3_bundle": ["bundle"],
         "sheet_4_small": ["glove_scrap", "button_leaf", "pin"],
         "sheet_5_cutting": ["scissors", "clipping"],
+        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy"],
     }
     for sheet, names in sheets.items():
         for objs in objects.values():
