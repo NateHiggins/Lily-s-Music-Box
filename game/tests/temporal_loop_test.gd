@@ -241,6 +241,8 @@ func _ready() -> void:
 	var cut: Dictionary = loop.cut_clipping()
 	check(cut.ok and str(cut.paper) == "speaker:1928-11-12" and loop.clippings() == ["speaker:1928-11-12"], "a cutting is made and kept")
 	check(loop.cut_clipping().ok and loop.next_cutting().is_empty() and str(loop.cut_clipping().get("code", "")) == "no_paper", "each paper is cut once, and then there is nothing left to cut")
+	(Pocket.book().comics as Array).append("lilith_01")
+	check(loop.next_cutting() == "comic:lilith_01" and loop.cut_clipping().ok and loop.next_cutting().is_empty(), "a comic in the case can be cut too")
 	var pin: Dictionary = loop.pin_next()
 	check(pin.ok and str(pin.item) == "order_slip" and loop.pinned("order_slip") and int(loop.ledger().items.order_slip.slot) == 0, "pinned, in the first place on the wall")
 	check("friday" in pin.opened and "stairs" in pin.opened and loop.unlocked().size() == 3, "the wall opens two leads (%s)" % str(pin.opened))
