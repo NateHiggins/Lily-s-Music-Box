@@ -172,6 +172,7 @@ func _finish() -> void:
 	var lost := progress > LOST_ABOVE
 	if not lost:
 		PersonInventory.carry_goods(PersonInventory.PLAYER, "own_print", title, "card")
+	PhotoSales.tray_print_done(not lost)
 	RealityState.commit()
 	progress = 0.0
 	lift = 0.0
