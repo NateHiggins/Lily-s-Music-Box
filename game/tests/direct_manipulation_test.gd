@@ -445,6 +445,29 @@ func _run() -> void:
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(shot_dir+"/curtain_"+str(travel)+".png")
 	player._grab.release()
+	var part := Node3D.new()
+	add_child(part)
+	var loop_grip: Node = preload("res://scripts/props/loop_shift_grip.gd").new()
+	loop_grip.name = "LoopCancellationFixture"
+	add_child(loop_grip)
+	loop_grip.configure(part, Vector3.UP, 0.2)
+	var notices: Array[Vector3] = []
+	var record_change := func(where: Vector3, what: String) -> void:
+		if what == str(loop_grip.name):
+			notices.append(where)
+	player.world_modified.connect(record_change)
+	var descriptor: Dictionary = loop_grip.grip()
+	descriptor.hit_position = part.global_position
+	check(player._grab.acquire(descriptor), "the hand holds a part with a logical owner")
+	descriptor.write.call(0.08)
+	var released_at := part.global_position
+	player._grab.release()
+	check(not player._grab.active() and not descriptor.owns.call(), "interrupted loop grip releases control")
+	check(notices.size() == 1 and notices[0].is_equal_approx(released_at),
+			"interrupted grip publishes the changed part's position")
+	player.world_modified.disconnect(record_change)
+	loop_grip.free()
+	part.free()
 	door.free();fridge.free();tap.free();bath.free();shower.free();player.free();prep.free();blind.free();mirror.free()
 	lamp.free();fan.free();toaster.free();radiator.free();stove.free();washer.free();airer.free();boiler.free();sun.free();environment.free()
 	await get_tree().process_frame
