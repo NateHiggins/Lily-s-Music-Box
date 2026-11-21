@@ -287038,7 +287038,7 @@
     "_ready"
    ],
    "lines": [
-    385
+    390
    ],
    "count": 1,
    "context": [
@@ -287068,11 +287068,13 @@
     "_ready"
    ],
    "lines": [
-    195
+    195,
+    573
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "loop.observe(\"4B\")"
+    "loop.observe(\"4B\")",
+    "loop.here = \"4B\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -287130,7 +287132,7 @@
    ],
    "lines": [
     332,
-    384
+    389
    ],
    "count": 2,
    "context": [

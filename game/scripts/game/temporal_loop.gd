@@ -567,6 +567,10 @@ func link(a: String, b: String) -> Dictionary:
 			opened.append(anchor_id)
 	RealityState.commit()
 	changed.emit()
+	# The deduction that closes the case prints the correction to the paper's
+	# July account. It changes no old edition (treatment section 7).
+	if table.get("arc") is Dictionary and table.arc.has("correction") and str(table.arc.correction.after) in drawn:
+		slip.emit("", correction_text())
 	return {"ok": true, "held": true, "deductions": drawn, "opened": opened}
 
 
@@ -1237,6 +1241,8 @@ func aide() -> Dictionary:
 ## At home the companion acts for the player without being asked: it draws
 ## the day's allowance into the bank, and once a day says what it would do.
 func _attend_home() -> void:
+	if _attend_last_night():
+		return
 	var notes := aide()
 	var day := int(clock.elapsed_minutes() / CampaignClock.MINUTES_PER_DAY)
 	if int(notes.drawn_day) != day:
@@ -1354,9 +1360,126 @@ func home_hint() -> String:
 ## the first keyboard after the prologue (Lily, 2026-10-29). Her hands type
 ## each line; the player only sends it, so no guessed word can rename her.
 func arc_draft() -> String:
-	if not awaiting_introduction():
-		return ""
-	return str(table.arc.s01.exchanges[_introduced_lines()].typed)
+	if awaiting_introduction():
+		return str(table.arc.s01.exchanges[_introduced_lines()].typed)
+	if awaiting_choice():
+		return str(table.arc.last_night.finish)
+	return ""
+
+
+# --- The end of the case: the correction, the last night, the choice -----------
+
+## Where the player stands, as the stage reports it each tick: a unit ("4B")
+## or a place ("roof"). The last night reads it.
+var here := ""
+
+
+func _arc_state() -> Dictionary:
+	var book := ledger()
+	if book.get("arc") is not Dictionary:
+		book["arc"] = {}
+	return book.arc
+
+
+## The deduction that closes the case has been drawn.
+func case_closed() -> bool:
+	return table.get("arc") is Dictionary and table.arc.has("correction") \
+			and str(table.arc.correction.after) in (ledger().deductions as Array)
+
+
+## "", or how the night ended: "finished" (she completed his line) or "left".
+func ending() -> String:
+	return str(_arc_state().get("ending", ""))
+
+
+func last_night_open() -> bool:
+	return case_closed() and table.arc.has("last_night") and ending() == ""
+
+
+static func _clock_minutes(time: String) -> int:
+	var parts := time.split(":")
+	return int(parts[0]) * 60 + int(parts[1]) if parts.size() == 2 else -1
+
+
+func _minute_of_day() -> int:
+	var now := clock.local_datetime()
+	return -1 if now.is_empty() else int(now.hour) * 60 + int(now.minute)
+
+
+func correction_text() -> String:
+	return "%s\n%s" % [str(table.arc.correction.title), "\n".join(table.arc.correction.lines)]
+
+
+## LAST: the present goes to the last night of the year. Asked for, never
+## pushed: the night is entered only when the player chooses it.
+func go_last_night() -> Dictionary:
+	if in_visit():
+		return {"ok": false, "code": "away"}
+	if not last_night_open():
+		return {"ok": false, "code": "closed"}
+	var night: Dictionary = table.arc.last_night
+	var parts := str(night.date).split("-")
+	if not clock.rebase_calendar(CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]),
+			float(_clock_minutes(str(night.begin))))):
+		return {"ok": false, "code": "refused"}
+	var arc := _arc_state()
+	for key: String in ["told", "asked", "choice"]:
+		arc.erase(key)
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true}
+
+
+## After 23:57 his line waits on the paper and her hands can finish it.
+func awaiting_choice() -> bool:
+	if not last_night_open() or clock == null:
+		return false
+	var arc := _arc_state()
+	return bool(arc.get("asked", false)) and str(arc.get("choice", "")) == "" \
+			and today() == str(table.arc.last_night.date) \
+			and _minute_of_day() < _clock_minutes(str(table.arc.last_night.close_at))
+
+
+func _finish_line() -> Dictionary:
+	_arc_state()["choice"] = "finished"
+	RealityState.commit()
+	return {"intent": "temporal", "text": str(table.arc.last_night.card)}
+
+
+## The roof at 23:40 brings M6 and the companion's one answer; at 23:57 its
+## own line, unfinished; at the close the bridge shuts on whatever she did.
+## Returns whether anything was said.
+func _attend_last_night() -> bool:
+	if not last_night_open():
+		return false
+	var night: Dictionary = table.arc.last_night
+	var arc := _arc_state()
+	var minute := _minute_of_day()
+	var tonight := today() == str(night.date)
+	var begun := bool(arc.get("told", false))
+	if begun and (not tonight or minute >= _clock_minutes(str(night.close_at))):
+		arc["ending"] = "finished" if str(arc.get("choice", "")) == "finished" else "left"
+		slip.emit("", str(night.epilogues[arc.ending]))
+		RealityState.commit()
+		changed.emit()
+		return true
+	if not tonight:
+		return false
+	if not begun:
+		if here == str(night.place) and minute >= _clock_minutes(str(night.message_at)) \
+				and minute < _clock_minutes(str(night.close_at)):
+			arc["told"] = true
+			slip.emit("RECEIVED COPY", str(night.message))
+			slip.emit("", str(night.answer))
+			RealityState.commit_background()
+			return true
+		return false
+	if not bool(arc.get("asked", false)) and minute >= _clock_minutes(str(night.ask_at)):
+		arc["asked"] = true
+		slip.emit("", str(night.unfinished))
+		RealityState.commit_background()
+		return true
+	return false
 
 
 func awaiting_introduction() -> bool:
@@ -1391,6 +1514,14 @@ func command(raw: String) -> Dictionary:
 		return {}
 	if awaiting_introduction():
 		return _introduce()
+	if awaiting_choice():
+		return _finish_line()
+	if words[0] == "last":
+		if not last_night_open():
+			return {"intent": "temporal", "text": "THE CASE IS NOT CLOSED." if ending() == "" else "THE YEAR IS OVER."}
+		var went := go_last_night()
+		return {"intent": "temporal", "text": str(table.arc.last_night.entered) if went.ok
+				else "NOT FROM HERE. COME HOME FIRST." if str(went.code) == "away" else "THE NIGHT WILL NOT OPEN."}
 	match words[0]:
 		"hint":
 			return {"intent": "temporal", "text": visit_hint() if in_visit() else home_hint()}
@@ -1512,6 +1643,8 @@ func leads_text() -> String:
 		lines.append("   %s" % str(anchor.question))
 	if not carried().is_empty():
 		lines.append("CARRIED, NOT YET PINNED: %d." % carried().size())
+	if last_night_open():
+		lines.append(str(table.arc.last_night.offered))
 	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK. WALL. HINT." % Economy.money(bank_cents()))
 	return "\n".join(lines)
 

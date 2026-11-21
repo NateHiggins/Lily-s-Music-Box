@@ -1606,5 +1606,8 @@ func _process(delta: float) -> void:
 			loop.hold_pace("call")
 		else:
 			loop.release_pace("call")
+	# Where the player stands, for the last night's roof: a unit, else a place.
+	var unit := str(world.player_unit())
+	loop.here = unit if unit != "" or not world.has_method("player_agenda_place") 			else str(world.call("player_agenda_place"))
 	if loop.in_visit():
-		loop.observe(str(world.player_unit()))
+		loop.observe(unit)
