@@ -1,3 +1,18 @@
+# Friday's errand and 1D route proof - November 21
+
+Evidence class: **INERT**
+
+In the July 19 visit, ordinary movement passed 4C's two fitted doors after
+the 18:40 gate. The jersey still reveals the route leaf. Its offset puts it
+just above the chair seat, where the normal pointer can collect it. The
+installed test passed all 21 checks. The earlier blocked rays and the live
+Cam and Noel sightings are in the access report.
+
+The July 20 1D check passed 30 installed assertions through the authored
+bedroom approach. The real flask and watch inputs yielded the nurse note.
+The test revealed the reachable angle from the east aisle.
+[Historical access sweep](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
 # Historical tea lead access - November 21
 
 Evidence class: **INERT**
