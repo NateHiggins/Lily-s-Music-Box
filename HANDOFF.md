@@ -1,3 +1,18 @@
+# Basement drain access - November 21
+
+Evidence class: **INERT**
+
+The drain now yields its scrap on the existing ash-can lid. Its service note
+points the player there. The grab handler accepts the existing loop grip's
+Node owner. The clue remains tied to the dated plug and case evidence ledger.
+
+The installed route from the basement stair landing and the real Title
+Continue path passed 27 checks with zero script errors. The saved visit
+restored the scrap already collected. A later replay yielded no duplicate.
+The prior nurse note was staged. The journey from street and the full year
+remain outside this proof.
+[Route, original failures and final evidence](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
 # Idle cistern and temporal access - November 21
 
 Evidence class: **INERT**

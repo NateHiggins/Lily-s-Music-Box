@@ -123,7 +123,7 @@ static func _clean_out(world: Node3D, switch: Node3D) -> Node3D:
 	prop.from_date = "1929-08-07"
 	prop.flag = "m_glove_scrap"
 	prop.goods = {"id": "glove_scrap", "name": "Glove scrap, wet", "form": "card"}
-	prop.note = {"title": "YARD DRAIN, CLEAN-OUT", "body": "TRAP CLEARED. SCRAP OF WHITE KID, A PEARL BUTTON ON A SHANK. WET. KEPT.",
+	prop.note = {"title": "YARD DRAIN, CLEAN-OUT", "body": "TRAP CLEARED. SCRAP OF WHITE KID, A PEARL BUTTON ON A SHANK. WET. KEPT. LOOK ON THE ASH CAN.",
 		"condition": "CLEARED", "stamp": "WORK ORDER"}
 	var plug := Node3D.new()
 	plug.name = "Plug"
