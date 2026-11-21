@@ -283,9 +283,9 @@ func _temporal_loop() -> Node:
 ## A slip the loop sends unasked: a deduction drawn, the hours beginning again.
 func _temporal_slip(title: String, body: String) -> void:
 	var text := body if title.is_empty() else title + ": " + body
-	# Only the arc's slips (untitled, or a received copy) wait; ordinary advice
+	# Only the arc's slips (untitled: copies, releases, the correction) wait; ordinary advice
 	# that finds the paper busy is dropped as before.
-	var kept := title.is_empty() or title == "RECEIVED COPY"
+	var kept := title.is_empty()
 	if kept and not _loop_slips.is_empty():
 		if _loop_slips.size() < 8: _loop_slips.append(text)
 		return

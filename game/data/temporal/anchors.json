@@ -22,6 +22,13 @@
 			],
 			"handoff": "THE CASE IS YOURS. LEADS SHOWS THE OPEN LINES. JUMP AND A NUMBER GOES TO ONE. HOME BRINGS YOU BACK. BANK FOR THE FARES. HINT WHEN YOU WANT ONE."
 		},
+		"copies": [
+			{"number": 1, "place": "4B", "text": "CONVEYANCE ACCEPTED. SPAN: UNTIL RELEASED."},
+			{"number": 2, "date": "1929-07-20", "time": "03:02", "text": "21:01 TO 03:02 NOT HEARD HERE EITHER."},
+			{"number": 3, "date": "1929-09-23", "time": "00:00", "text": "INSTRUMENT AT THE ARCADE WINDOW, SUNDAY 22 SEPTEMBER, 13:10 TO 14:00. NOT SENT."},
+			{"number": 4, "date": "1929-10-20", "time": "00:00", "text": "INSTRUMENT WROTE \"QUALIFIED\" ON A CARD IN A WINDOW. INSTRUMENT IS NOT QUALIFIED. INSTRUMENT IS NOT."},
+			{"number": 5, "date": "1929-11-02", "time": "00:00", "text": "INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK."}
+		],
 		"releases": [
 			{"flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
 		],
@@ -44,6 +51,7 @@
 			"offered": "THE LAST NIGHT, 9 NOVEMBER. LAST takes you to it.",
 			"entered": "9 NOVEMBER, HALF PAST NINE. THE BRIDGE CLOSES AT MIDNIGHT. THE ROOF, BY TWENTY TO TWELVE.",
 			"message_at": "23:40",
+			"message_number": 6,
 			"message": "SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE.",
 			"answer": "I have no service interval for this. I shall keep the line open.",
 			"ask_at": "23:57",
