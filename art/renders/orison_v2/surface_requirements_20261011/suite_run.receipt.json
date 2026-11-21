@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 215.65,
+  "elapsed_s": 208.54,
   "exit_code": 0,
-  "finished_utc": "2026-11-21T21:13:28Z",
-  "started_utc": "2026-11-21T21:09:52Z",
+  "finished_utc": "2026-11-21T21:26:44Z",
+  "started_utc": "2026-11-21T21:23:15Z",
   "timed_out": false
  },
  "log": {
@@ -19,22 +19,22 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/idle_closet_intake_20261121/surface_combined/run.log.stderr",
+  "stderr": "C:/ov/reports/idle_closet_intake_20261121/surface_succession/run.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/idle_closet_intake_20261121/surface_combined/run.log",
-  "stdout_sha256": "b00dfd94b715ce211ab548f10b4c78b914a071b7500d6b5d0170889d548eaa7d"
+  "stdout": "C:/ov/reports/idle_closet_intake_20261121/surface_succession/run.log",
+  "stdout_sha256": "4ce16068b2c3ca10cee274d877bd487509a99a420f85a0b1ab1e28a8ae2e93e7"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/idle_closet_intake_20261121/surface_combined",
+ "shot_dir": "C:/ov/reports/idle_closet_intake_20261121/surface_succession",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "0ff4e8079ce1bfeb5ac77d43bea706c4cd8cf880",
-  "repository_tree": "b199ed68be8db3189348af4dc29ec910ac327339",
+  "repository_head": "ff70f9872a70dbadf6995801f55dd8a53f2f1ac9",
+  "repository_tree": "c7923176fab20529c39e10c49b1217755f1da1b5",
   "runtime_inputs_sha256": "5ab6b757f72a1879a28960ab46ba48bb358fda7ed3bdafc18e040af311cfa148",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
