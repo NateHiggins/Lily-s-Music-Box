@@ -575,7 +575,7 @@ func _ready() -> void:
 			and slips.size() == said, "at 23:41 in 4B the night says nothing")
 	loop.here = "roof"
 	check(loop._attend_last_night() and slips.size() == said + 2
-			and slips[said] == "RECEIVED COPY|SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE."
+			and slips[said] == "|RECEIVED COPY 6. SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE."
 			and slips[said + 1] == "|I have no service interval for this. I shall keep the line open.",
 			"on the roof M6 prints verbatim, then the companion's one answer")
 	check(loop.arc_draft() == "" and str(loop.command("leads").get("text", "")).contains("LAST"), "before 23:57 the keyboard is ordinary")
@@ -596,6 +596,31 @@ func _ready() -> void:
 			and loop._attend_last_night() and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0))
 			and loop._attend_last_night() and loop.ending() == "left" and str(slips.back()).contains("BOX 4B IS EMPTY"),
 			"left unfinished, the bridge closes on the empty box")
+	loop.here = ""
+	# The Tenant's received copies: presence, not the calendar, delivers them.
+	var phase_before: String = str(RealityState.data.prologue.phase)
+	RealityState.data.prologue.phase = "prologue_complete"
+	(loop.ledger().arc as Dictionary).erase("copies")
+	loop.here = "lobby"
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 720.0)), "midday on 19 July")
+	var copies_at := slips.size()
+	loop._attend_copies()
+	check(slips.size() == copies_at, "M1 waits for her first moments in 4B")
+	loop.here = "4B"
+	loop._attend_copies()
+	check(slips.size() == copies_at + 1 and slips.back() == "|RECEIVED COPY 1. CONVEYANCE ACCEPTED. SPAN: UNTIL RELEASED.",
+			"in 4B, M1 prints with the Tenant's own count first")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 20, 3.0 * 60.0 + 2.0)), "3:02 on 20 July")
+	loop._attend_copies()
+	check(slips.size() == copies_at + 2 and slips.back() == "|RECEIVED COPY 2. 21:01 TO 03:02 NOT HEARD HERE EITHER.",
+			"M2 at 3:02, never before")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 2, 600.0)), "2 November")
+	loop._attend_copies()
+	loop._attend_copies()
+	check(slips.size() == copies_at + 5 and str(slips[copies_at + 2]).begins_with("|RECEIVED COPY 3. INSTRUMENT AT THE ARCADE WINDOW")
+			and str(slips[copies_at + 3]).begins_with("|RECEIVED COPY 4.") and str(slips.back()).begins_with("|RECEIVED COPY 5."),
+			"first present on 2 November, M3 to M5 print in order, each once")
+	RealityState.data.prologue.phase = phase_before
 	loop.here = ""
 	var before_release := slips.size()
 	loop._attend_releases()
