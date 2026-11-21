@@ -1,3 +1,17 @@
+# Juno's dated trade log - November 21
+
+Evidence class: **INERT**
+
+The B19 entry is on an installed native notebook in 2C. Drawing it files the
+case note and opens Juno's existing trade topic. Cal's record sleeve retains
+its own flag and remains physically reachable.
+
+The warmed historical fixture passed all 18 installed checks from the west
+corridor through the 2C entry. The early-date control, actual pointer inputs
+and separate knowledge flags passed with no script errors. The standing view
+shows a small cover title. Its full case note prints after the draw.
+[Route and original failures](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
 # Basement drain access - November 21
 
 Evidence class: **INERT**
