@@ -184,8 +184,11 @@ func _ready() -> void:
 	_check(_carry(tray), "lifted the whole way")
 	_check(loop.clue_ready() and not tray.part.visible and slip.visible, "the tray is set aside and the order slip lies where it stood")
 	_check(slip.global_position.distance_to(tray_rest) < 0.01, "the slip lies where the tray stood")
-	await _snap("tea_slip")
 	var take: Node = slip.get_meta("grip")
+	await _frames(2)
+	_check(tray.area.collision_layer == 0 and take.area.collision_layer == 1,
+			"the set-aside tray cannot intercept the pointer meant for the slip")
+	await _snap("tea_slip")
 	_check(_carry(take), "the hand picks the slip up")
 	_check(loop.holds("order_slip") and not slip.visible, "the slip is taken and kept")
 
@@ -204,6 +207,8 @@ func _ready() -> void:
 	bystander._moving = false
 	await _frames(5)
 	_check(tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002, "the tray is back exactly")
+	_check(tray.area.collision_layer == 1 and take.area.collision_layer == 0,
+			"rerunning the lead restores the tray's pointer target without exposing the collected slip")
 	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "the door and the light are as the hours began")
 	# No frame/campaign tick between these reruns: loop_started is identical,
 	# but the existing anchor rerun counter identifies a new borrowed household.
