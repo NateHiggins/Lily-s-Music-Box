@@ -24,6 +24,7 @@ const PartTarget = preload("res://scripts/props/manipulation_area.gd")
 const Sweep = preload("res://scripts/props/mechanism_sweep.gd")
 var parts: Dictionary = {}
 var _held := ""
+var _idle_settled := false
 var water_level := 1.0
 var _draining := false
 var _cover_velocity := 0.0
@@ -141,6 +142,7 @@ func _target(key: String) -> Dictionary:
 		"begin":func():
 			if not _held.is_empty() or RealityState.save_write_blocked: return false
 			_held = key
+			_idle_settled = false
 			return true,
 		"owns":func(): return _held == key,
 		"end":func(): _held = ""; manipulation_changed.emit()}
@@ -184,8 +186,21 @@ func _move_part(key: String, value: Variant) -> void:
 		_draining=true
 		_refilling=true
 
+## A settled cistern skips its step after the final full pass at rest.
+func _settled() -> bool:
+	if not _held.is_empty() or _draining or _refilling or water_level < 1.0 or absf(_lever.rotation.z) > .0001:
+		return false
+	if _value("FloatArm") < -.001:
+		return false
+	var cover: Node3D = parts.CisternCover
+	var floor_y := .817 if absf(cover.position.x)<.45 and absf(cover.position.z-.235)<.21 else .025
+	return cover.position.y <= floor_y and not _water.playing
+
 func _physics_process(delta: float) -> void:
 	if parts.is_empty(): return
+	var settled := _settled()
+	if settled and _idle_settled: return
+	_idle_settled = settled
 	if _held != "CisternHandle": _lever.rotation.z=move_toward(_lever.rotation.z,0,delta*2.0)
 	var ball: Node3D=parts.FlushBall
 	if _held != "FlushBall":
@@ -269,6 +284,7 @@ func valid_mechanism(state: Dictionary) -> bool:
 func restore_mechanism(state: Dictionary) -> void:
 	if not valid_mechanism(state): return
 	_held=""
+	_idle_settled=false
 	for key in ["SeatHinge","RaisedLid","CisternHandle","FloatArm","FlushBall"]:
 		if key=="FlushBall": parts[key].position.y=state[key]
 		elif key in ["SeatHinge","RaisedLid"]: parts[key].rotation.x=state[key]
