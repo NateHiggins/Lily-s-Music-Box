@@ -414,6 +414,7 @@ func _ready() -> void:
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 25, 600.0)) and not loop.event_on(loop.today()).is_empty()
 			and not bool(loop.event_on(loop.today()).broken) and loop.tip_percent_now() == 100, "on the 25th the market is falling but nothing has been cut yet")
 	loop.aide().drawn_day = int(clock.elapsed_minutes() / 1440.0)
+	loop._attend_releases()  # the evidence on the wall has its quiet slips already
 	slips.clear()
 	tick()
 	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("ticker"), "the companion says the house is uneasy, once")
@@ -620,11 +621,21 @@ func _ready() -> void:
 	check(slips.size() == copies_at + 5 and str(slips[copies_at + 2]).begins_with("|RECEIVED COPY 3. INSTRUMENT AT THE ARCADE WINDOW")
 			and str(slips[copies_at + 3]).begins_with("|RECEIVED COPY 4.") and str(slips.back()).begins_with("|RECEIVED COPY 5."),
 			"first present on 2 November, M3 to M5 print in order, each once")
+	check(RealityState.has_knowledge("m_c_m3"), "M3 to M5 grant the carrier that says one has printed")
 	RealityState.data.prologue.phase = phase_before
 	loop.here = ""
+	(loop.ledger().arc as Dictionary).erase("released")
 	var before_release := slips.size()
 	loop._attend_releases()
-	check(slips.size() == before_release, "nothing is released before its scene")
+	check(slips.size() == before_release + 3 and slips[before_release] == "|RELEASED: THE NEGATIVES."
+			and slips[before_release + 1] == "|RELEASED: PLATE 13." and slips.back() == "|RELEASED: MRS. KESSLER.",
+			"the evidence already taken releases the negatives, plate 13 and Mrs. Kessler, quietly, in the list's order")
+	loop._attend_releases()
+	check(slips.size() == before_release + 3, "a release prints once")
+	RealityState.grant_knowledge("mt:ev_home")
+	loop._attend_releases()
+	check(slips.size() == before_release + 5 and slips.back() == "|RELEASED: EMIL.", "Emil taking the prints home releases the shop, then Emil")
+	before_release = slips.size()
 	RealityState.grant_knowledge("m_told_nadia")
 	loop._attend_releases()
 	loop._attend_releases()

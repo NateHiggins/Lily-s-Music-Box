@@ -25,11 +25,19 @@
 		"copies": [
 			{"number": 1, "place": "4B", "text": "CONVEYANCE ACCEPTED. SPAN: UNTIL RELEASED."},
 			{"number": 2, "date": "1929-07-20", "time": "03:02", "text": "21:01 TO 03:02 NOT HEARD HERE EITHER."},
-			{"number": 3, "date": "1929-09-23", "time": "00:00", "text": "INSTRUMENT AT THE ARCADE WINDOW, SUNDAY 22 SEPTEMBER, 13:10 TO 14:00. NOT SENT."},
-			{"number": 4, "date": "1929-10-20", "time": "00:00", "text": "INSTRUMENT WROTE \"QUALIFIED\" ON A CARD IN A WINDOW. INSTRUMENT IS NOT QUALIFIED. INSTRUMENT IS NOT."},
-			{"number": 5, "date": "1929-11-02", "time": "00:00", "text": "INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK."}
+			{"number": 3, "date": "1929-09-23", "time": "00:00", "grants": "m_c_m3", "text": "INSTRUMENT AT THE ARCADE WINDOW, SUNDAY 22 SEPTEMBER, 13:10 TO 14:00. NOT SENT."},
+			{"number": 4, "date": "1929-10-20", "time": "00:00", "grants": "m_c_m3", "text": "INSTRUMENT WROTE \"QUALIFIED\" ON A CARD IN A WINDOW. INSTRUMENT IS NOT QUALIFIED. INSTRUMENT IS NOT."},
+			{"number": 5, "date": "1929-11-02", "time": "00:00", "grants": "m_c_m3", "text": "INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK."}
 		],
 		"releases": [
+			{"flag": "m_c_n16", "slip": "RELEASED: THE NIGHT OF 19 JULY."},
+			{"flag": "mt:ev_home", "slip": "RELEASED: THE SHOP."},
+			{"flag": "mt:ev_home", "slip": "RELEASED: EMIL."},
+			{"flag": "m_crosson_card", "slip": "RELEASED: THE WINDOW."},
+			{"item": "duplicate_negative", "slip": "RELEASED: THE NEGATIVES."},
+			{"item": "plate_half", "slip": "RELEASED: PLATE 13."},
+			{"flag": "m_ninety_nines_card", "slip": "RELEASED: THE FUTURE."},
+			{"item": "kept_papers", "slip": "RELEASED: MRS. KESSLER."},
 			{"flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
 		],
 		"correction": {
