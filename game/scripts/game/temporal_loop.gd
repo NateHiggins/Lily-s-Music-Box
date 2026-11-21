@@ -1254,7 +1254,7 @@ func _attend_home() -> void:
 			if not bool(notes.quiet):
 				slip.emit(str(event.mark), str(event.slip) if bool(event.broken) else str(event.before))
 			return
-	if int(notes.nudged_day) == day or bool(notes.quiet):
+	if int(notes.nudged_day) == day or bool(notes.quiet) or awaiting_introduction():
 		return
 	notes.nudged_day = day
 	slip.emit("ADVICE", home_hint())
@@ -1350,10 +1350,47 @@ func home_hint() -> String:
 
 ## The typed commands the service set answers on paper. Returns {} when the
 ## text is not one of them, so ordinary correspondence goes on as before.
+## S01: the answer to the prologue's last question, "Who were you?", given at
+## the first keyboard after the prologue (Lily, 2026-10-29). Her hands type
+## each line; the player only sends it, so no guessed word can rename her.
+func arc_draft() -> String:
+	if not awaiting_introduction():
+		return ""
+	return str(table.arc.s01.exchanges[_introduced_lines()].typed)
+
+
+func awaiting_introduction() -> bool:
+	if table.is_empty() or table.get("arc") is not Dictionary \
+			or str(RealityState.data.get("prologue", {}).get("phase", "")) != "prologue_complete":
+		return false
+	return _introduced_lines() < (table.arc.s01.exchanges as Array).size()
+
+
+func _introduced_lines() -> int:
+	var arc: Variant = ledger().get("arc")
+	return int(arc.get("s01", 0)) if arc is Dictionary else 0
+
+
+func _introduce() -> Dictionary:
+	var book := ledger()
+	if book.get("arc") is not Dictionary:
+		book["arc"] = {}
+	var exchanges: Array = table.arc.s01.exchanges
+	var line := _introduced_lines()
+	book.arc["s01"] = line + 1
+	RealityState.commit_background()
+	var text := str(exchanges[line].reply)
+	if line + 1 >= exchanges.size():
+		text += "\n\n" + str(table.arc.s01.handoff)
+	return {"intent": "temporal", "text": text}
+
+
 func command(raw: String) -> Dictionary:
 	var words := raw.strip_edges().to_lower().split(" ", false)
 	if words.is_empty() or table.is_empty() or RealityState.save_write_blocked:
 		return {}
+	if awaiting_introduction():
+		return _introduce()
 	match words[0]:
 		"hint":
 			return {"intent": "temporal", "text": visit_hint() if in_visit() else home_hint()}

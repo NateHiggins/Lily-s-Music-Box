@@ -138,6 +138,23 @@ func _ready() -> void:
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
 	check(loop.table.anchors.size() == 11, "eleven leads (%d)" % loop.table.anchors.size())
+
+	# S01: before the prologue ends nothing is typed for her; after it, her
+	# hands type who she was, the paper answers, and then the case is handed over.
+	check(loop.arc_draft() == "" and not loop.awaiting_introduction(), "no answer is typed while the prologue is still running")
+	var opening_phase: String = str(RealityState.data.prologue.phase)
+	RealityState.data.prologue.phase = "prologue_complete"
+	check(loop.awaiting_introduction() and loop.arc_draft() == "Adela Voss. Photo Supplies. Across the street.",
+			"after the prologue her hands type her name, trade and street")
+	var told: Dictionary = loop.command("Adela Voss. Photo Supplies. Across the street.")
+	check(str(told.get("text", "")) == "SUBJECT: ADELA VOSS. TRADE: PHOTOGRAPHER." and loop.arc_draft() == "Is that enough?",
+			"the paper files her and she asks if it is enough (%s)" % str(told.get("text", "")))
+	var handed: Dictionary = loop.command("leads")
+	check(str(handed.get("text", "")).begins_with("It is enough to address you correctly.")
+			and str(handed.get("text", "")).contains("LEADS") and not loop.awaiting_introduction() and loop.arc_draft() == "",
+			"whatever is sent, the second answer comes first and hands over the commands")
+	check(str(loop.command("leads").get("text", "")) == loop.leads_text(), "after that the keyboard is the loop's own")
+	RealityState.data.prologue.phase = opening_phase
 	check(str(loop.dressed_for("1929-07-03").occasion) == "Independence Day" and str(loop.dressed_for("1929-07-03").season) == "high summer"
 			and str(loop.dressed_for("1929-07-19").occasion) == "" and str(loop.dressed_for("1928-12-24").season) == "winter"
 			and str(loop.dressed_for("1929-11-01").occasion) == "Hallowe'en",

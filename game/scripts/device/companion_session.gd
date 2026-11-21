@@ -26,6 +26,11 @@ var chatter_enabled := true
 @export_range(35.0, 72.0) var reading_fov := 40.0
 var _zoom_applied := false
 var _fov_before := 72.0
+## A line her own hands type (S01): the player sends it and cannot edit it.
+const SCRIPTED_KEY_SECONDS := 0.07
+var _scripted := ""
+var _scripted_shown := 0
+var _scripted_seconds := 0.0
 
 func setup(carrier: Node, player: PlayerController) -> void:
 	_carrier = carrier; _player = player
@@ -107,7 +112,11 @@ func _process(delta: float) -> void:
 	_cooldown = maxf(0.0, _cooldown - delta)
 	if opening and _carrier.motion.steady_for_input() and _carrier.rig.typing_ready():
 		opening = false; typing = true
-		_edit.text = draft
+		var loop := _temporal_loop()
+		_scripted = loop.arc_draft() if loop != null else ""
+		_scripted_shown = 0
+		_scripted_seconds = 0.0
+		_edit.text = draft if _scripted.is_empty() else ""
 		_edit.grab_focus()
 		_edit.caret_column = draft.length()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -116,6 +125,7 @@ func _process(delta: float) -> void:
 	elif typing:
 		if not _edit.has_focus():
 			suspend(); return
+		_type_scripted(delta)
 		_carrier.device.teletype.show_draft(_edit.text, _edit.caret_column)
 	if chatter_enabled and not typing and not opening and _cooldown <= 0.0 and available() and not _carrier.device.teletype.printing:
 		while not _events.is_empty():
@@ -147,7 +157,24 @@ func _foreign_editor_active() -> bool:
 	var focus := get_viewport().gui_get_focus_owner()
 	return focus != _edit and (focus is LineEdit or focus is TextEdit)
 
+func _type_scripted(delta: float) -> void:
+	if _scripted.is_empty() or _scripted_shown >= _scripted.length(): return
+	_scripted_seconds += delta
+	while _scripted_seconds >= SCRIPTED_KEY_SECONDS and _scripted_shown < _scripted.length():
+		_scripted_seconds -= SCRIPTED_KEY_SECONDS
+		_carrier.rig.pulse_key(_scripted[_scripted_shown])
+		_scripted_shown += 1
+	_show_scripted()
+
+func _show_scripted() -> void:
+	_edit.set_block_signals(true)
+	_edit.text = _scripted.left(_scripted_shown)
+	_edit.caret_column = _scripted_shown
+	_edit.set_block_signals(false)
+
 func _typed(value: String) -> void:
+	if not _scripted.is_empty():
+		_show_scripted(); return
 	var previous := draft
 	draft = value.left(512)
 	if draft.length() > previous.length():
@@ -190,6 +217,7 @@ func submit(value: String) -> void:
 	if not typing or not available() or not _carrier.rig.typing_ready(): return
 	_carrier.rig.pulse_key("ENTER")
 	if value.strip_edges().is_empty(): return
+	if not _scripted.is_empty() and _scripted_shown < _scripted.length(): return
 	var before := dialogue.memory.snapshot()
 	var context: Dictionary = context_provider.call() if context_provider.is_valid() else {}
 	var calendar: Dictionary = calendar_provider.call() if calendar_provider.is_valid() else {}
@@ -222,6 +250,7 @@ func close() -> void:
 	if not typing and not opening: return
 	var owned_focus := _edit.has_focus()
 	typing = false; opening = false
+	_scripted = ""
 	_edit.release_focus()
 	_player.release_text_input(self)
 	_carrier.rig.request_keyboard(false)
