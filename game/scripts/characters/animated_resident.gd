@@ -357,6 +357,11 @@ func interact(_player: Node) -> void:
 	var music := get_tree().get_first_node_in_group("music_director")
 	if music and music.try_music_conversation(resident_id):
 		return
+	# A thread marked "spoken" is said to this body in person (S15, Nadia on the
+	# last night); the rest of the mystery threads stay where they are read.
+	var talk := get_tree().get_first_node_in_group("resident_conversations")
+	if talk is ResidentConversations and (talk as ResidentConversations).start_mystery(resident_id, true):
+		return
 	# Only an enabled case hears an ordinary interaction (the rule ResidentConversations.start keeps): speaking
 	# to a body must never open a case that is switched off (order w715d783b50d8).
 	var case_id := RealityCases.case_for_resident(resident_id)

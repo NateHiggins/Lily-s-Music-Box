@@ -1222,11 +1222,29 @@ func _process(delta: float) -> void:
 	if not clock.loop_calendar_active():
 		_settle_pace()
 		return
+	_attend_releases()
 	if in_visit():
 		_attend_visit()
 	else:
 		_attend_home()
 	_set_pace()
+
+
+## A "RELEASED:" slip prints once, with no comment, when its attachment is let
+## go: the knowledge flag its scene grants (treatment section 8).
+func _attend_releases() -> void:
+	if table.get("arc") is not Dictionary or table.arc.get("releases") is not Array:
+		return
+	var arc := _arc_state()
+	if arc.get("released") is not Array:
+		arc["released"] = []
+	for release: Dictionary in table.arc.releases:
+		var flag := str(release.flag)
+		if flag in (arc.released as Array) or not RealityState.has_knowledge(flag):
+			continue
+		(arc.released as Array).append(flag)
+		slip.emit("", str(release.slip))
+		RealityState.commit_background()
 
 
 ## The companion's own record: what it has already said and done unasked.

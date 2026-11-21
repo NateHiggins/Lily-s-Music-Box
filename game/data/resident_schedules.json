@@ -465,6 +465,9 @@
         {"start_min": 840, "end_min": 1080, "place": "unit:drafting", "activity": "hobby", "outfit": "late_night", "days": ["sun"], "detail": "the unbuilt buildings, all afternoon; the one day the persona is off-duty, she practices having a name"}
       ],
       "special_days": [
+        {"doy": 313, "proposed": true, "label": "the last day of the year (S15)", "blocks": [
+          {"start_min": 1290, "end_min": 1400, "place": "photo_supplies", "activity": "work", "outfit": "street", "detail": "the Armistice card in Adela's window, which she cannot get right; the pencil in her hand"}
+        ]},
         {"doy": 17, "proposed": true, "label": "the certificate that bought her silence", "blocks": [
           {"start_min": 120, "end_min": 240, "place": "corridor", "activity": "ritual", "outfit": "late_night", "detail": "walks the building alone, ground to roof, folding rule out, re-measuring every violation she certified; posts nothing and signs nothing; on a posting night the memo does not appear"}
         ]}

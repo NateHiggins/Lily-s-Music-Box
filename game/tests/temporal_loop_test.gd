@@ -597,6 +597,14 @@ func _ready() -> void:
 			and loop._attend_last_night() and loop.ending() == "left" and str(slips.back()).contains("BOX 4B IS EMPTY"),
 			"left unfinished, the bridge closes on the empty box")
 	loop.here = ""
+	var before_release := slips.size()
+	loop._attend_releases()
+	check(slips.size() == before_release, "nothing is released before its scene")
+	RealityState.grant_knowledge("m_told_nadia")
+	loop._attend_releases()
+	loop._attend_releases()
+	check(slips.size() == before_release + 1 and slips.back() == "|RELEASED: NADIA.",
+			"when the telling ends, RELEASED: NADIA. prints once, with no comment")
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))

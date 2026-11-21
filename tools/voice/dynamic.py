@@ -17,12 +17,13 @@ import intake
 # resident_conversations.gd renewed 2026-11-14: priced choices ("pay:<item>:<cents>") added; no line text or provider join changed.
 # resident_conversations.gd renewed 2026-11-14 (later): two TREE_PATHS rows (lily.json, adela_voss.json); no provider change.
 # resident_conversations.gd renewed 2026-11-14 (opinions): two OPINION_PATHS rows (lily.json, adela_voss.json); no provider change.
+# resident_conversations.gd renewed 2026-11-21: start_mystery(resident, spoken_only) filters to threads marked "spoken" (S15); no line text or provider join changed.
 # Reviewed 2026-11-15: bar contexts select existing authored nodes and decorators;
 # no new spoken text, provider join or finite dynamic component is introduced.
 # kitchen_larder.gd renewed 2026-11-18: shop ranking consumes the same shortages.
 # Grocery names, owner bindings and spoken components are identical.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': '4d5d456f24617db59590c4485b6b572e7a8b63877b6dbe725df5095de4b8fcc1',
+    'game/scripts/game/resident_conversations.gd': '2146bb17224b410c9d438fb2134285823693691ca2d42d89dcd681e6c9c2850f',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': '17e09ab3343fc20e11f0c86719d85785c90b5854714ae9774944350146ce2381',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',

@@ -52,6 +52,23 @@ func _run() -> void:
 	_check("hours gate", "ev_home" not in thread_ids.call("emil_voss", "1929-07-22", 9 * 60))
 	_check("hours open", "ev_home" in thread_ids.call("emil_voss", "1929-07-22", 12 * 60))
 	_check("requires hides", "nq_told" not in thread_ids.call("nadia_quell", "1929-08-01", 720))
+	# S15 is said to Nadia's body in person on the last night; no unspoken thread opens that way.
+	var was_date: String = conversations.playtest_date
+	var was_minute: int = conversations.playtest_minute
+	RealityState.grant_knowledge("m_nadia_card")
+	conversations.playtest_date = "1929-11-09"
+	conversations.playtest_minute = 22 * 60
+	_check("S15 is open on the last night", "nq_telling" in thread_ids.call("nadia_quell", "1929-11-09", 22 * 60))
+	_check("in person, Nadia offers only the spoken thread",
+			conversations.start_mystery("nadia_quell", true) and _labels(panel) == ["Give me the pencil."])
+	panel.close()
+	conversations.playtest_date = "1929-07-22"
+	conversations.playtest_minute = 12 * 60
+	_check("a thread that is not spoken does not open in person", not conversations.start_mystery("emil_voss", true))
+	conversations.playtest_date = was_date
+	conversations.playtest_minute = was_minute
+	RealityState.data.knowledge_flags.erase("m_nadia_card")
+	RealityState.data.knowledge_flags.erase("mt:nq_telling")
 	# Stacy's own cases sit beside the main case: dated, chained by sc flags.
 	_check("Stacy's first case opens in December", "sc1_coffee" in thread_ids.call("stacy", "1928-12-10", 18 * 60))
 	_check("Stacy's second step waits for the first", "sc1_tab" not in thread_ids.call("stacy", "1928-12-28", 18 * 60))
