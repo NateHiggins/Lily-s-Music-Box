@@ -1440,10 +1440,15 @@ func awaiting_choice() -> bool:
 			and _minute_of_day() < _clock_minutes(str(table.arc.last_night.close_at))
 
 
+## Her finished line. As with S01, the choice is made only when the paper has
+## taken the card: a refused print leaves the line on the keyboard.
 func _finish_line() -> Dictionary:
-	_arc_state()["choice"] = "finished"
-	RealityState.commit()
-	return {"intent": "temporal", "text": str(table.arc.last_night.card)}
+	return {"intent": "temporal", "text": str(table.arc.last_night.card), "on_printed": _finished}
+
+
+func _finished() -> void:
+	if awaiting_choice():
+		_arc_state()["choice"] = "finished"
 
 
 ## The roof at 23:40 brings M6 and the companion's one answer; at 23:57 its

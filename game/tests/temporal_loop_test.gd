@@ -591,7 +591,11 @@ func _ready() -> void:
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 57.0)) and loop._attend_last_night()
 			and slips.back() == "|I WOULD LIKE TO" and loop.arc_draft().begins_with("CROSS OUT"),
 			"at 23:57 it writes I WOULD LIKE TO and stops, and her hands can finish it")
+	var unprinted: Dictionary = loop.command(loop.arc_draft())
+	check(loop.arc_draft().begins_with("CROSS OUT") and str(unprinted.get("text", "")).contains("NIGHT MAN, 4B."),
+			"a card the paper has not taken chooses nothing: her line waits on the keyboard")
 	var card: Dictionary = loop.command(loop.arc_draft())
+	(card.on_printed as Callable).call()
 	check(str(card.get("text", "")).contains("NIGHT MAN, 4B.") and str(card.text).ends_with("A.V.") and loop.arc_draft() == ""
 			and loop.ending() == "", "sending it prints her correction card; the bridge has not closed yet")
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0)) and loop._attend_last_night()
