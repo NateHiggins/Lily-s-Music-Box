@@ -1520,7 +1520,7 @@ func command(raw: String) -> Dictionary:
 		if not last_night_open():
 			return {"intent": "temporal", "text": "THE CASE IS NOT CLOSED." if ending() == "" else "THE YEAR IS OVER."}
 		var went := go_last_night()
-		return {"intent": "temporal", "text": str(table.arc.last_night.arrived) if went.ok
+		return {"intent": "temporal", "text": str(table.arc.last_night.entered) if went.ok
 				else "NOT FROM HERE. COME HOME FIRST." if str(went.code) == "away" else "THE NIGHT WILL NOT OPEN."}
 	match words[0]:
 		"hint":
