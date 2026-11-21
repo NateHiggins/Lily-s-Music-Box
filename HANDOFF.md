@@ -1,3 +1,19 @@
+# Historical tea lead access - November 21
+
+Evidence class: **INERT**
+
+The fitted 6C entry and the real tea-tray gesture work in the installed
+historical visit. Setting the tray aside now retires its pointer target so
+the revealed slip can be collected. Replaying returns the tray and door to
+their captured positions and keeps the collected evidence. The corridor
+and pickup probe passed 21 checks. The installed loop stage passed 233.
+[Original failure and both runs](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+The next historical route is 4C on July 19. Check the 18:40 gate, resident
+whereabouts, ordinary entry and the route leaf. Claude retains the ending
+and golden-playthrough stack. Full calendar play and Lily's acceptance are
+still open.
+
 # Juno's dated trade log - November 21
 
 Evidence class: **INERT**
