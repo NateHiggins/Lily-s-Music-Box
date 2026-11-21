@@ -1371,18 +1371,27 @@ func _introduced_lines() -> int:
 	return int(arc.get("s01", 0)) if arc is Dictionary else 0
 
 
+## The paper's answer to the line her hands typed. Nothing is counted yet:
+## the reply carries `on_printed`, which the companion session calls only once
+## the live device has accepted the print, inside the same validated save. A
+## refused print leaves S01 where it was, to be typed and sent again.
 func _introduce() -> Dictionary:
-	var book := ledger()
-	if book.get("arc") is not Dictionary:
-		book["arc"] = {}
 	var exchanges: Array = table.arc.s01.exchanges
 	var line := _introduced_lines()
-	book.arc["s01"] = line + 1
-	RealityState.commit_background()
 	var text := str(exchanges[line].reply)
 	if line + 1 >= exchanges.size():
 		text += "\n\n" + str(table.arc.s01.handoff)
-	return {"intent": "temporal", "text": text}
+	return {"intent": "temporal", "text": text, "on_printed": _introduced.bind(line)}
+
+
+## The paper took exchange `line`. A stale or repeated acceptance does nothing.
+func _introduced(line: int) -> void:
+	if _introduced_lines() != line:
+		return
+	var book := ledger()
+	if book.get("arc") is not Dictionary:
+		book["arc"] = {}
+	book.arc["s01"] = line + 1
 
 
 func command(raw: String) -> Dictionary:
