@@ -1255,6 +1255,8 @@ func _attend_copies() -> void:
 				continue
 		(arc.copies as Array).append(number)
 		slip.emit("", received_copy(number, str(copy.text)))
+		if copy.has("grants"):
+			RealityState.grant_knowledge(str(copy.grants))
 		RealityState.commit_background()
 
 
@@ -1263,7 +1265,9 @@ static func received_copy(number: int, text: String) -> String:
 
 
 ## A "RELEASED:" slip prints once, with no comment, when its attachment is let
-## go: the knowledge flag its scene grants (treatment section 8).
+## go: the knowledge flag its scene grants, or evidence the player has taken
+## (treatment section 8; v5 section 5). Order follows the player's own. The
+## record kept here only stops a slip printing twice; nothing reads it as state.
 func _attend_releases() -> void:
 	if table.get("arc") is not Dictionary or table.arc.get("releases") is not Array:
 		return
@@ -1271,11 +1275,14 @@ func _attend_releases() -> void:
 	if arc.get("released") is not Array:
 		arc["released"] = []
 	for release: Dictionary in table.arc.releases:
-		var flag := str(release.flag)
-		if flag in (arc.released as Array) or not RealityState.has_knowledge(flag):
+		var line := str(release.slip)
+		if line in (arc.released as Array):
 			continue
-		(arc.released as Array).append(flag)
-		slip.emit("", str(release.slip))
+		var let_go: bool = RealityState.has_knowledge(str(release.flag)) if release.has("flag") 				else holds(str(release.get("item", "")))
+		if not let_go:
+			continue
+		(arc.released as Array).append(line)
+		slip.emit("", line)
 		RealityState.commit_background()
 
 
