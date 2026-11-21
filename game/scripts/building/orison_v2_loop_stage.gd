@@ -160,6 +160,16 @@ var strands: Array[Node3D] = []
 var _bundle: Node3D
 var _bundle_size := Vector3.ONE
 var _bundle_foot := Vector3.ZERO
+## Cups left standing (plan, section 4: "the rest of the flat joins in"): copies of 4B's own mug on the flat's
+## tables, shelves and counters, more of them the further the case has gone.
+const MUG_SOURCE := "4B_mug"
+const MUGS_FROM := 0.25
+const MAX_MUGS := 14
+const MUG_SKIP: Array[String] = ["4B_wake_bed", "4B_couch"]
+var mug_spots: Array[Dictionary] = []
+var mugs: Array[Node3D] = []
+var _mug: Node3D
+var _mug_foot := Vector3.ZERO
 ## Turns the copied slip from however it lies in 4B to flat, long side along X,
 ## face along Z.
 var _paper_square := Basis()
@@ -200,6 +210,15 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 			first = false
 		_bundle_size = box.size.max(Vector3.ONE * 0.001)
 		_bundle_foot = Vector3(box.get_center().x, box.position.y, box.get_center().z)
+	_mug = adapter.resolve(MUG_SOURCE) as Node3D
+	if _mug == null:
+		errors.append("no mug to copy: " + MUG_SOURCE)
+	else:
+		var low := INF
+		for draw: MeshInstance3D in _mug.find_children("*", "MeshInstance3D", true, false) + ([_mug] if _mug is MeshInstance3D else []):
+			var part_box := (_mug.global_transform.affine_inverse() * draw.global_transform) * draw.get_aabb()
+			low = minf(low, part_box.position.y)
+		_mug_foot = Vector3(0.0, low if low < INF else 0.0, 0.0)
 	if wall != null and _paper != null:
 		_frame_wall()
 		_tuck()
@@ -1310,11 +1329,53 @@ func _survey() -> void:
 		pile_cells[cell] = true
 		piles.append({"position": hit.position, "far": float(spot.far)})
 	pile_spots = _thinned(piles, MAX_PILES)
+	# Cups: level tops at table to shelf height around each place someone sits or works, not the bed or the couch.
+	var skip: Array[Node] = []
+	for object_id: String in MUG_SKIP:
+		var thing := adapter.resolve(object_id) as Node
+		if thing != null:
+			skip.append(thing)
+	var cups: Array[Dictionary] = []
+	var cup_cells := {}
+	for eye: Vector3 in eyes:
+		for step_x in range(-6, 7):
+			for step_z in range(-6, 7):
+				var at := Vector3(eye.x + float(step_x) * 0.2, floor_y + 1.45, eye.z + float(step_z) * 0.2)
+				var top := _level_top(space, at, floor_y, skip)
+				if top == Vector3.INF:
+					continue
+				var cell := Vector3i((top / 0.4).round())
+				if cup_cells.has(cell):
+					continue
+				cup_cells[cell] = true
+				cups.append({"position": top, "far": top.distance_to(_wall_frame.origin)})
+	cups.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.far) < float(b.far))
+	mug_spots = _thinned(cups, MAX_MUGS)
 	# The web's anchors: papered places above head height.
 	for spot: Dictionary in spots:
 		if (spot.position as Vector3).y > floor_y + 1.85:
 			high_spots.append(spot)
 	_grow()
+
+
+## A level top for a cup straight below `from`: facing up, between table and shelf height, in 4B, not on what
+## `skip` holds, and level for a cup's width all round (not an edge). Vector3.INF where there is none.
+func _level_top(space: PhysicsDirectSpaceState3D, from: Vector3, floor_y: float, skip: Array[Node]) -> Vector3:
+	var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(from, from + Vector3.DOWN * 1.3))
+	if hit.is_empty() or (hit.normal as Vector3).y < 0.97:
+		return Vector3.INF
+	var where: Vector3 = hit.position
+	if where.y - floor_y < 0.42 or where.y - floor_y > 1.15 or world.unit_at_world(where) != "4B":
+		return Vector3.INF
+	var collider := hit.collider as Node
+	for thing: Node in skip:
+		if collider == thing or thing.is_ancestor_of(collider):
+			return Vector3.INF
+	for side: Vector3 in [Vector3(0.06, 0, 0), Vector3(-0.06, 0, 0), Vector3(0, 0, 0.06), Vector3(0, 0, -0.06)]:
+		var near := space.intersect_ray(PhysicsRayQueryParameters3D.create(from + side, from + side + Vector3.DOWN * 1.3))
+		if near.is_empty() or absf((near.position as Vector3).y - where.y) > 0.004:
+			return Vector3.INF
+	return where
 
 
 ## At most `limit` of the places found, taken evenly so they still reach the
@@ -1397,6 +1458,19 @@ func _grow() -> void:
 					(pile_spots[index].position as Vector3) + Vector3.UP * tall)
 	for index in pile_tops.size():
 		pile_tops[index].visible = index < pile_count
+	# Cups left standing where they were put down, more as the case goes on.
+	var mug_count: int = int(ceil(float(mug_spots.size()) * clampf((share - MUGS_FROM) / (1.0 - MUGS_FROM), 0.0, 1.0))) \
+			if _mug != null else 0
+	while mugs.size() < mug_count:
+		var index := mugs.size()
+		var mug := _copy_of(_mug)
+		mug.name = "LoopMug_%d" % index
+		add_child(mug)
+		var turn := Basis(Vector3.UP, fposmod(float(index) * 2.399963, TAU))
+		mug.global_transform = Transform3D(turn, (mug_spots[index].position as Vector3) + Vector3.UP * 0.0005 - turn * _mug_foot)
+		mugs.append(mug)
+	for index in mugs.size():
+		mugs[index].visible = index < mug_count
 	# Late in the case the windows go: paper over the glass, sheet by sheet (plan, section 4: "windows papered over").
 	if not windows_found:
 		_find_windows()

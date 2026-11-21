@@ -228409,8 +228409,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    1140,
-    1200
+    1159,
+    1219
    ],
    "count": 2,
    "context": [
@@ -228441,7 +228441,7 @@
     "_card_for"
    ],
    "lines": [
-    488
+    507
    ],
    "count": 1,
    "context": [
@@ -228471,7 +228471,7 @@
     "_cover_wall"
    ],
    "lines": [
-    713
+    732
    ],
    "count": 1,
    "context": [
@@ -228501,7 +228501,7 @@
     "_dress_wall"
    ],
    "lines": [
-    1142
+    1161
    ],
    "count": 1,
    "context": [
@@ -228531,7 +228531,7 @@
     "_grip_for"
    ],
    "lines": [
-    294
+    313
    ],
    "count": 1,
    "context": [
@@ -228561,17 +228561,18 @@
     "_grow"
    ],
    "lines": [
-    1350,
-    1373,
-    1391,
-    1409
+    1411,
+    1434,
+    1452,
+    1467,
+    1483
    ],
-   "count": 4,
+   "count": 5,
    "context": [
     "\"LoopPaper_%d\" % index",
     "\"LoopPile_%d\" % index",
     "\"LoopBundle_%d\" % pile_tops.size()",
-    "\"LoopWindowPaper_%d\" % index"
+    "\"LoopMug_%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -228597,8 +228598,8 @@
     "_sync"
    ],
    "lines": [
-    996,
-    1033
+    1015,
+    1052
    ],
    "count": 2,
    "context": [
@@ -228629,7 +228630,7 @@
     "_sync_clippings"
    ],
    "lines": [
-    611
+    630
    ],
    "count": 1,
    "context": [
@@ -228659,7 +228660,7 @@
     "_sync_filing"
    ],
    "lines": [
-    1226
+    1245
    ],
    "count": 1,
    "context": [
@@ -228689,7 +228690,7 @@
     "_sync_ice_card"
    ],
    "lines": [
-    915
+    934
    ],
    "count": 1,
    "context": [
@@ -228719,7 +228720,7 @@
     "_sync_prints"
    ],
    "lines": [
-    636
+    655
    ],
    "count": 1,
    "context": [
@@ -228777,11 +228778,13 @@
     "<module>"
    ],
    "lines": [
-    74
+    74,
+    168
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\",",
+    "const MUG_SKIP: Array[String] = [\"4B_wake_bed\", \"4B_couch\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -228883,6 +228886,36 @@
    "target_exists": true
   },
   {
+   "key": "c4362550231a1f94",
+   "kind": "id_reference",
+   "token": "4B_mug",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    165
+   ],
+   "count": 1,
+   "context": [
+    "const MUG_SOURCE := \"4B_mug\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
    "key": "fe182f968dbbe7d5",
    "kind": "id_reference",
    "token": "4B_sink_counter",
@@ -228949,11 +228982,13 @@
     "<module>"
    ],
    "lines": [
-    74
+    74,
+    168
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\",",
+    "const MUG_SKIP: Array[String] = [\"4B_wake_bed\", \"4B_couch\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -229035,20 +229070,22 @@
     "_sync_ice_card",
     "_sync_occasion",
     "_survey",
+    "_level_top",
     "_find_windows"
    ],
    "lines": [
-    867,
-    869,
-    932,
-    934,
-    1265,
-    1290,
-    1305,
-    1467,
-    1485
+    886,
+    888,
+    951,
+    953,
+    1284,
+    1309,
+    1324,
+    1368,
+    1541,
+    1559
    ],
-   "count": 9,
+   "count": 10,
    "context": [
     "var unit := \"4B\"",
     "unit = str(loop.table.anchors.get(loop.visit_anchor(), {}).get(\"place\", \"4B\"))",
@@ -292995,10 +293032,11 @@
     294,
     367,
     418,
-    454,
-    473
+    427,
+    467,
+    486
    ],
-   "count": 6,
+   "count": 7,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
     "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",

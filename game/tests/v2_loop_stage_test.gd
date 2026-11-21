@@ -419,6 +419,19 @@ func _ready() -> void:
 				shut += 1
 		_check(stage.window_spots.size() >= stage.WINDOW_COLUMNS * stage.WINDOW_ROWS and shut == stage.window_spots.size(),
 				"and 4B's windows are papered over (%d sheets on %d places)" % [shut, stage.window_spots.size()])
+		var standing := 0
+		var level := true
+		for mug: Node3D in stage.mugs:
+			if not mug.visible:
+				continue
+			if world.unit_at_world(mug.global_position) == "4B":
+				standing += 1
+			var below := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(
+					mug.global_position + Vector3.UP * 0.05, mug.global_position + Vector3.DOWN * 0.05))
+			if below.is_empty() or (below.normal as Vector3).y < 0.97:
+				level = false
+		_check(stage.mug_spots.size() >= 6 and standing == stage.mug_spots.size() and level,
+				"and cups stand about the flat on level tops (%d cups on %d places)" % [standing, stage.mug_spots.size()])
 		await _snap("stage_full")
 		_feet = Vector3(wall_face.x, _feet.y, wall_face.z) + out * 1.3
 		_look = wall_face - Vector3.UP * 0.2
