@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Where the whole game stands and how to move it forward: one playable year first, every system one job in the case, speed for the arc, Bible amendments, six rulings (INERT proposal, 2026-11-21) | `design/ORISON_DIRECTION_PROPOSAL_2026-11-21.md` |
 | The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; Lily reads her lines by playtest) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
 | Neo-Noir Neon1929 game visual direction and cinematic optical/lighting/edit targets (owner adopted November12) | `design/ORISON_BIBLE.md` §VIII.5; `.agents/skills/machinima-production/references/neo-noir-neon-1929.md` |
 | Direct machinima, music videos and interactive scenes: Lily's camera/performance grammar, continuity, control recovery, shot template and review | `.agents/skills/machinima-production/SKILL.md` (canonical skill; supplied cinematography package integrated November12) |
