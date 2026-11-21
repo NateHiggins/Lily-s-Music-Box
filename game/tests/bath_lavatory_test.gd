@@ -338,10 +338,18 @@ func _check_closet_models() -> void:
 		actor.free()
 
 func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
-	var count := 0
+	var expected := {}
+	for path: String in ["res://data/orison_v2/domestic_furniture.json", "res://data/orison_v2/completion_interiors.json"]:
+		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+		for record: Dictionary in source.furniture:
+			if record.has("service_profile"):
+				expected[str(record.id)] = str(record.service_profile)
+	var installed := {}
 	for node in world.adapter.root.find_children("*","Node3D",true,false):
 		if node.get_script() != preload("res://scripts/building/orison_v2_water_closet.gd"): continue
-		count += 1
+		var identity := str(node.get_meta("v2_furniture_id", ""))
+		check(not identity.is_empty() and not installed.has(identity), "closet has one installed source identity: " + str(node.name))
+		installed[identity] = str(node.service_profile)
 		check(not str(node.service_profile).is_empty() and node._service_collision_rids.size() == 1,
 				"installed closet owns one selected fixed hardware collider: " + str(node.name))
 		check(node.parts.size() == 7 and node.parts.has("CisternCover") and node._chain != null,
@@ -370,7 +378,7 @@ func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
 			closet_contacts.append(row)
 			check(not hit.is_empty() and absf(node.to_local(hit.position).z-depth-.0045)<.0002,
 					"installed closet service meets surveyed wall and finish skin: " + str(row))
-	check(count == 19, "eighteen apartments and the staff restroom retain fitted closet service kits")
+	check(installed == expected and not expected.is_empty(), "all authored closets retain their exact installed service profiles")
 
 func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 	var closet: Node3D
