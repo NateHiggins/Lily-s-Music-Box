@@ -146,10 +146,19 @@ func _ready() -> void:
 	RealityState.data.prologue.phase = "prologue_complete"
 	check(loop.awaiting_introduction() and loop.arc_draft() == "Adela Voss. Photo Supplies. Across the street.",
 			"after the prologue her hands type her name, trade and street")
+	var refused: Dictionary = loop.command("Adela Voss. Photo Supplies. Across the street.")
+	check(str(refused.get("text", "")) == "SUBJECT: ADELA VOSS. TRADE: PHOTOGRAPHER."
+			and loop.arc_draft() == "Adela Voss. Photo Supplies. Across the street." and not (loop.ledger().get("arc", {}) as Dictionary).has("s01"),
+			"a reply the paper has not taken counts for nothing: a refused print leaves her line to be sent again")
 	var told: Dictionary = loop.command("Adela Voss. Photo Supplies. Across the street.")
+	(told.on_printed as Callable).call()
 	check(str(told.get("text", "")) == "SUBJECT: ADELA VOSS. TRADE: PHOTOGRAPHER." and loop.arc_draft() == "Is that enough?",
-			"the paper files her and she asks if it is enough (%s)" % str(told.get("text", "")))
+			"sent again and printed, the paper files her and she asks if it is enough (%s)" % str(told.get("text", "")))
+	(refused.on_printed as Callable).call()
+	(told.on_printed as Callable).call()
+	check(loop.arc_draft() == "Is that enough?", "a stale or repeated acceptance moves nothing")
 	var handed: Dictionary = loop.command("leads")
+	(handed.on_printed as Callable).call()
 	check(str(handed.get("text", "")).begins_with("It is enough to address you correctly.")
 			and str(handed.get("text", "")).contains("LEADS") and not loop.awaiting_introduction() and loop.arc_draft() == "",
 			"whatever is sent, the second answer comes first and hands over the commands")

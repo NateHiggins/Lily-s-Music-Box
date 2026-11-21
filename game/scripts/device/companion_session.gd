@@ -223,6 +223,9 @@ func submit(value: String) -> void:
 	_carrier.rig.pulse_key("ENTER")
 	if value.strip_edges().is_empty(): return
 	if not _scripted.is_empty() and _scripted_shown < _scripted.length(): return
+	# A scripted line is her hands', not the player's: the player's own draft
+	# is left exactly as it was whether the paper takes the line or not.
+	var scripted := not _scripted.is_empty()
 	var before := dialogue.memory.snapshot()
 	var context: Dictionary = context_provider.call() if context_provider.is_valid() else {}
 	var calendar: Dictionary = calendar_provider.call() if calendar_provider.is_valid() else {}
@@ -237,9 +240,11 @@ func submit(value: String) -> void:
 	close()
 	if not _print(reply):
 		dialogue.memory.restore(before)
-		draft = value.left(512)
+		if not scripted: draft = value.left(512)
 	else:
-		draft = ""
+		if not scripted: draft = ""
+		var printed: Variant = reply.get("on_printed")
+		if printed is Callable and (printed as Callable).is_valid(): (printed as Callable).call()
 		if str(reply.get("intent", "")) in ["silence", "leave"]:
 			chatter_enabled = false
 			_events.clear()

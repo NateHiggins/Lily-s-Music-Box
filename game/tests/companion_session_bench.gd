@@ -273,7 +273,71 @@ func exercise() -> void:
 	RealityState.load_game()
 	check(RealityState.load_status().status == "recovered" and carrier.session.draft == "help", "real storage rejects malformed companion and recovers validated previous generation")
 	check(Campaign.valid(RealityState.data.companion), "recovery never adopts corrupt correspondence fields")
+	await exercise_s01()
 	finish()
+
+
+## S01 on the real keyboard: her hands type the line, the player cannot hurry
+## or change it, and the exchange counts only once the paper has taken it.
+class RefusingLoop extends "res://scripts/game/temporal_loop.gd":
+	var refuse_device: Node = null
+	func command(raw: String) -> Dictionary:
+		var reply: Dictionary = super(raw)
+		if refuse_device != null:
+			refuse_device.incoming_call = true  # a line request takes the paper: this print is refused
+			refuse_device = null
+		return reply
+
+
+func exercise_s01() -> void:
+	var loop := RefusingLoop.new()
+	loop.table = loop._load_table()
+	add_child(loop)
+	loop.add_to_group("temporal_loop")
+	var prologue: Dictionary = RealityState.data.get("prologue", {})
+	var phase_before: Variant = prologue.get("phase")
+	prologue["phase"] = "prologue_complete"
+	RealityState.data["prologue"] = prologue
+	(loop.ledger() as Dictionary).erase("arc")
+	var own_draft: String = carrier.session.draft
+	var first := "Adela Voss. Photo Supplies. Across the street."
+	if not carrier.device.radio_powered: carrier.device.set_radio_powered(true)
+	await frames(2)
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "S01: the keyboard opens after the prologue"):
+		return
+	check(carrier.session._scripted == first and carrier.session._edit.text.length() < first.length(), "S01: her hands begin typing her line, key by key")
+	var reports: int = carrier.device.printed_count
+	var early: bool = await joy(JOY_BUTTON_A, "ENTER")
+	check(early and carrier.session.typing and carrier.device.printed_count == reports and loop.arc_draft() == first,
+		"S01: an early send presses Enter but sends nothing while her line is still being typed")
+	await type_text("zq")
+	check(first.begins_with(carrier.session._edit.text) and not carrier.session._edit.text.contains("z"),
+		"S01: the player's keys cannot change her line (%s)" % carrier.session._edit.text)
+	if not check(await wait_for(func(): return carrier.session._edit.text == first, 8.0), "S01: the whole line is typed"):
+		return
+	await wait_for(func(): return carrier.rig.typing_ready(), 4.0)
+	loop.refuse_device = carrier.device
+	await joy(JOY_BUTTON_A)
+	check(loop.refuse_device == null and not carrier.session.typing and carrier.device.printed_count == reports and loop.arc_draft() == first and not (loop.ledger().get("arc", {}) as Dictionary).has("s01"),
+		"S01: a refused print counts for nothing; her line waits to be sent again")
+	check(carrier.session.draft == own_draft, "S01: the player's own draft is untouched by her line")
+	carrier.device.incoming_call = false
+	await wait_for(func(): return carrier.session.available(), 6.0)
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "S01: the keyboard opens again for the retry"):
+		return
+	if not check(await wait_for(func(): return carrier.session._edit.text == first, 8.0), "S01: her line is typed again"):
+		return
+	await wait_for(func(): return carrier.rig.typing_ready(), 4.0)
+	await joy(JOY_BUTTON_A)
+	check(carrier.device.printed_count == reports + 1 and loop.arc_draft() == "Is that enough?",
+		"S01: the retry prints, and only then does she ask if it is enough")
+	check(carrier.session.draft == own_draft, "S01: the player's draft is still their own")
+	await wait_for(func(): return not carrier.device.teletype.printing)
+	await capture("s01_reply.png")
+	prologue["phase"] = phase_before
+	loop.queue_free()
 
 func publication_pass(clock: CampaignClock) -> void:
 	var catalog := reading_catalog()
