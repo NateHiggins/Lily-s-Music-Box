@@ -895,10 +895,16 @@ func _graft_thread_nodes(resident_id: String, into: Dictionary, active: Array[Di
 ## Open a person's threads with no door tree behind them, from a menu of their
 ## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
 ## patrolman have no door in the world yet, so this is how they are read.
-func start_mystery(resident_id: String) -> bool:
+func start_mystery(resident_id: String, spoken_only := false) -> bool:
 	if dialogue == null or dialogue.attention_active():
 		return false
 	var active := active_threads(resident_id, today(), minute_now())
+	if spoken_only:
+		var spoken: Array[Dictionary] = []
+		for thread: Dictionary in active:
+			if bool(thread.get("spoken", false)):
+				spoken.append(thread)
+		active = spoken
 	if active.is_empty():
 		return false
 	var tree := {"meta": (mystery[resident_id].meta as Dictionary).duplicate(), "nodes": {}}
