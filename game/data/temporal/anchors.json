@@ -30,6 +30,7 @@
 			{"number": 5, "date": "1929-11-02", "time": "00:00", "grants": "m_c_m3", "text": "INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK."}
 		],
 		"releases": [
+			{"flag": "m_key_loan_11", "slip": "RELEASED: THE ROOF."},
 			{"flag": "m_c_n16", "slip": "RELEASED: THE NIGHT OF 19 JULY."},
 			{"flag": "mt:ev_home", "slip": "RELEASED: THE SHOP."},
 			{"flag": "mt:ev_home", "slip": "RELEASED: EMIL."},
@@ -40,6 +41,29 @@
 			{"item": "kept_papers", "slip": "RELEASED: MRS. KESSLER."},
 			{"flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
 		],
+		"rescue": {
+			"after": "friday",
+			"date": "1929-07-19",
+			"begin": "18:00",
+			"asks_again": "mt:av_nineteen",
+			"offered": "FRIDAY EVENING, 19 JULY, AS OFTEN AS YOU LIKE. FRIDAY takes you to six o'clock.",
+			"entered": "19 JULY, SIX O'CLOCK. SHE COMES DOWN FOR THE ROOF KEY AT FIVE PAST. THE RECORD STOPS AT 21:01.",
+			"next": "SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT.",
+			"book": "THE KEY BOOK, IN GREASE PENCIL:",
+			"ended": "VISIT ENDED AT 21:01.",
+			"present": "AT 03:02 THE BODY WAS PRESENT.",
+			"seen": "m_rescue_seen",
+			"loans": [
+				{"flag": "m_key_loan_11", "line": "11 JULY, A.V., ROOF."},
+				{"flag": "m_key_loan_19", "line": "19 JULY, A.V., ROOF, STORM."}
+			],
+			"attempts": [
+				{"flag": "m_o2_kept_shop", "line": "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY."},
+				{"flag": "m_o2_refused_key", "line": "REFUSED A.V. THE ROOF KEY AT 18:05."},
+				{"flag": "m_o2_brought_monday", "line": "BROUGHT MISS Q. AND MR. E. TO THE SHOP AT 18:30. THEY READ THE PRINTS."},
+				{"flag": "m_o2_stood_roof", "line": "STOOD BY A.V. AT THE PARAPET."}
+			]
+		},
 		"correction": {
 			"after": "the_case",
 			"title": "CORRECTION TO THE BOROUGH RECORD, 21 JULY 1929.",

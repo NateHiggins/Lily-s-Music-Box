@@ -564,6 +564,48 @@ func _ready() -> void:
 	check("lost_lead" in loop.mend() and not loop.in_visit() and loop.state() == "CHOOSE_NEXT_ACTION", "a visit to a lead that no longer exists ends at home")
 	check(loop.mend().is_empty() and Loop.valid(loop.ledger()), "a ledger in order is left alone")
 
+	# Trying to save her: FRIDAY, an attempt, the snap to 3:02 and the key book.
+	check(loop.rescue_open() and str(loop.leads_text()).contains("FRIDAY takes you"), "once Friday's lead is worked, LEADS offers the evening")
+	RealityState.grant_knowledge("mt:av_nineteen")
+	RealityState.grant_knowledge("m_o2_stood_roof")
+	var evening: Dictionary = loop.command("friday")
+	check(str(evening.get("text", "")).begins_with("19 JULY, SIX O'CLOCK") and loop.today() == "1929-07-19" and loop._minute_of_day() == 18 * 60
+			and not RealityState.has_knowledge("mt:av_nineteen") and not RealityState.has_knowledge("m_o2_stood_roof"),
+			"FRIDAY sets the present to six o'clock on 19 July, and she will ask for the key again (%s)" % stamp())
+	var rescue_at := slips.size()
+	loop._attend_rescue()
+	check(slips.size() == rescue_at, "through the evening the book waits")
+	RealityState.grant_knowledge("m_o2_kept_shop")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 21.0 * 60.0)), "nine o'clock")
+	clock.advance_seconds(120.0)
+	check(loop.today() == "1929-07-20" and loop._minute_of_day() >= 3 * 60 + 2 and loop._minute_of_day() < 3 * 60 + 4,
+			"two minutes on, the record stops at 21:01 and the present is 3:02 on the 20th (%s)" % stamp())
+	loop._attend_rescue()
+	check(slips.size() == rescue_at + 2 and slips[rescue_at] == "|SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT."
+			and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:
+WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.",
+			"the key book gains one honest line for the attempt, ending at 21:01 and 3:02")
+	check(RealityState.has_knowledge("m_rescue_seen"), "and the companion may now be told about it")
+	loop._attend_rescue()
+	check(slips.size() == rescue_at + 2, "the evening is written once")
+	check(loop.go_friday().ok, "FRIDAY again")
+	RealityState.grant_knowledge("m_o2_refused_key")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 25, 720.0)), "and away before nine")
+	loop._attend_rescue()
+	check(slips.size() == rescue_at + 3 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:
+REFUSED A.V. THE ROOF KEY AT 18:05.",
+			"left before 21:01, the line says only what was done, and nothing of 3:02")
+	RealityState.grant_knowledge("m_key_loan_11")
+	RealityState.grant_knowledge("m_key_loan_19")
+	check(str(loop.command("book").get("text", "")) == "THE KEY BOOK, IN GREASE PENCIL:
+11 JULY, A.V., ROOF.
+19 JULY, A.V., ROOF, STORM.
+"
+			+ "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.
+REFUSED A.V. THE ROOF KEY AT 18:05.",
+			"BOOK reads the loans she signed for and every attempt, in order")
+	(RealityState.data.knowledge_flags as Array).erase("m_key_loan_11")
+
 	# The end: the correction, the last night on the roof, and the choice.
 	check(loop.case_closed() and loop.last_night_open() and str(loop.leads_text()).contains("LAST takes you to it"),
 			"LEADS offers the last night once the case is closed")
@@ -641,6 +683,9 @@ func _ready() -> void:
 	loop._attend_releases()
 	check(slips.size() == before_release + 1 and slips.back() == "|RELEASED: NADIA.",
 			"when the telling ends, RELEASED: NADIA. prints once, with no comment")
+	RealityState.grant_knowledge("m_key_loan_11")
+	loop._attend_releases()
+	check(slips.size() == before_release + 2 and slips.back() == "|RELEASED: THE ROOF.", "signing for the roof on 11 July releases the roof")
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))
