@@ -114,8 +114,8 @@ func find_target() -> Dictionary:
 func _seat_target(origin: Vector3,direction: Vector3,hit_distance: float) -> Dictionary:
 	return seat_lookup.call(origin,direction,hit_distance) if seat_lookup.is_valid() and not player.inspecting() else {}
 
-func _context_owner(descriptor: Dictionary,inspection := false) -> Node3D:
-	var owner: Node3D=descriptor.get("owner")
+func _context_owner(descriptor: Dictionary,inspection := false) -> Node:
+	var owner: Node=descriptor.get("owner")
 	if owner!=null and not inspection and owner.has_method("interaction_owner_for"): return owner.interaction_owner_for(descriptor.part)
 	if owner!=null and owner.has_method("inspection_owner_for"): return owner.inspection_owner_for(descriptor.part)
 	return owner
