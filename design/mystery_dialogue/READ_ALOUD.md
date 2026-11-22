@@ -493,6 +493,17 @@ Route and delivery. No rate for thoughts. Directional, impatient with preamble. 
 - **CAM ORTIZ** (co_e3): The lady across the road. Walked it over to me herself and paid for the stairs. Six flights, a nickel, she says to me it's a nickel because I'm charging for the view. She was funny. Is that it?
 - **CAM ORTIZ** (co_e1s): I've got eleven more and the bridge is backing up. Walk with me or don't.
 
+### "That one's for 6C?"
+
+1929-07-19 to 1929-07-19 · 18:00-18:10
+
+- **CAM ORTIZ** (co_k1): Night man. Six C, ten past, in her hand. Six flights and the bridge is backing up, so mind out.
+  - > Leave it with me. → co_k2
+  - > Go on, then. → co_k3
+  - (silence) → co_k3
+- **CAM ORTIZ** (co_k2): It's paid to her door, not your pocket. You're staff, though. All right, it's yours now, and so's the nickel's worth of stairs.
+- **CAM ORTIZ** (co_k3): Ten past six. Six C. Don't let anyone tell you I never run.
+
 ### "Omar says he learned who owned the windmill."
 
 1928-11-10 to 1929-11-09 · needs **m_heard_windmill**

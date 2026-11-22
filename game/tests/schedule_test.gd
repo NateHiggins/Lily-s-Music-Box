@@ -69,7 +69,11 @@ func _flavour_days(director: ScheduleDirector) -> int:
 				fails += 1
 	for slug in director.data.get("residents", {}):
 		for sd in director.data.residents[slug].get("special_days", []):
-			if int(sd.get("doy", 0)) in [200, 201, 202, 203]:
+			# The guarded window opens on the evening of 19 July: a day that ends before
+			# seven that Friday (Cam's envelope, B08, at ten past six) stands clear of it.
+			var before_evening := int(sd.get("doy", 0)) == 200 \
+					and (sd.get("blocks", []) as Array).all(func(b): return int(b.end_min) <= 19 * 60)
+			if int(sd.get("doy", 0)) in [200, 201, 202, 203] and not before_evening:
 				print("[SCHED] FAIL: %s has a special day inside 19-22 July" % slug)
 				fails += 1
 	print("[SCHED] flavour special days: %d failures" % fails)

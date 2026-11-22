@@ -47,6 +47,10 @@ func _run() -> void:
 	var thread_ids := func(resident: String, date: String, minute: int) -> Array:
 		return conversations.active_threads(resident, date, minute).map(func(t): return t.id)
 	_check("a thread waits for its date", "nq_stool" not in thread_ids.call("nadia_quell", "1929-02-01", 720))
+	# The first rescue lever: Cam's envelope for 6C can be kept only before he takes it up at ten past six.
+	_check("Cam's envelope can be asked for at five past six", "co_keep" in thread_ids.call("cam_ortiz", "1929-07-19", 18 * 60 + 5))
+	_check("and not once it has gone up", "co_keep" not in thread_ids.call("cam_ortiz", "1929-07-19", 18 * 60 + 15))
+	_check("and on no other Friday", "co_keep" not in thread_ids.call("cam_ortiz", "1929-07-26", 18 * 60 + 5))
 	_check("a thread opens on its date", "nq_stool" in thread_ids.call("nadia_quell", "1929-03-10", 720))
 	_check("a thread closes after its date", "nq_stool" not in thread_ids.call("nadia_quell", "1929-04-01", 720))
 	_check("hours gate", "ev_home" not in thread_ids.call("emil_voss", "1929-07-22", 9 * 60))

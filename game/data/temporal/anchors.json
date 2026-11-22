@@ -44,7 +44,7 @@
 			"after": "friday",
 			"date": "1929-07-19",
 			"begin": "18:00",
-			"asks_again": "mt:av_nineteen",
+			"asks_again": ["mt:av_nineteen", "mt:co_keep"],
 			"offered": "FRIDAY EVENING, 19 JULY, AS OFTEN AS YOU LIKE. FRIDAY takes you to six o'clock.",
 			"entered": "19 JULY, SIX O'CLOCK. SHE COMES DOWN FOR THE ROOF KEY AT FIVE PAST. THE RECORD STOPS AT 21:01.",
 			"next": "SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT.",
@@ -59,6 +59,7 @@
 			"attempts": [
 				{"flag": "m_o2_kept_shop", "line": "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY."},
 				{"flag": "m_o2_refused_key", "line": "REFUSED A.V. THE ROOF KEY AT 18:05."},
+				{"flag": "m_o2_kept_envelope", "line": "KEPT AN ENVELOPE FOR 6C."},
 				{"flag": "m_o2_brought_monday", "line": "BROUGHT MISS Q. AND MR. E. TO THE SHOP AT 18:30. THEY READ THE PRINTS."},
 				{"flag": "m_o2_stood_roof", "line": "STOOD BY A.V. AT THE PARAPET."}
 			]

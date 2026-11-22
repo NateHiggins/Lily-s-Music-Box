@@ -628,10 +628,12 @@ func _ready() -> void:
 	# Trying to save her: FRIDAY, an attempt, the snap to 3:02 and the key book.
 	check(loop.rescue_open() and str(loop.leads_text()).contains("FRIDAY takes you"), "once Friday's lead is worked, LEADS offers the evening")
 	RealityState.grant_knowledge("mt:av_nineteen")
+	RealityState.grant_knowledge("mt:co_keep")
 	RealityState.grant_knowledge("m_o2_stood_roof")
 	var evening: Dictionary = loop.command("friday")
 	check(str(evening.get("text", "")).begins_with("19 JULY, SIX O'CLOCK") and loop.today() == "1929-07-19" and loop._minute_of_day() == 18 * 60
-			and not RealityState.has_knowledge("mt:av_nineteen") and not RealityState.has_knowledge("m_o2_stood_roof"),
+			and not RealityState.has_knowledge("mt:av_nineteen") and not RealityState.has_knowledge("mt:co_keep")
+			and not RealityState.has_knowledge("m_o2_stood_roof"),
 			"FRIDAY sets the present to six o'clock on 19 July, and she will ask for the key again (%s)" % stamp())
 	var rescue_at := slips.size()
 	loop._attend_rescue()
@@ -660,6 +662,12 @@ func _ready() -> void:
 			+ "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.\nREFUSED A.V. THE ROOF KEY AT 18:05.",
 			"BOOK reads the loans she signed for and every attempt, in order")
 	(RealityState.data.knowledge_flags as Array).erase("m_key_loan_11")
+	check(loop.go_friday().ok, "FRIDAY a third time")
+	RealityState.grant_knowledge("m_o2_kept_envelope")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 25, 720.0)), "and away again")
+	loop._attend_rescue()
+	check(slips.size() == rescue_at + 4 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:\nKEPT AN ENVELOPE FOR 6C.",
+			"keeping Cam's envelope for 6C writes its own honest line")
 
 	# The end: the correction, the last night on the roof, and the choice.
 	check(loop.case_closed() and loop.last_night_open() and str(loop.leads_text()).contains("LAST takes you to it"),
