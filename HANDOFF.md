@@ -1,3 +1,19 @@
+# Fresh title through S01 and LEADS - November 22
+
+Evidence class: **INERT**
+
+The actual title fixture now exercises the natural prologue and the
+companion's two S01 exchanges in one installed campaign. The first received
+copy follows the printed handoff. The player types LEADS at the live
+keyboard and the first offer is the free 6C visit. The saved campaign
+contains the completed introduction and copy receipt.
+
+The corrected run passed 31 assertions. Its fixture uses a fixed
+creation clock and scripted player input. The physical route from 4B
+to the first 6C pickup, wall filing, the full year and Lily's play
+remain open.
+[Runtime contract and preserved original failure](C:/ov/reports/title_to_s01_20261122/REPORT.md).
+
 # The 4B key book and July roof visit - November 22
 
 Evidence class: **INERT**

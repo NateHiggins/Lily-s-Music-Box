@@ -625,11 +625,11 @@ HOST_ARTIFACT_FIELDS = {
 # monotonic timings with the externally recorded native process birth. The
 # exact fixture binding makes any change to the receipt or its sinks reviewable.
 TITLE_TIMING_FIXTURE = "game/tests/title_continue_actual_launch_test.gd"
-TITLE_TIMING_FIXTURE_SHA256 = "74a584fa3daba728c5e724d7b4fa8b86c4133bacf43a9c8523e0878ce93444bd"
+TITLE_TIMING_FIXTURE_SHA256 = "f4095010af98300edacd5ce1d08e002eb9b071199e6d0617115e5944277ffa3f"
 
 
 def _reviewed_title_timing_anchor(ctx: FileContext, line_no: int) -> bool:
-    return (ctx.rel == TITLE_TIMING_FIXTURE and line_no in (46, 436)
+    return (ctx.rel == TITLE_TIMING_FIXTURE and line_no in (49, 443)
             and hashlib.sha256(ctx.text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
             == TITLE_TIMING_FIXTURE_SHA256)
 

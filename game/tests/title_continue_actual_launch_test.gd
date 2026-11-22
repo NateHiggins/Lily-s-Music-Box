@@ -42,6 +42,9 @@ class LaunchObserver extends Node:
 	var nook_test_path := ""
 	var nook_scene_path := ""
 	var nook_script_node_path := ""
+	var s01_source: Dictionary = {}
+	var s01_started := 0
+	var s01_copies: Array[String] = []
 	var timing := {}
 	var born_anchor_utc := Time.get_unix_time_from_system()
 	var born_anchor_usec := Time.get_ticks_usec()
@@ -353,6 +356,8 @@ class LaunchObserver extends Node:
 					checks["full_opening_acknowledges_intro_without_inventing_shift"]=opening.state.phase=="prologue_complete" and bool(RealityState.data.intro_complete) and RealityState.data.maintenance_jobs.is_empty() and RealityState.data.first_shift in [{},{"phase":FirstShiftDirector.PHASE_ARRIVED}]
 					checks["full_title_route_has_no_failed_interactions"]=route.interaction_checks.all(func(row:Dictionary)->bool:return row.ok) and route.trace.size()>0
 					route.queue_free();await get_tree().process_frame
+				if not s01_source.is_empty() and checks.actual_title_full_input_route_passes:
+					await _play_s01(world, checks)
 				elif timed_bedroom:
 					await measure_bedroom_control(shell, world, checks)
 					checks["fresh_opening_preserves_intro_and_job_boundary"] = not bool(RealityState.data.intro_complete) \
@@ -422,6 +427,8 @@ class LaunchObserver extends Node:
 				failures += 1
 		if harukiya != null and not harukiya.write_contract(self, checks, failures):
 			failures += 1
+		if not s01_source.is_empty() and not _write_s01_contract(checks):
+			failures += 1
 		var receipt := {"checks": checks, "expected_facts": expected, "actual_facts": actual,
 				"onboarding": {"intro_complete": RealityState.data.intro_complete,
 					"first_shift": RealityState.data.first_shift.duplicate(true),
@@ -461,6 +468,133 @@ class LaunchObserver extends Node:
 		print("[TITLE ACTUAL CONTINUE] checks=%d failures=%d" % [checks.size(), failures])
 		get_tree().quit(0 if failures == 0 else 1)
 
+	func _play_s01(world: OrisonV2RuntimeRoot, checks: Dictionary) -> void:
+		var loop: Node = world.temporal_loop
+		var carrier: Node = world.service_set_carrier
+		var session: Node = carrier.session
+		var paper: Node = carrier.device.teletype
+		var campaign: Dictionary = RealityState.data
+		paper.card_presenting.connect(func(card: Dictionary, _serial: int):
+			if card.get("title") == "CORRESPONDENCE":
+				s01_copies.append(str(card.get("body", ""))))
+		checks["s01_awaits_the_first_line_after_the_real_prologue"] = loop.awaiting_introduction()
+		var ready := func(): return session.available() and paper.copy_delivered() and session._loop_slips.is_empty()
+		if not await _s01_wait(ready):
+			checks["s01_companion_returns_to_the_player"] = false
+			return
+		checks["s01_companion_returns_to_the_player"] = true
+		if not carrier.reading:
+			await _s01_key(KEY_E)
+		var j := 0
+		var handoff := ""
+		for exchange: Dictionary in loop.table.arc.s01.exchanges:
+			j += 1
+			await _s01_key(KEY_ENTER)
+			var typed := func(): return session.typing and session._edit.text == str(exchange.typed) and carrier.rig.typing_ready()
+			checks["s01_line_%d_types_at_the_live_keyboard" % j] = await _s01_wait(typed)
+			if not checks["s01_line_%d_types_at_the_live_keyboard" % j]:
+				return
+			var expected := str(exchange.reply)
+			if j == loop.table.arc.s01.exchanges.size():
+				handoff = expected + "\n\n" + str(loop.table.arc.s01.handoff)
+				expected = handoff
+			await _s01_key(KEY_ENTER)
+			checks["s01_reply_%d_arrives_on_the_live_paper" % j] = await _s01_wait(ready) \
+					and s01_copies.count(expected) == 1 and paper.ink.is_visible_in_tree()
+			if not checks["s01_reply_%d_arrives_on_the_live_paper" % j]:
+				return
+			await _capture("s01_after_reply_%d" % j)
+		checks["s01_handoff_is_printed_before_the_player_command"] = not loop.awaiting_introduction() \
+				and s01_copies.has(handoff)
+		var first_copy: Dictionary = loop.table.arc.copies[0]
+		var received := "RECEIVED COPY 1. " + str(first_copy.text)
+		checks["s01_first_received_copy_follows_the_handoff"] = await _s01_wait(
+				func(): return ready.call() and s01_copies.has(received)) \
+					and s01_copies.count(received) == 1 and s01_copies.find(received) > s01_copies.find(handoff)
+		await _s01_key(KEY_ENTER)
+		checks["s01_keyboard_opens_for_the_first_player_command"] = await _s01_wait(
+				func(): return session.typing and carrier.rig.typing_ready())
+		if not checks.s01_keyboard_opens_for_the_first_player_command:
+			return
+		await _s01_key(KEY_A, 0, true)
+		for character: String in "leads":
+			await _s01_key(character.to_upper().unicode_at(0), character.unicode_at(0))
+		checks["s01_leads_is_entered_by_the_player"] = session._edit.text == "leads"
+		await _s01_key(KEY_ENTER)
+		checks["s01_leads_lists_the_unworked_opening_visit"] = await _s01_wait(ready) \
+				and s01_copies.count(loop.leads_text()) == 1 \
+				and loop.leads_text().contains("THE RADIATOR IN 6C") \
+				and loop.unlocked() == ["tea"] and not loop.in_visit()
+		RealityState.flush_background_saves()
+		var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
+		checks["s01_save_contains_the_printed_handoff"] = saved is Dictionary \
+				and int(saved.get("temporal", {}).get("arc", {}).get("s01", 0)) == j \
+				and (saved.get("temporal", {}).get("arc", {}).get("copies", []) as Array).has(1.0)
+		checks["s01_keeps_one_campaign_and_leaves_the_first_shift_untouched"] = is_same(campaign, RealityState.data) \
+				and RealityState.data.maintenance_jobs.is_empty()
+		await _capture("s01_leads")
+
+	func _s01_wait(condition: Callable) -> bool:
+		var deadline := Time.get_ticks_msec() + 18000
+		while not bool(condition.call()) and Time.get_ticks_msec() < deadline:
+			await get_tree().process_frame
+		return bool(condition.call())
+
+	func _s01_key(code: int, unicode := 0, control := false) -> void:
+		for pressed: bool in [true, false]:
+			var event := InputEventKey.new()
+			event.physical_keycode = code
+			event.keycode = code
+			event.unicode = unicode if pressed else 0
+			event.ctrl_pressed = control
+			event.pressed = pressed
+			Input.parse_input_event(event)
+			Input.flush_buffered_events()
+			await get_tree().process_frame
+
+	func _s01_sources() -> Dictionary:
+		var root := ProjectSettings.globalize_path("res://").path_join("..").simplify_path()
+		var head: Array = []
+		var digest: Array = []
+		if OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) != 0 \
+				or OS.execute("python", [root.path_join("tools/run_receipt.py"), "digest", "--root", root], digest) != 0:
+			return {}
+		var bound := {}
+		for path: String in [NOOK_TITLE_SCENE, "res://tests/title_continue_actual_launch_test.gd",
+				"res://tests/prologue_tutorial_route.gd", "res://tests/orison_v2_4b_door_route_test.gd",
+				"res://tests/orison_v2_passage_route_test.gd"]:
+			if not FileAccess.file_exists(path):
+				return {}
+			bound["game/" + path.trim_prefix("res://")] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
+		return {"repository_head": str(head[0]).strip_edges(), "runtime_inputs_sha256": str(digest[0]).strip_edges(),
+			"dependencies_lf_sha256": bound}
+
+	func _write_s01_contract(checks: Dictionary) -> bool:
+		var after := _s01_sources()
+		var failed := checks.keys().filter(func(key): return not checks[key])
+		if after != s01_source:
+			failed.append("bound sources changed")
+		if not checks.get("s01_save_contains_the_printed_handoff", false):
+			failed.append("S01 continuity did not reach its save boundary")
+		var path := OS.get_environment("SHOT_DIR").path_join("title_to_s01.runtime.json")
+		if FileAccess.file_exists(path):
+			return false
+		var stream := FileAccess.open(path, FileAccess.WRITE)
+		if stream == null:
+			return false
+		stream.store_string(JSON.stringify({"schema_version": 2, "evidence_kind": "runtime_contract",
+			"selector": "v2", "production_runtime": true,
+			"scope": "Actual title and unskipped prologue through physical S01 and LEADS. Scripted input and a fixed fixture clock. Ends at the first offered lead.",
+			"source": {"repository_head": s01_source.repository_head, "runtime_inputs_sha256": s01_source.runtime_inputs_sha256,
+				"test_path": "game/tests/title_continue_actual_launch_test.gd",
+				"test_sha256": s01_source.dependencies_lf_sha256["game/tests/title_continue_actual_launch_test.gd"],
+				"before": s01_source, "after": after},
+			"execution": {"completed": true, "exit_code": 0 if failed.is_empty() else 1, "timed_out": false,
+				"elapsed_s": (Time.get_ticks_msec() - s01_started) / 1000.0},
+			"checks": checks.size(), "assertions": checks, "observed_copies": s01_copies, "failures": failed}, "\t"))
+		stream.close()
+		return failed.is_empty()
+
 	func _packed_washer_restored(world: Node) -> bool:
 		if not world is OrisonV2RuntimeRoot or world.startup_failed:
 			return false
@@ -488,6 +622,12 @@ func _ready() -> void:
 	if OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE")=="1":
 		if action!="begin":get_tree().quit(2);return
 		OS.set_environment("PROLOGUE_FULL_SEQUENCE","1")
+	if OS.get_environment("TITLE_ACTUAL_THROUGH_S01") == "1" \
+			and (OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE") != "1"
+				or OS.get_environment("PROLOGUE_UNINTERRUPTED") != "1"):
+		push_error("S01 continuity requires the uninterrupted fresh-title programme")
+		get_tree().quit(2)
+		return
 	if action not in ["continue", "begin", "new"]:
 		get_tree().quit(2)
 		return
@@ -649,6 +789,14 @@ func _admit_nook_export() -> Dictionary:
 
 func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_washer := false) -> void:
 	var observer := LaunchObserver.new()
+	if OS.get_environment("TITLE_ACTUAL_THROUGH_S01") == "1":
+		observer.s01_started = Time.get_ticks_msec()
+		observer.s01_source = observer._s01_sources()
+		if observer.s01_source.is_empty() or OS.get_environment("SHOT_DIR").is_empty():
+			observer.free()
+			push_error("S01 continuity requires frozen sources and a receipt directory")
+			get_tree().quit(2)
+			return
 	observer.harukiya = _harukiya
 	observer.action = action
 	observer.timed_bedroom = timed_bedroom
