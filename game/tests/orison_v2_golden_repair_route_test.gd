@@ -145,6 +145,10 @@ func _prepared_shop_id() -> String:
 	return "hardware_paint"
 
 
+func _prepared_door_id() -> String:
+	return "SITE_SHOP_DOOR_HARDWARE_PAINT"
+
+
 func _prepared_trade(door: DoorProp) -> bool:
 	if not _prepare_procurement(): return false
 	var shop := _prepared_shop_id()
@@ -154,15 +158,14 @@ func _prepared_trade(door: DoorProp) -> bool:
 	if not _require(counter != null and fitted != null and world.shop_service.pending_item(shop) == part,
 			"the fitted hardware counter offers the diagnosed job's capsule"): return false
 	var inside := door.to_global(Vector3(door.width * .5, 0, -1.0))
-	var centre := door.to_global(Vector3(door.width * .5, 0, 0))
-	var approach := Vector3(9.7, .01, centre.z)
 	var front := fitted.to_global(Vector3(0, .01 - fitted.global_position.y, -.95))
-	if not await _walk_world(approach) or not await _walk_world(front): return false
+	var customer_aisle := Vector3(inside.x, front.y, front.z)
+	if not await _walk_world(customer_aisle) or not await _walk_world(front): return false
 	if not await _use(counter, counter.global_position, "golden_capsule"): return false
 	if not _require(world.maintenance_inventory.has_item(part) and world.shop_service.pending_item(shop).is_empty(),
 			"the actual requisition lever hands over the part once"): return false
 	if not _check_requisition_duplicate_refusal(): return false
-	return await _walk_world(approach) and await _walk_world(inside)
+	return await _walk_world(customer_aisle) and await _walk_world(inside)
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)

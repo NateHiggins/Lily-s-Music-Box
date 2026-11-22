@@ -269438,7 +269438,7 @@
     "_use"
    ],
    "lines": [
-    107
+    110
    ],
    "count": 1,
    "context": [
@@ -269458,21 +269458,21 @@
    "target_exists": false
   },
   {
-   "key": "5ed137ad23303941",
+   "key": "c70d1074cc2363d2",
    "kind": "id_reference",
-   "token": "F02_DOOR_02",
+   "token": "F01_DOOR_06",
    "file": "game/tests/orison_v2_golden_repair_route_test.gd",
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_enter_2a"
+    "_enter_front_entrance"
    ],
    "lines": [
-    153
+    138
    ],
    "count": 1,
    "context": [
-    "if not await _open_apartment_door(\"F02_DOOR_02\"): return false"
+    "var entry: Node3D = world.adapter.resolve(\"F01_DOOR_06\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -269484,8 +269484,69 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "F02/marker+v2_blockout",
+   "resolved_target": "F01/marker+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "8f89bcbb746039d1",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepared_door_id"
+   ],
+   "lines": [
+    149
+   ],
+   "count": 1,
+   "context": [
+    "return \"SITE_SHOP_DOOR_HARDWARE_PAINT\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "8518c142862c2c57",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_enter_front_entrance"
+   ],
+   "lines": [
+    139
+   ],
+   "count": 1,
+   "context": [
+    "var leaf := entry.get_node_or_null(\"F01_DOOR_06_Leaf\") as DoorProp if entry != null else null"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "e3a92707eb32cf34",
@@ -269498,7 +269559,7 @@
     "_open_first_shift"
    ],
    "lines": [
-    80
+    83
    ],
    "count": 1,
    "context": [
@@ -269529,7 +269590,7 @@
     "_open_first_shift"
    ],
    "lines": [
-    71
+    74
    ],
    "count": 1,
    "context": [
@@ -269550,39 +269611,34 @@
    "target_exists": true
   },
   {
-   "key": "3f457a9edf18ae5d",
-   "kind": "vector3_coordinate",
-   "token": "_enter_front_entrance",
+   "key": "875d486d3d25c9e1",
+   "kind": "unit_reference",
+   "token": "2A",
    "file": "game/tests/orison_v2_golden_repair_route_test.gd",
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_enter_front_entrance"
+    "_enter_2a"
    ],
    "lines": [
-    136,
-    138,
-    139
+    181
    ],
-   "count": 3,
+   "count": 1,
    "context": [
-    "if not await _walk(Vector3(0,0,-13.55)):return false",
-    "if not await _walk(Vector3(0,0,-10.2)):return false",
-    "return await _walk(Vector3(0,0,-8.5))"
+    "return _require(world.player_unit() == \"2A\", \"the player walks through the real apartment entrance\")"
    ],
-   "gameplay_binding": true,
+   "gameplay_binding": false,
    "authority": [
     "TEST_CONTRACT"
    ],
    "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
+    "SEMANTIC_ANCHOR"
    ],
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   },
   {
    "key": "26f8c1262c7f541b",
@@ -269601,7 +269657,7 @@
     30,
     30,
     30,
-    40
+    43
    ],
    "count": 7,
    "context": [
@@ -274467,7 +274523,7 @@
     "_route"
    ],
    "lines": [
-    218
+    234
    ],
    "count": 1,
    "context": [
@@ -274494,15 +274550,16 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_route_prepared",
+    "_prepared_door_id",
     "_prepared_save_fixture"
    ],
    "lines": [
-    12,
-    54
+    15,
+    70
    ],
    "count": 2,
    "context": [
+    "return \"SITE_SHOP_DOOR_KEYS_CUT\"",
     "var identity := \"SITE_SHOP_DOOR_KEYS_CUT\""
    ],
    "gameplay_binding": false,
@@ -274530,12 +274587,12 @@
     "_prepared_settle_blank"
    ],
    "lines": [
-    89,
-    107,
-    134,
-    134,
-    182,
-    182
+    105,
+    123,
+    150,
+    150,
+    198,
+    198
    ],
    "count": 6,
    "context": [
@@ -274568,22 +274625,22 @@
     "_route"
    ],
    "lines": [
-    207,
-    207,
-    207,
-    208,
-    208,
-    208,
-    209,
-    209,
-    209,
-    210,
-    217,
-    239,
-    262,
-    264,
-    264,
-    264
+    223,
+    223,
+    223,
+    224,
+    224,
+    224,
+    225,
+    225,
+    225,
+    226,
+    233,
+    255,
+    278,
+    280,
+    280,
+    280
    ],
    "count": 16,
    "context": [
@@ -274617,28 +274674,25 @@
     "_route_prepared"
    ],
    "lines": [
-    19,
-    19,
-    19,
-    19,
-    21,
-    21,
-    21,
-    22,
-    22,
-    22,
-    23,
-    23,
-    29,
+    28,
+    28,
+    28,
+    28,
+    30,
+    30,
     30,
     31,
+    31,
+    31,
     32,
-    45,
-    45,
-    45,
-    45
+    32,
+    41,
+    61,
+    61,
+    61,
+    61
    ],
-   "count": 20,
+   "count": 17,
    "context": [
     "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:",
     "var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),",
