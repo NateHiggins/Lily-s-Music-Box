@@ -1242,9 +1242,9 @@ func _process(delta: float) -> void:
 	if not clock.loop_calendar_active():
 		_settle_pace()
 		return
+	_attend_rescue()
 	_attend_copies()
 	_attend_releases()
-	_attend_rescue()
 	if in_visit():
 		_attend_visit()
 	else:
@@ -1335,6 +1335,7 @@ func go_friday() -> Dictionary:
 	if not rescue_open():
 		return {"ok": false, "code": "closed"}
 	var rescue: Dictionary = table.arc.rescue
+	_attend_rescue()
 	var parts := str(rescue.date).split("-")
 	if not clock.rebase_calendar(CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]),
 			float(_clock_minutes(str(rescue.begin))))):
@@ -1349,6 +1350,7 @@ func go_friday() -> Dictionary:
 		for attempt: Dictionary in rescue.attempts:
 			(known as Array).erase(str(attempt.flag))
 	_arc_state()["evening"] = true
+	_arc_state()["evening_started_elapsed"] = clock.elapsed_minutes()
 	RealityState.commit()
 	changed.emit()
 	return {"ok": true}
@@ -1356,21 +1358,30 @@ func go_friday() -> Dictionary:
 
 func _attend_rescue() -> void:
 	var arc := _arc_state()
-	if not bool(arc.get("evening", false)):
+	if bool(arc.get("evening", false)) and table.arc.get("rescue") is Dictionary:
+		var started: Variant = arc.get("evening_started_elapsed")
+		var snapped := (started is float or started is int) and clock.blackout_snap_elapsed() > float(started)
+		if snapped or today() != str(table.arc.rescue.date):
+			_close_evening(snapped)
+
+	var pending: Variant = arc.get("rescue_paper")
+	if not _receive_slip.is_valid() or pending is not Array or pending.is_empty():
 		return
-	var rescue: Dictionary = table.arc.rescue
-	var now := clock.calendar_minutes()
-	var snapped := now >= CampaignClock.blackout_end_minute() \
-			and now < CampaignClock.blackout_end_minute() + 60.0
-	if today() == str(rescue.date) and not snapped:
-		return
-	_close_evening(snapped)
+	var accepted := false
+	while not pending.is_empty() and _receive_slip.call(ledger(), str(pending.front())):
+		pending.pop_front()
+		accepted = true
+	if pending.is_empty():
+		arc.erase("rescue_paper")
+	if accepted:
+		RealityState.commit_background()
 
 
 func _close_evening(snapped: bool) -> void:
 	var arc := _arc_state()
 	var rescue: Dictionary = table.arc.rescue
 	arc.erase("evening")
+	arc.erase("evening_started_elapsed")
 	var tried: Array[String] = []
 	for attempt: Dictionary in rescue.attempts:
 		if RealityState.has_knowledge(str(attempt.flag)):
@@ -1381,12 +1392,15 @@ func _close_evening(snapped: bool) -> void:
 	if arc.get("book") is not Array:
 		arc["book"] = []
 	(arc.book as Array).append_array(tried)
-	if snapped:
-		slip.emit("", str(rescue.next))
+	if snapped or not tried.is_empty():
+		var pending: Array = arc.get("rescue_paper", []) if arc.get("rescue_paper") is Array else []
+		if snapped:
+			pending.append(str(rescue.next))
+			if not tried.is_empty():
+				RealityState.grant_knowledge(str(rescue.seen))
 		if not tried.is_empty():
-			RealityState.grant_knowledge(str(rescue.seen))
-	if not tried.is_empty():
-		slip.emit("", "%s\n%s" % [str(rescue.book), "\n".join(tried)])
+			pending.append("%s\n%s" % [str(rescue.book), "\n".join(tried)])
+		arc["rescue_paper"] = pending
 	RealityState.commit_background()
 
 
