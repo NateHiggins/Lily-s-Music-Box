@@ -1242,6 +1242,7 @@ func _process(delta: float) -> void:
 	if not clock.loop_calendar_active():
 		_settle_pace()
 		return
+	_attend_rescue()
 	_attend_copies()
 	_attend_releases()
 	if in_visit():
@@ -1315,6 +1316,105 @@ func _attend_releases() -> void:
 	if accepted:
 		arc["released"] = released
 		RealityState.commit_background()
+
+
+## Trying to save her (treatment section 6). Once Friday's lead is worked,
+## FRIDAY puts the present at six o'clock on 19 July, as often as the player
+## likes. Prevention snaps back: the clock already refuses the murder hours and
+## comes out at 3:02. The night man's key book gains one line per attempt,
+## saying only what the player did; it ends the visit at 21:01 and finds the
+## body at 3:02 only when the player was carried through to that moment.
+func rescue_open() -> bool:
+	return table.get("arc") is Dictionary and table.arc.get("rescue") is Dictionary \
+			and answered(str(table.arc.rescue.after)) and ending() == ""
+
+
+func go_friday() -> Dictionary:
+	if in_visit():
+		return {"ok": false, "code": "away"}
+	if not rescue_open():
+		return {"ok": false, "code": "closed"}
+	var rescue: Dictionary = table.arc.rescue
+	_attend_rescue()
+	var parts := str(rescue.date).split("-")
+	if not clock.rebase_calendar(CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]),
+			float(_clock_minutes(str(rescue.begin))))):
+		return {"ok": false, "code": "refused"}
+	if bool(_arc_state().get("evening", false)):
+		_close_evening(false)
+	# The evening runs again: she asks for the key again, and what the player
+	# does tonight is tonight's. The book keeps every earlier night.
+	var known: Variant = RealityState.data.get("knowledge_flags")
+	if known is Array:
+		(known as Array).erase(str(rescue.asks_again))
+		for attempt: Dictionary in rescue.attempts:
+			(known as Array).erase(str(attempt.flag))
+	_arc_state()["evening"] = true
+	_arc_state()["evening_started_elapsed"] = clock.elapsed_minutes()
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true}
+
+
+func _attend_rescue() -> void:
+	var arc := _arc_state()
+	if bool(arc.get("evening", false)) and table.arc.get("rescue") is Dictionary:
+		var started: Variant = arc.get("evening_started_elapsed")
+		var snapped := (started is float or started is int) and clock.blackout_snap_elapsed() > float(started)
+		if snapped or today() != str(table.arc.rescue.date):
+			_close_evening(snapped)
+
+	var pending: Variant = arc.get("rescue_paper")
+	if not _receive_slip.is_valid() or pending is not Array or pending.is_empty():
+		return
+	var accepted := false
+	while not pending.is_empty() and _receive_slip.call(ledger(), str(pending.front())):
+		pending.pop_front()
+		accepted = true
+	if pending.is_empty():
+		arc.erase("rescue_paper")
+	if accepted:
+		RealityState.commit_background()
+
+
+func _close_evening(snapped: bool) -> void:
+	var arc := _arc_state()
+	var rescue: Dictionary = table.arc.rescue
+	arc.erase("evening")
+	arc.erase("evening_started_elapsed")
+	var tried: Array[String] = []
+	for attempt: Dictionary in rescue.attempts:
+		if RealityState.has_knowledge(str(attempt.flag)):
+			var line := str(attempt.line)
+			if snapped:
+				line += " %s %s" % [str(rescue.ended), str(rescue.present)]
+			tried.append(line)
+	if arc.get("book") is not Array:
+		arc["book"] = []
+	(arc.book as Array).append_array(tried)
+	if snapped or not tried.is_empty():
+		var pending: Array = arc.get("rescue_paper", []) if arc.get("rescue_paper") is Array else []
+		if snapped:
+			pending.append(str(rescue.next))
+			if not tried.is_empty():
+				RealityState.grant_knowledge(str(rescue.seen))
+		if not tried.is_empty():
+			pending.append("%s\n%s" % [str(rescue.book), "\n".join(tried)])
+		arc["rescue_paper"] = pending
+	RealityState.commit_background()
+
+
+## BOOK: the night man's key book as it stands.
+func key_book_text() -> String:
+	var lines: Array[String] = []
+	if table.get("arc") is Dictionary and table.arc.get("rescue") is Dictionary:
+		lines.append(str(table.arc.rescue.book))
+		for loan: Dictionary in table.arc.rescue.loans:
+			if RealityState.has_knowledge(str(loan.flag)):
+				lines.append(str(loan.line))
+		for line: Variant in _arc_state().get("book", []):
+			lines.append(str(line))
+	return "\n".join(lines) if lines.size() > 1 else "THE KEY BOOK IS BLANK."
 
 
 ## The companion's own record: what it has already said and done unasked.
@@ -1618,6 +1718,14 @@ func command(raw: String) -> Dictionary:
 		return _introduce()
 	if awaiting_choice():
 		return _finish_line()
+	if words[0] == "friday":
+		if not rescue_open():
+			return {"intent": "temporal", "text": "NOT YET." if ending() == "" else "THE YEAR IS OVER."}
+		var evening := go_friday()
+		return {"intent": "temporal", "text": str(table.arc.rescue.entered) if evening.ok
+				else "NOT FROM HERE. COME HOME FIRST." if str(evening.code) == "away" else "THE EVENING WILL NOT OPEN."}
+	if words[0] == "book":
+		return {"intent": "temporal", "text": key_book_text()}
 	if words[0] == "last":
 		if not last_night_open():
 			return {"intent": "temporal", "text": "THE CASE IS NOT CLOSED." if ending() == "" else "THE YEAR IS OVER."}
@@ -1745,6 +1853,8 @@ func leads_text() -> String:
 		lines.append("   %s" % str(anchor.question))
 	if not carried().is_empty():
 		lines.append("CARRIED, NOT YET PINNED: %d." % carried().size())
+	if rescue_open():
+		lines.append(str(table.arc.rescue.offered))
 	if last_night_open():
 		lines.append(str(table.arc.last_night.offered))
 	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK. WALL. HINT." % Economy.money(bank_cents()))

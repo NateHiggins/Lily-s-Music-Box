@@ -69,6 +69,10 @@ static func validate_snapshot(saved: Variant) -> Dictionary:
 	if str(value.get("timezone", "")) != "America/New_York" \
 			or not _integer_between(value.get("utc_offset_minutes"), -300, -300):
 		return {"ok":false,"error":"The saved campaign time zone is invalid."}
+	if value.has("blackout_snap_elapsed"):
+		var snap: Variant = value.blackout_snap_elapsed
+		if not _finite_number(snap) or float(snap) < 0.0 or float(snap) > float(value.elapsed_minutes):
+			return {"ok":false,"error":"The saved blackout crossing is invalid."}
 	var ordinal := _ordinal(int(value.year), int(value.month), int(value.day_of_month))
 	if float(value.elapsed_minutes) >= float(LAST_ORDINAL - ordinal + 1) * MINUTES_PER_DAY \
 			- float(value.start_minute_of_day):
@@ -292,12 +296,19 @@ static func in_blackout(calendar_minute: float) -> bool:
 
 ## Time that would run into the murder hours comes out at 3:02 instead. Only
 ## elapsed moves, and only forward, so deadlines stay monotonic.
-func _leave_blackout() -> void:
+func _leave_blackout(record_crossing := true) -> void:
 	if str(_state.get("calendar_mode", "")) != "gregorian":
 		return
 	var now := calendar_minutes()
 	if in_blackout(now):
 		_state.elapsed_minutes = float(_state.elapsed_minutes) + blackout_end_minute() - now
+		if record_crossing:
+			_state.blackout_snap_elapsed = _state.elapsed_minutes
+
+
+## The latest recorded snap caused by advancing the clock, if any.
+func blackout_snap_elapsed() -> float:
+	return float(_state.get("blackout_snap_elapsed", -1.0)) if bind_state() else -1.0
 
 
 ## True once the prologue has adopted the repeating historical year.
@@ -334,11 +345,13 @@ func rebase_calendar(target: float) -> bool:
 	var date := _date_from_ordinal(int(floor(epoch / MINUTES_PER_DAY)))
 	var candidate := _civil_record(date, int(fposmod(epoch, float(MINUTES_PER_DAY))))
 	candidate.elapsed_minutes = elapsed
+	if _state.has("blackout_snap_elapsed"):
+		candidate.blackout_snap_elapsed = _state.blackout_snap_elapsed
 	if not validate_snapshot(candidate).ok:
 		return false
 	_state = candidate
 	RealityState.data.campaign_clock = candidate
-	_leave_blackout()
+	_leave_blackout(false)
 	return true
 
 
