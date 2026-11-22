@@ -7,6 +7,9 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 	if horizon == null: return
 	suite.check(preload("res://tests/v2_horizon_inspection_collision.gd").reach_split_holds(horizon), "horizon collision stands exactly on the parts inside the boundary wall")
 	preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
+	# Jolt exposes newly mounted inspection shapes after the physics step.
+	await suite.get_tree().physics_frame
+	await suite.get_tree().physics_frame
 	var expected_parts: Dictionary = {}
 	var expected_lower: Dictionary = {}
 	for asset: Dictionary in source.assets.values():
@@ -97,15 +100,32 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 				neighbor_panes[str(row.building)]=int(neighbor_panes.get(str(row.building),0))+1
 		for identity:String in expected_neighbor_panes:
 			suite.check(int(neighbor_panes.get(identity,0))==int(expected_neighbor_panes[identity]),"complete exact neighbor pane roster: "+identity)
+	var limit := world.get_node_or_null("StreetBoundaries/TemporaryExteriorLimit") as StaticBody3D
+	var optical_limit := (limit != null and limit.is_in_group("temporary_exterior_limit")
+			and limit.collision_layer != 0
+			and limit.find_children("*", "GeometryInstance3D", true, false).is_empty())
+	suite.check(optical_limit, "the enabled exploration limit is an explicitly nonrendered boundary")
+	var obstructed: Array[String] = []
 	for row: Dictionary in probes:
 		var p: Array = row.point
 		var n: Array = row.normal
 		var point := horizon.to_global(Vector3(p[0],p[2],-p[1]))
 		var normal := horizon.global_basis*Vector3(n[0],n[2],-n[1])
 		var expected := point-normal*float(row.recess_m)
-		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.03,point-normal*.25,1,[world.player.get_rid()]))
+		var ray := PhysicsRayQueryParameters3D.create(point + normal * .03, point - normal * .25, 1, [world.player.get_rid()])
+		var space := world.get_world_3d().direct_space_state
+		var hit := space.intersect_ray(ray)
+		# The original physical query must see the still-enabled movement wall.
+		# For native pane seating only, retry past that exact nonrendered owner.
+		if optical_limit and not hit.is_empty() and hit.collider == limit:
+			obstructed.append("%s/%s" % [row.building, row.normal])
+			ray.exclude = [world.player.get_rid(), limit.get_rid()]
+			hit = space.intersect_ray(ray)
 		var draw: MeshInstance3D = bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
 		suite.check(draw!=null and str(draw.get_meta("v2_city_horizon_building"))==str(row.building) and str(draw.name).ends_with("__mirror_aged") and hit.position.distance_to(expected)<.0001, "actual composed recessed distant pane: "+str(row.building)+"/"+str(row.normal))
+	obstructed.sort()
+	suite.check(obstructed == ["HORIZON_NEAR_0_0_P0R2/[0.0, 1.0, 0.0]", "HORIZON_NEAR_1_0_P1/[0.0, 1.0, 0.0]"],
+			"the physical boundary still blocks the two expected first-hit pane rays: " + str(obstructed))
 	var eyes: Array[Vector3] = [camera.global_position]
 	var city_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
 	for view: Dictionary in city_source.skyline_views_godot:

@@ -158,15 +158,29 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	suite.check(apron != null and FileAccess.get_sha256("res://assets/props/city_ground_apron.glb") == apron_source.asset_sha256, "installed distant grade matches the native source")
 	suite.check(FileAccess.get_sha256("res://assets/props/orison_ground.glb") == apron_source.retained_ground_sha256, "installed ground matches the source-fitted apron binding")
 	var apron_samples := 0
+	var surfaced := ["north/2", "north/5", "south/3"]
+	var midground := world.get_node_or_null("Midground/MidgroundGround") as StaticBody3D
 	if apron != null:
 		for row: Dictionary in apron_source.boxes:
 			var samples: Array = row.exposed_samples
 			suite.check(samples.size()==9,"nine exposed grade stations span the source strip: "+str(row.id))
-			for sample: Array in samples:
-				var local_point:=Vector3(sample[0],sample[1],sample[2])
-				var p: Vector3 = world.adapter.root.to_global(local_point)
-				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(p+Vector3.UP*.03,p-Vector3.UP*.03,1,[world.player.get_rid()]))
-				suite.check(not hit.is_empty() and apron.is_ancestor_of(hit.collider) and hit.position.distance_to(p)<.0001, "distant exposed ground has its actual fitted physical top: "+str(row.id))
+			for index in samples.size():
+				var sample: Array = samples[index]
+				var label := "%s/%d" % [row.id, index]
+				var p: Vector3 = world.adapter.root.to_global(Vector3(sample[0], sample[1], sample[2]))
+				var ray := PhysicsRayQueryParameters3D.create(p + Vector3.UP * .03, p - Vector3.UP * .03, 1, [world.player.get_rid()])
+				var space := world.get_world_3d().direct_space_state
+				var hit := space.intersect_ray(ray)
+				if label in surfaced:
+					# MIDGROUND asphalt adds an authored 20 mm wearing surface on the apron.
+					suite.check(midground != null and not hit.is_empty() and hit.collider == midground
+							and hit.position.distance_to(p + Vector3.UP * .02) < .0001,
+							"the installed road takes first support at its authored height: " + label)
+					if midground != null:
+						ray.exclude = [world.player.get_rid(), midground.get_rid()]
+						hit = space.intersect_ray(ray)
+				suite.check(not hit.is_empty() and apron.is_ancestor_of(hit.collider) and hit.position.distance_to(p) < .0001,
+						"distant apron retains its exact physical backing: " + label)
 				apron_samples += 1
 	suite.check(apron_samples == 36, "physical distant grade covers all four source strips")
 	var prior := world.get_viewport().get_camera_3d()
