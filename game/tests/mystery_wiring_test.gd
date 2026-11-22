@@ -148,6 +148,8 @@ func _run() -> void:
 		_check("a heard thread does not come back",
 				"nq_stool" not in thread_ids.call("nadia_quell", "1929-03-10", 720))
 
+	_check_silence_gates(conversations, panel)
+
 	# Every thread is walkable on the panel, first reply each time.
 	conversations.playtest_holds = true
 	for resident_id in conversations.mystery:
@@ -207,6 +209,71 @@ func _run() -> void:
 ## The suspect chains: a thread opens on any one of its clues, nothing opens from
 ## the wrong date, the paper itself grants its clue, and the companion enters a
 ## theory without holding one.
+func _check_silence_gates(conversations: ResidentConversations, panel: CaseDialoguePanel) -> void:
+	var saved_flags: Array = RealityState.data.knowledge_flags.duplicate()
+	var saved_date := conversations.playtest_date
+	var saved_minute := conversations.playtest_minute
+	var cases := [
+		{"resident": "cal_dwyer", "thread": "cd_playback", "entry_flag": "m_drama_lead",
+			"needs": "m_jonah_page", "grant": "m_door_match", "reply": "That's the line Jonah wrote down."},
+		{"resident": "lena_ortiz", "thread": "lo_book", "entry_flag": "",
+			"advance": "Anything on the twentieth of July?", "needs": "m_glove_scrap",
+			"grant": "m_button_book", "reply": "Pearl?"},
+		{"resident": "mr_ewald", "thread": "ew_lease", "entry_flag": "m_lease_read",
+			"needs": "m_receipt_seen", "grant": "m_collection_named", "reply": "And if they collected anyway?"},
+	]
+	for fixture: Dictionary in cases:
+		var threads: Array = conversations.mystery[fixture.resident].threads
+		var matches := threads.filter(func(thread: Dictionary) -> bool: return thread.id == fixture.thread)
+		_check("%s has its real thread" % fixture.resident, matches.size() == 1)
+		if matches.size() != 1:
+			continue
+		var thread: Dictionary = matches[0]
+		conversations.playtest_date = str(thread.from)
+		conversations.playtest_minute = 12 * 60
+		for has_evidence: bool in [false, true]:
+			RealityState.data.knowledge_flags = saved_flags.duplicate()
+			for flag: String in [str(fixture.needs), str(fixture.grant), "mt:" + str(fixture.thread)]:
+				RealityState.data.knowledge_flags.erase(flag)
+			RealityState.grant_knowledge(str(fixture.entry_flag))
+			if has_evidence:
+				RealityState.grant_knowledge(str(fixture.needs))
+			var context := "%s with%s the prerequisite" % [fixture.resident, "" if has_evidence else "out"]
+			if not _open_silence_fixture(conversations, panel, fixture, thread, context):
+				continue
+			var reply := _labels(panel).find(fixture.reply)
+			_check(context + " offers the question only when earned", (reply >= 0) == has_evidence)
+			if has_evidence and reply >= 0:
+				panel.choose(reply)
+			else:
+				panel.choose_silence()
+			_check(context + " records evidence only from the earned question",
+					RealityState.has_knowledge(str(fixture.grant)) == has_evidence)
+			panel.close()
+	RealityState.data.knowledge_flags = saved_flags
+	conversations.playtest_date = saved_date
+	conversations.playtest_minute = saved_minute
+
+
+func _open_silence_fixture(conversations: ResidentConversations, panel: CaseDialoguePanel,
+		fixture: Dictionary, thread: Dictionary, context: String) -> bool:
+	var opened := conversations.start_mystery(str(fixture.resident))
+	var topic := _labels(panel).find(thread.topic) if opened else -1
+	_check(context + " can open the real topic", opened and topic >= 0)
+	if topic < 0:
+		panel.close()
+		return false
+	panel.choose(topic)
+	if fixture.has("advance"):
+		var button := _labels(panel).find(fixture.advance)
+		_check(context + " can reach the gated question", button >= 0)
+		if button < 0:
+			panel.close()
+			return false
+		panel.choose(button)
+	return true
+
+
 func _chains(conversations: ResidentConversations, thread_ids: Callable) -> void:
 	for flag in ["m_noel_door", "m_noel_landing", "m_jonah_page", "m_noel_reports"]:
 		RealityState.data.knowledge_flags.erase(flag)
