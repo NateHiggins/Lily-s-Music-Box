@@ -21,6 +21,37 @@
 				{"typed": "Is that enough?", "reply": "It is enough to address you correctly."}
 			],
 			"handoff": "THE CASE IS YOURS. LEADS SHOWS THE OPEN LINES. JUMP AND A NUMBER GOES TO ONE. HOME BRINGS YOU BACK. BANK FOR THE FARES. HINT WHEN YOU WANT ONE."
+		},
+		"correction": {
+			"after": "the_case",
+			"title": "CORRECTION TO THE BOROUGH RECORD, 21 JULY 1929.",
+			"lines": [
+				"MISS ADELA VOSS LIVED ON JACKSON AVENUE, NOT IN THE HOUSE.",
+				"HER CAMERA REMAINED ON ITS TRIPOD ON THE ROOF.",
+				"THE PAPER GAVE NO EYEWITNESS FOR ITS ACCOUNT OF AN ACCIDENT.",
+				"RECONSTRUCTED TIME: ABOUT 9:03 P.M.; THE LOBBY CLOCK WAS FOUR MINUTES FAST.",
+				"MAE KESSLER'S LETTER REPORTING THE FALL WAS SEALED AT 6:40 P.M.",
+				"CASE FINDING: MAE KESSLER PUSHED HER."
+			]
+		},
+		"last_night": {
+			"date": "1929-11-09",
+			"begin": "21:30",
+			"place": "roof",
+			"offered": "THE LAST NIGHT, 9 NOVEMBER. LAST takes you to it.",
+			"entered": "9 NOVEMBER, HALF PAST NINE. THE BRIDGE CLOSES AT MIDNIGHT. THE ROOF, BY TWENTY TO TWELVE.",
+			"message_at": "23:40",
+			"message": "SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE.",
+			"answer": "I have no service interval for this. I shall keep the line open.",
+			"ask_at": "23:57",
+			"unfinished": "I WOULD LIKE TO",
+			"finish": "CROSS OUT \"INSTRUMENT.\" WRITE \"NIGHT MAN, 4B.\" HE WOULD LIKE TO. THAT WILL DO. A.V.",
+			"card": "I WOULD LIKE TO — CROSS OUT \"INSTRUMENT.\" WRITE \"NIGHT MAN, 4B.\" HE WOULD LIKE TO. THAT WILL DO. — A.V.",
+			"close_at": "23:59",
+			"epilogues": {
+				"finished": "10 NOVEMBER, 7.30 A.M. BOX 4B HOLDS A WELCOME NOTE FOR THE NIGHT-MAINTENANCE TENANT. ACROSS THE STREET SOMEONE CHANGES THE ARCADE CARD, IN CAPITALS NOW ENTIRELY HIS OWN. NADIA, OPENING THE SHOP: GOOD MORNING.",
+				"left": "10 NOVEMBER, 7.30 A.M. BOX 4B IS EMPTY. THE ARCADE CARD IS NADIA'S ALONE. SHE SAYS GOOD MORNING TO THE STREET."
+			}
 		}
 	},
 	"bank_name": "Queens County Savings",
