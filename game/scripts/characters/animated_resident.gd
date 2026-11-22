@@ -331,6 +331,10 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 func interact_prompt() -> String:
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	# An open spoken thread answers the click first, so the ambient topic must not name it.
+	var talk := get_tree().get_first_node_in_group("resident_conversations") if is_inside_tree() else null
+	if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
+		loop_performances = null
 	if loop_performances != null:
 		var topic := str(loop_performances.conversation_prompt(resident_id))
 		if not topic.is_empty(): return topic
@@ -351,6 +355,12 @@ func interact(_player: Node) -> void:
 		if Vector2(toward.x,toward.z).length_squared() > .001:
 			var target := global_rotation.y + wrapf(atan2(toward.x,toward.z)-global_rotation.y,-PI,PI)
 			create_tween().tween_property(self,"global_rotation:y",target,.35)
+	# A thread marked "spoken" is said to this body in person (S15, Nadia on the
+	# last night); the rest of the mystery threads stay where they are read. It
+	# comes before the ambient work line, which would otherwise answer first.
+	var talk := get_tree().get_first_node_in_group("resident_conversations")
+	if talk is ResidentConversations and (talk as ResidentConversations).start_mystery(resident_id, true):
+		return
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances")
 	if loop_performances != null and loop_performances.try_conversation(resident_id, _player):
 		return

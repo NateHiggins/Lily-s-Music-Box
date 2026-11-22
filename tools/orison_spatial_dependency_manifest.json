@@ -230926,21 +230926,21 @@
    "target_exists": null
   },
   {
-   "key": "600a956e3aa873e6",
+   "key": "ac74372d11fe7b62",
    "kind": "plan_coordinate",
-   "token": "_window",
+   "token": "window_pose",
    "file": "game/scripts/building/orison_v2_photo_supplies.gd",
    "tier": "production",
    "subsystem": "building",
    "symbols": [
-    "_window"
+    "window_pose"
    ],
    "lines": [
-    129
+    139
    ],
    "count": 1,
    "context": [
-    "prop.global_transform = passage.native_fixture_pose(\"storm_shop_photo_supplies_window_plinth__plywood\", Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g(["
+    "Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22])))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -287067,7 +287067,7 @@
     "_ready"
    ],
    "lines": [
-    408
+    445
    ],
    "count": 1,
    "context": [
@@ -287097,8 +287097,8 @@
     "_ready"
    ],
    "lines": [
-    211,
-    591
+    220,
+    628
    ],
    "count": 2,
    "context": [
@@ -287129,8 +287129,8 @@
     "_ready"
    ],
    "lines": [
-    306,
-    315
+    315,
+    324
    ],
    "count": 2,
    "context": [
@@ -287160,8 +287160,8 @@
     "_ready"
    ],
    "lines": [
-    348,
-    407
+    357,
+    444
    ],
    "count": 2,
    "context": [
@@ -287192,8 +287192,8 @@
     "_ready"
    ],
    "lines": [
-    213,
-    350
+    222,
+    359
    ],
    "count": 2,
    "context": [
