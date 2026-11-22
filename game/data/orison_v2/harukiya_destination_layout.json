@@ -3767,10 +3767,10 @@
       "name": "Destination_Balcony_brass",
       "material": "brass",
       "assembly": "Balcony",
-      "triangles": 384,
+      "triangles": 324,
       "aabb_source": {
         "min": [
-          -5.587500095367432,
+          -5.547500133514404,
           -35.897499084472656,
           0.0
         ],
@@ -3803,10 +3803,10 @@
       "name": "Destination_Balcony_metal",
       "material": "metal",
       "assembly": "Balcony",
-      "triangles": 4360,
+      "triangles": 4416,
       "aabb_source": {
         "min": [
-          -5.539999961853027,
+          -5.5,
           -35.869998931884766,
           -2.8000001907348633
         ],
@@ -3821,10 +3821,10 @@
       "name": "Destination_Balcony_oak",
       "material": "oak",
       "assembly": "Balcony",
-      "triangles": 792,
+      "triangles": 732,
       "aabb_source": {
         "min": [
-          -5.567500114440918,
+          -5.527500152587891,
           -35.900001525878906,
           -2.799999952316284
         ],
@@ -4217,16 +4217,16 @@
       "name": "Destination_Stair_brass",
       "material": "brass",
       "assembly": "Stair",
-      "triangles": 24,
+      "triangles": 12,
       "aabb_source": {
         "min": [
-          -5.582499980926514,
-          -32.147499084472656,
+          -5.547500133514404,
+          -32.09749984741211,
           0.0
         ],
         "max": [
-          -5.487499713897705,
-          -30.997499465942383,
+          -5.452499866485596,
+          -32.002498626708984,
           0.01600000075995922
         ]
       }
@@ -4253,15 +4253,15 @@
       "name": "Destination_Stair_metal",
       "material": "metal",
       "assembly": "Stair",
-      "triangles": 1108,
+      "triangles": 1080,
       "aabb_source": {
         "min": [
-          -5.546000003814697,
+          -5.511000156402588,
           -35.75600051879883,
           -2.625
         ],
         "max": [
-          -4.35699987411499,
+          -4.372000217437744,
           -31.045000076293945,
           1.059999942779541
         ]
@@ -4271,16 +4271,16 @@
       "name": "Destination_Stair_oak",
       "material": "oak",
       "assembly": "Stair",
-      "triangles": 768,
+      "triangles": 852,
       "aabb_source": {
         "min": [
           -5.579999923706055,
-          -35.96577453613281,
+          -35.96675491333008,
           -2.8323285579681396
         ],
         "max": [
           -4.319999694824219,
-          -31.017499923706055,
+          -31.045000076293945,
           1.1290000677108765
         ]
       }

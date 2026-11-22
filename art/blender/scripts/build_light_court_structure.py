@@ -11,6 +11,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 layout_path = ROOT/'game/data/orison_v2_blockout.json'
 layout = json.loads(layout_path.read_text(encoding='utf-8'))
 levels = {r['id']: r['y'] for r in layout['levels']}
+primary_by_destination = {r['to']: r for r in layout['stairs'] if r['id'].startswith('PRIMARY_')}
 well = next(r for r in layout['platforms'] if r['id']=='F01_LIGHT_COURT_BASE')
 assert well['rect'] == [2.45,-1.9,3.45,-.25]
 assert next(r for r in layout['platforms'] if r['id']=='B1_PRIMARY_STAIR_BASE')['rect'] == [1.4,-1.9,4.5,1.65]
@@ -48,18 +49,49 @@ def box(name, at, size, key, bevel=.001):
         bpy.ops.object.modifier_apply(modifier=mod.name)
     return obj
 
-def rod(name,a,b,radius,key,sides=12):
-    start,end=point(a),point(b); axis=(end-start).normalized()
-    seed=Vector((0,0,1)) if abs(axis.z)<.85 else Vector((1,0,0))
-    u=axis.cross(seed).normalized(); v=axis.cross(u).normalized()
+def tube(name, stations, radius, key, sides):
     vertices=[]
-    for centre in [start,end]:
+    for centre, axis in stations:
+        seed=Vector((0,0,1)) if abs(axis.z)<.85 else Vector((1,0,0))
+        u=axis.cross(seed).normalized(); v=axis.cross(u).normalized()
         for i in range(sides):
             p=centre+radius*(u*math.cos(2*math.pi*i/sides)+v*math.sin(2*math.pi*i/sides))
             vertices.append((p.x,p.z,-p.y))
-    faces=[tuple(reversed(range(sides))),tuple(range(sides,sides*2))]
-    faces += [(i,(i+1)%sides,(i+1)%sides+sides,i+sides) for i in range(sides)]
+    last=(len(stations)-1)*sides
+    faces=[tuple(reversed(range(sides))),tuple(range(last,last+sides))]
+    for ring in range(0,last,sides):
+        for i in range(sides):
+            j=(i+1)%sides
+            faces.append((ring+i,ring+j,ring+j+sides,ring+i+sides))
     return solid(name,vertices,faces,key)
+
+
+def rod(name,a,b,radius,key,sides=12):
+    start,end=point(a),point(b); axis=(end-start).normalized()
+    return tube(name,[(start,axis),(end,axis)],radius,key,sides)
+
+
+def grip_join(name, start, end, tread, rise, radius, key, sides):
+    p0,p3=point(start),point(end)
+    p1=p0+Vector((.022,0,0))
+    p2=p3-point((0,-rise,tread)).normalized()*.055
+    stations=[]
+    for i in range(9):
+        t=i/8; u=1-t
+        centre=p0*u**3+3*p1*u*u*t+3*p2*u*t*t+p3*t**3
+        tangent=(3*(p1-p0)*u*u+6*(p2-p1)*u*t+3*(p3-p2)*t*t).normalized()
+        stations.append((centre,tangent))
+    return tube(name,stations,radius,key,sides)
+
+
+def south_join(level, x, z, span):
+    stair=primary_by_destination[level]
+    origin_x,origin_z=stair['origin']
+    end_x=origin_x+stair['width']+stair['gap']+.025
+    end_z=origin_z+stair['landing_depth']+stair['tread']*.5
+    end_h=stair['guard_height']-.025
+    assert 0 < end_x-(x+span) <= .035 and .15 < end_z-z < .25
+    return (span,1.025,0),(end_x-x,end_h,end_z-z),stair['tread'],stair['rise']
 
 def join(parts,name):
     if len(parts)==1:
@@ -86,7 +118,7 @@ def map_metres(obj):
     if 'custom_normal' in mesh.attributes: mesh.attributes.remove(mesh.attributes['custom_normal'])
     mesh.update()
 
-def guard_template(span):
+def guard_template(span, transition=None):
     groups={k:[] for k in materials}; feet=[]
     count=math.ceil((span-.05)/.105)
     for i in range(count+1):
@@ -102,18 +134,27 @@ def guard_template(span):
     for y in [.18,.985]:
         groups['cast_iron'].append(rod('ForgedRail',(0,y,0),(span,y,0),.009,'cast_iron'))
     groups['wood_dark'].append(rod('TimberGrip',(0,1.025,0),(span,1.025,0),.025,'wood_dark',16))
+    if transition is not None:
+        start,end,tread,rise=transition
+        groups['wood_dark'].append(grip_join('StairGripJoin',start,end,tread,rise,.023,'wood_dark',16))
+        groups['cast_iron'].append(grip_join('StairBearerJoin',(start[0],start[1]-.04,start[2]),
+            (end[0],end[1]-.035,end[2]),tread,rise,.009,'cast_iron',12))
     templates=[]
     for key,parts in groups.items():
         obj=join(parts,'Template_'+key); map_metres(obj); templates.append(obj)
     return templates,feet
 
-guards=[]; meshes=[]
+guards=[]; joins=[]; meshes=[]
 for kind,span in [('North',3.1),('South',1.),('CourtStop',1.)]:
-    templates,feet=guard_template(span)
     floors=['F01','F02','F03','F04','F05','F06','ROOF'] if kind=='North' else (
         ['F02','F03','F04','F05','F06','ROOF'] if kind=='South' else ['F01'])
+    x,z=(1.4,1.70) if kind=='North' else ((2.45,-1.945) if kind=='South' else (2.45,-.58))
+    transition=None
+    if kind=='South':
+        transition=south_join(floors[0],x,z,span)
+        assert all(south_join(level,x,z,span)==transition for level in floors)
+    templates,feet=guard_template(span,transition)
     for level in floors:
-        x,z=(1.4,1.70) if kind=='North' else ((2.45,-1.945) if kind=='South' else (2.45,-.58))
         y=levels[level]; prefix=f'{level}_LightCourtGuard_{kind}'
         for source in templates:
             obj=source.copy(); obj.data=source.data
@@ -122,6 +163,10 @@ for kind,span in [('North',3.1),('South',1.),('CourtStop',1.)]:
         guards.append({'id':prefix,'level':level,'kind':kind,'bounds':[x,y,z-.0325,x+span,y+1.05,z+.0325],
             'foot_contacts':[[x+p[0],y,z] for p in feet],
             'floor_owner':level+'_PUBLIC_LANDING_'+('N' if kind=='North' else 'S') if kind!='CourtStop' else well['id']})
+        if transition is not None:
+            start,end,_,_=transition
+            joins.append({'id':prefix+'_StairJoin','start':[x+start[0],y,z+start[2],y+start[1]+.025],
+                'end':[x+end[0],y,z+end[2],y+end[1]+.023],'half_width':.0225})
     for obj in templates: bpy.data.objects.remove(obj,do_unlink=True)
 
 # Four columns and two closed I-section beams seat the new slab on B1.
@@ -150,7 +195,7 @@ for key,group in support_groups.items():
     map_metres(obj); meshes.append(obj)
 
 construction={'evidence_class':'INERT','classification':'ADAPTATION',
-    'authority':'art/data/orison_v2/vertical_services_source.json and projected layout', 'guards':guards,'columns':contacts,
+    'authority':'art/data/orison_v2/vertical_services_source.json and projected layout', 'guards':guards,'joins':joins,'columns':contacts,
     'well':well, 'note':'Native fit and geometric load path only. No engineering capacity or runtime acceptance.'}
 (ROOT/'game/tests/fixtures/orison_light_court_structure.json').write_text(json.dumps(construction,indent=2)+'\n',encoding='utf-8',newline='\n')
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'light_court_structure.blend'))
@@ -171,4 +216,4 @@ bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/light_court_struc
     export_yup=True,export_tangents=True,export_animations=False)
 print('COURT STRUCTURE TRIAL:',len(guards),'guards, four seated columns, two I-section crossbeams,',len(meshes),'draws')
 
-(ROOT/'game/data/orison_v2/light_court_guards.json').write_text(json.dumps({'guards':[{k:r[k] for k in ['id','bounds']} for r in guards]},indent=2)+'\n',encoding='utf-8',newline='\n')
+(ROOT/'game/data/orison_v2/light_court_guards.json').write_text(json.dumps({'guards':[{k:r[k] for k in ['id','bounds']} for r in guards],'joins':joins},indent=2)+'\n',encoding='utf-8',newline='\n')

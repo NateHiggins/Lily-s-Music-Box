@@ -1,3 +1,23 @@
+# Stair and railing continuity - November 22
+
+Evidence class: **INERT**
+
+PR484 refits all seven public return stringers and connects six South
+court handrails to the incoming flights. The F01 service door now parks
+clear of the stair approach. Harukiya's gallery rails meet their newels
+on the landing. Eastern Plaza gains guarded outer turns on all five
+stairs in both native detail levels.
+
+The public and service walks completed 130 and 436 waypoints.
+Both service leaves stayed open for the basement-to-roof round trip.
+The six court joins passed both guard-contact and standing-clearance
+checks. Harukiya passed its nearby round trip and Eastern Plaza passed
+both directions on all five stairs with 63 walking waypoints.
+The composed surface suite passed 818 checks and 23 paired views were
+technically reviewed.
+
+[Stair continuity evidence](C:/ov/reports/stair_continuity_20261122/REPORT.md).
+
 # F02 stair clearance and 5B arrival - November 22
 
 Evidence class: **INERT**
