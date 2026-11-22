@@ -264,7 +264,7 @@ func _process(_delta: float) -> void:
 			or work_orders.job_library == null:
 		set_process(false)
 		return
-	if _protected():
+	if _protected() or not first_deduction_made():
 		return
 	# Another dream (a release print) is in flight: wait for it to end rather
 	# than send a request DreamDirector must refuse. A restore that already
@@ -336,7 +336,7 @@ func _process_release_dream() -> void:
 	if _release_request_sent == profile:
 		set_process(false)
 		return
-	if _protected():
+	if _protected() or not first_deduction_made():
 		return
 	var dream := _dream_state()
 	if str(dream.get("phase", "awake")) != "awake":
@@ -377,6 +377,15 @@ func _drop_queued_release(profile_id: String) -> bool:
 func _dream_state() -> Dictionary:
 	var dream: Variant = RealityState.data.get("dream")
 	return dream if dream is Dictionary else {}
+
+
+## Bible IX, amended 2026-11-22: the campaign first shows the dream after the
+## first deduction, not at the end of the first shift. A request that is ready
+## earlier (the job's print, or a release print) stays pending until the case
+## wall in 4B has written out its first deduction.
+func first_deduction_made() -> bool:
+	var temporal: Variant = RealityState.data.get("temporal")
+	return temporal is Dictionary and (temporal as Dictionary).get("deductions") is Array 			and not ((temporal as Dictionary).deductions as Array).is_empty()
 
 
 func _protected() -> bool:

@@ -41,6 +41,12 @@ func _ready() -> void:
 	check(loop.request_release_dream("peter_release_print"), "Peter's clause queues his release print")
 	check(not loop.request_release_dream("peter_release_print"), "asking again for a queued print is refused")
 	check(loop.request_release_dream("juno_release_print"), "Juno's song queues behind it")
+	# Bible IX, amended 2026-11-22: no dream before the first deduction.
+	loop._process(0.0)
+	check(requested.is_empty() and dreams.phase() == "awake" and not loop.first_deduction_made(),
+			"before the first deduction a queued print stays pending")
+	RealityState.data["temporal"] = {"version": 2, "deductions": ["she_asked_first"]}
+	check(loop.first_deduction_made(), "the wall's first deduction is read from the temporal ledger")
 	loop._process(0.0)
 	var context := dreams.context()
 	check(dreams.phase() == "armed" and context.profile_id == "peter_release_print"
