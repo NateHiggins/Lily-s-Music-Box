@@ -1267,7 +1267,9 @@ func _attend_copies() -> void:
 	var accepted := false
 	for copy: Dictionary in table.arc.copies:
 		var number := int(copy.number)
-		if number in copies:
+		# JSON loads persisted numbers as floats. Match the authored serial by value.
+		if copies.any(func(record: Variant) -> bool:
+				return (record is int or record is float) and float(record) == float(number)):
 			continue
 		# The earliest pending copy holds its place when the player returns late.
 		if copy.has("place") and here != str(copy.place):

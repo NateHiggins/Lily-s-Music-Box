@@ -678,6 +678,9 @@ func _ready() -> void:
 		numbers.append(int(line.trim_prefix("|RECEIVED COPY ").get_slice(".", 0)))
 	check(numbers == [1, 2, 3, 4, 5] and loop.ledger().arc.copies == numbers,
 			"4B receives the full late sequence in order, exactly once")
+	loop.ledger().arc.copies = JSON.parse_string(JSON.stringify(numbers))
+	loop._attend_copies()
+	check(slips.size() == late_at + 5, "loaded numeric serials do not publish a second sequence")
 	slips.resize(late_at)
 	(loop.ledger().arc as Dictionary).erase("copies")
 	loop.here = "lobby"
