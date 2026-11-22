@@ -83,7 +83,7 @@
    "line": "No. Something at the tank. I took it for the tank. You hear tanks tick, when they cool. That's what I'd say if you asked me on a good day. Don't ask me on a good day."
   },
   "cd_p1": {
-   "silence_goto": "cd_p2",
+   "silence_goto": "cd_p1s",
    "line": "Sit. Don't talk. \"Inspector, the clock is four minutes fast.\" Wait. There. Door. Every time.",
    "choices": [
     {
@@ -98,6 +98,9 @@
      "goto": "cd_p3"
     }
    ]
+  },
+  "cd_p1s": {
+   "line": "Good. You can be taught. Most of them talk straight over the door."
   },
   "cd_p2": {
    "flag": "m_door_match",
