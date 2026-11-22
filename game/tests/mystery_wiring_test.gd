@@ -59,12 +59,14 @@ func _run() -> void:
 	conversations.playtest_date = "1929-11-09"
 	conversations.playtest_minute = 22 * 60
 	_check("S15 is open on the last night", "nq_telling" in thread_ids.call("nadia_quell", "1929-11-09", 22 * 60))
+	_check("the click knows Nadia has a spoken thread", conversations.has_spoken_thread("nadia_quell"))
 	_check("in person, Nadia offers only the spoken thread",
 			conversations.start_mystery("nadia_quell", true) and _labels(panel) == ["Give me the pencil."])
 	panel.close()
 	conversations.playtest_date = "1929-07-22"
 	conversations.playtest_minute = 12 * 60
 	_check("a thread that is not spoken does not open in person", not conversations.start_mystery("emil_voss", true))
+	_check("no spoken thread, so the ambient line keeps the click", not conversations.has_spoken_thread("emil_voss"))
 	conversations.playtest_date = was_date
 	conversations.playtest_minute = was_minute
 	RealityState.data.knowledge_flags.erase("m_nadia_card")
