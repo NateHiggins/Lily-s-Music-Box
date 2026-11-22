@@ -266,7 +266,8 @@ func _far_from_player() -> bool:
 
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
-	if _far_from_player():
+	# The courtesy timer requires consecutive contacts before a pass.
+	if _far_from_player() and not squeeze.has_recent_contact():
 		_far_delta += delta
 		_far_ticks += 1
 		if _far_ticks < FAR_STEP_TICKS: return

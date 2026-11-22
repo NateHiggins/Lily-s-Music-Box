@@ -14,6 +14,9 @@ var loop: Node
 var economy: Node
 var slips: Array[String] = []
 var resets := 0
+## -1 until a commit first holds the case; then 1 if the correction had been
+## sent by that commit (so a waiting copy is saved with it), 0 if not.
+var _case_commit_had_correction := -1
 
 
 func check(ok: bool, label: String) -> void:
@@ -137,6 +140,10 @@ func _ready() -> void:
 	check(loop.setup(clock, economy), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
+	RealityState.state_changed.connect(func() -> void:
+		if _case_commit_had_correction == -1 and "the_case" in (loop.ledger().get("deductions", []) as Array):
+			_case_commit_had_correction = 1 if slips.any(func(line: String) -> bool:
+					return line.contains("CORRECTION TO THE BOROUGH RECORD")) else 0)
 	check(loop.table.anchors.size() == 11, "eleven leads (%d)" % loop.table.anchors.size())
 
 	# S01: before the prologue ends nothing is typed for her; after it, her
@@ -386,6 +393,13 @@ func _ready() -> void:
 			"eleven pieces on the wall, six strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
 	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12 and is_equal_approx(loop.spread_fraction(), 1.0), "the finished case is at its full spread (%d)" % loop.spread())
 	check("the_case" in loop.ledger().deductions, "the last deduction is the case")
+	check(_case_commit_had_correction == 1,
+			"the commit that first saves the case already carries its correction (%d)" % _case_commit_had_correction)
+	var correction_slip := false
+	for sent: String in slips:
+		correction_slip = correction_slip or (sent.contains("CORRECTION TO THE BOROUGH RECORD, 21 JULY 1929.")
+				and sent.contains("CASE FINDING: MAE KESSLER PUSHED HER."))
+	check(correction_slip, "drawing the case prints the correction to the Record's July account")
 	check(str(loop.home_hint()).contains("Read the wall"), "the companion has nothing left to send the player to")
 
 	# A strict room worked out of order puts itself back.
@@ -566,6 +580,45 @@ func _ready() -> void:
 	loop.ledger().state = "INVESTIGATE"
 	check("lost_lead" in loop.mend() and not loop.in_visit() and loop.state() == "CHOOSE_NEXT_ACTION", "a visit to a lead that no longer exists ends at home")
 	check(loop.mend().is_empty() and Loop.valid(loop.ledger()), "a ledger in order is left alone")
+
+	# The end: the correction, the last night on the roof, and the choice.
+	check(loop.case_closed() and loop.last_night_open() and str(loop.leads_text()).contains("LAST takes you to it"),
+			"LEADS offers the last night once the case is closed")
+	var night: Dictionary = loop.command("last")
+	check(str(night.get("text", "")).begins_with("9 NOVEMBER, HALF PAST NINE") and loop.today() == "1929-11-09"
+			and loop._minute_of_day() == 21 * 60 + 30, "LAST sets the present to 9 November, half past nine (%s)" % stamp())
+	var said := slips.size()
+	loop.here = "4B"
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 41.0)) and not loop._attend_last_night()
+			and slips.size() == said, "at 23:41 in 4B the night says nothing")
+	loop.here = "roof"
+	check(loop._attend_last_night() and slips.size() == said + 2
+			and slips[said] == "RECEIVED COPY|SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE."
+			and slips[said + 1] == "|I have no service interval for this. I shall keep the line open.",
+			"on the roof M6 prints verbatim, then the companion's one answer")
+	check(loop.arc_draft() == "" and str(loop.command("leads").get("text", "")).contains("LAST"), "before 23:57 the keyboard is ordinary")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 57.0)) and loop._attend_last_night()
+			and slips.back() == "|I WOULD LIKE TO" and loop.arc_draft().begins_with("CROSS OUT"),
+			"at 23:57 it writes I WOULD LIKE TO and stops, and her hands can finish it")
+	var unprinted: Dictionary = loop.command(loop.arc_draft())
+	check(loop.arc_draft().begins_with("CROSS OUT") and str(unprinted.get("text", "")).contains("NIGHT MAN, 4B."),
+			"a card the paper has not taken chooses nothing: her line waits on the keyboard")
+	var card: Dictionary = loop.command(loop.arc_draft())
+	(card.on_printed as Callable).call()
+	check(str(card.get("text", "")).contains("NIGHT MAN, 4B.") and str(card.text).ends_with("A.V.") and loop.arc_draft() == ""
+			and loop.ending() == "", "sending it prints her correction card; the bridge has not closed yet")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0)) and loop._attend_last_night()
+			and loop.ending() == "finished" and str(slips.back()).contains("ENTIRELY HIS OWN") and not loop.last_night_open(),
+			"at the close the finished line's morning follows")
+	check(str(loop.command("last").get("text", "")) == "THE YEAR IS OVER.", "and the night does not open again")
+	for key: String in ["ending", "choice", "told", "asked"]:
+		(loop.ledger().arc as Dictionary).erase(key)
+	check(loop.go_last_night().ok and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 45.0))
+			and loop._attend_last_night() and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 57.0))
+			and loop._attend_last_night() and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0))
+			and loop._attend_last_night() and loop.ending() == "left" and str(slips.back()).contains("BOX 4B IS EMPTY"),
+			"left unfinished, the bridge closes on the empty box")
+	loop.here = ""
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))

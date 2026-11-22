@@ -161,6 +161,7 @@ func _install_world_occlusion() -> void:
 	if faces.is_empty(): return
 	occlusion = Area3D.new()
 	occlusion.name = "FixedInstrumentPickOcclusion"
+	occlusion.set_meta(&"companion_pointer_owner", carrier)
 	occlusion.collision_layer = 1; occlusion.collision_mask = 0
 	occlusion.monitoring = false; occlusion.monitorable = false
 	model.add_child(occlusion)
