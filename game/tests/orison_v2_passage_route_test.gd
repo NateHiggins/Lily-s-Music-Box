@@ -7,13 +7,18 @@ func _init() -> void:
 func _read(path: String) -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string(path))
 
+func _prepared_shop_id() -> String:
+	return "keys_cut"
+
+
 func _route_prepared() -> void:
 	var passage := world.passage_region
-	var identity := "SITE_SHOP_DOOR_KEYS_CUT"
+	var shop := _prepared_shop_id()
+	var identity := "SITE_SHOP_DOOR_" + shop.to_upper()
 	var door: DoorProp = passage.doors.get(identity)
 	if not _require(passage.uses_prepared_geometry() and door != null and door.width == 2.0
-		and passage.cell_nodes.shop_keys_cut.has_meta("arcade_retained_shop_admitted"),
-		"normal world starts with the prepared two-leaf shop and retained fittings"): return
+		and door.motion_leaves().size() == 2,
+		"the prepared arcade retains the native two-leaf shop door"): return
 	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	# Use the actual easy-motion doorway contract at the house entrance.
 	for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
@@ -26,6 +31,9 @@ func _route_prepared() -> void:
 	var residency: Dictionary = passage.residency.snapshot()
 	if not _require(residency.state == "RESIDENT" and residency.load_cycles >= 1 and residency.unload_cycles >= 1
 		and passage.doors[identity] == door, "walking the original house and street retires and reloads the arcade with the same door"): return
+	var cell: Node3D = passage.cell_nodes.get("shop_" + shop)
+	if not _require(cell != null and cell.has_meta("arcade_retained_shop_admitted"),
+		"the occupied arcade mounts the selected shop's retained fittings"): return
 	await _capture("prepared_nave",passage.to_global(Vector3(14,2.8,58)))
 	var centre := door.to_global(Vector3(1,0,0))
 	var approach := door.to_global(Vector3(1,0,1.8))
