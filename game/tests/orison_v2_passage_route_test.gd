@@ -39,8 +39,11 @@ func _route_prepared() -> void:
 	if not _require(cell != null and cell.has_meta("arcade_retained_shop_admitted"),
 		"the occupied arcade mounts the selected shop's retained fittings"): return
 	await _capture("prepared_nave",passage.to_global(Vector3(14,2.8,58)))
-	# Turn into the fitted opening from outside its leaf sweep.
-	var approach := door.to_global(Vector3(door.width * .5,0,1.8))
+	# A door facing down the aisle has its turning pocket beyond the last cart.
+	# Side doors can use the wider approach across the aisle.
+	var normal := door.global_basis.z
+	var stand_off := 1.0 if absf(normal.z) > absf(normal.x) else 1.8
+	var approach := door.to_global(Vector3(door.width * .5,0,stand_off))
 	var aisle := Vector3(14,0,approach.z)
 	for point: Vector3 in [aisle, approach, door.to_global(Vector3(door.width * .5,0,-1.0))]:
 		if not await _walk_world(point): return
