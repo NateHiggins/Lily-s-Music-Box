@@ -742,7 +742,9 @@ func _cover_wall() -> void:
 		var grip := Grip.new()
 		grip.name = "TakeDown"
 		sheet.add_child(grip)
-		grip.configure(sheet, -_wall_frame.basis.y, COVER_REACH)
+		# Peel away from the board as the paper comes down, clearing the row below.
+		grip.gesture = Vector2.DOWN
+		grip.configure(sheet, -_wall_frame.basis.y + 0.35 * _wall_frame.basis.z, COVER_REACH)
 		grip.live = func() -> bool: return not loop.in_visit() and id not in loop.covers_down()
 		grip.carried = func() -> void:
 			if loop.cover_down(id):
