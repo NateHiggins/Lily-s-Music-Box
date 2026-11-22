@@ -55,12 +55,15 @@ func _ready() -> void:
 			assert(profiles.has(identity) and MatLib.SETS.has(key))
 			var profile: Dictionary = profiles[identity]
 			var collision_mesh:=draw.mesh
+			var near_surface: Array
 			if lower_parts.has(str(draw.name)):
 				var far_draw: MeshInstance3D=lower_parts[str(draw.name)]
 				assert(draw.global_transform.is_equal_approx(far_draw.global_transform))
 				# Reuse the installed source-owned complete-body LOD assembler.
 				# It copies both physical attribute sets and removes importer tails.
-				draw.mesh=preload("res://scripts/building/orison_v2_city_transport.gd")._with_lod(collision_mesh,far_draw.mesh,float(replacement.error_m))
+				near_surface = collision_mesh.surface_get_arrays(0)
+				draw.mesh=preload("res://scripts/building/orison_v2_city_transport.gd")._with_lod(
+						collision_mesh,far_draw.mesh,float(replacement.error_m),near_surface)
 				draw.set_meta("v2_city_horizon_body_lod",true)
 				replaced+=1
 			var tint: Array = profile.wall_tint if key == str(profile.wall_key) else profile.get("joinery_tint",[1,1,1,1]) if key in ["door_paint","cast_iron"] else [.16,.20,.23,1] if key == "mirror_aged" else [1,1,1,1]
@@ -105,7 +108,7 @@ func _ready() -> void:
 			draw.add_child(body)
 			var shape := CollisionShape3D.new()
 			var native := ConcavePolygonShape3D.new()
-			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(collision_mesh))
+			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(collision_mesh, near_surface))
 			shape.shape = native
 			body.add_child(shape)
 			collision_parts += 1
