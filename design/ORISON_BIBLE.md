@@ -642,11 +642,14 @@ displacement, local anchor geometry and tachyonic correction. Favorable windows
 recur approximately annually but are calculated from astronomical state,
 including precession/perturbations, not matching Gregorian month/day strings.
 This explanation adds no automatic access prohibition, resource currency,
-cooldown, damage or paradox penalty. Preserve free-order investigation.
+cooldown, damage or paradox penalty.
 
 *Amended 2026-11-10, at the owner's direction (RUL-016):* a dated visit has
-a fare, and the leads open in order. This replaces "no resource currency" and
-"free-order investigation" above; the rest stands.
+a fare, and the leads open in order. This replaces "no resource currency"
+above; the rest stands. *Amended 2026-11-22* (her ruling on the direction
+proposal, `design/ORISON_DIRECTION_PROPOSAL_2026-11-21.md`): the gated tree is
+sanctioned, and the sentence that preserved free-order investigation is
+removed.
 
 - **Leads.** A lead is a place, a date, a start, a length and a question.
   The leads form a tree that grows harder as it climbs. A lead opens when
@@ -685,6 +688,14 @@ a fare, and the leads open in order. This replaces "no resource currency" and
 
 There is still no cooldown, damage or paradox penalty.
 
+*Amended 2026-11-22* (the direction proposal's calendar question, recording
+what is built): **the present after a visit** shows the date and hour the
+player left, moved on by exactly the time spent away, folded back into the
+year from 10 November 1928 if it runs past its end; a return that would land
+in the murder hours comes out at 3:02 a.m. on the 20th. **Dated sky events**
+belong to the calendar, not to the lap: each shows on its date and hour in
+every lap of the year, so a second lap sees the same eclipse on the same night.
+
 Phase-Locked information can produce environmental writing and mechanical
 messages without matter transfer. The prologue's incomplete reflected companion
 crosses only through a stabilized, translated Temporal Aperture aligned to the
@@ -700,8 +711,10 @@ historical bedroom stinger without resetting the authoritative present.
 No scientific explanation is added to the opening's established dialogue.
 
 Temporal access is not omniscience. The companion knows the protagonist was
-murdered but not who they were. Do not resolve the protagonist's composition,
-identity or origin, identify the singularity with the Dream organism, or settle
+murdered but not who they were. Do not resolve the protagonist's origin beyond
+§I (which rules the host, the night man, and the player riding it, Adela Voss;
+amended 2026-11-22 to stop calling that open), identify the singularity with
+the Dream organism, or settle
 historical alteration, causal loops, branches and paradoxes through this rule.
 Existing knowledge, publication, inventory, save and committed-fact authorities
 remain binding. Sources, implementation boundaries and unresolved work are in
@@ -754,8 +767,10 @@ split is characterisation, not decoration:
 - **Electric** — a monitor-top: white enamel box, a cylindrical
   compressor sitting on top like a hat. **Four flats only.** New,
   expensive, noticeably loud, and the neighbours know who has one.
-- The **drip tray** is the better minigame anyway: it overflows, and it
-  is nobody's job.
+- The **drip tray** is the better chore anyway: it overflows, and it
+  is nobody's job. *(Amended 2026-11-22:* it is a direct-manipulation chore
+  under §VIII.5.l and RUL-013, the tray slid out, carried and emptied by
+  hand, not a minigame.)
 
 **VIII.5.b — THERE ARE NO SMOKE DETECTORS. THEY ARE LISTENERS.**
 *(answering PROP_ART_BRIEF §8, and this is the good answer.)*
@@ -1170,10 +1185,10 @@ their finished walls.
 **VIII.5.o — THE YEAR IS THE INVESTIGATION; MAINTENANCE IS SECONDARY.**
 *(Owner direction 2026-10-26–27; task-review decisions October 27.)*
 
-The primary game is the nonlinear temporal-forensic mystery **The Year You
-Died**: investigate the murder year out of order and solve the player's own
-murder. The player is “quantum leaping into maintenance worker,” in the owner's
-words. Maintenance subplots and existing dream material are secondary optional
+The primary game is the temporal-forensic mystery **The Year You Died**:
+investigate the murder year through a tree of dated leads, each opened by the
+evidence before it (§VIII.2), and solve the player's own murder. The player
+is “quantum leaping into maintenance worker,” in the owner's words. Maintenance subplots and existing dream material are secondary optional
 investigations, not a required repeating repair/narcolepsy ladder. *Amended
 2026-10-29, at the owner's direction:* §I rules the host and the player. There
 is one host, the night man, a construct the Tenant made, with no memory of its
@@ -1199,6 +1214,14 @@ free of any required repair ladder. The mystery's design
 documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
+
+*Amended 2026-11-22 at the owner's direction* (the direction proposal,
+`design/ORISON_DIRECTION_PROPOSAL_2026-11-21.md`): **maintenance opens doors
+and pays.** A repair earns the resident's standing and, with it, a key or an
+hour in their flat. The house allowance keeps the next fare within reach, but
+it does not open doors: some leads' rooms are reached only by work done for
+the people who live in them. Maintenance is still not a required repair ladder;
+it is how the night man gets into the building's rooms.
 
 **Owner addition, 2026-11-01:** Adela Voss also sings and plays piano
 regularly at Harukiya. Erica, as supplied by Lily, is the character's personal
@@ -1273,7 +1296,8 @@ not prove completed gameplay.
 The jump reaches the user's sampled local month, day and time within the modeled
 November10,1928–November10,1929 annual loop, not the user's modern calendar year.
 Extra seasonal laps may show off the sky without lengthening the bounded shot.
-The opening's staged date does not establish the unknown date/time of the murder.
+The opening's staged date does not establish the date/time of the murder, which
+§VIII.5.o rules (Friday, 19 July 1929, about 9:03 p.m.).
 Keep elapsed/deadline time monotonic while the civil/weather calendar repeats.
 The historical Tardi cutaway keeps its exact17-second timeline and does not
 rewrite the annual destination or the existing ecology's dated presence rules.
@@ -1292,7 +1316,11 @@ three-branch flux-capacitor homage, manufactured in its existing mechanical
 language. References inform form, not copied labels/textures or a new nuclear
 fuel/gameplay authority. Its vocal system begins in synthetic babble/emotes and
 learns spoken English from witnessed words; its articulate written dialogue is
-preserved. Separately, rights-reviewed recorded reactions may be anachronistic.
+preserved. *(Amended 2026-11-22, RUL-015:* the learning is authored stages, each
+unlocked when the player has witnessed the words it uses, with every spoken
+line written in advance; no language model chooses or makes a word. This states
+the rule; it does not claim the stages are built.) Separately,
+rights-reviewed recorded reactions may be anachronistic.
 They remain context-sensitive, respect protected speech and silence, and cannot
 teach the machine by replaying its own recordings. These specific directions
 do not extend the signal exception to unrelated city technology.
@@ -1453,7 +1481,10 @@ gates live in `design/ORISON_MAZE_BRIEF.md`.*
 **The restriction that “the dream world is our reveal” binds the title screen,
 not production.** Menus and promotional hero art remain in the waking ORISON /
 STREET / PASSAGE world. The campaign itself enters and shows the dream after the
-player earns it through the complete first shift.
+player earns it through the complete first shift. *(Amended 2026-11-22* by the
+direction proposal: read "the complete first shift" as "the first deduction".
+The build still arms the first dream when the first shift's conversation ends;
+aligning it is open work.)
 
 Each completed case ends in one involuntary **release-print dream**. The Tenant
 wears the shadow and wound grammar of the case that has just integrated while it
@@ -1463,7 +1494,9 @@ previews the next unresolved resident.
 
 The space is one deterministic ten-module ring built from locally faithful
 Orison rooms and globally impossible connections. The same campaign seed keeps
-it learnable. The service-set lamp is the single continuous decision: it reveals
+it learnable. The carried flashlight is the single continuous decision (*amended
+2026-11-22:* V2 removed the service set's lamp, and the dream already lights
+the player's flashlight, stretched to its dream range): it reveals
 the route and hazards while giving the Tenant a target; darkness breaks visual
 acquisition but never becomes an indefinite hiding state. There is one Tenant,
 represented only through a borrowed shadows-only silhouette, architecture and
