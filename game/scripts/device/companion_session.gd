@@ -295,9 +295,9 @@ func _temporal_loop() -> Node:
 ## A slip the loop sends unasked: a deduction drawn, the hours beginning again.
 func _temporal_slip(title: String, body: String) -> void:
 	var text := body if title.is_empty() else title + ": " + body
-	# Only the arc's slips (untitled, or a received copy) wait; ordinary advice
+	# Only the arc's slips (untitled: copies, releases, the correction) wait; ordinary advice
 	# that finds the paper busy is dropped as before.
-	var kept := title.is_empty() or title == "RECEIVED COPY"
+	var kept := title.is_empty()
 	if kept and not _loop_slips.is_empty():
 		if _loop_slips.size() < OUTBOX_LIMIT: _loop_slips.append(text)
 		_keep_slips()
@@ -305,6 +305,18 @@ func _temporal_slip(title: String, body: String) -> void:
 	if not available() or typing or opening or _carrier.device.teletype.printing or not _print({"text": text}):
 		if kept and _loop_slips.size() < OUTBOX_LIMIT: _loop_slips.append(text)
 		if kept: _keep_slips()
+
+
+## Take custody before the source records delivery. That source commits the
+## pending text and its delivery marker together.
+func accept_received_copy(ledger: Dictionary, text: String) -> bool:
+	if retired or not is_same(_campaign, RealityState.data) or not is_same(ledger, _campaign.get("temporal")):
+		return false
+	if _loop_slips.size() >= OUTBOX_LIMIT or text.is_empty() or text.length() > 4096:
+		return false
+	_loop_slips.append(text)
+	_keep_slips()
+	return true
 
 
 ## Mirror the waiting slips into the temporal ledger. The loop commits right
