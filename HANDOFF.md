@@ -1,3 +1,15 @@
+# O1 print in box 4B - November 22
+
+Evidence class: **INERT**
+
+Plate 12 is first-visit mail and can be read from the valise. Its July 11
+roof exposure uses the existing storm buildup inside the 6:00–7:30 visit.
+Taking it teaches O1 and the July date. The actual roof signature keeps
+its own prerequisite and writer. The installed route passed 16 checks
+through the real envelope, reader and save. The native mail bench
+passed 24 and the surface check passed 818. Lily's play remains open.
+[Roof, mail and reader evidence](C:/ov/reports/plate12_roof_20261122/REPORT.md).
+
 # Fresh title through S01 and LEADS - November 22
 
 Evidence class: **INERT**
