@@ -572,12 +572,14 @@ func link(a: String, b: String) -> Dictionary:
 	for anchor_id: String in unlocked():
 		if anchor_id not in before:
 			opened.append(anchor_id)
-	RealityState.commit()
-	changed.emit()
 	# The deduction that closes the case prints the correction to the paper's
-	# July account. It changes no old edition (treatment section 7).
+	# July account. It changes no old edition (treatment section 7). It is sent
+	# before the commit, so a correction still waiting for the paper is saved
+	# with the deduction that drew it.
 	if table.get("arc") is Dictionary and table.arc.has("correction") and str(table.arc.correction.after) in drawn:
 		slip.emit("", correction_text())
+	RealityState.commit()
+	changed.emit()
 	return {"ok": true, "held": true, "deductions": drawn, "opened": opened}
 
 

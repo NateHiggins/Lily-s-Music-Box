@@ -14,6 +14,9 @@ var loop: Node
 var economy: Node
 var slips: Array[String] = []
 var resets := 0
+## -1 until a commit first holds the case; then 1 if the correction had been
+## sent by that commit (so a waiting copy is saved with it), 0 if not.
+var _case_commit_had_correction := -1
 
 
 func check(ok: bool, label: String) -> void:
@@ -137,6 +140,10 @@ func _ready() -> void:
 	check(loop.setup(clock, economy), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
+	RealityState.state_changed.connect(func() -> void:
+		if _case_commit_had_correction == -1 and "the_case" in (loop.ledger().get("deductions", []) as Array):
+			_case_commit_had_correction = 1 if slips.any(func(line: String) -> bool:
+					return line.contains("CORRECTION TO THE BOROUGH RECORD")) else 0)
 	check(loop.table.anchors.size() == 11, "eleven leads (%d)" % loop.table.anchors.size())
 
 	# S01: before the prologue ends nothing is typed for her; after it, her
@@ -386,6 +393,8 @@ func _ready() -> void:
 			"eleven pieces on the wall, six strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
 	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12 and is_equal_approx(loop.spread_fraction(), 1.0), "the finished case is at its full spread (%d)" % loop.spread())
 	check("the_case" in loop.ledger().deductions, "the last deduction is the case")
+	check(_case_commit_had_correction == 1,
+			"the commit that first saves the case already carries its correction (%d)" % _case_commit_had_correction)
 	var correction_slip := false
 	for sent: String in slips:
 		correction_slip = correction_slip or (sent.contains("CORRECTION TO THE BOROUGH RECORD, 21 JULY 1929.")

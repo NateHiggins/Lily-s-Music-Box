@@ -281,11 +281,15 @@ func exercise() -> void:
 ## An arc slip sent while the paper is busy survives save and Continue: the
 ## loop has already committed that it was sent, so the outbox is its only copy.
 func exercise_outbox_reload() -> void:
+	await frames(2)  # the S01 loop has left the group before this one joins
 	var loop := preload("res://scripts/game/temporal_loop.gd").new()
 	loop.table = loop._load_table()
 	add_child(loop)
 	loop.add_to_group("temporal_loop")
-	carrier.session._temporal_loop()
+	if not check(carrier.session._temporal_loop() == loop and loop.slip.is_connected(carrier.session._temporal_slip),
+			"outbox: the session listens to this loop"):
+		loop.queue_free()
+		return
 	await wait_for(func(): return not carrier.device.teletype.printing)
 	var reports: int = carrier.device.printed_count
 	var copy := "THE ROOF. THE LAST COPY. (bench)"
@@ -294,12 +298,18 @@ func exercise_outbox_reload() -> void:
 	loop.ledger()["arc_bench_sent"] = true  # the loop's own commit, as on the roof
 	RealityState.commit()
 	check(carrier.device.printed_count == reports and (loop.ledger().get("outbox", []) as Array) == [copy],
-		"outbox: a slip sent to a busy paper waits in the temporal ledger")
-	check(saved_campaign and RealityState.save_game(), "outbox: the campaign saves while the slip waits")
+		"outbox: a slip sent to a busy paper waits in the temporal ledger (%s)" % str(loop.ledger().get("outbox")))
+	var saved := RealityState.save_game()
+	if not check(saved, "outbox: the campaign saves while the slip waits (%s, %s)" % [
+			str(RealityState.last_save_result()),
+			str(preload("res://scripts/game/reality_save_document.gd").validate(RealityState.data.duplicate(true), 99))]):
+		loop.queue_free()
+		return
 	carrier.session._loop_slips.clear()  # a fresh session knows nothing of it
 	RealityState.load_game()
-	check(preload("res://scripts/game/temporal_loop.gd").valid(RealityState.data.temporal)
-			and carrier.session._loop_slips == [copy], "outbox: Continue restores the waiting slip from the save")
+	var restored: Variant = RealityState.data.get("temporal")
+	check(restored is Dictionary and preload("res://scripts/game/temporal_loop.gd").valid(restored)
+			and carrier.session._loop_slips == [copy], "outbox: Continue restores the waiting slip from the save (%s)" % str(carrier.session._loop_slips))
 	carrier.device.incoming_call = false
 	check(await wait_for(func(): return carrier.device.printed_count == reports + 1, 8.0),
 		"outbox: once the paper is free the restored slip prints exactly once")
@@ -332,8 +342,9 @@ func exercise_s01() -> void:
 	loop.table = loop._load_table()
 	add_child(loop)
 	loop.add_to_group("temporal_loop")
+	var had_prologue: bool = RealityState.data.has("prologue")
+	var prologue_before: Dictionary = (RealityState.data.get("prologue", {}) as Dictionary).duplicate(true)
 	var prologue: Dictionary = RealityState.data.get("prologue", {})
-	var phase_before: Variant = prologue.get("phase")
 	prologue["phase"] = "prologue_complete"
 	RealityState.data["prologue"] = prologue
 	(loop.ledger() as Dictionary).erase("arc")
@@ -374,7 +385,9 @@ func exercise_s01() -> void:
 	check(carrier.session.draft == own_draft, "S01: the player's draft is still their own")
 	await wait_for(func(): return not carrier.device.teletype.printing)
 	await capture("s01_reply.png")
-	prologue["phase"] = phase_before
+	# Put the opening back exactly: a bare {"phase": ...} is not a valid save.
+	if had_prologue: RealityState.data["prologue"] = prologue_before
+	else: RealityState.data.erase("prologue")
 	loop.queue_free()
 
 func publication_pass(clock: CampaignClock) -> void:
