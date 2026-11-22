@@ -351,7 +351,9 @@ func _enter_phase() -> void:
 			else:writing.clear()
 		"reflection_visitor":
 			writing.clear()
-			if not _begin_visitor():return
+			# A fresh Continue can place the player at the bed. The visitor's
+			# fixed reflected position must come from a view at the mirror.
+			if _mirror_observed() and not _begin_visitor():return
 		"companion_crossing":
 			writing.clear()
 		"first_contact","identity_mystery":writing.clear()
@@ -581,11 +583,15 @@ func _contact_tick(delta:float) -> void:
 func _begin_visitor() -> bool:
 	if not is_instance_valid(_carrier) or not _carrier.begin_story_reflection(self):return _fail("reflection presentation lease refused")
 	_visitor_active=true;_visitor_dwell=0;_visitor_return_dwell=0
+	_anchor_visitor_to_view()
+	return true
+
+
+func _anchor_visitor_to_view() -> void:
 	var normal:=mirror.mirror_normal()
 	_visitor_basis=Basis.looking_at(normal,Vector3.UP)
 	# Choose an interior point of the actual mirror window, then place the
-	# bot on its reflected ray at a fixed behind-player distance. This accounts
-	# for an off-centre player without following their subsequent gaze.
+	# bot on its reflected ray at a fixed behind-player distance.
 	var center:=mirror.mirror_center()
 	var reflected:Vector3=world.mirror_renderer._reflect_point(player.camera.global_position,center,normal)
 	var pane:MeshInstance3D=mirror.mirror_surface()
@@ -594,7 +600,6 @@ func _begin_visitor() -> bool:
 	var depth:float=(player.camera.global_position-center).dot(normal)+.40
 	_visitor_anchor=reflected+ray*((depth-(reflected-center).dot(normal))/ray.dot(normal))
 	_pose_visitor()
-	return true
 
 func _pose_visitor() -> void:
 	# The same manufactured bot is placed behind the player in reflected rays.
@@ -619,6 +624,9 @@ func _visitor_observed() -> bool:
 
 func _observe_visitor(elapsed:float) -> void:
 	if _phase_age>=2:_tap_mirror(2.0)
+	if not _visitor_active:
+		if _mirror_observed():_begin_visitor()
+		return
 	if _visitor_observed():
 		_visitor_dwell+=elapsed
 		if _visitor_dwell>=.8 and not _observe("visitor_seen"):return
@@ -627,6 +635,12 @@ func _observe_visitor(elapsed:float) -> void:
 			if _visitor_return_dwell>=.8 and not _observe("visitor_seen_again"):return
 	else:
 		_visitor_return_dwell=0
+		# A glimpse while approaching can leave an unwitnessed pose outside
+		# the pane from the player's new stance. Once seen, keep it fixed so
+		# looking behind or returning to the glass cannot move the visitor.
+		if _visitor_dwell<.8 and _mirror_observed():
+			_anchor_visitor_to_view()
+			return
 		var toward:=(_visitor_center-player.camera.global_position).normalized()
 		if "visitor_seen" in state.events and (-player.camera.global_basis.z).dot(toward)>.55:
 			if not _observe("looked_behind"):return

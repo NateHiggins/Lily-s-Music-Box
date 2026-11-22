@@ -1,3 +1,23 @@
+# Mirror visitor after Continue - November 22
+
+Evidence class: **INERT**
+
+The native prologue waits for a visible mirror before placing the visitor.
+An unwitnessed pose can settle as the player approaches. Once witnessed,
+the visitor stays in place through subsequent looks. The exact failed save
+now reaches the crossing through ordinary Title Continue and movement.
+This passed again after merging the release-dream changes into the mirror
+branch. The 291-check tutorial slice passed the look-away reload,
+reacquisition and native crossing. The combined surface run passed 818
+checks and 23 paired views were technically reviewed.
+
+The original fresh-world crossing stall, Juno's 5B route and Lily's full
+playthrough remain open. The golden entrance passed a separate directional
+replay from the first-shift arrival. Its diagnosis and procurement route
+still need a complete installed proof.
+[Visitor evidence](C:/ov/reports/title_campaign_chain_20261122/PROLOGUE_VISITOR_FAILURE.md).
+[Golden entrance evidence](C:/ov/reports/adela_attachments_20261122/GOLDEN_ROUTE_HANDOFF.md).
+
 # First deduction continuity and the 6B hand - November 22
 
 Evidence class: **INERT**
