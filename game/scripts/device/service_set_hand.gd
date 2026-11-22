@@ -131,7 +131,7 @@ func _find_world_target() -> Dictionary:
 	# query layer retains fixed-stock occlusion without letting a wall hide a
 	# visible control, or making unrelated world mechanisms selectable through it.
 	if carrier.get("screen_frame") != null:
-		query.collision_mask = 1 << 23
+		query.collision_mask = preload("res://scripts/player/constrained_grab.gd").FRAMED_COMPANION_LAYER
 		query.collide_with_bodies = false
 	query.exclude = [carrier._player.get_rid()]
 	last_hit = carrier.get_world_3d().direct_space_state.intersect_ray(query)
@@ -161,7 +161,6 @@ func _install_world_occlusion() -> void:
 	if faces.is_empty(): return
 	occlusion = Area3D.new()
 	occlusion.name = "FixedInstrumentPickOcclusion"
-	occlusion.set_meta(&"companion_pointer_owner", carrier)
 	occlusion.collision_layer = 1; occlusion.collision_mask = 0
 	occlusion.monitoring = false; occlusion.monitorable = false
 	model.add_child(occlusion)

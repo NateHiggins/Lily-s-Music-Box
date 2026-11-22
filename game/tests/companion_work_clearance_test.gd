@@ -113,11 +113,76 @@ func _run() -> void:
 	check(_fixed_occlusion_hit(), "positive real ray still hits fixed instrument occlusion")
 	observations["foreign_held_physics_frames"] = foreign_frames
 	observations["moving_contact_frames"] = moving_contact_frames
+	await _layered_pick_probe()
 	await _ownership_probes()
 	completed = true
 	check(logger.errors.is_empty(), "native route and ownership probes report no engine errors")
 	_finish(logger.errors)
 	OS.remove_logger(logger)
+
+
+func _layered_pick_probe() -> void:
+	var shape := bath._curtain_area.get_child(int(bath._curtain_area.get_child_count() * .75)) as CollisionShape3D
+	player.camera.look_at(shape.global_position)
+	await get_tree().physics_frame
+	player.camera.look_at(shape.global_position)
+	var selected: Dictionary = player._grab.find_target()
+	if not check(selected.get("owner") == bath, "curtain is selected before the crossing test"):
+		return
+	var click := InputEventMouseButton.new()
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	player._unhandled_input(click)
+	if not check(player._grab.active() and player._grab.target.get("owner") == bath, "ordinary click establishes the world grip before any crossing"):
+		return
+	var part: Node3D = selected.part
+	var point := part.to_global(player._grab.contact)
+	var eye := player.camera.global_position
+	var wheel := carrier._hand.controls["feed1"].get_node("ManipulationTarget") as Area3D
+	var fixed_pick: Area3D = carrier._hand.occlusion
+	check(wheel.collision_layer == fixed_pick.collision_layer and wheel.collision_layer != 0, "native wheel uses the framed fixed-stock pick layer")
+	# Induce the two intersections seen in the installed notebook visit.
+	# Keep the bath and player fixed so the test isolates ray validation.
+	var stock := _probe_occluder(eye.lerp(point, .25), fixed_pick.collision_layer)
+	stock.set_meta(&"companion_pointer_owner", carrier)
+	var moving := _probe_occluder(eye.lerp(point, .50), wheel.collision_layer)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var ray := PhysicsRayQueryParameters3D.create(eye, point)
+	ray.collide_with_areas = true
+	ray.exclude = [player.get_rid()]
+	var space := player.get_world_3d().direct_space_state
+	check(space.intersect_ray(ray).get("collider") == stock, "validation ray meets the foreground stock first")
+	ray.exclude = [player.get_rid(), stock.get_rid()]
+	check(space.intersect_ray(ray).get("collider") == moving, "validation ray meets the simulated wheel behind the stock")
+	player._grab.validate()
+	if check(player._grab.active() and player._grab.target.get("owner") == bath, "layered companion picks preserve the already-latched world grip"):
+		var wall := _probe_occluder(eye.lerp(point, .75), 1)
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		player._grab.validate()
+		check(not player._grab.active(), "a world obstruction behind the companion still releases the grip")
+		wall.queue_free()
+	stock.queue_free()
+	moving.queue_free()
+	if player._grab.active(): player._grab.release()
+	await get_tree().physics_frame
+
+
+func _probe_occluder(at: Vector3, layer: int) -> Area3D:
+	var area := Area3D.new()
+	area.collision_layer = layer
+	area.collision_mask = 0
+	area.monitoring = false
+	var collision := CollisionShape3D.new()
+	var sphere := SphereShape3D.new()
+	sphere.radius = .025
+	collision.shape = sphere
+	area.add_child(collision)
+	add_child(area)
+	area.global_position = at
+	return area
+
 
 func _fixed_occlusion_hit() -> bool:
 	var area: Area3D = carrier._hand.occlusion
@@ -189,6 +254,10 @@ func _ownership_probes() -> void:
 	carrier.release_story_pose(story_owner)
 	player.release_text_input(story_owner)
 	story_owner.queue_free()
+	# Presentation and printing finish asynchronously after ownership returns.
+	var deadline := Time.get_ticks_msec() + 12000
+	while Time.get_ticks_msec() < deadline and (not carrier.session.available() or carrier.device.teletype.printing):
+		await get_tree().process_frame
 	if check(carrier.session.begin(), "typing successor acquires existing correspondence opening API"):
 		_seed_return()
 		camera_before = player.camera.global_transform
