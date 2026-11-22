@@ -121,6 +121,11 @@ func _route() -> void:
 				if not await _walk(point): return
 			if not await _walk(Vector3(3.975, y, -3.4)): return
 		if not await _walk(Vector3(1.925, base + 3.2, -3.4)): return
+	# Join the last flight to the actual roof landing before returning down.
+	for point in [Vector3(1.925, 17.6, 1.3), Vector3(3.975, 17.6, 1.3),
+			Vector3(3.975, 19.2, -3.4), Vector3(3.975, 17.6, 1.3),
+			Vector3(1.925, 17.6, 1.3), Vector3(1.925, 16., -3.5)]:
+		if not await _walk(point): return
 	# Return down the same physical stair, keeping the controller live throughout.
 	for floor_index in [4, 3, 2, 1, 0]:
 		var base: float = floor_index * 3.2
@@ -212,11 +217,15 @@ func _move_front_entrance(identity: String,want_open: bool) -> bool:
 		var hand := RouteHand.new()
 		add_child(hand); hand.player=player
 		var held_contact := Vector3(door.width/3.0,1.1,door._hinge_offset)
-		var moved: bool=await hand.operate(door._body.to_global(held_contact),goal,door)
-		var follows: bool=hand.follows_cursor
-		hand.free()
+		player.camera.look_at(door._body.to_global(held_contact))
 		await get_tree().physics_frame
-		if not moved or not follows or door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
+		hand.click()
+		hand.free()
+		for frame in 180:
+			await get_tree().physics_frame
+			if door.open == want_open and not door._moving:
+				break
+		if player._grab.active() or door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
 			var at:=door._body.to_global(held_contact)
 			var obstruction:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,at,1,[player.get_rid()]))
 			print("DOOR_HAND_DIAGNOSTIC ",identity," angle=",door._body.rotation.y," wanted=",goal," point=",at," camera=",player.camera.global_position," distance=",at.distance_to(player.camera.global_position)," blocker=",obstruction.get("collider"))

@@ -17,22 +17,29 @@ def project(layout,source,heating=None):
     if set(source)!={'schema_version','repairs','bypasses','ports'} or source['schema_version']!=1 or len(source['repairs'])!=1:
         raise ValueError('One explicit service-entry repair required')
     row=source['repairs'][0]
-    if set(row)!={'id','level','door','stair','rect','reason'} or row['id']!='F01_SERVICE_ENTRY_PLATFORM' or row['level']!='F01' or not isinstance(row['reason'],str) or not row['reason'].strip():
+    if set(row)!={'id','level','door','hinge','stair','rect','reason'} or row['id']!='F01_SERVICE_ENTRY_PLATFORM' or row['level']!='F01' or not isinstance(row['reason'],str) or not row['reason'].strip():
         raise ValueError('Bounded ground service-entry repair required')
-    if row['door']!='F01_SERVICE_CORE_DOOR' or row['stair']!='SERVICE_F01_F02':
+    if row['door']!='F01_SERVICE_CORE_DOOR' or row['hinge']!='left' or row['stair']!='SERVICE_F01_F02':
         raise ValueError('Retained ground door and stair owners required')
     door=next(r for r in layout['doors'] if r['id']==row['door'])
     stair=next(r for r in layout['stairs'] if r['id']==row['stair'])
     landing=next(r for r in layout['platforms'] if r['id']=='F01_SERVICE_LANDING')
-    if door['level']!='F01' or door['hinge']!='right' or abs(door['yaw']-math.pi/2)>1e-6 or stair['from']!='F01':
-        raise ValueError('Repair requires the actual retained door handing and stair frame')
-    # .33 m capsule + .10 m hand clearance beyond the closed latch endpoint;
-    # another full capsule radius must remain supported behind that stance.
-    north=math.ceil((door['center'][1]+door['width']/2+.33+.10+.33)/.05-1e-9)*.05
-    expected=[landing['rect'][0],landing['rect'][3],stair['origin'][0],round(north,6)]
+    if (door['level']!='F01' or door['hinge'] not in ('left','right') or door['width']!=.91
+        or door['center']!=[9.5,5.5] or door['swing']!='core'
+        or abs(door['yaw']-math.pi/2)>1e-6 or stair['from']!='F01'):
+        raise ValueError('Repair requires the actual retained opening and stair frame')
+    # The left-hung leaf puts the latch-side stance toward the main landing.
+    # Both the stance and its full standing radius fit on that slab.
+    x_min,z_min,x_max,z_max=landing['rect']
+    radius=.33
+    stance_x=door['center'][0]+.525
+    stance_z=door['center'][1]-door['width']/2-radius-.10
+    if not (x_min+radius<=stance_x<=x_max-radius and z_min+radius<=stance_z<=z_max-radius):
+        raise ValueError('Main landing must support the new latch-side standing capsule')
+    expected=[x_min,z_max,stair['origin'][0],6.75]
     rect=row['rect']
     if not isinstance(rect,list) or len(rect)!=4 or any(type(x) not in (int,float) or not math.isfinite(x) for x in rect) or any(abs(a-b)>1e-8 for a,b in zip(rect,expected)):
-        raise ValueError('Repair must match the retained landing/flight edges and full latch-side capsule support')
+        raise ValueError('Repair must keep the fitted F01 entry slab and adjoining landing/flight edges')
     if stair['origin'][1]!=rect[1] or rect[2]-rect[0]<.66+.01:
         raise ValueError('Actual first-flight seam and standing capsule width required')
     for platform in layout['platforms']:
@@ -46,6 +53,7 @@ def project(layout,source,heating=None):
         if min(rect[2],other[2])>max(rect[0],other[0]) and min(rect[3],other[3])>max(rect[1],other[1]):
             raise ValueError('Repair overlaps a shaft reservation')
     result=copy.deepcopy(layout)
+    result['doors']=upsert_records(result['doors'],[door|{'hinge':row['hinge']}])
     result['platforms']=upsert_records(result['platforms'],[{k:copy.deepcopy(row[k]) for k in ('id','level','rect')}|{'class':'core'}])
     bypass=source['bypasses']
     if set(bypass)!={'ground_room','ground_openings','upper_room','upper_openings'}:

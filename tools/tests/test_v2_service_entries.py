@@ -28,15 +28,26 @@ class ServiceEntries(unittest.TestCase):
         self.assertEqual(original,projected)
 
     def test_short_floor_larger_floor_and_invalid_owners_are_rejected(self):
-        for field,value in [('rect',[9.5,5,10.55,6.05]),('rect',[9.5,5,10.6,6.75]),('rect',[9.4,5,10.55,6.75]),('rect',[9.5,4.9,10.55,6.75]),('rect',[9.5,5,10.55,float('nan')]),('door','F03_SERVICE_CORE_DOOR'),('stair','SERVICE_F02_F03'),('reason','')]:
+        for field,value in [('rect',[9.5,5,10.55,6.05]),('rect',[9.5,5,10.6,6.75]),('rect',[9.4,5,10.55,6.75]),('rect',[9.5,4.9,10.55,6.75]),('rect',[9.5,5,10.55,float('nan')]),('door','F03_SERVICE_CORE_DOOR'),('hinge','right'),('stair','SERVICE_F02_F03'),('reason','')]:
             source=copy.deepcopy(self.source);source['repairs'][0][field]=value
             with self.subTest(field=field,value=value),self.assertRaises(ValueError):project(self.layout,source)
 
-    def test_changed_door_handing_or_width_requires_a_new_fit(self):
-        for field,value in [('hinge','left'),('width',1.2),('yaw',0)]:
+    def test_projects_left_hinge_onto_only_the_existing_f01_service_leaf(self):
+        layout=copy.deepcopy(self.layout)
+        next(r for r in layout['doors'] if r['id']=='F01_SERVICE_CORE_DOOR')['hinge']='right'
+        self.assertEqual(project(layout,self.source),self.layout)
+
+    def test_changed_opening_dimensions_or_swing_require_a_new_fit(self):
+        for field,value in [('hinge','invalid'),('width',1.2),('yaw',0),('center',[9.5,5.6]),('swing','hall')]:
             layout=copy.deepcopy(self.layout)
             next(r for r in layout['doors'] if r['id']=='F01_SERVICE_CORE_DOOR')[field]=value
             with self.subTest(field=field),self.assertRaises(ValueError):project(layout,self.source)
+
+    def test_new_latch_stance_must_have_full_landing_support(self):
+        layout=copy.deepcopy(self.layout)
+        next(r for r in layout['platforms'] if r['id']=='F01_SERVICE_LANDING')['rect'][1]=4.3
+        with self.assertRaisesRegex(ValueError,'new latch-side'):
+            project(layout,self.source)
 
     def test_existing_stock_and_non_solid_shaft_cannot_be_covered(self):
         for table,row in [('platforms',{'id':'foreign','level':'F01','rect':[9.7,5.1,10.1,5.7]}),('risers',{'id':'foreign','solid':False,'rect':[9.7,5.1,10.1,5.7]})]:

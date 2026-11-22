@@ -18,7 +18,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal","southern_laurel","eastern","stutter_probe"]:
+	if _route_scope not in ["full","station","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal","southern_laurel","eastern","stutter_probe"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -110,8 +110,16 @@ func _run() -> void:
 		return
 	programme_before = _programme_sources()
 	city_observations["programme_sources"] = programme_before
-	city_observations["route_scope"]="full"
+	city_observations["route_scope"]=_route_scope
 	await super._run()
+
+func _prepare_player_start() -> void:
+	if _route_scope != "station":
+		super._prepare_player_start()
+		return
+	var city := world.get_node("CityShells") as Node3D
+	player.global_position = city.to_global(GameBoot.b2g([31.5, 4.2, .02]))
+	player.velocity = Vector3.ZERO
 
 func _prepare_render_camera(camera: Camera3D) -> Dictionary:
 	# Main-thread rendering only: leave SceneTree camera/player poses alone,
@@ -1143,6 +1151,8 @@ func _check_frontage_surfaces(city: Node3D,identities: Array,expected_count: int
 	inventory.free()
 
 func _evidence_scope() -> String:
+	if _route_scope == "station":
+		return "Nearby start at Eastern Plaza. The production controller walks all five station stairs in both directions with normal collision."
 	return "Production controller through open frontage, retained crossing/door hands, native scaffold, both station levels/islands, both new street junctions/sidewalks and a wider street tour. Separate explicit airborne controller fixtures test the 205 m backstop wall (edge mist clock suspended) and restored negative control; they are not continuous walking routes. No train service, sleep/bed event, save reconstruction, whole city or artistic acceptance."
 
 func _evidence_file() -> String:
@@ -1171,7 +1181,9 @@ func _station_view(label: String, target: Vector3) -> void:
 	await get_tree().create_timer(.25).timeout
 	await RenderingServer.frame_post_draw
 	var directory := OS.get_environment("SHOT_DIR")
-	check(not directory.is_empty() and get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png")) == OK, "actual standing station capture: " + label)
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK
+			and get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png")) == OK,
+			"actual standing station capture: " + label)
 
 func _stairs(route: Dictionary, up: bool) -> bool:
 	var from: Array = route.from_m
@@ -1192,6 +1204,13 @@ func _stairs(route: Dictionary, up: bool) -> bool:
 	return true
 
 func _route() -> void:
+	if _route_scope == "station":
+		await _station_round_trip()
+		check(bool(city_observations.get("station_route", {}).get("completed", false)),
+				"both directions completed on all five station stairs")
+		check(not player.noclip and not player.crouched, "station round trip uses the standing production body")
+		check(programme_before == _programme_sources(), "station route sources stayed frozen")
+		return
 	await super._route()
 	if not failures.is_empty(): return
 	# This is a third use of the live leaf, whose closer may leave it partly
@@ -1211,6 +1230,19 @@ func _route() -> void:
 	await _station_view("plaza_approach",Vector3(65,-10,8))
 	for point: Vector3 in [Vector3(40,-12.8,0),Vector3(40,8,0),Vector3(31,8,0),Vector3(31.5,4.2,0)]:
 		if not await _city_walk(point): return
+	await _station_round_trip()
+	if not failures.is_empty(): return
+	for point: Vector3 in [Vector3(31,8,0),Vector3(40,8,0),Vector3(40,-12.8,0)]:
+		if not await _city_walk(point): return
+	for point: Vector3 in [Vector3(30,0,3),Vector3(24,0,3),Vector3(19.5,0,3),Vector3(14,0,3),Vector3(0,0,3)]:
+		if not await _walk(world.adapter.root.to_local(point)): return
+	await _wide_street_tour()
+	if not failures.is_empty(): return
+	await _radius_controller_fixtures()
+	check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524), "actual standing production body remained active")
+	check(programme_before == _programme_sources(), "executed route sources and physical station/ground bodies remain frozen")
+
+func _station_round_trip() -> void:
 	await _station_view("public_entry",Vector3(38,5,4))
 	var station := world.get_node("CityShells/EasternPlazaStation") as Node3D
 	var checked_materials: Dictionary = {}
@@ -1251,16 +1283,7 @@ func _route() -> void:
 		if not await _stairs(lower, false): return
 	if not await _city_walk(Vector3(30.8,5.75,6.2)): return
 	if not await _stairs(routes.PublicEntry, false): return
-	for point: Vector3 in [Vector3(31,8,0),Vector3(40,8,0),Vector3(40,-12.8,0)]:
-		if not await _city_walk(point): return
-	for point: Vector3 in [Vector3(30,0,3),Vector3(24,0,3),Vector3(19.5,0,3),Vector3(14,0,3),Vector3(0,0,3)]:
-		if not await _walk(world.adapter.root.to_local(point)): return
 	city_observations["station_route"] = {"completed":true,"platform_connections":4,"waypoints":trace.size()-before}
-	await _wide_street_tour()
-	if not failures.is_empty(): return
-	await _radius_controller_fixtures()
-	check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524), "actual standing production body remained active")
-	check(programme_before == _programme_sources(), "executed route sources and physical station/ground bodies remain frozen")
 
 func lane_from_route(route: Dictionary) -> float:
 	return float(route.to_m[1]) - float(route.from_m[1])

@@ -272,6 +272,13 @@ func _natural_transitions(station: Node3D,camera: Camera3D,focus: MeshInstance3D
 	var last_near := 0.
 	var first_far := 0.
 	var background := Color.BLACK
+	# A wide stock can already have switched at the whole-bounds fit distance.
+	# Find the near side of the bracket while keeping the same physical aim.
+	for attempt in 8:
+		var initial: Dictionary = await _natural_probe(camera, center, direction, start)
+		if int(initial.primitives) == near_count:
+			break
+		start /= 1.4
 	for i in 24:
 		var row: Dictionary = await _natural_probe(camera,center,direction,start*pow(1.4,i))
 		if i==0: background=viewport.get_texture().get_image().get_pixel(0,0)

@@ -52,7 +52,7 @@ def rod(name, a, b, radius, mat):
     return obj
 
 
-def stringer(name, x, width, tread, rise, count, offset, reverse, mat):
+def stringer(name, x, landing, tread, rise, count, offset, reverse, mat):
     """Closed plate with tread-bearing notches and a continuous lower edge."""
     bpy.ops.object.select_all(action='DESELECT')
     run = tread*count
@@ -61,7 +61,7 @@ def stringer(name, x, width, tread, rise, count, offset, reverse, mat):
         profile.extend([(i*tread, i*rise+.012), ((i+1)*tread, i*rise+.012)])
     profile.extend([(run, count*rise-.30), (0, -.30)])
     def station(z, y, side):
-        return point((x+side, offset+y, run+width-z if reverse else z))
+        return point((x+side, offset+y, run+landing-z if reverse else z))
     vertices = [station(z,y,side) for side in [-.022,.022] for z,y in profile]
     n = len(profile)
     faces = [tuple(reversed(range(n))), tuple(range(n,2*n))]
@@ -105,7 +105,7 @@ def build(name, width, tread, landing, gap):
         x0 = width+gap if flight=='B' else 0
         offset = half if flight=='B' else 0
         for side in [.05,width-.05]:
-            structure.append(stringer('NotchedStringer',x0+side,width,tread,rise,
+            structure.append(stringer('NotchedStringer',x0+side,landing,tread,rise,
                                       count,offset,flight=='B',iron))
         for i in range(count):
             y = offset+i*rise

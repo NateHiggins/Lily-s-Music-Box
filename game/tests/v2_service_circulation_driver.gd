@@ -1,6 +1,5 @@
 extends "res://tests/orison_v2_public_landing_walk.gd"
 ## One basement fixture; live service halls, real thresholds and seven stairs.
-const FirstSlice := preload("res://tests/orison_v2_first_slice_contract_test.gd")
 var crossings: Array[Dictionary]=[]
 var threshold_preflight: Array[Dictionary]=[]
 var _allowed: Array[Array]=[]
@@ -48,9 +47,12 @@ func _capture_standing(label: String,local_target: Vector3) -> bool:
 	await RenderingServer.frame_post_draw
 	return _require(get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))==OK,"write standing passage capture: "+label)
 
+func _service_leaf(identity: String) -> DoorProp:
+	var opening: Node3D=world.adapter.resolve(identity)
+	return opening.get_node_or_null(identity+"_Leaf") as DoorProp if opening!=null else null
+
 func _door(record: Dictionary,want_open: bool=true) -> bool:
-	var opening: Node3D=world.adapter.resolve(str(record.id))
-	var leaf: DoorProp=opening.get_node_or_null(str(record.id)+"_Leaf") as DoorProp if opening!=null else null
+	var leaf:=_service_leaf(str(record.id))
 	if not _require(leaf!=null,"actual controlled service leaf: "+str(record.id)):return false
 	for frame in 180:
 		if not leaf._moving:break
@@ -63,15 +65,11 @@ func _door(record: Dictionary,want_open: bool=true) -> bool:
 	if not _require(not is_nan(_ground(Vector2(pull_stance.x,pull_stance.z))),"supported latch-side stance outside service leaf arc: "+str(record.id)):return false
 	if not await _floor_walk(_domain(str(record.level)),pull_stance):return false
 	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0)
-	var hand:=FirstSlice.PatrolHand.new();add_child(hand);hand.player=player
-	var body:=leaf.get_node("HingedLeaf") as Node3D
-	var ok:=true
-	if want_open and leaf.open:ok=await hand.operate(body.to_global(Vector3(leaf.width*.5,1.1,0)),0.0,leaf)
-	if ok:ok=await hand.operate(body.to_global(Vector3(leaf.width*.5,1.1,0)),leaf.motion_target_angle(want_open),leaf)
-	ok=ok and leaf.open==want_open and hand.follows_cursor and not player._grab.active()
+	var body := leaf.get_node("HingedLeaf") as Node3D
+	var ok := await _move_front_entrance(str(record.id), want_open)
 	_floor_cache.clear()
-	_last_door_input={"owner":str(record.id),"kind":"grab_mouse_release","released":not player._grab.active(),"follows_cursor":hand.follows_cursor,"ready_for_passage":leaf.is_ready_for_passage(),"actual_angle":body.rotation.y,"stop_angle":leaf.motion_target_angle(true)}
-	hand.free()
+	_last_door_input = {"owner":str(record.id), "kind":"primary_click", "ready_for_passage":leaf.is_ready_for_passage(),
+		"actual_angle":body.rotation.y, "stop_angle":leaf.motion_target_angle(want_open)}
 	var directory:=OS.get_environment("SHOT_DIR")
 	if ok and not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
@@ -159,9 +157,6 @@ func _route() -> void:
 						if not await _capture_standing("F02_retained_pipe_port",Vector3((b[0]+b[3])*.5,(b[1]+b[4])*.5,(b[2]+b[5])*.5)):return
 			for point: Vector3 in [Vector3(8.9,_floor_y,-3.25),Vector3(8.9,_floor_y,-8.3),hall_stance,core_stance]:
 				if not await _floor_walk(domain,point):return
-			# These narrow old stair approaches require returning the leaf to its
-			# jamb before taking the first flight. Close it with the same hand input.
-			if edge.is_door and not await _door(edge,false):return
 		if index==floors.size()-1:break
 		var stair: Dictionary={}
 		for row: Dictionary in world.layout.stairs:
@@ -169,6 +164,10 @@ func _route() -> void:
 		if not _require(not stair.is_empty(),"actual service stair: "+floor):return
 		var points:=_stair_points(stair)
 		if not await _floor_walk(domain,points[0]):return
+		if floor in ["F01","F03"]:
+			var leaf:=_service_leaf(floor+"_SERVICE_CORE_DOOR")
+			if not _require(leaf!=null and leaf.open and leaf.is_ready_for_passage(),
+					"open service leaf leaves the threshold-to-stair route clear at "+floor):return
 		for point: Vector3 in points.slice(1):
 			if not await _walk(point):return
 		stairs.append(stair)
@@ -181,4 +180,8 @@ func _route() -> void:
 		points.reverse()
 		for point: Vector3 in points.slice(1):
 			if not await _walk(point):return
+	for floor: String in ["F01","F03"]:
+		var leaf:=_service_leaf(floor+"_SERVICE_CORE_DOOR")
+		if not _require(leaf!=null and leaf.open and leaf.is_ready_for_passage(),
+				"service leaf stays open through the round trip at "+floor):return
 	print("SERVICE FLOOR QUERIES: ",_grid_builds," built, ",_grid_reuses," reused; all segments walked")

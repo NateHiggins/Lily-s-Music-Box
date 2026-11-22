@@ -131,10 +131,20 @@ def stair_well(name,x,y,low,high,steps,width,gap,tread,landing):
             # Suspend platform stair landings from their framed opening; no
             # column may descend through the live carriageway underneath.
             box(name+'_LandingHanger_'+str(yy),'structure',(x+run+landing-.13,yy-.04,mid-.34),(x+run+landing-.03,yy+.04,high-.22),'landing_hanger',.001)
-    rod(name+'_LandingGuard',(x+run+landing,ya,mid+s['handrail_height_m']),(x+run+landing,yb,mid+s['handrail_height_m']))
+    # Turn both outside handrails onto the slab. The inside rails still
+    # terminate at the flight mouths so the two lanes can join at the turn.
+    entry_x=x+run
+    first_post_x=entry_x+.06
+    rear_x=entry_x+landing-.04
+    outer_a,outer_b=ya+.04,yb-.04
+    rail_z=mid+s['handrail_height_m']
+    for side,edge_y,post_y in [('A',ya,outer_a),('B',yb,outer_b)]:
+        rod(f'{name}_LandingLead{side}',(entry_x,edge_y,rail_z),(first_post_x,post_y,rail_z))
+        guarded_run(f'{name}_LandingSide{side}',(first_post_x,post_y,mid),(rear_x,post_y,mid))
+    guarded_run(name+'_LandingGuard',(rear_x,outer_a,mid),(rear_x,outer_b,mid),end_posts=False)
     if LOD==0:stair_routes.append(dict(id=name,from_m=[x,y,low],half_m=[x+run+tread,y,mid],to_m=[x,y+lane,high],riser_m=rise,tread_m=tread))
 
-def guarded_run(name,a,b,openings=()):
+def guarded_run(name,a,b,openings=(),*,end_posts=True):
     a=Vector(a);b=Vector(b);delta=b-a;length=delta.length;direction=delta/length
     intervals=[];start=0.
     for lo,hi in sorted(openings):
@@ -146,7 +156,8 @@ def guarded_run(name,a,b,openings=()):
         if hi-lo<.05:continue
         rod(f'{name}_Rail_{index}',a+direction*lo+Vector((0,0,s['handrail_height_m'])),a+direction*hi+Vector((0,0,s['handrail_height_m'])))
         count=max(1,math.ceil((hi-lo)/1.5))
-        for i in range(count+1):
+        post_indices=range(count+1) if end_posts else range(1,count)
+        for i in post_indices:
             p=a+direction*(lo+(hi-lo)*i/count)
             rod(f'{name}_Post_{index}_{i}',p,p+Vector((0,0,s['handrail_height_m'])),.018)
 
