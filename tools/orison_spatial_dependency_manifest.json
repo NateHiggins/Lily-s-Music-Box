@@ -215208,12 +215208,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
+    "/anchors/july_roof/where",
     "/filing/places[0]"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -223208,7 +223210,7 @@
     "_notebooks"
    ],
    "lines": [
-    54
+    83
    ],
    "count": 1,
    "context": [
@@ -223226,6 +223228,34 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "ce3dde30619846a2",
+   "kind": "id_reference",
+   "token": "4B_terminal_desk",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "const KEY_BOOK_DESK := \"4B_terminal_desk\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "key": "d6f29e6163ecbc79",
@@ -223312,6 +223342,36 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F06/marker+bookshelf+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "90488303c211d842",
+   "kind": "node_path",
+   "token": "4B_terminal_desk__oak_work_surface",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_desk_key_book"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "var top := desk.find_child(\"4B_terminal_desk__oak_work_surface\", true, false) as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "da19db6ee45309e4",

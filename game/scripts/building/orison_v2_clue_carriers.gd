@@ -9,6 +9,7 @@ const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
 const SHELF := "F06_6B_BOOKSHELF_01"
 const SWITCH := "B1_BOILER_ROOM_SWITCH"
 const JUNO_SHELF := "F02_2C_BOOKSHELF_01"
+const KEY_BOOK_DESK := "4B_terminal_desk"
 const BOOK := "minutes"
 # Bottom to top, with the day each exists from.
 const SPINES := [["3 March", ""], ["19 July", "1929-07-20"], ["6 Aug.", "1929-08-06"]]
@@ -32,7 +33,35 @@ static func mount(world: Node3D, adapter: Variant) -> Dictionary:
 	var disc := _disc_twelve(world, juno_shelf, shelf_bounds)
 	if _trade_log(world, juno_shelf, shelf_bounds) == null:
 		return {}
-	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "disc_twelve": disc, "book_stock": books.get_meta("stock")}
+	var stock: Variant = books.get_meta("stock")
+	var key_book := _desk_key_book(world, adapter.resolve(KEY_BOOK_DESK) as Node3D, stock)
+	if key_book == null:
+		return {}
+	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "disc_twelve": disc,
+		"key_book": key_book, "book_stock": stock}
+
+
+static func _desk_key_book(world: Node3D, desk: Node3D, stock: Variant) -> Node3D:
+	if desk == null:
+		return null
+	var top := desk.find_child("4B_terminal_desk__oak_work_surface", true, false) as MeshInstance3D
+	if top == null:
+		return null
+	var box := top.transform * top.get_aabb()
+	var prop: Node3D = Clue.new()
+	prop.name = "NightManKeyBook"
+	world.add_child(prop)
+	prop.global_transform = desk.global_transform * Transform3D(Basis.IDENTITY,
+			Vector3(box.position.x + .23, box.end.y + .002, box.end.z - .15))
+	prop.reach = .08
+	prop.reader = Callable(world.temporal_loop, "read_key_book")
+	var book := Node3D.new()
+	book.name = "Ledger"
+	prop.add_child(book)
+	_closed_book(book, stock, Basis(Vector3.RIGHT, -PI * .5), Vector3(.5, 0, .5))
+	_cover_title(book, stock, "KEY BOOK")
+	prop.configure(book)
+	return prop
 
 
 static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
@@ -264,9 +293,15 @@ static func _trade_log(world: Node3D, shelf: Node3D, box: AABB) -> Node3D:
 	book.name = "Notebook"
 	prop.add_child(book)
 	_closed_book(book, stock, Basis(Vector3.RIGHT, -PI * 0.5), Vector3(0.5, 0, 0.5))
+	_cover_title(book, stock, "TRADE LOG")
+	prop.configure(book)
+	return prop
+
+
+static func _cover_title(book: Node3D, stock: Variant, caption: String) -> void:
 	var title := Label3D.new()
 	title.name = "Title"
-	title.text = "TRADE LOG"
+	title.text = caption
 	title.font = FONT
 	title.font_size = 30
 	title.pixel_size = 0.0005
@@ -275,8 +310,6 @@ static func _trade_log(world: Node3D, shelf: Node3D, box: AABB) -> Node3D:
 	title.modulate = Color(0.88, 0.81, 0.65)
 	title.outline_size = 0
 	book.add_child(title)
-	prop.configure(book)
-	return prop
 
 
 ## Juno's twelfth disc (carriers.json m_drama_lead): the session she cut through the wall of 2C on Saturday 24 Aug.,

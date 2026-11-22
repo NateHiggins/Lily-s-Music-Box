@@ -1427,13 +1427,28 @@ func _close_evening(snapped: bool) -> void:
 	RealityState.commit_background()
 
 
-## BOOK: the night man's key book as it stands.
+## Reading the desk copy earns a date from the archive. Only the signature
+## in Adela's scene can earn the active visit's loan and release.
+func read_key_book() -> Dictionary:
+	var title := "THE KEY BOOK"
+	var current_day := today()
+	for loan: Dictionary in table.arc.rescue.loans:
+		var archive_flag := str(loan.get("archive_flag", ""))
+		if archive_flag.is_empty() or current_day < str(loan.archive_from):
+			continue
+		if RealityState.grant_knowledge(archive_flag):
+			PaperPocket.file_evidence(archive_flag, title, str(loan.line))
+			RealityState.commit()
+	return {"title": title, "body": key_book_text(), "condition": "4B DESK", "stamp": "KEY BOOK"}
+
+
+## BOOK: the entries found in the desk copy and the visits actually made.
 func key_book_text() -> String:
 	var lines: Array[String] = []
 	if table.get("arc") is Dictionary and table.arc.get("rescue") is Dictionary:
 		lines.append(str(table.arc.rescue.book))
 		for loan: Dictionary in table.arc.rescue.loans:
-			if RealityState.has_knowledge(str(loan.flag)):
+			if RealityState.has_knowledge(str(loan.flag)) or RealityState.has_knowledge(str(loan.get("archive_flag", ""))):
 				lines.append(str(loan.line))
 		for line: Variant in _arc_state().get("book", []):
 			lines.append(str(line))

@@ -53,7 +53,7 @@
 			"present": "AT 03:02 THE BODY WAS PRESENT.",
 			"seen": "m_rescue_seen",
 			"loans": [
-				{"flag": "m_key_loan_11", "line": "11 JULY, A.V., ROOF."},
+				{"flag": "m_key_loan_11", "line": "11 JULY, A.V., ROOF.", "archive_from": "1929-07-12", "archive_flag": "m_july_roof_date"},
 				{"flag": "m_key_loan_19", "line": "19 JULY, A.V., ROOF, STORM."}
 			],
 			"attempts": [
@@ -979,6 +979,27 @@
 			"occasion": "the Saturday before Armistice Day",
 			"dressing": ["Adela is at the Photo Supplies window with Mrs. Owen."],
 			"windows": {"raise": 0.0, "tilt_degrees": 0.0, "curtain_open": 0.6}
+		},
+		"july_roof": {
+			"title": "Adela on the roof",
+			"place": "Roof",
+			"where": "ROOF",
+			"date": "1929-07-11",
+			"start": "18:00",
+			"minutes": 90,
+			"tier": 0,
+			"needs": [],
+			"question": "What was Adela working on before the storm?",
+			"steps": [],
+			"witness": {
+				"source_flag": "m_july_roof_date",
+				"heard_flag": "m_key_loan_11",
+				"hint": "Look for Adela on the roof. If you have not spoken at her window, try that lead first."
+			},
+			"season": "high summer",
+			"occasion": "the Thursday storm",
+			"dressing": ["Adela is working on the roof before the evening storm."],
+			"windows": {"raise": 0.6, "tilt_degrees": 15.0, "curtain_open": 1.0}
 		}
 	},
 	"deductions": {
