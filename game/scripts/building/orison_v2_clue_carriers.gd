@@ -52,7 +52,7 @@ static func _desk_key_book(world: Node3D, desk: Node3D, stock: Variant) -> Node3
 	prop.name = "NightManKeyBook"
 	world.add_child(prop)
 	prop.global_transform = desk.global_transform * Transform3D(Basis.IDENTITY,
-			Vector3(box.position.x + .23, box.end.y + .002, box.end.z - .15))
+			Vector3(box.position.x + .10, box.end.y + .002, box.end.z - .15))
 	prop.reach = .08
 	prop.reader = Callable(world.temporal_loop, "read_key_book")
 	var book := Node3D.new()
