@@ -1,3 +1,16 @@
+# F02 stair clearance and 5B arrival - November 22
+
+Evidence class: **INERT**
+
+Juno's return route caught the inner F02 stair guard. Juno and Mina now
+turn on the clear portion of the landing before crossing it. The installed
+motor passed both directions for both residents. Title Continue from the
+candidate's exact third filing passed 61 checks across 6B and 5B. Juno and
+Cal both reached their endpoints. The fifth filing and broadcast deduction
+survived teardown byte for byte. The earlier uninterrupted 6B walking
+deadline failure and the separate 2C bath stall remain recorded.
+[F02 and 5B evidence](C:/ov/reports/juno_5b_departure_20261122/REPORT.md).
+
 # Prepared arcade golden repair - November 22
 
 Evidence class: **INERT**
