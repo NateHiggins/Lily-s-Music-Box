@@ -50,6 +50,17 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("cam_ortiz", lambda d: d["threads"][0].update(requires=["m_nobody_grants_this"]))
         self.assertIn("m_nobody_grants_this", self.failures())
 
+    def test_a_witness_visit_requires_a_carrier_and_an_authored_outcome(self):
+        self.edit("carriers", lambda doc: doc["carriers"].pop("m_window_log"))
+        self.edit("adela_voss", lambda doc: doc["nodes"]["av_w4"].pop("flag"))
+        failures = self.failures()
+        self.assertIn("temporal:owen_window has no physical carrier for m_window_log", failures)
+        self.assertIn("temporal:owen_window has no authored dialogue granting m_adela_wants_roof", failures)
+
+    def test_an_unused_carrier_is_still_rejected(self):
+        self.edit("carriers", lambda doc: doc["carriers"].update(m_unused_notice="A note no one uses"))
+        self.assertIn("carrier m_unused_notice is required by nothing", self.failures())
+
     def test_a_living_thread_may_not_speak_from_after_her_death(self):
         self.edit("adela_voss", lambda d: d["nodes"]["av_d3"].update(line="They found the body."))
         self.assertIn("speaks from after her death", self.failures())

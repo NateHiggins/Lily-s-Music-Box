@@ -1,3 +1,18 @@
+# The Photo Supplies window log - November 22
+
+Evidence class: **INERT**
+
+Drawing the window log on a later visit files its first entry, Saturday
+10 November 1928, and opens Mrs. Owen's visit in LEADS. Normal JUMP and HOME
+handle the fare, clock and return. Adela's existing roof reply completes
+the witnessed visit. The separate negatives register retains its old
+evidence, and the eleven wall leads still own the case.
+
+The installed diagnostic passed 33 checks with a nearby starting position.
+The temporal suite passed 252. The O1 photograph, player-facing July date
+lead, a continuous playthrough and Lily's review remain open.
+[Receipts and preserved fixture failure](C:/ov/reports/photo_window_log_20261122/REPORT.md).
+
 # Adela at Photo Supplies and on the July roof - November 22
 
 Evidence class: **INERT**

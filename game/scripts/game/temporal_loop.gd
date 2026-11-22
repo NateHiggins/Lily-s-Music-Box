@@ -165,7 +165,7 @@ static func _load_table() -> Dictionary:
 	var clues := {}
 	for anchor_id: String in parsed.anchors:
 		var anchor: Dictionary = parsed.anchors[anchor_id]
-		for field: String in ["title", "place", "where", "date", "start", "minutes", "question", "tier", "needs", "steps", "clue"]:
+		for field: String in ["title", "place", "where", "date", "start", "minutes", "question", "tier", "needs", "steps"]:
 			if not anchor.has(field):
 				return {}
 		anchor["strict"] = bool(anchor.get("strict", false))
@@ -186,7 +186,19 @@ static func _load_table() -> Dictionary:
 		if span.is_empty() or CampaignClock.in_blackout(span.start) \
 				or (span.start < CampaignClock.blackout_end_minute() and span.end > CampaignClock.blackout_start_minute()):
 			return {}
-		var clue: Dictionary = anchor.clue
+		# Witness visits use an authored reading and a spoken outcome. They
+		# never add a fabricated piece to the wall case.
+		if anchor.has("witness"):
+			var witness: Variant = anchor.witness
+			if witness is not Dictionary or anchor.has("clue") or not (anchor.steps as Array).is_empty():
+				return {}
+			for field: String in ["source_flag", "heard_flag", "hint"]:
+				if str(witness.get(field, "")).is_empty():
+					return {}
+			if str(witness.source_flag) == str(witness.heard_flag):
+				return {}
+			continue
+		var clue: Dictionary = anchor.get("clue", {})
 		for field: String in ["id", "title", "body", "rest"]:
 			if str(clue.get(field, "")).is_empty():
 				return {}
@@ -247,7 +259,7 @@ static func _load_table() -> Dictionary:
 			or filing.get("columns") is not Array or parsed.get("neighbourhood") is not Array:
 		return {}
 	for anchor_id: String in parsed.anchors:
-		if _map_cell(parsed, str(parsed.anchors[anchor_id].where)).x < 0:
+		if parsed.anchors[anchor_id].has("clue") and _map_cell(parsed, str(parsed.anchors[anchor_id].where)).x < 0:
 			return {}
 	for day: Variant in parsed.calendar:
 		if day is not Dictionary or str(day.get("date", "")).split("-").size() != 3 \
@@ -381,7 +393,11 @@ func loop_minutes_left() -> float:
 
 ## The evidence item an anchor gives up.
 func clue_of(anchor_id: String) -> Dictionary:
-	return table.anchors[anchor_id].clue
+	return table.anchors[anchor_id].get("clue", {})
+
+
+func _witness_of(anchor_id: String) -> Dictionary:
+	return table.anchors[anchor_id].get("witness", {})
 
 
 func holds(item_id: String) -> bool:
@@ -418,6 +434,9 @@ func item_text(item_id: String) -> Dictionary:
 func unlocked() -> Array[String]:
 	var ids: Array[String] = []
 	for anchor_id: String in table.anchors:
+		var witness := _witness_of(anchor_id)
+		if not witness.is_empty() and not RealityState.has_knowledge(str(witness.source_flag)):
+			continue
 		var open := true
 		for need: Variant in table.anchors[anchor_id].needs:
 			open = open and (pinned(str(need)) or str(need) in ledger().deductions)
@@ -602,13 +621,16 @@ func spread() -> int:
 
 ## The same as a share of the finished case, 0 to 1. At 1 the flat is consumed.
 func spread_fraction() -> float:
-	var whole := (table.anchors as Dictionary).size() * 5 + (table.deductions as Dictionary).size() * 12
+	var whole := (table.clue_anchor as Dictionary).size() * 5 + (table.deductions as Dictionary).size() * 12
 	for deduction_id: String in table.deductions:
 		whole += ((table.deductions[deduction_id].needs as Array).size() - 1) * 6
 	return clampf(float(spread()) / float(maxi(1, whole)), 0.0, 1.0)
 
 
 func answered(anchor_id: String) -> bool:
+	var witness := _witness_of(anchor_id)
+	if not witness.is_empty():
+		return RealityState.has_knowledge(str(witness.heard_flag))
 	return holds(str(clue_of(anchor_id).id))
 
 
@@ -778,7 +800,8 @@ func current_step() -> Dictionary:
 
 ## True when every step is done and the evidence lies there to be taken.
 func clue_ready() -> bool:
-	return in_visit() and current_step().is_empty() and not answered(visit_anchor())
+	return in_visit() and not clue_of(visit_anchor()).is_empty() \
+			and current_step().is_empty() and not answered(visit_anchor())
 
 
 func _advance(step: Dictionary) -> void:
@@ -1465,7 +1488,10 @@ func _attend_visit() -> void:
 		if answered(anchor_id):
 			var back := go_home()
 			if back.ok:
-				slip.emit("HOME", "The hours are done and you have what you came for. I have brought you home. Pin it to the wall.")
+				var message := "The hours are done and you have what you came for. I have brought you home."
+				if _witness_of(anchor_id).is_empty():
+					message += " Pin it to the wall."
+				slip.emit("HOME", message)
 			return
 		var again := reset_loop()
 		if again.ok:
@@ -1495,6 +1521,9 @@ func _attend_visit() -> void:
 
 ## The authored hint for the step the room is waiting on.
 func visit_hint() -> String:
+	var witness := _witness_of(visit_anchor())
+	if not witness.is_empty():
+		return "You have heard it. HOME takes you back." if answered(visit_anchor()) else str(witness.hint)
 	if answered(visit_anchor()):
 		return "You have it. HOME, and pin it to the wall."
 	var step := current_step()

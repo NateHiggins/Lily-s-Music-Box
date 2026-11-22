@@ -18,6 +18,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DRAFTS = ROOT / "game/data/mystery"
 LIVE_COMPANION = ROOT / "game/data/dialogue/companion.json"
+TEMPORAL_ANCHORS = ROOT / "game/data/temporal/anchors.json"
 YEAR = ("1928-11-10", "1929-11-09")
 DEATH = "1929-07-19"
 # The owner signed off the bank's other review lines on 2026-10-30. This one is a
@@ -251,7 +252,8 @@ def check_modern_terms(data: pathlib.Path) -> list[str]:
     return errors
 
 
-def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
+def run(folder: pathlib.Path = DRAFTS,
+        visit_table: pathlib.Path = TEMPORAL_ANCHORS) -> tuple[list[str], dict]:
     trees: dict[str, dict] = {}
     for path in sorted(folder.glob("*.json")):
         if path.stem not in {"carriers", "companion_mystery", "object_copy"}:
@@ -271,6 +273,24 @@ def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
             errors.append(f"bank line {item['bank']} already used in {banks[item['bank']]}")
         banks[item["bank"]] = f"object_copy:{item['id']}"
     carriers = set(json.loads((folder / "carriers.json").read_text(encoding="utf8"))["carriers"])
+    visits = json.loads(visit_table.read_text(encoding="utf8"))["anchors"]
+    for visit_id, visit in visits.items():
+        witness = visit.get("witness")
+        if witness is None:
+            continue
+        if not isinstance(witness, dict) or any(
+                not isinstance(witness.get(key), str) or not witness[key]
+                for key in ("source_flag", "heard_flag")):
+            errors.append(f"temporal:{visit_id} has an invalid witness binding")
+            continue
+        source = witness["source_flag"]
+        heard = witness["heard_flag"]
+        required.setdefault(source, []).append(f"temporal:{visit_id}")
+        required.setdefault(heard, []).append(f"temporal:{visit_id}")
+        if source not in carriers:
+            errors.append(f"temporal:{visit_id} has no physical carrier for {source}")
+        if heard not in granted:
+            errors.append(f"temporal:{visit_id} has no authored dialogue granting {heard}")
     for flag, users in sorted(required.items()):
         if flag not in granted and flag not in carriers:
             errors.append(f"flag {flag} is required by {users[0]} and nothing grants it")

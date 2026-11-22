@@ -958,6 +958,27 @@
 				"tilt_degrees": 20,
 				"curtain_open": 0.6
 			}
+		},
+		"owen_window": {
+			"title": "Mrs. Owen in the window",
+			"place": "Photo Supplies",
+			"where": "PHOTO SUPPLIES",
+			"date": "1928-11-10",
+			"start": "09:00",
+			"minutes": 120,
+			"tier": 0,
+			"needs": [],
+			"question": "What was Adela putting in the window?",
+			"steps": [],
+			"witness": {
+				"source_flag": "m_window_log",
+				"heard_flag": "m_adela_wants_roof",
+				"hint": "Go to the Photo Supplies window. Adela is dressing it this morning."
+			},
+			"season": "late autumn",
+			"occasion": "the Saturday before Armistice Day",
+			"dressing": ["Adela is at the Photo Supplies window with Mrs. Owen."],
+			"windows": {"raise": 0.0, "tilt_degrees": 0.0, "curtain_open": 0.6}
 		}
 	},
 	"deductions": {

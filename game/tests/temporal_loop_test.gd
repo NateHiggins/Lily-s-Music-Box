@@ -158,7 +158,8 @@ func _ready() -> void:
 		if _case_commit_had_correction == -1 and "the_case" in (loop.ledger().get("deductions", []) as Array):
 			_case_commit_had_correction = 1 if slips.any(func(line: String) -> bool:
 					return line.contains("CORRECTION TO THE BOROUGH RECORD")) else 0)
-	check(loop.table.anchors.size() == 11, "eleven leads (%d)" % loop.table.anchors.size())
+	check(loop.table.clue_anchor.size() == 11 and loop.table.anchors.size() == 12,
+			"eleven wall leads and one witnessed lead")
 
 	# S01: before the prologue ends nothing is typed for her; after it, her
 	# hands type who she was, the paper answers, and then the case is handed over.
