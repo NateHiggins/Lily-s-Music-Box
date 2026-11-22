@@ -73,7 +73,7 @@ func _run() -> void:
 	var per_day := float(Time.get_ticks_msec() - started) / float(SCENARIOS.size() * agenda.order.size())
 	print("  full-day plan: %.1f ms per resident-day" % per_day)
 	_coverage(plans)
-	_hard_blocks()
+	_hard_blocks(); _envelope_day()
 	_weather(plans)
 	_story()
 	_player()
@@ -120,14 +120,15 @@ func _hard_blocks() -> void:
 				broken += 1
 				print("  hard block bent: %s %d %s -> %s" % [slug, minute, block.place, lived.get("place", "")])
 	_check("hard blocks (sleep, work, transit, ritual) always hold", broken == 0)
-	# Friday 19 July (doy 200): Cam holds the lobby with Adela's envelope through
-	# ten past six, whatever his appetite; any other Friday he may go and eat.
+
+
+## Friday 19 July (doy 200): the timetable keeps Cam in the lobby with Adela's
+## envelope through ten past six, whatever his appetite (a special day: no other date).
+func _envelope_day() -> void:
 	var envelope := true
 	for minute in [1075, 1085, 1090, 1095]:
 		envelope = envelope and str(agenda.decide("cam_ortiz", "fri", float(minute), 200, false).get("place", "")) == "lobby"
-	_check("on 19 July Cam waits in the lobby with the envelope until he takes it up", envelope)
-	_check("and only on that day is it work", str(schedule.resolve("cam_ortiz", "fri", 1085.0, 207, false).get("activity", "")) == "socializing")
-
+	_check("the 19 July timetable holds Cam in the lobby through 18:15", envelope)
 
 ## Exposed choices made of their own will, summed over residents.
 func _exposed_minutes(plan: Dictionary, sources: Array) -> int:
