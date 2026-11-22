@@ -54,8 +54,8 @@ static func mount(city: Node3D) -> Node3D:
 	low.free()
 	return model
 
-static func _with_lod(near_mesh: Mesh, far_mesh: Mesh, error_m: float) -> ArrayMesh:
-	var arrays := near_mesh.surface_get_arrays(0)
+static func _with_lod(near_mesh: Mesh, far_mesh: Mesh, error_m: float, near_surface: Array = []) -> ArrayMesh:
+	var arrays := near_surface if not near_surface.is_empty() else near_mesh.surface_get_arrays(0)
 	var low: Array
 	var low_index_count: int
 	if far_mesh is ArrayMesh:
@@ -71,6 +71,9 @@ static func _with_lod(near_mesh: Mesh, far_mesh: Mesh, error_m: float) -> ArrayM
 		result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 		return result
 	if low.is_empty(): low = far_mesh.surface_get_arrays(0)
+	# Collision can reuse the unmodified near surface after we assemble the LOD.
+	if not near_surface.is_empty():
+		arrays = arrays.duplicate()
 	var offset: int = arrays[Mesh.ARRAY_VERTEX].size()
 	# Source exports carry precisely these physical attributes. Append both sets
 	# once; each index buffer addresses a complete replacement body.
