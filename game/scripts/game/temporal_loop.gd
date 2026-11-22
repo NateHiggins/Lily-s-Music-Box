@@ -320,6 +320,13 @@ static func valid(value: Variant) -> bool:
 	for item: Variant in (value.items as Dictionary).values():
 		if item is not Dictionary or item.get("pinned") is not bool:
 			return false
+	# Authored slips waiting for the paper (CompanionSession keeps them here).
+	if value.has("outbox"):
+		if value.get("outbox") is not Array or (value.outbox as Array).size() > 8:
+			return false
+		for slip: Variant in value.outbox:
+			if slip is not String or (slip as String).length() > 4096:
+				return false
 	var bank: Variant = value.get("bank_cents")
 	if (bank is not int and bank is not float) or float(bank) < 0.0 or float(bank) != floorf(float(bank)):
 		return false

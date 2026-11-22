@@ -32,8 +32,12 @@ var _scripted := ""
 var _scripted_shown := 0
 var _scripted_seconds := 0.0
 ## Slips the loop sent while the paper was busy or out of reach. They are its
-## news (a correction, a received copy), so they wait rather than drop.
+## news (a correction, a received copy), so they wait rather than drop. The
+## queue is kept in the temporal ledger's outbox, in the same commit as the
+## loop's own record that it was sent, so a save made before the paper takes
+## it carries it across Continue.
 var _loop_slips: Array[String] = []
+const OUTBOX_LIMIT := 8
 
 func setup(carrier: Node, player: PlayerController) -> void:
 	_carrier = carrier; _player = player
@@ -131,7 +135,10 @@ func _process(delta: float) -> void:
 		_type_scripted(delta)
 		_carrier.device.teletype.show_draft(_edit.text, _edit.caret_column)
 	if not _loop_slips.is_empty() and not typing and not opening and available() 			and not _carrier.device.teletype.printing:
-		if _print({"text": _loop_slips[0]}): _loop_slips.pop_front()
+		if _print({"text": _loop_slips[0]}):
+			_loop_slips.pop_front()
+			_keep_slips()
+			RealityState.commit_background()
 	elif chatter_enabled and not typing and not opening and _cooldown <= 0.0 and available() and not _carrier.device.teletype.printing:
 		while not _events.is_empty():
 			var pending: Dictionary = _events.pop_front()
@@ -292,10 +299,22 @@ func _temporal_slip(title: String, body: String) -> void:
 	# that finds the paper busy is dropped as before.
 	var kept := title.is_empty() or title == "RECEIVED COPY"
 	if kept and not _loop_slips.is_empty():
-		if _loop_slips.size() < 8: _loop_slips.append(text)
+		if _loop_slips.size() < OUTBOX_LIMIT: _loop_slips.append(text)
+		_keep_slips()
 		return
 	if not available() or typing or opening or _carrier.device.teletype.printing or not _print({"text": text}):
-		if kept and _loop_slips.size() < 8: _loop_slips.append(text)
+		if kept and _loop_slips.size() < OUTBOX_LIMIT: _loop_slips.append(text)
+		if kept: _keep_slips()
+
+
+## Mirror the waiting slips into the temporal ledger. The loop commits right
+## after it sends, so the slip and the record of sending it save together.
+func _keep_slips() -> void:
+	if retired or not is_same(_campaign, RealityState.data): return
+	var temporal: Variant = RealityState.data.get("temporal")
+	if temporal is not Dictionary: return
+	if _loop_slips.is_empty(): (temporal as Dictionary).erase("outbox")
+	else: temporal["outbox"] = _loop_slips.duplicate()
 
 
 func queue_event(id: String, seconds := 20.0) -> void:
@@ -356,3 +375,9 @@ func _restore() -> void:
 	# Live witnesses and queued circumstances cannot be revived from old prose.
 	dialogue.memory.pending_ids.clear()
 	_events.clear(); suspended = false; _cooldown = 45.0
+	# The loop's waiting slips are authored copy the save already vouched for.
+	_loop_slips.clear()
+	var temporal: Variant = _campaign.get("temporal")
+	if temporal is Dictionary and temporal.get("outbox") is Array:
+		for slip: Variant in temporal.outbox:
+			if slip is String and _loop_slips.size() < OUTBOX_LIMIT: _loop_slips.append(slip)
