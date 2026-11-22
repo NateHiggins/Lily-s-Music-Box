@@ -1301,11 +1301,14 @@ func _attend_releases() -> void:
 	if arc.get("released") is not Array:
 		arc["released"] = []
 	for release: Dictionary in table.arc.releases:
-		var flag := str(release.flag)
-		if flag in (arc.released as Array) or not RealityState.has_knowledge(flag):
+		var line := str(release.slip)
+		if line in (arc.released as Array):
 			continue
-		(arc.released as Array).append(flag)
-		slip.emit("", str(release.slip))
+		var let_go: bool = RealityState.has_knowledge(str(release.flag)) if release.has("flag") 				else holds(str(release.get("item", "")))
+		if not let_go:
+			continue
+		(arc.released as Array).append(line)
+		slip.emit("", line)
 		RealityState.commit_background()
 
 
