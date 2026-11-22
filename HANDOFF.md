@@ -1,3 +1,21 @@
+# Logical grip release and resident courtesy - November 21
+
+Evidence class: **INERT**
+
+The logical grip release now publishes the world position of the moved part.
+The direct manipulation bench passed 124 checks. The installed 6B route
+passed 27, including the dated book, basket and Jonah page. The original
+partial-release failure is preserved.
+
+A distant resident keeps normal physics cadence during existing courtesy
+contact. The focused motor still waits before passing and stops at a solid
+wall. In the August 24 live visit, Juno passed the original stair stall
+and reached her 5B alcove while Cal was settled in his main room. The
+separate tape/card route passed on main. A whole conversation and the
+timing card's standing readability remain open. The 2B route passed all
+20 checks. The 3B and 6A follow-up probes have their own installed scope.
+[Historical access sweep](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
 # Friday's errand and 1D route proof - November 21
 
 Evidence class: **INERT**
