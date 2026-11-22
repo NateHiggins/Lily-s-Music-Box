@@ -126,8 +126,14 @@ static func _window(passage: Node3D) -> Node3D:
 	var prop: Node3D = PhotoWindow.new()
 	prop.name = "PhotoWindow"
 	passage.transaction_actor_root().add_child(prop)
-	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_window_plinth__plywood", Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22])))
+	prop.global_transform = window_pose(passage)
 	if not prop.configure():
 		prop.free()
 		return null
 	return prop
+
+
+## Also used by the resident route before the display node is mounted.
+static func window_pose(passage: Node3D) -> Transform3D:
+	return passage.native_fixture_pose("storm_shop_photo_supplies_window_plinth__plywood",
+			Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22])))

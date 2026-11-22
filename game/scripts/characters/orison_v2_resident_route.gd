@@ -118,6 +118,7 @@ func setup(root: Node3D) -> bool:
 	if not _bar_route.attach(self): return false
 	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()
 	if not _bodega_route.attach(self): return false
+	if resident == "nadia_quell" and not _attach_photo_window(): return false
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
 	# The agenda may bend the timetable, but only to places the route reaches.
@@ -147,6 +148,35 @@ func setup(root: Node3D) -> bool:
 	if not _bar_route.bind_actor(): return false
 	if _leaves_unseen(): _set_outside(true)
 	return actor._model != null
+
+## Nadia works at her window from the public arcade aisle. Reuse the
+## street and throat programme so her body actually walks to the display.
+func _attach_photo_window() -> bool:
+	var programme: Dictionary = world.public_regions.route("ROUTE_STREET_TO_ARCADE")
+	var previous: int = identities.street
+	for row: Dictionary in programme.get("nodes", []):
+		# The resident's street node already clears the building leaf.
+		if str(row.id) == "STREET_ORISON_01__orison_exit":
+			continue
+		var point := world.to_global(row.placement.position)
+		var index := _point(str(row.id), point)
+		graph.connect_points(previous, index)
+		previous = index
+		if str(row.id) != "ARCADE_HALL_01__arrival":
+			continue
+		var photo := preload("res://scripts/building/orison_v2_photo_supplies.gd")
+		var window := photo.window_pose(world.passage_region)
+		var along := window.basis.x.slide(Vector3.UP).normalized()
+		var front := window.basis.z.slide(Vector3.UP).normalized()
+		var stance := window.origin + front * 1.55 + along * .75
+		stance.y = point.y
+		var aisle := point + along * (stance - point).dot(along)
+		var approach := _point("photo_window_aisle", aisle)
+		graph.connect_points(previous, approach)
+		graph.connect_points(approach, _point("photo_window", stance))
+		places["photo_supplies"] = "photo_window"
+		return true
+	return false
 
 ## Reconstruct at the selected endpoint unless a person already occupies it.
 ## Fall back only along this resident's existing home-to-goal route. Keep the
