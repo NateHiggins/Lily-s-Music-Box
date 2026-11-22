@@ -721,7 +721,7 @@ func _sync_waiting_print() -> void:
 func _cover_wall() -> void:
 	var down: Array = loop.covers_down()
 	var count: int = (loop.table.wall_covers as Array).size()
-	var rip := PaperFeedback.make_rip()
+	var tears := PaperFeedback.make_tears()
 	for index in count:
 		var cover: Dictionary = loop.table.wall_covers[index]
 		var id := str(cover.id)
@@ -753,7 +753,7 @@ func _cover_wall() -> void:
 		add_child(feedback)
 		feedback.setup(grip, sheet.get_child(0) as MeshInstance3D, words,
 				Transform3D(Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), at),
-				COVER_SIZE, rip)
+				COVER_SIZE, tears)
 		grip.carried = func() -> void:
 			if loop.cover_down(id):
 				feedback.snap_free()
