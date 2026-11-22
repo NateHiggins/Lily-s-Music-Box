@@ -7,6 +7,7 @@ const State := preload("res://scripts/game/prologue_state.gd")
 const Loop := preload("res://scripts/game/temporal_loop.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const Pocket := preload("res://scripts/game/paper_pocket.gd")
+const Conversations := preload("res://scripts/game/resident_conversations.gd")
 var failures: Array[String] = []
 var checks := 0
 var clock: CampaignClock
@@ -17,6 +18,12 @@ var resets := 0
 ## -1 until a commit first holds the case; then 1 if the correction had been
 ## sent by that commit (so a waiting copy is saved with it), 0 if not.
 var _case_commit_had_correction := -1
+var _receipt_commit_had_knowledge := -1
+
+
+func _peter_receipt_available(conversations: Node) -> bool:
+	return conversations.active_threads("peter_wren", "1929-11-09", 12 * 60).any(
+		func(thread: Dictionary) -> bool: return thread.id == "pw_receipt")
 
 
 func check(ok: bool, label: String) -> void:
@@ -141,6 +148,8 @@ func _ready() -> void:
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
 	RealityState.state_changed.connect(func() -> void:
+		if _receipt_commit_had_knowledge == -1 and loop.holds("kept_papers"):
+			_receipt_commit_had_knowledge = int(RealityState.has_knowledge("m_receipt_seen"))
 		if _case_commit_had_correction == -1 and "the_case" in (loop.ledger().get("deductions", []) as Array):
 			_case_commit_had_correction = 1 if slips.any(func(line: String) -> bool:
 					return line.contains("CORRECTION TO THE BOROUGH RECORD")) else 0)
@@ -363,6 +372,11 @@ func _ready() -> void:
 	loop.ledger().bank_cents = 5000
 	var order: Array[String] = ["stairs", "notebook", "button", "drain", "drama", "bench", "duplicate", "plate", "box"]
 	var walked := true
+	var conversations := Conversations.new()
+	conversations._load_mystery()
+	var ewald_choice: Dictionary = conversations.mystery.mr_ewald.nodes.ew_l1.choices[0]
+	check(not _peter_receipt_available(conversations) and not conversations._available("mr_ewald", ewald_choice),
+		"Peter's receipt topic and Ewald's receipt question are unavailable before pickup")
 	for anchor_id: String in order:
 		if anchor_id not in loop.unlocked():
 			walked = false
@@ -370,7 +384,10 @@ func _ready() -> void:
 			break
 		went = loop.jump(anchor_id)
 		work_room()
+		check(not RealityState.has_knowledge("m_receipt_seen"), "the receipt remains unknown before the papers are taken")
 		var got: Dictionary = loop.take_clue()
+		check(RealityState.has_knowledge("m_receipt_seen") == (anchor_id == "box"),
+			"only collecting the kept papers teaches the August receipt")
 		var home: Dictionary = loop.go_home()
 		var put: Dictionary = loop.pin_next()
 		file_all()
@@ -389,6 +406,26 @@ func _ready() -> void:
 			print("  failed at: ", anchor_id, " ", went, got, home, put)
 			break
 	check(walked, "every lead opens from the wall in turn and gives up its evidence")
+	check(RealityState.has_knowledge("m_receipt_seen"), "returning home keeps the receipt knowable")
+	check(_receipt_commit_had_knowledge == 1, "the same commit saves the kept papers and the receipt knowledge")
+	check(_peter_receipt_available(conversations) and conversations._available("mr_ewald", ewald_choice),
+		"the receipt opens Peter's topic and Ewald's explicit question")
+	# Model an older save containing the papers but missing their knowledge flag.
+	RealityState.data.knowledge_flags.erase("m_receipt_seen")
+	check(RealityState.save_game(), "a campaign holding the kept papers saves without the old missing flag")
+	RealityState.load_game()
+	check(RealityState.can_continue() and not RealityState.has_knowledge("m_receipt_seen"),
+		"the older save loads and supplies the original papers")
+	var restored := Loop.new()
+	add_child(restored)
+	check(restored.setup(clock, null) and RealityState.has_knowledge("m_receipt_seen"),
+		"loading a campaign that already holds the kept papers recovers the receipt")
+	check(RealityState.data.knowledge_flags.count("m_receipt_seen") == 1,
+		"the receipt knowledge is restored once")
+	check(_peter_receipt_available(conversations) and conversations._available("mr_ewald", ewald_choice),
+		"the restored papers reopen Peter's topic and Ewald's explicit question")
+	restored.free()
+	conversations.free()
 	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 6,
 			"eleven pieces on the wall, six strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
 	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12 and is_equal_approx(loop.spread_fraction(), 1.0), "the finished case is at its full spread (%d)" % loop.spread())
