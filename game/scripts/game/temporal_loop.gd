@@ -1369,7 +1369,9 @@ func go_friday() -> Dictionary:
 	# does tonight is tonight's. The book keeps every earlier night.
 	var known: Variant = RealityState.data.get("knowledge_flags")
 	if known is Array:
-		(known as Array).erase(str(rescue.asks_again))
+		var asks: Variant = rescue.asks_again
+		for asked: Variant in (asks if asks is Array else [asks]):
+			(known as Array).erase(str(asked))
 		for attempt: Dictionary in rescue.attempts:
 			(known as Array).erase(str(attempt.flag))
 	_arc_state()["evening"] = true

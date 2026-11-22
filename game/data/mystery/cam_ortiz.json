@@ -25,6 +25,19 @@
    "root": "co_e1"
   },
   {
+   "id": "co_keep",
+   "from": "1929-07-19",
+   "until": "1929-07-19",
+   "topic": "That one's for 6C?",
+   "spoken": true,
+   "hours": [
+    "18:00",
+    "18:10"
+   ],
+   "source": "B08 and section 6: take Cam's envelope, the first rescue lever. The flag writes one line in the key book; nothing else changes.",
+   "root": "co_k1"
+  },
+  {
    "id": "co_windmill",
    "from": "1928-11-10",
    "until": "1929-11-09",
@@ -101,6 +114,27 @@
   },
   "co_e3": {
    "line": "The lady across the road. Walked it over to me herself and paid for the stairs. Six flights, a nickel, she says to me it's a nickel because I'm charging for the view. She was funny. Is that it?"
+  },
+  "co_k1": {
+   "silence_goto": "co_k3",
+   "line": "Night man. Six C, ten past, in her hand. Six flights and the bridge is backing up, so mind out.",
+   "choices": [
+    {
+     "label": "Leave it with me.",
+     "goto": "co_k2"
+    },
+    {
+     "label": "Go on, then.",
+     "goto": "co_k3"
+    }
+   ]
+  },
+  "co_k2": {
+   "flag": "m_o2_kept_envelope",
+   "line": "It's paid to her door, not your pocket. You're staff, though. All right, it's yours now, and so's the nickel's worth of stairs."
+  },
+  "co_k3": {
+   "line": "Ten past six. Six C. Don't let anyone tell you I never run."
   },
   "co_w1": {
    "bank": "JF024-A01",
