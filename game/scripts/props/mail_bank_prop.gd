@@ -550,9 +550,13 @@ func _take(item: Dictionary,physical := false) -> void:
 	taken.append(str(item.id))
 	RealityState.data["mail_taken"] = taken
 	# Reading a delivery can teach a world flag (dialogue drafts section 3).
-	var knowledge := str(item.get("knowledge", ""))
-	if knowledge != "":
-		RealityState.grant_knowledge(knowledge)
+	var knowledge: Variant = item.get("knowledge", [])
+	if knowledge is String:
+		knowledge = [knowledge]
+	if knowledge is Array:
+		for flag: Variant in knowledge:
+			if flag is String:
+				RealityState.grant_knowledge(flag)
 	if item.has("goods"):
 		PersonInventory.carry_goods(PersonInventory.PLAYER, str(item.goods.id), str(item.goods.name), str(item.goods.form))
 	var part := str(item.get("part", ""))

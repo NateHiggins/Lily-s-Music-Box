@@ -229,8 +229,10 @@ static func contents(catalog: NewspaperCatalog) -> Array[Dictionary]:
 		seen[str(taken[index])] = true
 		for letter: Dictionary in _mail_letters():
 			if str(letter.get("id", "")) == str(taken[index]):
+				var photo := str(letter.get("image", ""))
 				out.append({"kind": "letter", "id": str(letter.id), "title": str(letter.get("title", "")),
-						"heading": "BOX 4B — LETTER", "body": str(letter.get("body", ""))})
+						"heading": "BOX 4B — PHOTOGRAPH" if not photo.is_empty() else "BOX 4B — LETTER",
+						"body": str(letter.get("body", "")), "image": photo})
 	# Written finds, the latest first, in the same folder.
 	var finds: Array = book().evidence.duplicate()
 	finds.reverse()
