@@ -309,7 +309,10 @@ func _s14_nadia_names_her() -> void:
 	RealityState.data.knowledge_flags.erase("m_receipt_seen")
 	check(not s14_open.call(), "without the kept papers S14 stays closed")
 	RealityState.grant_knowledge("m_receipt_seen")
-	check(conversations.start_mystery("mae_kessler", false, "mk_box"), "S14 enters through Mae's mystery owner")
+	# The production click (AnimatedResident.interact) answers an open spoken
+	# thread before the ambient performance line: the same two calls here.
+	check(conversations.has_spoken_thread("mae_kessler") and conversations.start_mystery("mae_kessler", true),
+			"clicking Mae at ten to four opens S14 ahead of her ambient line")
 	for i in 5:
 		if panel.attention_active() and not RealityState.has_knowledge("m_mae_answered"):
 			panel.choose(0)
