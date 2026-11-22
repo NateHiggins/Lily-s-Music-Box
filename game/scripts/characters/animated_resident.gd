@@ -20,6 +20,9 @@ var externally_driven := false
 var preferred_idle := ""
 var preferred_walk := ""
 var face_interacting_player := false
+## Some authored encounters admit only the topic installed with this body.
+var installed_topic := ""
+var topic_is_present: Callable
 var mina_animation: MinaAnimationBehavior
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
@@ -330,6 +333,8 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
+	if not installed_topic.is_empty():
+		return "[E]  Speak with %s" % display_name if _installed_topic_present() else ""
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
 	# An open spoken thread answers the click first, so the ambient topic must not name it.
 	var talk := get_tree().get_first_node_in_group("resident_conversations") if is_inside_tree() else null
@@ -349,7 +354,13 @@ func interact_key(_player: Node) -> Dictionary:
 	return DoorKeyring.request_copy(resident_id)
 
 
+func _installed_topic_present() -> bool:
+	return topic_is_present.is_valid() and bool(topic_is_present.call())
+
+
 func interact(_player: Node) -> void:
+	if not installed_topic.is_empty() and not _installed_topic_present():
+		return
 	if face_interacting_player and _player is Node3D:
 		var toward: Vector3 = _player.global_position - global_position
 		if Vector2(toward.x,toward.z).length_squared() > .001:
@@ -359,6 +370,10 @@ func interact(_player: Node) -> void:
 	# last night); the rest of the mystery threads stay where they are read. It
 	# comes before the ambient work line, which would otherwise answer first.
 	var talk := get_tree().get_first_node_in_group("resident_conversations")
+	if not installed_topic.is_empty():
+		if talk is ResidentConversations:
+			(talk as ResidentConversations).start_mystery(resident_id, false, installed_topic)
+		return
 	if talk is ResidentConversations and (talk as ResidentConversations).start_mystery(resident_id, true):
 		return
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances")

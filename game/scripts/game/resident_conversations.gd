@@ -903,10 +903,12 @@ func has_spoken_thread(resident_id: String) -> bool:
 ## Open a person's threads with no door tree behind them, from a menu of their
 ## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
 ## patrolman have no door in the world yet, so this is how they are read.
-func start_mystery(resident_id: String, spoken_only := false) -> bool:
+func start_mystery(resident_id: String, spoken_only := false, installed_topic := "") -> bool:
 	if dialogue == null or dialogue.attention_active():
 		return false
 	var active := active_threads(resident_id, today(), minute_now())
+	if not installed_topic.is_empty():
+		active = active.filter(func(thread: Dictionary) -> bool: return thread.id == installed_topic)
 	if spoken_only:
 		var spoken: Array[Dictionary] = []
 		for thread: Dictionary in active:

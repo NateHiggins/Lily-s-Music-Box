@@ -1159,10 +1159,10 @@ func _compose_authorities() -> void:
 	harukiya_counter.name="HarukiyaCounterGlass"
 	if not harukiya_counter.configure(self,bar_region,conversations):
 		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
-	var friday_lobby := preload("res://scripts/characters/friday_lobby_encounter.gd").new()
-	friday_lobby.name = "FridayLobbyEncounter"
-	friday_lobby.world = self
-	add_child(friday_lobby)
+	var adela_encounters := preload("res://scripts/characters/adela_dated_encounters.gd").new()
+	adela_encounters.name = "AdelaDatedEncounters"
+	adela_encounters.world = self
+	add_child(adela_encounters)
 	harukiya_strips=preload("res://scripts/props/harukiya_strip_stack.gd").new()
 	harukiya_strips.name="HarukiyaStripStack"
 	if not harukiya_strips.configure(self,bar_region,ShopSales.new("harukiya",shop_catalogue,shop_stock,shop_clearing),harukiya_counter.notice):
