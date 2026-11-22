@@ -445,7 +445,19 @@ func _run() -> void:
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(shot_dir+"/curtain_"+str(travel)+".png")
 	player._grab.release()
-	var part := Node3D.new()
+	await _check_loop_interruption()
+	door.free();fridge.free();tap.free();bath.free();shower.free();player.free();prep.free();blind.free();mirror.free()
+	lamp.free();fan.free();toaster.free();radiator.free();stove.free();washer.free();airer.free();boiler.free();sun.free();environment.free()
+	await get_tree().process_frame
+	print("DIRECT MANIPULATION: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check_loop_interruption() -> void:
+	var part := MeshInstance3D.new()
+	var stock := BoxMesh.new()
+	stock.size = Vector3(0.18, 0.18, 0.18)
+	part.mesh = stock
+	part.position = Vector3(0, 1.35, -9.0)
 	add_child(part)
 	var loop_grip: Node = preload("res://scripts/props/loop_shift_grip.gd").new()
 	loop_grip.name = "LoopCancellationFixture"
@@ -456,23 +468,26 @@ func _run() -> void:
 		if what == str(loop_grip.name):
 			notices.append(where)
 	player.world_modified.connect(record_change)
-	var descriptor: Dictionary = loop_grip.grip()
-	descriptor.hit_position = part.global_position
-	check(player._grab.acquire(descriptor), "the hand holds a part with a logical owner")
-	descriptor.write.call(0.08)
+	player.position = Vector3(0, 0, -7.8)
+	player.camera.look_at(part.global_position)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	click()
+	check(player._grab.active() and player._grab.target.get("owner") == loop_grip,
+			"the primary input holds a part with a logical owner")
+	drag(Vector2(0, -88))
+	check(float(loop_grip.travel) > 0 and float(loop_grip.travel) < float(loop_grip.reach),
+			"mouse motion moves the part before the interruption")
 	var released_at := part.global_position
-	player._grab.release()
-	check(not player._grab.active() and not descriptor.owns.call(), "interrupted loop grip releases control")
+	player.call_locked = true
+	player._grab.validate()
+	player.call_locked = false
+	check(not player._grab.active() and not loop_grip._held, "interrupted loop grip releases control")
 	check(notices.size() == 1 and notices[0].is_equal_approx(released_at),
 			"interrupted grip publishes the changed part's position")
 	player.world_modified.disconnect(record_change)
 	loop_grip.free()
 	part.free()
-	door.free();fridge.free();tap.free();bath.free();shower.free();player.free();prep.free();blind.free();mirror.free()
-	lamp.free();fan.free();toaster.free();radiator.free();stove.free();washer.free();airer.free();boiler.free();sun.free();environment.free()
-	await get_tree().process_frame
-	print("DIRECT MANIPULATION: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures.size()," failures")
-	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _tap_idle(watches:Array[PoseWatch],label:String) -> Dictionary:
 	await get_tree().create_timer(.6).timeout
