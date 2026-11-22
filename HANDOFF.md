@@ -1,3 +1,9 @@
+# Shared loop performances restored - November 22
+
+Evidence class: **INERT**
+
+The Photo Supplies window and July roof visits now have explicit entries in the shared performance table. Adela's existing dated schedule and dialogue still run those encounters. The old omission made the loader refuse every visit performance and the ordinary exchanges. The focused suite passed 649 checks, the installed case save confirmed the owner starts, and the refreshed surface packet passed 818 checks. [Original failure and verification](C:/ov/reports/loop_performance_recovery_20261122/REPORT.md).
+
 # O1 print in box 4B - November 22
 
 Evidence class: **INERT**
