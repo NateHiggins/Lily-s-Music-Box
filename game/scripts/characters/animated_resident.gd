@@ -20,6 +20,11 @@ var externally_driven := false
 var preferred_idle := ""
 var preferred_walk := ""
 var face_interacting_player := false
+## Some authored encounters admit only the topic installed with this body.
+var installed_topic := ""
+var topic_is_present: Callable
+## Stationary scenes can keep the fitted stand pose instead of a walking-rig idle.
+var use_cast_stand_pose := false
 var mina_animation: MinaAnimationBehavior
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
@@ -62,7 +67,7 @@ func _ready() -> void:
 	# from the shared library, or from a personal <model>_moves.glb bake
 	# when the rig is a newer Meshy generation (mina_vale is the first).
 	# The old generated cast carries its own baked player and skips this.
-	if _animation_player == null:
+	if _animation_player == null and cast_body == null:
 		ResidentMovesLibrary.apply(_model)
 		_animation_player = _find_animation_player(_model)
 	if resident_id == "mina_vale":
@@ -100,8 +105,8 @@ func _build_cast_body() -> bool:
 	body.name = "CastBody"
 	body.configure(who, model_path, parts)
 	add_child(body)
-	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok else null
-	if player == null:
+	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok and not use_cast_stand_pose else null
+	if not body.ready_ok or (player == null and not use_cast_stand_pose):
 		remove_child(body)
 		body.queue_free()
 		return false
@@ -330,14 +335,18 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
-	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
-	# An open spoken thread answers the click first, so the ambient topic must not name it.
-	var talk := get_tree().get_first_node_in_group("resident_conversations") if is_inside_tree() else null
-	if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
-		loop_performances = null
-	if loop_performances != null:
-		var topic := str(loop_performances.conversation_prompt(resident_id))
-		if not topic.is_empty(): return topic
+	if not installed_topic.is_empty():
+		if not _installed_topic_present():
+			return ""
+	elif is_inside_tree():
+		var loop_performances := get_tree().get_first_node_in_group("loop_performances")
+		# An open spoken thread answers the click before the ambient topic.
+		var talk := get_tree().get_first_node_in_group("resident_conversations")
+		if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
+			loop_performances = null
+		if loop_performances != null:
+			var topic := str(loop_performances.conversation_prompt(resident_id))
+			if not topic.is_empty(): return topic
 	return "[E]  Speak with %s" % display_name
 
 
@@ -349,7 +358,13 @@ func interact_key(_player: Node) -> Dictionary:
 	return DoorKeyring.request_copy(resident_id)
 
 
+func _installed_topic_present() -> bool:
+	return topic_is_present.is_valid() and bool(topic_is_present.call())
+
+
 func interact(_player: Node) -> void:
+	if not installed_topic.is_empty() and not _installed_topic_present():
+		return
 	if face_interacting_player and _player is Node3D:
 		var toward: Vector3 = _player.global_position - global_position
 		if Vector2(toward.x,toward.z).length_squared() > .001:
@@ -359,6 +374,10 @@ func interact(_player: Node) -> void:
 	# last night); the rest of the mystery threads stay where they are read. It
 	# comes before the ambient work line, which would otherwise answer first.
 	var talk := get_tree().get_first_node_in_group("resident_conversations")
+	if not installed_topic.is_empty():
+		if talk is ResidentConversations:
+			(talk as ResidentConversations).start_mystery(resident_id, false, installed_topic)
+		return
 	if talk is ResidentConversations and (talk as ResidentConversations).start_mystery(resident_id, true):
 		return
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances")
