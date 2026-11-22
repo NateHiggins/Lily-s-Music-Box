@@ -107,25 +107,36 @@ func _ready() -> void:
 		sanity.force(case_id, 1)
 		_check(fired.size() == 1 and fired[0][0] == case_id, "a forced rung of %s happens in V2" % case_id)
 
-	# The same timed absence remains available for ordinary props in Mae's
-	# room. The ledger's shelf must survive even before a visit begins.
 	sanity.stand_down()
-	var shelf := world.adapter.resolve("F06_6C_BOOKSHELF_01") as Node3D
-	var ledger: Node = world.loop_stage.grips.get("6C_ledger")
-	var carrier_ready := shelf != null and ledger != null
-	_check(carrier_ready, "Mae's ledger fixture has the native shelf and shift carrier")
-	if carrier_ready:
-		world.player.global_position = shelf.to_global(Vector3(0, 0.01, 0.90))
-		world.player.camera.look_at(shelf.to_global(Vector3(0, 1.62, 2.80)))
-		await get_tree().physics_frame
-		var vanished := intrusions.perform("prop_vanish", 2)
-		await get_tree().physics_frame
-		_check(vanished and intrusions.last_targets.size() == 2, "the vanish act keeps its count for eligible props")
-		_check(not intrusions.last_targets.has(shelf) and shelf.visible and ledger.part.is_visible_in_tree()
-			and ledger.area.collision_layer != 0, "the shelf and required ledger stay visible and pickable")
-		intrusions.restore_all()
-
+	await _check_vanish_preserves_ledger(world, intrusions)
 	_finish(world)
+
+
+func _check_vanish_preserves_ledger(world: Node, intrusions: Intrusions) -> void:
+	# The ledger's installed furniture must survive even before a visit begins.
+	var clue: Dictionary = world.temporal_loop.clue_of("box")
+	var ledger: Node = world.loop_stage.grips.get(str(clue.rest))
+	if ledger == null:
+		_check(false, "Mae's box has an installed shift carrier")
+		return
+	var shelf := ledger.part.get_parent() as Node3D
+	while shelf != null and shelf is not FunctionalProp:
+		shelf = shelf.get_parent() as Node3D
+	_check(shelf != null and world.intrusion_props().has(shelf),
+		"Mae's installed ledger sits in furniture registered for intrusions")
+	if shelf == null:
+		return
+	var shelf_front := shelf.global_basis.z.normalized()
+	world.player.global_position = shelf.global_position + shelf_front * 0.90 + Vector3.UP * 0.01
+	var camera: Camera3D = world.player.camera
+	camera.look_at(camera.global_position + shelf_front)
+	await get_tree().physics_frame
+	var vanished := intrusions.perform("prop_vanish", 2)
+	await get_tree().physics_frame
+	_check(vanished and intrusions.last_targets.size() == 2, "the vanish act keeps its count for eligible props")
+	_check(not intrusions.last_targets.has(shelf) and shelf.visible and ledger.part.is_visible_in_tree()
+		and ledger.area.collision_layer != 0, "the shelf and required ledger stay visible and pickable")
+	intrusions.restore_all()
 
 
 func _finish(world: Node) -> void:
