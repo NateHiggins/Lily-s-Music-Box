@@ -158,16 +158,17 @@ func _prepared_trade(door: DoorProp) -> bool:
 	if not _require(counter != null and fitted != null and world.shop_service.pending_item(shop) == part,
 			"the fitted hardware counter offers the diagnosed job's capsule"): return false
 	var inside := door.to_global(Vector3(door.width * .5, 0, -1.0))
+	var turn := door.to_global(Vector3(door.width * .5, 0, -1.42))
 	var front := fitted.to_global(Vector3(0, .01 - fitted.global_position.y, -.95))
-	# Turn toward the counter just inside the door. The glass rack and paint
-	# shaker occupy the centre of the sales floor between here and the lever.
-	var customer_aisle := Vector3(front.x, front.y, inside.z)
+	# Turn after the open leaf tips and before the glass rack.
+	var customer_aisle := Vector3(front.x, front.y, turn.z)
+	if not await _walk(world.adapter.root.to_local(turn), .009): return false
 	if not await _walk_world(customer_aisle) or not await _walk_world(front): return false
 	if not await _use(counter, counter.global_position, "golden_capsule"): return false
 	if not _require(world.maintenance_inventory.has_item(part) and world.shop_service.pending_item(shop).is_empty(),
 			"the actual requisition lever hands over the part once"): return false
 	if not _check_requisition_duplicate_refusal(): return false
-	return await _walk_world(customer_aisle) and await _walk_world(inside)
+	return await _walk_world(customer_aisle) and await _walk_world(turn) and await _walk_world(inside)
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)
