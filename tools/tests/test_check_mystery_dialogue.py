@@ -84,6 +84,10 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("lily", silence_to_the_paid_hour)
         self.assertIn("silence reaches the paid node lfa_r2", self.failures())
 
+    def test_silence_may_not_grant_what_a_question_must_earn(self):
+        self.edit("mr_ewald", lambda d: d["nodes"]["ew_l1"].update(silence_goto="ew_l2"))
+        self.assertIn("silence grants the gated node ew_l2", self.failures())
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -102,6 +102,12 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
         paid = {c.get("goto") for c in node.get("choices", []) if str(c.get("flag", "")).startswith("pay:")}
         if node.get("silence_goto") in paid:
             errors.append(f"{name}: node {node_id} silence reaches the paid node {node['silence_goto']}")
+        # Nor past what the player must know: silence may not grant a flag that only a gated choice reaches.
+        gated = {c.get("goto") for c in node.get("choices", []) if c.get("requires")}
+        free = {c.get("goto") for c in node.get("choices", []) if not c.get("requires")}
+        target = nodes.get(node.get("silence_goto"), {})
+        if node.get("silence_goto") in gated - free and (target.get("flag") or target.get("flags")):
+            errors.append(f"{name}: node {node_id} silence grants the gated node {node['silence_goto']}")
         if MISADDRESS.search(line):
             errors.append(f"{name}: node {node_id} misaddresses the player")
         if RESIDENT_FORBIDDEN.search(line):

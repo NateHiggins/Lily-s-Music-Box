@@ -460,11 +460,12 @@ Controls, repeatability, a grudge against bad reception. Near the bulkhead befor
 - **CAL DWYER** (cd_p1): Sit. Don't talk. "Inspector, the clock is four minutes fast." Wait. There. Door. Every time.
   - > That's the line Jonah wrote down. [needs m_jonah_page] → cd_p2
   - > And the nineteenth? → cd_p3
-  - (silence) → cd_p2
+  - (silence) → cd_p1s
 - **CAL DWYER** (cd_p2): On the nineteenth? That went out on the twelfth. Play it again. Door.
   - > And the nineteenth? → cd_p3
   - (silence) → cd_p3
 - **CAL DWYER** (cd_p3): Static from four minutes to nine. You want to hear static, I've got an hour of it. WLBQ had a different episode listed anyway, I've got the card, and nobody else carried it. So I don't know what your friend heard on the sixth floor. I know what wasn't on the air.
+- **CAL DWYER** (cd_p1s): Good. You can be taught. Most of them talk straight over the door.
 
 ### "What's that you keep playing?"
 
@@ -832,9 +833,10 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
   - (silence) → lo_k1s
 - **LENA ORTIZ** (lo_k2): Six in the morning, before I'd got my shoes on. You'd be surprised who can't wait.
   - > Pearl? [needs m_glove_scrap] → lo_k3
-  - (silence) → lo_k3
+  - (silence) → lo_k2s
 - **LENA ORTIZ** (lo_k3): Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by nine, and I had one near enough. It's the book I use.
 - **LENA ORTIZ** (lo_k1s): You don't have to think of a question. I can always use someone to hold the other end of a sheet.
+- **LENA ORTIZ** (lo_k2s): That's all it was. Somebody always needs something mended before breakfast.
 
 ### "What is that, a hat?"
 
@@ -1354,9 +1356,10 @@ Arcade tenants' counsel. Commissioned the deed copy for the Arcade's rent and re
 - **MR. EWALD** (ew_l1): Who's been letting the maintenance read schedules? It means when the Kessler lease on that lot ends, the lot comes back to the Arcade's ground. First of August, this one. After that, I'd want to know on what authority anybody was collecting.
   - > And if they collected anyway? [needs m_receipt_seen] → ew_l2
   - > So the tenants don't owe her. → ew_l3
-  - (silence) → ew_l2
+  - (silence) → ew_l1s
 - **MR. EWALD** (ew_l2): Then you have a receipt, which shows she collected. Whether she was entitled is a question for a court and not for a receipt. Don't look at me like that. I charge for the other answer.
 - **MR. EWALD** (ew_l3): I said no such thing, and neither did you, if anyone asks.
+- **MR. EWALD** (ew_l1s): Nothing? Good. Nothing is the one answer I don't bill for.
 
 ### "The letter from 6C. Turn it over."
 
