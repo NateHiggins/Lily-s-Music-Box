@@ -33,7 +33,7 @@ func check(ok: bool, label: String) -> void:
 	print("  [%s] %s" % ["PASS" if ok else "FAIL", label])
 
 
-func _accept_copy(_ledger: Dictionary, text: String) -> bool:
+func _accept_arc_slip(_ledger: Dictionary, text: String) -> bool:
 	slips.append("|" + text)
 	return true
 
@@ -149,7 +149,7 @@ func _ready() -> void:
 	add_child(economy)
 	loop = Loop.new()
 	add_child(loop)
-	check(loop.setup(clock, economy, _accept_copy), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
+	check(loop.setup(clock, economy, _accept_arc_slip), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
 	RealityState.state_changed.connect(func() -> void:
@@ -474,6 +474,7 @@ func _ready() -> void:
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 25, 600.0)) and not loop.event_on(loop.today()).is_empty()
 			and not bool(loop.event_on(loop.today()).broken) and loop.tip_percent_now() == 100, "on the 25th the market is falling but nothing has been cut yet")
 	loop.aide().drawn_day = int(clock.elapsed_minutes() / 1440.0)
+	loop._attend_releases()
 	slips.clear()
 	tick()
 	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("ticker"), "the companion says the house is uneasy, once")
@@ -707,14 +708,24 @@ func _ready() -> void:
 			"first present on 2 November, M3 to M5 print in order, each once")
 	RealityState.data.prologue.phase = phase_before
 	loop.here = ""
+	(loop.ledger().arc as Dictionary).erase("released")
 	var before_release := slips.size()
 	loop._attend_releases()
-	check(slips.size() == before_release, "nothing is released before its scene")
+	loop._attend_releases()
+	check(slips.slice(before_release) == ["|RELEASED: THE NEGATIVES.", "|RELEASED: PLATE 13."],
+			"taken evidence releases the negatives and plate once, independently of the telling")
+	before_release = slips.size()
+	RealityState.grant_knowledge("mt:ev_home")
+	loop._attend_releases()
+	loop._attend_releases()
+	check(slips.slice(before_release) == ["|RELEASED: THE SHOP.", "|RELEASED: EMIL."],
+			"Emil taking the prints home releases the shop, then Emil, exactly once")
+	before_release = slips.size()
 	RealityState.grant_knowledge("m_told_nadia")
 	loop._attend_releases()
 	loop._attend_releases()
-	check(slips.size() == before_release + 1 and slips.back() == "|RELEASED: NADIA.",
-			"when the telling ends, RELEASED: NADIA. prints once, with no comment")
+	check(slips.slice(before_release) == ["|RELEASED: NADIA."] and "m_told_nadia" in loop.ledger().arc.released,
+			"the telling releases Nadia once and retains the compatible receipt identity")
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))

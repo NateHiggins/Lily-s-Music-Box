@@ -69,13 +69,13 @@ var _idle := 0.0
 var _wait_until := -1.0
 ## The run the companion has already announced.
 var _pace_said := ""
-var _receive_copy: Callable
+var _receive_slip: Callable
 
 
-func setup(campaign_clock: CampaignClock, caretaker_economy: Node, receive_copy := Callable()) -> bool:
+func setup(campaign_clock: CampaignClock, caretaker_economy: Node, receive_slip := Callable()) -> bool:
 	clock = campaign_clock
 	economy = caretaker_economy
-	_receive_copy = receive_copy
+	_receive_slip = receive_slip
 	table = _load_table()
 	if table.is_empty() or clock == null or PaperPocket.KEY in REWOUND or "knowledge_flags" in REWOUND:
 		return false
@@ -1256,7 +1256,7 @@ func _process(delta: float) -> void:
 ## is present on or after its moment, never earlier, and never before S01. Its
 ## own count is the first words of the body; the paper keeps its serial.
 func _attend_copies() -> void:
-	if (not _receive_copy.is_valid() or table.get("arc") is not Dictionary or table.arc.get("copies") is not Array
+	if (not _receive_slip.is_valid() or table.get("arc") is not Dictionary or table.arc.get("copies") is not Array
 			or str(RealityState.data.get("prologue", {}).get("phase", "")) != "prologue_complete"
 			or awaiting_introduction()):
 		return
@@ -1279,7 +1279,7 @@ func _attend_copies() -> void:
 			if now < CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]),
 					float(_clock_minutes(str(copy.time)))):
 				break
-		if not _receive_copy.call(book, received_copy(number, str(copy.text))):
+		if not _receive_slip.call(book, received_copy(number, str(copy.text))):
 			break
 		copies.append(number)
 		accepted = true
@@ -1292,23 +1292,28 @@ static func received_copy(number: int, text: String) -> String:
 	return "RECEIVED COPY %d. %s" % [number, text]
 
 
-## A "RELEASED:" slip prints once, with no comment, when its attachment is let
-## go: the knowledge flag its scene grants (treatment section 8).
+## A release is a paper notice of an attachment already let go. The stable
+## receipt prevents duplicates without using the notice as story progress.
 func _attend_releases() -> void:
-	if table.get("arc") is not Dictionary or table.arc.get("releases") is not Array:
+	if not _receive_slip.is_valid() or table.get("arc") is not Dictionary or table.arc.get("releases") is not Array:
 		return
 	var arc := _arc_state()
-	if arc.get("released") is not Array:
-		arc["released"] = []
+	var released: Array = arc.get("released", []) if arc.get("released") is Array else []
+	var book := ledger()
+	var accepted := false
 	for release: Dictionary in table.arc.releases:
-		var line := str(release.slip)
-		if line in (arc.released as Array):
+		var id := str(release.id)
+		if id in released:
 			continue
-		var let_go: bool = RealityState.has_knowledge(str(release.flag)) if release.has("flag") 				else holds(str(release.get("item", "")))
+		var let_go := RealityState.has_knowledge(str(release.flag)) if release.has("flag") else holds(str(release.get("item", "")))
 		if not let_go:
 			continue
-		(arc.released as Array).append(line)
-		slip.emit("", line)
+		if not _receive_slip.call(book, str(release.slip)):
+			break
+		released.append(id)
+		accepted = true
+	if accepted:
+		arc["released"] = released
 		RealityState.commit_background()
 
 
