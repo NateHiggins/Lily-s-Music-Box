@@ -1,3 +1,18 @@
+# The 4B key book and July roof visit - November 22
+
+Evidence class: **INERT**
+
+The key book on the native 4B desk gives the player the July 11 date on a
+later visit. The dated entry can be read before meeting Adela. The real
+November conversation still earns the prerequisite for speaking with her
+on the roof. The July signature retains ownership of the one roof release.
+
+The installed route passed 56 checks through the two dates, the ordinary
+hand and dialogue interactions, the fares and HOME. The temporal suite
+passed 252 checks. The Plate 12 print in box 4B, a continuous ordinary
+playthrough, and Lily's review remain open.
+[Route, captures and Plate 12 sightline preflight](C:/ov/reports/july_roof_key_book_20261122/REPORT.md).
+
 # The Photo Supplies window log - November 22
 
 Evidence class: **INERT**
