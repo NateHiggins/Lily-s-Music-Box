@@ -114,8 +114,8 @@ func find_target() -> Dictionary:
 func _seat_target(origin: Vector3,direction: Vector3,hit_distance: float) -> Dictionary:
 	return seat_lookup.call(origin,direction,hit_distance) if seat_lookup.is_valid() and not player.inspecting() else {}
 
-func _context_owner(descriptor: Dictionary,inspection := false) -> Node3D:
-	var owner: Node3D=descriptor.get("owner")
+func _context_owner(descriptor: Dictionary,inspection := false) -> Node:
+	var owner: Node=descriptor.get("owner")
 	if owner!=null and not inspection and owner.has_method("interaction_owner_for"): return owner.interaction_owner_for(descriptor.part)
 	if owner!=null and owner.has_method("inspection_owner_for"): return owner.inspection_owner_for(descriptor.part)
 	return owner
@@ -237,14 +237,18 @@ func release(notify_change := true, by_primary := false) -> void:
 			old.end.call()
 		_record_cost("end",owner_name,started)
 		if accepted_change and notify_change:
-			var origin: Vector3=old.owner.global_position
+			var source := old.owner as Node3D
+			if not is_instance_valid(source):
+				source = old.get("part") as Node3D
+			var origin := source.global_position if is_instance_valid(source) else Vector3.INF
 			var resolve: Variant=old.get("change_origin")
 			if resolve is Callable and resolve.is_valid():
 				var physical: Variant=resolve.call()
 				if physical is Vector3 and physical.is_finite(): origin=physical
-			started=Time.get_ticks_usec() if profiling else 0
-			player.world_modified.emit(origin, str(old.owner.name))
-			_record_cost("world_modified",owner_name,started)
+			if origin.is_finite():
+				started=Time.get_ticks_usec() if profiling else 0
+				player.world_modified.emit(origin, owner_name)
+				_record_cost("world_modified",owner_name,started)
 	changed = false
 
 func _observe_motion() -> void:
@@ -345,7 +349,15 @@ func validate() -> void:
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,target.part.to_global(contact))
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
-	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
+	var space := player.get_world_3d().direct_space_state
+	var hit := space.intersect_ray(query)
+	if not hit.is_empty():
+		var occluder: CollisionObject3D = hit.collider
+		if occluder.has_meta(&"companion_pointer_owner") and occluder.get_meta(&"companion_pointer_owner") != target.owner:
+			# Let a companion crossing the hand's ray yield to an existing world
+			# grip. The next surface still gets the normal obstruction check.
+			query.exclude = [player.get_rid(), occluder.get_rid()]
+			hit = space.intersect_ray(query)
 	if not hit.is_empty() and hit.collider != target.owner and not target.owner.is_ancestor_of(hit.collider) and not _same_assembly(hit): release()
 
 func move(relative: Vector2) -> void:

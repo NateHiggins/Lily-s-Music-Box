@@ -1986,6 +1986,17 @@ func intrusion_props() -> Array:
 	return _intrusion_props
 
 
+## A disappearance can outlast entry into a dated visit. Keep authored shift
+## carriers and the furniture that holds them visible to the ordinary pointer.
+func intrusion_vanish_allowed(prop: Node3D) -> bool:
+	if is_instance_valid(loop_stage):
+		for grip: Node in loop_stage.grips.values():
+			var carrier: Node3D = grip.part
+			if is_instance_valid(carrier) and (prop == carrier or prop.is_ancestor_of(carrier)):
+				return false
+	return true
+
+
 ## The props that can have a fit (possess_fit), fixed ones included.
 func intrusion_fit_props() -> Array:
 	_intrusion_fits = _intrusion_fits.filter(func(n): return is_instance_valid(n))

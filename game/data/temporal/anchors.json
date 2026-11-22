@@ -154,6 +154,7 @@
 			"clue": {
 				"id": "route_leaf",
 				"rest": "4C_jersey",
+				"rest_offset": [0.0, 0.205, 0.0],
 				"title": "A leaf from Cam's route book",
 				"body": "FRI. 19 JUL., 6.40 P.M. 6C TO MR. EWALD. HOLD. FIRST RUN SAT. THE FLAP IS MARKED ACROSS IN HIS PENCIL."
 			},
@@ -409,13 +410,13 @@
 			],
 			"clue": {
 				"id": "glove_scrap",
-				"rest": "B1_BOILER_ROOM_SWITCH",
+				"rest": "B1_boiler_ash_can",
 				"title": "A scrap of white kid with a pearl button",
 				"body": "FROM THE YARD DRAIN, WED. 7 AUG. WHITE KID LEATHER, TORN. ONE PEARL BUTTON ON ITS SHANK.",
 				"rest_offset": [
 					0.0,
-					-0.35,
-					0.06
+					0.513,
+					-0.09
 				]
 			},
 			"season": "deep summer",
@@ -790,6 +791,7 @@
 			"clue": {
 				"id": "plate_half",
 				"rest": "6A_plant_print",
+				"rest_offset": [0.0, 0.020, 0.0],
 				"title": "The surviving half of plate 13",
 				"body": "A.V. 13. THE WET DECK. AN ARM AND SHOULDER AT THE NEAR EDGE. A PALE GLOVE. SACHA: I HAVE NOT REPAIRED THE REST INTO IT."
 			},

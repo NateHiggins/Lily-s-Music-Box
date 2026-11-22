@@ -23,17 +23,20 @@ static func mount(world: Node3D, adapter: Variant) -> Dictionary:
 	var drain := _clean_out(world, switch)
 	var sheet := _boiler_sheet(world, switch)
 	var juno_shelf: Node3D = adapter.resolve(JUNO_SHELF)
-	var disc := _disc_twelve(world, juno_shelf) if juno_shelf != null else null
-	if books == null or drain == null or sheet == null or disc == null:
+	if books == null or drain == null or sheet == null or juno_shelf == null:
+		return {}
+	# Measure the stock once, before mounting either movable carrier.
+	var shelf_bounds := _shelf_bounds(juno_shelf)
+	if not shelf_bounds.has_volume():
+		return {}
+	var disc := _disc_twelve(world, juno_shelf, shelf_bounds)
+	if _trade_log(world, juno_shelf, shelf_bounds) == null:
 		return {}
 	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "disc_twelve": disc, "book_stock": books.get_meta("stock")}
 
 
 static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
-	var stock: Variant = null
-	for candidate: Node in [shelf] + shelf.get_children():
-		if candidate.get("native_stock") != null:
-			stock = candidate.get("native_stock")
+	var stock: Variant = _book_stock(shelf)
 	if stock == null:
 		return null
 	var prop: Node3D = Clue.new()
@@ -53,17 +56,8 @@ static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
 		book.set_meta("from_date", str(SPINES[index][1]))
 		prop.add_child(book)
 		# A closed book stands with its spine along Y. Laid flat, spine to the room.
-		var inner := Node3D.new()
-		inner.basis = Basis(Vector3.UP, PI * 0.5) * Basis(Vector3.RIGHT, -PI * 0.5)
-		book.add_child(inner)
-		var left := Node3D.new()
-		left.transform = stock.left_pose(BOOK, 0.0)
-		inner.add_child(left)
-		for identity: String in stock.data.books[BOOK].parts:
-			var spec: Dictionary = stock.data.parts[identity]
-			if not spec.has("render_surface") or bool(spec.render_surface):
-				stock.draw(left if str(spec.role) == "left" else inner, identity)
-		_seat(inner, Vector3(0.5, 0.0, 1.0))
+		_closed_book(book, stock, Basis(Vector3.UP, PI * 0.5) * Basis(Vector3.RIGHT, -PI * 0.5),
+			Vector3(0.5, 0.0, 1.0))
 		var label := Label3D.new()
 		label.name = "Spine"
 		label.text = str(SPINES[index][0])
@@ -81,6 +75,28 @@ static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
 	prop.set_meta("stock", stock)
 	refresh_spines(prop)
 	return prop
+
+
+static func _book_stock(shelf: Node3D) -> Variant:
+	for candidate: Node in [shelf] + shelf.get_children():
+		var stock: Variant = candidate.get("native_stock")
+		if stock != null:
+			return stock
+	return null
+
+
+static func _closed_book(parent: Node3D, stock: Variant, facing: Basis, seat: Vector3) -> void:
+	var inner := Node3D.new()
+	inner.basis = facing
+	parent.add_child(inner)
+	var left := Node3D.new()
+	left.transform = stock.left_pose(BOOK, 0.0)
+	inner.add_child(left)
+	for identity: String in stock.data.books[BOOK].parts:
+		var spec: Dictionary = stock.data.parts[identity]
+		if not spec.has("render_surface") or bool(spec.render_surface):
+			stock.draw(left if str(spec.role) == "left" else inner, identity)
+	_seat(inner, seat)
 
 
 ## Moves a part so the given fraction of its drawn bounds sits at its parent's origin:
@@ -123,7 +139,7 @@ static func _clean_out(world: Node3D, switch: Node3D) -> Node3D:
 	prop.from_date = "1929-08-07"
 	prop.flag = "m_glove_scrap"
 	prop.goods = {"id": "glove_scrap", "name": "Glove scrap, wet", "form": "card"}
-	prop.note = {"title": "YARD DRAIN, CLEAN-OUT", "body": "TRAP CLEARED. SCRAP OF WHITE KID, A PEARL BUTTON ON A SHANK. WET. KEPT.",
+	prop.note = {"title": "YARD DRAIN, CLEAN-OUT", "body": "TRAP CLEARED. SCRAP OF WHITE KID, A PEARL BUTTON ON A SHANK. WET. KEPT. LOOK ON THE ASH CAN.",
 		"condition": "CLEARED", "stamp": "WORK ORDER"}
 	var plug := Node3D.new()
 	plug.name = "Plug"
@@ -215,13 +231,7 @@ static func _boiler_sheet(world: Node3D, switch: Node3D) -> Node3D:
 	return prop
 
 
-## Juno's twelfth disc (carriers.json m_drama_lead): the session she cut through the wall of 2C on Saturday 24 Aug.,
-## in its paper sleeve on top of her bookcase, pencilled on the sleeve. Drawn off the case from that day, it gives
-## the lead Cal Dwyer's "Play me the twelfth" needs, so the playback thread no longer waits on Juno's one line.
-static func _disc_twelve(world: Node3D, shelf: Node3D) -> Node3D:
-	var top := -INF
-	var front := 0.0
-	var centre := Vector3.ZERO
+static func _shelf_bounds(shelf: Node3D) -> AABB:
 	var first := true
 	var box := AABB()
 	for draw: Node in [shelf] + shelf.find_children("*", "MeshInstance3D", true, false):
@@ -230,11 +240,52 @@ static func _disc_twelve(world: Node3D, shelf: Node3D) -> Node3D:
 		var part: AABB = (shelf.global_transform.affine_inverse() * (draw as MeshInstance3D).global_transform) * (draw as MeshInstance3D).get_aabb()
 		box = part if first else box.merge(part)
 		first = false
-	if first:
+	return box
+
+
+## B19: Juno records the Saturday exchange in her own notebook. The separate
+## sleeve still carries Cal's playback lead. Keep the two physical readers apart.
+static func _trade_log(world: Node3D, shelf: Node3D, box: AABB) -> Node3D:
+	var stock: Variant = _book_stock(shelf)
+	if stock == null:
 		return null
-	top = box.end.y
-	front = box.end.z
-	centre = box.get_center()
+	var prop: Node3D = Clue.new()
+	prop.name = "JunoTradeLog"
+	world.add_child(prop)
+	prop.global_transform = shelf.global_transform * Transform3D(Basis.IDENTITY,
+		Vector3(box.position.x + 0.10, box.end.y + 0.002, box.end.z - 0.115))
+	prop.reach = 0.08
+	prop.from_date = "1929-08-24"
+	prop.flag = "m_trade_log"
+	prop.note = {"title": "2C, JUNO'S TRADE LOG",
+		"body": "SAT. 24 AUG., 3 P.M., C.D.: WLBQ 12 AND 19 JULY.",
+		"condition": "READ", "stamp": "SERVICE NOTE"}
+	var book := Node3D.new()
+	book.name = "Notebook"
+	prop.add_child(book)
+	_closed_book(book, stock, Basis(Vector3.RIGHT, -PI * 0.5), Vector3(0.5, 0, 0.5))
+	var title := Label3D.new()
+	title.name = "Title"
+	title.text = "TRADE LOG"
+	title.font = FONT
+	title.font_size = 30
+	title.pixel_size = 0.0005
+	title.rotation.x = -PI * 0.5
+	title.position = Vector3(0, float(stock.data.books[BOOK].thickness) + 0.002, 0)
+	title.modulate = Color(0.88, 0.81, 0.65)
+	title.outline_size = 0
+	book.add_child(title)
+	prop.configure(book)
+	return prop
+
+
+## Juno's twelfth disc (carriers.json m_drama_lead): the session she cut through the wall of 2C on Saturday 24 Aug.,
+## in its paper sleeve on top of her bookcase, pencilled on the sleeve. Drawn off the case from that day, it gives
+## the lead Cal Dwyer's "Play me the twelfth" needs, so the playback thread no longer waits on Juno's one line.
+static func _disc_twelve(world: Node3D, shelf: Node3D, box: AABB) -> Node3D:
+	var top := box.end.y
+	var front := box.end.z
+	var centre := box.get_center()
 	var prop: Node3D = Clue.new()
 	prop.name = "JunoDiscTwelve"
 	world.add_child(prop)

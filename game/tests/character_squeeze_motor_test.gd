@@ -35,6 +35,23 @@ func run() -> void:
 		else: check(route.current_id!=goal and route.actor.position.z > -3.65,"ordinary motor still stops at solid wall")
 	check(max_wait>=.7,"motor yielded before passing")
 	check(route.squeeze.cue_count>=1,"motor emits courtesy after movement")
+	player.position = Vector3(21, 0, -2)
+	route.actor.position = Vector3(0, 0, 1.2)
+	route.current_id = 0
+	route.desired_id = 1
+	route.path.clear()
+	route.blocked_seconds = 0.0
+	check(route._far_from_player(), "the second resident crossing uses distant cadence")
+	var distant_wait := 0.0
+	for tick in Engine.physics_ticks_per_second * 9:
+		await get_tree().physics_frame
+		distant_wait = maxf(distant_wait, route.blocked_seconds)
+		if route.current_id == 1 and route.path.is_empty():
+			break
+	check(distant_wait >= .7, "distant resident still waits before squeezing past")
+	check(route.current_id == 1 and route.path.is_empty(),
+			"distant resident finishes the ordinary crossing after contact")
+
 	route.set_physics_process(false)
 	RealityState.end_preview_campaign(self)
 	get_tree().quit(0 if failures.is_empty() else 1)

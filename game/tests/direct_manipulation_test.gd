@@ -445,11 +445,51 @@ func _run() -> void:
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(shot_dir+"/curtain_"+str(travel)+".png")
 	player._grab.release()
+	await _check_loop_interruption()
 	door.free();fridge.free();tap.free();bath.free();shower.free();player.free();prep.free();blind.free();mirror.free()
 	lamp.free();fan.free();toaster.free();radiator.free();stove.free();washer.free();airer.free();boiler.free();sun.free();environment.free()
 	await get_tree().process_frame
 	print("DIRECT MANIPULATION: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures.size()," failures")
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check_loop_interruption() -> void:
+	var part := MeshInstance3D.new()
+	var stock := BoxMesh.new()
+	stock.size = Vector3(0.18, 0.18, 0.18)
+	part.mesh = stock
+	# Use isolated floor space with the fixture directly along the actual hand ray.
+	player.position = Vector3.FORWARD * 7.8
+	player.rotation = Vector3.ZERO
+	player.camera.rotation = Vector3.ZERO
+	add_child(part)
+	part.global_position = player.camera.to_global(Vector3.FORWARD * 1.2)
+	var loop_grip: Node = preload("res://scripts/props/loop_shift_grip.gd").new()
+	loop_grip.name = "LoopCancellationFixture"
+	add_child(loop_grip)
+	loop_grip.configure(part, Vector3.UP, 0.2)
+	var notices: Array[Vector3] = []
+	var record_change := func(where: Vector3, what: String) -> void:
+		if what == str(loop_grip.name):
+			notices.append(where)
+	player.world_modified.connect(record_change)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	click()
+	check(player._grab.active() and player._grab.target.get("owner") == loop_grip,
+			"the primary input holds a part with a logical owner")
+	drag(Vector2(0, -88))
+	check(float(loop_grip.travel) > 0 and float(loop_grip.travel) < float(loop_grip.reach),
+			"mouse motion moves the part before the interruption")
+	var released_at := part.global_position
+	player.call_locked = true
+	player._grab.validate()
+	player.call_locked = false
+	check(not player._grab.active() and not loop_grip._held, "interrupted loop grip releases control")
+	check(notices.size() == 1 and notices[0].is_equal_approx(released_at),
+			"interrupted grip publishes the changed part's position")
+	player.world_modified.disconnect(record_change)
+	loop_grip.free()
+	part.free()
 
 func _tap_idle(watches:Array[PoseWatch],label:String) -> Dictionary:
 	await get_tree().create_timer(.6).timeout

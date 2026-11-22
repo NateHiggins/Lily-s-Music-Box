@@ -41,6 +41,8 @@ signal stage_reset
 
 const KEY := "temporal"
 const DATA_PATH := "res://data/temporal/anchors.json"
+const RECEIPT_CLUE := "kept_papers"
+const RECEIPT_KNOWLEDGE := "m_receipt_seen"
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const PaperPocket := preload("res://scripts/game/paper_pocket.gd")
 ## Campaign domains a visit borrows and gives back. Knowledge and the valise
@@ -79,6 +81,11 @@ func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
 	if economy != null:
 		economy.tip_percent = tip_percent_now
 	mend()
+	# Old saves may already hold the box's papers, including the receipt.
+	var saved: Variant = RealityState.data.get(KEY)
+	if (saved is Dictionary and int(saved.get("version", 0)) == 2
+			and saved.get("items") is Dictionary and saved.items.has(RECEIPT_CLUE)):
+		RealityState.grant_knowledge(RECEIPT_KNOWLEDGE)
 	return true
 
 
@@ -320,6 +327,13 @@ static func valid(value: Variant) -> bool:
 	for item: Variant in (value.items as Dictionary).values():
 		if item is not Dictionary or item.get("pinned") is not bool:
 			return false
+	# Authored slips waiting for the paper (CompanionSession keeps them here).
+	if value.has("outbox"):
+		if value.get("outbox") is not Array or (value.outbox as Array).size() > 8:
+			return false
+		for slip: Variant in value.outbox:
+			if slip is not String or (slip as String).length() > 4096:
+				return false
 	var bank: Variant = value.get("bank_cents")
 	if (bank is not int and bank is not float) or float(bank) < 0.0 or float(bank) != floorf(float(bank)):
 		return false
@@ -565,12 +579,14 @@ func link(a: String, b: String) -> Dictionary:
 	for anchor_id: String in unlocked():
 		if anchor_id not in before:
 			opened.append(anchor_id)
-	RealityState.commit()
-	changed.emit()
 	# The deduction that closes the case prints the correction to the paper's
-	# July account. It changes no old edition (treatment section 7).
+	# July account. It changes no old edition (treatment section 7). It is sent
+	# before the commit, so a correction still waiting for the paper is saved
+	# with the deduction that drew it.
 	if table.get("arc") is Dictionary and table.arc.has("correction") and str(table.arc.correction.after) in drawn:
 		slip.emit("", correction_text())
+	RealityState.commit()
+	changed.emit()
 	return {"ok": true, "held": true, "deductions": drawn, "opened": opened}
 
 
@@ -831,6 +847,8 @@ func take_clue() -> Dictionary:
 	var clue := clue_of(visit_anchor())
 	ledger().items[str(clue.id)] = {"pinned": false, "anchor": visit_anchor(), "run": int(_record(visit_anchor()).loops) + 1}
 	PaperPocket.file_evidence("loop:" + str(clue.id), str(clue.title), str(clue.body))
+	if str(clue.id) == RECEIPT_CLUE:
+		RealityState.grant_knowledge(RECEIPT_KNOWLEDGE)
 	RealityState.commit()
 	changed.emit()
 	return {"ok": true, "item": str(clue.id), "title": str(clue.title), "body": str(clue.body)}
@@ -1458,10 +1476,15 @@ func awaiting_choice() -> bool:
 			and _minute_of_day() < _clock_minutes(str(table.arc.last_night.close_at))
 
 
+## Her finished line. As with S01, the choice is made only when the paper has
+## taken the card: a refused print leaves the line on the keyboard.
 func _finish_line() -> Dictionary:
-	_arc_state()["choice"] = "finished"
-	RealityState.commit()
-	return {"intent": "temporal", "text": str(table.arc.last_night.card)}
+	return {"intent": "temporal", "text": str(table.arc.last_night.card), "on_printed": _finished}
+
+
+func _finished() -> void:
+	if awaiting_choice():
+		_arc_state()["choice"] = "finished"
 
 
 ## The roof at 23:40 brings M6 and the companion's one answer; at 23:57 its
@@ -1512,18 +1535,27 @@ func _introduced_lines() -> int:
 	return int(arc.get("s01", 0)) if arc is Dictionary else 0
 
 
+## The paper's answer to the line her hands typed. Nothing is counted yet:
+## the reply carries `on_printed`, which the companion session calls only once
+## the live device has accepted the print, inside the same validated save. A
+## refused print leaves S01 where it was, to be typed and sent again.
 func _introduce() -> Dictionary:
-	var book := ledger()
-	if book.get("arc") is not Dictionary:
-		book["arc"] = {}
 	var exchanges: Array = table.arc.s01.exchanges
 	var line := _introduced_lines()
-	book.arc["s01"] = line + 1
-	RealityState.commit_background()
 	var text := str(exchanges[line].reply)
 	if line + 1 >= exchanges.size():
 		text += "\n\n" + str(table.arc.s01.handoff)
-	return {"intent": "temporal", "text": text}
+	return {"intent": "temporal", "text": text, "on_printed": _introduced.bind(line)}
+
+
+## The paper took exchange `line`. A stale or repeated acceptance does nothing.
+func _introduced(line: int) -> void:
+	if _introduced_lines() != line:
+		return
+	var book := ledger()
+	if book.get("arc") is not Dictionary:
+		book["arc"] = {}
+	book.arc["s01"] = line + 1
 
 
 func command(raw: String) -> Dictionary:

@@ -1,3 +1,101 @@
+# Logical grip release and resident courtesy - November 21
+
+Evidence class: **INERT**
+
+The logical grip release now publishes the world position of the moved part.
+The direct manipulation bench passed 124 checks. The installed 6B route
+passed 27, including the dated book, basket and Jonah page. The original
+partial-release failure is preserved.
+
+A distant resident keeps normal physics cadence during existing courtesy
+contact. The focused motor still waits before passing and stops at a solid
+wall. In the August 24 live visit, Juno passed the original stair stall
+and reached her 5B alcove while Cal was settled in his main room. The
+separate tape/card route passed on main. A whole conversation and the
+timing card's standing readability remain open. The 2B route passed all
+20 checks. The 3B and 6A follow-up probes have their own installed scope.
+[Historical access sweep](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+# Friday's errand and 1D route proof - November 21
+
+Evidence class: **INERT**
+
+In the July 19 visit, ordinary movement passed 4C's two fitted doors after
+the 18:40 gate. The jersey still reveals the route leaf. Its offset puts it
+just above the chair seat, where the normal pointer can collect it. The
+installed test passed all 21 checks. The earlier blocked rays and the live
+Cam and Noel sightings are in the access report.
+
+The July 20 1D check passed 30 installed assertions through the authored
+bedroom approach. The real flask and watch inputs yielded the nurse note.
+The test revealed the reachable angle from the east aisle.
+[Historical access sweep](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+# Historical tea lead access - November 21
+
+Evidence class: **INERT**
+
+The fitted 6C entry and the real tea-tray gesture work in the installed
+historical visit. Setting the tray aside now retires its pointer target so
+the revealed slip can be collected. Replaying returns the tray and door to
+their captured positions and keeps the collected evidence. The corridor
+and pickup probe passed 21 checks. The installed loop stage passed 233.
+[Original failure and both runs](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+The next historical route is 4C on July 19. Check the 18:40 gate, resident
+whereabouts, ordinary entry and the route leaf. Claude retains the ending
+and golden-playthrough stack. Full calendar play and Lily's acceptance are
+still open.
+
+# Juno's dated trade log - November 21
+
+Evidence class: **INERT**
+
+The B19 entry is on an installed native notebook in 2C. Drawing it files the
+case note and opens Juno's existing trade topic. Cal's record sleeve retains
+its own flag and remains physically reachable.
+
+The warmed historical fixture passed all 18 installed checks from the west
+corridor through the 2C entry. The early-date control, actual pointer inputs
+and separate knowledge flags passed with no script errors. The standing view
+shows a small cover title. Its full case note prints after the draw.
+[Route and original failures](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+# Basement drain access - November 21
+
+Evidence class: **INERT**
+
+The drain now yields its scrap on the existing ash-can lid. Its service note
+points the player there. The grab handler accepts the existing loop grip's
+Node owner. The clue remains tied to the dated plug and case evidence ledger.
+
+The installed route from the basement stair landing and the real Title
+Continue path passed 27 checks with zero script errors. The saved visit
+restored the scrap already collected. A later replay yielded no duplicate.
+The prior nurse note was staged. The journey from street and the full year
+remain outside this proof.
+[Route, original failures and final evidence](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
+# Idle cistern and temporal access - November 21
+
+Evidence class: **INERT**
+
+The idle cistern skips its chain and water update after settling. An actual
+grab or validated mechanism restore wakes it. The installed 4B test passed 218
+checks, including 20 authored toilets, profiles, real flush and cover input,
+and restored settled state. A matched stationary third-floor pair found the
+worst median fell from 89.627 to 87.279 ms. The p95 at the same heading
+fell from 107.872 to 104.718 ms. The 0-degree p95 rose 1.023 ms.
+Movement, a whole V2 playthrough and artistic acceptance remain open.
+The wider bath suite stopped earlier at its shower fixture.
+[Measurements and receipts](C:/ov/reports/idle_closet_intake_20261121/REPORT.md).
+
+Claude owns the story stack and golden playthrough. Codex owns integration
+and the historical access sweep. The 11-visit matrix lists dates, scripted
+steps, and the installed door identities to test. Full access and Continue
+still need play evidence.
+[Access matrix and next checks](C:/ov/reports/temporal_access_sweep_20261121/REPORT.md).
+
 # Night-register intake checkpoint - November 19
 
 Evidence class: **INERT**
@@ -6,8 +104,7 @@ PR416 merged at `2aa0bc5a68ef623df09a9d97b320fb6809adbc1e`.
 PR417 refits five night-register charts. Its editable source reproduces the
 frozen GLB byte for byte. The installed diagnostic passed 46 checks, including
 filing and fresh-world disk reconstruction. The composed run passed 818 checks
-and all 23 comparison views were reviewed. The stick-and-hoop shop item and
-first-person speed upgrade are requested and unstarted.
+and all 23 comparison views were reviewed. The stick-and-hoop item later merged in PR400 with 19 installed checks.
 [Resume notes](C:/ov/reports/night_register_rule_intake_20261119/HANDOFF.md).
 
 # Rooftop creature rebuild - November 18

@@ -35,6 +35,16 @@ func configure(moving: Node3D, direction: Vector3, distance: float) -> void:
 	_origin = part.position
 	_shown = part.visible
 	area = Manipulation.install(part, grip)
+	var pointer_layer := area.collision_layer
+	part.visibility_changed.connect(_sync_pointer_layer.bind(pointer_layer))
+	_sync_pointer_layer(pointer_layer)
+
+
+func _sync_pointer_layer(pointer_layer: int) -> void:
+	# A set-aside object can share the newly exposed clue's exact rest.
+	# Keep its pickup shape out of the ray until the object is visible again.
+	if is_instance_valid(area):
+		area.set_deferred("collision_layer", pointer_layer if part.is_visible_in_tree() else 0)
 
 
 func grip() -> Dictionary:

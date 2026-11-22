@@ -152380,6 +152380,32 @@
    "target_exists": true
   },
   {
+   "key": "d20928d9a5e08c51",
+   "kind": "id_reference",
+   "token": "6A_archive_box_a",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "d1c390a3d6592d1a",
    "kind": "id_reference",
    "token": "6A_archive_box_b",
@@ -215507,9 +215533,9 @@
    "target_exists": true
   },
   {
-   "key": "7450f47149646def",
+   "key": "be471189cfa8a051",
    "kind": "id_reference",
-   "token": "B1_BOILER_ROOM_SWITCH",
+   "token": "B1_boiler_ash_can",
    "file": "game/data/temporal/anchors.json",
    "tier": "data",
    "subsystem": "data",
@@ -223154,7 +223180,7 @@
     "_notebooks"
    ],
    "lines": [
-    51
+    54
    ],
    "count": 1,
    "context": [
@@ -253931,7 +253957,7 @@
     "run"
    ],
    "lines": [
-    657
+    665
    ],
    "count": 1,
    "context": [
@@ -253967,11 +253993,11 @@
    "lines": [
     74,
     276,
-    378,
-    500,
-    569,
-    617,
-    628
+    386,
+    508,
+    577,
+    625,
+    636
    ],
    "count": 7,
    "context": [
@@ -254004,7 +254030,7 @@
     "run"
    ],
    "lines": [
-    588
+    596
    ],
    "count": 1,
    "context": [
@@ -254580,13 +254606,16 @@
     18,
     19,
     19,
-    25
+    25,
+    38,
+    39
    ],
-   "count": 5,
+   "count": 7,
    "context": [
     "route._point(\"start\",Vector3(0,0,1.2)); route._point(\"peer_exit\",Vector3(0,0,-1.2))",
     "route._point(\"player_exit\",Vector3(0,0,-3)); route._point(\"wall_exit\",Vector3(0,0,-5))",
-    "route.actor.position=Vector3(0,0,1.2)"
+    "route.actor.position=Vector3(0,0,1.2)",
+    "player.position = Vector3(21, 0, -2)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -254838,8 +254867,8 @@
     "_run_gas_range_refit"
    ],
    "lines": [
-    573,
-    728
+    613,
+    768
    ],
    "count": 2,
    "context": [
@@ -287038,7 +287067,7 @@
     "_ready"
    ],
    "lines": [
-    390
+    408
    ],
    "count": 1,
    "context": [
@@ -287068,8 +287097,8 @@
     "_ready"
    ],
    "lines": [
-    195,
-    573
+    211,
+    591
    ],
    "count": 2,
    "context": [
@@ -287100,8 +287129,8 @@
     "_ready"
    ],
    "lines": [
-    290,
-    299
+    306,
+    315
    ],
    "count": 2,
    "context": [
@@ -287131,8 +287160,8 @@
     "_ready"
    ],
    "lines": [
-    332,
-    389
+    348,
+    407
    ],
    "count": 2,
    "context": [
@@ -287163,8 +287192,8 @@
     "_ready"
    ],
    "lines": [
-    197,
-    334
+    213,
+    350
    ],
    "count": 2,
    "context": [
@@ -293031,12 +293060,12 @@
    ],
    "lines": [
     112,
-    294,
-    367,
-    418,
-    427,
-    467,
-    486
+    299,
+    372,
+    423,
+    432,
+    472,
+    491
    ],
    "count": 7,
    "context": [
@@ -293069,7 +293098,7 @@
     "_ready"
    ],
    "lines": [
-    333
+    338
    ],
    "count": 1,
    "context": [
@@ -293100,7 +293129,7 @@
    ],
    "lines": [
     173,
-    335
+    340
    ],
    "count": 2,
    "context": [
