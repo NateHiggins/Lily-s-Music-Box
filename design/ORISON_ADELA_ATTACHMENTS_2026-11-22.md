@@ -78,3 +78,23 @@ sixth dream is always the hardest, whichever attachment it is.
    time, with the rest queued in the save.
 3. A test drives each flag, checks the slip, sleeps, and checks the right profile entered.
 4. The Bible's §IX order line is amended to the ruled order.
+
+## 9. Ruled and built (2026-11-22)
+
+Lily answered all four rulings with the recommended option. Built on this branch:
+
+- Five rows in **arc.releases** (**attach_mina**, **attach_peter**, **attach_juno**, **attach_cal**, **attach_omar**),
+  each naming its release print; Omar's carries `"after": "m_c_n16"`.
+- `TemporalLoop._attend_releases` honours `after` and asks for the print; `bind_release_dreams` asks again for every
+  print already released, so an older save still dreams it.
+- `CoreLoopDirector` queues release prints (**core_loop.release_dreams**, **release_dreams_done**), arms one at a time after
+  Mina's job dream with the slot by release order in the window, and `notify_release_wake` returns the player to the
+  4B bedside without touching the job loop. Mina's print is never armed twice: whichever path reaches it first plays it.
+- `DreamDirector.complete_return` reconciles a release print's wake; `DreamMazeRoot` reads the window's slot first.
+- Tests: **ReleaseDreamQueueTest** (15 checks) and eight new checks in **TemporalLoopTest** (263 in all).
+- The Bible's section IX order line is amended.
+
+Mae's print waits for her row: RELEASED: MRS. KESSLER is not on main, and by ruling
+**mrs_kessler_release_carrier_20261122** it prints when Nadia says the name in S14. That row gets
+`"dream": "mae_release_print"` when S14 is staged.
+

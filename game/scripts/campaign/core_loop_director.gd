@@ -43,6 +43,9 @@ var return_anchor_resolver: Callable
 ## Transient session guard so one arming emits one dream request; a restore
 ## resets it, which is exactly the resume-once contract.
 var _dream_request_sent := false
+## The release print this session already asked for, so one queue head emits
+## one request. Transient for the same resume-once reason as above.
+var _release_request_sent := ""
 
 
 func setup(spine: WorkOrders, the_player: Node3D,
@@ -71,6 +74,8 @@ func setup(spine: WorkOrders, the_player: Node3D,
 		_evaluate_dream_window()
 	if bool(_state().get("dream_pending", false)):
 		_arm_dream_request()
+	if not (_state().release_dreams as Array).is_empty():
+		set_process(true)
 
 
 ## A job can exist before this coordinator does — a legacy save migrated by
@@ -223,6 +228,16 @@ func _evaluate_dream_window() -> void:
 	var gate := str(window.get("eligible_after_stage", ""))
 	if work_orders.job_stage(JOB_ID) not in [gate, "closed"]:
 		return
+	# Mina's print is also her attachment's release dream. Whichever path
+	# reaches it first plays it; the other never arms it again.
+	var profile := _dream_profile_id()
+	if profile in (state.release_dreams_done as Array):
+		state.boundary = "wake_complete"
+		RealityState.commit()
+		wake_completed.emit(str(state.safe_return_anchor))
+		return
+	if _drop_queued_release(profile):
+		(state.release_dreams_done as Array).append(profile)
 	state.dream_pending = true
 	state.boundary = "dream_pending"
 	RealityState.commit()
@@ -240,7 +255,7 @@ func _arm_dream_request() -> void:
 
 func _process(_delta: float) -> void:
 	if _dream_request_sent or not bool(_state().get("dream_pending", false)):
-		set_process(false)
+		_process_release_dream()
 		return
 	# A persistent shell can remove a waking world between frames. Its
 	# WorkOrders owner may already be gone even though this coordinator's
@@ -251,10 +266,117 @@ func _process(_delta: float) -> void:
 		return
 	if _protected():
 		return
+	# Another dream (a release print) is in flight: wait for it to end rather
+	# than send a request DreamDirector must refuse. A restore that already
+	# armed this job's own print needs no second request.
+	var dream := _dream_state()
+	if str(dream.get("phase", "awake")) != "awake":
+		if str(dream.get("profile_id", "")) == _dream_profile_id():
+			_dream_request_sent = true
+			set_process(false)
+		return
 	_dream_request_sent = true
 	set_process(false)
 	dream_requested.emit(_case_id(), _dream_profile_id(),
 			work_orders.job_library.job(JOB_ID).get("dream_window", {}))
+
+
+## Adela's attachments (design/ORISON_ADELA_ATTACHMENTS_2026-11-22.md). The
+## paper decides when an attachment is let go; this coordinator only queues
+## that resident's release print and arms one at a time, after Mina's job
+## dream, when no call or conversation protects the player and no other dream
+## is in flight. A second release waits for the next night. The slot is the
+## release order (ruling attach_dream_order_20261122), so the sixth print
+## dreamed is the hardest, whichever resident it belongs to.
+func request_release_dream(profile_id: String) -> bool:
+	var incarnation := profile_id.trim_suffix("_release_print")
+	if incarnation == profile_id or not DreamIncarnationProfile.CASE_IDS.has(incarnation):
+		return false
+	var state := _state()
+	if profile_id in (state.release_dreams_done as Array) or is_release_dream(profile_id):
+		return false
+	# Mina's chirp job plays the same print; never arm it twice.
+	if profile_id == _dream_profile_id() \
+			and (bool(state.dream_pending) or str(state.boundary) == "wake_complete"):
+		(state.release_dreams_done as Array).append(profile_id)
+		RealityState.commit()
+		return false
+	(state.release_dreams as Array).append({
+		"case_id": str(DreamIncarnationProfile.CASE_IDS[incarnation]),
+		"profile_id": profile_id})
+	RealityState.commit()
+	set_process(true)
+	return true
+
+
+## True while the print is queued or armed as a release dream.
+func is_release_dream(profile_id: String) -> bool:
+	return (_state().release_dreams as Array).any(func(row: Variant) -> bool:
+		return row is Dictionary and str((row as Dictionary).get("profile_id", "")) == profile_id)
+
+
+func release_dream_done(profile_id: String) -> bool:
+	return profile_id in (_state().release_dreams_done as Array)
+
+
+## The window a release print carries: the same protected contexts as the
+## job's dream, and the campaign slot by release order.
+func release_window() -> Dictionary:
+	return {"protected_contexts": ["call", "conversation"], "release": true,
+			"campaign_slot": mini((_state().release_dreams_done as Array).size() + 1, 6)}
+
+
+func _process_release_dream() -> void:
+	var queue: Array = _state().release_dreams
+	if queue.is_empty() or queue[0] is not Dictionary:
+		set_process(false)
+		return
+	var head: Dictionary = queue[0]
+	var profile := str(head.get("profile_id", ""))
+	if _release_request_sent == profile:
+		set_process(false)
+		return
+	if _protected():
+		return
+	var dream := _dream_state()
+	if str(dream.get("phase", "awake")) != "awake":
+		if str(dream.get("profile_id", "")) == profile:
+			_release_request_sent = profile
+			set_process(false)
+		return
+	_release_request_sent = profile
+	set_process(false)
+	dream_requested.emit(str(head.get("case_id", "")), profile, release_window())
+
+
+## The wake boundary for a release print. Records the print as dreamed, moves
+## the player to the 4B bedside like the job's wake, and lets the next queued
+## release arm for the next night. Mina's loop boundary is not touched.
+func notify_release_wake(profile_id: String) -> bool:
+	if not _drop_queued_release(profile_id):
+		return false
+	var state := _state()
+	if profile_id not in (state.release_dreams_done as Array):
+		(state.release_dreams_done as Array).append(profile_id)
+	RealityState.commit()
+	_release_request_sent = ""
+	return_player_to_safe_anchor()
+	set_process(true)
+	return true
+
+
+func _drop_queued_release(profile_id: String) -> bool:
+	var queue: Array = _state().release_dreams
+	for at in queue.size():
+		if queue[at] is Dictionary and str((queue[at] as Dictionary).get("profile_id", "")) == profile_id:
+			queue.remove_at(at)
+			return true
+	return false
+
+
+func _dream_state() -> Dictionary:
+	var dream: Variant = RealityState.data.get("dream")
+	return dream if dream is Dictionary else {}
 
 
 func _protected() -> bool:
@@ -335,5 +457,11 @@ func _state() -> Dictionary:
 		"conversation_complete": false,
 		"dream_pending": false,
 		"safe_return_anchor": RETURN_ANCHOR_ID,
+		"release_dreams": [],
+		"release_dreams_done": [],
 	})
+	if state.release_dreams is not Array:
+		state.release_dreams = []
+	if state.release_dreams_done is not Array:
+		state.release_dreams_done = []
 	return state

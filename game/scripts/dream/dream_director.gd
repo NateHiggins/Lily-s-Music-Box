@@ -179,10 +179,15 @@ func complete_return() -> bool:
 		# this lands at the real 4B bedside while leaving its loop facts alone.
 		core_loop.return_player_to_safe_anchor()
 	else:
-		if core_loop.boundary() == "dream_pending":
+		var profile := str(state.profile_id)
+		if core_loop.is_release_dream(profile):
+			if not core_loop.notify_release_wake(profile):
+				return false
+		elif core_loop.boundary() == "dream_pending":
 			if not core_loop.notify_wake_complete():
 				return false
-		elif core_loop.boundary() != "wake_complete":
+		elif core_loop.boundary() != "wake_complete" \
+				and not core_loop.release_dream_done(profile):
 			return false
 	state.phase = "awake"
 	state.active = false

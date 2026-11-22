@@ -70,6 +70,8 @@ var _wait_until := -1.0
 ## The run the companion has already announced.
 var _pace_said := ""
 var _receive_slip: Callable
+## Asks for a released attachment's release print (CoreLoopDirector).
+var _release_dream: Callable
 
 
 func setup(campaign_clock: CampaignClock, caretaker_economy: Node, receive_slip := Callable()) -> bool:
@@ -1330,15 +1332,35 @@ func _attend_releases() -> void:
 		if id in released:
 			continue
 		var let_go := RealityState.has_knowledge(str(release.flag)) if release.has("flag") else holds(str(release.get("item", "")))
+		# An attachment can be learned of before it can be let go: Omar's bell
+		# is heard in May, but the night it belongs to is 19 July.
+		if release.has("after") and not RealityState.has_knowledge(str(release.after)):
+			continue
 		if not let_go:
 			continue
 		if not _receive_slip.call(book, str(release.slip)):
 			break
 		released.append(id)
 		accepted = true
+		if release.has("dream") and _release_dream.is_valid():
+			_release_dream.call(str(release.dream))
 	if accepted:
 		arc["released"] = released
 		RealityState.commit_background()
+
+
+## Adela's attachments: a release row may name its resident's release print.
+## Binding also asks again for every print already released, so a save whose
+## slip printed before the dream owner was bound still dreams it; the owner
+## refuses a print it has queued or dreamed.
+func bind_release_dreams(request: Callable) -> void:
+	_release_dream = request
+	if not request.is_valid() or table.get("arc") is not Dictionary or table.arc.get("releases") is not Array:
+		return
+	var released: Variant = _arc_state().get("released", [])
+	for release: Dictionary in table.arc.releases:
+		if release.has("dream") and released is Array and str(release.id) in (released as Array):
+			request.call(str(release.dream))
 
 
 ## Trying to save her (treatment section 6). Once Friday's lead is worked,

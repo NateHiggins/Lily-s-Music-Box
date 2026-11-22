@@ -775,6 +775,39 @@ func _ready() -> void:
 	loop._attend_releases()
 	check(slips.size() == before_release + 2 and slips.back() == "|RELEASED: THE ROOF.", "signing for the roof on 11 July releases the roof")
 
+	# Adela's attachments (design/ORISON_ADELA_ATTACHMENTS_2026-11-22.md): five
+	# case residents let go of what she left with them, each with a release print.
+	var dreams: Array[String] = []
+	var ask_dream := func(profile: String) -> bool:
+		dreams.append(profile)
+		return true
+	loop.bind_release_dreams(ask_dream)
+	check(dreams.is_empty(), "binding before any attachment is released asks for no dream")
+	before_release = slips.size()
+	RealityState.grant_knowledge("m_recorder_limit")
+	loop._attend_releases()
+	check(slips.size() == before_release and dreams.is_empty(),
+			"Omar's bell heard before 19 July has happened releases nothing")
+	for attachment: Array in [["m_mina_light", "THE LIGHT IN THE SHOP.", "mina"],
+			["m_peter_will_sign", "THE CLAUSE.", "peter"], ["m_heard_self", "THE SONG.", "juno"],
+			["m_door_match", "THE BROADCAST.", "cal"]]:
+		before_release = slips.size()
+		RealityState.grant_knowledge(str(attachment[0]))
+		loop._attend_releases()
+		loop._attend_releases()
+		check(slips.slice(before_release) == ["|RELEASED: " + str(attachment[1])]
+				and dreams.back() == str(attachment[2]) + "_release_print" and dreams.count(dreams.back()) == 1,
+				"%s releases %s once and asks for %s's release print" % [attachment[0], attachment[1], attachment[2]])
+	before_release = slips.size()
+	RealityState.grant_knowledge("m_c_n16")
+	loop._attend_releases()
+	check(slips.slice(before_release) == ["|RELEASED: THE NIGHT OF 19 JULY.", "|RELEASED: THE BELL."]
+			and dreams.back() == "omar_release_print", "once the night has happened, the bell is let go after it")
+	dreams.clear()
+	loop.bind_release_dreams(ask_dream)
+	check(dreams == ["mina_release_print", "peter_release_print", "juno_release_print", "cal_release_print", "omar_release_print"],
+			"rebinding asks again for every released print; the dream owner refuses what it already has")
+
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))
 	RealityState.persistence_enabled = false
