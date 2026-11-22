@@ -47,3 +47,11 @@ func active() -> bool:
 	for row: Dictionary in _contacts.values():
 		if frame - int(row.frame) <= 1 and float(row.seconds) >= WAIT: return true
 	return false
+
+
+func has_recent_contact() -> bool:
+	var frame := Engine.get_physics_frames()
+	for peer_id: int in _contacts:
+		var row: Dictionary = _contacts[peer_id]
+		if frame - int(row.frame) <= 1: return true
+	return false
