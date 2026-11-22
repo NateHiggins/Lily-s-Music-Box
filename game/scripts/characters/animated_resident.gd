@@ -336,15 +336,17 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 func interact_prompt() -> String:
 	if not installed_topic.is_empty():
-		return "[E]  Speak with %s" % display_name if _installed_topic_present() else ""
-	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
-	# An open spoken thread answers the click first, so the ambient topic must not name it.
-	var talk := get_tree().get_first_node_in_group("resident_conversations") if is_inside_tree() else null
-	if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
-		loop_performances = null
-	if loop_performances != null:
-		var topic := str(loop_performances.conversation_prompt(resident_id))
-		if not topic.is_empty(): return topic
+		if not _installed_topic_present():
+			return ""
+	elif is_inside_tree():
+		var loop_performances := get_tree().get_first_node_in_group("loop_performances")
+		# An open spoken thread answers the click before the ambient topic.
+		var talk := get_tree().get_first_node_in_group("resident_conversations")
+		if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
+			loop_performances = null
+		if loop_performances != null:
+			var topic := str(loop_performances.conversation_prompt(resident_id))
+			if not topic.is_empty(): return topic
 	return "[E]  Speak with %s" % display_name
 
 
