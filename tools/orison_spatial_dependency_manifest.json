@@ -239311,6 +239311,96 @@
    "target_exists": null
   },
   {
+   "key": "af6dafca80568141",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/scripts/characters/adela_dated_encounters.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_stance"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "return {\"origin\": origin, \"facing\": origin + building.global_basis.z, \"room_prefix\": \"ROOF_DECK_\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "186090a33f12199b",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/scripts/characters/adela_dated_encounters.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const LOBBY := \"F01_LOBBY\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "24eea9f12f9992c0",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_CLOCK_01",
+   "file": "game/scripts/characters/adela_dated_encounters.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const CLOCK := \"F01_LOBBY_CLOCK_01\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
    "key": "bf9b6fbb0c744a1e",
    "kind": "generated_name",
    "token": "_bind_drapes",
@@ -239339,66 +239429,6 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
-  },
-  {
-   "key": "e20b01baaf60ae60",
-   "kind": "id_reference",
-   "token": "F01_LOBBY",
-   "file": "game/scripts/characters/friday_lobby_encounter.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    6
-   ],
-   "count": 1,
-   "context": [
-    "const LOBBY := \"F01_LOBBY\""
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "ROOM_MEMBERSHIP"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F01/room+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "0d2c6161c8d2cf90",
-   "kind": "id_reference",
-   "token": "F01_LOBBY_CLOCK_01",
-   "file": "game/scripts/characters/friday_lobby_encounter.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    8
-   ],
-   "count": 1,
-   "context": [
-    "const CLOCK := \"F01_LOBBY_CLOCK_01\""
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F01/marker+acoustic_node",
-   "target_exists": true
   },
   {
    "key": "c65146ae4fda86f5",
@@ -287186,9 +287216,9 @@
    ],
    "lines": [
     225,
-    676,
-    717,
-    734
+    670,
+    711,
+    728
    ],
    "count": 4,
    "context": [
