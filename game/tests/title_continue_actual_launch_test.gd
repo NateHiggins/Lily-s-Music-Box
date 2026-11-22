@@ -44,6 +44,7 @@ class LaunchObserver extends Node:
 	var nook_script_node_path := ""
 	var s01_source: Dictionary = {}
 	var s01_started := 0
+	var s01_copies: Array[String] = []
 	var timing := {}
 	var born_anchor_utc := Time.get_unix_time_from_system()
 	var born_anchor_usec := Time.get_ticks_usec()
@@ -473,12 +474,11 @@ class LaunchObserver extends Node:
 		var session: Node = carrier.session
 		var paper: Node = carrier.device.teletype
 		var campaign: Dictionary = RealityState.data
-		var copies: Array[String] = []
 		paper.card_presenting.connect(func(card: Dictionary, _serial: int):
 			if card.get("title") == "CORRESPONDENCE":
-				copies.append(str(card.get("body", ""))))
+				s01_copies.append(str(card.get("body", ""))))
 		checks["s01_awaits_the_first_line_after_the_real_prologue"] = loop.awaiting_introduction()
-		var ready := func(): return session.available() and paper.copy_delivered()
+		var ready := func(): return session.available() and paper.copy_delivered() and session._loop_slips.is_empty()
 		if not await _s01_wait(ready):
 			checks["s01_companion_returns_to_the_player"] = false
 			return
@@ -486,6 +486,7 @@ class LaunchObserver extends Node:
 		if not carrier.reading:
 			await _s01_key(KEY_E)
 		var j := 0
+		var handoff := ""
 		for exchange: Dictionary in loop.table.arc.s01.exchanges:
 			j += 1
 			await _s01_key(KEY_ENTER)
@@ -493,30 +494,42 @@ class LaunchObserver extends Node:
 			checks["s01_line_%d_types_at_the_live_keyboard" % j] = await _s01_wait(typed)
 			if not checks["s01_line_%d_types_at_the_live_keyboard" % j]:
 				return
+			var expected := str(exchange.reply)
+			if j == loop.table.arc.s01.exchanges.size():
+				handoff = expected + "\n\n" + str(loop.table.arc.s01.handoff)
+				expected = handoff
 			await _s01_key(KEY_ENTER)
 			checks["s01_reply_%d_arrives_on_the_live_paper" % j] = await _s01_wait(ready) \
-					and copies.size() == j and copies.back().begins_with(str(exchange.reply)) and paper.ink.is_visible_in_tree()
+					and s01_copies.count(expected) == 1 and paper.ink.is_visible_in_tree()
 			if not checks["s01_reply_%d_arrives_on_the_live_paper" % j]:
 				return
-			await _capture("s01_reply_%d" % j)
+			await _capture("s01_after_reply_%d" % j)
 		checks["s01_handoff_is_printed_before_the_player_command"] = not loop.awaiting_introduction() \
-				and copies.back().contains(str(loop.table.arc.s01.handoff))
+				and s01_copies.has(handoff)
+		var first_copy: Dictionary = loop.table.arc.copies[0]
+		var received := "RECEIVED COPY 1. " + str(first_copy.text)
+		checks["s01_first_received_copy_follows_the_handoff"] = await _s01_wait(
+				func(): return ready.call() and s01_copies.has(received)) \
+					and s01_copies.count(received) == 1 and s01_copies.find(received) > s01_copies.find(handoff)
 		await _s01_key(KEY_ENTER)
 		checks["s01_keyboard_opens_for_the_first_player_command"] = await _s01_wait(
 				func(): return session.typing and carrier.rig.typing_ready())
 		if not checks.s01_keyboard_opens_for_the_first_player_command:
 			return
+		await _s01_key(KEY_A, 0, true)
 		for character: String in "leads":
 			await _s01_key(character.to_upper().unicode_at(0), character.unicode_at(0))
 		checks["s01_leads_is_entered_by_the_player"] = session._edit.text == "leads"
 		await _s01_key(KEY_ENTER)
 		checks["s01_leads_lists_the_unworked_opening_visit"] = await _s01_wait(ready) \
-				and copies.size() == j + 1 and copies.back().contains("THE RADIATOR IN 6C") \
+				and s01_copies.count(loop.leads_text()) == 1 \
+				and loop.leads_text().contains("THE RADIATOR IN 6C") \
 				and loop.unlocked() == ["tea"] and not loop.in_visit()
 		RealityState.flush_background_saves()
 		var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
 		checks["s01_save_contains_the_printed_handoff"] = saved is Dictionary \
-				and int(saved.get("temporal", {}).get("arc", {}).get("s01", 0)) == j
+				and int(saved.get("temporal", {}).get("arc", {}).get("s01", 0)) == j \
+				and (saved.get("temporal", {}).get("arc", {}).get("copies", []) as Array).has(1.0)
 		checks["s01_keeps_one_campaign_and_leaves_the_first_shift_untouched"] = is_same(campaign, RealityState.data) \
 				and RealityState.data.maintenance_jobs.is_empty()
 		await _capture("s01_leads")
@@ -527,12 +540,13 @@ class LaunchObserver extends Node:
 			await get_tree().process_frame
 		return bool(condition.call())
 
-	func _s01_key(code: int, unicode := 0) -> void:
+	func _s01_key(code: int, unicode := 0, control := false) -> void:
 		for pressed: bool in [true, false]:
 			var event := InputEventKey.new()
 			event.physical_keycode = code
 			event.keycode = code
 			event.unicode = unicode if pressed else 0
+			event.ctrl_pressed = control
 			event.pressed = pressed
 			Input.parse_input_event(event)
 			Input.flush_buffered_events()
@@ -577,7 +591,7 @@ class LaunchObserver extends Node:
 				"before": s01_source, "after": after},
 			"execution": {"completed": true, "exit_code": 0 if failed.is_empty() else 1, "timed_out": false,
 				"elapsed_s": (Time.get_ticks_msec() - s01_started) / 1000.0},
-			"checks": checks.size(), "assertions": checks, "failures": failed}, "\t"))
+			"checks": checks.size(), "assertions": checks, "observed_copies": s01_copies, "failures": failed}, "\t"))
 		stream.close()
 		return failed.is_empty()
 
