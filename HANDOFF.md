@@ -8,11 +8,8 @@ copy follows the printed handoff. The player types LEADS at the live
 keyboard and the first offer is the free 6C visit. The saved campaign
 contains the completed introduction and copy receipt.
 
-The corrected run passed 31 assertions. Its fixture uses a fixed
-creation clock and scripted player input. The physical route from 4B
-to the first 6C pickup, wall filing, the full year and Lily's play
-remain open.
-[Runtime contract and preserved original failure](C:/ov/reports/title_to_s01_20261122/REPORT.md).
+The corrected fresh-title run passed 31 assertions with a fixed creation clock and scripted input. PR471 used that exact S01 save for the actual Continue. Its installed run passed 30 checks and 53 walking waypoints through the 6C pickup, return to 4B, and physical filing of the clue. The case-wall papers peel clear of the row below. The full year and Lily's play remain open.
+[Runtime contract and preserved original failure](C:/ov/reports/title_to_s01_20261122/REPORT.md). [Installed 6C and case-wall evidence](C:/ov/reports/title_first_clue_20261122/REPORT.md).
 
 # The 4B key book and July roof visit - November 22
 
