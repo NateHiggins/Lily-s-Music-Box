@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	if world.startup_ms <= 0.0 or _binding_refused:
 		return
 	_poll_due -= delta
-	if _poll_due > 0.0:
+	if _poll_due > 0.0 and not is_instance_valid(actor):
 		return
 	_poll_due = .2
 	if _is_due():
@@ -27,7 +27,8 @@ func _physics_process(delta: float) -> void:
 	elif is_instance_valid(actor):
 		if world.conversations._active_resident == PERSON:
 			world.conversations.cancel_for_transition()
-		remove_child(actor)
+		actor.hide()
+		(actor.get_node("Interaction") as Area3D).collision_layer = 0
 		actor.queue_free()
 		actor = null
 
@@ -68,7 +69,7 @@ func _mount_resident() -> void:
 	resident.position = to_local(floor.position)
 	add_child(resident)
 	if resident.cast_body == null or not resident.cast_body.ready_ok:
-		remove_child(resident)
+		resident.hide()
 		resident.queue_free()
 		_refuse("the existing rebuilt resident body did not load")
 		return
