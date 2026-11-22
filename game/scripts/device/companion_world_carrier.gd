@@ -206,7 +206,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
 	for area: Area3D in find_children("*", "Area3D", true, false):
-		area.collision_layer = 1 << 23
+		area.collision_layer = preload("res://scripts/player/constrained_grab.gd").FRAMED_COMPANION_LAYER
 		_pick_layers[area.get_instance_id()] = {"ref":weakref(area), "layer":area.collision_layer}
 	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
