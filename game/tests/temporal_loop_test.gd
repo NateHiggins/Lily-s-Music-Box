@@ -642,8 +642,7 @@ func _ready() -> void:
 			"two minutes on, the record stops at 21:01 and the present is 3:02 on the 20th (%s)" % stamp())
 	loop._attend_rescue()
 	check(slips.size() == rescue_at + 2 and slips[rescue_at] == "|SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT."
-			and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:
-WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.",
+			and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:\nWARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.",
 			"the key book gains one honest line for the attempt, ending at 21:01 and 3:02")
 	check(RealityState.has_knowledge("m_rescue_seen"), "and the companion may now be told about it")
 	loop._attend_rescue()
@@ -652,17 +651,12 @@ WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE 
 	RealityState.grant_knowledge("m_o2_refused_key")
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 25, 720.0)), "and away before nine")
 	loop._attend_rescue()
-	check(slips.size() == rescue_at + 3 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:
-REFUSED A.V. THE ROOF KEY AT 18:05.",
+	check(slips.size() == rescue_at + 3 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:\nREFUSED A.V. THE ROOF KEY AT 18:05.",
 			"left before 21:01, the line says only what was done, and nothing of 3:02")
 	RealityState.grant_knowledge("m_key_loan_11")
 	RealityState.grant_knowledge("m_key_loan_19")
-	check(str(loop.command("book").get("text", "")) == "THE KEY BOOK, IN GREASE PENCIL:
-11 JULY, A.V., ROOF.
-19 JULY, A.V., ROOF, STORM.
-"
-			+ "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.
-REFUSED A.V. THE ROOF KEY AT 18:05.",
+	check(str(loop.command("book").get("text", "")) == "THE KEY BOOK, IN GREASE PENCIL:\n11 JULY, A.V., ROOF.\n19 JULY, A.V., ROOF, STORM.\n"
+			+ "WARNED A.V. AT THE SHOP. SHE AGREED TO STAY. VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT.\nREFUSED A.V. THE ROOF KEY AT 18:05.",
 			"BOOK reads the loans she signed for and every attempt, in order")
 	(RealityState.data.knowledge_flags as Array).erase("m_key_loan_11")
 
