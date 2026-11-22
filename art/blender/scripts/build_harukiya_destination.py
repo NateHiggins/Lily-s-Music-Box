@@ -84,10 +84,10 @@ def beam(name,a,b,width,depth,key='oak',group='Architecture'):
     verts=[at+q@Vector((x*half.x,y*half.y,z*half.z)) for z in [-1,1] for y in [-1,1] for x in [-1,1]]
     return solid(name,verts,[(0,2,3,1),(4,5,7,6),(0,1,5,4),(2,6,7,3),(0,4,6,2),(1,3,7,5)],key,group)
 
-def rail(name,a,b,z,height=1.1,group='Balcony'):
+def rail(name,a,b,z,height=1.1,group='Balcony',*,first_post=True,last_post=True):
     a,b=Vector((*a,z)),Vector((*b,z));length=(b-a).length
     count=max(2,math.ceil(length/1.2)+1)
-    for i in range(count):
+    for i in range(0 if first_post else 1,count if last_post else count-1):
         p=a.lerp(b,i/(count-1));box(name+' post '+str(i),p+Vector((0,0,height/2)),(.055,.055,height),'oak',group)
         box(name+' foot plate '+str(i),p+Vector((0,0,.008)),(.095,.095,.016),'brass',group)
     rod(name+' top handrail',a+Vector((0,0,height)),b+Vector((0,0,height)),.029,'oak',group,16)
@@ -177,12 +177,30 @@ for i,(x,y,ground) in enumerate(bal['support_columns']):
     box('Balcony column base '+str(i),(x,y,ground+.035),(.18,.18,.07),'metal','Balcony')
     box('Balcony column capital '+str(i),(x,y,under-.045),(.24,.24,.09),'oak','Balcony')
     support_contacts.append({'id':'Balcony column '+str(i),'foot':[x,y,ground],'head':[x,y,under]})
-rail('North gallery front',(-4.36,-33.20),(-1.69,-33.20),0,1.1)
-rail('Gallery inner return',(-1.61,-33.25),(-1.61,-35.85),0,1.1)
-rail('Gallery south return',(-1.61,-35.85),(.565,-35.85),0,1.1)
-rail('Gallery east',(.565,-35.85),(.565,-31.045),0,1.1)
-rail('Gallery north',(-5.54,-31.045),(.565,-31.045),0,1.1)
-rail('Gallery stair side',(-4.36,-33.20),(-4.36,-32.12),0,1.1)
+st=arch['stair']
+sx0,sx1=st['x0'],st['x1']
+sy0,sy1=st['flight_y']
+guard_height=1.1
+# Shared centers keep the rake, landing and gallery guards joined. The
+# quarter turn stays on the east edge, leaving the stair mouth clear.
+west_rail_x=sx0
+east_rail_x=sx1+.02
+landing_join_y=st['upper_landing_y'][0]+.05
+gallery_north_y=-31.045
+gallery_front=(-4.36,-33.20)
+gallery_inside=(-1.61,-33.20)
+gallery_southwest=(-1.61,-35.85)
+gallery_southeast=(.565,-35.85)
+gallery_northeast=(.565,gallery_north_y)
+gallery_northwest=(west_rail_x,gallery_north_y)
+east_landing_join=(east_rail_x,landing_join_y)
+west_landing_join=(west_rail_x,landing_join_y)
+rail('North gallery front',gallery_front,gallery_inside,floor,guard_height)
+rail('Gallery inner return',gallery_inside,gallery_southwest,floor,guard_height,first_post=False)
+rail('Gallery south return',gallery_southwest,gallery_southeast,floor,guard_height,first_post=False)
+rail('Gallery east',gallery_southeast,gallery_northeast,floor,guard_height,first_post=False)
+rail('Gallery north',gallery_northeast,gallery_northwest,floor,guard_height,first_post=False)
+rail('Gallery stair side',gallery_front,east_landing_join,floor,guard_height,first_post=False)
 # Narrow bar ledges turn the gallery from an auditorium row into useful
 # social seating. They stay wholly on the viewing side, outside rear aisles.
 box('North viewing drinks ledge',(-3.025,-33.08,1.045),(2.67,.20,.045),'oak','Balcony')
@@ -193,28 +211,40 @@ for y in [-33.45,-34.55,-35.65]:
     beam('Return drinks ledge bracket '+str(y),(-1.61,y,.85),(-1.43,y,1.02),.022,.022,'brass','Balcony')
 
 # Closed treads/risers and two bearing stringers leave a real open underside.
-st=arch['stair'];sx0,sx1=st['x0'],st['x1'];sy0,sy1=st['flight_y'];z0=st['bottom_z'];going=st['going'];rise=st['rise']
-for i in range(st['goings']):
+z0=st['bottom_z'];going=st['going'];rise=st['rise'];goings=st['goings']
+for i in range(goings):
     a=sy0+i*going;b=a+going;ztop=z0+(i+1)*rise
     slab('Stair tread '+str(i+1),[sx0-.035,a-.014,sx1+.035,b],ztop-.045,ztop,'floor','Stair')
     box('Stair riser '+str(i+1),((sx0+sx1)/2,a+.012,ztop-rise/2),(sx1-sx0,.024,rise),'oak','Stair')
     box('Stair nosing '+str(i+1),((sx0+sx1)/2,a-.008,ztop-.017),(sx1-sx0+.07,.025,.034),'oak','Stair')
 for x in [sx0-.035,sx1+.035]:
     beam('Stair side stringer '+str(x),(x,sy0,z0+.05),(x,sy1,-.13),.07,.20,'oak','Stair')
-    rod('Stair handrail '+str(x),(x,sy0-.05,z0+rise+1.0),(x,sy1,1.0),.028,'oak','Stair',16)
-    for i in [0,3,6,9,12,15]:
-        y=sy0+min(i,14)*going+.03;bottom=z0+(i+1)*rise if i<15 else 0
-        top=z0+rise+1.0+(y-sy0)/(sy1-sy0)*(2.8-rise)
+
+rake_start_y=sy0-.05
+rake_start_z=z0+rise+1.0
+rake_end_z=floor+guard_height
+
+def rake_height(y):
+    fraction=(y-rake_start_y)/(sy1-rake_start_y)
+    return rake_start_z+(rake_end_z-rake_start_z)*fraction
+
+for x,join in [(west_rail_x,west_landing_join),(east_rail_x,east_landing_join)]:
+    rake_end=(x,sy1,rake_end_z)
+    rod('Stair handrail '+str(x),(x,rake_start_y,rake_start_z),rake_end,.029,'oak','Stair',16)
+    rod('Stair handrail landing lead '+str(x),rake_end,(*join,rake_end_z),.029,'oak','Stair',16)
+    for i in range(0,goings,3):
+        y=sy0+(i+.3)*going;bottom=z0+(i+1)*rise
+        top=rake_height(y)
         box('Stair newel '+str((x,i)),(x,y,(bottom+top)/2),(.055,.055,top-bottom),'oak','Stair')
-    for i in range(15):
+    for i in range(goings):
         y=sy0+(i+.6)*going;bottom=z0+(i+1)*rise
-        top=z0+rise+1.0+(y-sy0)/(sy1-sy0)*(2.8-rise)
+        top=rake_height(y)
         rod('Stair baluster '+str((x,i)),(x,y,bottom),(x,y,top),.008,'metal','Stair',8)
-slab('DestinationStairUpperLanding',[sx0-.035,*[st['upper_landing_y'][0]],sx1+.035,st['upper_landing_y'][1]],under,0,'floor','Stair')
-box('Stair final riser',((sx0+sx1)/2,sy1+.012,-rise/2),(sx1-sx0,.024,rise),'oak','Stair')
+slab('DestinationStairUpperLanding',[sx0-.035,st['upper_landing_y'][0],sx1+.035,st['upper_landing_y'][1]],under,floor,'floor','Stair')
+box('Stair final riser',((sx0+sx1)/2,sy1+.012,floor-rise/2),(sx1-sx0,.024,rise),'oak','Stair')
 for x in [sx0-.035,sx1+.035]:
     box('Upper landing column '+str(x),(x,-31.09,(under-2.8)/2),(.09,.09,under+2.8),'oak','Stair')
-rail('Stair landing west',(sx0-.035,-32.10),(sx0-.035,-31.045),0,1.1,'Stair')
+rail('Stair landing west',west_landing_join,gallery_northwest,floor,guard_height,'Stair',last_post=False)
 
 # Retained counter stools stay in the cell. New seats are real closed stock.
 l=arch['lounge'];slab('DestinationLoungeDeck',l['rect'],l['base_z'],l['floor_z'],'floor','Lounge')

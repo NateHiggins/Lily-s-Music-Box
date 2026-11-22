@@ -274,7 +274,7 @@
     {"id":"F01_WATCH_CORE_DOOR","level":"F01","center":[-1.2,-3.3],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"watch","connects":["F01_WATCH","F01_PUBLIC_CORE"]},
     {"id":"F01_PACKAGE_COMMON_DOOR","level":"F01","center":[-9.2,2.4],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"package","connects":["F01_PACKAGE","F01_COMMON_B"]},
     {"id":"F01_REAR_SERVICE_DOOR","level":"F01","center":[8.9,9.25],"width":0.91,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_SERVICE_HALL","F01_REAR_APRON"]},
-    {"id":"F01_SERVICE_CORE_DOOR","level":"F01","center":[9.5,5.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"core","connects":["F01_SERVICE_HALL","F01_SERVICE_CORE"]},
+    {"id":"F01_SERVICE_CORE_DOOR","level":"F01","center":[9.5,5.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"core","connects":["F01_SERVICE_HALL","F01_SERVICE_CORE"]},
     {"id":"F02_A_HALL_DOOR","level":"F02","center":[-9.6,3.1],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"hall","connects":["F02_A_MAIN","F02_A_PRIVATE_HALL"]},
     {"id":"F02_A_BATH_DOOR","level":"F02","center":[-8.95,4.6],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"bath","connects":["F02_A_PRIVATE_HALL","F02_A_BATH"]},
     {"id":"F02_A_BED_DOOR","level":"F02","center":[-10.25,7.1],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"bed","connects":["F02_A_PRIVATE_HALL","F02_A_BED"]},

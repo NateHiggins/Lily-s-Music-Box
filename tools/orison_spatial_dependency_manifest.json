@@ -228422,6 +228422,36 @@
    "target_exists": null
   },
   {
+   "key": "1e5097e5bdc95966",
+   "kind": "generated_name",
+   "token": "_join_guard",
+   "file": "game/scripts/building/orison_v2_light_court_structure.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_join_guard"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "join.id + \"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "a32a3c3d9e5d144e",
    "kind": "generated_name",
    "token": "_ready",
@@ -241722,7 +241752,7 @@
     "_process"
    ],
    "lines": [
-    456
+    458
    ],
    "count": 1,
    "context": [
@@ -269621,7 +269651,7 @@
     "_enter_2a"
    ],
    "lines": [
-    181
+    184
    ],
    "count": 1,
    "context": [
@@ -272824,6 +272854,186 @@
    "target_exists": null
   },
   {
+   "key": "f1c92683080215c9",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f5e4b01b56dbef1c",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d0575c1a24f782f9",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "23fb1d8277f0a4ae",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "64ed481188dd1ff1",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7fd47fa2598228d6",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "_require(connected_floors == [\"F02\", \"F03\", \"F04\", \"F05\", \"F06\", \"ROOF\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "bc2ec9cb06b52041",
    "kind": "id_reference",
    "token": "B1_PRIMARY_STAIR_BASE",
@@ -272834,7 +273044,7 @@
     "_route"
    ],
    "lines": [
-    30
+    38
    ],
    "count": 1,
    "context": [
@@ -272862,7 +273072,7 @@
     "_route"
    ],
    "lines": [
-    35
+    43
    ],
    "count": 1,
    "context": [
@@ -272890,14 +273100,14 @@
     "_route"
    ],
    "lines": [
-    70,
-    71,
-    72,
-    72,
-    73,
-    73,
-    74,
-    75
+    101,
+    102,
+    103,
+    103,
+    104,
+    104,
+    105,
+    106
    ],
    "count": 8,
    "context": [
@@ -274523,7 +274733,7 @@
     "_route"
    ],
    "lines": [
-    231
+    234
    ],
    "count": 1,
    "context": [
@@ -274555,7 +274765,7 @@
    ],
    "lines": [
     15,
-    67
+    70
    ],
    "count": 2,
    "context": [
@@ -274587,12 +274797,12 @@
     "_prepared_settle_blank"
    ],
    "lines": [
-    102,
-    120,
-    147,
-    147,
-    195,
-    195
+    105,
+    123,
+    150,
+    150,
+    198,
+    198
    ],
    "count": 6,
    "context": [
@@ -274625,22 +274835,22 @@
     "_route"
    ],
    "lines": [
-    220,
-    220,
-    220,
-    221,
-    221,
-    221,
-    222,
-    222,
-    222,
     223,
-    230,
-    252,
-    275,
-    277,
-    277,
-    277
+    223,
+    223,
+    224,
+    224,
+    224,
+    225,
+    225,
+    225,
+    226,
+    233,
+    255,
+    278,
+    280,
+    280,
+    280
    ],
    "count": 16,
    "context": [
@@ -274687,10 +274897,10 @@
     32,
     32,
     41,
-    58,
-    58,
-    58,
-    58
+    61,
+    61,
+    61,
+    61
    ],
    "count": 17,
    "context": [
@@ -283809,8 +284019,8 @@
     "_close_front_entrance"
    ],
    "lines": [
-    196,
-    199
+    201,
+    204
    ],
    "count": 2,
    "context": [
@@ -283871,9 +284081,9 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    191,
-    193,
-    194
+    196,
+    198,
+    199
    ],
    "count": 3,
    "context": [
@@ -283906,7 +284116,7 @@
     "_leave_front_entrance"
    ],
    "lines": [
-    187
+    192
    ],
    "count": 1,
    "context": [
@@ -283989,7 +284199,7 @@
     109,
     109
    ],
-   "count": 28,
+   "count": 33,
    "context": [
     "for point in [Vector3(5.0, 6.4, -3.25), Vector3(8.85, 6.4, -3.25)]:",
     "var service_approach := [Vector3(8.85, 6.4, -1.0), Vector3(7.65, 6.4, -1.0),",
@@ -284682,9 +284892,9 @@
     "_save_rebuild_bath"
    ],
    "lines": [
-    706,
-    777,
-    797
+    713,
+    784,
+    804
    ],
    "count": 3,
    "context": [
@@ -284716,7 +284926,7 @@
     "_save_rebuild_bath"
    ],
    "lines": [
-    806
+    813
    ],
    "count": 1,
    "context": [
@@ -284830,9 +285040,9 @@
     "_check_return_anchor_resolution"
    ],
    "lines": [
-    1069,
-    1081,
-    1084
+    1076,
+    1088,
+    1091
    ],
    "count": 3,
    "context": [
@@ -284893,13 +285103,13 @@
     "_check_return_anchor_resolution"
    ],
    "lines": [
-    1071,
-    1073,
-    1076,
     1078,
-    1079,
-    1082,
-    1085
+    1080,
+    1083,
+    1085,
+    1086,
+    1089,
+    1092
    ],
    "count": 7,
    "context": [
@@ -284933,7 +285143,7 @@
     "_review_installed_bath"
    ],
    "lines": [
-    709
+    716
    ],
    "count": 1,
    "context": [
@@ -289289,7 +289499,7 @@
     "_bench_sources"
    ],
    "lines": [
-    318
+    325
    ],
    "count": 1,
    "context": [],
@@ -289368,28 +289578,28 @@
     "_route"
    ],
    "lines": [
-    1199,
-    1199,
-    1199,
-    1199,
-    1202,
-    1209,
-    1209,
-    1209,
-    1209,
-    1209,
-    1209,
-    1209,
-    1211,
-    1212,
-    1212,
-    1212,
-    1212,
-    1214,
-    1234,
-    1252
+    1218,
+    1218,
+    1218,
+    1218,
+    1221,
+    1228,
+    1228,
+    1228,
+    1228,
+    1228,
+    1228,
+    1228,
+    1230,
+    1231,
+    1231,
+    1231,
+    1231,
+    1235,
+    1235,
+    1235
    ],
-   "count": 28,
+   "count": 25,
    "context": [
     "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-10.8)]:",
     "if not await _walk(Vector3(0,0,-12.2)): return",
@@ -289421,10 +289631,10 @@
     "_run_gaslamps"
    ],
    "lines": [
-    668,
-    668,
-    668,
-    668
+    676,
+    676,
+    676,
+    676
    ],
    "count": 4,
    "context": [
@@ -289455,8 +289665,8 @@
     "_run_hampton"
    ],
    "lines": [
-    715,
-    718
+    723,
+    726
    ],
    "count": 2,
    "context": [
@@ -289488,7 +289698,7 @@
     "_run_northwest"
    ],
    "lines": [
-    1073
+    1081
    ],
    "count": 1,
    "context": [
@@ -289519,26 +289729,26 @@
     "_run_opposing"
    ],
    "lines": [
-    816,
-    816,
-    816,
-    816,
-    816,
-    816,
-    817,
-    817,
-    817,
-    817,
-    817,
-    817,
-    818,
-    818,
-    818,
-    818,
-    818,
-    818,
-    822,
-    822
+    824,
+    824,
+    824,
+    824,
+    824,
+    824,
+    825,
+    825,
+    825,
+    825,
+    825,
+    825,
+    826,
+    826,
+    826,
+    826,
+    826,
+    826,
+    830,
+    830
    ],
    "count": 55,
    "context": [
@@ -289546,6 +289756,41 @@
     "{\"id\":\"site_se3\",\"start\":Vector3(46,-26.5,0),\"points\":[Vector3(51.55,-26.5,0),Vector3(57,-26.5,0),Vector3(51.55,-26.5,0),Vector3(46,-26.5,0)],\"target\":Vector3(5",
     "{\"id\":\"site_far_nw\",\"start\":Vector3(-92,27,0),\"points\":[Vector3(-88,27,0),Vector3(-80,27,0),Vector3(-72,27,0),Vector3(-92,27,0)],\"target\":Vector3(-80,30,8)}]",
     "programmes=[{\"id\":\"northeast_pair\",\"start\":Vector3(26.5,8,0),\"points\":[Vector3(30,8,0),Vector3(34,8,0),Vector3(38,8,0),Vector3(41.5,8,0),Vector3(34,8,0),Vector3"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2d1538ae0e421ab4",
+   "kind": "vector3_coordinate",
+   "token": "_station_round_trip",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_station_round_trip"
+   ],
+   "lines": [
+    1246,
+    1266,
+    1284
+   ],
+   "count": 3,
+   "context": [
+    "await _station_view(\"public_entry\",Vector3(38,5,4))",
+    "for point: Vector3 in [Vector3(30.8,5.75,6.2),Vector3(30.8,float(base[1]),6.2)]:",
+    "if not await _city_walk(Vector3(30.8,5.75,6.2)): return"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -289572,14 +289817,14 @@
     "_street_block_tour"
    ],
    "lines": [
-    1283,
-    1283,
-    1284,
-    1284,
-    1285,
-    1285,
-    1286,
-    1286
+    1306,
+    1306,
+    1307,
+    1307,
+    1308,
+    1308,
+    1309,
+    1309
    ],
    "count": 8,
    "context": [
@@ -295613,7 +295858,7 @@
     "_route"
    ],
    "lines": [
-    132
+    130
    ],
    "count": 1,
    "context": [
@@ -295644,12 +295889,14 @@
     "_route"
    ],
    "lines": [
-    119,
-    132,
-    152,
-    153
+    117,
+    130,
+    150,
+    151,
+    167,
+    183
    ],
-   "count": 4,
+   "count": 6,
    "context": [
     "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
     "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]",
@@ -295681,10 +295928,10 @@
     "_route"
    ],
    "lines": [
-    119,
-    132,
-    152,
-    155
+    117,
+    130,
+    150,
+    153
    ],
    "count": 4,
    "context": [
@@ -295718,13 +295965,17 @@
     "_route"
    ],
    "lines": [
-    119,
-    132
+    117,
+    130,
+    167,
+    183
    ],
-   "count": 2,
+   "count": 4,
    "context": [
     "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
-    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]",
+    "if floor in [\"F01\",\"F03\"]:",
+    "for floor: String in [\"F01\",\"F03\"]:"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -295751,8 +296002,8 @@
     "_route"
    ],
    "lines": [
-    119,
-    132
+    117,
+    130
    ],
    "count": 2,
    "context": [
@@ -295784,8 +296035,8 @@
     "_route"
    ],
    "lines": [
-    119,
-    132
+    117,
+    130
    ],
    "count": 2,
    "context": [
@@ -295817,8 +296068,8 @@
     "_route"
    ],
    "lines": [
-    119,
-    132
+    117,
+    130
    ],
    "count": 2,
    "context": [
@@ -295849,7 +296100,7 @@
     "_route"
    ],
    "lines": [
-    132
+    130
    ],
    "count": 1,
    "context": [
@@ -295879,7 +296130,7 @@
     "_route"
    ],
    "lines": [
-    157
+    155
    ],
    "count": 1,
    "context": [

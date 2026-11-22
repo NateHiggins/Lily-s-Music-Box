@@ -14,7 +14,15 @@ func _route() -> void:
 	for draw: MeshInstance3D in draws:
 		var key := str(draw.mesh.surface_get_material(0).resource_name)
 		var finish := "iron_blackened" if key=="cast_iron" else key
-		_require(key in ["metal", "cast_iron", "wood_dark"] and draw.material_override == MatLib.get_mat(finish), "mapped material on " + str(draw.name))
+		var stock := MatLib.get_mat(finish) as StandardMaterial3D
+		var active := draw.get_active_material(0)
+		var matches := false
+		if active is StandardMaterial3D and stock != null:
+			matches = active.albedo_texture == stock.albedo_texture \
+					and active.normal_texture == stock.normal_texture \
+					and active.roughness_texture == stock.roughness_texture \
+					and not active.uv1_triplanar
+		_require(key in ["metal", "cast_iron", "wood_dark"] and matches, "mapped material on " + str(draw.name))
 		_check_planar_mapping(draw.mesh, true)
 	var space := world.get_world_3d().direct_space_state
 	var transfer_rids: Array[RID] = [player.get_rid()]
@@ -66,6 +74,29 @@ func _route() -> void:
 			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
 					root.to_global(Vector3(x,ray_height,z_start)), root.to_global(Vector3(x,ray_height,z_start+direction*1.5)), 1, [player.get_rid()]))
 			_require(not hit.is_empty() and str(hit.collider.name) == guard.id + "Collision", "the fitted guard owns first contact at " + guard.id)
+	var connected_floors: Array[String] = []
+	for join: Dictionary in construction.joins:
+		var floor_id: String = str(join.id).get_slice("_", 0)
+		connected_floors.append(floor_id)
+		var middle_z := (float(join.start[2]) + float(join.end[2])) * .5
+		var foot_y := float(join.start[1])
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+				root.to_global(Vector3(3.84, foot_y + .7, middle_z)),
+				root.to_global(Vector3(3.28, foot_y + .7, middle_z)), 1, [player.get_rid()]))
+		_require(not hit.is_empty() and str(hit.collider.name) == join.id + "Collision",
+				floor_id + " court guard closes the landing-to-flight joint")
+		var capsule := CapsuleShape3D.new()
+		capsule.radius = .33
+		capsule.height = player.STANDING_HEIGHT
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = capsule
+		query.transform = Transform3D(root.global_basis, root.to_global(
+				Vector3(3.975, foot_y + player.STANDING_HEIGHT * .5 + .03, middle_z)))
+		query.collision_mask = 1
+		query.exclude = [player.get_rid()]
+		_require(space.intersect_shape(query).is_empty(), floor_id + " standing capsule clears beside the new joint")
+	_require(connected_floors == ["F02", "F03", "F04", "F05", "F06", "ROOF"],
+			"all upper South guards join the returning flight")
 	for view: Dictionary in [
 		{"id":"court_guard_ground", "at":Vector3(2.95,0,-1.4), "look":Vector3(2.95,.8,-.58)},
 		{"id":"court_guard_north", "at":Vector3(2.95,0,2.5), "look":Vector3(2.95,.65,1.7)},
@@ -78,7 +109,7 @@ func _route() -> void:
 		player.camera.global_position = player.global_position + Vector3.UP*player.STANDING_EYE
 		await _court_capture(view.id, view.look)
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("structure-checks.json"), FileAccess.WRITE).store_string(
-			JSON.stringify({"evidence_class":"INERT", "guards":construction.guards.size(), "draws":draws.size(),
+			JSON.stringify({"evidence_class":"INERT", "guards":construction.guards.size(), "draws":draws.size(), "joined_floors":connected_floors,
 			"failures":failures, "note":"Installed contact/capsule/mapping checks; no structural capacity or roof acceptance."}, "\t"))
 
 func _check_planar_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:

@@ -16,6 +16,32 @@ static func mount(root: Node3D) -> void:
 		var a := Vector3(guard.bounds[0],guard.bounds[1],guard.bounds[2])
 		var b := Vector3(guard.bounds[3],guard.bounds[4],guard.bounds[5])
 		_box(model, guard.id + "Collision", (a+b)*.5, b-a)
+	for join: Dictionary in construction.joins:
+		_join_guard(model, join)
+
+
+static func _join_guard(parent: Node3D, join: Dictionary) -> void:
+	var a := Vector3(join.start[0], join.start[1], join.start[2])
+	var b := Vector3(join.end[0], join.end[1], join.end[2])
+	var line := (b - a).normalized()
+	var normal := Vector3(line.z, 0, -line.x) * float(join.half_width)
+	# The small overlap joins the existing South box and flight guard caps.
+	var points := PackedVector3Array()
+	for side: float in [-1.0, 1.0]:
+		var start := a - line * .01 + normal * side
+		var end := b + line * .01 + normal * side
+		points.append(start)
+		points.append(Vector3(start.x, float(join.start[3]), start.z))
+		points.append(end)
+		points.append(Vector3(end.x, float(join.end[3]), end.z))
+	var shape := ConvexPolygonShape3D.new()
+	shape.points = points
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	var body := StaticBody3D.new()
+	body.name = join.id + "Collision"
+	parent.add_child(body)
+	body.add_child(collision)
 
 static func _box(parent: Node3D, label: String, centre: Vector3, size: Vector3) -> void:
 	var body := StaticBody3D.new()
