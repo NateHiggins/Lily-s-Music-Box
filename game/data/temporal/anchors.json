@@ -38,7 +38,12 @@
 			{"id": "negatives", "item": "duplicate_negative", "slip": "RELEASED: THE NEGATIVES."},
 			{"id": "plate_13", "item": "plate_half", "slip": "RELEASED: PLATE 13."},
 			{"id": "future", "flag": "m_ninety_nines_card", "slip": "RELEASED: THE FUTURE."},
-			{"id": "m_told_nadia", "flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
+			{"id": "m_told_nadia", "flag": "m_told_nadia", "slip": "RELEASED: NADIA."},
+			{"id": "attach_mina", "flag": "m_mina_light", "slip": "RELEASED: THE LIGHT IN THE SHOP.", "dream": "mina_release_print"},
+			{"id": "attach_peter", "flag": "m_peter_will_sign", "slip": "RELEASED: THE CLAUSE.", "dream": "peter_release_print"},
+			{"id": "attach_juno", "flag": "m_heard_self", "slip": "RELEASED: THE SONG.", "dream": "juno_release_print"},
+			{"id": "attach_cal", "flag": "m_door_match", "slip": "RELEASED: THE BROADCAST.", "dream": "cal_release_print"},
+			{"id": "attach_omar", "flag": "m_recorder_limit", "after": "m_c_n16", "slip": "RELEASED: THE BELL.", "dream": "omar_release_print"}
 		],
 		"rescue": {
 			"after": "friday",
