@@ -1,6 +1,5 @@
 extends RefCounted
-## What the hand does in Adela's shop: rock the top tray, draw the negatives register across the
-## counter, and read the window from the street.
+## The working tray, the two shop books, and the street-facing display.
 
 const Clue := preload("res://scripts/props/clue_draw_prop.gd")
 const Tray := preload("res://scripts/props/photo_tray.gd")
@@ -12,7 +11,7 @@ const PROCESS_MODEL := "res://assets/props/photo_process.glb"
 const TRAY_PARTS := {"storm_shop_photo_supplies_dev_tray3__enamel_finish": "enamel_appliance", "storm_shop_photo_supplies_dev_tray3__iron": "iron_blackened"}
 const TRAY_LENGTH_SCALE := 0.42
 const Carriers := preload("res://scripts/building/orison_v2_clue_carriers.gd")
-const BOOK := "minutes"
+const WINDOW_LOG_FLAG := "m_window_log"
 
 
 static func mount(world: Node3D, stock: Variant) -> Dictionary:
@@ -20,10 +19,11 @@ static func mount(world: Node3D, stock: Variant) -> Dictionary:
 	var hours: Node = passage.finish.hours_director
 	var tray := _tray(passage, hours)
 	var register := _register(passage, stock, hours)
+	var log_book := _window_log(passage, stock, hours)
 	var window := _window(passage)
-	if tray == null or register == null or window == null:
+	if tray == null or register == null or log_book == null or window == null:
 		return {}
-	return {"tray": tray, "register": register, "window": window}
+	return {"tray": tray, "register": register, "window_log": log_book, "window": window}
 
 
 ## The cell's own trays come and go with residency, so the working tray is a separate one, set
@@ -66,30 +66,38 @@ static func _tray(passage: Node3D, hours: Node) -> Node3D:
 
 
 static func _register(passage: Node3D, stock: Variant, hours: Node) -> Node3D:
+	var prop := _counter_book(passage, stock, hours, "NegativesRegister", "NEGATIVES", -61.4)
+	prop.reader = _read_register
+	return prop
+
+
+static func _window_log(passage: Node3D, stock: Variant, hours: Node) -> Node3D:
+	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
+	var row: Dictionary = decoded.get("window_log", {}) if decoded is Dictionary else {}
+	if str(row.get("date", "")).is_empty() or str(row.get("entry", "")).is_empty():
+		return null
+	var prop := _counter_book(passage, stock, hours, "WindowLog", "WINDOW LOG", -60.82)
+	prop.from_date = str(row.date)
+	prop.reader = _read_window_log.bind(str(row.entry))
+	return prop
+
+
+static func _counter_book(passage: Node3D, stock: Variant, hours: Node,
+		identity: String, cover: String, along: float) -> Node3D:
 	var prop: Node3D = Clue.new()
-	prop.name = "NegativesRegister"
+	prop.name = identity
 	passage.transaction_actor_root().add_child(prop)
-	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_counter__timber", Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, -61.4, 1.45])))
+	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_counter__timber", Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, along, 1.45])))
 	prop.reach = 0.09
 	prop.open_check = func(): return not (hours != null and is_instance_valid(hours) and bool(hours.call("is_after_hours")))
-	prop.reader = _read_register
 	var moving := Node3D.new()
 	moving.name = "Book"
 	prop.add_child(moving)
-	var inner := Node3D.new()
-	inner.basis = Basis(Vector3.UP, PI * 0.5) * Basis(Vector3.RIGHT, -PI * 0.5)
-	moving.add_child(inner)
-	var left := Node3D.new()
-	left.transform = stock.left_pose(BOOK, 0.0)
-	inner.add_child(left)
-	for identity: String in stock.data.books[BOOK].parts:
-		var spec: Dictionary = stock.data.parts[identity]
-		if not spec.has("render_surface") or bool(spec.render_surface):
-			stock.draw(left if str(spec.role) == "left" else inner, identity)
-	Carriers._seat(inner, Vector3(0.5, 0.0, 0.5))
+	Carriers._closed_book(moving, stock, Basis(Vector3.UP, PI * 0.5) * Basis(Vector3.RIGHT, -PI * 0.5),
+			Vector3(0.5, 0.0, 0.5))
 	var label := Label3D.new()
 	label.name = "Spine"
-	label.text = "NEGATIVES"
+	label.text = cover
 	label.font = preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 	label.font_size = 28
 	label.pixel_size = 0.011 / 28.0
@@ -98,6 +106,15 @@ static func _register(passage: Node3D, stock: Variant, hours: Node) -> Node3D:
 	moving.add_child(label)
 	prop.configure(moving)
 	return prop
+
+
+static func _read_window_log(entry: String) -> Dictionary:
+	var title := "PHOTO SUPPLIES WINDOW LOG"
+	var body := entry.to_upper()
+	if RealityState.grant_knowledge(WINDOW_LOG_FLAG):
+		PaperPocket.file_evidence(WINDOW_LOG_FLAG, title, body)
+		RealityState.commit()
+	return {"title": title, "body": body, "condition": "FIRST ENTRY", "stamp": "PHOTO SUPPLIES"}
 
 
 ## The register as it stands today: every entry up to now, newest last. Reading it is
