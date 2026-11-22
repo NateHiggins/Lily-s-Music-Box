@@ -1,3 +1,22 @@
+# First deduction continuity and the 6B hand - November 22
+
+Evidence class: **INERT**
+
+A fresh campaign passed 112 checks and 159 movement waypoints through the
+first three clue visits and their deduction in one installed world. The
+longer attempt reached Jonah's page, but the companion feed wheel cut the
+ray during a latched grip. The fix separates the companion's foreground
+pick layer from hold validation. The focused native-input test passed
+85 checks. A real world obstruction still interrupts the hold.
+
+The installed notebook replay used the exact earned deduction save that
+preceded the failure. It paid the fare, took Jonah's page and saved the
+fourth filing. This replay starts with Title Continue and positions the
+allowance days. The original longer failure remains recorded. The full
+uninterrupted case, ordinary fare pacing and Lily's play remain open.
+[Grip and replay evidence](C:/ov/reports/notebook_companion_grip_20261122/REPORT.md).
+[Uninterrupted first deduction](C:/ov/reports/title_campaign_chain_20261122/UNINTERRUPTED_DEDUCTION.md).
+
 # The eleven-clue campaign and both endings - November 22
 
 Evidence class: **INERT**

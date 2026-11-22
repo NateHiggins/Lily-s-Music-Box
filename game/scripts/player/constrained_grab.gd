@@ -1,5 +1,7 @@
 extends RefCounted
 ## One latched hand, with all values and permission retained by the mechanism.
+const FRAMED_COMPANION_LAYER := 1 << 23
+
 var player: Node3D
 var target: Dictionary = {}
 var contact := Vector3.ZERO
@@ -349,15 +351,11 @@ func validate() -> void:
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,target.part.to_global(contact))
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
-	var space := player.get_world_3d().direct_space_state
-	var hit := space.intersect_ray(query)
-	if not hit.is_empty():
-		var occluder: CollisionObject3D = hit.collider
-		if occluder.has_meta(&"companion_pointer_owner") and occluder.get_meta(&"companion_pointer_owner") != target.owner:
-			# Let a companion crossing the hand's ray yield to an existing world
-			# grip. The next surface still gets the normal obstruction check.
-			query.exclude = [player.get_rid(), occluder.get_rid()]
-			hit = space.intersect_ray(query)
+	# A foreground companion can cross an already-latched hand. Ignore its
+	# pick layer here so both the housing and moving controls yield. The
+	# acquisition ray and all physical world obstructions keep their masks.
+	query.collision_mask &= ~FRAMED_COMPANION_LAYER
+	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
 	if not hit.is_empty() and hit.collider != target.owner and not target.owner.is_ancestor_of(hit.collider) and not _same_assembly(hit): release()
 
 func move(relative: Vector2) -> void:
