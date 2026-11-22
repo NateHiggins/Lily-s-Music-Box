@@ -152380,6 +152380,32 @@
    "target_exists": true
   },
   {
+   "key": "d20928d9a5e08c51",
+   "kind": "id_reference",
+   "token": "6A_archive_box_a",
+   "file": "game/data/orison_v2/lived_in_arrangement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/moves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "d1c390a3d6592d1a",
    "kind": "id_reference",
    "token": "6A_archive_box_b",
