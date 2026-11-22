@@ -159,7 +159,9 @@ func _prepared_trade(door: DoorProp) -> bool:
 			"the fitted hardware counter offers the diagnosed job's capsule"): return false
 	var inside := door.to_global(Vector3(door.width * .5, 0, -1.0))
 	var front := fitted.to_global(Vector3(0, .01 - fitted.global_position.y, -.95))
-	var customer_aisle := Vector3(inside.x, front.y, front.z)
+	# Turn toward the counter just inside the door. The glass rack and paint
+	# shaker occupy the centre of the sales floor between here and the lever.
+	var customer_aisle := Vector3(front.x, front.y, inside.z)
 	if not await _walk_world(customer_aisle) or not await _walk_world(front): return false
 	if not await _use(counter, counter.global_position, "golden_capsule"): return false
 	if not _require(world.maintenance_inventory.has_item(part) and world.shop_service.pending_item(shop).is_empty(),
