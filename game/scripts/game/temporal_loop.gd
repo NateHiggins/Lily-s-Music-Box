@@ -41,6 +41,8 @@ signal stage_reset
 
 const KEY := "temporal"
 const DATA_PATH := "res://data/temporal/anchors.json"
+const RECEIPT_CLUE := "kept_papers"
+const RECEIPT_KNOWLEDGE := "m_receipt_seen"
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const PaperPocket := preload("res://scripts/game/paper_pocket.gd")
 ## Campaign domains a visit borrows and gives back. Knowledge and the valise
@@ -79,6 +81,11 @@ func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
 	if economy != null:
 		economy.tip_percent = tip_percent_now
 	mend()
+	# Old saves may already hold the box's papers, including the receipt.
+	var saved: Variant = RealityState.data.get(KEY)
+	if (saved is Dictionary and int(saved.get("version", 0)) == 2
+			and saved.get("items") is Dictionary and saved.items.has(RECEIPT_CLUE)):
+		RealityState.grant_knowledge(RECEIPT_KNOWLEDGE)
 	return true
 
 
@@ -840,6 +847,8 @@ func take_clue() -> Dictionary:
 	var clue := clue_of(visit_anchor())
 	ledger().items[str(clue.id)] = {"pinned": false, "anchor": visit_anchor(), "run": int(_record(visit_anchor()).loops) + 1}
 	PaperPocket.file_evidence("loop:" + str(clue.id), str(clue.title), str(clue.body))
+	if str(clue.id) == RECEIPT_CLUE:
+		RealityState.grant_knowledge(RECEIPT_KNOWLEDGE)
 	RealityState.commit()
 	changed.emit()
 	return {"ok": true, "item": str(clue.id), "title": str(clue.title), "body": str(clue.body)}
