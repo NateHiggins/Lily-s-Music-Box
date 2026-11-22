@@ -9,6 +9,7 @@ extends Node3D
 ## mesh and registered finish); the words are Label3D.
 
 const Grip := preload("res://scripts/props/loop_shift_grip.gd")
+const PaperFeedback := preload("res://scripts/building/case_wall_paper_feedback.gd")
 const Evidence := preload("res://scripts/building/orison_v2_evidence_stock.gd")
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 ## Adela's own hand (Lily's choice, 2026-11-11): Cedarville Cursive, written
@@ -720,6 +721,7 @@ func _sync_waiting_print() -> void:
 func _cover_wall() -> void:
 	var down: Array = loop.covers_down()
 	var count: int = (loop.table.wall_covers as Array).size()
+	var rip := PaperFeedback.make_rip()
 	for index in count:
 		var cover: Dictionary = loop.table.wall_covers[index]
 		var id := str(cover.id)
@@ -742,10 +744,19 @@ func _cover_wall() -> void:
 		var grip := Grip.new()
 		grip.name = "TakeDown"
 		sheet.add_child(grip)
-		grip.configure(sheet, -_wall_frame.basis.y, COVER_REACH)
+		# Peel away from the board as the paper comes down, clearing the row below.
+		grip.gesture = Vector2.DOWN
+		grip.configure(sheet, -_wall_frame.basis.y + 0.35 * _wall_frame.basis.z, COVER_REACH)
 		grip.live = func() -> bool: return not loop.in_visit() and id not in loop.covers_down()
+		var feedback := PaperFeedback.new()
+		feedback.name = "Peel_" + id
+		add_child(feedback)
+		feedback.setup(grip, sheet.get_child(0) as MeshInstance3D, words,
+				Transform3D(Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), at),
+				COVER_SIZE, rip)
 		grip.carried = func() -> void:
 			if loop.cover_down(id):
+				feedback.snap_free()
 				grip.set_aside()
 		sheet.set_meta("grip", grip)
 		covers[id] = sheet
