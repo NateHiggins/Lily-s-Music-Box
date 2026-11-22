@@ -13,6 +13,10 @@ var _attempted := false
 var _lever_origin := Vector3.ZERO
 var last_status := ""
 
+func _ready() -> void:
+	set_physics_process(false)
+
+
 func configure(service: Object, identity: String,
 		moving_lever: Node3D) -> bool:
 	if service==null or not service.has_method("transact") \
@@ -30,9 +34,14 @@ func grip() -> Dictionary:
 			if _held:_move(value),
 		"begin":func():
 			if _held:return false
-			_held=true;_attempted=false;return true,
+			_held = true
+			_attempted = false
+			set_physics_process(false)
+			return true,
 		"owns":func():return _held,
-		"end":func():_held=false}
+		"end":func():
+			_held = false
+			set_physics_process(travel > 0.0)}
 
 func _locked() -> bool:
 	return merchant.sale_locked(item_id) if merchant.has_method("sale_locked") else merchant.inventory.has_item(item_id)
@@ -55,3 +64,5 @@ func _physics_process(delta: float) -> void:
 	if _held or travel<=0.:return
 	travel=move_toward(travel,0.,delta*.10)
 	if lever!=null:lever.position=_lever_origin+Vector3.BACK*travel
+	if travel == 0.0:
+		set_physics_process(false)

@@ -152,6 +152,7 @@ func _run() -> void:
 	add_child(point)
 	var list: Array[String] = [item_id]
 	_check("a sale point mounts", point.configure(sales, list))
+	_check("a resting settlement lever has no physics callback", not point.terminal.is_physics_processing())
 	var record: Dictionary = sales.stock_record(item_id)
 	var group_id := str(record.group)
 	economy.book().cash = 1000
@@ -186,6 +187,19 @@ func _run() -> void:
 	grip.write.call(0.02)
 	grip.end.call()
 	_check("a partial stroke does nothing", PersonInventory.goods_count("player", item_id) == count)
+	_check("a released partial stroke starts the passive return", point.terminal.is_physics_processing())
+	await get_tree().process_frame
+	var held_from: float = point.terminal.travel
+	grip.begin.call()
 	await get_tree().physics_frame
+	_check("regrabbing pauses the spring", is_equal_approx(point.terminal.travel, held_from)
+			and not point.terminal.is_physics_processing())
+	grip.end.call()
+	for tick in 30:
+		if not point.terminal.is_physics_processing():
+			break
+		await get_tree().physics_frame
+	_check("the spring settles home and sleeps without retrying a sale", point.terminal.travel == 0.0
+			and not point.terminal.is_physics_processing() and PersonInventory.goods_count("player", item_id) == count)
 	_check("the commerce state survives the save validator", Economy.valid(economy.book())
 			and PersonInventory.valid(RealityState.data.inventories) and ShopStock.valid(RealityState.data[ShopStock.KEY]))
