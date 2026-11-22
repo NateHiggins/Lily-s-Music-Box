@@ -30,7 +30,14 @@
 			{"number": 5, "date": "1929-11-02", "time": "00:00", "text": "INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK."}
 		],
 		"releases": [
-			{"flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
+			{"id": "july_night", "flag": "m_c_n16", "slip": "RELEASED: THE NIGHT OF 19 JULY."},
+			{"id": "shop", "flag": "mt:ev_home", "slip": "RELEASED: THE SHOP."},
+			{"id": "emil", "flag": "mt:ev_home", "slip": "RELEASED: EMIL."},
+			{"id": "window", "flag": "m_crosson_card", "slip": "RELEASED: THE WINDOW."},
+			{"id": "negatives", "item": "duplicate_negative", "slip": "RELEASED: THE NEGATIVES."},
+			{"id": "plate_13", "item": "plate_half", "slip": "RELEASED: PLATE 13."},
+			{"id": "future", "flag": "m_ninety_nines_card", "slip": "RELEASED: THE FUTURE."},
+			{"id": "m_told_nadia", "flag": "m_told_nadia", "slip": "RELEASED: NADIA."}
 		],
 		"correction": {
 			"after": "the_case",

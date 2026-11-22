@@ -1050,7 +1050,7 @@ func _compose_authorities() -> void:
 	temporal_loop = preload("res://scripts/game/temporal_loop.gd").new()
 	temporal_loop.name = "TemporalLoop"
 	add_child(temporal_loop)
-	if not temporal_loop.setup(campaign_clock, economy, Callable(service_set_carrier.session, "accept_received_copy")):
+	if not temporal_loop.setup(campaign_clock, economy, Callable(service_set_carrier.session, "accept_temporal_slip")):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: temporal loop refused its anchors")
 		return
