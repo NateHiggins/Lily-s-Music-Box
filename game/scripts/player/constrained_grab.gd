@@ -349,7 +349,15 @@ func validate() -> void:
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,target.part.to_global(contact))
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
-	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
+	var space := player.get_world_3d().direct_space_state
+	var hit := space.intersect_ray(query)
+	if not hit.is_empty():
+		var occluder: CollisionObject3D = hit.collider
+		if occluder.has_meta(&"companion_pointer_owner") and occluder.get_meta(&"companion_pointer_owner") != target.owner:
+			# Let a companion crossing the hand's ray yield to an existing world
+			# grip. The next surface still gets the normal obstruction check.
+			query.exclude = [player.get_rid(), occluder.get_rid()]
+			hit = space.intersect_ray(query)
 	if not hit.is_empty() and hit.collider != target.owner and not target.owner.is_ancestor_of(hit.collider) and not _same_assembly(hit): release()
 
 func move(relative: Vector2) -> void:
