@@ -228463,8 +228463,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    1159,
-    1219
+    1162,
+    1222
    ],
    "count": 2,
    "context": [
@@ -228495,7 +228495,7 @@
     "_card_for"
    ],
    "lines": [
-    507
+    510
    ],
    "count": 1,
    "context": [
@@ -228525,7 +228525,7 @@
     "_cover_wall"
    ],
    "lines": [
-    732
+    735
    ],
    "count": 1,
    "context": [
@@ -228555,7 +228555,7 @@
     "_dress_wall"
    ],
    "lines": [
-    1161
+    1164
    ],
    "count": 1,
    "context": [
@@ -228585,7 +228585,7 @@
     "_grip_for"
    ],
    "lines": [
-    313
+    316
    ],
    "count": 1,
    "context": [
@@ -228615,11 +228615,11 @@
     "_grow"
    ],
    "lines": [
-    1411,
-    1434,
-    1452,
-    1467,
-    1483
+    1414,
+    1437,
+    1455,
+    1470,
+    1486
    ],
    "count": 5,
    "context": [
@@ -228652,8 +228652,8 @@
     "_sync"
    ],
    "lines": [
-    1015,
-    1052
+    1018,
+    1055
    ],
    "count": 2,
    "context": [
@@ -228684,7 +228684,7 @@
     "_sync_clippings"
    ],
    "lines": [
-    630
+    633
    ],
    "count": 1,
    "context": [
@@ -228714,7 +228714,7 @@
     "_sync_filing"
    ],
    "lines": [
-    1245
+    1248
    ],
    "count": 1,
    "context": [
@@ -228744,7 +228744,7 @@
     "_sync_ice_card"
    ],
    "lines": [
-    934
+    937
    ],
    "count": 1,
    "context": [
@@ -228774,7 +228774,7 @@
     "_sync_prints"
    ],
    "lines": [
-    655
+    658
    ],
    "count": 1,
    "context": [
@@ -229128,16 +229128,16 @@
     "_find_windows"
    ],
    "lines": [
-    886,
-    888,
-    951,
-    953,
-    1284,
-    1309,
-    1324,
-    1368,
-    1541,
-    1559
+    889,
+    891,
+    954,
+    956,
+    1287,
+    1312,
+    1327,
+    1371,
+    1544,
+    1562
    ],
    "count": 10,
    "context": [
@@ -230894,36 +230894,6 @@
    "target_exists": null
   },
   {
-   "key": "b4a7474bed150ae6",
-   "kind": "plan_coordinate",
-   "token": "_register",
-   "file": "game/scripts/building/orison_v2_photo_supplies.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "_register"
-   ],
-   "lines": [
-    72
-   ],
-   "count": 1,
-   "context": [
-    "prop.global_transform = passage.native_fixture_pose(\"storm_shop_photo_supplies_counter__timber\", Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, -"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "RAW_PLAN_COORDINATE"
-   ],
-   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
-   "confidence": "MEDIUM",
-   "rationale": "Production plan-space coordinate literal binds gameplay to the current geometry.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "1eda2253198a8bc2",
    "kind": "plan_coordinate",
    "token": "_tray",
@@ -230964,7 +230934,7 @@
     "window_pose"
    ],
    "lines": [
-    139
+    156
    ],
    "count": 1,
    "context": [
@@ -287185,7 +287155,7 @@
     "_ready"
    ],
    "lines": [
-    450
+    451
    ],
    "count": 1,
    "context": [
@@ -287215,10 +287185,10 @@
     "_ready"
    ],
    "lines": [
-    225,
-    670,
-    711,
-    728
+    226,
+    671,
+    712,
+    729
    ],
    "count": 4,
    "context": [
@@ -287249,8 +287219,8 @@
     "_ready"
    ],
    "lines": [
-    320,
-    329
+    321,
+    330
    ],
    "count": 2,
    "context": [
@@ -287280,8 +287250,8 @@
     "_ready"
    ],
    "lines": [
-    362,
-    449
+    363,
+    450
    ],
    "count": 2,
    "context": [
@@ -287312,8 +287282,8 @@
     "_ready"
    ],
    "lines": [
-    227,
-    364
+    228,
+    365
    ],
    "count": 2,
    "context": [

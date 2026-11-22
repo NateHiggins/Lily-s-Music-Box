@@ -189,8 +189,11 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 	if not stock.prepare():
 		errors.append("evidence pieces refused: %s" % str(stock.errors))
 	for anchor_id: String in loop.table.anchors:
-		if not stock.has(str(loop.clue_of(anchor_id).id)):
-			errors.append("no modelled piece for " + str(loop.clue_of(anchor_id).id))
+		var clue: Dictionary = loop.clue_of(anchor_id)
+		if clue.is_empty():
+			continue
+		if not stock.has(str(clue.id)):
+			errors.append("no modelled piece for " + str(clue.id))
 		var anchor: Dictionary = loop.table.anchors[anchor_id]
 		for step: Dictionary in anchor.steps:
 			if str(step.kind) == "shift":
