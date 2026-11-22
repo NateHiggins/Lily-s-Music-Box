@@ -2,127 +2,127 @@
   "evidence_class": "INERT",
   "status": "PASS",
   "reviewer": "Codex",
-  "reviewed_at_utc": "2026-11-22T20:17:18.559181+00:00",
+  "reviewed_at_utc": "2026-11-22T21:17:29.249265+00:00",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "e4980d6ad6129aa900ce611feeade3df024a4fbf03d0528cf56f753a65501db7",
-  "review_scope": "Technical comparison of all 23 composed station frames against the merged release-dream packet. The largest mean RGB difference was 9.04 / 255. The visible layouts and material boundaries were preserved. Scope is the physical surface run.",
+  "surface_inputs_sha256": "d6b242b3487c960d39f30c6094d54894dab213bece456546ac35b23873a049f0",
+  "review_scope": "Physical surface qualification on the regenerated succession binding. All 23 native station pairs were inspected against merged main. Station geometry and material boundaries remain visible. The largest station mean RGB difference is 6.20 / 255.",
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "4e303affbc5f691c2c8c6ce011fda0cb41f74fff97f11190ff64879c9711e514",
-      "observation": "Casing, brass dial, pipework and concrete floor remain distinct in both views."
+      "sha256": "6e993c4cfba56704baefbc98e4e3dc7532779ab3e6ec05ad4eedf1771342f346",
+      "observation": "Brass dial, casing, pipework and concrete floor retain their boundaries."
     },
     {
       "file": "bookcase.png",
-      "sha256": "fe811423d738c96fa31b1b2096e8eb3b3897161203a893a5e2baba192cb86978",
-      "observation": "Cabinet glass, timber and the clear doorway match the paired view."
+      "sha256": "61391a88fdca0c9a0ff285d011f53050c06ebf75308401924661367d4a0363fd",
+      "observation": "The doorway stays clear, with glass, shelving and chair silhouettes preserved."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "f6e7c89677727dafe181f4dc733c0a557a6e3383b4ebfd33c0e38cc2493d2db6",
-      "observation": "Wall tile joints and the narrow utility run remain visible beside the fixture."
+      "sha256": "73115c7f7645259e72b93c1ee1a647ee4fbfea0d05dfee9ba5cb0eb42e4792d8",
+      "observation": "The service access, tile joints and wall opening read clearly in both views."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "338264bf5807e6030610dfeba4f5f83c7ab202250de6fdb44a326879bb5bb3f1",
-      "observation": "The station still frames a dark brick close-up. Review is limited to the visible masonry."
+      "sha256": "fd3639ebe8b04f1cbff4f77ad56533c1bc22102230cce2d091aa6df7df68660f",
+      "observation": "The dark brick surround and mortar joints remain aligned."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "58a1fa4b8c69cf851aba65494785b6fd57ffa7126ed03929416a53b0ffe2cd6b",
-      "observation": "Furniture, floorboards and the slatted window retain their distinct surfaces."
+      "sha256": "cf6c57674a75baba145ba9296ac7aa25c033fda60e8a24974dfb717287a3a1b0",
+      "observation": "The tabletop, flooring, room fittings and doorway retain their shapes."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "7200530fc4429dc420d15f88dda5d71a9101ab82e94abd2189f9c8f8a0d2dea7",
-      "observation": "The lamp reveals ceramic joints and the curtain beside the companion."
+      "sha256": "58661e3e27c7cfaaff687d83df90054ca22b8674a9e4254d5044fd529734fbea",
+      "observation": "The lit tile band, panel edge and cabinet remain distinct."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "35a9fb5f60e8a403af46333cb79f1fcc5436636a1a977f95769ce49186b32e89",
-      "observation": "The furnishings and floor match. Wall and hanging light exposure vary slightly."
+      "sha256": "09ef59dc8933d86ea8fd862f7ba1ae3501c98da87df60e6fa150f640a31c022c",
+      "observation": "The shutters, kitchen fittings and furniture hold their silhouettes despite a brighter floor."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "2732147c4fc712d4dff7a96cf07bcabccd80e4c6c6adaf57f0404fbb8d7667c0",
-      "observation": "The window trim, reading shelf and floorboard spacing remain legible."
+      "sha256": "5999121fd360dea38ae92bd6c56523f0a01308b8bfe38fae79b973444b4587fe",
+      "observation": "The wall lamp and doorway remain readable, with slightly warmer light in places."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "7583aaa6836ab5109280a387efa52faa4125cf48d7293f7664b7ae3ca12cca89",
-      "observation": "The wall highlight shifts in intensity. Cabinet, hob and floor remain visible."
+      "sha256": "21a7d91b93d5269a94675ade2874546cc8e132d8eb2fb1d09b70fdaef4013592",
+      "observation": "The cabinet edges, wall finish and fittings retain their separation."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "f143f974e0825cfabb5a45c1412e4037e39c7e2a1fa43c0a538dba40e6a24d8a",
-      "observation": "The open panel, individual fuses and wall mounting remain legible."
+      "sha256": "d90a2b341ee1f358e358b72b731ce6837b39451210be4e45ac7caf69a07bd603",
+      "observation": "The lit cabinet door is warmer in the candidate. The panel cutout and four controls remain visible."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "e72f54eee2c57b7a3419270946e870394671abe2a7c589cc9f03630b0b96d26e",
-      "observation": "The low angle still leaves the underside dark, with tile and the timber edge visible."
+      "sha256": "f0f1432dad6b3023fc4a7df42f35969d8c21b4edb661556cf5b5696ca9272ab8",
+      "observation": "The bar fixture and its supports retain their silhouettes in the low light."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "e57b9c703a0eac947f55f4200c1e2b9f4242ec82e21ba3db47cec54371e2fcc0",
-      "observation": "The shelf and curled form remain visible in the dark framing."
+      "sha256": "5a6faafad010ec8c779c18754e8130743757c2354e96f09640507055e057027c",
+      "observation": "The shelf and the cat remain identifiable in comparable low light."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "c49819fa49f0df58c48ba1c5bb71d955df51bb6b544c77cd62befff6744d0871",
-      "observation": "Beam, frames and the shelf edge retain the same positions under the warm spill."
+      "sha256": "e7b5a614ef6a399c61c34e68403ba5f4ca4aeec4fb6fed21fd9e900a25cfc8b8",
+      "observation": "The wall objects, tag and shelf remain distinguished in the dark room."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "76b6fe6c5b8a6fdb7a844da0d3d14ad65674f0e5f76fb8384825e03fb3c1f177",
-      "observation": "Brass compartment plates and the dark timber facing match the paired view."
+      "sha256": "444a84df35caf8511a71d232a66c5dee4b7826758c5e1bd7e11d924214b6863a",
+      "observation": "The mail slots, label strips and bench lines are visible in both views."
     },
     {
       "file": "radiator.png",
-      "sha256": "684be7e9d6f6073a97909c4f458fa0e9b50983956ae4dc82b8c83a1ed5e00566",
-      "observation": "Ribs, window treatment and wall finish remain distinct around the foreground figure."
+      "sha256": "b030ff07a3a9528e4a90b9f2213b20a5818305632c48f9f8ac887d5d9cce3743",
+      "observation": "Valve, radiator and window geometry retain the same material boundaries."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "e818029a255598863ce02634c4a9de0d9ca86845665b28b8ad402d9302e2412d",
-      "observation": "The stair guard, roof door and wainscot retain their shape and finish."
+      "sha256": "71da7f45b1ca72379342b6eace2ec92f735925d163674f2961bf4338686a2e66",
+      "observation": "The roof stair rail, carpet edge and door jamb remain distinct."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "9ddb5d270bb2c043c26faa2d3e73e6843226b0f20fa02f2966433c68926ebaa7",
-      "observation": "The tank skin, supports and parapet retain their silhouettes against the sky."
+      "sha256": "041c7830d843eeff26f86fd051128dee09f281ae1ecc260dc4a02f8b973311b3",
+      "observation": "The tank shell, supports and adjoining roof retain their shapes."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "5655c4f016fc9bc6d76259b866f0531295d9e208767da804a883d9c312149bd0",
-      "observation": "Terminal casework, notices and floor remain visible as spill intensity changes."
+      "sha256": "2d5441d7e79ac8294ae0b8f8f79a066f67833df955554c3a60094f0cd63f5c87",
+      "observation": "The terminal and pinned papers keep their shapes. Its green light is dimmer in the new capture."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "e6f970ec89d9dcab1462298236d0a74882443a8233ab7236c37b87ff3c897af7",
-      "observation": "Tile joints and the fixture remain clear under the stronger local light."
+      "sha256": "3b6bc01ba571bc0c603945d3790657331a62989d2fbf7864f141bb2f3a0b5486",
+      "observation": "Tile seams and the stair support remain clear with slightly brighter illumination."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "b63fb4cfe59650e5d6c5903e3486399579bcc69916e17b155e6ee7a4fdeacdda",
-      "observation": "The residue and floor plank direction stay legible inside the lamp footprint."
+      "sha256": "16484b33feb10b908cae5aa098ecf0d9065962f5ef1e0854ccf0e20b1c4bf4f9",
+      "observation": "The residue remains legible against the floor and lamp stand."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "727dc30650fa49d9f53224fc529118cc62541dc04fc3a086f70524cca76fab50",
-      "observation": "The installed form and surrounding floor remain in view under the moving light."
+      "sha256": "b3f0f1eca56983c36d18d72c49077b9205bd9556744ee844d76e080df79aa43a",
+      "observation": "The lamp, floor grain and installed tendrils retain their boundaries."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "7187ed913ac177efbb962a7b9253203e53f44ce5f4695e426a1b83c2645adcaa",
-      "observation": "The fitted appliances and counter finish match. Small loose particles vary in the capture."
+      "sha256": "eb1a83de4a672a5b61e2cc068d0068fea9b61a3c80dc2184e72f2508584f9235",
+      "observation": "The toaster, kettle and crumb tray remain distinct against the worktop."
     },
     {
       "file": "watch_station.png",
-      "sha256": "75a86c211949152e2f019a0a3d01f6a7b9f810fff1b3c6f77a96a6cf22eef442",
-      "observation": "The station face and adjacent handle still read. The orange wall splash is weaker."
+      "sha256": "831a8be17ea58ad2712c96ba39aa0b4d11a79f90f4e82acd37becd381839437d",
+      "observation": "The installed lock box and switch remain distinct against the stone wall."
     }
   ]
 }

@@ -29,7 +29,7 @@ func build(layout: Dictionary, prepared_storefronts: Dictionary = {}, prepared_s
 		_build_fitted_nosings(prepared_storefronts)
 		_build_fitted_grates(prepared_shell)
 		_build_floor_wear(true)
-	_build_pushcarts()
+	_build_pushcarts(not prepared_storefronts.is_empty())
 	hours_director = HOURS_SCRIPT.new()
 	add_child(hours_director)
 	hours_director.build(get_parent() as Node3D, layout, pushcarts)
@@ -267,14 +267,17 @@ void fragment() {
 	geometry_nodes.append(instance)
 
 
-func _build_pushcarts() -> void:
+func _build_pushcarts(fitted_storefronts: bool) -> void:
 	# Parked in the gaps between public thresholds. Alternating sides creates
 	# the movable middle layer while x=14 remains capsule-clear for every
 	# schedule route before the player touches a cart.
+	# The fitted Hardware & Paint doors face down the aisle. Keep the news
+	# cart between their approach and the side-facing News & Cigars doors.
+	var news_station := -58.5 if fitted_storefronts else -60.2
 	var specs := [
 		["laundry", "laundry", 13.0, -46.9, -2.0],
 		["market", "crates", 15.0, -54.8, 2.5],
-		["news", "papers", 13.0, -60.2, -1.5],
+		["news", "papers", 13.0, news_station, -1.5],
 	]
 	for spec in specs:
 		var cart = PUSH_CART_SCRIPT.new()

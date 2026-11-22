@@ -37,6 +37,9 @@ func _route() -> void:
 	if not await _return_core(): return
 	await super._route()
 	if not failures.is_empty(): return
+	if not _require(world.maintenance_inventory.has_item("carbon_transmitter_capsule")
+			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "repairable",
+			"the real Hardware and Paint requisition returns with the player"): return
 	if not await _walk(Vector3(1.925,0,-3.5)): return
 	if not await _enter_2a(): return
 	if not await _open_grille(detector,"listening_head_repair"): return
@@ -130,13 +133,42 @@ func _open_grille(detector: VantryPointProp, label: String) -> bool:
 	return _require(opened, "actual grab, motion and release open the grille: " + label)
 
 func _enter_front_entrance() -> bool:
-	# At the inherited -13.15 stance the outward leaf hits this player's
-	# capsule at 51 degrees. Walk clear of its sweep, retaining normal reach,
-	# collision and the same grab/mouse/release operation at the actual leaf.
-	if not await _walk(Vector3(0,0,-13.55)):return false
-	if not await _open_front_entrance():return false
-	if not await _walk(Vector3(0,0,-10.2)):return false
-	return await _walk(Vector3(0,0,-8.5))
+	for point: Vector3 in [Vector3(0,0,-13.55), Vector3(0,0,-10.2), Vector3(0,0,-8.5)]:
+		if not await _walk(point): return false
+	var entry: Node3D = world.adapter.resolve("F01_DOOR_06")
+	var leaf := entry.get_node_or_null("F01_DOOR_06_Leaf") as DoorProp if entry != null else null
+	return _require(leaf != null and leaf.is_ready_for_passage() and not player._grab.active(),
+			"ordinary forward input clears the native front entrance")
+
+
+func _prepared_shop_id() -> String:
+	return "hardware_paint"
+
+
+func _prepared_door_id() -> String:
+	return "SITE_SHOP_DOOR_HARDWARE_PAINT"
+
+
+func _prepared_trade(door: DoorProp) -> bool:
+	if not _prepare_procurement(): return false
+	var shop := _prepared_shop_id()
+	var part := "carbon_transmitter_capsule"
+	var counter := world.shop_service.counter(shop)
+	var fitted: Node3D = world.fire_maintenance_counter
+	if not _require(counter != null and fitted != null and world.shop_service.pending_item(shop) == part,
+			"the fitted hardware counter offers the diagnosed job's capsule"): return false
+	var inside := door.to_global(Vector3(door.width * .5, 0, -1.0))
+	var turn := door.to_global(Vector3(door.width * .5, 0, -1.42))
+	var front := fitted.to_global(Vector3(0, .01 - fitted.global_position.y, -.95))
+	# Turn after the open leaf tips and before the glass rack.
+	var customer_aisle := Vector3(front.x, front.y, turn.z)
+	if not await _walk(world.adapter.root.to_local(turn), .009): return false
+	if not await _walk_world(customer_aisle) or not await _walk_world(front): return false
+	if not await _use(counter, counter.global_position, "golden_capsule"): return false
+	if not _require(world.maintenance_inventory.has_item(part) and world.shop_service.pending_item(shop).is_empty(),
+			"the actual requisition lever hands over the part once"): return false
+	if not _check_requisition_duplicate_refusal(): return false
+	return await _walk_world(customer_aisle) and await _walk_world(turn) and await _walk_world(inside)
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)
@@ -149,9 +181,7 @@ func _enter_2a() -> bool:
 			Vector3(4.0,3.2,-3.1),Vector3(3.55,3.2,-3.45),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),
 			Vector3(-4.65,3.2,0),Vector3(-6.4,3.2,0),Vector3(-8.5,3.2,0),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return false
-		if point.is_equal_approx(Vector3(-4.65,3.2,0)):
-			if not await _open_apartment_door("F02_DOOR_02"): return false
-	return true
+	return _require(world.player_unit() == "2A", "the player walks through the real apartment entrance")
 
 func _return_core() -> bool:
 	for point in [Vector3(-8.5,3.2,0),Vector3(-6.4,3.2,0),Vector3(-3.2,3.2,0),Vector3(-1.75,3.2,0),
