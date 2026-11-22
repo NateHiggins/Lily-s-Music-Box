@@ -376,7 +376,7 @@ func _ready() -> void:
 	conversations._load_mystery()
 	var ewald_choice: Dictionary = conversations.mystery.mr_ewald.nodes.ew_l1.choices[0]
 	check(not _peter_receipt_available(conversations) and not conversations._available("mr_ewald", ewald_choice),
-		"Peter and Ewald keep their receipt responses closed while the papers are missing")
+		"Peter's receipt topic and Ewald's receipt question are unavailable before pickup")
 	for anchor_id: String in order:
 		if anchor_id not in loop.unlocked():
 			walked = false
@@ -409,7 +409,7 @@ func _ready() -> void:
 	check(RealityState.has_knowledge("m_receipt_seen"), "returning home keeps the receipt knowable")
 	check(_receipt_commit_had_knowledge == 1, "the same commit saves the kept papers and the receipt knowledge")
 	check(_peter_receipt_available(conversations) and conversations._available("mr_ewald", ewald_choice),
-		"the authored readers open Peter and Ewald receipt responses")
+		"the receipt opens Peter's topic and Ewald's explicit question")
 	# Model an older save containing the papers but missing their knowledge flag.
 	RealityState.data.knowledge_flags.erase("m_receipt_seen")
 	check(RealityState.save_game(), "a campaign holding the kept papers saves without the old missing flag")
@@ -423,7 +423,7 @@ func _ready() -> void:
 	check(RealityState.data.knowledge_flags.count("m_receipt_seen") == 1,
 		"the receipt knowledge is restored once")
 	check(_peter_receipt_available(conversations) and conversations._available("mr_ewald", ewald_choice),
-		"the restored papers make both authored responses available")
+		"the restored papers reopen Peter's topic and Ewald's explicit question")
 	restored.free()
 	conversations.free()
 	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 6,
