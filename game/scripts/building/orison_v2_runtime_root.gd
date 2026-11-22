@@ -1054,6 +1054,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: temporal loop refused its anchors")
 		return
+	service_set_carrier.session.bind_temporal_loop(temporal_loop)
 	loop_performances = preload("res://scripts/characters/loop_performances.gd").new()
 	loop_performances.name = "LoopPerformances"
 	add_child(loop_performances)

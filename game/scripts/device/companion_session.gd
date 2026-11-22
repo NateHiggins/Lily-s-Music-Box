@@ -17,6 +17,7 @@ var _carrier: Node
 var _player: PlayerController
 var _edit: LineEdit
 var _campaign: Dictionary
+var _bound_temporal_loop: Node
 var _delivering := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
 var _events: Array[Dictionary] = []
@@ -72,6 +73,7 @@ func retire() -> void:
 	# before the new session reads it; old save callbacks then become inert.
 	close()
 	_snapshot()
+	bind_temporal_loop(null)
 	retired = true
 	_events.clear()
 	_restore_reading_view()
@@ -285,11 +287,21 @@ func suspend() -> void:
 	close()
 	queue_event("typing_interrupted")
 
-func _temporal_loop() -> Node:
-	var loop: Node = get_tree().get_first_node_in_group("temporal_loop") if is_inside_tree() else null
-	if loop != null and not loop.slip.is_connected(_temporal_slip):
+## A resumed world can send an arc copy before the player opens the keyboard.
+func bind_temporal_loop(loop: Node) -> void:
+	if retired or loop == _bound_temporal_loop:
+		return
+	if is_instance_valid(_bound_temporal_loop):
+		_bound_temporal_loop.slip.disconnect(_temporal_slip)
+	_bound_temporal_loop = loop
+	if loop != null:
 		loop.slip.connect(_temporal_slip)
-	return loop
+
+
+func _temporal_loop() -> Node:
+	if not is_instance_valid(_bound_temporal_loop) and is_inside_tree():
+		bind_temporal_loop(get_tree().get_first_node_in_group("temporal_loop"))
+	return _bound_temporal_loop if is_instance_valid(_bound_temporal_loop) else null
 
 
 ## A slip the loop sends unasked: a deduction drawn, the hours beginning again.
