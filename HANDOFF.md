@@ -1,3 +1,21 @@
+# Adela at Photo Supplies and on the July roof - November 22
+
+Evidence class: **INERT**
+
+Adela's existing dated topics are reachable through normal resident input at
+the Photo Supplies window on November 10 and on the roof on July 11. The window
+reply supplies the prerequisite for the roof topic. Signing the key book
+produces one saved roof release. The nearby installed diagnostic passed 29
+checks with dates staged by the fixture. Friday's original lobby route passed
+22 and the temporal suite passed 252 during intake. The updated prompt audit
+reports zero uncovered prompts, and the voice inventory is unchanged.
+
+The physical O1 print in box 4B, player-facing date carriers, complete routes
+from an ordinary save, and Lily's play and art review remain open. The exposure
+choice is in Omni ruling **o1_plate12_weather_exposure_20261122**. Begin the next
+slice at the existing 4B mail custody and the Photo Supplies window log.
+[Installed checks and preserved failures](C:/ov/reports/adela_dated_encounters_20261122/REPORT.md).
+
 # Logical grip release and resident courtesy - November 21
 
 Evidence class: **INERT**
