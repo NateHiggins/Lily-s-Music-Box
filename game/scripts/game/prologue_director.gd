@@ -351,7 +351,9 @@ func _enter_phase() -> void:
 			else:writing.clear()
 		"reflection_visitor":
 			writing.clear()
-			if not _begin_visitor():return
+			# A fresh Continue can place the player at the bed. The visitor's
+			# fixed reflected position must come from a view at the mirror.
+			if _mirror_observed() and not _begin_visitor():return
 		"companion_crossing":
 			writing.clear()
 		"first_contact","identity_mystery":writing.clear()
@@ -619,6 +621,9 @@ func _visitor_observed() -> bool:
 
 func _observe_visitor(elapsed:float) -> void:
 	if _phase_age>=2:_tap_mirror(2.0)
+	if not _visitor_active:
+		if _mirror_observed():_begin_visitor()
+		return
 	if _visitor_observed():
 		_visitor_dwell+=elapsed
 		if _visitor_dwell>=.8 and not _observe("visitor_seen"):return

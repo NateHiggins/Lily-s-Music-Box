@@ -349,13 +349,20 @@ func _review_visitor() -> bool:
 	await _turn_at(director.mirror.mirror_center())
 	await get_tree().create_timer(1.1).timeout
 	_require(carrier.rig.visible and carrier.device.get_instance_id()==device_id and carrier.rig.get_instance_id()==rig_id,"repeat experiment retains exactly the original companion authority and rig")
+	await _turn_at(visitor)
+	if not _require(not director._mirror_observed(),"the player looks away before loading the visitor save"):return false
 	var old_path:String=RealityState.save_path
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("visitor_reload.json");RealityState.persistence_enabled=true
 	var events:Array=director.state.events.duplicate()
 	if not _require(RealityState.save_game(),"validated save records actual ordered visitor observations"):return false
 	RealityState.load_game();await get_tree().process_frame
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
-	_require(director._visitor_active and director._phase_age<.5 and director.state.events==events and carrier.rig.get_instance_id()==rig_id,"reload restages private presentation without stale dwell, new observations or another bot")
+	if not _require(not director._visitor_active and director._phase_age<.5 and director.state.events==events and carrier.rig.get_instance_id()==rig_id,
+			"reload without a mirror view preserves observations and waits before placing the same visitor"):return false
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(.5).timeout
+	if not _require(director._visitor_active and director._visitor_observed() and carrier.is_story_absent(),
+			"the returned mirror view stages the original visitor in private"):return false
 	await get_tree().create_timer(18.7).timeout
 	if not _require(director.state.phase=="companion_crossing" and not director.state.effects.companion_materialized and carrier.is_story_absent(),"only genuine observations and the generous dwell reach the pending crossing; no physical arrival is invented"):return false
 	var held_observer:=Camera3D.new();held_observer.name="HeldVisitorPrivacyObserver"
