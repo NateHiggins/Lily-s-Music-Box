@@ -1,3 +1,17 @@
+# Last Night from the earned case - November 22
+
+Evidence class: **INERT**
+
+The installed campaign reached the rooftop from the earned eleven-clue save
+through ordinary movement and received both timed copies. Both endings
+then passed fresh Continue replays from the same unanswered save. The
+companion now listens to its loop at world setup, so the untouched-keyboard
+ending prints before any editor input. The final saves retain all eleven
+clues. This is scripted input with the late-night clock positioned at the
+authored cues. The whole case used staged resumes around three earlier
+travel gaps. Lily's play and a single uninterrupted run remain open.
+[Installed receipts and original failure](C:/ov/reports/title_last_night_20261122/REPORT.md).
+
 # Shared loop performances restored - November 22
 
 Evidence class: **INERT**
