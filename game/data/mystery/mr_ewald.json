@@ -120,7 +120,7 @@
    "line": "My clerk pins everything. I have asked him not to. It is the only reason I know what my wife wrote me in 1911."
   },
   "ew_l1": {
-   "silence_goto": "ew_l2",
+   "silence_goto": "ew_l1s",
    "line": "Who's been letting the maintenance read schedules? It means when the Kessler lease on that lot ends, the lot comes back to the Arcade's ground. First of August, this one. After that, I'd want to know on what authority anybody was collecting.",
    "choices": [
     {
@@ -136,6 +136,9 @@
      "trust": -1
     }
    ]
+  },
+  "ew_l1s": {
+   "line": "Nothing? Good. Nothing is the one answer I don't bill for."
   },
   "ew_l2": {
    "flag": "m_collection_named",

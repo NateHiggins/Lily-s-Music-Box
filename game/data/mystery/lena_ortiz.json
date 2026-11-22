@@ -105,7 +105,7 @@
    "line": "You don't have to think of a question. I can always use someone to hold the other end of a sheet."
   },
   "lo_k2": {
-   "silence_goto": "lo_k3",
+   "silence_goto": "lo_k2s",
    "line": "Six in the morning, before I'd got my shoes on. You'd be surprised who can't wait.",
    "choices": [
     {
@@ -116,6 +116,9 @@
      ]
     }
    ]
+  },
+  "lo_k2s": {
+   "line": "That's all it was. Somebody always needs something mended before breakfast."
   },
   "lo_k3": {
    "flag": "m_button_book",
