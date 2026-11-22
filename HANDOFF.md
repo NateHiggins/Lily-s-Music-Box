@@ -1,3 +1,22 @@
+# The eleven-clue campaign and both endings - November 22
+
+Evidence class: **INERT**
+
+The installed chain runs from the fresh title and companion introduction
+through eleven clue visits, using each native save as the next run's input.
+The visits passed 339 checks across 706 walking waypoints. The full 6A,
+basement and final box routes replace their earlier nearby resumes. One 6A
+wrapper timed out during shutdown after the passing gameplay contract and
+native save were written.
+
+On main 9927699b5 the new eleven-clue save reached the roof, received its
+timed copies and produced both printed endings. The two choice routes
+passed 27 checks. Each visit uses the normal Title Continue and scripted
+input. Allowance days and late-night cues are positioned by the fixture.
+The uninterrupted run and Lily's play remain open.
+[Save lineage and visit contracts](C:/ov/reports/title_campaign_chain_20261122/through_case.json).
+[Ending contracts](C:/ov/reports/title_campaign_chain_20261122/through_endings.json).
+
 # Last Night from the earned case - November 22
 
 Evidence class: **INERT**
