@@ -179,7 +179,17 @@ func complete_return() -> bool:
 		# this lands at the real 4B bedside while leaving its loop facts alone.
 		core_loop.return_player_to_safe_anchor()
 	else:
-		if core_loop.boundary() == "dream_pending":
+		# The persisted window names the return owner. A release print never
+		# consults the job boundary: a restore that already crossed its wake
+		# must not complete Mina's separate pending dream in its place.
+		var profile := str(state.profile_id)
+		if bool((state.window as Dictionary).get("release", false)):
+			if core_loop.is_release_dream(profile):
+				if not core_loop.notify_release_wake(profile):
+					return false
+			elif not core_loop.release_dream_done(profile):
+				return false
+		elif core_loop.boundary() == "dream_pending":
 			if not core_loop.notify_wake_complete():
 				return false
 		elif core_loop.boundary() != "wake_complete":

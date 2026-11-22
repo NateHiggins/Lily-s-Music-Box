@@ -478,7 +478,12 @@ func _build_world() -> void:
 	# to borrow another case's substance.
 	presentation_plates.load_bundle(profile_presentation)
 	var seed_hex := str(dream_context.get("seed_hex", ""))
+	# A release print carries its slot by release order in its window (ruling
+	# attach_dream_order_20261122); the profile's own slot is the default.
 	var slot := int(profile.get("campaign_slot", 1))
+	var dream_window: Variant = dream_context.get("window", {})
+	if dream_window is Dictionary and (dream_window as Dictionary).has("campaign_slot"):
+		slot = int((dream_window as Dictionary).campaign_slot)
 	var catalog := DreamMazeBuilder.load_catalog()
 	var constants: Dictionary = catalog.get("constants", {})
 	# The allowlist has to be known before any geometry, on either path: only

@@ -1491,6 +1491,14 @@ substance but never semantic marks, case facts, danger language or a depiction
 of the Tenant. Reflected-world plates use empty rooms, objects and human traces;
 identifiable people and the earlier faceless figure are excluded.
 
+*Amended 2026-11-22 at the owner's direction* (her rulings attach_six_mapping, _omar_trigger, _dream_order and
+_slip_text_20261122; `design/ORISON_ADELA_ATTACHMENTS_2026-11-22.md`): the six case residents each keep one of Adela
+Voss's attachments, and a release print follows the paper's RELEASED slip for it, on the next sleep in 4B. Mina's is
+the light in the shop, Peter's the deed's clause, Juno's her song, Cal's the broadcast, Omar's the bell (let go only
+after 19 July has happened), and Mae's her name. The fixed order above is replaced: the prints are slotted by the order
+the player releases them, so the sixth dreamed is always the hardest. Mae's comes last, because her name is said on
+9 November. One print is armed at a time; a second release waits for the next night.
+
 **The Rule of Signal does not bind the dream.** It may reuse and transform
 Orison architecture, signals and anachronistic language because it is not the
 waking building. The exemption is one-way: the waking Orison never advertises,
