@@ -123,7 +123,7 @@ func _camera() -> Camera3D:
 ## Props within reach. `unseen_first` is the default because the strongest
 ## version of nearly every act here is the one the player did not watch
 ## happen — they turn around and the room has already changed its mind.
-func _nearby_props(limit: int, unseen_first := true) -> Array:
+func _nearby_props(limit: int, unseen_first := true, eligible := Callable()) -> Array:
 	if player == null or world == null:
 		return []
 	var here := player.global_position
@@ -136,7 +136,7 @@ func _nearby_props(limit: int, unseen_first := true) -> Array:
 			continue
 		var prop: Node3D = child
 		var d: float = prop.global_position.distance_to(here)
-		if d > REACH:
+		if d > REACH or (eligible.is_valid() and not eligible.call(prop)):
 			continue
 		# Sorting key: unseen props sort ahead of visible ones by a margin
 		# wider than the reach, so proximity still orders within each group.
@@ -197,7 +197,7 @@ func _hold(node: Node3D) -> void:
 ## later — watching an object blink out is a glitch, finding the shelf empty
 ## is a memory you now distrust.
 func _prop_vanish(count: int) -> bool:
-	var props := _nearby_props(count + 3)
+	var props := _nearby_props(count + 3, true, Callable(world, "intrusion_vanish_allowed"))
 	var taken := 0
 	for entry in props:
 		var prop: Node3D = entry
