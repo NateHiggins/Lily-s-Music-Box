@@ -237,14 +237,18 @@ func release(notify_change := true, by_primary := false) -> void:
 			old.end.call()
 		_record_cost("end",owner_name,started)
 		if accepted_change and notify_change:
-			var origin: Vector3=old.owner.global_position
+			var source := old.owner as Node3D
+			if not is_instance_valid(source):
+				source = old.get("part") as Node3D
+			var origin := source.global_position if is_instance_valid(source) else Vector3.INF
 			var resolve: Variant=old.get("change_origin")
 			if resolve is Callable and resolve.is_valid():
 				var physical: Variant=resolve.call()
 				if physical is Vector3 and physical.is_finite(): origin=physical
-			started=Time.get_ticks_usec() if profiling else 0
-			player.world_modified.emit(origin, str(old.owner.name))
-			_record_cost("world_modified",owner_name,started)
+			if origin.is_finite():
+				started=Time.get_ticks_usec() if profiling else 0
+				player.world_modified.emit(origin, owner_name)
+				_record_cost("world_modified",owner_name,started)
 	changed = false
 
 func _observe_motion() -> void:
