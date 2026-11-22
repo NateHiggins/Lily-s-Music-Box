@@ -457,8 +457,12 @@ func _check_loop_interruption() -> void:
 	var stock := BoxMesh.new()
 	stock.size = Vector3(0.18, 0.18, 0.18)
 	part.mesh = stock
-	part.position = Vector3(0, 1.35, -9.0)
+	# Use isolated floor space with the fixture directly along the actual hand ray.
+	player.position = Vector3.FORWARD * 7.8
+	player.rotation = Vector3.ZERO
+	player.camera.rotation = Vector3.ZERO
 	add_child(part)
+	part.global_position = player.camera.to_global(Vector3.FORWARD * 1.2)
 	var loop_grip: Node = preload("res://scripts/props/loop_shift_grip.gd").new()
 	loop_grip.name = "LoopCancellationFixture"
 	add_child(loop_grip)
@@ -468,8 +472,6 @@ func _check_loop_interruption() -> void:
 		if what == str(loop_grip.name):
 			notices.append(where)
 	player.world_modified.connect(record_change)
-	player.position = Vector3(0, 0, -7.8)
-	player.camera.look_at(part.global_position)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	click()
