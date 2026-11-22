@@ -69,11 +69,13 @@ var _idle := 0.0
 var _wait_until := -1.0
 ## The run the companion has already announced.
 var _pace_said := ""
+var _receive_copy: Callable
 
 
-func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
+func setup(campaign_clock: CampaignClock, caretaker_economy: Node, receive_copy := Callable()) -> bool:
 	clock = campaign_clock
 	economy = caretaker_economy
+	_receive_copy = receive_copy
 	table = _load_table()
 	if table.is_empty() or clock == null or PaperPocket.KEY in REWOUND or "knowledge_flags" in REWOUND:
 		return false
@@ -1254,25 +1256,33 @@ func _process(delta: float) -> void:
 ## is present on or after its moment, never earlier, and never before S01. Its
 ## own count is the first words of the body; the paper keeps its serial.
 func _attend_copies() -> void:
-	if table.get("arc") is not Dictionary or table.arc.get("copies") is not Array 			or str(RealityState.data.get("prologue", {}).get("phase", "")) != "prologue_complete" 			or awaiting_introduction():
+	if (not _receive_copy.is_valid() or table.get("arc") is not Dictionary or table.arc.get("copies") is not Array
+			or str(RealityState.data.get("prologue", {}).get("phase", "")) != "prologue_complete"
+			or awaiting_introduction()):
 		return
 	var arc := _arc_state()
-	if arc.get("copies") is not Array:
-		arc["copies"] = []
+	var copies: Array = arc.get("copies", []) if arc.get("copies") is Array else []
+	var book := ledger()
 	var now := clock.calendar_minutes()
+	var accepted := false
 	for copy: Dictionary in table.arc.copies:
 		var number := int(copy.number)
-		if number in (arc.copies as Array):
+		if number in copies:
 			continue
+		# The earliest pending copy holds its place when the player returns late.
 		if copy.has("place") and here != str(copy.place):
-			continue
+			break
 		if copy.has("date"):
 			var parts := str(copy.date).split("-")
 			if now < CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]),
 					float(_clock_minutes(str(copy.time)))):
-				continue
-		(arc.copies as Array).append(number)
-		slip.emit("", received_copy(number, str(copy.text)))
+				break
+		if not _receive_copy.call(book, received_copy(number, str(copy.text))):
+			break
+		copies.append(number)
+		accepted = true
+	if accepted:
+		arc["copies"] = copies
 		RealityState.commit_background()
 
 

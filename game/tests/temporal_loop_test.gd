@@ -33,6 +33,11 @@ func check(ok: bool, label: String) -> void:
 	print("  [%s] %s" % ["PASS" if ok else "FAIL", label])
 
 
+func _accept_copy(_ledger: Dictionary, text: String) -> bool:
+	slips.append("|" + text)
+	return true
+
+
 func at(year: int, month: int, day: int, hour: int, minute: int) -> bool:
 	var now := clock.local_datetime()
 	if now.is_empty() or int(now.year) != year or int(now.month) != month or int(now.day) != day:
@@ -144,7 +149,7 @@ func _ready() -> void:
 	add_child(economy)
 	loop = Loop.new()
 	add_child(loop)
-	check(loop.setup(clock, economy), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
+	check(loop.setup(clock, economy, _accept_copy), "the anchors load: every need is another lead's evidence, tiers only climb, none touches the dark")
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
 	RealityState.state_changed.connect(func() -> void:
@@ -661,6 +666,21 @@ func _ready() -> void:
 	RealityState.data.prologue.phase = "prologue_complete"
 	(loop.ledger().arc as Dictionary).erase("copies")
 	loop.here = "lobby"
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 2, 600.0)), "resume a late campaign without copies")
+	var late_at := slips.size()
+	loop._attend_copies()
+	check(slips.size() == late_at and not (loop.ledger().arc as Dictionary).has("copies"),
+			"the first copy holds the entire sequence until the player visits 4B")
+	loop.here = "4B"
+	loop._attend_copies()
+	var numbers: Array[int] = []
+	for line: String in slips.slice(late_at):
+		numbers.append(int(line.trim_prefix("|RECEIVED COPY ").get_slice(".", 0)))
+	check(numbers == [1, 2, 3, 4, 5] and loop.ledger().arc.copies == numbers,
+			"4B receives the full late sequence in order, exactly once")
+	slips.resize(late_at)
+	(loop.ledger().arc as Dictionary).erase("copies")
+	loop.here = "lobby"
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 720.0)), "midday on 19 July")
 	var copies_at := slips.size()
 	loop._attend_copies()
@@ -669,6 +689,9 @@ func _ready() -> void:
 	loop._attend_copies()
 	check(slips.size() == copies_at + 1 and slips.back() == "|RECEIVED COPY 1. CONVEYANCE ACCEPTED. SPAN: UNTIL RELEASED.",
 			"in 4B, M1 prints with the Tenant's own count first")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 20.0 * 60.0 + 59.0)), "before the missing hours")
+	loop._attend_copies()
+	check(slips.size() == copies_at + 1, "M2 stays pending before 03:02")
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 20, 3.0 * 60.0 + 2.0)), "3:02 on 20 July")
 	loop._attend_copies()
 	check(slips.size() == copies_at + 2 and slips.back() == "|RECEIVED COPY 2. 21:01 TO 03:02 NOT HEARD HERE EITHER.",

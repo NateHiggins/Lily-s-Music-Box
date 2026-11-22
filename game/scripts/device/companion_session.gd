@@ -307,6 +307,18 @@ func _temporal_slip(title: String, body: String) -> void:
 		if kept: _keep_slips()
 
 
+## Take custody before the source records delivery. That source commits the
+## pending text and its delivery marker together.
+func accept_received_copy(ledger: Dictionary, text: String) -> bool:
+	if retired or not is_same(_campaign, RealityState.data) or not is_same(ledger, _campaign.get("temporal")):
+		return false
+	if _loop_slips.size() >= OUTBOX_LIMIT or text.is_empty() or text.length() > 4096:
+		return false
+	_loop_slips.append(text)
+	_keep_slips()
+	return true
+
+
 ## Mirror the waiting slips into the temporal ledger. The loop commits right
 ## after it sends, so the slip and the record of sending it save together.
 func _keep_slips() -> void:
