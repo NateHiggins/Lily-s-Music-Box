@@ -1,3 +1,16 @@
+# Prepared arcade golden repair - November 22
+
+Evidence class: **INERT**
+
+The news cart now parks clear of the fitted Hardware & Paint doorway.
+Ordinary input crossed both shop entrances. The continuous golden route
+passed 37 checks and 100 walking waypoints, from arrival through Mina's
+diagnosis and the native shop lever to the repaired listening head. The
+capsule was issued and consumed once. The existing conversation is pending.
+The 818-check physical surface run and 23 paired views passed technical
+review. Recurrence, dream/wake, and Lily's full playthrough remain open.
+[Golden repair evidence](C:/ov/reports/adela_attachments_20261122/GOLDEN_ROUTE_HANDOFF.md).
+
 # Mirror visitor after Continue - November 22
 
 Evidence class: **INERT**
@@ -12,11 +25,8 @@ reacquisition and native crossing. The combined surface run passed 818
 checks and 23 paired views were technically reviewed.
 
 The original fresh-world crossing stall, Juno's 5B route and Lily's full
-playthrough remain open. The golden entrance passed a separate directional
-replay from the first-shift arrival. Its diagnosis and procurement route
-still need a complete installed proof.
+playthrough remain open.
 [Visitor evidence](C:/ov/reports/title_campaign_chain_20261122/PROLOGUE_VISITOR_FAILURE.md).
-[Golden entrance evidence](C:/ov/reports/adela_attachments_20261122/GOLDEN_ROUTE_HANDOFF.md).
 
 # First deduction continuity and the 6B hand - November 22
 
