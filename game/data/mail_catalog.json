@@ -227,6 +227,17 @@
   "when": {
    "from_date": "1929-10-29"
   }
+  },
+  {
+   "id": "o1_plate12_print",
+   "kind": "letter",
+   "title": "PLATE 12 — ORISON ROOF",
+   "body": "Thu. 11 July 1929. THUNDERSTORMS TONIGHT.\nOn the envelope, in carrier's pencil: TRY 4B, THEY ANSWER THINGS.",
+   "image": "res://assets/evidence/plate12_orison_roof.png",
+   "knowledge": ["m_o1_print", "m_july_roof_date"],
+   "when": {
+    "always": true
+   }
  }
  ]
 }

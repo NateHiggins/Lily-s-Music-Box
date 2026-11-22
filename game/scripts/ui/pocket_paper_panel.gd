@@ -43,10 +43,16 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	var screen := get_viewport().get_visible_rect().size
 	var width := SHEET_WIDTH * k
 	var picture: Texture2D = null
+	var photograph := str(paper.get("kind", "")) == "letter"
 	if str(paper.get("image", "")) != "":
 		picture = load(str(paper.image)) as Texture2D
-		# A strip is three panels side by side: the sheet takes most of the screen's width for it.
-		width = minf(screen.x * 0.9, STRIP_WIDTH * k)
+		if picture != null and photograph:
+			# Leave room for the date and the words on the envelope below the print.
+			var image_height := maxf(1.0, screen.y - 230.0 * k)
+			var image_width := image_height * float(picture.get_width()) / picture.get_height()
+			width = minf(screen.x * 0.9, image_width + 88.0 * k)
+		else:
+			width = minf(screen.x * 0.9, STRIP_WIDTH * k)
 	sheet.custom_minimum_size = Vector2(width, 0)
 	var style := StyleBoxFlat.new()
 	style.bg_color = PAPER
@@ -67,7 +73,7 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	column.add_child(_line(str(paper.get("title", "")), TYPE_BOLD, int(22 * k), INK, k, width))
 	if picture != null:
 		var art := TextureRect.new()
-		art.name = "Strip"
+		art.name = "Photograph" if photograph else "Strip"
 		art.texture = picture
 		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
