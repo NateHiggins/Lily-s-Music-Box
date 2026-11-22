@@ -154,6 +154,7 @@ func _run() -> void:
 		_boundary_matrix()
 		_dialogue_lifecycle()
 		_transition_dialogue()
+		_s14_nadia_names_her()
 		_gaze_and_activity()
 		_save_reload()
 		_move_yield()
@@ -286,6 +287,36 @@ func _dialogue_lifecycle() -> void:
 	check(bool(loop.go_home().ok), "home succeeds with a dedicated line active")
 	check(not panel.attention_active() and not conversations.performance_active(), "home releases dedicated line")
 	check(not performance.conversation_prompt("mae_kessler").is_empty(), "ordinary authored reply remains available at home")
+	_jump("tea")
+
+## S14 (ruling s14_nadia_staging_20261122): in Mae's box hour Nadia comes up at
+## ten to four with Mr. Ewald's note, and once the kept papers are in hand the
+## exchange is open; Nadia's "Adela Voss." is what releases MRS. KESSLER.
+func _s14_nadia_names_her() -> void:
+	var known: Array = (RealityState.data.get("knowledge_flags", []) as Array).duplicate()
+	_jump("box")
+	RealityState.grant_knowledge("m_letter_compared")
+	var s14_open := func() -> bool:
+		return conversations.active_threads("mae_kessler", conversations.today(), conversations.minute_now()) \
+				.any(func(thread: Dictionary) -> bool: return str(thread.id) == "mk_box")
+	_advance(49.0)
+	RealityState.grant_knowledge("m_receipt_seen")
+	check(str(performance.phase_for("nadia_quell").get("place", "x")).is_empty() and not s14_open.call(),
+			"before ten to four Nadia has not come up and S14 is not open")
+	_advance(1.5)
+	check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C" and s14_open.call(),
+			"at ten to four Nadia comes up to 6C and S14 opens with the kept papers in hand")
+	RealityState.data.knowledge_flags.erase("m_receipt_seen")
+	check(not s14_open.call(), "without the kept papers S14 stays closed")
+	RealityState.grant_knowledge("m_receipt_seen")
+	check(conversations.start_mystery("mae_kessler", false, "mk_box"), "S14 enters through Mae's mystery owner")
+	for i in 5:
+		if panel.attention_active() and not RealityState.has_knowledge("m_mae_answered"):
+			panel.choose(0)
+	check(RealityState.has_knowledge("m_mae_answered") and panel.current_node_id == "mk_b5",
+			"Mae will not name her; Nadia's line is heard and grants m_mae_answered")
+	panel.close(); panel._end_tree()
+	RealityState.data.knowledge_flags = known
 	_jump("tea")
 
 func _gaze_and_activity() -> void:

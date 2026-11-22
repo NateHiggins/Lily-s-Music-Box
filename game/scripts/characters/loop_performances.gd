@@ -4,7 +4,8 @@ extends Node
 ## performance. No evidence, trust, inventory, door key or calendar writes here.
 const SOURCE := "res://data/temporal/performances.json"
 const Encounters := preload("res://scripts/characters/loop_encounters.gd")
-const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "drama": ["cal_dwyer", "juno_kells"]}
+const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "box": ["mae_kessler", "nadia_quell"],
+		"drama": ["cal_dwyer", "juno_kells"]}
 
 var world: Node3D
 var loop: Node

@@ -803,9 +803,17 @@ func _ready() -> void:
 	loop._attend_releases()
 	check(slips.slice(before_release) == ["|RELEASED: THE NIGHT OF 19 JULY.", "|RELEASED: THE BELL."]
 			and dreams.back() == "omar_release_print", "once the night has happened, the bell is let go after it")
+	# S14: Nadia says the name in 6C, and Mae is the last attachment let go.
+	before_release = slips.size()
+	RealityState.grant_knowledge("m_mae_answered")
+	loop._attend_releases()
+	loop._attend_releases()
+	check(slips.slice(before_release) == ["|RELEASED: MRS. KESSLER."] and dreams.back() == "mae_release_print"
+			and dreams.count("mae_release_print") == 1, "Nadia's answer in S14 releases MRS. KESSLER once and asks for Mae's print")
 	dreams.clear()
 	loop.bind_release_dreams(ask_dream)
-	check(dreams == ["mina_release_print", "peter_release_print", "juno_release_print", "cal_release_print", "omar_release_print"],
+	check(dreams == ["mina_release_print", "peter_release_print", "juno_release_print", "cal_release_print", "omar_release_print",
+			"mae_release_print"],
 			"rebinding asks again for every released print; the dream owner refuses what it already has")
 
 	RealityState.flush_background_saves()
