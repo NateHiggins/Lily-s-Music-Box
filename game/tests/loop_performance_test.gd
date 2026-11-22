@@ -176,7 +176,7 @@ func _run() -> void:
 	RealityState.data = old_data
 	RealityState.persistence_enabled = old_persistence
 	check(logger.errors.is_empty(), "no engine script errors")
-	check(phase_count >= 47 and anchor_count == 11, "nonempty complete anchor and phase coverage")
+	check(phase_count >= 47 and anchor_count == 13, "complete phase coverage includes the two dated witnesses")
 	check(ordinary_encounters == 7 and ordinary_lines == 33, "all seven ordinary exchanges and thirty-three lines executed")
 	_write_contract(logger.errors)
 	OS.remove_logger(logger)
@@ -190,7 +190,11 @@ func _tick() -> void:
 func _unlock_fixture() -> void:
 	loop.ledger().bank_cents = 100000
 	for anchor: String in loop.table.anchors:
-		loop.ledger().items[str(loop.table.anchors[anchor].clue.id)] = {"pinned": true, "anchor": anchor, "dated": true, "placed": true}
+		var spec: Dictionary = loop.table.anchors[anchor]
+		if spec.has("clue"):
+			loop.ledger().items[str(spec.clue.id)] = {"pinned": true, "anchor": anchor, "dated": true, "placed": true}
+		elif spec.has("witness"):
+			RealityState.grant_knowledge(str(spec.witness.source_flag))
 	loop.ledger().deductions = loop.table.deductions.keys()
 
 func _jump(anchor: String) -> void:
@@ -210,6 +214,9 @@ func _boundary_matrix() -> void:
 		if actors.is_empty():
 			_jump(anchor)
 			check(performance.phase_for("mae_kessler").is_empty(), anchor + " keeps ordinary agendas")
+			if loop.table.anchors[anchor].has("witness"):
+				# The installed encounter follows Adela's schedule and topic.
+				check(performance.whereabouts("adela_voss").is_empty(), anchor + " keeps Adela's dated schedule in control")
 		for resident: String in actors:
 			_jump(anchor)
 			var phases: Array = actors[resident]
