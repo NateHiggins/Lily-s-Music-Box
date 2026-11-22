@@ -114,6 +114,7 @@ func _mount_resident(encounter: Dictionary) -> void:
 	resident.setup("Adela Voss", PERSON, "", CastBodies.cast_model(PERSON))
 	resident.externally_driven = true
 	resident.face_interacting_player = true
+	resident.use_cast_stand_pose = thread != "av_nineteen"
 	resident.installed_topic = thread
 	resident.topic_is_present = func() -> bool: return _scheduled_encounter().get("thread") == thread
 	resident.position = to_local(floor.position)

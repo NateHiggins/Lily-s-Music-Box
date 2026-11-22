@@ -23,6 +23,8 @@ var face_interacting_player := false
 ## Some authored encounters admit only the topic installed with this body.
 var installed_topic := ""
 var topic_is_present: Callable
+## Stationary scenes can keep the fitted stand pose instead of a walking-rig idle.
+var use_cast_stand_pose := false
 var mina_animation: MinaAnimationBehavior
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
@@ -65,7 +67,7 @@ func _ready() -> void:
 	# from the shared library, or from a personal <model>_moves.glb bake
 	# when the rig is a newer Meshy generation (mina_vale is the first).
 	# The old generated cast carries its own baked player and skips this.
-	if _animation_player == null:
+	if _animation_player == null and cast_body == null:
 		ResidentMovesLibrary.apply(_model)
 		_animation_player = _find_animation_player(_model)
 	if resident_id == "mina_vale":
@@ -103,8 +105,8 @@ func _build_cast_body() -> bool:
 	body.name = "CastBody"
 	body.configure(who, model_path, parts)
 	add_child(body)
-	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok else null
-	if player == null:
+	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok and not use_cast_stand_pose else null
+	if not body.ready_ok or (player == null and not use_cast_stand_pose):
 		remove_child(body)
 		body.queue_free()
 		return false
