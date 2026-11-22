@@ -84,6 +84,33 @@ func _ready() -> void:
 	check(int(dreams.context().window.get("campaign_slot", 0)) == 3 and dreams.context().case_id == "omar_unrepairable",
 			"Omar's print, released third, is the third slot")
 
+	# Interrupted return (Codex's review of 6e1401dd): the save holds Peter's
+	# print at return_pending after its wake was already recorded, while
+	# Mina's job dream is pending. The release window owns the return, so
+	# Peter's wake reconciles and Mina's pending request survives.
+	var core: Dictionary = RealityState.data.core_loop
+	core.release_dreams = []
+	core.release_dreams_done = ["peter_release_print"]
+	core.boundary = "dream_pending"
+	core.dream_pending = true
+	var dream: Dictionary = RealityState.data.dream
+	dream.phase = "return_pending"
+	dream.active = false
+	dream.debug_preview = false
+	dream.case_id = "peter_form_corridor"
+	dream.profile_id = "peter_release_print"
+	dream.window = {"protected_contexts": ["call", "conversation"], "release": true, "campaign_slot": 1}
+	dream.outcome = "capture"
+	var reloaded := CoreLoopDirector.new()
+	add_child(reloaded)
+	var reloaded_dreams := DreamDirector.new()
+	add_child(reloaded_dreams)
+	reloaded_dreams.core_loop = reloaded
+	check(reloaded_dreams.complete_return() and reloaded_dreams.phase() == "awake",
+			"a reloaded release return reconciles from its own window")
+	check(reloaded.boundary() == "dream_pending" and bool(reloaded.loop_state().dream_pending),
+			"and Mina's separate pending dream is left waiting, not completed in its place")
+
 	RealityState.data = old_data
 	RealityState.persistence_enabled = old_persistence
 	print("[RELEASE DREAM QUEUE] RESULT: %s (%d checks, %d failures)" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])

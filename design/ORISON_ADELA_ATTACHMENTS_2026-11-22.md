@@ -91,7 +91,7 @@ Lily answered all four rulings with the recommended option. Built on this branch
   Mina's job dream with the slot by release order in the window, and `notify_release_wake` returns the player to the
   4B bedside without touching the job loop. Mina's print is never armed twice: whichever path reaches it first plays it.
 - `DreamDirector.complete_return` reconciles a release print's wake; `DreamMazeRoot` reads the window's slot first.
-- Tests: **ReleaseDreamQueueTest** (15 checks) and eight new checks in **TemporalLoopTest** (263 in all).
+- Tests: **ReleaseDreamQueueTest** (17 checks, including the interrupted-return restore Codex found) and eight new checks in **TemporalLoopTest** (263 in all).
 - The Bible's section IX order line is amended.
 
 Mae's print waits for her row: RELEASED: MRS. KESSLER is not on main, and by ruling
