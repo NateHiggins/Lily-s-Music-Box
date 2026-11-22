@@ -120,6 +120,13 @@ func _hard_blocks() -> void:
 				broken += 1
 				print("  hard block bent: %s %d %s -> %s" % [slug, minute, block.place, lived.get("place", "")])
 	_check("hard blocks (sleep, work, transit, ritual) always hold", broken == 0)
+	# Friday 19 July (doy 200): Cam holds the lobby with Adela's envelope through
+	# ten past six, whatever his appetite; any other Friday he may go and eat.
+	var envelope := true
+	for minute in [1075, 1085, 1090, 1095]:
+		envelope = envelope and str(agenda.decide("cam_ortiz", "fri", float(minute), 200, false).get("place", "")) == "lobby"
+	_check("on 19 July Cam waits in the lobby with the envelope until he takes it up", envelope)
+	_check("and only on that day is it work", str(schedule.resolve("cam_ortiz", "fri", 1085.0, 207, false).get("activity", "")) == "socializing")
 
 
 ## Exposed choices made of their own will, summed over residents.
