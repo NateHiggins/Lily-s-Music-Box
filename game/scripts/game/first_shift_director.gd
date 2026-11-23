@@ -430,8 +430,6 @@ func _place_at_arrival() -> void:
 	player.velocity = Vector3.ZERO
 	player.noclip = false
 	player.call_locked = false
-	player.collision_layer = 1
-	player.collision_mask = 1
 	player.camera.position = Vector3(0, PlayerController.STANDING_EYE, 0)
 	player.camera.rotation = Vector3.ZERO
 	flat_direction.y = 0.0

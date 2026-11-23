@@ -104,8 +104,6 @@ func start_seed(as_intro := false) -> void:
 		_previous_call_locked = building.player.call_locked
 		building.player.noclip = true
 		building.player.call_locked = true
-		building.player.collision_layer = 0
-		building.player.collision_mask = 0
 		building.player.global_position = INTRO_ROUTE[0].p
 		_camera_home = building.player.camera.position
 		building.player.camera.rotation = Vector3.ZERO
@@ -125,8 +123,6 @@ func stop_seed() -> void:
 	if intro_active and building and building.player:
 		building.player.noclip = _previous_noclip
 		building.player.call_locked = _previous_call_locked
-		building.player.collision_layer = 0 if _previous_noclip else 1
-		building.player.collision_mask = 0 if _previous_noclip else 1
 		building.player.velocity = Vector3.ZERO
 		building.player.camera.position = _camera_home
 		building.player.camera.rotation = Vector3.ZERO
