@@ -67,7 +67,8 @@ func _add_part(identity: String,grade: int,slot: String,rack: int) -> void:
 	body.identity=identity
 	body.mass=.003
 	body.freeze=true
-	# No physics (Lily, 20 Nov): inserts keep preset places (a radiator mouth, a rack pocket, or where taken from).
+	# No physics (Lily, 20 Nov): inserts keep preset places at the mouth,
+	# beside the radiator, or in a rack pocket.
 	body.continuous_cd=false
 	body.collision_layer=0
 	body.collision_mask=1
@@ -256,8 +257,11 @@ func grip(identity: String) -> Dictionary:
 			else: _carry(row,value),
 		"end":func():
 			if mounted and row.turn>=THREAD_END-.0001:
+				var seat := _thread_pose(radiator, THREAD_END).origin
 				row.slot=""
 				_drop(row)
+				row.body.global_transform = preload("res://scripts/props/radiator_part_park.gd").pose(
+					radiator, row.body, row.draw, seat, .09)
 			elif not mounted: _release(row)
 			if _held_radiator!=null and _held_radiator._native_held=="vent_orifice": _held_radiator._native_held=""
 			_held_radiator=null
