@@ -8,16 +8,6 @@ func _aim(bench: Node3D,player: Node3D,body: Node3D) -> void:
 	await bench.get_tree().physics_frame
 	player.camera.look_at(body.to_global(Vector3(0,.004,0)))
 
-func _carry_between(bench: Node3D,player: Node3D,stock: Node3D,body: Node3D,goal: Vector3,failures: Array) -> bool:
-	var contact: Vector3=body.to_global(player._grab.contact)
-	player.camera.global_position=(contact+stock.to_global(goal))*.5+Vector3(0,.5,1.1)
-	player.camera.look_at(contact)
-	await bench._carry_to(player,goal)
-	if not player._grab.active() or body.position.distance_to(goal)>.001:
-		failures.append("free insert stays acquired throughout visible transfer")
-		return false
-	return true
-
 func run(bench: Node3D,prop: Node3D,stock: Node3D,player: Node3D,driver: Node3D,codec: Node,failures: Array) -> void:
 	prop.set_supply_position(0.0,0.0)
 	var original: Dictionary=stock.active(prop)
@@ -33,49 +23,62 @@ func run(bench: Node3D,prop: Node3D,stock: Node3D,player: Node3D,driver: Node3D,
 	if target.get("part")!=original.body: failures.append("cursor finds physical installed orifice");return
 	driver._click(player)
 	if not player._grab.active() or stock.held!=original_id: failures.append("grab installed orifice");return
+	var receiver: Vector3=stock._thread_pose(prop,stock.THREAD_END).origin
 	driver._drag_to(player,stock.THREAD_END)
 	driver._click(player)
-	if not stock.active(prop).is_empty(): failures.append("unthreading removes real insert from cap");return
+	var parked: Transform3D=original.body.global_transform
+	if not stock.active(prop).is_empty() or not original.body.freeze or parked.origin.distance_to(receiver)<=.05:
+		failures.append("ordinary unthreading parks the original clear of the receiver")
+		return
+	var probe := PhysicsRayQueryParameters3D.create(parked.origin+Vector3.UP*.025,parked.origin-Vector3.UP*.025,1,[original.body.get_rid()])
+	if bench.get_world_3d().direct_space_state.intersect_ray(probe).is_empty():
+		failures.append("parked original rests on nearby physical support")
 	await _aim(bench,player,original.body)
 	driver._click(player)
-	if not player._grab.active(): failures.append("regrab withdrawn orifice");return
-	if not await _carry_between(bench,player,stock,original.body,Vector3(.35,.12,.05),failures): return
-	print("OLD INSERT CARRY active=",player._grab.active()," held=",stock.held," at=",original.body.position)
+	if not player._grab.active() or stock.held!=original_id: failures.append("regrab withdrawn orifice");return
 	driver._click(player)
+	if player._grab.active() or not stock.held.is_empty() or not original.body.global_transform.is_equal_approx(parked):
+		failures.append("release returns the original to its preset rest and clears the grip")
+		return
 	var replacement: Dictionary=stock.rows.VENT_SPARE_2
+	var pocket: int=replacement.rack
 	player.global_position=Vector3(1.0,0,1.15)
 	await _aim(bench,player,replacement.body)
-	print("SPARE BEFORE CLICK active=",player._grab.active()," target=",player._grab.find_target()," inspecting=",player.inspecting()," locked=",player.call_locked," mouse_released=",player.mouse_released)
 	driver._click(player)
-	if not player._grab.active() or stock.held!="VENT_SPARE_2":
-		var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,replacement.body.global_position)
-		query.collide_with_areas=true
-		print("SPARE RAY ",bench.get_world_3d().direct_space_state.intersect_ray(query)," BODY ",replacement.body.global_transform," DRAW ",replacement.draw.global_transform," AABB ",replacement.draw.get_aabb())
-		print("SPARE TARGET ",player._grab.target," STOCK HELD ",stock.held," RAD HELD ",prop._native_held)
+	if not player._grab.active() or stock.held!=replacement.body.identity:
 		failures.append("grab actual workshop spare");return
-	if not await _carry_between(bench,player,stock,replacement.body,replacement.body.position+Vector3.UP*.02,failures): return
-	var player_before: Vector3=player.global_position
-	var part_before: Vector3=replacement.body.global_position
-	player.autopilot=Vector3(.15,0,0)
-	player.set_physics_process(true)
-	await bench.get_tree().create_timer(.25).timeout
-	player.set_physics_process(false)
-	player.autopilot=Vector3.ZERO
-	player.velocity=Vector3.ZERO
-	var travelled: Vector3=player.global_position-player_before
-	if not player._grab.active() or travelled.length()<.02 or (replacement.body.global_position-part_before).distance_to(travelled)>.003:
-		failures.append("actual player locomotion carries acquired loose insert")
-	var receiving: Transform3D=stock._thread_pose(prop,stock.THREAD_END)
-	if not await _carry_between(bench,player,stock,replacement.body,stock.to_local(receiving.origin),failures): return
 	driver._click(player)
-	if replacement.slot!=prop.graph_node_id or absf(replacement.turn-stock.THREAD_END)>.0001: failures.append("spare catches cap thread without auto seating");return
+	if player._grab.active() or replacement.rack!=pocket:
+		failures.append("ordinary release leaves the same spare in its rack pocket")
+		return
+
+	# The installed first-slice contract proves the valise walk and receiving
+	# click. Begin this bench's threading check at that validated open thread.
+	var engagement: Dictionary=codec.snapshot()
+	var state: Dictionary=engagement.records.B1_VENT_SERVICE_STOCK.value
+	for part: Dictionary in state.parts:
+		if part.id==replacement.body.identity:
+			part.erase("rack")
+			part.slot=prop.graph_node_id
+			part.turn=stock.THREAD_END
+	engagement.records.F02_B_RADIATOR_01.value.vent_grade=replacement.grade
+	if not codec.validate(engagement,codec._kinds):
+		failures.append("open-thread fixture preserves the finite stock and grade cache")
+		return
+	codec._restore(engagement)
+	if stock.active(prop).get("body")!=replacement.body or absf(replacement.turn-stock.THREAD_END)>.0001:
+		failures.append("fixture starts the same finite spare at the open thread")
+		return
 	await _aim(bench,player,replacement.body)
 	driver._click(player)
+	if not player._grab.active() or stock.held!=replacement.body.identity:
+		failures.append("ordinary grip acquires the still-open replacement thread")
+		return
 	driver._drag_to(player,0.0)
 	driver._click(player)
 	if absf(replacement.turn)>.0001 or prop.vent_grade!=2 or stock.active(prop).body!=replacement.body or original.body.identity!=original_id or stock.rows.size()!=6:
 		failures.append("physical replacement preserves both identities and publishes actual grade")
-	if grade_events!=[2]: failures.append("actual physical replacement preserves grade-change observations")
+	if grade_events!=[2]: failures.append("adopting the finite replacement publishes one grade change")
 	prop.vent_changed.disconnect(grade_observer)
 	var saved: Dictionary=JSON.parse_string(JSON.stringify(codec.snapshot()))
 	if not codec.validate(saved,codec._kinds): failures.append("combined radiator/stock household validation")
