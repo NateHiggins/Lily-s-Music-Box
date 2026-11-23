@@ -54,6 +54,7 @@ func _run() -> void:
 		"openings": [
 			{"id": "F01_SEALED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0, 2.34, 0)},
 			{"id": "F01_CROWDED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0.8, 2.34, 0)},
+			{"id": "F01_OMITTED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "omit": true},
 			{"id": "F02_SEALED", "connects": ["F02_A", "F02_B"], "shared_wall_owner": "x", "at": Vector3(0, 5.54, 0)},
 			{"id": "F02_SHAFT", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(2.5, 5.54, 0)},
 		],
@@ -68,6 +69,9 @@ func _run() -> void:
 		var anchor := Node3D.new()
 		anchor.name = str(opening.id)
 		root.add_child(anchor)
+		if opening.get("omit", false):
+			anchor.set_meta("service_practical_omitted", true)
+			continue
 		var practical := Node3D.new()
 		practical.name = "ServicePractical"
 		anchor.add_child(practical)
@@ -86,7 +90,8 @@ func _run() -> void:
 
 	var policy := Policy.new()
 	world.add_child(policy)
-	check(policy.setup(world), "the policy binds every bench source")
+	check(policy.setup(world), "the policy binds every authored bench source")
+	check(policy.sources.size() == 4 and policy.edges.size() == 5, "an unlit opening stays in the room graph")
 	var by_id := {}
 	for source: Dictionary in policy.sources:
 		by_id[source.id] = source

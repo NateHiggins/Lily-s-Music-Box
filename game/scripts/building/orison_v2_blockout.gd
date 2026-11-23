@@ -22,6 +22,15 @@ var failures: Array[String] = []
 const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
 ## Matches the tolerance the committed suite already used for overlaps.
 const OVERLAP_TOLERANCE_M2 := 0.0001
+## Fixture layout for the named public service approaches. The casing and
+## walkable aperture are still built from every opening record.
+const SERVICE_PRACTICAL_OMISSIONS := {
+	"F01_TRANSFER_BYPASS_OPENING": true,
+	"F02_BYPASS_HALL_NORTH_OPENING": true,
+	"F03_CORE_EAST_HALL_OPENING": true,
+	"F03_SERVICE_NORTH_OPENING": true,
+	"F03_SERVICE_SOUTH_OPENING": true,
+}
 
 func _ready() -> void:
 	layout = _load_layout(layout_path)
@@ -727,17 +736,24 @@ func _build_single_owner_opening_frames() -> void:
 			_box(parent, "RevealHead", Vector3(0.0, height + reveal_width * 0.5,
 					0.0), Vector3(wall_depth, reveal_width,
 					width + reveal_width * 2.0), "opening", false)
-		_build_service_opening_practical(parent, opening)
+		if SERVICE_PRACTICAL_OMISSIONS.has(str(opening.id)):
+			parent.set_meta("service_practical_omitted", true)
+		else:
+			_build_service_opening_practical(parent, opening)
 
 ## A source-owned bulkhead practical makes a leafless service connection read
 ## as maintained circulation in the actual blockout, not only in a capture.
-## It is derived for every single-owner opening and carries no collision.
+## It follows the opening position and carries no collision.
 func _build_service_opening_practical(parent: Node3D,
 		opening: Dictionary) -> void:
 	var practical := Node3D.new()
 	practical.name = "ServicePractical"
 	practical.position.y = minf(float(opening.height) + 0.16,
 			float(layout.dimensions.clear_height) - 0.16)
+	if str(opening.id) == "F01_BYPASS_HALL_OPENING":
+		# One ceiling fitting serves both sides of the dogleg. Mount its plate
+		# against the ceiling inside the bypass instead of at either door head.
+		practical.position = Vector3(-0.4, float(layout.dimensions.clear_height) - 0.10, -0.25)
 	practical.set_meta("source_owned_service_practical", true)
 	parent.add_child(practical)
 	var wall_axis := str(opening.axis)
