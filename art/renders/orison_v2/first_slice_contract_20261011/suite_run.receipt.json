@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 631.74,
+  "elapsed_s": 580.77,
   "exit_code": 0,
-  "finished_utc": "2026-11-23T14:14:51Z",
-  "started_utc": "2026-11-23T14:04:19Z",
+  "finished_utc": "2026-11-23T15:30:07Z",
+  "started_utc": "2026-11-23T15:20:26Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/service_shadow_20261123/first_slice_158bbf553e36/run.log.stderr",
+  "stderr": "C:/ov/reports/pause_valise_controls_20261123/composed_f8e01cf6/first_slice/run.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/service_shadow_20261123/first_slice_158bbf553e36/run.log",
-  "stdout_sha256": "41a5c6c671b12338ac0956f24a21b3ed9d53d94c8fa2ea208bec6563c38d770b"
+  "stdout": "C:/ov/reports/pause_valise_controls_20261123/composed_f8e01cf6/first_slice/run.log",
+  "stdout_sha256": "779c0dacd170422b140832920257d1eafdd3f3ba91585a8642f23e9ccf3442ec"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/service_shadow_20261123/first_slice_158bbf553e36",
+ "shot_dir": "C:/ov/reports/pause_valise_controls_20261123/composed_f8e01cf6/first_slice",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "158bbf553e363066477aa383925a19206dbde2a2",
-  "repository_tree": "51dc010a78e343a8e3e1193e10eda4da9bdc776f",
-  "runtime_inputs_sha256": "bb8de78ab72f59cc7e51fc13e4d7b648e8bec09ab4cf7d6f06821443cb5b080a",
+  "repository_head": "f8e01cf6b6b19f5572e3421f152e0a330741f2d4",
+  "repository_tree": "8ed4facf569942eb13d68855d9bf9f4eee6b2958",
+  "runtime_inputs_sha256": "61c66f3a84c4b10d5b0af89cd7c3ec0da75eec9c9fb8ea92c50fe8666c803f27",
   "test_path": null,
   "test_sha256": null
  },
