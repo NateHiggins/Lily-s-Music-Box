@@ -163,6 +163,7 @@ var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
 var service_light_visibility: Node
+var far_light_shadows: Node
 var touch: TouchControls
 var _street_rock_play: Node3D
 var shots: ShotCapture
@@ -1212,6 +1213,11 @@ func _compose_authorities() -> void:
 	if not service_light_visibility.setup(self):
 		startup_failed=true;push_error("V2 service practical visibility could not bind original sources");return
 	service_light_visibility.set_enabled(true)
+	# Street, bodega and entry-vestibule shadows only near an eye that can see them.
+	far_light_shadows=preload("res://scripts/building/orison_v2_far_light_shadows.gd").new()
+	far_light_shadows.name="FarLightShadows"
+	add_child(far_light_shadows)
+	if far_light_shadows.setup(self):far_light_shadows.set_enabled(true)
 	# A player-only percept shares the creature movement/pose owner and the
 	# already running lamp receiver field; it is not a second ecology or job.
 	var companion_body := DreamCritterController.new()
