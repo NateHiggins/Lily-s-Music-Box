@@ -13,8 +13,13 @@ PR499 clears the dress form from the service approach. Both wedges
 work from standing height, and the old approach is walkable. Nine installed
 checks and 818 composed physical checks passed. [Wedge evidence](C:/ov/reports/radiator_wedges_20261123/REPORT.md).
 
-The legacy hand-transfer bench, full service visit and Lily's play review
-remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
+PR500 preserves native fire-door contact across first-shift arrival and
+the intro-audio handoff. The full service contract passed 369 logged
+checks and 176 walking waypoints. It walked the spare up in the valise,
+earned both comparisons, closed the order with Lena and reconstructed
+the same job from disk. [Service contract](C:/ov/reports/radiator_service_visit_20261123/REPORT.md).
+
+The legacy hand-transfer bench and Lily's play review remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
 
 # Fresh save lineage through both endings - November 22
 
