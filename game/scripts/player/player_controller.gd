@@ -548,11 +548,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("pause_services"):
-		if pause_services and pause_services.call("can_open"):
-			pause_services.call("open")
+		if pause_services and pause_services.call("open"):
 			get_viewport().set_input_as_handled()
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _input(event: InputEvent) -> void:

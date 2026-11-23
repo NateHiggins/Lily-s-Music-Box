@@ -29,12 +29,14 @@ var apply_button: Button
 var sliders: Dictionary = {}
 var is_open := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
+var _focus_before: WeakRef
 
 
 func _ready() -> void:
 	layer = 90
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_build()
+	get_viewport().size_changed.connect(_fit_panel)
 
 
 func bind_player(owner: Node) -> void:
@@ -42,7 +44,7 @@ func bind_player(owner: Node) -> void:
 
 
 func can_open() -> bool:
-	return not is_open and is_instance_valid(player) \
+	return not is_open and not get_tree().paused and is_instance_valid(player) \
 			and not bool(player.get("call_locked")) \
 			and not is_instance_valid(player.get("seated_interaction"))
 
@@ -51,11 +53,12 @@ func open() -> bool:
 	if not can_open():
 		return false
 	_load_controls()
-	center.size = get_viewport().get_visible_rect().size
+	_fit_panel()
 	_mouse_before = Input.mouse_mode
+	_focus_before = weakref(get_viewport().gui_get_focus_owner())
 	is_open = true
 	_host_debug_controls(true)
-	panel.visible = true
+	center.show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy and policy.has_method("request_mix"):
@@ -74,33 +77,55 @@ func close(save := false) -> void:
 		# Preview is deliberately reversible. Leaving without saving must restore
 		# the persisted/user baseline, including whatever mix state is active.
 		GameBoot.apply_audio_settings()
-	get_tree().paused = false
+	# GUI handling leaves controller A visible to the polled world action.
+	if is_instance_valid(player) and Input.is_action_just_pressed("interact"):
+		player.call("retire_interact_press")
+	center.hide()
+	_host_debug_controls(false)
+	_release_pause()
+	Input.mouse_mode = _mouse_before
+	var previous := _focus_before.get_ref() as Control if _focus_before else null
+	if is_instance_valid(previous) and previous.is_visible_in_tree():
+		previous.grab_focus()
+	_focus_before = null
+
+
+func _exit_tree() -> void:
+	if is_open:
+		GameBoot.apply_audio_settings()
+		_release_pause()
+
+
+func _release_pause() -> void:
+	is_open = false
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy and policy.has_method("release_mix"):
 		policy.call("release_mix", &"pause_services")
-	panel.visible = false
-	apply_button.release_focus()
-	_host_debug_controls(false)
-	is_open = false
-	Input.mouse_mode = _mouse_before
+	get_tree().paused = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_open and event.is_action_pressed("ui_cancel"):
+	if is_open and (event.is_action_pressed("ui_cancel")
+			or event.is_action_pressed("pause_services")):
 		close(false)
 		get_viewport().set_input_as_handled()
+
+
+func _fit_panel() -> void:
+	center.size = get_viewport().get_visible_rect().size
+	var available := center.size - Vector2(32, 32)
+	panel.custom_minimum_size = available.clamp(Vector2.ZERO, Vector2(540, 600))
 
 
 func _build() -> void:
 	center = CenterContainer.new()
 	center.name = "ServicesCenter"
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.mouse_filter = Control.MOUSE_FILTER_STOP
+	center.hide()
 	add_child(center)
 	panel = PanelContainer.new()
 	panel.name = "InGameBuildingServices"
-	panel.custom_minimum_size = Vector2(540, 600)
-	panel.visible = false
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.025, 0.029, 0.034, 0.975)
 	style.border_width_left = 1
@@ -110,14 +135,18 @@ func _build() -> void:
 	style.border_color = Color(0.50, 0.38, 0.22, 0.78)
 	panel.add_theme_stylebox_override("panel", style)
 	center.add_child(panel)
+	var layout := VBoxContainer.new()
+	panel.add_child(layout)
 	var scroll := ScrollContainer.new()
 	scroll.name = "ServicesScroll"
-	scroll.custom_minimum_size = Vector2(496, 556)
+	scroll.follow_focus = true
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	panel.add_child(scroll)
+	layout.add_child(scroll)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 22)
+	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(margin)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 9)
@@ -192,16 +221,44 @@ func _build() -> void:
 	controller_look_curve.max_value = 3.0
 	controller_look_curve.step = 0.05
 	box.add_child(controller_look_curve)
+
+	var footer := MarginContainer.new()
+	for side in ["left", "right", "bottom"]:
+		footer.add_theme_constant_override("margin_" + side, 12)
+	layout.add_child(footer)
+	var actions := VBoxContainer.new()
+	footer.add_child(actions)
 	apply_button = Button.new()
 	apply_button.name = "ApplyAndReturn"
 	apply_button.text = "APPLY AND RETURN TO THE NIGHT"
 	apply_button.pressed.connect(func(): close(true))
-	box.add_child(apply_button)
+	actions.add_child(apply_button)
 	var resume := Button.new()
 	resume.name = "ReturnWithoutSaving"
 	resume.text = "RETURN WITHOUT SAVING"
 	resume.pressed.connect(func(): close(false))
-	box.add_child(resume)
+
+	actions.add_child(resume)
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
+		_connect_focus_cycle(box, resume)
+
+
+func _connect_focus_cycle(box: VBoxContainer, resume: Button) -> void:
+	var controls: Array[Control] = []
+	for child in box.get_children():
+		var control := child as Control
+		if control.focus_mode == Control.FOCUS_ALL:
+			controls.append(control)
+	controls.append(apply_button)
+	controls.append(resume)
+	for index in controls.size():
+		var control := controls[index]
+		var next := control.get_path_to(controls[(index + 1) % controls.size()])
+		var previous := control.get_path_to(controls[index - 1])
+		control.focus_next = next
+		control.focus_previous = previous
+		control.focus_neighbor_bottom = next
+		control.focus_neighbor_top = previous
 
 
 func _load_controls() -> void:

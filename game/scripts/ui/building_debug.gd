@@ -1028,6 +1028,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			or event.is_action_pressed("pause_services")):
 		if _ecology_active:
 			root.warehouse.close_ecology()
+		elif _pause_hosted:
+			return
 		else:
 			_set_menu_open(false)
 		get_viewport().set_input_as_handled()
