@@ -37,6 +37,15 @@ func _near(point: Vector3,eyes: Array[Vector3]) -> bool:
 		if point.distance_squared_to(eye)<END_M*END_M:return true
 	return false
 
+## Near an eye that can see it: any storey for a source on a shaft, only its
+## own storey for one sealed by slabs.
+func _seen(source: Dictionary,eyes: Array[Vector3]) -> bool:
+	var point: Vector3=source.light.global_position
+	for eye: Vector3 in eyes:
+		if point.distance_squared_to(eye)>=END_M*END_M:continue
+		if source.shaft or policy.level_at(eye)==source.level:return true
+	return false
+
 func tick() -> void:
 	var started: int=Time.get_ticks_usec()
 	var shadow_eyes: Array[Vector3]=[]
@@ -54,8 +63,8 @@ func tick() -> void:
 		var source: Dictionary=row.source
 		var light: Light3D=source.light
 		if not is_instance_valid(light):continue
-		var visible: bool=source.visible and source.graph_visible and (not enabled or _near(light.global_position,color_eyes))
-		var shadow: bool=row.shadow and (not enabled or _near(light.global_position,shadow_eyes))
+		var visible: bool=source.visible and source.graph_visible and (not enabled or (not source.clustered and _seen(source,color_eyes)))
+		var shadow: bool=row.shadow and (not enabled or (visible and _seen(source,shadow_eyes)))
 		if light.visible!=visible:light.visible=visible;switches+=1
 		if light.shadow_enabled!=shadow:light.shadow_enabled=shadow;switches+=1
 		if visible:policy.visible_sources.append(source.id)
