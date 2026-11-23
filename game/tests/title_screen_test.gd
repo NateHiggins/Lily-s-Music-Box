@@ -157,6 +157,12 @@ func _check_modal_settings(screen: OrisonTitleScreen) -> void:
 	_check("the sheet fits the smaller viewport and scrolls with focus",
 			Rect2(Vector2.ZERO, screen.get_viewport_rect().size).encloses(screen._settings_panel.get_global_rect())
 			and screen.find_child("BuildingServicesScroll", true, false).follow_focus)
+	var apply: Button = screen.find_child("ApplyTitleSettings", true, false)
+	var back_button: Button = screen.find_child("CancelTitleSettings", true, false)
+	var sheet_rect := screen._settings_panel.get_global_rect()
+	_check("Apply and Back remain visible without scrolling the sheet",
+			sheet_rect.encloses(apply.get_global_rect()) and sheet_rect.encloses(back_button.get_global_rect())
+			and apply.get_global_rect().position.y >= screen._settings_scroll.get_global_rect().end.y)
 	_check("reopening starts with the committed preferences",
 			is_equal_approx(screen._volume.value, saved) and screen._weather_location.text == retained_query)
 	await _settings_shot("BuildingServices800")
@@ -165,11 +171,7 @@ func _check_modal_settings(screen: OrisonTitleScreen) -> void:
 			not screen._settings_panel.is_visible_in_tree() and screen._services_button.has_focus())
 	screen._open_settings()
 	screen._volume.value = preview
-	for node: Node in screen._settings_panel.find_children("*", "Button", true, false):
-		var button := node as Button
-		if button.text == "APPLY":
-			button.grab_focus()
-			break
+	apply.grab_focus()
 	_push_key(window, KEY_ENTER)
 	var saved_file := ConfigFile.new()
 	_check("keyboard Apply commits the change through GameBoot",

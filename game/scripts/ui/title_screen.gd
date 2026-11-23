@@ -287,11 +287,15 @@ func _build_settings() -> void:
 	style.border_color = Color(0.50, 0.38, 0.22, 0.72)
 	_settings_panel.add_theme_stylebox_override("panel", style)
 	_settings_layer.add_child(_settings_panel)
+	var sheet := VBoxContainer.new()
+	sheet.add_theme_constant_override("separation", 0)
+	_settings_panel.add_child(sheet)
 	_settings_scroll = ScrollContainer.new()
 	_settings_scroll.name = "BuildingServicesScroll"
 	_settings_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_settings_scroll.follow_focus = true
-	_settings_panel.add_child(_settings_scroll)
+	_settings_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sheet.add_child(_settings_scroll)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 18)
@@ -378,8 +382,20 @@ func _build_settings() -> void:
 	_controller_invert_y.name = "ControllerInvertY"
 	_controller_invert_y.text = "INVERT Y"
 	controller_grid.add_child(_controller_invert_y)
-	_add_button(box, "APPLY", _save_settings).name = "ApplyTitleSettings"
-	_add_button(box, "BACK", _close_settings).name = "CancelTitleSettings"
+	var footer := MarginContainer.new()
+	for side in ["left", "top", "right", "bottom"]:
+		footer.add_theme_constant_override("margin_" + side, 12)
+	sheet.add_child(footer)
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 8)
+	footer.add_child(actions)
+	var apply := _add_button(actions, "APPLY", _save_settings)
+	apply.name = "ApplyTitleSettings"
+	var back := _add_button(actions, "BACK", _close_settings)
+	back.name = "CancelTitleSettings"
+	for button: Button in [apply, back]:
+		button.custom_minimum_size.x = 0.0
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_reset_settings_controls()
 
 
