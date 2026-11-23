@@ -1,3 +1,20 @@
+# Fresh campaign through the fifth filing - November 22
+
+Evidence class: **INERT**
+
+One fresh session on **f35b6b8f8** passed 173 checks and 274 walking
+waypoints from Begin through the August 24 filing. Juno and Cal reached
+their 5B endpoints. The terminal native save matched the fifth filing
+byte for byte and retained both early deductions.
+
+The F03 descent took 7.189 seconds in the crowded fresh session. At the
+earlier six-second cutoff, the player was still moving after courtesy
+pauses. The intermittent mirror stall remains open. This run used
+scripted input with controlled visit clocks and allowance days.
+The later visits, ordinary fare pacing and Lily's play review remain open.
+
+[Fresh campaign evidence](C:/ov/reports/title_campaign_chain_20261122/fresh_through_fifth_main_03/verified_terminal.json).
+
 # First dream after the first deduction - November 22
 
 Evidence class: **INERT**
