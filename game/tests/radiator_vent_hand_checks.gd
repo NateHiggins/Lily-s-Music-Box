@@ -28,8 +28,6 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	await bench.get_tree().physics_frame
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_cap": failures.append("regrab unthreaded cap");return
-	var away: Vector3=prop.to_local(cap.home().origin)+Vector3(.12,.10,-.08)
-	await bench._carry_to(player,away)
 	driver._click(player)
 	if not cap.chamber_exposed() or prop.vent_grade!=grade: failures.append("cap removal exposes chamber without cycling grade")
 	# A partial-thread save must restore actual changed geometry.
@@ -53,8 +51,7 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	malformed.records.F02_B_RADIATOR_01.value.vent_cap.thread_version=true
 	if codec.validate(malformed,codec._kinds):failures.append("cap thread version rejects booleans")
 	codec._restore(saved)
-	# Repeat removal, carry clear and leave the cap in the hand while invoking
-	# the ordinary Space inspection action. The camera must reach the chamber.
+	# Repeat removal, grab the parked cap and enter the chamber with Space.
 	contact=cap.to_global(Vector3(0,.018,-.015))
 	player.camera.global_position=contact+prop.global_basis*Vector3(.04,.10,-.18)
 	player.camera.look_at(contact)
@@ -68,7 +65,6 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	await bench.get_tree().physics_frame
 	driver._click(player)
 	if not player._grab.active(): failures.append("cap removal after partial restore");return
-	await bench._carry_to(player,away)
 	var space := InputEventKey.new()
 	space.keycode=KEY_SPACE
 	space.physical_keycode=KEY_SPACE
@@ -117,6 +113,12 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_cap": failures.append("loose cap pickup after restore");return
 	var receiver: Vector3 = prop.to_local(cap.home().translated_local(Vector3.UP * cap.THREAD_TRAVEL).origin)
+	var above := receiver + Vector3.UP * .08
+	var lifted := Vector3(cap.position.x, above.y, cap.position.z)
+	player.camera.global_position = prop.to_global((cap.position + receiver) * .5 + Vector3(-.24,.15,-.45))
+	player.camera.look_at(contact)
+	await bench._carry_to(player,lifted)
+	await bench._carry_to(player,above)
 	await bench._carry_to(player,receiver)
 	print("CAP DELIVERY held=", player._grab.active(), " error_m=", cap.position.distance_to(receiver))
 	driver._click(player)

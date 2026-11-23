@@ -82,7 +82,7 @@ func grip() -> Dictionary:
 	# The cap stays at this vent's thread or nearby park. The cursor controls
 	# the local move back to the mouth without attaching it to the walking hand.
 	return {"owner":radiator,"part":self,"frame":radiator.native_rig.vent if threaded else radiator,
-		"kind":"hinge" if threaded else "free","pickup":false,"axis":Vector3.UP,
+		"kind":"hinge" if threaded else "free","pickup":false,"unobstructed_hold":loose,"axis":Vector3.UP,
 		"minimum":0.0,"maximum":TURN_END,
 		"read":func(): return turn if threaded else position,
 		"begin":func():
