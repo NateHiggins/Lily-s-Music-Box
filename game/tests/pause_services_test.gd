@@ -180,6 +180,17 @@ func _check_paused_valise() -> void:
 		view.queue_free()
 		return
 
+	var cursor_origin := view._pointer
+	_push_axis(JOY_AXIS_LEFT_X, 0.1)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("Valise stick stays still inside its deadzone", view._pointer == cursor_origin)
+	_push_axis(JOY_AXIS_LEFT_X, 1.0)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_push_axis(JOY_AXIS_LEFT_X, 0.0)
+	_check("Valise stick moves the case pointer without resuming play",
+			view._pointer.x > cursor_origin.x and get_tree().paused)
 	var old := CarriedCase.place_of(item).duplicate()
 	_pad_seek(view, _case_cell_screen(view, float(old.x) + 0.5, float(old.y) + 0.5))
 	_push_joy(JOY_BUTTON_A)
@@ -188,6 +199,12 @@ func _check_paused_valise() -> void:
 		var old_turn := view._held_turned
 		_push_joy(JOY_BUTTON_Y)
 		_check("Controller turns the held stack", view._held_turned != old_turn)
+		var shot_dir := OS.get_environment("SHOT_DIR")
+		if not shot_dir.is_empty() and DisplayServer.get_name() != "headless":
+			await RenderingServer.frame_post_draw
+			_check("Rendered controller valise proof saved",
+					get_viewport().get_texture().get_image().save_png(
+					shot_dir.path_join("PausedValise800.png")) == OK)
 		var new_cell := Vector2i(-1, -1)
 		var size := CarriedCase.form_size(str(old.form), view._held_turned)
 		for y in CarriedCase.grid().y:
@@ -241,6 +258,13 @@ func _push_joy(button: JoyButton) -> void:
 		event.button_index = button
 		event.pressed = pressed
 		get_tree().root.push_input(event, true)
+
+
+func _push_axis(axis: JoyAxis, value: float) -> void:
+	var event := InputEventJoypadMotion.new()
+	event.axis = axis
+	event.axis_value = value
+	get_tree().root.push_input(event, true)
 
 
 func _push_key(key: Key) -> void:
