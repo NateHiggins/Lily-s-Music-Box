@@ -1,0 +1,13 @@
+{
+	"checks": 108,
+	"evidence_class": "INERT",
+	"failures": 0,
+	"scope": "Isolated real traffic-owner simulation; ground/elevated contact controls. No composed-world, visual, save or artistic acceptance.",
+	"source_hashes": {
+		"res://data/orison_v2/exterior/city_streets.json": "d23998ac062880f209f960ee9eef53bae1adf7473ea83499c6c40a7738bc0c6b",
+		"res://data/orison_v2/exterior/street_traffic.json": "83515cf81961197bfc7ae8f45f37a5dce2d501eab9ddee822154cb20c58e8a33",
+		"res://scripts/building/orison_v2_city_streets.gd": "36e797134075e8f70fe795cc7604827a7ec391927272c589f18adce8037182f9",
+		"res://scripts/building/orison_v2_street_traffic.gd": "a5125a9b28f8af7456f748187a8d3df1edf4351ec43fc25f7b0a3af699bd1b47",
+		"res://tests/orison_v2_traffic_behaviour_test.gd": "b5bdd119482c47f984395e30b3f2cdc0d0d27b67c31027ea7c8d8e7aed63f814"
+	}
+}

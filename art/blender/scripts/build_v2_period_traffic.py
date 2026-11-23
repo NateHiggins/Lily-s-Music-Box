@@ -67,6 +67,11 @@ FINISHES = {
     "sign_cream": {"catalog_key": "door_paint", "tint": [0.80, 0.74, 0.58, 1], "normal": .6, "roughness": .8},
     "sign_vermilion": {"catalog_key": "door_paint", "tint": [0.58, 0.15, 0.09, 1], "normal": .6, "roughness": .75},
     "quilt": {"catalog_key": "fabric_warm", "tint": [0.36, 0.29, 0.21, 1], "normal": 1., "roughness": 1.},
+    # The side panels' picture: Lily's pick A (ruling we_tuna_pianos_panel_pick, 2026-11-23), a shark leaping at a
+    # grand piano before the sun. No lettering, no hands. Its own image is the albedo, mapped once across the panel
+    # (0-1 picture UVs); the painted panelling's catalogue roughness and normal maps lie under it.
+    "tuna_picture": {"catalog_key": "door_paint", "tint": [1, 1, 1, 1], "normal": .3, "roughness": .7,
+                     "picture": "res://assets/props/v2_period_traffic_tuna_panel.png"},
 }
 for spec in FINISHES.values():
     spec.setdefault("pigment", 1.0)
@@ -697,30 +702,52 @@ def sound_wagon():
 
 # The WE TUNA PIANOS truck (design/ORISON_STREET_BRIEF.md, "As built", 2026-08-14): a battered 1928 one-ton
 # box truck in oxidised teal, cream and vermilion, 5.8 x 2.05 x 2.30 m. The approved concept is
-# art/concept/vehicles/we_tuna_pianos_truck_turnaround_v1.png. Its painted advertisement carries lettering and a
-# shark's hands, so neither is baked: the panels are signwriters' ground, a keyboard border stands for the picture,
-# and the legend is Label3D in the runtime (the kind's `signs`). The piano rides inside; nobody handles anything.
+# art/concept/vehicles/we_tuna_pianos_truck_turnaround_v1.png. Its painted advertisement carried lettering and a
+# shark's hands, so neither is baked: each side panel carries Lily's chosen picture (no lettering, no hands) with
+# the vermilion ribbon across its foot, and the legend is Label3D in the runtime (the kind's `signs`). The piano
+# rides inside; nobody handles anything.
 PIANO_BOX = (-3.40, -0.12)      # box body, rear to front, Blender x
 PIANO_HALF_W = 1.02
 PIANO_FLOOR = 0.88
 PIANO_TOP = 2.30
 PIANO_PANEL = (-1.78, 2.74)     # side panel centre x and length
-PIANO_RIBBON_Z = 1.42
+PIANO_RIBBON_Z = 1.31           # the ribbon crosses the foot of the picture, as in the concept
+PIANO_RIBBON_H = 0.24
+PIANO_PICTURE_Z = (1.20, 2.08)  # the picture fills the cream field: 2.66 x 0.88 m, the image's 3:1
 
 
-def keyboard(p, x0, x1, y, z, h):
-    """A strip of keys: ivory ground, black keys in twos and threes. A lettering-free stand-in for the picture."""
-    add(p, "sign_cream", box(((x0 + x1) / 2, y, z), (x1 - x0, 0.012, h)))
-    n = int((x1 - x0) / 0.085)
-    pitch = (x1 - x0) / n
-    out = 0.009 if y > 0 else -0.009
-    keys = []
-    for i in range(n - 1):
-        if i % 7 in (2, 6):
-            continue  # no black key between E-F and B-C
-        keys.append(box((x0 + pitch * (i + 1), y + out, z + h * 0.18), (pitch * 0.55, 0.008, h * 0.62)))
-    add(p, "bakelite", *keys)
-    add(p, "bakelite", box(((x0 + x1) / 2, y + out, z - h / 2 + 0.004), (x1 - x0, 0.008, 0.008)))
+def picture_quad(x0, x1, z0, z1, y, side):
+    """One quad facing out of the side `side` (+1 left, -1 right) at Blender y; its UVs are set after partition."""
+    bm = bmesh.new()
+    corners = [(x0, y, z0), (x1, y, z0), (x1, y, z1), (x0, y, z1)]
+    verts = [bm.verts.new(c) for c in corners]
+    bm.faces.new(verts if side < 0 else list(reversed(verts)))
+    return _obj(bm, "picture")
+
+
+def picture_uvs(obj):
+    """Map each face of a picture partition once across the picture, upright and unmirrored as seen from outside:
+    u runs to the viewer's right, v up (the glTF export flips v to top-left). The tangent guide follows u."""
+    mesh = obj.data
+    uv = mesh.uv_layers["Metres"]
+    guide = mesh.attributes["_tangent_guide"]
+    up = Vector((0, 0, 1))
+    by_side = {}
+    for poly in mesh.polygons:
+        by_side.setdefault(1 if poly.normal.y > 0 else -1, []).append(poly)
+    for polys in by_side.values():
+        n = polys[0].normal
+        right = (-n).cross(up).normalized()
+        points = [mesh.vertices[mesh.loops[i].vertex_index].co for poly in polys for i in poly.loop_indices]
+        u0 = min(p.dot(right) for p in points)
+        u1 = max(p.dot(right) for p in points)
+        z0 = min(p.z for p in points)
+        z1 = max(p.z for p in points)
+        for poly in polys:
+            for i in poly.loop_indices:
+                co = mesh.vertices[mesh.loops[i].vertex_index].co
+                uv.data[i].uv = ((co.dot(right) - u0) / (u1 - u0), (co.z - z0) / (z1 - z0))
+                guide.data[i].vector = (right.x, right.z, -right.y)
 
 
 def piano_truck():
@@ -735,11 +762,11 @@ def piano_truck():
     cx, length = PIANO_PANEL
     for s in (1, -1):
         y = s * PIANO_HALF_W
-        # Vermilion border, cream field, vermilion ribbon for the legend, keyboard along the top.
+        # Vermilion border, cream field, the picture, and the vermilion ribbon for the legend across its foot.
         add(p, "sign_vermilion", box((cx, y + s * 0.006, 1.63), (length + 0.12, 0.012, 1.04)))
         add(p, "sign_cream", box((cx, y + s * 0.012, 1.64), (length, 0.012, 0.94)))
-        add(p, "sign_vermilion", box((cx, y + s * 0.018, PIANO_RIBBON_Z), (length - 0.24, 0.012, 0.34)))
-        keyboard(p, cx - length / 2 + 0.16, cx + length / 2 - 0.16, y + s * 0.02, 1.93, 0.2)
+        add(p, "tuna_picture", picture_quad(cx - length / 2 + 0.04, cx + length / 2 - 0.04, *PIANO_PICTURE_Z, y + s * 0.0195, s))
+        add(p, "sign_vermilion", box((cx, y + s * 0.026, PIANO_RIBBON_Z), (length - 0.24, 0.012, PIANO_RIBBON_H)))
         # Body trim, the movers' skid board slung under the box, and a rope coil on the rear corner.
         add(p, "japan_black", box(((rear + front) / 2, y + s * 0.006, PIANO_FLOOR + 0.05), (front - rear, 0.012, 0.06)),
             box(((rear + front) / 2, y + s * 0.006, PIANO_TOP - 0.1), (front - rear - 0.1, 0.012, 0.04)))
@@ -944,10 +971,10 @@ KINDS = [
 # vehicle's frame (Godot axes); `yaw_degrees` turns the label's reading face (+Z) out of that side, and `width`
 # and `height` bound the letters.
 _TUNA = [0.86, 0.80, 0.64]
-_RIBBON_OUT = PIANO_HALF_W + 0.026
+_RIBBON_OUT = PIANO_HALF_W + 0.034
 PIANO_SIGNS = [
-    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], _RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 180.0, "width": 2.2, "height": 0.27, "colour": _TUNA},
-    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], -_RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 0.0, "width": 2.2, "height": 0.27, "colour": _TUNA},
+    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], _RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 180.0, "width": 2.2, "height": 0.19, "colour": _TUNA},
+    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], -_RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 0.0, "width": 2.2, "height": 0.19, "colour": _TUNA},
     {"text": "WE TUNA", "at": W(PIANO_BOX[0] - 0.02, 0, 1.98), "yaw_degrees": -90.0, "width": 1.5, "height": 0.3, "colour": _TUNA},
     {"text": "PIANOS", "at": W(PIANO_BOX[0] - 0.02, 0, 1.64), "yaw_degrees": -90.0, "width": 1.5, "height": 0.3, "colour": _TUNA},
 ]
@@ -1102,12 +1129,14 @@ def main():
         for fid, objs in parts.items():
             assert fid in FINISHES, (name, fid)
             obj = partition(exports, f"{name}__{fid}", objs, FINISHES[fid], mats[fid], Matrix.Identity(4), catalog)
+            if "picture" in FINISHES[fid]:
+                picture_uvs(obj)
             triangles[name] += len(obj.data.polygons)
     scratch.hide_render = True
     scratch.hide_viewport = True
     proof = export(ROOT, FAMILY, exports, material_names_only=True, staged_output=True)
     runtime_kind_keys = ("id", "stock", "weight", "speed", "paint", "extent", "width", "wheels", "horse", "figures", "voice", "class", "pattern", "signal_arm", "solo", "signs")
-    runtime_finish_keys = ("catalog_key", "tint", "normal", "roughness", "paint", "emission", "albedo_mean")
+    runtime_finish_keys = ("catalog_key", "tint", "normal", "roughness", "paint", "emission", "albedo_mean", "picture")
     table = {
         "schema": "orison.v2.street-traffic.v1",
         "frame": "ORISON_FRONT_DOOR_THRESHOLD",

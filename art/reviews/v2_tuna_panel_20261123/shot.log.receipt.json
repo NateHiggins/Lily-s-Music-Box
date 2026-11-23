@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 352.75,
+  "exit_code": 0,
+  "finished_utc": "2026-11-23T21:34:29Z",
+  "started_utc": "2026-11-23T21:28:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/traffic_spec_20261123/panel_final/shot.log.stderr",
+  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
+  "stdout": "C:/ov/reports/traffic_spec_20261123/panel_final/shot.log",
+  "stdout_sha256": "f9169c4128d7ca4bbfd51bede505973783e9debe2ff5d165df152aec1429e19c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2TrafficSpecShot.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/traffic_spec_20261123/panel_final/shots",
+ "source": {
+  "dirty_paths": 2518,
+  "dirty_sample": [
+   "M art/blender/city_streets_construction.json",
+   " M art/blender/city_transport_construction.json",
+   " M art/blender/scripts/build_v2_period_traffic.py",
+   " M art/blender/v2_period_traffic.blend",
+   " M art/data/v2_period_traffic_manifest.json",
+   " M design/V2_TRAFFIC_INVENTORY_2026-11-23.md",
+   " M game/assets/audio/companion/acknowledgement.wav.import",
+   " M game/assets/audio/companion/concern.wav.import",
+   " M game/assets/audio/companion/confusion.wav.import",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import"
+  ],
+  "repository_head": "707ae226faabc8da87a9e84ec9df1729aef183a9",
+  "repository_tree": "1a35a24cd0c84da28cb846a1ed6ded37f2a6e7aa",
+  "runtime_inputs_sha256": "73c51347bb0131990aeb74b9f9bea6a226aac02cb245a418d0e6af2b70d7ebd6",
+  "test_path": "game/tests/v2_traffic_spec_shot.gd",
+  "test_sha256": "eac66f382e99eff7eb9b8295e32876be718cb57ce879e8bffda96836013ef983"
+ },
+ "windowed": true
+}

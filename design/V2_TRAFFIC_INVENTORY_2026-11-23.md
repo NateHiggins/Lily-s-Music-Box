@@ -165,14 +165,26 @@ In V2 it is rebuilt in the traffic recipe on the AA chassis:
 
 - a brass radiator shell, the teal box body and a cream roof;
 - signwriters' panels on both sides: a vermilion border, a cream field and a vermilion ribbon;
-- a black-and-ivory keyboard border along the top of each panel;
+- on each panel, Lily's chosen picture: a shark leaping at a grand piano before the sun;
 - rear doors with nickel hinges and a brass handle, and a rear step;
 - the movers' skid board slung under the box, rope coils on the rear corners, and folded quilts on a low roof rail.
 
 **Staged with no hands.** The piano rides inside the box, and nobody carries, lifts or handles anything. The
 approved advertisement shows a shark swinging a tuna in its hands. That picture is not baked: it would put
-lettering and hands in a texture. The keyboard border stands in for it, and the legend **WE TUNA PIANOS** is
-Label3D:
+lettering and hands in a texture. A keyboard border stood in for it at first. Lily then ruled
+**we_tuna_pianos_panel_art** (a new picture with no lettering and no hands, for her approval) and picked A in
+**we_tuna_pianos_panel_pick** (2026-11-23).
+
+- The picture is a local SDXL draft, chosen from 40 after checking each for letters and hands at full size. Its
+  prompts are kept beside the drafts in **C:/ov/reports/traffic_spec_20261123/panel_art/**.
+- It ships as **game/assets/props/v2_period_traffic_tuna_panel.png** (1536 × 512), with its metadata stripped.
+- It fills the cream field, 2.66 × 0.88 m, on a single quad per side.
+- Those quads carry 0–1 picture UVs that read upright and unmirrored from outside, with tangent guides along them.
+- The finish `tuna_picture` uses the image as albedo over `door_paint`'s catalogue roughness and normal maps, as the
+  shop's portraits lie over paper.
+- The ribbon crosses the picture's foot, as in the concept.
+
+The legend **WE TUNA PIANOS** is Label3D:
 
 - on each side's ribbon;
 - in two lines on the rear doors;
@@ -245,7 +257,6 @@ went on the hidden desktop. The review renders and their receipts are in **art/r
   work, with a frame-rate cost to measure against the open 30 fps order.
 - **V1 piano-truck assets.** The Meshy GLB, its textures, the lettered sign PNG and the V1 recipe are unused by V2.
   Retiring them is a size-pass task.
-- **The advertisement picture.** A lettering-free, hand-free illustration for the side panels would need Lily's
-  approval as new art, through the catalogue.
+- **The advertisement picture.** Done: Lily's pick A is on both side panels (section 4.1).
 - **The delivered Model A Tudor prototype** (section 9 of the period-traffic packet) is still not integrated.
 - **Door animation** for any vehicle would only matter once something stops at the kerb to deliver.
