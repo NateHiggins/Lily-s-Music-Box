@@ -847,6 +847,8 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 		if thread.has("hours"):
 			if minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1])):
 				continue
+		if not _witnesses_present(thread):
+			continue
 		var ready := true
 		for flag in thread.get("requires", []):
 			if not RealityState.has_knowledge(str(flag)):
@@ -857,6 +859,18 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 		if ready:
 			out.append(thread)
 	return out
+
+
+## A thread may name residents who must be bodily there (`present`). Only the
+## visit's performance owner knows an actual arrival; without it, no witness is.
+func _witnesses_present(thread: Dictionary) -> bool:
+	var needed: Array = thread.get("present", [])
+	if needed.is_empty():
+		return true
+	var owner: Node = get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if owner == null or not owner.has_method("witness_present"):
+		return false
+	return needed.all(func(id: Variant) -> bool: return bool(owner.call("witness_present", str(id))))
 
 
 ## A working copy of the tree with the open threads grafted on: every entry node

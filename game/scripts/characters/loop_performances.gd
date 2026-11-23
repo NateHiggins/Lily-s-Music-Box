@@ -237,6 +237,16 @@ func _sync_visit() -> void:
 	# phase. No visible teleport on jump, home, load or immediate rerun.
 
 
+## True when this visit's performance has sent `resident` to a place and their
+## body has actually arrived there. A mystery thread that names a witness in
+## `present` (S14: Nadia in 6C) asks this, so a line is never said by someone
+## still on the stair.
+func witness_present(resident: String) -> bool:
+	if loop == null or not loop.in_visit() or str(phase_for(resident).get("place", "")).is_empty():
+		return false
+	return _arrived(resident)
+
+
 func _arrived(resident: String) -> bool:
 	var route: Node = world.resident_routes.get(resident)
 	if route == null or route.actor == null or not route.actor.is_visible_in_tree() \

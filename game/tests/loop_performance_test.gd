@@ -303,8 +303,13 @@ func _s14_nadia_names_her() -> void:
 	check(str(performance.phase_for("nadia_quell").get("place", "x")).is_empty() and not s14_open.call(),
 			"before ten to four Nadia has not come up and S14 is not open")
 	_advance(1.5)
-	check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C" and s14_open.call(),
-			"at ten to four Nadia comes up to 6C and S14 opens with the kept papers in hand")
+	var nadia: Route = world.resident_routes.nadia_quell
+	nadia.actor._walking = true
+	check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C" and not s14_open.call()
+			and not conversations.has_spoken_thread("mae_kessler"),
+			"at ten to four, while Nadia is still on her way, S14 does not open (Codex's arrival finding)")
+	nadia.arrive("visit:6C")
+	check(s14_open.call(), "once Nadia has actually arrived in 6C, S14 opens with the kept papers in hand")
 	RealityState.data.knowledge_flags.erase("m_receipt_seen")
 	check(not s14_open.call(), "without the kept papers S14 stays closed")
 	RealityState.grant_knowledge("m_receipt_seen")
