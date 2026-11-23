@@ -11,7 +11,7 @@ const MAINTENANCE_WASHER := "fire_hose_spare_gasket"
 const WASHER_FORM := "maintenance_washer"
 const VENT_INSERT_PREFIX := "radiator_insert:"
 const VENT_INSERT_FORM := "radiator_vent_insert"
-const VENT_INSERT_STOCK := "B1_VENT_SERVICE_STOCK"
+const VENT_INSERT_SOURCE := "res://data/orison_v2/heating_service_stock.json"
 const BOOK_PREFIX := "library_book:"
 const LIBRARY_PATH := "res://data/orison_v2/readable_library.json"
 const LIBRARY_COPIES_PATH := "res://data/orison_v2/nook_readable_books.json"
@@ -20,6 +20,7 @@ const BOOK_FOOTPRINT_ALLOWANCE := 0.004
 
 static var _data: Dictionary = {}
 static var _book_sizes: Dictionary = {}
+static var _vent_stock_id := ""
 
 
 static func data() -> Dictionary:
@@ -143,7 +144,7 @@ static func valid_packed_inserts(case_book: Dictionary, records: Variant) -> boo
 	for item: String in case_book.get("places", {}):
 		if not item.begins_with(VENT_INSERT_PREFIX):
 			continue
-		var stock: Variant = records.get(VENT_INSERT_STOCK) if records is Dictionary else null
+		var stock: Variant = records.get(vent_insert_stock_id()) if records is Dictionary else null
 		if stock is not Dictionary or stock.get("kind") != "mechanism" or stock.get("value") is not Dictionary:
 			return false
 		var parts: Variant = stock.value.get("parts")
@@ -160,6 +161,14 @@ static func valid_packed_inserts(case_book: Dictionary, records: Variant) -> boo
 static func _valid_vent_index(value: Variant) -> bool:
 	return typeof(value) in [TYPE_INT, TYPE_FLOAT] and value >= 0 and value < 5 \
 		and value == floorf(float(value))
+
+
+static func vent_insert_stock_id() -> String:
+	if _vent_stock_id.is_empty():
+		var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(VENT_INSERT_SOURCE))
+		if source is Dictionary:
+			_vent_stock_id = str(source.get("id", ""))
+	return _vent_stock_id
 
 
 static func place_of(item: String) -> Dictionary:
@@ -214,7 +223,7 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 			var staged: Dictionary = document[KEY].places[item]
 			staged.merge({"x": x, "y": y, "turned": turned}, true)
 			return true
-		return RealityState.commit_case_custody_change(prepare)
+		return RealityState.commit_case_and_household(prepare)
 	place.x = x
 	place.y = y
 	place.turned = turned

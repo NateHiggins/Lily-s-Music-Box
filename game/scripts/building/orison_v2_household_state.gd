@@ -346,7 +346,7 @@ func commit_purchased_gasket(counter: Node, cabinet: Node, pickup: Node, fit: Di
 
 
 func packed_vent_insert(item: String) -> Dictionary:
-	var stock: Node = _subjects.get(CarriedCase.VENT_INSERT_STOCK)
+	var stock: Node = _subjects.get(CarriedCase.vent_insert_stock_id())
 	if not is_instance_valid(stock) or not item.begins_with(CarriedCase.VENT_INSERT_PREFIX):
 		return {}
 	var row: Dictionary = stock.rows.get(item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX), {})
@@ -354,7 +354,7 @@ func packed_vent_insert(item: String) -> Dictionary:
 
 
 func vent_insert_fit(holder: PlayerController) -> Dictionary:
-	var stock: Node = _subjects.get(CarriedCase.VENT_INSERT_STOCK)
+	var stock: Node = _subjects.get(CarriedCase.vent_insert_stock_id())
 	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_instance_valid(stock):
 		return {}
 	var identity: String = stock.held_workshop_spare(holder)
@@ -369,12 +369,12 @@ func pack_vent_insert(holder: PlayerController) -> String:
 	var fit := vent_insert_fit(holder)
 	if fit.is_empty():
 		return ""
-	var stock: Node = _subjects[CarriedCase.VENT_INSERT_STOCK]
+	var stock: Node = _subjects[CarriedCase.vent_insert_stock_id()]
 	var prepare := func(document: Dictionary) -> bool:
 		if vent_insert_fit(holder) != fit:
 			return false
 		var controls: Dictionary = document[KEY]
-		var parts: Array = controls.records[CarriedCase.VENT_INSERT_STOCK].value.parts
+		var parts: Array = controls.records[CarriedCase.vent_insert_stock_id()].value.parts
 		var index := parts.find_custom(func(part): return part.id == fit.identity)
 		if index < 0:
 			return false
@@ -392,20 +392,20 @@ func pack_vent_insert(holder: PlayerController) -> String:
 func vent_insert_destination(holder: PlayerController, item: String) -> Node3D:
 	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or packed_vent_insert(item).is_empty():
 		return null
-	return _subjects[CarriedCase.VENT_INSERT_STOCK].case_destination(holder, item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX))
+	return _subjects[CarriedCase.vent_insert_stock_id()].case_destination(holder, item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX))
 
 
 func deliver_vent_insert(holder: PlayerController, item: String) -> bool:
 	var destination := vent_insert_destination(holder, item)
 	if not is_instance_valid(destination):
 		return false
-	var stock: Node = _subjects[CarriedCase.VENT_INSERT_STOCK]
+	var stock: Node = _subjects[CarriedCase.vent_insert_stock_id()]
 	var identity := item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX)
 	var prepare := func(document: Dictionary) -> bool:
 		if vent_insert_destination(holder, item) != destination:
 			return false
 		var controls: Dictionary = document[KEY]
-		var parts: Array = controls.records[CarriedCase.VENT_INSERT_STOCK].value.parts
+		var parts: Array = controls.records[CarriedCase.vent_insert_stock_id()].value.parts
 		var index := parts.find_custom(func(part): return part.id == identity)
 		if index < 0:
 			return false
@@ -423,9 +423,9 @@ func _commit_vent_insert(prepare: Callable, stock: Node) -> bool:
 	var publish := func(verified: Dictionary) -> void:
 		_last_saved = verified.duplicate(true)
 		_restoring = true
-		stock.restore_mechanism(verified.records[CarriedCase.VENT_INSERT_STOCK].value)
+		stock.restore_mechanism(verified.records[CarriedCase.vent_insert_stock_id()].value)
 		_restoring = false
-	return RealityState.commit_case_custody_change(prepare, publish)
+	return RealityState.commit_case_and_household(prepare, publish)
 
 
 func packed_book(item: String) -> Book:
@@ -466,7 +466,7 @@ func pack_book(holder: PlayerController) -> bool:
 		holder._grab.release(false)
 		copy.set_valise_packed(true)
 		_restoring = false
-	return RealityState.commit_case_custody_change(prepare, publish)
+	return RealityState.commit_case_and_household(prepare, publish)
 
 
 func unpack_book(holder: PlayerController, item: String) -> bool:
@@ -497,7 +497,7 @@ func unpack_book(holder: PlayerController, item: String) -> bool:
 		_restoring = false
 		if not acquired:
 			push_error("Verified valise exit lost the reserved library hand: " + item)
-	return RealityState.commit_case_custody_change(prepare, publish)
+	return RealityState.commit_case_and_household(prepare, publish)
 
 
 func _stage_book_pose(document: Dictionary, collection: String, copy: Book, pose: Transform3D) -> bool:
