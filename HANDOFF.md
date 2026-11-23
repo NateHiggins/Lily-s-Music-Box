@@ -1,3 +1,20 @@
+# S14 and Mae's release dream - November 22
+
+Evidence class: **INERT**
+
+PR486 merged S14 at **148b9c974** and preserved PR485 in its history.
+The Box clock stops accelerating for Nadia's arrival. Mae's release
+prints once and its sleep starts in present-day 4B. The Luncheonette
+counter disconnects its save listener when the waking world detaches.
+
+The installed route passed 41 checks through HOME, eight through the
+natural dream fall and wake, and ten more through physical filing from
+the exact wake save. The counter passed 48 checks. Physical surface
+qualification passed 818 checks with 23 technically reviewed views.
+Lily's play review and an uninterrupted fresh campaign remain open.
+
+[Installed evidence](C:/ov/reports/title_campaign_chain_20261122/verified_s14_release_and_filing.json) · [Candidate verification](C:/ov/reports/title_campaign_chain_20261122/s14_local_final_candidate_01/verification.md).
+
 # Stair and railing continuity - November 22
 
 Evidence class: **INERT**
