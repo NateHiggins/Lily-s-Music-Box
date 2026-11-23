@@ -174,6 +174,7 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 	_seeded = float(seed_v % 617) * 0.031
 	var inst := HERO_SCENE.instantiate()
 	add_child(inst)
+	preload("res://scripts/visuals/cel_style_presentation.gd").preserve(inst)
 	rig = inst
 	global_position = at
 	anchor_normal = aim.normalized() if aim.length_squared() > 0.001 \

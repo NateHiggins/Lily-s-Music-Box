@@ -73,6 +73,7 @@ var _always_warn: CheckBox
 var _sound_captions: CheckBox
 var _live_local_weather: CheckBox
 var _weather_network_enabled: CheckBox
+var _cel_shading: CheckBox
 var _weather_location: LineEdit
 var _volume: HSlider
 var _gameplay_volume: HSlider
@@ -313,6 +314,10 @@ func _build_settings() -> void:
 	_quality.add_item("Cinematic — maximum (default)", 0)
 	_quality.add_item("Balanced — debug-tested", 1)
 	box.add_child(_quality)
+	_cel_shading = CheckBox.new()
+	_cel_shading.name = "CelShading"
+	_cel_shading.text = "CEL SHADING"
+	box.add_child(_cel_shading)
 	_fullscreen = CheckBox.new()
 	_fullscreen.text = "EXCLUSIVE FULLSCREEN"
 	box.add_child(_fullscreen)
@@ -407,6 +412,7 @@ func _size_settings() -> void:
 func _reset_settings_controls() -> void:
 	var values := GameBoot.settings
 	_quality.select(int(values.quality))
+	_cel_shading.set_pressed_no_signal(bool(values.cel_shading))
 	_fullscreen.set_pressed_no_signal(bool(values.fullscreen))
 	_always_warn.set_pressed_no_signal(bool(values.always_warn_before_sleep))
 	_sound_captions.set_pressed_no_signal(bool(values.gameplay_sound_captions)
@@ -792,6 +798,7 @@ func _build_replacement_choice() -> void:
 
 func _save_settings() -> void:
 	GameBoot.settings.quality = _quality.selected
+	GameBoot.settings.cel_shading = _cel_shading.button_pressed
 	GameBoot.settings.fullscreen = _fullscreen.button_pressed
 	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
 	GameBoot.settings.gameplay_sound_captions = _sound_captions.button_pressed

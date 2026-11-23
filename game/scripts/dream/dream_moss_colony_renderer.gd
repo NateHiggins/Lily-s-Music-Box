@@ -400,6 +400,7 @@ func _build_waking() -> void:
 		_waking_materials.append(material)
 	if cilium_mesh != null:
 		_build_waking_cilia(cilium_mesh, _waking_cilium_roots(root_mesh))
+	preload("res://scripts/visuals/cel_style_presentation.gd").preserve(_waking)
 	_build_waking_vapor()
 	_build_waking_trail()
 

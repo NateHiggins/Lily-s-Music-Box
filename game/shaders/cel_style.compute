@@ -1,0 +1,71 @@
+#version 450
+layout(local_size_x = 8, local_size_y = 8) in;
+
+layout(rgba16f, set = 0, binding = 0) uniform writeonly image2D output_image;
+layout(set = 0, binding = 1) uniform sampler2D source_color;
+
+#ifndef COPY_IMAGE
+layout(set = 0, binding = 2) uniform sampler2D scene_depth;
+layout(set = 0, binding = 3) uniform sampler2D native_depth;
+
+float luma(vec3 color) {
+	return dot(color, vec3(0.299, 0.587, 0.114));
+}
+
+vec3 palette_input(vec3 color) {
+	vec3 positive = max(color, vec3(0.0));
+	return sqrt(positive / (positive + 1.0));
+}
+
+vec3 palette_output(vec3 color) {
+	vec3 squared = pow(clamp(color, 0.0, 0.997), vec3(2.0));
+	return squared / (1.0 - squared);
+}
+
+vec3 read_palette(ivec2 pixel, ivec2 size) {
+	return palette_input(texelFetch(source_color, clamp(pixel, ivec2(0), size - 1), 0).rgb);
+}
+
+bool native_surface(vec2 uv) {
+	float surface = texture(native_depth, uv).r;
+	float foreground = texture(scene_depth, uv).r;
+	// Reverse Z. A nearer opaque object covers the exempt silhouette.
+	return surface > 0.000001 && surface >= foreground * 0.998;
+}
+#endif
+
+void main() {
+	ivec2 pixel = ivec2(gl_GlobalInvocationID.xy);
+	ivec2 size = imageSize(output_image);
+	if (any(greaterThanEqual(pixel, size))) return;
+	vec4 original = texelFetch(source_color, pixel, 0);
+#ifdef COPY_IMAGE
+	imageStore(output_image, pixel, original);
+#else
+	vec2 uv = (vec2(pixel) + 0.5) / vec2(size);
+	if (native_surface(uv)) {
+		imageStore(output_image, pixel, original);
+		return;
+	}
+	vec3 left = read_palette(pixel + ivec2(-2, 0), size);
+	vec3 right = read_palette(pixel + ivec2(2, 0), size);
+	vec3 top = read_palette(pixel + ivec2(0, -2), size);
+	vec3 bottom = read_palette(pixel + ivec2(0, 2), size);
+	vec3 paint = palette_input(original.rgb) * 0.48 + (left + right + top + bottom) * 0.13;
+	float level = luma(paint);
+	float bands = 0.017
+		+ 0.060 * smoothstep(0.045, 0.085, level)
+		+ 0.082 * smoothstep(0.115, 0.163, level)
+		+ 0.118 * smoothstep(0.207, 0.260, level)
+		+ 0.130 * smoothstep(0.323, 0.378, level)
+		+ 0.142 * smoothstep(0.457, 0.515, level)
+		+ 0.144 * smoothstep(0.606, 0.662, level)
+		+ 0.150 * smoothstep(0.754, 0.812, level)
+		+ 0.144 * smoothstep(0.900, 0.962, level);
+	float contrast = max(abs(luma(right) - luma(left)), abs(luma(top) - luma(bottom)));
+	float ink = 0.23 * smoothstep(0.075, 0.24, contrast);
+	vec3 styled = mix(level, bands, 0.74) + (paint - level) * 1.07;
+	styled.b += max(0.0, 0.16 - level) * 0.085;
+	imageStore(output_image, pixel, vec4(palette_output(styled * (1.0 - ink)), original.a));
+#endif
+}
