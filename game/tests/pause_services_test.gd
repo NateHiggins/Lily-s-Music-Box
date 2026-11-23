@@ -61,6 +61,17 @@ func _run() -> void:
 	var scroll := menu.find_child("ServicesScroll", true, false) as ScrollContainer
 	_check("Both actions are outside the focus-following scroller", scroll.follow_focus
 			and not scroll.is_ancestor_of(resume) and not scroll.is_ancestor_of(menu.apply_button))
+	_push_joy(JOY_BUTTON_DPAD_DOWN)
+	_check("Controller direction moves focus to Return", resume.has_focus())
+	_push_joy(JOY_BUTTON_DPAD_UP)
+	_check("Controller direction moves focus back to Apply", menu.apply_button.has_focus())
+	var initial_captions := menu.captions.button_pressed
+	menu.captions.grab_focus()
+	_push_joy(JOY_BUTTON_A)
+	_check("Controller confirm toggles only the focused option",
+			menu.is_open and menu.captions.button_pressed != initial_captions)
+	_push_joy(JOY_BUTTON_A)
+	menu.apply_button.grab_focus()
 	var focus_stays := true
 	for i in 24:
 		_push_key(KEY_TAB)

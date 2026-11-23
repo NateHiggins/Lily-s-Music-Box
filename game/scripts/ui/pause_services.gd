@@ -237,8 +237,20 @@ func _build() -> void:
 	resume.name = "ReturnWithoutSaving"
 	resume.text = "RETURN WITHOUT SAVING"
 	resume.pressed.connect(func(): close(false))
-
 	actions.add_child(resume)
+	# The pinned engine has no pad default for ui_accept. Scope confirmation
+	# to the focused pause control without changing the world's action map.
+	var confirm_events: Array[InputEvent] = []
+	for event in InputMap.action_get_events(&"interact"):
+		if event is InputEventJoypadButton:
+			confirm_events.append(event)
+	var controller_confirm := Shortcut.new()
+	controller_confirm.events = confirm_events
+	for button: BaseButton in [captions, onset_warning, reduce_roll, reduce_flashing,
+			controller_invert_y, apply_button, resume]:
+		button.shortcut = controller_confirm
+		button.shortcut_context = button
+		button.shortcut_in_tooltip = false
 	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
 		_connect_focus_cycle(box, resume)
 
