@@ -143,6 +143,9 @@ func _advance(delta: float) -> void:
 	if player == null or not is_instance_valid(player):
 		_set_blocked("waking_world_unbound")
 		return
+	if dream_director.entry_waits_for_first_deduction():
+		_set_blocked("first_deduction_pending")
+		return
 	if dream_director.is_release_print() \
 			and (not _release_location.is_valid() or not bool(_release_location.call())):
 		_set_blocked("release_sleep_outside_4b")

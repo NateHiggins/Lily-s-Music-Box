@@ -106,12 +106,19 @@ func _arm_dream(case_id: String, profile_id: String, window: Dictionary,
 	return true
 
 
+## Older saves can already have an armed print. Hold that same request without
+## consuming a night until the wall has its first deduction. Active dreams resume.
+func entry_waits_for_first_deduction() -> bool:
+	return core_loop != null and not bool(_state().get("debug_preview", false)) \
+			and not core_loop.first_deduction_made()
+
+
 ## Commit `entered` and the complete reconstruction identity before the waking
 ## world is touched. CampaignShell performs the swap on a deferred boundary.
 func enter_armed_dream() -> bool:
 	var state := _state()
 	if str(state.phase) != "armed" or not _valid_seed_hex(str(state.seed_hex)) \
-			or int(state.maze_revision) <= 0:
+			or int(state.maze_revision) <= 0 or entry_waits_for_first_deduction():
 		return false
 	state.phase = "entered"
 	state.active = true

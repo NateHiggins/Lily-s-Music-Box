@@ -48,6 +48,12 @@ func _ready() -> void:
 	check(loop.request_release_dream("peter_release_print"), "Peter's clause queues his release print")
 	check(not loop.request_release_dream("peter_release_print"), "asking again for a queued print is refused")
 	check(loop.request_release_dream("juno_release_print"), "Juno's song queues behind it")
+	# Bible IX, amended 2026-11-22: no dream before the first deduction.
+	loop._process(0.0)
+	check(requested.is_empty() and dreams.phase() == "awake" and not loop.first_deduction_made(),
+			"before the first deduction a queued print stays pending")
+	RealityState.data["temporal"] = {"version": 2, "deductions": ["she_asked_first"]}
+	check(loop.first_deduction_made(), "the wall's first deduction is read from the temporal ledger")
 	loop._process(0.0)
 	var context := dreams.context()
 	check(dreams.phase() == "armed" and context.profile_id == "peter_release_print"
@@ -65,6 +71,18 @@ func _ready() -> void:
 	var home := {"allowed": false}
 	sleep.setup(dreams, func(): return home.allowed)
 	sleep.bind_waking_services(body)
+	# A pre-amendment save may already have armed this print.
+	var deductions: Array = RealityState.data.temporal.deductions
+	RealityState.data.temporal.deductions = []
+	home.allowed = true
+	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == 0.0
+			and sleep.blocked_reason() == "first_deduction_pending",
+			"an already armed older save stays awake before the first deduction")
+	check(not dreams.enter_armed_dream() and dreams.phase() == "armed"
+			and int(RealityState.data.get("dreams_had", 0)) == 0,
+			"the early entry guard preserves the armed request and does not consume a dream")
+	RealityState.data.temporal.deductions = deductions
+	home.allowed = false
 	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == 0.0
 			and sleep.blocked_reason() == "release_sleep_outside_4b",
 			"an armed release cannot begin sleep outside present-day 4B")
