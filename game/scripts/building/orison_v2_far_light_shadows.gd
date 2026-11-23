@@ -53,9 +53,9 @@ func set_enabled(value: bool) -> void:
 	enabled = value
 	set_process(value)
 	for row: Dictionary in rows:
-		var light: Light3D = row.light
-		if not is_instance_valid(light):
+		if not is_instance_valid(row.light):
 			continue
+		var light: Light3D = row.light
 		if value:
 			if not row.fade:
 				light.distance_fade_enabled = true
@@ -97,9 +97,9 @@ func eyes() -> Array[Vector3]:
 func tick() -> void:
 	var seen := eyes()
 	for row: Dictionary in rows:
-		var light: Light3D = row.light
-		if not is_instance_valid(light):
+		if not is_instance_valid(row.light):
 			continue
+		var light: Light3D = row.light
 		var wanted := false
 		for eye: Vector3 in seen:
 			if eye.distance_squared_to(light.global_position) >= REACH_M * REACH_M:

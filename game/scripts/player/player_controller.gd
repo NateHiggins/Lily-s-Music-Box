@@ -251,6 +251,7 @@ func _ready() -> void:
 	camera.position = Vector3(0, STANDING_EYE, 0)
 	camera.fov = 72.0
 	add_child(camera)
+	add_child(preload("res://scripts/visuals/cel_style_presentation.gd").new())
 	# The service set carries an ordinary tungsten inspection lamp low in the
 	# off hand. Warm, weak, wide, and it drags a beat behind the eye —
 	# the hand pivot is a sibling of the camera and chases it in

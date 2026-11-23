@@ -85,6 +85,7 @@ var _last_launch_result: Dictionary = {}
 var _scene_change_for_tests := Callable()
 var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
+	"cel_shading": true,
 	"fullscreen": false,
 	"master_volume": 0.82,
 	"gameplay_volume": 1.0,
