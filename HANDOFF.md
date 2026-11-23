@@ -1,3 +1,18 @@
+# Resumed campaign through the eighth filing - November 22
+
+Evidence class: **INERT**
+
+On **08a52703d**, one Title Continue from the verified fresh fifth-filing
+save completed the button, archive negative and drain visits in the same
+world and player. All 85 checks and 184 walking waypoints passed. The
+eighth filing and glove deduction survived exit byte for byte.
+
+The path used scripted input with controlled allowance days and visit
+clocks. The earlier 25-minute timeout remains available. The full
+fresh-title route through the ending and Lily's play review remain open.
+
+[Resumed campaign evidence](C:/ov/reports/title_campaign_chain_20261122/after_fifth_to_eighth_main_03/verified_terminal.json).
+
 # Fresh campaign through the fifth filing - November 22
 
 Evidence class: **INERT**
