@@ -216273,7 +216273,7 @@
    ],
    "lines": [
     15,
-    113
+    111
    ],
    "count": 2,
    "context": [
@@ -216336,7 +216336,7 @@
    ],
    "lines": [
     14,
-    171
+    167
    ],
    "count": 2,
    "context": [
@@ -224942,7 +224942,7 @@
     "validate"
    ],
    "lines": [
-    259
+    266
    ],
    "count": 1,
    "context": [
@@ -224972,8 +224972,8 @@
     "mount_source"
    ],
    "lines": [
-    107,
-    163
+    109,
+    170
    ],
    "count": 2,
    "context": [
@@ -225002,7 +225002,7 @@
     "validate"
    ],
    "lines": [
-    259
+    266
    ],
    "count": 1,
    "context": [
@@ -225030,7 +225030,7 @@
     "validate"
    ],
    "lines": [
-    259
+    266
    ],
    "count": 1,
    "context": [
@@ -225061,15 +225061,15 @@
    ],
    "lines": [
     23,
-    109,
-    147,
-    210
+    111,
+    149,
+    217
    ],
    "count": 4,
    "context": [
     "const SOURCE_KINDS := [\"bed\", \"workbench\", \"toilet\", \"nightstand\", \"wardrobe\", \"shelf\", \"sofa\", \"counter\", \"desk\", \"chair\", \"table_round\", \"table_rect\", \"cupboa",
     "if not native_table and not native_furniture and not native_storage and not native_object and record.kind != \"bed\" and not record.get(\"collision_from_surfaces\",",
-    "elif record.kind == \"bed\": _add_bed(body,record)",
+    "elif record.kind == \"bed\":",
     "if record.kind == \"bed\":"
    ],
    "gameplay_binding": false,
@@ -225096,8 +225096,8 @@
    ],
    "lines": [
     23,
-    224,
-    240
+    231,
+    247
    ],
    "count": 3,
    "context": [
@@ -225127,7 +225127,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225157,7 +225157,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225187,7 +225187,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225217,7 +225217,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225247,7 +225247,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225277,7 +225277,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225307,7 +225307,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225337,7 +225337,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225367,7 +225367,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225397,7 +225397,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225427,7 +225427,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225457,7 +225457,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225487,7 +225487,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225517,7 +225517,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225547,7 +225547,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225577,7 +225577,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225607,7 +225607,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225637,7 +225637,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -225667,7 +225667,7 @@
     "validate"
    ],
    "lines": [
-    190
+    197
    ],
    "count": 1,
    "context": [
@@ -238981,7 +238981,7 @@
     "resolve_return_anchor"
    ],
    "lines": [
-    430
+    439
    ],
    "count": 1,
    "context": [
@@ -239011,7 +239011,7 @@
     "resolve_return_anchor"
    ],
    "lines": [
-    433
+    442
    ],
    "count": 1,
    "context": [
@@ -252192,8 +252192,8 @@
     "_build"
    ],
    "lines": [
-    278,
-    278
+    287,
+    287
    ],
    "count": 2,
    "context": [
@@ -252223,7 +252223,7 @@
     "_build_music"
    ],
    "lines": [
-    414
+    441
    ],
    "count": 1,
    "context": [
@@ -267237,8 +267237,8 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    856,
-    861
+    911,
+    916
    ],
    "count": 2,
    "context": [
@@ -267266,8 +267266,8 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    863,
-    879
+    918,
+    933
    ],
    "count": 2,
    "context": [
@@ -267351,9 +267351,9 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    821,
-    847,
-    884
+    878,
+    902,
+    938
    ],
    "count": 3,
    "context": [
@@ -267556,7 +267556,7 @@
     "<module>"
    ],
    "lines": [
-    253
+    255
    ],
    "count": 1,
    "context": [],
@@ -267648,7 +267648,7 @@
    ],
    "lines": [
     161,
-    420
+    424
    ],
    "count": 2,
    "context": [
@@ -267682,7 +267682,7 @@
    ],
    "lines": [
     162,
-    421
+    425
    ],
    "count": 2,
    "context": [
@@ -267843,7 +267843,7 @@
     84,
     102,
     160,
-    297
+    301
    ],
    "count": 4,
    "context": [
@@ -267883,8 +267883,8 @@
     85,
     103,
     161,
-    358,
-    420
+    362,
+    424
    ],
    "count": 5,
    "context": [
@@ -267925,9 +267925,9 @@
     85,
     103,
     162,
-    298,
-    357,
-    421
+    302,
+    361,
+    425
    ],
    "count": 6,
    "context": [
@@ -267966,7 +267966,7 @@
     84,
     102,
     159,
-    296
+    300
    ],
    "count": 4,
    "context": [
@@ -268000,7 +268000,7 @@
     "_ready"
    ],
    "lines": [
-    227
+    229
    ],
    "count": 1,
    "context": [
@@ -268065,26 +268065,26 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    820,
-    820,
-    822,
-    822,
-    822,
-    822,
-    846,
-    846,
-    846,
-    846,
-    848,
-    848,
-    848,
-    883,
-    883,
-    885,
-    885,
-    885,
-    885,
-    901
+    877,
+    877,
+    879,
+    879,
+    879,
+    879,
+    901,
+    901,
+    901,
+    901,
+    903,
+    903,
+    903,
+    937,
+    937,
+    939,
+    939,
+    939,
+    939,
+    954
    ],
    "count": 20,
    "context": [
@@ -285990,7 +285990,7 @@
     "run"
    ],
    "lines": [
-    103
+    106
    ],
    "count": 1,
    "context": [
@@ -286020,7 +286020,7 @@
     "run"
    ],
    "lines": [
-    89
+    92
    ],
    "count": 1,
    "context": [
@@ -286050,13 +286050,11 @@
     "run"
    ],
    "lines": [
-    50,
-    93,
-    111
+    96,
+    114
    ],
-   "count": 3,
+   "count": 2,
    "context": [
-    "if not player._grab.active() or stock.held!=\"VENT_SPARE_2\":",
     "if part.id==\"VENT_SPARE_2\":",
     "if stock.held!=\"VENT_SPARE_2\" or prop._native_held!=\"vent_orifice\": failures.append(\"restoration fixture acquires mounted insert through actual cursor\")"
    ],
@@ -286084,7 +286082,7 @@
     "run"
    ],
    "lines": [
-    46
+    45
    ],
    "count": 1,
    "context": [
@@ -286175,7 +286173,7 @@
     "_thermal_float"
    ],
    "lines": [
-    136
+    152
    ],
    "count": 1,
    "context": [

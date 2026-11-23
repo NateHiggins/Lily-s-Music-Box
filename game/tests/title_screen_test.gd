@@ -32,6 +32,7 @@ func _ready() -> void:
 	screen._close_settings()
 	_check("closing services returns focus to its launcher",
 			screen._services_button.has_focus())
+	await _check_modal_settings(screen)
 	_check("three complete title masters are installed", screen._tracks.size() == 3)
 	_check("Escapement Failure retains its full 112.58 second form",
 			is_equal_approx(screen._tracks[0].get_length(), 112.576875))
@@ -105,3 +106,96 @@ func _ready() -> void:
 	print("[TITLE SCREEN] RESULT: %s (%d failures)" % [
 			"PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
+
+
+func _check_modal_settings(screen: OrisonTitleScreen) -> void:
+	var window := get_tree().root
+	var master := AudioServer.get_bus_index("Master")
+	var saved: float = GameBoot.settings.master_volume
+	var preview := 0.32 if saved > 0.6 else 0.73
+	var retained_query: String = GameBoot.settings.weather_location_query
+	var playing: int = screen._current_track
+	var cover_button := screen._record_button.get_global_rect().get_center()
+	screen._open_settings()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("the click target is outside the settings sheet", not screen._settings_panel.get_global_rect().has_point(cover_button))
+	for pressed: bool in [true, false]:
+		var click := InputEventMouseButton.new()
+		click.button_index = MOUSE_BUTTON_LEFT
+		click.position = cover_button
+		click.pressed = pressed
+		window.push_input(click, true)
+	_check("clicks behind settings cannot switch the title record", screen._current_track == playing)
+	await _settings_shot("BuildingServices1280")
+	var focus_stayed := true
+	for i in 27:
+		_push_key(window, KEY_TAB)
+		var focus := window.gui_get_focus_owner()
+		focus_stayed = focus_stayed and focus != null and screen._settings_panel.is_ancestor_of(focus)
+	_check("Tab stays inside Building Services through wraparound", focus_stayed)
+	screen._volume.value = preview
+	screen._weather_location.text = "unapplied"
+	_check("the volume preview changes the live bus", absf(AudioServer.get_bus_volume_db(master) - linear_to_db(preview)) < 0.01)
+
+	for pressed: bool in [true, false]:
+		var back := InputEventJoypadButton.new()
+		back.button_index = JOY_BUTTON_B
+		back.pressed = pressed
+		window.push_input(back, true)
+	_check("controller Back closes settings and restores launcher focus",
+			not screen._settings_panel.is_visible_in_tree() and screen._services_button.has_focus())
+	_check("Back restores committed audio and the configured volume",
+			absf(AudioServer.get_bus_volume_db(master) - GameBoot.audio_bus_db("Master")) < 0.01
+			and is_equal_approx(GameBoot.settings.master_volume, saved))
+
+	window.size = Vector2i(800, 600)
+	screen._open_settings()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("the sheet fits the smaller viewport and scrolls with focus",
+			Rect2(Vector2.ZERO, screen.get_viewport_rect().size).encloses(screen._settings_panel.get_global_rect())
+			and screen.find_child("BuildingServicesScroll", true, false).follow_focus)
+	_check("reopening starts with the committed preferences",
+			is_equal_approx(screen._volume.value, saved) and screen._weather_location.text == retained_query)
+	await _settings_shot("BuildingServices800")
+	_push_key(window, KEY_ESCAPE)
+	_check("keyboard Escape closes settings",
+			not screen._settings_panel.is_visible_in_tree() and screen._services_button.has_focus())
+	screen._open_settings()
+	screen._volume.value = preview
+	for node: Node in screen._settings_panel.find_children("*", "Button", true, false):
+		var button := node as Button
+		if button.text == "APPLY":
+			button.grab_focus()
+			break
+	_push_key(window, KEY_ENTER)
+	var saved_file := ConfigFile.new()
+	_check("keyboard Apply commits the change through GameBoot",
+			not screen._settings_panel.is_visible_in_tree() and screen._services_button.has_focus()
+			and is_equal_approx(GameBoot.settings.master_volume, preview)
+			and saved_file.load(GameBoot.SETTINGS_PATH) == OK
+			and is_equal_approx(float(saved_file.get_value("display", "master_volume", -1.0)), preview))
+	GameBoot.settings.master_volume = saved
+	GameBoot.save_settings()
+	window.size = Vector2i(1280, 720)
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+
+func _settings_shot(label: String) -> void:
+	var directory := OS.get_environment("SHOT_DIR")
+	if directory.is_empty() or DisplayServer.get_name() == "headless":
+		return
+	await RenderingServer.frame_post_draw
+	var frame := get_viewport().get_texture().get_image()
+	_check("saved settings proof " + label, frame.save_png(directory.path_join(label + ".png")) == OK)
+
+
+func _push_key(window: Window, key: Key) -> void:
+	for pressed: bool in [true, false]:
+		var input := InputEventKey.new()
+		input.keycode = key
+		input.pressed = pressed
+		window.push_input(input, true)
