@@ -108,7 +108,9 @@ func manipulation_target(_hit: Dictionary) -> Dictionary:
 func grip() -> Dictionary:
 	if station==0 and (radiator.supply_position>.02 or radiator.native_service_progress<.999): return {}
 	var constrained := station==0
-	return {"owner":radiator,"part":self,"frame":radiator,"kind":"slide" if constrained else "free",
+	# Loose packing is a local service control, with a seat and a fixed park.
+	# Keep the hand on the part while the cursor moves it back to the union.
+	return {"owner":radiator,"part":self,"frame":radiator,"kind":"slide" if constrained else "free","pickup":false,
 		"axis":Vector3.FORWARD,"minimum":0.0,"maximum":PEEL+LIFT,
 		"read":func(): return radiator.native_packing_spread*PEEL+radiator.native_packing_out*LIFT if constrained else position,
 		"begin":func():
@@ -125,7 +127,7 @@ func grip() -> Dictionary:
 			if constrained: _peel(float(value))
 			else: _carry(value),
 		"end":func():
-			if station==1: _release()
+			if station==1: _release(not constrained)
 			radiator._native_held=""
 			radiator._apply_visual_state()
 			radiator.manipulation_changed.emit()}
@@ -170,10 +172,13 @@ func _carry(value: Vector3) -> void:
 		last_block={"collider":str(result.get_collider().get_path()),"normal":str(result.get_collision_normal())}
 	global_transform=pose
 
-func _release() -> void:
-	# Flexible cloth conforms to the ball only when hand-delivered to its
-	# receiving seat. Closing the empty joint is still physically possible.
-	if radiator.supply_position<=.02 and radiator.native_service_progress>=.999 and position.distance_to(home().origin)<.008:
+func _release(returning: bool) -> void:
+	# Use the clear end of the same extraction path as the receiving pose.
+	# The constrained return fits the cloth around the joint's collision shell.
+	var seat := home().origin
+	var receiver := seat + Vector3.FORWARD * LIFT
+	if returning and radiator.supply_position <= .02 and radiator.native_service_progress >= .999 \
+			and (position.distance_to(receiver) < .008 or position.distance_to(seat) < .008):
 		station=0
 		radiator.native_packing_spread=1.0
 		radiator.native_packing_out=0.0
