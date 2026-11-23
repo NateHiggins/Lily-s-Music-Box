@@ -21,7 +21,11 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	driver._drag_to(player,cap.TURN_END)
 	driver._click(player)
 	if not cap.loose: failures.append("full cap thread travel frees actual cap")
-	# Reacquire before gravity moves the small cap out of the current ray.
+	# Release parks the cap beside the radiator. Aim at that actual parked body.
+	contact = cap.to_global(Vector3(0,.018,-.015))
+	player.camera.global_position = contact + prop.global_basis * Vector3(.04,.10,-.18)
+	player.camera.look_at(contact)
+	await bench.get_tree().physics_frame
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_cap": failures.append("regrab unthreaded cap");return
 	var away: Vector3=prop.to_local(cap.home().origin)+Vector3(.12,.10,-.08)
@@ -58,6 +62,10 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	driver._click(player)
 	driver._drag_to(player,cap.TURN_END)
 	driver._click(player)
+	contact = cap.to_global(Vector3(0,.018,-.015))
+	player.camera.global_position = contact + prop.global_basis * Vector3(.04,.10,-.18)
+	player.camera.look_at(contact)
+	await bench.get_tree().physics_frame
 	driver._click(player)
 	if not player._grab.active(): failures.append("cap removal after partial restore");return
 	await bench._carry_to(player,away)
@@ -108,7 +116,9 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	player.camera.look_at(contact)
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_cap": failures.append("loose cap pickup after restore");return
-	await bench._carry_to(player,prop.to_local(cap.home().origin+cap.home().basis*Vector3.UP*cap.THREAD_TRAVEL))
+	var receiver: Vector3 = prop.to_local(cap.home().translated_local(Vector3.UP * cap.THREAD_TRAVEL).origin)
+	await bench._carry_to(player,receiver)
+	print("CAP DELIVERY held=", player._grab.active(), " error_m=", cap.position.distance_to(receiver))
 	driver._click(player)
 	if cap.loose or absf(cap.turn-cap.TURN_END)>.0001: failures.append("cap catches receiving thread without auto sealing");return
 	contact=cap.to_global(Vector3(0,.018,-.015))
