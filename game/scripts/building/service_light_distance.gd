@@ -63,7 +63,7 @@ func tick() -> void:
 		var source: Dictionary=row.source
 		var light: Light3D=source.light
 		if not is_instance_valid(light):continue
-		var visible: bool=source.visible and source.graph_visible and (not enabled or (not source.clustered and _seen(source,color_eyes)))
+		var visible: bool=source.visible and source.graph_visible and (not enabled or _seen(source,color_eyes))
 		var shadow: bool=row.shadow and (not enabled or (visible and _seen(source,shadow_eyes)))
 		if light.visible!=visible:light.visible=visible;switches+=1
 		if light.shadow_enabled!=shadow:light.shadow_enabled=shadow;switches+=1

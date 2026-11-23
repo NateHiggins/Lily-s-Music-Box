@@ -25,7 +25,7 @@ func setup(owner_world: Node3D) -> bool:
 		if not opening.has("shared_wall_owner"):continue
 		var light:=world.adapter.root.get_node_or_null(str(opening.id)+"/ServicePractical/WarmServiceLight") as OmniLight3D
 		if light==null:return false
-		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,"graph_visible":true,"level":"","shaft":true,"clustered":false})
+		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,"graph_visible":true,"level":"","shaft":true})
 	for record: Dictionary in world.layout.doors:
 		if record.get("connects",[]).size()!=2:continue
 		var anchor: Node=world.adapter.root.get_node_or_null(str(record.id))
@@ -43,27 +43,17 @@ func setup(owner_world: Node3D) -> bool:
 	distance_budget=preload("res://scripts/building/service_light_distance.gd").new(self)
 	return true
 
-## Storey and crowding, fixed for the layout. A source both of whose rooms
-## have a floor and a ceiling is sealed to its storey by the slabs: only an eye
-## on that storey can see what it lights. A source within CLUSTER_M of an
-## earlier one on the same storey adds a second cube shadow to the same few
-## square metres; it keeps its glowing lens and gives its light to that one.
-const CLUSTER_M:=1.5
+## Storey, fixed for the layout. A source both of whose rooms have a floor and
+## a ceiling is sealed to its storey by the slabs: only an eye on that storey
+## can see what it lights. Neighbouring practicals each light their own side
+## of a wall, so crowding alone never retires one.
 func _classify_sources() -> void:
-	var kept: Array[Dictionary]=[]
 	for source: Dictionary in sources:
 		var rooms: Array=source.connects
 		var first: Dictionary=spaces.get(str(rooms[0]),{})
 		var second: Dictionary=spaces.get(str(rooms[1]),{})
 		source.level=str(first.get("level",""))
 		source.shaft=source.level.is_empty() or first.is_empty() or second.is_empty() or _open_room(first) or _open_room(second)
-		var here: Vector3=source.light.global_position
-		for other: Dictionary in kept:
-			if other.level!=source.level:continue
-			var there: Vector3=other.light.global_position
-			if Vector2(here.x,here.z).distance_to(Vector2(there.x,there.z))<CLUSTER_M and absf(here.y-there.y)<1.0:
-				source.clustered=true;break
-		if not source.clustered:kept.append(source)
 
 ## The storey an eye at `point` stands on, from the layout's own slab pitch.
 func level_at(point: Vector3) -> String:

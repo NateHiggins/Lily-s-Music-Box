@@ -1,8 +1,8 @@
 extends Node
 ## Headless bench for the service practicals' scope: a source sealed to its
 ## storey by slabs is dark and unshadowed to an eye on another storey, a source
-## on a shaft is not, a source crowded beside an earlier one keeps only its
-## lens, and switching the policy off gives every light back as authored.
+## on a shaft is not, a neighbour a metre away still lights its own side, and
+## switching the policy off gives every light back as authored.
 const Policy := preload("res://scripts/building/orison_v2_service_light_visibility.gd")
 
 var failures := 0
@@ -91,7 +91,6 @@ func _run() -> void:
 	for source: Dictionary in policy.sources:
 		by_id[source.id] = source
 	check(not by_id.F01_SEALED.shaft and not by_id.F02_SEALED.shaft and by_id.F02_SHAFT.shaft, "sealed and shaft sources told apart by their rooms")
-	check(by_id.F01_CROWDED.clustered and not by_id.F01_SEALED.clustered and not by_id.F02_SHAFT.clustered, "only the source crowded beside an earlier one is clustered")
 	check(policy.level_at(Vector3(0, 4.6, 0)) == "F02" and policy.level_at(Vector3(0, 1.4, 0)) == "F01" and policy.level_at(Vector3(0, -1.6, 0)) == "B1", "storeys come from the slab pitch")
 
 	# An eye on F02, close enough to every source that distance alone kept them.
@@ -104,7 +103,7 @@ func _run() -> void:
 	var shaft: OmniLight3D = lights.F02_SHAFT
 	check(f01.global_position.distance_to(camera.global_position) < 8.0, "the sealed F01 source is within the old 8 m reach")
 	check(not f01.visible and not f01.shadow_enabled, "a source sealed below the eye's storey is dark and unshadowed")
-	check(not crowded.visible and not crowded.shadow_enabled, "a crowded source gives its light to its neighbour")
+	check(not crowded.visible and not crowded.shadow_enabled, "its sealed neighbour is dark below the eye's storey too")
 	check(f02.visible and f02.shadow_enabled, "a sealed source on the eye's storey keeps light and shadow")
 	check(shaft.visible and shaft.shadow_enabled, "a shaft source keeps light and shadow on its own storey")
 
@@ -112,7 +111,7 @@ func _run() -> void:
 	camera.global_position = Vector3(0, 1.4, 3)
 	policy.distance_budget.tick()
 	check(f01.visible and f01.shadow_enabled, "the sealed F01 source lights the storey it belongs to")
-	check(not crowded.visible, "the crowded source stays given up on its own storey")
+	check(crowded.visible and crowded.shadow_enabled, "a neighbour a metre away still lights its own side")
 	check(not f02.visible and not f02.shadow_enabled, "a source sealed above the eye's storey is dark and unshadowed")
 	check(shaft.visible and shaft.shadow_enabled, "a shaft source is still seen from the storey below")
 
