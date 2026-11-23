@@ -1,3 +1,17 @@
+# Workshop insert exchange in 2B - November 23
+
+Evidence class: **INERT**
+
+PR497 carries the B1 spare in the valise. PR498 parks the original on
+nearby support after the ordinary screw turn. The installed 2B exchange
+passed 19 checks with the spare already packed in the fixture. The old
+insert remains selectable, the replacement needs the reverse turn, and both
+identities survive reload. The composed physical surface check passed all
+818 checks and all 23 views were technically reviewed.
+
+The legacy hand-transfer bench, wedge, full service visit and Lily's play
+review remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
+
 # Fresh save lineage through both endings - November 22
 
 Evidence class: **INERT**
