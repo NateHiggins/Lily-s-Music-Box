@@ -100,7 +100,10 @@ maintenance is secondary investigative content. Broad funding and marketing rema
   a green unit test.
 - **K3 — ELEVEN-BOUNDARY SAVE MATRIX.** Save and reload after every golden-shift
   beat. Prove the immediate practical intention, job/case owner and physical
-  world state reconstruct correctly at each boundary.
+  world state reconstruct correctly at each boundary. Run K2 first. The
+  [lane-backed M10 launcher](tools/run_orison_v2_m10.ps1) preserves each attempt
+  and gives K3 a separate profile per boundary. The eleven human results remain
+  due.
 - **K4 — ROUTE POLISH INTAKE.** After K2 produces a stable route, promote only
   route-visible `blocker`/`ugly` rows from `design/walkthrough_punchlist.md`
   into bounded M3–M6 tasks. Wishes remain in the evidence ledger unless a
@@ -1371,7 +1374,6 @@ deliberate cleanup. Explicit V1 rollback/protected paths remain intact.
 Measured repair history: `design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md`.
 Performance/counter procedure: `.agents/skills/godot-development/SKILL.md`.
 
-- **P-SLAB-OCCLUSION-WIP — Preserved paused candidate, unclaimed for resumption: draft [PR138](https://github.com/NateHiggins/Lily-s-Music-Box/pull/138), branch codex/v2-slab-face-occlusion-20261101 at1d2351252.** Existing composed02 at runtime source16bdc55ae completed24checks/sixlegs/0failures,26slabs admitted, empty stderr; single-pose images and partial draw savings do not establish broad visibility or speedup. Original failed01/absent-index errors remain. Physical renewal/current-main reconciliation/final candidate comparison are unfinished; no job remains queued by this handoff. Keep isolated from PR151, whose production changes do not include this treatment. Re-evaluate its modest benefit after the current candidate rather than merge it merely to clean branches. Do not revive rejected startup-eye warmup from closed PR137; no deadline.
 
 - **P-BODY-MESH-LOD — Implement authored body-mesh switching alongside detail
   omission.** Design: `design/V2_TRAFFIC_BEHAVIOUR_2026-10-24.md` §9. After the
