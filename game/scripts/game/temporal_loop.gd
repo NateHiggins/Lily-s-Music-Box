@@ -157,7 +157,7 @@ static func _load_table() -> Dictionary:
 	var pace_rules: Variant = parsed.get("pace")
 	if pace_rules is not Dictionary:
 		return {}
-	for field: String in ["wait_rate", "done_rate", "idle_rate"]:
+	for field: String in ["wait_rate", "done_rate", "idle_rate", "broke_rate"]:
 		if float(pace_rules.get(field, 0.0)) < 1.0 or float(pace_rules[field]) > CampaignPace.MAX_RATE:
 			return {}
 	for field: String in ["idle_seconds", "landing_seconds", "ramp_seconds"]:
@@ -364,6 +364,22 @@ func state() -> String:
 
 func bank_cents() -> int:
 	return int(ledger().bank_cents)
+
+
+## True when banked money and pocket cash together cover the fare of some open,
+## unanswered lead (pocket cash is one DEPOSIT away), or when there is no such
+## lead to pay for. False only when every open lead is out of reach.
+func lead_affordable() -> bool:
+	var cheapest := -1
+	for anchor_id: String in unlocked():
+		if answered(anchor_id):
+			continue
+		var fare := fare_cents(anchor_id)
+		cheapest = fare if cheapest < 0 else mini(cheapest, fare)
+	if cheapest < 0:
+		return true
+	var pocket := int(economy.book().cash) if economy != null else 0
+	return pocket + bank_cents() >= cheapest
 
 
 func in_visit() -> bool:
@@ -1207,6 +1223,11 @@ func pace_plan() -> Dictionary:
 		return {}
 	var day := floorf(now / float(CampaignClock.MINUTES_PER_DAY))
 	if _wait_until > now:
+		# Ruling allowance_wait_pace_20261122: with no lead affordable, the allowance is all there is to wait for, so
+		# WAIT runs a day in four minutes. Money is unchanged.
+		if not lead_affordable():
+			return {"until": _wait_until, "rate": float(rules.broke_rate), "why": "asked:%d" % int(day),
+					"say": "No fare is in reach yet. Running the clock hard to tomorrow's allowance. STEADY stops it."}
 		return {"until": _wait_until, "rate": float(rules.idle_rate), "why": "asked:%d" % int(day),
 				"say": "Running the clock to tomorrow's allowance. STEADY stops it."}
 	# Evidence in hand is something to do: the clock does not run off from it.

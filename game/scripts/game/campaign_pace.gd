@@ -13,7 +13,9 @@ extends RefCounted
 ## frame.
 
 ## No request may run the clock faster than this, whatever its data says.
-const MAX_RATE := 240.0
+## 360 since ruling allowance_wait_pace_20261122: WAIT with no lead affordable
+## runs a game day in four minutes.
+const MAX_RATE := 360.0
 
 ## Campaign seconds per real second, now.
 var rate := 1.0

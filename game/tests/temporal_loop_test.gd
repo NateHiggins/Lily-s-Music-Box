@@ -617,6 +617,37 @@ func _ready() -> void:
 	loop.note_activity()
 	check(not pace.running() and loop.pace_plan().is_empty(), "anything the player does stops it at once")
 	check(str(loop.command("wait").text).contains("TOMORROW") and pace.running() and str(loop.pace_plan().why).begins_with("asked:"), "WAIT at home runs to the next allowance")
+	# Ruling allowance_wait_pace_20261122: with no fare in reach, WAIT runs a game day in four minutes; money unchanged.
+	var kept_bank: int = loop.bank_cents()
+	var kept_cash := int(economy.book().cash)
+	# Every open lead is worked by now, which counts as affordable: nothing to pay for. Reopen one by setting its
+	# clue aside, and mark it paid once so its fare is not the free first call.
+	var kept_items: Dictionary = (loop.ledger().items as Dictionary).duplicate(true)
+	var kept_records: Dictionary = (loop.ledger().anchors as Dictionary).duplicate(true)
+	check(loop.lead_affordable(), "with every open lead worked, there is nothing to afford and WAIT keeps the idle rate")
+	var reopened := ""
+	for anchor_id: String in loop.unlocked():
+		if loop._witness_of(anchor_id).is_empty() and loop.answered(anchor_id):
+			reopened = anchor_id
+			break
+	(loop.ledger().items as Dictionary).erase(str(loop.clue_of(reopened).id))
+	loop._record(reopened).paid = 1
+	var open_fare: int = loop.fare_cents(reopened)
+	check(not reopened.is_empty() and not loop.answered(reopened) and open_fare > 0 and reopened in loop.unlocked(),
+			"a paid lead is open to test the broke WAIT against (%s, %d cents)" % [reopened, open_fare])
+	loop.ledger().bank_cents = 0
+	economy.book().cash = open_fare - 1
+	check(not loop.lead_affordable() and is_equal_approx(float(loop.pace_plan().get("rate", 0.0)), 360.0)
+			and str(loop.pace_plan().why).begins_with("asked:"), "with every fare out of reach, WAIT runs at the broke rate (360)")
+	tick()
+	check(pace.rate <= CampaignPace.MAX_RATE and is_equal_approx(CampaignPace.MAX_RATE, 360.0), "and the ceiling allows it")
+	economy.book().cash = open_fare
+	check(loop.lead_affordable() and is_equal_approx(float(loop.pace_plan().get("rate", 0.0)), 60.0),
+			"pocket cash that covers a fare is one DEPOSIT away, so WAIT runs at the idle rate")
+	loop.ledger().bank_cents = kept_bank
+	economy.book().cash = kept_cash
+	loop.ledger().items = kept_items
+	loop.ledger().anchors = kept_records
 	loop.note_activity()
 	check(pace.running(), "and a run that was asked for is not stopped by moving about")
 	loop.command("steady")
