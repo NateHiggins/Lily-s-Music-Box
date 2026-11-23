@@ -84,6 +84,8 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			errors.append("native household radios refused")
 			return false
 		adapter.root.set_meta("v2_native_radio_factory",radios)
+	var bedding_library: Node3D
+	var bedding_shapes: Dictionary[Mesh, Shape3D] = {}
 	for record: Dictionary in source.furniture:
 		var native_table: bool = str(record.id) in WorkTables.IDS
 		var native_furniture: bool = record.kind in NATIVE_KINDS and not native_table
@@ -144,7 +146,12 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 				body.free(); prep.finish()
 				errors.append("native preparation cabinet mount refused: " + str(record.id))
 				return false
-		elif record.kind == "bed": _add_bed(body,record)
+		elif record.kind == "bed":
+			if bedding_library == null:
+				bedding_library = BEDDING.instantiate() as Node3D
+				# This mount is synchronous. Dispose the detached template even if a later record fails.
+				bedding_library.queue_free()
+			_add_bed(body, record, bedding_library, bedding_shapes)
 		elif record.kind not in ["toilet","wardrobe","radio"]: _add_surfaces(body, record.surfaces)
 		if not native_table and not native_furniture and not native_storage and not native_object and record.get("collision_from_surfaces", false):
 			# Separate tabletop/paper/leg triangles preserve the actual bearings;
@@ -285,10 +292,12 @@ func _add_notice(body: StaticBody3D, record: Dictionary) -> void:
 	words.rotation.y = PI
 	body.add_child(words)
 
-func _add_bed(body: StaticBody3D, record: Dictionary) -> void:
-	var library := BEDDING.instantiate()
-	var model := library.get_node(_bed_variant(record)).duplicate() as Node3D
-	body.add_child(model);library.free()
+func _add_bed(body: StaticBody3D, record: Dictionary, library: Node3D = null, shapes: Dictionary[Mesh, Shape3D] = {}) -> void:
+	var template := library if library != null else BEDDING.instantiate() as Node3D
+	var model := template.get_node(_bed_variant(record)).duplicate() as Node3D
+	body.add_child(model)
+	if library == null:
+		template.free()
 	var wood := "oak_quartered"
 	var blanket := "fabric_warm"
 	for surface: Dictionary in record.surfaces:
@@ -299,7 +308,9 @@ func _add_bed(body: StaticBody3D, record: Dictionary) -> void:
 		mesh.material_override=_material(wood if role=="Frame" else (blanket if role=="Blanket" else "linen"))
 		mesh.material_override=_owner_finishes.material_for(mesh.material_override,"domestic" if role=="Frame" else "bedding_"+role)
 		var collision := CollisionShape3D.new()
-		collision.shape=mesh.mesh.create_trimesh_shape()
+		if not shapes.has(mesh.mesh):
+			shapes[mesh.mesh] = mesh.mesh.create_trimesh_shape()
+		collision.shape = shapes[mesh.mesh]
 		collision.transform=model.transform*mesh.transform
 		body.add_child(collision)
 	body.set_meta("v2_owner_finish_group","bedding")
