@@ -23,6 +23,8 @@ func setup(owner_world: Node3D) -> bool:
 	for opening: Dictionary in world.layout.openings:
 		if opening.get("connects",[]).size()==2:edges.append({"connects":opening.connects,"door":null})
 		if not opening.has("shared_wall_owner"):continue
+		var anchor: Node=world.adapter.root.get_node_or_null(str(opening.id))
+		if anchor!=null and bool(anchor.get_meta("service_practical_omitted",false)):continue
 		var light:=world.adapter.root.get_node_or_null(str(opening.id)+"/ServicePractical/WarmServiceLight") as OmniLight3D
 		if light==null:return false
 		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,"graph_visible":true,"level":"","shaft":true})

@@ -916,7 +916,8 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if not await _service_door(world,"B1_BOILER_FIRE_DOOR"):return false
 	if not await _walk_service_points(world,[Vector3(8.7,-3.2,-.4),Vector3(7.4,-3.2,-.4)]):return false
 	if not await _service_door(world,"B1_SHOP_DOOR"):return false
-	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.45)]):return false
+	# Stop in the clear aisle before the repair bench, then use the stock's ordinary pickup.
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.24)]):return false
 	var replacement: Dictionary=stock.rows.VENT_SPARE_2
 	if not await _pick_service_part(world.player,replacement.body,stock,Vector3(.03,.10,.08)):return false
 	var item := CarriedCase.VENT_INSERT_PREFIX + str(replacement.body.identity)
