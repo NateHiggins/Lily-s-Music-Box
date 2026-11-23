@@ -607,8 +607,17 @@ func visit_restore(records: Dictionary) -> bool:
 	for identity: String in records:
 		if not merged.records.has(identity) or not _borrowed_in_visit(identity): continue
 		var was: Variant = records[identity]
-		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]) or merged.records[identity] == was: continue
-		merged.records[identity] = (was as Dictionary).duplicate(true)
+		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]): continue
+		var restored: Dictionary = was.duplicate(true)
+		if restored.kind == "radiator" and restored.value is Dictionary:
+			var radiator := _subjects[identity] as RadiatorProp
+			if is_instance_valid(radiator.native_orifices):
+				# The rack and its insert identities stay outside visit rewinds.
+				var insert: Dictionary = radiator.native_orifices.active(radiator)
+				if not insert.is_empty():
+					restored.value.vent_grade = int(insert.grade)
+		if merged.records[identity] == restored: continue
+		merged.records[identity] = restored
 		moved[identity] = true
 	if moved.is_empty(): return true
 	if not validate(merged, _kinds): return false
