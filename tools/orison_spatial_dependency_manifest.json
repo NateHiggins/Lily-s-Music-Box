@@ -240786,6 +240786,36 @@
    "target_exists": null
   },
   {
+   "key": "1f6ffee91bca5847",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/scripts/dream/campaign_shell.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "_release_sleep_at_home"
+   ],
+   "lines": [
+    103
+   ],
+   "count": 1,
+   "context": [
+    "return temporal != null and not temporal.in_visit() and active_world.player_unit() == \"4B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "dfeea3a7629043a3",
    "kind": "generated_name",
    "token": "setup",
@@ -259966,7 +259996,7 @@
     "_gaze_and_activity"
    ],
    "lines": [
-    297
+    344
    ],
    "count": 1,
    "context": [
@@ -259997,14 +260027,14 @@
     "_move_yield"
    ],
    "lines": [
-    376,
-    377,
-    378,
-    379,
-    381,
-    386,
-    387,
-    388
+    423,
+    424,
+    425,
+    426,
+    428,
+    433,
+    434,
+    435
    ],
    "count": 8,
    "context": [
@@ -260038,7 +260068,7 @@
     "_ordinary_exchanges"
    ],
    "lines": [
-    549
+    596
    ],
    "count": 1,
    "context": [
@@ -287481,7 +287511,7 @@
     "_ready"
    ],
    "lines": [
-    451
+    486
    ],
    "count": 1,
    "context": [
@@ -287511,10 +287541,10 @@
     "_ready"
    ],
    "lines": [
-    226,
-    679,
-    720,
-    737
+    259,
+    714,
+    755,
+    772
    ],
    "count": 4,
    "context": [
@@ -287545,8 +287575,8 @@
     "_ready"
    ],
    "lines": [
-    321,
-    330
+    354,
+    363
    ],
    "count": 2,
    "context": [
@@ -287576,8 +287606,8 @@
     "_ready"
    ],
    "lines": [
-    363,
-    450
+    396,
+    485
    ],
    "count": 2,
    "context": [
@@ -287608,8 +287638,8 @@
     "_ready"
    ],
    "lines": [
-    228,
-    365
+    261,
+    398
    ],
    "count": 2,
    "context": [

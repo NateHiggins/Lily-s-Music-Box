@@ -109,9 +109,25 @@ func configure(runtime: Node3D, point: Node3D, talk: ResidentConversations) -> b
 	overheard_label.add_theme_constant_override("outline_size", 6)
 	overheard_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(overheard_label)
-	RealityState.state_changed.connect(refresh)
+	_bind_save_observer()
 	refresh()
 	return true
+
+
+func _enter_tree() -> void:
+	if overheard_label != null:
+		_bind_save_observer()
+		refresh()
+
+
+func _exit_tree() -> void:
+	if RealityState.state_changed.is_connected(refresh):
+		RealityState.state_changed.disconnect(refresh)
+
+
+func _bind_save_observer() -> void:
+	if is_inside_tree() and not RealityState.state_changed.is_connected(refresh):
+		RealityState.state_changed.connect(refresh)
 
 
 func serve(item_id: String) -> void:

@@ -9,6 +9,13 @@ var failures: Array[String] = []
 var checks := 0
 
 
+class StableBody extends Node3D:
+	var call_locked := false
+
+	func sleep_entry_body_is_stable() -> bool:
+		return true
+
+
 func check(ok: bool, label: String) -> void:
 	checks += 1
 	if not ok:
@@ -50,6 +57,27 @@ func _ready() -> void:
 	check(requested == ["peter_release_print"] and dreams.context().profile_id == "peter_release_print",
 			"one dream is armed at a time; the second waits")
 	var boundary_before := loop.boundary()
+	var body := StableBody.new()
+	add_child(body)
+	var sleep := SleepPressureDirector.new()
+	sleep.manual_clock = true
+	add_child(sleep)
+	var home := {"allowed": false}
+	sleep.setup(dreams, func(): return home.allowed)
+	sleep.bind_waking_services(body)
+	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == 0.0
+			and sleep.blocked_reason() == "release_sleep_outside_4b",
+			"an armed release cannot begin sleep outside present-day 4B")
+	home.allowed = true
+	check(sleep.advance_for_test(0.05) and sleep.pressure() > 0.0,
+			"the same armed release starts its onset when the player gets home")
+	var home_pressure := sleep.pressure()
+	home.allowed = false
+	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == home_pressure,
+			"stepping away from 4B before entry pauses the same armed print")
+	home.allowed = true
+	sleep.free()
+	body.free()
 	check(_dream_through(dreams), "sleep enters the armed print and the wake reconciles through the release boundary")
 	var state := loop.loop_state()
 	check(dreams.phase() == "awake" and state.release_dreams_done == ["peter_release_print"]

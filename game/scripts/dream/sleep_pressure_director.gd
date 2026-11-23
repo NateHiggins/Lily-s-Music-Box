@@ -22,6 +22,7 @@ var traffic: Node
 ## Deterministic harnesses advance the same production clock explicitly.
 var manual_clock := false
 
+var _release_location := Callable()
 var _profiles: Dictionary = {}
 var _blocked_reason := ""
 var _duration_s := 0.0
@@ -40,8 +41,9 @@ func _ready() -> void:
 	set_process(false)
 
 
-func setup(owner: DreamDirector) -> void:
+func setup(owner: DreamDirector, release_location := Callable()) -> void:
 	dream_director = owner
+	_release_location = release_location
 	if not dream_director.dream_armed.is_connected(_on_dream_armed):
 		dream_director.dream_armed.connect(_on_dream_armed)
 	if not dream_director.dream_entered.is_connected(_on_dream_entered):
@@ -140,6 +142,10 @@ func _advance(delta: float) -> void:
 		return
 	if player == null or not is_instance_valid(player):
 		_set_blocked("waking_world_unbound")
+		return
+	if dream_director.is_release_print() \
+			and (not _release_location.is_valid() or not bool(_release_location.call())):
+		_set_blocked("release_sleep_outside_4b")
 		return
 	if bool(player.get("call_locked")):
 		_set_blocked("engaged")

@@ -43,7 +43,8 @@
 			{"id": "attach_peter", "flag": "m_peter_will_sign", "slip": "RELEASED: THE CLAUSE.", "dream": "peter_release_print"},
 			{"id": "attach_juno", "flag": "m_heard_self", "slip": "RELEASED: THE SONG.", "dream": "juno_release_print"},
 			{"id": "attach_cal", "flag": "m_door_match", "slip": "RELEASED: THE BROADCAST.", "dream": "cal_release_print"},
-			{"id": "attach_omar", "flag": "m_recorder_limit", "after": "m_c_n16", "slip": "RELEASED: THE BELL.", "dream": "omar_release_print"}
+			{"id": "attach_omar", "flag": "m_recorder_limit", "after": "m_c_n16", "slip": "RELEASED: THE BELL.", "dream": "omar_release_print"},
+			{"id": "attach_mae", "flag": "m_mae_answered", "slip": "RELEASED: MRS. KESSLER.", "dream": "mae_release_print"}
 		],
 		"rescue": {
 			"after": "friday",

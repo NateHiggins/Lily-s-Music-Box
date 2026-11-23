@@ -298,3 +298,18 @@ func _route() -> void:
 	_require(heard in still, "and she can still say it to the player's face")
 	_require(Counter.sentences_of("One. Two? Three! Four").size() == 4, "lines break at sentence ends")
 	_require(not Counter.SERVED.has("yesterdays_rolls"), "carried goods stay in the case")
+	var parent: Node = counter.get_parent()
+	var refresh := Callable(counter, "refresh")
+	var visible_before: bool = counter.parts.cup.visible
+	var portion_before := float(Counter.served().cup)
+	_require(RealityState.state_changed.is_connected(refresh), "the installed counter observes campaign commits")
+	parent.remove_child(counter)
+	Counter.served().cup = 0.0 if visible_before else 3.0
+	RealityState.commit()
+	_require(not RealityState.state_changed.is_connected(refresh) and counter.parts.cup.visible == visible_before,
+			"a removed but live counter ignores the commit between campaign worlds")
+	parent.add_child(counter)
+	_require(RealityState.state_changed.is_connected(refresh) and counter.parts.cup.visible != visible_before,
+			"remounting restores the save observer and reconstructs the counter")
+	Counter.served().cup = portion_before
+	RealityState.commit()

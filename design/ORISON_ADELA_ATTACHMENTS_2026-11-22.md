@@ -98,3 +98,20 @@ Mae's print waits for her row: RELEASED: MRS. KESSLER is not on main, and by rul
 **mrs_kessler_release_carrier_20261122** it prints when Nadia says the name in S14. That row gets
 `"dream": "mae_release_print"` when S14 is staged.
 
+
+## 10. S14 staged (2026-11-22)
+
+Lily ruled **s14_nadia_staging_20261122** with the recommended option: Nadia comes up early with Mr. Ewald's note at about
+3.50, before his 4 o'clock call, and the exchange plays once the player holds the kept papers.
+
+- **arc.releases** gains **attach_mae**: flag **m_mae_answered** (set on Nadia's "Adela Voss.", node **mk_b5**), slip
+  RELEASED: MRS. KESSLER., dream **mae_release_print**.
+- The box lead's performance gives **nadia_quell** a visit to 6C from minute 50 (15:50) to its end, through the same
+  host/guest pairing the tea visit uses; her one line there is a first draft.
+- Mae's **mk_box** thread now opens from 15:50, is said in person (`spoken`, so clicking Mae answers it before her
+  ambient line), and needs only **m_receipt_seen**, which taking the kept papers grants. By ruling
+  **s14_letter_gate_20261122** the Ewald letter comparison is no longer required (nothing on the route earned it), and
+  the player's third reply is trimmed to "Cam Ortiz had your letter in his bag at six-forty." The other lines are
+  unchanged.
+- Tests: one new check in **TemporalLoopTest** for the slip and the print, and **LoopPerformanceTest** plays S14 in the
+  real box hour (closed before 15:50 and without the papers; Nadia's line grants the flag).

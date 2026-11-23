@@ -4,7 +4,8 @@ extends Node
 ## performance. No evidence, trust, inventory, door key or calendar writes here.
 const SOURCE := "res://data/temporal/performances.json"
 const Encounters := preload("res://scripts/characters/loop_encounters.gd")
-const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "drama": ["cal_dwyer", "juno_kells"]}
+const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "box": ["mae_kessler", "nadia_quell"],
+		"drama": ["cal_dwyer", "juno_kells"]}
 
 var world: Node3D
 var loop: Node
@@ -234,6 +235,22 @@ func _sync_visit() -> void:
 	_clear_activities()
 	# Existing bodies walk from their actual positions toward the reconstructed
 	# phase. No visible teleport on jump, home, load or immediate rerun.
+
+
+## True when this visit's performance has sent `resident` to a place and their
+## body has actually arrived there. A mystery thread that names a witness in
+## `present` (S14: Nadia in 6C) asks this, so a line is never said by someone
+## still on the stair.
+func witness_present(resident: String) -> bool:
+	var place := str(phase_for(resident).get("place", ""))
+	if loop == null or not loop.in_visit() or place.is_empty():
+		return false
+	# Arrival must be at THIS phase's place: a body settled at an earlier
+	# destination reads as arrived until the route next samples its schedule.
+	var route: Node = world.resident_routes.get(resident)
+	if route == null or str(route.destination) != place:
+		return false
+	return _arrived(resident)
 
 
 func _arrived(resident: String) -> bool:

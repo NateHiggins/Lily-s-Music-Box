@@ -154,6 +154,7 @@ func _run() -> void:
 		_boundary_matrix()
 		_dialogue_lifecycle()
 		_transition_dialogue()
+		_s14_nadia_names_her()
 		_gaze_and_activity()
 		_save_reload()
 		_move_yield()
@@ -286,6 +287,52 @@ func _dialogue_lifecycle() -> void:
 	check(bool(loop.go_home().ok), "home succeeds with a dedicated line active")
 	check(not panel.attention_active() and not conversations.performance_active(), "home releases dedicated line")
 	check(not performance.conversation_prompt("mae_kessler").is_empty(), "ordinary authored reply remains available at home")
+	_jump("tea")
+
+## S14 (ruling s14_nadia_staging_20261122): in Mae's box hour Nadia comes up at
+## ten to four with Mr. Ewald's note, and once the kept papers are in hand the
+## exchange is open; Nadia's "Adela Voss." is what releases MRS. KESSLER.
+func _s14_nadia_names_her() -> void:
+	var known: Array = (RealityState.data.get("knowledge_flags", []) as Array).duplicate()
+	_jump("box")
+	var s14_open := func() -> bool:
+		return conversations.active_threads("mae_kessler", conversations.today(), conversations.minute_now()) \
+				.any(func(thread: Dictionary) -> bool: return str(thread.id) == "mk_box")
+	_advance(47.5)
+	RealityState.grant_knowledge("m_receipt_seen")
+	check(str(performance.phase_for("nadia_quell").get("place", "x")).is_empty() and not s14_open.call(),
+			"before 15:48 Nadia has not set out and S14 is closed")
+	_advance(1.0)
+	var approach: Dictionary = performance.phase_for("nadia_quell")
+	check(str(approach.get("place", "")) == "visit:6C" and not s14_open.call()
+			and is_equal_approx(float(approach.start), Loop.BOX_NADIA_APPROACH_MINUTE),
+			"Nadia sets out at the clock landing point and the thread still waits until 15:50")
+	_advance(2.0)
+	var nadia: Route = world.resident_routes.nadia_quell
+	nadia.arrive("unit:main")
+	check(not s14_open.call() and not conversations.has_spoken_thread("mae_kessler"),
+			"at ten to four, Nadia still settled at her earlier destination does not count as in 6C")
+	nadia.destination = "visit:6C"
+	nadia.actor._walking = true
+	check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C" and not s14_open.call()
+			and not conversations.has_spoken_thread("mae_kessler"),
+			"at ten to four, while Nadia is still on her way, S14 does not open (Codex's arrival finding)")
+	nadia.arrive("visit:6C")
+	check(s14_open.call(), "once Nadia has actually arrived in 6C, S14 opens with the kept papers in hand")
+	RealityState.data.knowledge_flags.erase("m_receipt_seen")
+	check(not s14_open.call(), "without the kept papers S14 stays closed")
+	RealityState.grant_knowledge("m_receipt_seen")
+	# The production click (AnimatedResident.interact) answers an open spoken
+	# thread before the ambient performance line: the same two calls here.
+	check(conversations.has_spoken_thread("mae_kessler") and conversations.start_mystery("mae_kessler", true),
+			"clicking Mae at ten to four opens S14 ahead of her ambient line")
+	for i in 5:
+		if panel.attention_active() and not RealityState.has_knowledge("m_mae_answered"):
+			panel.choose(0)
+	check(RealityState.has_knowledge("m_mae_answered") and panel.current_node_id == "mk_b5",
+			"Mae will not name her; Nadia's line is heard and grants m_mae_answered")
+	panel.close(); panel._end_tree()
+	RealityState.data.knowledge_flags = known
 	_jump("tea")
 
 func _gaze_and_activity() -> void:
