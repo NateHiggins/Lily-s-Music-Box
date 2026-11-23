@@ -295,7 +295,6 @@ func _dialogue_lifecycle() -> void:
 func _s14_nadia_names_her() -> void:
 	var known: Array = (RealityState.data.get("knowledge_flags", []) as Array).duplicate()
 	_jump("box")
-	RealityState.grant_knowledge("m_letter_compared")
 	var s14_open := func() -> bool:
 		return conversations.active_threads("mae_kessler", conversations.today(), conversations.minute_now()) \
 				.any(func(thread: Dictionary) -> bool: return str(thread.id) == "mk_box")
