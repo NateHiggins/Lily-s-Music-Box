@@ -9,8 +9,12 @@ insert remains selectable, the replacement needs the reverse turn, and both
 identities survive reload. The composed physical surface check passed all
 818 checks and all 23 views were technically reviewed.
 
-The legacy hand-transfer bench, wedge, full service visit and Lily's play
-review remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
+PR499 clears the dress form from the service approach. Both wedges
+work from standing height, and the old approach is walkable. Nine installed
+checks and 818 composed physical checks passed. [Wedge evidence](C:/ov/reports/radiator_wedges_20261123/REPORT.md).
+
+The legacy hand-transfer bench, full service visit and Lily's play review
+remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
 
 # Fresh save lineage through both endings - November 22
 
