@@ -198,6 +198,18 @@ func _ready() -> void:
 		for i in 3: await get_tree().physics_frame
 		_check(enc.margin.process_mode == Node.PROCESS_MODE_INHERIT and enc.palp_renderer.visible,
 			"on %s the margin runs and its palps draw" % margin_floor)
+		# Standing on the floor one storey up, case or no case: the margin's
+		# storey window once reached 0.2 m past the next floor and kept running
+		# there (ruling perf_margin_pause_20261123).
+		var pitch: float = float(world.layout.dimensions.floor_to_floor)
+		player.global_position = Vector3(mid.x, margin_y + pitch + 0.02, mid.z)
+		for i in 3: await get_tree().physics_frame
+		_check(enc._player_floor() != margin_floor and enc.margin.process_mode == Node.PROCESS_MODE_DISABLED,
+			"standing on the floor above %s pauses the margin (player on '%s')" % [margin_floor, enc._player_floor()])
+		player.global_position = Vector3(mid.x, margin_y + 0.02, mid.z)
+		for i in 3: await get_tree().physics_frame
+		_check(enc._player_floor() == margin_floor and enc.margin.process_mode == Node.PROCESS_MODE_INHERIT,
+			"standing on %s's own floor runs the margin again" % margin_floor)
 	# Exercise every field through the explicit diagnostic override.
 	var had_living_all := OS.has_environment("LIVING_ALL")
 	var previous_living_all := OS.get_environment("LIVING_ALL")

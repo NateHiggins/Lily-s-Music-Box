@@ -68,7 +68,10 @@ weather_blood={
 
 [physics]
 
-common/max_physics_steps_per_frame=3
+; Lily's rulings physics_step_cap_20261120 (3) then perf_physics_catchup_20261123
+; (2, the 30 fps target): below 30 fps the world runs slightly slow instead of
+; spending the slow frame on more catch-up steps.
+common/max_physics_steps_per_frame=2
 
 [rendering]
 
