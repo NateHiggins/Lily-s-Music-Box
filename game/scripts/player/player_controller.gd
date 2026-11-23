@@ -81,7 +81,11 @@ var _rolling_hoop: RollingHoop
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
-var noclip := false
+var noclip := false:
+	set(enabled):
+		noclip = enabled
+		collision_layer = 0 if enabled else 1
+		set_native_contact_layers(_native_contact_layers)
 var crouched := false
 ## The jump's upward speed. 3.4 m/s is the waking five-foot body; the dream sets its lighter body's higher jump
 ## (Lily's ruling dream_parkour_body_20261117).
@@ -478,8 +482,6 @@ func _process(_delta: float) -> void:
 	if GameBoot.developer_overlays_enabled() \
 			and Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
-		collision_layer = 0 if noclip else 1
-		collision_mask = 0 if noclip else (1|_native_contact_layers)
 		if noclip:
 			_clear_stagger()
 	if Input.is_action_just_pressed("crouch") and not inspecting() and not is_instance_valid(seated_on):

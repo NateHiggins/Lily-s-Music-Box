@@ -294,6 +294,8 @@ func _exercise_ritual(world: OrisonV2RuntimeRoot) -> void:
 	# placing the test operator; retain the production arrival authority.
 	await get_tree().process_frame
 	await get_tree().process_frame
+	_check(_service_collision_valid(world.player),
+		"first-shift arrival preserves world and registered native contact")
 	var director := world.first_shift_director
 	var detector := world.adapter.resolve("F01_WATCHMAN_DETECTOR") as WatchmanClockProp
 	var register := world.adapter.resolve("F01_NIGHT_REGISTER") as NightRegisterProp
