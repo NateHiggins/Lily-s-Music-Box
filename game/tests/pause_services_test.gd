@@ -149,6 +149,7 @@ func _run() -> void:
 	_check("Controller Back cancels keyboard-opened pause", not menu.is_open and not tree.paused)
 	if menu.is_open:
 		menu.close()
+	await _check_paused_valise()
 	_push_joy(JOY_BUTTON_START)
 	menu.sliders.master_volume.value = preview
 	menu.free()
@@ -157,6 +158,81 @@ func _run() -> void:
 			and absf(AudioServer.get_bus_volume_db(master) - GameBoot.audio_bus_db("Master")) < .01)
 	print("PAUSE SERVICES TOTAL checks=%d failures=%d" % [checks, failures.size()])
 	tree.quit(0 if failures.is_empty() else 1)
+
+
+func _check_paused_valise() -> void:
+	var view := preload("res://scripts/ui/carried_case_view.gd").new()
+	view.player = player
+	add_child(view)
+	menu.bind_case(view)
+	var item := "pause_test_chocolate"
+	_check("Valise fixture seeds the existing inventory",
+			PersonInventory.carry_goods(PersonInventory.PLAYER, item, "Chocolate", "packet"))
+	_push_joy(JOY_BUTTON_START)
+	_push_joy(JOY_BUTTON_DPAD_UP)
+	_check("Controller can focus the valise action", menu._case_button.has_focus())
+	_push_joy(JOY_BUTTON_A)
+	await get_tree().create_timer(0.6).timeout
+	_check("Valise opens while the world stays paused", view.opened and view.settled
+			and get_tree().paused and player.call_locked and not menu.center.visible)
+	if not view.opened:
+		menu.close()
+		view.queue_free()
+		return
+
+	var old := CarriedCase.place_of(item).duplicate()
+	_pad_seek(view, _case_cell_screen(view, float(old.x) + 0.5, float(old.y) + 0.5))
+	_push_joy(JOY_BUTTON_A)
+	_check("Controller picks up the displayed stack", view.held_item == item)
+	if view.held_item == item:
+		var old_turn := view._held_turned
+		_push_joy(JOY_BUTTON_Y)
+		_check("Controller turns the held stack", view._held_turned != old_turn)
+		var new_cell := Vector2i(-1, -1)
+		var size := CarriedCase.form_size(str(old.form), view._held_turned)
+		for y in CarriedCase.grid().y:
+			for x in CarriedCase.grid().x:
+				var cell := Vector2i(x, y)
+				if cell != Vector2i(old.x, old.y) and CarriedCase.fits(item,
+						str(old.form), x, y, view._held_turned):
+					new_cell = cell
+		_check("The valise has a second fitting square", new_cell.x >= 0)
+		if new_cell.x >= 0:
+			_pad_seek(view, _case_cell_screen(view, new_cell.x + size.x * 0.5, new_cell.y + size.y * 0.5))
+			_push_joy(JOY_BUTTON_A)
+			var placed := CarriedCase.place_of(item)
+			_check("Controller placement preserves quantity and writes arrangement",
+					view.held_item.is_empty() and Vector2i(placed.x, placed.y) == new_cell
+					and PersonInventory.goods_count(PersonInventory.PLAYER, item) == 1)
+
+	_push_joy(JOY_BUTTON_B)
+	await get_tree().create_timer(0.5).timeout
+	_check("Valise Back returns to pause and restores its focus",
+			not view.opened and get_tree().paused and menu._case_button.has_focus()
+			and not player.call_locked)
+	_push_joy(JOY_BUTTON_START)
+	_check("Start returns to play after leaving the valise", not get_tree().paused)
+	view.queue_free()
+	await get_tree().process_frame
+
+
+func _case_cell_screen(view: Node, x: float, y: float) -> Vector2:
+	var cell := float(CarriedCase.data().cell)
+	var floor_size := Vector2(CarriedCase.grid()) * cell
+	return view._camera.unproject_position(Vector3(
+			x * cell - floor_size.x * 0.5, 0.0, y * cell - floor_size.y * 0.5))
+
+
+func _pad_seek(view: Node, target: Vector2) -> void:
+	var half_step: float = get_viewport().get_visible_rect().size.y * float(view.CURSOR_STEP) * 0.5
+	for i in 64:
+		var offset: Vector2 = target - view._pointer
+		if absf(offset.x) > half_step:
+			_push_joy(JOY_BUTTON_DPAD_RIGHT if offset.x > 0.0 else JOY_BUTTON_DPAD_LEFT)
+		elif absf(offset.y) > half_step:
+			_push_joy(JOY_BUTTON_DPAD_DOWN if offset.y > 0.0 else JOY_BUTTON_DPAD_UP)
+		else:
+			break
 
 
 func _push_joy(button: JoyButton) -> void:

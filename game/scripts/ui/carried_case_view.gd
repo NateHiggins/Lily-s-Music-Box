@@ -4,7 +4,8 @@ extends CanvasLayer
 ## jointed stays into a shelf, and the goods ride on it. Primary click grabs a stack,
 ## mouse motion carries it, the next
 ## click sets it down on the stitched squares (RUL-013); right click turns it. The
-## world keeps running while it is open. Everything built here is freed on close,
+## world keeps running when opened in play. Building Services can also lend it
+## the pointer while paused. Everything built here is freed on close,
 ## so a closed case costs nothing. Lettering is Label3D.
 ##
 ## Papers stand in the linen pocket in the body, above the card (PaperPocket): the
@@ -61,6 +62,11 @@ const SHEET_STEP := 0.085
 const DRAW_PIXELS := 220.0
 const DRAW_OPENS := 0.85
 const DRAW_SETTLE_SECONDS := 0.2
+const CURSOR_SPEED := 0.9
+const CURSOR_STEP := 0.035
+const CURSOR_DEADZONE := 0.22
+
+signal closed
 
 var player: PlayerController
 var economy: Node
@@ -99,10 +105,31 @@ var _draw := 0.0
 var _draw_from_y := 0.0
 var _reading: Node = null
 var _returning := false
+var _pause_access := false
+var _pad_motion := Vector2.ZERO
+var _pad_cursor: Label
+var _pad_legend: Label
 
 
 func _ready() -> void:
 	layer = 40
+	set_process(false)
+
+
+func can_open_from_pause() -> bool:
+	return not opened and _available() and not player._grab.active()
+
+
+func open_from_pause() -> bool:
+	if not get_tree().paused or not can_open_from_pause():
+		return false
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	_pause_access = true
+	open_case()
+	if not opened:
+		_pause_access = false
+		process_mode = Node.PROCESS_MODE_INHERIT
+	return opened
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -125,33 +152,101 @@ func _input(event: InputEvent) -> void:
 	if not opened:
 		return
 	if not settled:
-		if event is InputEventMouseMotion or event is InputEventMouseButton or event is InputEventKey:
+		if event is InputEventMouseMotion or event is InputEventMouseButton or event is InputEventKey \
+				or event is InputEventJoypadButton or event is InputEventJoypadMotion:
 			get_viewport().set_input_as_handled()
 		return
 	if is_instance_valid(_reading):
 		return  # the paper held up to read takes the input until it goes back
+	if event is InputEventJoypadMotion and event.axis in [JOY_AXIS_LEFT_X, JOY_AXIS_LEFT_Y]:
+		_pad_motion[event.axis - JOY_AXIS_LEFT_X] = event.axis_value
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventJoypadButton and event.pressed and _pad_button(event):
+		get_viewport().set_input_as_handled()
+		return
 	if held_paper >= 0 and not _returning and _paper_input(event):
 		get_viewport().set_input_as_handled()
 		return
 	if event is InputEventMouseMotion:
+		_hide_pad_cursor()
 		_point(event.position)
 	elif event is InputEventMouseButton and event.pressed:
+		_hide_pad_cursor()
 		_point(event.position)
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var paper := _paper_at(event.position) if held_item == "" and held_paper < 0 else -1
-			if paper >= 0:
-				_take_paper(paper, event.position.y)
-			else:
-				_click()
+			_activate_pointer()
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			_turn()
-	elif event.is_action_pressed("carried_case") or event.is_action_pressed("ui_cancel"):
+	elif event.is_action_pressed("carried_case") or event.is_action_pressed("ui_cancel") \
+			or event.is_action_pressed("pause_services"):
 		close_case()
 	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
 		_turn()
 	else:
 		return
 	get_viewport().set_input_as_handled()
+
+
+func _pad_button(event: InputEventJoypadButton) -> bool:
+	if event.is_action_pressed("interact"):
+		_show_pad_cursor(_pointer)
+		if held_paper >= 0:
+			if not _returning:
+				_let_paper_go()
+		else:
+			_activate_pointer()
+		return true
+	if event.is_action_pressed("case_turn"):
+		_turn()
+		return true
+	var step := Vector2(
+		float(event.is_action_pressed("ui_right")) - float(event.is_action_pressed("ui_left")),
+		float(event.is_action_pressed("ui_down")) - float(event.is_action_pressed("ui_up")))
+	if step.is_zero_approx():
+		return false
+	_move_pad_cursor(step * get_viewport().get_visible_rect().size.y * CURSOR_STEP)
+	return true
+
+
+func _process(delta: float) -> void:
+	if not settled or is_instance_valid(_reading) or _pad_motion.length() <= CURSOR_DEADZONE:
+		return
+	var amount := inverse_lerp(CURSOR_DEADZONE, 1.0, minf(1.0, _pad_motion.length()))
+	_move_pad_cursor(_pad_motion.normalized() * amount * delta
+			* get_viewport().get_visible_rect().size.y * CURSOR_SPEED)
+
+
+func _hide_pad_cursor() -> void:
+	_pad_motion = Vector2.ZERO
+	_pad_cursor.hide()
+	_pad_legend.hide()
+
+
+func _show_pad_cursor(at: Vector2) -> void:
+	_pad_cursor.position = at - _pad_cursor.size * 0.5
+	_pad_cursor.show()
+	_pad_legend.show()
+
+
+func _move_pad_cursor(relative: Vector2) -> void:
+	var at := (_pointer + relative).clamp(Vector2(8, 8),
+			get_viewport().get_visible_rect().size - Vector2(8, 8))
+	_show_pad_cursor(at)
+	if held_paper >= 0:
+		_pointer = at
+		if not _returning:
+			_draw_paper(at.y)
+	else:
+		_point(at)
+
+
+func _activate_pointer() -> void:
+	var paper := _paper_at(_pointer) if held_item == "" and held_paper < 0 else -1
+	if paper >= 0:
+		_take_paper(paper, _pointer.y)
+	else:
+		_click()
 
 
 func open_case(holder: String=PersonInventory.PLAYER) -> void:
@@ -175,6 +270,8 @@ func open_case(holder: String=PersonInventory.PLAYER) -> void:
 			return
 		_lay(item, _goods)
 	opened = true
+	_pointer = get_viewport().get_visible_rect().size * 0.5
+	set_process(true)
 	player.stow_rolling_hoop()
 	_mouse_before = Input.mouse_mode
 	player.call_locked = true
@@ -208,6 +305,9 @@ func _finish_close() -> void:
 	player.call_locked = false
 	Input.mouse_mode = _mouse_before
 	_discard_view()
+	if _pause_access:
+		_pause_access = false
+		process_mode = Node.PROCESS_MODE_INHERIT
 	if _return_washer:
 		_return_washer = false
 		if is_instance_valid(fire_stock):
@@ -226,9 +326,12 @@ func _finish_close() -> void:
 		var item := _use_after_close
 		_use_after_close = ""
 		item_use.use(item)
+	closed.emit()
 
 
 func _discard_view() -> void:
+	set_process(false)
+	_pad_motion = Vector2.ZERO
 	_holder.queue_free()
 	_forms.clear()
 	_stacks.clear()
@@ -279,6 +382,25 @@ func _build() -> bool:
 	_viewport.msaa_3d = Viewport.MSAA_4X
 	_viewport.handle_input_locally = false
 	_holder.add_child(_viewport)
+	_pad_cursor = Label.new()
+	_pad_cursor.text = "+"
+	_pad_cursor.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pad_cursor.add_theme_font_size_override("font_size", 26)
+	_pad_cursor.add_theme_constant_override("outline_size", 4)
+	_pad_cursor.add_theme_color_override("font_outline_color", Color.BLACK)
+	_pad_cursor.hide()
+	_holder.add_child(_pad_cursor)
+	_pad_legend = Label.new()
+	_pad_legend.text = "STICK MOVE  ·  A PICK UP / PLACE  ·  Y TURN  ·  B BACK"
+	_pad_legend.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_pad_legend.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pad_legend.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	_pad_legend.offset_top = -32.0
+	_pad_legend.offset_bottom = -8.0
+	_pad_legend.add_theme_constant_override("outline_size", 5)
+	_pad_legend.add_theme_color_override("font_outline_color", Color.BLACK)
+	_pad_legend.hide()
+	_holder.add_child(_pad_legend)
 	var root := Node3D.new()
 	_viewport.add_child(root)
 	_camera = Camera3D.new()
@@ -510,15 +632,21 @@ func _take_paper(index: int, pointer_y: float) -> void:
 ## A paper in the hand: upward motion draws it out, a click lets it go back.
 func _paper_input(event: InputEvent) -> bool:
 	if event is InputEventMouseMotion:
-		_draw = clampf((_draw_from_y - event.position.y) / DRAW_PIXELS, 0.0, 1.0)
-		_pose_paper(held_paper)
-		if _draw >= DRAW_OPENS:
-			_read(held_paper)
+		_hide_pad_cursor()
+		_pointer = event.position
+		_draw_paper(event.position.y)
 		return true
 	if event is InputEventMouseButton and event.pressed:
 		_let_paper_go()
 		return true
 	return false
+
+
+func _draw_paper(pointer_y: float) -> void:
+	_draw = clampf((_draw_from_y - pointer_y) / DRAW_PIXELS, 0.0, 1.0)
+	_pose_paper(held_paper)
+	if _draw >= DRAW_OPENS:
+		_read(held_paper)
 
 
 func _let_paper_go() -> void:
@@ -547,6 +675,7 @@ func _paper_home(index: int) -> void:
 
 func _read(index: int) -> void:
 	var paper := _papers[index]
+	_hide_pad_cursor()
 	_tag.visible = false
 	if paper.kind == "news":
 		var catalog := get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
@@ -763,7 +892,8 @@ func _click() -> void:
 			_point(_pointer)
 		return
 	if _past_front(at):
-		_take_out(held_item)
+		if not _pause_access:
+			_take_out(held_item)
 		return
 	var target := _target_cell(at)
 	# Set down only where it fits; otherwise the hand keeps it.
@@ -778,6 +908,8 @@ func _past_front(at: Vector3) -> bool:
 
 
 func _verb_tag(item: String) -> String:
+	if _pause_access:
+		return "RETURN TO PLAY TO USE"
 	if item.begins_with(CarriedCase.VENT_INSERT_PREFIX) and is_instance_valid(household_state):
 		var destination: Node3D = household_state.vent_insert_destination(player, item)
 		if not is_instance_valid(destination):
