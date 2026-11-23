@@ -1,3 +1,27 @@
+# Qualification and Laurel diagnostics - November 23
+
+Evidence class: **INERT**
+
+[PR138](https://github.com/NateHiggins/Lily-s-Music-Box/pull/138) is closed.
+The archived branch remains at **1d2351252**. Composed02 admitted 26 slabs
+and removed 108 of 14,700 visible draws in one pose. Frame-time benefit
+and wider visibility had no proof. Earlier failures remain in the archive.
+
+The matched Laurel night probes on **f18d29492** passed the six-leg route.
+Observed outbound hitches paired with roughly 80 MiB of engine allocations.
+The allocation appeared in different frame phases across runs. Book work
+finished before the walk, and no arcade load overlapped the traced hitch.
+A conditional sync did not fire when the jump occurred during the draw.
+The diagnostic patches stayed out of production. [Laurel report](C:/ov/reports/laurel_stutter_main_20261123/REPORT.md).
+
+The [M10 player-run launcher](tools/run_orison_v2_m10.ps1) uses the shared
+lane and keeps prior saves. For a human K2 run, use `-Gate K2 -Fresh`.
+For K3, add `-Boundary 1` through `-Boundary 11` to a separate fresh
+attempt per boundary. To reopen its save, reuse the printed `-Attempt`
+with the same gate and boundary. `-PrepareOnly` stages the setup without
+launching the game. The uninterrupted human K2 run and the eleven human
+K3 reloads still need their completed [run card](design/GOLDEN_SHIFT_HUMAN_RUN_CARD_2026-08-27.md).
+
 # Workshop insert exchange in 2B - November 23
 
 Evidence class: **INERT**
