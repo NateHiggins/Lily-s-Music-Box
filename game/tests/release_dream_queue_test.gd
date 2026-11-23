@@ -71,6 +71,18 @@ func _ready() -> void:
 	var home := {"allowed": false}
 	sleep.setup(dreams, func(): return home.allowed)
 	sleep.bind_waking_services(body)
+	# A pre-amendment save may already have armed this print.
+	var deductions: Array = RealityState.data.temporal.deductions
+	RealityState.data.temporal.deductions = []
+	home.allowed = true
+	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == 0.0
+			and sleep.blocked_reason() == "first_deduction_pending",
+			"an already armed older save stays awake before the first deduction")
+	check(not dreams.enter_armed_dream() and dreams.phase() == "armed"
+			and int(RealityState.data.get("dreams_had", 0)) == 0,
+			"the early entry guard preserves the armed request and does not consume a dream")
+	RealityState.data.temporal.deductions = deductions
+	home.allowed = false
 	check(sleep.advance_for_test(10.0) and dreams.phase() == "armed" and sleep.pressure() == 0.0
 			and sleep.blocked_reason() == "release_sleep_outside_4b",
 			"an armed release cannot begin sleep outside present-day 4B")
