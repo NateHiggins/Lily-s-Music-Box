@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 592.57,
+  "elapsed_s": 599.46,
   "exit_code": 0,
-  "finished_utc": "2026-11-23T15:52:04Z",
-  "started_utc": "2026-11-23T15:42:11Z",
+  "finished_utc": "2026-11-23T16:34:37Z",
+  "started_utc": "2026-11-23T16:24:38Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/far_shadows_strip_20261123/first_slice/run.log.stderr",
+  "stderr": "C:/ov/reports/celestial_key_integration_20261123/first_slice/run.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/far_shadows_strip_20261123/first_slice/run.log",
-  "stdout_sha256": "3e14a1414b7eaab5a5eef3d818f7f31237d0d94d2a851e46bd6c22f8418cc5ee"
+  "stdout": "C:/ov/reports/celestial_key_integration_20261123/first_slice/run.log",
+  "stdout_sha256": "242913448fa3769b5196d446db9e83ba9eca9c431ce2c388f2357599e738623d"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/far_shadows_strip_20261123/first_slice/packet",
+ "shot_dir": "C:/ov/reports/celestial_key_integration_20261123/first_slice/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "81a39c2370d35b54e75f48f5524893dab101f3ec",
-  "repository_tree": "c8e48b9c9b333bfa216f51b43a87243d079ee292",
-  "runtime_inputs_sha256": "0f29519d076a8615fb95bb1d49160897e760a172398be23f07d1fa30f53713b8",
+  "repository_head": "97e17faff87238741e36246402315d881b5ecc7f",
+  "repository_tree": "ba933eabb9d62a082a30e5ef59e90239b88bf4cf",
+  "runtime_inputs_sha256": "f8dd1ab1d8bad544536698e6fadc5e5a79ab3f1513853402389a267a1ac7d3ce",
   "test_path": null,
   "test_sha256": null
  },
