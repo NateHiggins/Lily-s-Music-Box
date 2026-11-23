@@ -287258,6 +287258,423 @@
    "target_exists": true
   },
   {
+   "key": "167a420a7b171dcf",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    95
+   ],
+   "count": 1,
+   "context": [
+    "check(policy.level_at(Vector3(0, 4.6, 0)) == \"F02\" and policy.level_at(Vector3(0, 1.4, 0)) == \"F01\" and policy.level_at(Vector3(0, -1.6, 0)) == \"B1\", \"storeys c"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9d3a7076ac535ccd",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    52,
+    95
+   ],
+   "count": 3,
+   "context": [
+    "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
+    "check(policy.level_at(Vector3(0, 4.6, 0)) == \"F02\" and policy.level_at(Vector3(0, 1.4, 0)) == \"F01\" and policy.level_at(Vector3(0, -1.6, 0)) == \"B1\", \"storeys c"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c1d6778ee34a65df",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    53,
+    53,
+    95
+   ],
+   "count": 4,
+   "context": [
+    "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
+    "_space(\"F02_B\", \"F02\"), _space(\"F02_CORE\", \"F02\", true)],",
+    "check(policy.level_at(Vector3(0, 4.6, 0)) == \"F02\" and policy.level_at(Vector3(0, 1.4, 0)) == \"F01\" and policy.level_at(Vector3(0, -1.6, 0)) == \"B1\", \"storeys c"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e95e9d51ff2461ae",
+   "kind": "id_candidate",
+   "token": "F01_A",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    55,
+    56
+   ],
+   "count": 3,
+   "context": [
+    "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
+    "{\"id\": \"F01_SEALED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 2.34, 0)},",
+    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "8aa0f2cdc35854fd",
+   "kind": "id_candidate",
+   "token": "F01_B",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    55,
+    56
+   ],
+   "count": 3,
+   "context": [
+    "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
+    "{\"id\": \"F01_SEALED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 2.34, 0)},",
+    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "bc41aff67af97a98",
+   "kind": "id_candidate",
+   "token": "F01_CROWDED",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a6e9de5027b9f4e1",
+   "kind": "id_candidate",
+   "token": "F01_SEALED",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    55
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\": \"F01_SEALED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 2.34, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e2466aa137cec89d",
+   "kind": "id_candidate",
+   "token": "F02_A",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    57
+   ],
+   "count": 2,
+   "context": [
+    "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
+    "{\"id\": \"F02_SEALED\", \"connects\": [\"F02_A\", \"F02_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 5.54, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "05e88ff866d5f05b",
+   "kind": "id_candidate",
+   "token": "F02_B",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    53,
+    57,
+    58
+   ],
+   "count": 3,
+   "context": [
+    "_space(\"F02_B\", \"F02\"), _space(\"F02_CORE\", \"F02\", true)],",
+    "{\"id\": \"F02_SEALED\", \"connects\": [\"F02_A\", \"F02_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 5.54, 0)},",
+    "{\"id\": \"F02_SHAFT\", \"connects\": [\"F02_B\", \"F02_CORE\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(2.5, 5.54, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "040fdac21fa1426b",
+   "kind": "id_candidate",
+   "token": "F02_CORE",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    53,
+    58
+   ],
+   "count": 2,
+   "context": [
+    "_space(\"F02_B\", \"F02\"), _space(\"F02_CORE\", \"F02\", true)],",
+    "{\"id\": \"F02_SHAFT\", \"connects\": [\"F02_B\", \"F02_CORE\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(2.5, 5.54, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "596d8f20d8ff4a56",
+   "kind": "id_candidate",
+   "token": "F02_SEALED",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\": \"F02_SEALED\", \"connects\": [\"F02_A\", \"F02_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 5.54, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5c9269578b0d2864",
+   "kind": "id_candidate",
+   "token": "F02_SHAFT",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\": \"F02_SHAFT\", \"connects\": [\"F02_B\", \"F02_CORE\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(2.5, 5.54, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "570046f318636f1b",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    98,
+    112
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position = Vector3(0, 4.6, 3)",
+    "camera.global_position = Vector3(0, 1.4, 3)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "d8c961bdeda3d3d1",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",
