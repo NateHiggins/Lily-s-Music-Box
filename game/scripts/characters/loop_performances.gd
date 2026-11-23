@@ -242,7 +242,13 @@ func _sync_visit() -> void:
 ## `present` (S14: Nadia in 6C) asks this, so a line is never said by someone
 ## still on the stair.
 func witness_present(resident: String) -> bool:
-	if loop == null or not loop.in_visit() or str(phase_for(resident).get("place", "")).is_empty():
+	var place := str(phase_for(resident).get("place", ""))
+	if loop == null or not loop.in_visit() or place.is_empty():
+		return false
+	# Arrival must be at THIS phase's place: a body settled at an earlier
+	# destination reads as arrived until the route next samples its schedule.
+	var route: Node = world.resident_routes.get(resident)
+	if route == null or str(route.destination) != place:
 		return false
 	return _arrived(resident)
 

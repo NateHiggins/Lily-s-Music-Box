@@ -304,6 +304,10 @@ func _s14_nadia_names_her() -> void:
 			"before ten to four Nadia has not come up and S14 is not open")
 	_advance(1.5)
 	var nadia: Route = world.resident_routes.nadia_quell
+	nadia.arrive("unit:main")
+	check(not s14_open.call() and not conversations.has_spoken_thread("mae_kessler"),
+			"at ten to four, Nadia still settled at her earlier destination does not count as in 6C")
+	nadia.destination = "visit:6C"
 	nadia.actor._walking = true
 	check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C" and not s14_open.call()
 			and not conversations.has_spoken_thread("mae_kessler"),
