@@ -25,7 +25,7 @@ func setup(owner_world: Node3D) -> bool:
 		if not opening.has("shared_wall_owner"):continue
 		var light:=world.adapter.root.get_node_or_null(str(opening.id)+"/ServicePractical/WarmServiceLight") as OmniLight3D
 		if light==null:return false
-		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,"graph_visible":true})
+		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,"graph_visible":true,"level":"","shaft":true})
 	for record: Dictionary in world.layout.doors:
 		if record.get("connects",[]).size()!=2:continue
 		var anchor: Node=world.adapter.root.get_node_or_null(str(record.id))
@@ -39,8 +39,27 @@ func setup(owner_world: Node3D) -> bool:
 		edges.append({"connects":record.connects,"door":leaf})
 		if leaf!=null:leaf.manipulation_changed.connect(_invalidate)
 	if sources.is_empty():return false
+	_classify_sources()
 	distance_budget=preload("res://scripts/building/service_light_distance.gd").new(self)
 	return true
+
+## Storey, fixed for the layout. A source both of whose rooms have a floor and
+## a ceiling is sealed to its storey by the slabs: only an eye on that storey
+## can see what it lights. Neighbouring practicals each light their own side
+## of a wall, so crowding alone never retires one.
+func _classify_sources() -> void:
+	for source: Dictionary in sources:
+		var rooms: Array=source.connects
+		var first: Dictionary=spaces.get(str(rooms[0]),{})
+		var second: Dictionary=spaces.get(str(rooms[1]),{})
+		source.level=str(first.get("level",""))
+		source.shaft=source.level.is_empty() or first.is_empty() or second.is_empty() or _open_room(first) or _open_room(second)
+
+## The storey an eye at `point` stands on, from the layout's own slab pitch.
+func level_at(point: Vector3) -> String:
+	var pitch: float=float(world.layout.dimensions.floor_to_floor)
+	var index: int=int(floor(point.y/pitch))
+	return "B%d"%(-index) if index<0 else "F%02d"%(index+1)
 
 func _transmits_light(leaf: DoorProp) -> bool:
 	for draw: GeometryInstance3D in leaf.find_children("*","GeometryInstance3D",true,false):
