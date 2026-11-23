@@ -69,12 +69,16 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	player._unhandled_input(space)
 	if not player.inspecting(): failures.append("Space inspection reaches vent chamber");return
 	await bench.get_tree().physics_frame
-	var float_part: Node3D=prop.native_rig.vent.get_node("FloatAndNeedle")
-	var float_contact: Vector3=prop.native_rig.vent.to_global(Vector3(.043,.055,0))
-	var cursor: Vector2=player.camera.unproject_position(float_contact)
-	Input.warp_mouse(cursor)
+	var float_part := prop.native_rig.vent.get_node("FloatAndNeedle") as MeshInstance3D
+	var float_contact := float_part.to_global(float_part.get_aabb().get_center())
+	var cursor: Vector2 = player.camera.unproject_position(float_contact).round()
+	var pointer := InputEventMouseMotion.new()
+	pointer.position = cursor
+	pointer.global_position = cursor
+	bench.get_viewport().push_input(pointer, true)
 	await bench.get_tree().process_frame
 	var target: Dictionary=player._grab.find_target()
+	print("NEEDLE PICK requested=", cursor, " delivered=", bench.get_viewport().get_mouse_position(), " hit=", player._grab.last_hit.get("collider"))
 	if target.get("part")!=float_part: failures.append("inspection cursor reaches exposed needle")
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_float": failures.append("grab exposed needle");player.end_inspection();return
