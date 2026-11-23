@@ -165,6 +165,7 @@ func _check_paused_valise() -> void:
 	view.player = player
 	add_child(view)
 	menu.bind_case(view)
+	RealityState.data["mail_taken"] = ["welcome_note"]
 	var item := "pause_test_chocolate"
 	_check("Valise fixture seeds the existing inventory",
 			PersonInventory.carry_goods(PersonInventory.PLAYER, item, "Chocolate", "packet"))
@@ -222,6 +223,7 @@ func _check_paused_valise() -> void:
 					view.held_item.is_empty() and Vector2i(placed.x, placed.y) == new_cell
 					and PersonInventory.goods_count(PersonInventory.PLAYER, item) == 1)
 
+	await _check_paused_letter(view)
 	_push_joy(JOY_BUTTON_B)
 	await get_tree().create_timer(0.5).timeout
 	_check("Valise Back returns to pause and restores its focus",
@@ -231,6 +233,30 @@ func _check_paused_valise() -> void:
 	_check("Start returns to play after leaving the valise", not get_tree().paused)
 	view.queue_free()
 	await get_tree().process_frame
+
+
+func _check_paused_letter(view: Node) -> void:
+	if view._papers.is_empty() or not view.held_item.is_empty():
+		_check("An owned letter is reachable in the paused case", false)
+		return
+	_pad_seek(view, view.paper_grip_point(0))
+	_push_joy(JOY_BUTTON_A)
+	_check("Controller takes the visible paper edge", view.held_paper == 0)
+	if view.held_paper != 0:
+		return
+	_check("The paper needs more travel than the visible pointer has",
+			float(view._draw_from_y) - 8.0 < float(view.DRAW_PIXELS) * float(view.DRAW_OPENS))
+	for step in 14:
+		if is_instance_valid(view._reading):
+			break
+		_push_joy(JOY_BUTTON_DPAD_UP)
+	_check("Controller draws the letter clear while paused",
+			is_instance_valid(view._reading) and get_tree().paused)
+	_push_joy(JOY_BUTTON_B)
+	await get_tree().create_timer(0.35).timeout
+	_check("Reader Back returns the paper to the paused valise",
+			not is_instance_valid(view._reading) and view.held_paper < 0 and view.opened
+			and get_tree().paused and player.call_locked)
 
 
 func _case_cell_screen(view: Node, x: float, y: float) -> Vector2:

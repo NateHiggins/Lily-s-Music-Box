@@ -236,7 +236,8 @@ func _move_pad_cursor(relative: Vector2) -> void:
 	if held_paper >= 0:
 		_pointer = at
 		if not _returning:
-			_draw_paper(at.y)
+			# Pull relative to the hand's progress so the viewport edge cannot stop the sheet.
+			_draw_paper(_draw_from_y - _draw * DRAW_PIXELS + relative.y)
 	else:
 		_point(at)
 
@@ -632,6 +633,8 @@ func _take_paper(index: int, pointer_y: float) -> void:
 ## A paper in the hand: upward motion draws it out, a click lets it go back.
 func _paper_input(event: InputEvent) -> bool:
 	if event is InputEventMouseMotion:
+		if _pad_cursor.visible:
+			_draw_from_y = event.position.y + _draw * DRAW_PIXELS
 		_hide_pad_cursor()
 		_pointer = event.position
 		_draw_paper(event.position.y)
