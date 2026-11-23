@@ -87,7 +87,7 @@ def grip_join(name, start, end, tread, rise, radius, key, sides):
 def south_join(level, x, z, span):
     stair=primary_by_destination[level]
     origin_x,origin_z=stair['origin']
-    end_x=origin_x+stair['width']+stair['gap']+.025
+    end_x=origin_x+stair['width']+stair['gap']*.5+.025
     end_z=origin_z+stair['landing_depth']+stair['tread']*.5
     end_h=stair['guard_height']-.025
     assert 0 < end_x-(x+span) <= .035 and .15 < end_z-z < .25
@@ -145,29 +145,48 @@ def guard_template(span, transition=None):
     return templates,feet
 
 guards=[]; joins=[]; meshes=[]
-for kind,span in [('North',3.1),('South',1.),('CourtStop',1.)]:
-    floors=['F01','F02','F03','F04','F05','F06','ROOF'] if kind=='North' else (
-        ['F02','F03','F04','F05','F06','ROOF'] if kind=='South' else ['F01'])
-    x,z=(1.4,1.70) if kind=='North' else ((2.45,-1.945) if kind=='South' else (2.45,-.58))
-    transition=None
-    if kind=='South':
-        transition=south_join(floors[0],x,z,span)
-        assert all(south_join(level,x,z,span)==transition for level in floors)
+
+def install_guard(kind, level, start, end, floor_owner, transition=None):
+    x,z=start
+    dx,dz=end[0]-x,end[1]-z
+    span=math.hypot(dx,dz)
+    y=levels[level]
+    prefix=f'{level}_LightCourtGuard_{kind}'
     templates,feet=guard_template(span,transition)
-    for level in floors:
-        y=levels[level]; prefix=f'{level}_LightCourtGuard_{kind}'
-        for source in templates:
-            obj=source.copy(); obj.data=source.data
-            bpy.context.scene.collection.objects.link(obj); obj.name=prefix+'_'+obj.data.materials[0].name
-            obj.location=point((x,y,z)); meshes.append(obj)
-        guards.append({'id':prefix,'level':level,'kind':kind,'bounds':[x,y,z-.0325,x+span,y+1.05,z+.0325],
-            'foot_contacts':[[x+p[0],y,z] for p in feet],
-            'floor_owner':level+'_PUBLIC_LANDING_'+('N' if kind=='North' else 'S') if kind!='CourtStop' else well['id']})
-        if transition is not None:
-            start,end,_,_=transition
-            joins.append({'id':prefix+'_StairJoin','start':[x+start[0],y,z+start[2],y+start[1]+.025],
-                'end':[x+end[0],y,z+end[2],y+end[1]+.023],'half_width':.0225})
-    for obj in templates: bpy.data.objects.remove(obj,do_unlink=True)
+    for source in templates:
+        source.name=prefix+'_'+source.data.materials[0].name
+        source.location=point((x,y,z))
+        source.rotation_euler.z=math.atan2(-dz,dx)
+        meshes.append(source)
+    half_width=.0325
+    normal_x,normal_z=-dz/span*half_width,dx/span*half_width
+    guards.append({'id':prefix,'level':level,'kind':kind,
+        'bounds':[min(x,end[0])-abs(normal_x),y,min(z,end[1])-abs(normal_z),
+                  max(x,end[0])+abs(normal_x),y+1.05,max(z,end[1])+abs(normal_z)],
+        'foot_contacts':[[x+dx*foot[0]/span,y,z+dz*foot[0]/span] for foot in feet],
+        'floor_owner':floor_owner})
+    if transition is not None:
+        begin,finish,_,_=transition
+        joins.append({'id':prefix+'_StairJoin','start':[x+begin[0],y,z+begin[2],y+begin[1]+.025],
+            'end':[x+finish[0],y,z+finish[2],y+finish[1]+.023],'half_width':.0225})
+
+for level in ['F01','F02','F03','F04','F05','F06','ROOF']:
+    install_guard('North',level,(1.4,1.70),(4.5,1.70),level+'_PUBLIC_LANDING_N')
+    if level=='F01':
+        install_guard('CourtStop',level,(2.45,-.58),(3.45,-.58),well['id'])
+        continue
+    left=1.4 if level=='ROOF' else 2.45
+    right=2.95
+    z=-1.945
+    install_guard('South',level,(left,z),(right,z),level+'_PUBLIC_LANDING_S',
+                  south_join(level,left,z,right-left))
+
+# Sloping flight handrails drop below the occupied roof floor away from
+# the upper nosing. These upright rails protect the retained floor edges.
+install_guard('West','ROOF',(1.385,-1.945),(1.385,1.70),'ROOF_LIFT_DECK_E')
+install_guard('East','ROOF',(4.515,-1.945),(4.515,1.70),'ROOF_PUBLIC_LANDING_E')
+install_guard('ServiceLanding','ROOF',(9.525,4.955),(11.765,4.955),'ROOF_SERVICE_LANDING')
+install_guard('ServiceReturn','ROOF',(11.765,4.955),(11.765,6.1875),'ROOF_SERVICE_RETURN')
 
 # Four columns and two closed I-section beams seat the new slab on B1.
 supports=[]; contacts=[]

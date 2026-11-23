@@ -54,7 +54,7 @@ func _mount_guards(parent: Node3D, origin: Vector3, stair: Dictionary) -> void:
 		var low_y := half+rise if returning else rise
 		var high_y := half*2 if returning else half
 		var outer := right if returning else .025
-		var inner := width+gap+.025 if returning else width-.025
+		var inner := width + gap * 0.5 + (.025 if returning else -.025)
 		for x in [outer,inner]:
 			_guard(body,Vector3(x,low_y,low_z),Vector3(x,high_y,high_z),height)
 		var end_z := low_z if returning else high_z

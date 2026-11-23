@@ -1104,22 +1104,31 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	var run := tread * count
 	var half_rise := rise * count
 	var guard_h := float(stair.guard_height)
+	# Share the existing opening between the two usable flights. Their outer
+	# bearings, tread datums and turning landing keep their original positions.
+	var inside_extension := gap * 0.5
+	var walk_width := width + inside_extension
+	var public_grating := production_materials and str(stair.id).begins_with("PRIMARY_")
+	var drawn_width := width if public_grating else walk_width
+	var lower_x := x0 + walk_width * 0.5
+	var upper_x := x0 + 2.0 * width + gap - walk_width * 0.5
 	# Bound each tread to one riser's thickness. Filling it down to base_y
 	# creates a false low ceiling beneath the next stacked flight.
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := z0 + tread * (i + 0.5)
 		var step_a := _box(parent, "FlightA_Step%02d" % i,
-				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
-				Vector3(width, rise, tread), "core", true)
-		if production_materials: step_a.mesh = _dished_tread(Vector3(width, rise, tread), 1.0)
+				Vector3(x0 + drawn_width * 0.5, base_y + step_h - rise * 0.5, z),
+				Vector3(drawn_width, rise, tread), "core", true)
+		if production_materials: step_a.mesh = _dished_tread(Vector3(drawn_width, rise, tread), 1.0)
+		if public_grating: _seat_stair_grating(step_a, inside_extension)
 		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
 		guard_a.visible = not production_materials
 	_ramp_collision(parent, "FlightATraversalRamp",
-			Vector3(x0 + width * 0.5, base_y + half_rise * 0.5,
-					z0 + run * 0.5), width, run, half_rise, -1.0)
+			Vector3(lower_x, base_y + half_rise * 0.5,
+					z0 + run * 0.5), walk_width, run, half_rise, -1.0)
 	var landing_depth := float(stair.landing_depth)
 	# A body needs clear standing room beyond the return flight's first nosing in
 	# order to execute the U-turn; the semantic depth describes the clear landing.
@@ -1133,27 +1142,36 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 					z0 + run + landing_depth + turn_clearance - 0.025),
 			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
 	landing_guard.visible = not production_materials
-	var x_b := x0 + width + gap
+	var right_edge := x0 + width * 2.0 + gap
 	var north_start := z0 + run + landing_depth
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := north_start - tread * (i + 0.5)
 		var step_b := _box(parent, "FlightB_Step%02d" % i,
-				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
-				Vector3(width, rise, tread), "core", true)
-		if production_materials: step_b.mesh = _dished_tread(Vector3(width, rise, tread), -1.0)
+				Vector3(right_edge - drawn_width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
+				Vector3(drawn_width, rise, tread), "core", true)
+		if production_materials: step_b.mesh = _dished_tread(Vector3(drawn_width, rise, tread), -1.0)
+		if public_grating: _seat_stair_grating(step_b, -inside_extension)
 		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
-				Vector3(x_b + width - 0.025,
+				Vector3(right_edge - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
 		guard_b.visible = not production_materials
 	_ramp_collision(parent, "FlightBTraversalRamp",
-			Vector3(x_b + width * 0.5, base_y + half_rise + half_rise * 0.5,
-					north_start - run * 0.5), width, run, half_rise, 1.0)
+			Vector3(upper_x, base_y + half_rise + half_rise * 0.5,
+					north_start - run * 0.5), walk_width, run, half_rise, 1.0)
 	if production_materials:
 		var ironwork := preload("res://scripts/building/orison_v2_stair_ironwork.gd").new()
 		if not ironwork.mount(parent,stair,base_y):
 			failures.append("unsupported ironwork dimensions: "+str(stair.id))
+
+## The authored flush steel panels extend the stone bearing to the centre.
+## Their slots admit light but are much smaller than the capsule and loose stock.
+func _seat_stair_grating(step: MeshInstance3D, extension: float) -> void:
+	var collision := step.get_node("Collision").get_child(0) as CollisionShape3D
+	var shape := collision.shape as BoxShape3D
+	shape.size.x += absf(extension)
+	collision.position.x += extension * 0.5
 
 ## Dossier slice 50: inherited dishing on the honed treads. Only the visible top face
 ## dips, 5 mm at most, along the walking line and deepest just behind the nosing; it is
