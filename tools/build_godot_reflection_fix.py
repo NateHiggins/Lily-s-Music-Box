@@ -1,11 +1,12 @@
-"""Build the reflection-atlas and audio-shutdown fixes on 4.7.1; pin the lane.
+"""Build the verified Godot 4.7.1 backports and pin the lane.
 No Godot process is launched here. Rendering tests still use tools/lane.ps1.
 """
 import argparse,configparser,hashlib,json,os,shutil,subprocess,sys,urllib.request,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SOURCES=[('godot-4.7.1-stable.zip','https://github.com/godotengine/godot/archive/refs/tags/4.7.1-stable.zip','3d82fe7a78db5827a21382689919595734559270648dd5f44d3e829d5a2472e6'),('llvm-mingw.zip','https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-x86_64.zip','fd5462b7f5d93b2ff981fcd3f9c7e427e47f3203c64ea91c27bcc444eebd74cd')]
-PATCHES=[('reflection_atlas_4_7_1.patch','86ab87598f732271991332a2be5f4ba1f6e2987fbacc21030e39645ab9b3010f'),('audio_playback_shutdown_4_7_1.patch','04d87ee4797404cf490bcea45d3bed0beaaf201dc34a844e9909fdfa1b57a3d1')]
+PATCHES=[('reflection_atlas_4_7_1.patch','86ab87598f732271991332a2be5f4ba1f6e2987fbacc21030e39645ab9b3010f'),('audio_playback_shutdown_4_7_1.patch','04d87ee4797404cf490bcea45d3bed0beaaf201dc34a844e9909fdfa1b57a3d1'),
+         ('motion_query_geometry_4_7_1.patch','fb807881a56dc9757930dc9c1bdaed4ba1460926fed99ea3c394dd5ae7afe191')]
 TEMPLATE_CACHE=Path('game/.godot/orison_templates')
 TEMPLATE_FILES={'runtime':'windows_release.exe','console':'windows_release.console.exe'}
 TEMPLATE_RESOURCE='res://.godot/orison_templates/windows_release.exe'
