@@ -1,3 +1,19 @@
+# First dream after the first deduction - November 22
+
+Evidence class: **INERT**
+
+A ready job dream and a queued release print wait for the first case-wall
+deduction. An older armed save keeps its request and night count while it
+waits. A dream already entered still resumes.
+
+Title Continue from the exact second-clue save passed 39 checks and 36
+walking waypoints. Mina's completed conversation was staged. The actual
+clue wall armed her authored dream once after the first deduction. The
+terminal save retained both facts. The separate Golden Repair route
+passed 35 checks and 100 waypoints. The full uninterrupted campaign and
+Lily's play review remain open.
+[Installed evidence](C:/ov/reports/first_dream_20261122/verified_installed_threshold.json).
+
 # S14 and Mae's release dream - November 22
 
 Evidence class: **INERT**
