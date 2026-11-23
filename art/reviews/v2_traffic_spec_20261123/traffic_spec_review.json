@@ -1,0 +1,51 @@
+{
+ "evidence_class": "INERT",
+ "checks": [
+  {
+   "label": "the production world mounts the period traffic",
+   "ok": true
+  },
+  {
+   "label": "the piano truck and its legend are in the production traffic",
+   "ok": true
+  },
+  {
+   "label": "day: the legend rides on the staged truck",
+   "ok": true
+  },
+  {
+   "label": "night: the legend rides on the staged truck",
+   "ok": true
+  },
+  {
+   "label": "the truck rolled between the frames (1.10 m)",
+   "ok": true
+  },
+  {
+   "label": "the el cars are the rail stock's el_car",
+   "ok": true
+  }
+ ],
+ "captures": [
+  "day_piano_far_kerb.png",
+  "day_piano_front.png",
+  "day_piano_rear.png",
+  "day_door.png",
+  "day_turn_east.png",
+  "day_turn_east_above.png",
+  "day_far_end.png",
+  "day_tram_milk.png",
+  "night_piano_far_kerb.png",
+  "night_piano_front.png",
+  "night_piano_rear.png",
+  "night_door.png",
+  "night_turn_east.png",
+  "night_turn_east_above.png",
+  "night_far_end.png",
+  "night_tram_milk.png",
+  "day_rolling_0.png",
+  "day_rolling_1.png",
+  "day_rolling_2.png",
+  "day_el_car.png"
+ ]
+}

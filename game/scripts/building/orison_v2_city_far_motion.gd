@@ -19,6 +19,9 @@ const ROADWAY_LANES: Array[float] = [-5.5, -2.0, 2.0, 5.5]
 const EL_LANES: Array[float] = [-3.0, 3.0]
 const EL_TRAIN_CARS := 5
 const EL_CAR_M := 15.2
+## Car paint (sRGB) and the rail top above the surveyed upper deck.
+const EL_PAINT := Color(0.32, 0.36, 0.30)
+const EL_RAIL_M := 0.3
 const TUG_X := -960.0
 const TUG_RANGE: Vector2 = Vector2(-3300.0, 2600.0)
 
@@ -28,8 +31,8 @@ var _lamps: MultiMesh
 var _lamp_material: StandardMaterial3D
 var _cars: Array[Dictionary] = []
 var _el: MultiMesh
-var _el_glow: MultiMesh
-var _el_glow_material: StandardMaterial3D
+## The el cars' lit window band (the rail stock's `window` finish), dimmed by daylight.
+var _el_windows: StandardMaterial3D
 var _trains: Array[Dictionary] = []
 var _tug: Node3D
 var _tug_light: OmniLight3D
@@ -99,38 +102,33 @@ func _build_traffic(rng: RandomNumberGenerator) -> void:
 	add_child(draw)
 
 
+## The el cars are the rail stock's `el_car` (art/blender/scripts/build_v2_street_trams.py), drawn with that
+## table's finishes: one batch, a surface per finish, the window band lit at night.
 func _build_el(rng: RandomNumberGenerator) -> void:
-	var body := MetreUV.chart(_box(Vector3(2.7, 3.4, EL_CAR_M - 0.6)))
-	var paint := MatLib.get_mat("car_paint").duplicate() as StandardMaterial3D
-	paint.uv1_triplanar = false
-	paint.albedo_color = Color(0.32, 0.36, 0.30)
+	var table := OrisonV2StreetTrams.load_table()
+	var materials := {}
+	for finish: Dictionary in table.get("finishes", []):
+		materials[str(finish.id)] = OrisonV2StreetTraffic.stock_material(finish)
+	var meshes := OrisonV2StreetTraffic.stock_meshes(str(table.get("stock", "")), materials)
+	if not meshes.has("el_car"):
+		push_error("Far motion: the rail stock lacks el_car")
+		return
+	_el_windows = materials.get("window")
 	_el = MultiMesh.new()
 	_el.transform_format = MultiMesh.TRANSFORM_3D
-	_el.mesh = body
+	_el.use_colors = true
+	_el.mesh = meshes.el_car
 	_el.instance_count = EL_LANES.size() * EL_TRAIN_CARS
-	var glow_quad := QuadMesh.new()
-	glow_quad.size = Vector2(EL_CAR_M - 1.6, 0.9)
-	_el_glow_material = StandardMaterial3D.new()
-	_el_glow_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	_el_glow_material.cull_mode = BaseMaterial3D.CULL_DISABLED
-	_el_glow_material.disable_fog = true
-	_el_glow_material.albedo_color = Color(1.0, 0.62, 0.3)
-	glow_quad.material = _el_glow_material
-	_el_glow = MultiMesh.new()
-	_el_glow.transform_format = MultiMesh.TRANSFORM_3D
-	_el_glow.mesh = glow_quad
-	_el_glow.instance_count = EL_LANES.size() * EL_TRAIN_CARS * 2
+	for i in _el.instance_count:
+		_el.set_instance_color(i, EL_PAINT.srgb_to_linear())
 	for lane in EL_LANES.size():
 		_trains.append({"lane": EL_LANES[lane], "s": rng.randf_range(0.0, SPAN_M),
 			"speed": 13.0 * (-1.0 if EL_LANES[lane] > 0.0 else 1.0)})
-	for pair: Array in [[_el, "ElCars", paint], [_el_glow, "ElWindows", null]]:
-		var draw := MultiMeshInstance3D.new()
-		draw.name = pair[1]
-		draw.multimesh = pair[0]
-		if pair[2] != null:
-			draw.material_override = pair[2]
-		draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		add_child(draw)
+	var draw := MultiMeshInstance3D.new()
+	draw.name = "ElCars"
+	draw.multimesh = _el
+	draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(draw)
 
 
 func _box(size: Vector3) -> BoxMesh:
@@ -250,22 +248,17 @@ func _process(delta: float) -> void:
 		_lamps.set_instance_color(i, colour)
 		i += 1
 	var car_index := 0
-	var glow_index := 0
-	for train: Dictionary in _trains:
+	for train: Dictionary in _trains:  # empty when the stock is missing
 		train.s = fposmod(float(train.s) + float(train.speed) * delta, SPAN_M + 200.0)
 		for k in EL_TRAIN_CARS:
 			var s := float(train.s) - 100.0 + k * EL_CAR_M
-			var position := _point(s, float(train.lane), true) + Vector3.UP * 2.0
-			var ahead := _point(s + 1.0, float(train.lane), true) + Vector3.UP * 2.0
-			var basis := Basis.looking_at((ahead - position).normalized(), Vector3.UP)
+			var position := _point(s, float(train.lane), true) + Vector3.UP * EL_RAIL_M
+			var ahead := _point(s + 1.0, float(train.lane), true) + Vector3.UP * EL_RAIL_M
+			var basis := Basis.looking_at((ahead - position).normalized(), Vector3.UP) * Basis(Vector3.UP, PI * 0.5)  # the stock is modelled +X forward
 			var pose := Transform3D(basis, position)
 			if s < -40.0 or s > SPAN_M:
 				pose.origin.y = -500.0  # off the span: parked out of sight below the river
 			_el.set_instance_transform(car_index, pose)
-			for side: float in [-1.0, 1.0]:
-				var window := pose * Transform3D(Basis(Vector3.UP, PI * 0.5), Vector3(side * 1.37, 0.35, 0.0))
-				_el_glow.set_instance_transform(glow_index, window)
-				glow_index += 1
 			car_index += 1
 	_tug_z += _tug_dir * 3.6 * delta
 	if _tug_z < TUG_RANGE.x or _tug_z > TUG_RANGE.y:
@@ -298,5 +291,6 @@ func set_darkness_from_minute(minute_of_day: float) -> void:
 	var hour := minute_of_day / 60.0
 	darkness = 1.0 - smoothstep(6.0, 7.5, hour) * (1.0 - smoothstep(16.8, 18.3, hour))
 	_lamp_material.albedo_color = Color(1, 1, 1, 1)
-	_el_glow_material.albedo_color = Color(1.0, 0.62, 0.3) * (0.08 + 0.92 * darkness)
+	if _el_windows != null:
+		_el_windows.emission_energy_multiplier = float(_el_windows.get_meta("lamp_energy", 1.0)) * (0.08 + 0.92 * darkness)
 	_tug_light.light_energy = 0.4 + 1.6 * darkness

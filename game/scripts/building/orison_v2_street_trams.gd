@@ -51,6 +51,13 @@ static func load_table(path := DATA) -> Dictionary:
 			"class", "signal_arm"]:
 		if not (source.kind as Dictionary).has(key):
 			return {}
+	# Its wheels are turned by the traffic like any vehicle's: stock, axle position, radius and width.
+	for wheel: Dictionary in source.kind.wheels:
+		for key: String in ["stock", "at", "radius", "width"]:
+			if not wheel.has(key):
+				return {}
+		if (wheel.at as Array).size() != 3 or float(wheel.radius) <= 0.0:
+			return {}
 	for key: String in ["id", "acceleration", "service_brake", "panic_brake", "reaction", "warning", "brake"]:
 		if not (source["class"] as Dictionary).has(key):
 			return {}
@@ -78,12 +85,14 @@ static func attach(street_traffic: OrisonV2StreetTraffic, owner_world: Node) -> 
 	for finish: Dictionary in table.finishes:
 		line._materials[str(finish.id)] = OrisonV2StreetTraffic.stock_material(finish)
 	var meshes := OrisonV2StreetTraffic.stock_meshes(str(table.stock), line._materials)
-	for stock: String in ["tram_car", "tram_span_pole", "tram_rosette"]:
+	for stock: String in ["tram_car", "tram_wheel", "tram_span_pole", "tram_rosette"]:
 		if not meshes.has(stock):
 			push_error("V2 street trams stock lacks " + stock)
 			line.free()
 			return null
 	street_traffic.extra_meshes["tram_car"] = meshes.tram_car
+	# The trucks' wheels are the traffic's to turn, at the car's ground speed like any other wheel.
+	street_traffic.extra_meshes["tram_wheel"] = meshes.tram_wheel
 	line._pole_mesh = meshes.tram_span_pole
 	line._rosette_mesh = meshes.tram_rosette
 	var kind: Dictionary = (table.kind as Dictionary).duplicate(true)

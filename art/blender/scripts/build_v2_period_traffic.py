@@ -62,6 +62,11 @@ FINISHES = {
     "coal": {"catalog_key": "soot", "tint": [0.55, 0.55, 0.58, 1], "normal": 1., "roughness": .8},
     "silk_flex": {"catalog_key": "fabric_warm", "tint": [0.55, 0.13, 0.08, 1], "normal": 1., "roughness": 1.},
     "produce": {"catalog_key": "plant", "tint": [1, 1, 1, 1], "normal": 1., "roughness": 1.},
+    # Signwriters' ground for the piano truck's panels: enamel on painted wood panelling, so `door_paint`, whose
+    # near-white map lets the tint read true (car_paint's dark map turned the cream brown). The legend is Label3D.
+    "sign_cream": {"catalog_key": "door_paint", "tint": [0.80, 0.74, 0.58, 1], "normal": .6, "roughness": .8},
+    "sign_vermilion": {"catalog_key": "door_paint", "tint": [0.58, 0.15, 0.09, 1], "normal": .6, "roughness": .75},
+    "quilt": {"catalog_key": "fabric_warm", "tint": [0.36, 0.29, 0.21, 1], "normal": 1., "roughness": 1.},
 }
 for spec in FINISHES.values():
     spec.setdefault("pigment", 1.0)
@@ -597,11 +602,11 @@ def checker_cab():
     return p
 
 
-def aa_cab(p, paint="coachwork"):
+def aa_cab(p, paint="coachwork", shell="nickel", tail=(-2.66, 0.8)):
     """1928-29 Ford Model AA front end and closed cab. Front axle x 1.75."""
     rr = 0.42
     add(p, paint, prism([(0.95, 0.78), (2.05, 0.8), (2.05, 1.3), (0.95, 1.35)], -0.4, 0.4, 0.03))
-    add(p, "nickel", prism([(2.05, 0.72), (2.15, 0.72), (2.17, 1.4), (2.05, 1.38)], -0.34, 0.34, 0.015))
+    add(p, shell, prism([(2.05, 0.72), (2.15, 0.72), (2.17, 1.4), (2.05, 1.38)], -0.34, 0.34, 0.015))
     add(p, "running_iron", box((2.165, 0, 1.05), (0.012, 0.54, 0.55)))
     add(p, paint, prism([(-0.15, 0.78), (0.98, 0.78), (1.0, 1.34), (0.78, 1.38), (0.68, 2.08), (-0.15, 2.1)], -0.78, 0.78, 0.035))
     add(p, "hood_cloth", box((0.25, 0, 2.112), (0.75, 1.3, 0.02)))
@@ -609,7 +614,7 @@ def aa_cab(p, paint="coachwork"):
         add(p, "upholstery", box((0.3, s * 0.782, 1.7), (0.55, 0.01, 0.4)))
         add(p, "japan_black", arc_fender(1.75, rr, rr + 0.06, s * 0.62, s * 0.9, -10, 165), box((0.5, s * 0.84, 0.62), (0.75, 0.24, 0.03)))
         lamp(p, 2.12, s * 0.45, 1.18, 0.11)
-        add(p, "lamp_tail", box((-2.66, s * 0.8, 0.95), (0.02, 0.06, 0.06)))
+        add(p, "lamp_tail", box((tail[0], s * tail[1], 0.95), (0.02, 0.06, 0.06)))
     add(p, "upholstery", prism([(0.78, 1.38), (0.68, 2.02), (0.65, 2.02), (0.75, 1.38)], -0.62, 0.62))
     add(p, "running_iron", box((-0.3, 0.38, 0.72), (4.75, 0.08, 0.16)), box((-0.3, -0.38, 0.72), (4.75, 0.08, 0.16)),
         box((1.75, 0, rr), (0.07, 1.4, 0.07)), cyl((-1.59, 0, rr), 0.1, 1.4, "Y", 12))
@@ -690,6 +695,72 @@ def sound_wagon():
     return p
 
 
+# The WE TUNA PIANOS truck (design/ORISON_STREET_BRIEF.md, "As built", 2026-08-14): a battered 1928 one-ton
+# box truck in oxidised teal, cream and vermilion, 5.8 x 2.05 x 2.30 m. The approved concept is
+# art/concept/vehicles/we_tuna_pianos_truck_turnaround_v1.png. Its painted advertisement carries lettering and a
+# shark's hands, so neither is baked: the panels are signwriters' ground, a keyboard border stands for the picture,
+# and the legend is Label3D in the runtime (the kind's `signs`). The piano rides inside; nobody handles anything.
+PIANO_BOX = (-3.40, -0.12)      # box body, rear to front, Blender x
+PIANO_HALF_W = 1.02
+PIANO_FLOOR = 0.88
+PIANO_TOP = 2.30
+PIANO_PANEL = (-1.78, 2.74)     # side panel centre x and length
+PIANO_RIBBON_Z = 1.42
+
+
+def keyboard(p, x0, x1, y, z, h):
+    """A strip of keys: ivory ground, black keys in twos and threes. A lettering-free stand-in for the picture."""
+    add(p, "sign_cream", box(((x0 + x1) / 2, y, z), (x1 - x0, 0.012, h)))
+    n = int((x1 - x0) / 0.085)
+    pitch = (x1 - x0) / n
+    out = 0.009 if y > 0 else -0.009
+    keys = []
+    for i in range(n - 1):
+        if i % 7 in (2, 6):
+            continue  # no black key between E-F and B-C
+        keys.append(box((x0 + pitch * (i + 1), y + out, z + h * 0.18), (pitch * 0.55, 0.008, h * 0.62)))
+    add(p, "bakelite", *keys)
+    add(p, "bakelite", box(((x0 + x1) / 2, y + out, z - h / 2 + 0.004), (x1 - x0, 0.008, 0.008)))
+
+
+def piano_truck():
+    """WE TUNA PIANOS: a 1928 one-ton piano truck. Brass radiator shell, teal box body, cream roof."""
+    rear, front = PIANO_BOX
+    p = aa_cab({}, shell="brass", tail=(rear - 0.015, 0.85))
+    add(p, "coachwork", prism([(rear, PIANO_FLOOR), (front, PIANO_FLOOR), (front, PIANO_TOP - 0.06), (front - 0.08, PIANO_TOP),
+                               (rear + 0.06, PIANO_TOP), (rear, PIANO_TOP - 0.06)], -PIANO_HALF_W, PIANO_HALF_W, 0.03))
+    add(p, "sign_cream", box(((rear + front) / 2, 0, PIANO_TOP + 0.025), (front - rear + 0.1, 2 * PIANO_HALF_W + 0.08, 0.05), 0.015))
+    add(p, "running_iron", box(((rear + front) / 2, 0, PIANO_FLOOR - 0.04), (front - rear, 2 * PIANO_HALF_W, 0.06)),
+        box((rear + 0.4, 0, 0.72), (0.8, 0.84, 0.16)))
+    cx, length = PIANO_PANEL
+    for s in (1, -1):
+        y = s * PIANO_HALF_W
+        # Vermilion border, cream field, vermilion ribbon for the legend, keyboard along the top.
+        add(p, "sign_vermilion", box((cx, y + s * 0.006, 1.63), (length + 0.12, 0.012, 1.04)))
+        add(p, "sign_cream", box((cx, y + s * 0.012, 1.64), (length, 0.012, 0.94)))
+        add(p, "sign_vermilion", box((cx, y + s * 0.018, PIANO_RIBBON_Z), (length - 0.24, 0.012, 0.34)))
+        keyboard(p, cx - length / 2 + 0.16, cx + length / 2 - 0.16, y + s * 0.02, 1.93, 0.2)
+        # Body trim, the movers' skid board slung under the box, and a rope coil on the rear corner.
+        add(p, "japan_black", box(((rear + front) / 2, y + s * 0.006, PIANO_FLOOR + 0.05), (front - rear, 0.012, 0.06)),
+            box(((rear + front) / 2, y + s * 0.006, PIANO_TOP - 0.1), (front - rear - 0.1, 0.012, 0.04)))
+        add(p, "timber", box((-2.15, s * 0.9, 0.7), (1.7, 0.05, 0.26), 0.01))
+        add(p, "running_iron", box((-2.75, s * 0.93, 0.8), (0.05, 0.06, 0.24)), box((-1.55, s * 0.93, 0.8), (0.05, 0.06, 0.24)))
+        add(p, "canvas", torus((rear - 0.04, s * 0.78, 1.18), 0.15, 0.028, "X", 16, 6))
+        add(p, "running_iron", cyl((rear - 0.02, s * 0.78, 1.32), 0.012, 0.06, "X", 6))
+    # Rear doors: seam, hinges, a brass handle, the step.
+    add(p, "japan_black", box((rear - 0.006, 0, (PIANO_FLOOR + PIANO_TOP) / 2), (0.012, 0.03, PIANO_TOP - PIANO_FLOOR - 0.1)),
+        box((rear - 0.006, 0, PIANO_TOP - 0.1), (0.012, 2 * PIANO_HALF_W - 0.1, 0.04)))
+    add(p, "nickel", *[box((rear - 0.012, s * 0.96, z), (0.016, 0.1, 0.05)) for s in (1, -1) for z in (1.15, 2.0)])
+    add(p, "brass", box((rear - 0.02, 0.08, 1.45), (0.02, 0.04, 0.2)))
+    add(p, "running_iron", box((rear - 0.12, 0, 0.6), (0.24, 1.5, 0.04)))
+    # Folded moving quilts on a low roof rail.
+    for s in (1, -1):
+        add(p, "running_iron", tube([(rear + 0.2, s * 0.95, PIANO_TOP + 0.05), (rear + 0.2, s * 0.95, PIANO_TOP + 0.16),
+                                     (front - 0.3, s * 0.95, PIANO_TOP + 0.16), (front - 0.3, s * 0.95, PIANO_TOP + 0.05)], 0.014, 5, False))
+    add(p, "quilt", box((-2.55, 0.05, PIANO_TOP + 0.12), (0.95, 1.5, 0.15), 0.04), box((-1.45, -0.05, PIANO_TOP + 0.1), (0.85, 1.4, 0.11), 0.035))
+    return p
+
+
 def mack_ac():
     """Mack AC 'Bulldog' coal dumper: chain drive, solid tyres, scuttle hood."""
     p = {}
@@ -766,7 +837,7 @@ STOCKS = {
     "pushcart": pushcart, "model_a_tudor": model_a_tudor, "broadcast_car": broadcast_car,
     "model_t_touring": model_t_touring, "checker_cab": checker_cab, "aa_stake": aa_stake,
     "line_truck": line_truck, "sound_wagon": sound_wagon, "mack_ac": mack_ac,
-    "saloon_bus": saloon_bus, "motorcycle": motorcycle,
+    "saloon_bus": saloon_bus, "motorcycle": motorcycle, "piano_truck": piano_truck,
 }
 
 SHARED = {"wheel_wagon": lambda: wheel_stock("wagon"), "wheel_artillery": lambda: wheel_stock("artillery"),
@@ -806,6 +877,7 @@ PAINTS = {
     "police": [[0.10, 0.16, 0.14]],
     "phone": [[0.16, 0.20, 0.17], [0.24, 0.20, 0.13]],
     "record": [[0.30, 0.10, 0.10]],
+    "tuna": [[0.12, 0.29, 0.30], [0.10, 0.25, 0.27]],
     "bus": [[0.38, 0.32, 0.20], [0.20, 0.27, 0.22]],
     "indian": [[0.42, 0.09, 0.07], [0.20, 0.22, 0.26]],
     "hide": [[0.42, 0.26, 0.15], [0.20, 0.14, 0.10], [0.55, 0.52, 0.48], [0.12, 0.10, 0.09], [0.48, 0.32, 0.18]],
@@ -868,7 +940,26 @@ KINDS = [
      "wheels": wheels("wire", four(1.31, -1.32, 0.71), 0.37), "figures": [], "voice": "motor",
      "period": "The Record's remote car: cage aerial, pickup horn and its own wet cells."},
 ]
+# Signwritten legend: Label3D in the runtime, on the ribbon of each side panel and on the rear doors. In the
+# vehicle's frame (Godot axes); `yaw_degrees` turns the label's reading face (+Z) out of that side, and `width`
+# and `height` bound the letters.
+_TUNA = [0.86, 0.80, 0.64]
+_RIBBON_OUT = PIANO_HALF_W + 0.026
+PIANO_SIGNS = [
+    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], _RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 180.0, "width": 2.2, "height": 0.27, "colour": _TUNA},
+    {"text": "WE TUNA PIANOS", "at": W(PIANO_PANEL[0], -_RIBBON_OUT, PIANO_RIBBON_Z), "yaw_degrees": 0.0, "width": 2.2, "height": 0.27, "colour": _TUNA},
+    {"text": "WE TUNA", "at": W(PIANO_BOX[0] - 0.02, 0, 1.98), "yaw_degrees": -90.0, "width": 1.5, "height": 0.3, "colour": _TUNA},
+    {"text": "PIANOS", "at": W(PIANO_BOX[0] - 0.02, 0, 1.64), "yaw_degrees": -90.0, "width": 1.5, "height": 0.3, "colour": _TUNA},
+]
+# One at a time on the street (`solo`), so one set of labels serves it wherever it is.
+KINDS.append(
+    {"id": "piano_truck", "weight": 2.0, "speed": [4.4, 6.2], "signal": False, "paint": "tuna", "extent": [-3.44, 2.36], "width": 2.05,
+     "wheels": wheels("disc", [[1.75, 0.74], [1.75, -0.74], [-1.59, 0.8], [-1.59, -0.8]], 0.42, 1.5), "figures": [], "voice": "motor",
+     "solo": True, "signs": PIANO_SIGNS,
+     "period": "WE TUNA PIANOS, a 1928 one-ton piano truck out of Astoria, where Steinway builds. Rare, never remarked on."})
 for kind in KINDS:
+    kind.setdefault("solo", False)
+    kind.setdefault("signs", [])
     kind.setdefault("stock", kind["id"])
     kind.setdefault("horse", None)
     kind["paint"] = PAINTS[kind["paint"]]
@@ -894,6 +985,7 @@ CLASSES = [
 BEHAVIOUR = {
     "model_a_tudor": ("car_four_wheel", [7.5, 10.5], "car", (-0.35, 0.80, 1.45)),
     "broadcast_car": ("car_four_wheel", [6.5, 9.0], "press", (-0.35, 0.80, 1.45)),
+    "piano_truck": ("light_truck", [5.0, 7.0], "piano", (0.35, 0.80, 1.70)),
     "model_t_touring": ("car_two_wheel", [6.5, 9.0], "car", (-0.33, 0.62, 1.55)),
     "checker_cab": ("taxi", [8.0, 11.0], "taxi", (0.10, 0.84, 1.55)),
     "aa_stake": ("light_truck", [6.0, 8.5], "trade", (0.35, 0.80, 1.70)),
@@ -928,7 +1020,7 @@ JUNCTIONS = {"east_x": 68.8, "west_x": -69.6, "center_z": 9.527, "cross_half_wid
              "left_turn_yield_m": 8.0}
 # The cross streets are the busier avenues: well over the side street's flow.
 LOD = {"max_cross_vehicles": 12, "cross_flow_scale": 3.0, "cross_reach_m": 18.0,
-       "detail_x": 24.0, "junction_clear_m": 9.0}
+       "junction_clear_m": 9.0}
 
 H = lambda *v: list(v)
 # Vehicles per minute, both directions, at multiplier 1: about one every seven seconds.
@@ -957,11 +1049,17 @@ SCHEDULE = {
          "months": H(1, 1, 1, 1, 1.3, 1, 1, 1, 1.2, 1, 1, 1), "sunday": 2.0},
         {"id": "press", "hours": H(.3, .2, .1, .1, .1, .2, .4, .6, .7, .8, .8, .9, .9, .9, 1., 1., 1.1, 1.2, 1.3, 1.3, 1.2, 1., .8, .5),
          "months": H(1, 1, 1, 1, 1, 1, 1, 1, 1, 1.3, 1.2, 1), "sunday": 1.2},
+        # Piano work: weekday daylight; spring moving, autumn tuning and Christmas deliveries.
+        {"id": "piano", "hours": H(0, 0, 0, 0, 0, 0, .2, .8, 1.2, 1.3, 1.3, 1.2, .8, 1.1, 1.2, 1.1, .8, .3, .05, 0, 0, 0, 0, 0),
+         "months": H(.6, .6, .8, 1.1, 1.6, 1., .8, .7, 1.3, 1.4, 1., 1.3), "sunday": 0},
     ],
     # The carters' stoppage (Speaker and Record, March 1929): no horse under
     # the El on Roosevelt Avenue from 6 a.m. on the Ides; the ice and coal came
     # round by the side streets instead, so this street saw more of them.
-    "events": [{"id": "carters_stoppage", "from": [1929, 3, 15], "to": [1929, 3, 20], "patterns": ["ice", "coal"], "multiplier": 1.8}],
+    "events": [{"id": "carters_stoppage", "from": [1929, 3, 15], "to": [1929, 3, 20], "patterns": ["ice", "coal"], "multiplier": 1.8},
+               # New York's Moving Day: leases ran out on 1 May (and on 1 October), and the whole city moved house.
+               {"id": "moving_day", "from": [1929, 5, 1], "to": [1929, 5, 1], "patterns": ["piano"], "multiplier": 6.0},
+               {"id": "moving_day_autumn", "from": [1929, 10, 1], "to": [1929, 10, 1], "patterns": ["piano"], "multiplier": 3.0}],
     # Lamps lit dusk to dawn, local clock minutes (New York; 1929 daylight saving 28 Apr - 29 Sep).
     "dusk": H(1030, 1065, 1095, 1190, 1220, 1250, 1245, 1210, 1165, 1115, 1020, 1010),
     "dawn": H(420, 400, 360, 370, 325, 305, 315, 345, 375, 400, 390, 420),
@@ -1008,7 +1106,7 @@ def main():
     scratch.hide_render = True
     scratch.hide_viewport = True
     proof = export(ROOT, FAMILY, exports, material_names_only=True, staged_output=True)
-    runtime_kind_keys = ("id", "stock", "weight", "speed", "paint", "extent", "width", "wheels", "horse", "figures", "voice", "class", "pattern", "signal_arm")
+    runtime_kind_keys = ("id", "stock", "weight", "speed", "paint", "extent", "width", "wheels", "horse", "figures", "voice", "class", "pattern", "signal_arm", "solo", "signs")
     runtime_finish_keys = ("catalog_key", "tint", "normal", "roughness", "paint", "emission", "albedo_mean")
     table = {
         "schema": "orison.v2.street-traffic.v1",

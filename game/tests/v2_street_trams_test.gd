@@ -54,6 +54,12 @@ func _run() -> void:
 	check(not traffic.startup_failed and traffic._batches.has("tram_car"), "the car is drawn by the traffic's own batches")
 	var kind: Dictionary = traffic._kinds[line.kind_index]
 	check(bool(kind.get("rail", false)) and str(kind["class"]) == "tram", "the car is a rail kind of the tram class")
+	# Its eight wheels are the traffic's to turn: none is baked into the trucks.
+	var wheel_stocks := {}
+	for wheel: Dictionary in kind.wheels:
+		wheel_stocks[str(wheel.stock)] = true
+	check((kind.wheels as Array).size() == 8 and wheel_stocks.keys() == ["tram_wheel"] and traffic._batches.has("tram_wheel"),
+			"the car's eight wheels are a turning stock in the traffic's batches")
 
 	# The lottery never sends a tram; the line does.
 	var picked := false

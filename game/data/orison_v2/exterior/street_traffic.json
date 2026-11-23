@@ -38,7 +38,6 @@
   "max_cross_vehicles": 12,
   "cross_flow_scale": 3.0,
   "cross_reach_m": 18.0,
-  "detail_x": 24.0,
   "junction_clear_m": 9.0
  },
  "finishes": [
@@ -544,6 +543,57 @@
     0.4354,
     0.0404
    ]
+  },
+  {
+   "id": "sign_cream",
+   "catalog_key": "door_paint",
+   "tint": [
+    0.8,
+    0.74,
+    0.58,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 0.8,
+   "albedo_mean": [
+    0.9249,
+    0.921,
+    0.9053
+   ]
+  },
+  {
+   "id": "sign_vermilion",
+   "catalog_key": "door_paint",
+   "tint": [
+    0.58,
+    0.15,
+    0.09,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 0.75,
+   "albedo_mean": [
+    0.9249,
+    0.921,
+    0.9053
+   ]
+  },
+  {
+   "id": "quilt",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.36,
+    0.29,
+    0.21,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
   }
  ],
  "kinds": [
@@ -638,7 +688,9 @@
     -0.35,
     1.45,
     -0.8
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "model_t_touring",
@@ -722,7 +774,9 @@
     -0.33,
     1.55,
     -0.62
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "checker_cab",
@@ -810,7 +864,9 @@
     0.1,
     1.55,
     -0.84
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "aa_stake",
@@ -898,7 +954,9 @@
     0.35,
     1.7,
     -0.8
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "mack_ac",
@@ -982,7 +1040,9 @@
     0.14,
     1.99,
     -0.62
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "saloon_bus",
@@ -1060,7 +1120,9 @@
     2.6,
     2.1,
     -1.19
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "motorcycle",
@@ -1134,7 +1196,9 @@
     -0.25,
     1.55,
     -0.2
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "ice_wagon",
@@ -1252,7 +1316,9 @@
     1.08,
     2.08,
     -0.45
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "coal_cart",
@@ -1365,7 +1431,9 @@
     1.03,
     2.27,
     -0.45
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "milk_wagon",
@@ -1478,7 +1546,9 @@
     0.81,
     1.7,
     -0.35
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "milk_wagon_riderless",
@@ -1581,7 +1651,9 @@
    "voice": "hooves",
    "class": "horse_light",
    "pattern": "milk",
-   "signal_arm": []
+   "signal_arm": [],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "valve_wagon",
@@ -1704,7 +1776,9 @@
     0.63,
     2.02,
     -0.45
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "line_truck",
@@ -1782,7 +1856,9 @@
     0.35,
     1.7,
     -0.8
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "sound_wagon",
@@ -1855,7 +1931,9 @@
     0.35,
     1.7,
     -0.8
-   ]
+   ],
+   "solo": false,
+   "signs": []
   },
   {
    "id": "broadcast_car",
@@ -1928,6 +2006,153 @@
     -0.35,
     1.45,
     -0.8
+   ],
+   "solo": false,
+   "signs": []
+  },
+  {
+   "id": "piano_truck",
+   "stock": "piano_truck",
+   "weight": 2.0,
+   "speed": [
+    5.0,
+    7.0
+   ],
+   "paint": [
+    [
+     0.12,
+     0.29,
+     0.3
+    ],
+    [
+     0.1,
+     0.25,
+     0.27
+    ]
+   ],
+   "extent": [
+    -3.44,
+    2.36
+   ],
+   "width": 2.05,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      -0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      -0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor",
+   "class": "light_truck",
+   "pattern": "piano",
+   "signal_arm": [
+    0.35,
+    1.7,
+    -0.8
+   ],
+   "solo": true,
+   "signs": [
+    {
+     "text": "WE TUNA PIANOS",
+     "at": [
+      -1.78,
+      1.42,
+      -1.046
+     ],
+     "yaw_degrees": 180.0,
+     "width": 2.2,
+     "height": 0.27,
+     "colour": [
+      0.86,
+      0.8,
+      0.64
+     ]
+    },
+    {
+     "text": "WE TUNA PIANOS",
+     "at": [
+      -1.78,
+      1.42,
+      1.046
+     ],
+     "yaw_degrees": 0.0,
+     "width": 2.2,
+     "height": 0.27,
+     "colour": [
+      0.86,
+      0.8,
+      0.64
+     ]
+    },
+    {
+     "text": "WE TUNA",
+     "at": [
+      -3.42,
+      1.98,
+      0
+     ],
+     "yaw_degrees": -90.0,
+     "width": 1.5,
+     "height": 0.3,
+     "colour": [
+      0.86,
+      0.8,
+      0.64
+     ]
+    },
+    {
+     "text": "PIANOS",
+     "at": [
+      -3.42,
+      1.64,
+      0
+     ],
+     "yaw_degrees": -90.0,
+     "width": 1.5,
+     "height": 0.3,
+     "colour": [
+      0.86,
+      0.8,
+      0.64
+     ]
+    }
    ]
   }
  ],
@@ -2527,6 +2752,50 @@
      1
     ],
     "sunday": 1.2
+   },
+   {
+    "id": "piano",
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0.2,
+     0.8,
+     1.2,
+     1.3,
+     1.3,
+     1.2,
+     0.8,
+     1.1,
+     1.2,
+     1.1,
+     0.8,
+     0.3,
+     0.05,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "months": [
+     0.6,
+     0.6,
+     0.8,
+     1.1,
+     1.6,
+     1.0,
+     0.8,
+     0.7,
+     1.3,
+     1.4,
+     1.0,
+     1.3
+    ],
+    "sunday": 0
    }
   ],
   "events": [
@@ -2547,6 +2816,40 @@
      "coal"
     ],
     "multiplier": 1.8
+   },
+   {
+    "id": "moving_day",
+    "from": [
+     1929,
+     5,
+     1
+    ],
+    "to": [
+     1929,
+     5,
+     1
+    ],
+    "patterns": [
+     "piano"
+    ],
+    "multiplier": 6.0
+   },
+   {
+    "id": "moving_day_autumn",
+    "from": [
+     1929,
+     10,
+     1
+    ],
+    "to": [
+     1929,
+     10,
+     1
+    ],
+    "patterns": [
+     "piano"
+    ],
+    "multiplier": 3.0
    }
   ],
   "dusk": [
