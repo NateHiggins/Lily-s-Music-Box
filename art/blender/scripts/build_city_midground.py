@@ -1217,9 +1217,12 @@ class Builder:
         tile = "lm"
         steel = part(tile, "iron_neutral")
         ties = part(tile, "site_softwood")
-        deck_top, girder_depth, rail_top = 15.4, 1.05, 15.55
-        x0, z0, x_turn, radius, z_end = 104.0, 2.0, 142.868, 30.0, 150.0
-        track_half, gauge_half, girder_off, column_off = 2.8, 0.7175, 3.75, 3.75
+        with open(ROOT + "/game/data/orison_v2/exterior/queensboro_el_alignment.json", encoding="utf-8") as source:
+            route = json.load(source)
+        deck_top, girder_depth, rail_top = 15.4, 1.05, route["rail_top"]
+        x0, z0 = route["station_end_x"], route["centerline_z"]
+        x_turn, radius, z_end = route["cross_street_x"], route["curve_radius"], route["far_end_z"]
+        track_half, gauge_half, girder_off, column_off = route["track_offset"], 0.7175, 3.75, 3.75
 
         def centre(s):
             """Centreline point and heading (unit x, z) at distance s from the station end."""
