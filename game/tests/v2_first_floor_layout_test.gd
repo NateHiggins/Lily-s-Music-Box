@@ -149,7 +149,10 @@ func _ready() -> void:
 	await _snap("lobby_whole", frame.to_global(Vector3(-3.8, 0.0, -8.4)), frame.to_global(Vector3(3.0, 1.3, -5.5)))
 	await _snap("house_office_telephone", frame.to_global(Vector3(-11.3, 0.0, -0.8)), frame.to_global(Vector3(-9.4, 1.15, -1.3)))
 	await _snap("house_office_wide", frame.to_global(Vector3(-13.5, 0.0, 2.5)), frame.to_global(Vector3(-9.3, 1.1, -1.3)))
+	await _snap("house_office_desk_and_headquarters", frame.to_global(Vector3(-11.2, 0.0, 2.4)), frame.to_global(Vector3(-13.6, 1.0, -3.4)))
+	await _snap("house_office_bench_and_plaque", frame.to_global(Vector3(-11.0, 0.0, 0.4)), frame.to_global(Vector3(-15.5, 1.3, 1.0)))
 	await _snap("old_mail_room", frame.to_global(Vector3(-6.2, 0.0, -1.0)), frame.to_global(Vector3(-9.0, 1.2, -1.3)))
+	await _snap("watch_room", frame.to_global(Vector3(-1.6, 0.0, -3.4)), frame.to_global(Vector3(-4.6, 1.1, -0.3)))
 	_finish()
 
 
