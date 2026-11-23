@@ -172,15 +172,17 @@ func _ready() -> void:
 			"station_number": 9}), "ritual denial states refuse invented acts")
 	await _exercise_ritual(world)
 
-	if not await _exercise_physical_round(world,radiator,board,boiler):
-		_track_retirement(world);world.shutdown_for_tests();remove_child(world);world.free()
-		await get_tree().process_frame;await get_tree().create_timer(.1).timeout
-		_finish_contract();RealityState.persistence_enabled=saved_persistence
-		get_tree().quit(1);return
-
 	var old_path := RealityState.save_path
 	RealityState.save_path = save_path
 	RealityState.persistence_enabled = true
+	if not await _exercise_physical_round(world,radiator,board,boiler):
+		_track_retirement(world);world.shutdown_for_tests();remove_child(world);world.free()
+		await get_tree().process_frame;await get_tree().create_timer(.1).timeout
+		_finish_contract()
+		RealityState.save_path = old_path
+		RealityState.persistence_enabled = saved_persistence
+		get_tree().quit(1);return
+
 	var disk_measurement_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
 	var disk_measurement_ms := float(Time.get_ticks_usec() - disk_measurement_started) / 1000.0
@@ -807,6 +809,59 @@ func _deliver_service_part(player: PlayerController,body: Node3D,goal: Vector3) 
 	if not await _carry_service_part(player,body,Vector3(goal.x,raised.y,goal.z)):return false
 	return await _carry_service_part(player,body,goal)
 
+func _toggle_service_case(view: CanvasLayer) -> void:
+	var was_open: bool = view.get("opened")
+	var key := InputEventKey.new()
+	key.physical_keycode = KEY_TAB
+	key.keycode = KEY_TAB
+	key.pressed = true
+	view.get_viewport().push_input(key, true)
+	for frame in 120:
+		await get_tree().process_frame
+		if (was_open and not view.get("opened")) or (not was_open and view.get("settled")):
+			break
+
+
+func _click_service_case(view: CanvasLayer, at: Vector2) -> void:
+	var motion := InputEventMouseMotion.new()
+	motion.position = at
+	motion.global_position = at
+	view.get_viewport().push_input(motion, true)
+	await get_tree().process_frame
+	var click := InputEventMouseButton.new()
+	click.position = at
+	click.global_position = at
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	view.get_viewport().push_input(click, true)
+	await get_tree().process_frame
+
+
+func _fit_service_spare(world: OrisonV2RuntimeRoot, radiator: RadiatorProp, item: String) -> bool:
+	var player := world.player
+	var cap := radiator.native_vent_cap
+	player.camera.position = Vector3(0, PlayerController.STANDING_EYE, 0)
+	player.camera.look_at(cap.to_global(Vector3(0,.018,-.015)))
+	await get_tree().physics_frame
+	var view := world.carried_case_view
+	var place := CarriedCase.place_of(item)
+	var valid: bool = player._grab.find_target().get("part") == cap and not place.is_empty()
+	_check(valid, "standing reticle selects the vent with the actual spare in the valise")
+	if not valid: return false
+	await _toggle_service_case(view)
+	_check(view.opened and view.settled, "Tab opens the production valise")
+	if not view.settled: return false
+	var cell := float(CarriedCase.data().cell)
+	var size := Vector2(CarriedCase.grid()) * cell
+	var square := Vector3(-size.x*.5+(float(place.x)+.5)*cell,.003,-size.y*.5+(float(place.y)+.5)*cell)
+	await _click_service_case(view, view._camera.unproject_position(square))
+	await _click_service_case(view, view._camera.unproject_position(Vector3(0,0,size.y*.5+cell)))
+	for frame in 120:
+		await get_tree().process_frame
+		if not view.opened: break
+	return not view.opened and CarriedCase.place_of(item).is_empty()
+
+
 func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,board: OtisProp,boiler: BoilerProp) -> bool:
 	_close_previous_job(world.work_orders)
 	world.service_round.route_beat.connect(func(beat: String):beats.append(beat))
@@ -835,13 +890,11 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	var original: Dictionary=stock.active(radiator)
 	var original_id: String=original.body.identity
 	print("[PHYSICAL ROUND INITIAL] ",JSON.stringify(radiator.mechanism_snapshot())," insert=",original_id)
+	var engagement: Vector3 = stock._thread_pose(radiator,stock.THREAD_END).origin
 	if not await _service_move_new(world.player,radiator,original.body,Vector3(0,.004,0),Vector3(.03,.10,-.08),stock.THREAD_END):return false
-	_check(stock.active(radiator).is_empty(),"old insert actually unthreads without changing identity")
-	if not await _pick_service_part(world.player,original.body,radiator,Vector3(.03,.10,-.08)):return false
-	var park: Vector3=radiator.native_rig.to_global(Vector3(-.30,.12,-.55))
-	var parked: bool=await _deliver_service_part(world.player,original.body,park)
-	_check(parked,"old insert physically moves clear of its seat")
-	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
+	var parked: bool = stock.active(radiator).is_empty() and original.body.freeze \
+		and original.body.global_position.distance_to(engagement) > .05
+	_check(parked,"ordinary unthreading parks the same original insert clear of its seat")
 	if not parked:return false
 	if not await _walk_service_points(world,[Vector3(13.6,3.2,-2.8),Vector3(12.5,3.2,-2.5),Vector3(10.95,3.2,-2.5),Vector3(10.95,3.2,-3.25)]):return false
 	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
@@ -864,17 +917,16 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.45)]):return false
 	var replacement: Dictionary=stock.rows.VENT_SPARE_2
 	if not await _pick_service_part(world.player,replacement.body,stock,Vector3(.03,.10,.08)):return false
-	world.player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);world.player.camera.rotation=Vector3.ZERO
-	world.player.set_physics_process(true)
-	for frame in 90:
-		await get_tree().physics_frame
-		if not world.player._grab.holding_pickup():break
-		var contact: Vector3=replacement.body.to_global(world.player._grab.contact)
-		if contact.distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003:break
-	world.player.set_physics_process(false)
-	var hand_ready: bool=world.player._grab.holding_pickup() and world.player._grab.target.part==replacement.body and replacement.body.to_global(world.player._grab.contact).distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003
-	_check(hand_ready,"actual FPS callback lifts the owned workshop insert to the production hand pose")
-	if not hand_ready:return false
+	var item := CarriedCase.VENT_INSERT_PREFIX + str(replacement.body.identity)
+	var view := world.carried_case_view
+	await _toggle_service_case(view)
+	var packed: bool = view.opened and view.settled and replacement.packed and not replacement.body.visible \
+		and not world.player._grab.active() and not CarriedCase.place_of(item).is_empty()
+	_check(packed,"Tab packs the same finite spare and leaves the hand empty for the walk")
+	if not packed: return false
+	await _toggle_service_case(view)
+	_check(not view.opened,"valise closes before the climb")
+	if view.opened: return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.)]):return false
 	if not await _service_door(world,"B1_SHOP_DOOR"):return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
@@ -882,12 +934,11 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
 	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false
 	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
-	if not await _walk_service_points(world,[Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-2.8),Vector3(14.5,3.2,-3.)]):return false
-	var receiving: Transform3D=stock._thread_pose(radiator,stock.THREAD_END)
-	world.player.camera.global_position=receiving.origin+radiator.global_basis*Vector3(.02,.15,-.35);world.player.camera.look_at(receiving.origin)
-	if not await _deliver_service_part(world.player,replacement.body,receiving.origin):return false
-	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
-	_check(replacement.slot==radiator.graph_node_id and absf(replacement.turn-stock.THREAD_END)<.0001,"delivered spare catches thread without auto seating")
+	if not await _walk_service_points(world,[Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-2.8)]):return false
+	var fitted := await _fit_service_spare(world, radiator, item)
+	var caught: bool = fitted and replacement.slot==radiator.graph_node_id and absf(replacement.turn-stock.THREAD_END)<.0001
+	_check(caught,"case release engages the replacement thread without sealing it")
+	if not caught: return false
 	if not await _service_move_new(world.player,radiator,replacement.body,Vector3(0,.004,0),Vector3(.03,.10,-.08),0.):return false
 	_check(radiator.vent_grade==2 and stock.active(radiator).body==replacement.body and stock.rows.size()==28 and stock.rows[original_id].body.identity==original_id,"physical exchange preserves all 28 identities and sets actual vent grade")
 	if not await _service_supply(world.player,radiator,.42):return false
