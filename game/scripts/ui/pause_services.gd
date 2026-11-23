@@ -26,6 +26,9 @@ var controller_look_deadzone: HSlider
 var controller_look_curve: HSlider
 var controller_invert_y: CheckBox
 var apply_button: Button
+var _case_button: Button
+var _case_view: CanvasLayer
+var _case_active := false
 var sliders: Dictionary = {}
 var is_open := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
@@ -43,6 +46,28 @@ func bind_player(owner: Node) -> void:
 	player = owner
 
 
+func bind_case(view: CanvasLayer) -> void:
+	_case_view = view
+	_case_view.connect(&"closed", _return_from_case)
+
+
+func _open_case() -> void:
+	if not is_open or not is_instance_valid(_case_view) or not _case_view.call("open_from_pause"):
+		return
+	_case_active = true
+	center.hide()
+	_host_debug_controls(false)
+
+
+func _return_from_case() -> void:
+	if not _case_active:
+		return
+	_case_active = false
+	center.show()
+	_host_debug_controls(true)
+	_case_button.grab_focus()
+
+
 func can_open() -> bool:
 	return not is_open and not get_tree().paused and is_instance_valid(player) \
 			and not bool(player.get("call_locked")) \
@@ -56,6 +81,8 @@ func open() -> bool:
 	_fit_panel()
 	_mouse_before = Input.mouse_mode
 	_focus_before = weakref(get_viewport().gui_get_focus_owner())
+	_case_button.visible = is_instance_valid(_case_view)
+	_case_button.disabled = _case_button.visible and not _case_view.call("can_open_from_pause")
 	is_open = true
 	_host_debug_controls(true)
 	center.show()
@@ -69,7 +96,7 @@ func open() -> bool:
 
 
 func close(save := false) -> void:
-	if not is_open:
+	if not is_open or _case_active:
 		return
 	if save:
 		_store_controls()
@@ -105,7 +132,7 @@ func _release_pause() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_open and (event.is_action_pressed("ui_cancel")
+	if is_open and not _case_active and (event.is_action_pressed("ui_cancel")
 			or event.is_action_pressed("pause_services")):
 		close(false)
 		get_viewport().set_input_as_handled()
@@ -228,6 +255,12 @@ func _build() -> void:
 	layout.add_child(footer)
 	var actions := VBoxContainer.new()
 	footer.add_child(actions)
+	_case_button = Button.new()
+	_case_button.name = "OpenValise"
+	_case_button.text = "OPEN VALISE"
+	_case_button.hide()
+	_case_button.pressed.connect(_open_case)
+	actions.add_child(_case_button)
 	apply_button = Button.new()
 	apply_button.name = "ApplyAndReturn"
 	apply_button.text = "APPLY AND RETURN TO THE NIGHT"
@@ -247,7 +280,7 @@ func _build() -> void:
 	var controller_confirm := Shortcut.new()
 	controller_confirm.events = confirm_events
 	for button: BaseButton in [captions, onset_warning, reduce_roll, reduce_flashing,
-			controller_invert_y, apply_button, resume]:
+			controller_invert_y, _case_button, apply_button, resume]:
 		button.shortcut = controller_confirm
 		button.shortcut_context = button
 		button.shortcut_in_tooltip = false
@@ -261,6 +294,7 @@ func _connect_focus_cycle(box: VBoxContainer, resume: Button) -> void:
 		var control := child as Control
 		if control.focus_mode == Control.FOCUS_ALL:
 			controls.append(control)
+	controls.append(_case_button)
 	controls.append(apply_button)
 	controls.append(resume)
 	for index in controls.size():

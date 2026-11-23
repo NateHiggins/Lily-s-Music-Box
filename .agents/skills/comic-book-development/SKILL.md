@@ -39,6 +39,13 @@ Keep character and prop reference sheets compact. Preserve recognizable age,
 silhouette, wardrobe and handedness across shots. A repeated character changing
 into someone else is a continuity defect even when both pictures look attractive.
 
+For this project's strips, pages and reusable figure stock, compose with hands
+out of sight. Use pockets, aprons, furniture, foreground props or the crop.
+Stage the completed action: a plate already on the table, a folded timetable
+already supporting the table leg. Keep the cause clear through poses, eyelines
+and the props' positions. Catch visible hands in thumbnails and the final
+lettered proof. Restage the beat before spending a generation pass on fingers.
+
 For action and mechanisms, require a legible visual chain: attachment, load or
 connection, action, consequence. Captions cannot repair a missing anchor, an
 unconnected recorder or a figure standing where the script says climbing. Use

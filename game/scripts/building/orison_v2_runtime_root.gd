@@ -1115,6 +1115,7 @@ func _compose_authorities() -> void:
 	carried_case_view.economy=economy
 	carried_case_view.fire_stock=fire_maintenance_counter
 	add_child(carried_case_view)
+	player.pause_services.call("bind_case", carried_case_view)
 	var item_use:=ItemUse.new()
 	item_use.name="ItemUse"
 	add_child(item_use)
