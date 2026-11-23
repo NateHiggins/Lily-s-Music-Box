@@ -90,6 +90,7 @@ var _held_turned := false
 var _floor_size := Vector2.ZERO
 var _return_washer := false
 var _return_book := ""
+var _return_vent_insert := ""
 var _use_after_close := ""
 var held_paper := -1
 var _papers: Array[Dictionary] = []
@@ -115,7 +116,8 @@ func _available() -> bool:
 	return player != null and not player.call_locked and not player.mouse_released \
 			and not player.inspecting() \
 			and (not player._grab.active() or (is_instance_valid(fire_stock) and fire_stock.can_pack_washer(player)) \
-				or (is_instance_valid(household_state) and household_state.can_pack_book(player))) \
+				or (is_instance_valid(household_state) and (household_state.can_pack_book(player) \
+					or not household_state.vent_insert_fit(player).is_empty()))) \
 			and not is_instance_valid(player.seated_interaction)
 
 
@@ -166,6 +168,8 @@ func open_case(holder: String=PersonInventory.PLAYER) -> void:
 				item = CarriedCase.library_item(str(copy.shelf.name), copy.stock_id)
 		elif is_instance_valid(fire_stock) and fire_stock.pack_washer(player):
 			item = CarriedCase.MAINTENANCE_WASHER
+		elif is_instance_valid(household_state):
+			item = household_state.pack_vent_insert(player)
 		if item.is_empty():
 			_discard_view()
 			return
@@ -213,6 +217,11 @@ func _finish_close() -> void:
 		_return_book = ""
 		if is_instance_valid(household_state):
 			household_state.unpack_book(player, item)
+	if not _return_vent_insert.is_empty():
+		var item := _return_vent_insert
+		_return_vent_insert = ""
+		if is_instance_valid(household_state):
+			household_state.deliver_vent_insert(player, item)
 	if not _use_after_close.is_empty():
 		var item := _use_after_close
 		_use_after_close = ""
@@ -640,6 +649,17 @@ func _lay(item: String, parent: Node3D) -> void:
 		var copy: Node3D = household_state.packed_book(item)
 		if is_instance_valid(copy):
 			copy.draw_in_valise(stack)
+	elif item.begins_with(CarriedCase.VENT_INSERT_PREFIX) and is_instance_valid(household_state):
+		var row: Dictionary = household_state.packed_vent_insert(item)
+		if not row.is_empty():
+			var source: MeshInstance3D = row.draw
+			var draw := MeshInstance3D.new()
+			draw.mesh = source.mesh
+			for surface in draw.mesh.get_surface_count():
+				draw.set_surface_override_material(surface, source.get_active_material(surface))
+			var bounds := draw.get_aabb()
+			draw.position = -Vector3(bounds.get_center().x, bounds.position.y, bounds.get_center().z)
+			stack.add_child(draw)
 	elif item == "rolling_hoop":
 		preload("res://scripts/player/rolling_hoop.gd").draw_in_case(stack)
 	else:
@@ -716,6 +736,11 @@ func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
 		if is_instance_valid(copy):
 			count = 1
 			record = {"name": copy.entry.get("title", copy.title_id)}
+	elif item.begins_with(CarriedCase.VENT_INSERT_PREFIX) and is_instance_valid(household_state):
+		var insert: Dictionary = household_state.packed_vent_insert(item)
+		if not insert.is_empty():
+			count = 1
+			record = {"name": "Radiator vent insert, grade %d" % int(insert.grade)}
 	_tag.text = "%s  x%d%s" % [str(record.get("name", item)), count, "\nNO ROOM" if blocked else ""]
 	_tag.position = at + Vector3(0, 0.05, -0.02)
 	_tag.visible = true
@@ -753,6 +778,11 @@ func _past_front(at: Vector3) -> bool:
 
 
 func _verb_tag(item: String) -> String:
+	if item.begins_with(CarriedCase.VENT_INSERT_PREFIX) and is_instance_valid(household_state):
+		var destination: Node3D = household_state.vent_insert_destination(player, item)
+		if not is_instance_valid(destination):
+			return "AIM AT A COLD, EMPTY VENT OR THE WORKSHOP RACK"
+		return "FIT TO VENT" if destination is RadiatorProp else "RETURN TO RACK"
 	if item == CarriedCase.MAINTENANCE_WASHER or item.begins_with(CarriedCase.BOOK_PREFIX):
 		return "TAKE IN HAND"
 	if item_use == null:
@@ -765,6 +795,11 @@ func _verb_tag(item: String) -> String:
 ## A use spends one. The rest of the stack goes back to its square, and the last one
 ## leaves the case. Something with no use stays in the hand.
 func _take_out(item: String) -> void:
+	if item.begins_with(CarriedCase.VENT_INSERT_PREFIX):
+		if is_instance_valid(household_state) and is_instance_valid(household_state.vent_insert_destination(player, item)):
+			_return_vent_insert = item
+			close_case()
+		return
 	if item == CarriedCase.MAINTENANCE_WASHER:
 		_return_washer = true
 		close_case()

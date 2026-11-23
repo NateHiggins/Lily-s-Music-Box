@@ -373,16 +373,16 @@ func _commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callab
 
 ## Verify the case grid and household stock together before publishing.
 ## Custody changes also publish to the physical copy and the player hand.
-func commit_library_case_change(prepare: Callable, publish := Callable()) -> bool:
+func commit_case_custody_change(prepare: Callable, publish := Callable()) -> bool:
 	if _physical_handoff_active or not persistence_enabled or not prepare.is_valid():
 		return false
 	_physical_handoff_active = true
-	var ok := _commit_library_case_change(prepare, publish)
+	var ok := _commit_case_custody_change(prepare, publish)
 	_physical_handoff_active = false
 	return ok
 
 
-func _commit_library_case_change(prepare: Callable, publish: Callable) -> bool:
+func _commit_case_custody_change(prepare: Callable, publish: Callable) -> bool:
 	var live_document := data
 	var live_path := save_path
 	if not _synchronous_save_barrier() or not _handoff_context_is_current(live_document, live_path):
