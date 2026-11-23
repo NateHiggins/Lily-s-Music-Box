@@ -143,7 +143,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			captured=true
 		check(captured,"a clear installed bed inspection stance exists: "+str(record.id))
 		beds+=1
-	check(beds==19,"all original and completion-template installed beds inspected")
+	check(beds==20,"all original and completion-template installed beds inspected")
 	# Installed variants: the 1.4 and 1.5 m plain beds and slice 46's three household states
 	# (4B's thrown wake bed is the only 2.6 m bed, so the plain 2.6 m variant is not installed).
 	check(unique_meshes.size()==20,"five installed variants with four material batches each")
