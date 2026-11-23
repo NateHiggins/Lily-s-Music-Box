@@ -872,7 +872,8 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	world.service_round.dialogue.choose(0)
 	boiler.apply_maintenance_result({"note":"premature boiler"});radiator.apply_maintenance_result({"note":"premature radiator"})
 	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="issued" and world.work_orders.job_state(ServiceRoundDirector.JOB_ID).evidence.is_empty(),"premature legacy stimuli cannot counterfeit progress")
-	if not await _walk_service_points(world,[Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.45),Vector3(1.925,0,-3.45),Vector3(1.925,0,-3.)]):return false
+	# The final approach point is over the first tread, one riser above the landing.
+	if not await _walk_service_points(world,[Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.45),Vector3(1.925,0,-3.45),Vector3(1.925,.16,-3.)]):return false
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
 	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false
 	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
@@ -932,7 +933,7 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if view.opened: return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.)]):return false
 	if not await _service_door(world,"B1_SHOP_DOOR"):return false
-	if not await _walk_service_points(world,[Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.04,-3.)]):return false
 	if not await _walk_service_points(world,_service_stairs(-3.2,true)):return false
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
 	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false
