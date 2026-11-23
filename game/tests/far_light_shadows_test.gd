@@ -98,6 +98,14 @@ func _run() -> void:
 	check(lamp.shadow_enabled and mantle.shadow_enabled and faded.shadow_enabled, "switching off gives every shadow back")
 	check(not lamp.distance_fade_enabled and faded.distance_fade_enabled and is_equal_approx(faded.distance_fade_begin, 30.0), "switching off gives every fade back as authored")
 
+	policy.set_enabled(true)
+	faded.free()
+	camera.global_position = Vector3(0, 1.6, 4)
+	policy.tick()
+	check(lamp.shadow_enabled and mantle.shadow_enabled, "a retired light does not interrupt the remaining shadow updates")
+	policy.set_enabled(false)
+	check(not lamp.distance_fade_enabled and not mantle.distance_fade_enabled, "switching off restores surviving lights after one has been freed")
+
 	world.queue_free()
 	await get_tree().process_frame
 	print("FAR LIGHT RESULT: %s (%d checks, %d failures)" % ["PASS" if failures == 0 else "FAIL", checks, failures])

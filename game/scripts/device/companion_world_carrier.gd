@@ -196,6 +196,8 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	rig.add_child(rig.temporal_register)
 	if not rig.temporal_register.configure(rig,self):
 		failure="Native temporal register refused";push_error(failure);return
+	var cel_style := preload("res://scripts/visuals/cel_style_presentation.gd")
+	cel_style.preserve(rig, cel_style.DEVICE_NATIVE_LAYER)
 	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
 	device = rig.device
 	var lens: MeshInstance3D = device.teletype.torch_lens

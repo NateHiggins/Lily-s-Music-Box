@@ -1041,6 +1041,7 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 	binding.visible = false
 	binding.material_override = material
 	_material_bindings.add_child(binding)
+	preload("res://scripts/visuals/cel_style_presentation.gd").preserve(node)
 	add_child(node)
 	var batch := MultiMesh.new(); batch.transform_format = MultiMesh.TRANSFORM_3D
 	batch.use_custom_data = true; batch.mesh = mesh; node.multimesh = batch

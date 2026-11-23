@@ -83,6 +83,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	mesh_instance.material_override = material
 	mesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mesh_instance.extra_cull_margin = 16.0
+	preload("res://scripts/visuals/cel_style_presentation.gd").preserve(mesh_instance)
 	add_child(mesh_instance)
 	var world := get_viewport().find_world_3d() if get_viewport() != null else null
 	if world != null:

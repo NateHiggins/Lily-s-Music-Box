@@ -117,6 +117,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	mesh_instance.material_override = material
 	mesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mesh_instance.extra_cull_margin = 20.0
+	preload("res://scripts/visuals/cel_style_presentation.gd").preserve(mesh_instance)
 	add_child(mesh_instance)
 	var world := get_viewport().find_world_3d() if get_viewport() != null else null
 	if world != null:
@@ -342,7 +343,7 @@ func refresh_temporal_presence() -> void:
 func bind_companion(world: Node, observer: Node3D) -> void:
 	companion = preload("res://scripts/dream/critters/tardigrade_companion.gd").new()
 	companion.setup(world, observer)
-	mesh_instance.layers = 1 << 14
+	mesh_instance.layers = (1 << 14) | preload("res://scripts/visuals/cel_style_presentation.gd").NATIVE_LAYER
 	if "camera" in observer and is_instance_valid(observer.camera):
 		observer.camera.cull_mask |= 1 << 14
 	if not enable_blender_visuals(): push_error(blender_error)

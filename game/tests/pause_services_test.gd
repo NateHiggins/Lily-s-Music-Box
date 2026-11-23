@@ -72,6 +72,11 @@ func _run() -> void:
 			menu.is_open and menu.captions.button_pressed != initial_captions)
 	_push_joy(JOY_BUTTON_A)
 	menu.apply_button.grab_focus()
+	var initial_cel := bool(GameBoot.settings.cel_shading)
+	menu.cel_shading.grab_focus()
+	_push_joy(JOY_BUTTON_A)
+	_check("Controller can toggle the cel style", menu.cel_shading.button_pressed != initial_cel)
+	menu.apply_button.grab_focus()
 	var focus_stays := true
 	for i in 24:
 		_push_key(KEY_TAB)
@@ -95,6 +100,7 @@ func _run() -> void:
 			is_equal_approx(GameBoot.settings.master_volume, saved)
 			and absf(AudioServer.get_bus_volume_db(master) - GameBoot.audio_bus_db("Master")) < .01
 			and not policy.mix_snapshot().requests.has(&"pause_services"))
+	_check("Cancel preserves the committed cel style", bool(GameBoot.settings.cel_shading) == initial_cel)
 	if menu.is_open:
 		menu.close()
 	_click(ahead)
@@ -121,6 +127,7 @@ func _run() -> void:
 	_push_key(KEY_ESCAPE)
 	_check("Escape pauses without releasing the physical hand", tree.paused and player._grab.active())
 	menu.sliders.master_volume.value = preview
+	menu.cel_shading.button_pressed = not initial_cel
 	# A real GUI event activates Apply. push_input alone does not update
 	# Input's global polled action, so feed that side of the same press too.
 	Input.action_press("interact")
@@ -132,6 +139,8 @@ func _run() -> void:
 	var persisted := ConfigFile.new()
 	_check("Apply commits through GameBoot", persisted.load(GameBoot.SETTINGS_PATH) == OK
 			and is_equal_approx(float(persisted.get_value("display", "master_volume", -1.0)), preview))
+	_check("Apply persists the cel style", persisted.has_section_key("display", "cel_shading")
+			and bool(persisted.get_value("display", "cel_shading")) != initial_cel)
 	Input.action_release("interact")
 	if menu.is_open:
 		menu.close()
@@ -142,6 +151,7 @@ func _run() -> void:
 	Input.action_release("interact")
 	_check("A fresh Interact still releases the real leaf", not player._grab.active())
 	GameBoot.settings.master_volume = saved
+	GameBoot.settings.cel_shading = initial_cel
 	GameBoot.save_settings()
 
 	_push_key(KEY_ESCAPE)

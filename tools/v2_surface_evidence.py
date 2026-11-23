@@ -11,7 +11,7 @@ from audit_v2_surfaces import evaluate
 
 ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
-TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import','.cpp','.h','.hpp','.gdextension','.txt'}
+TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.compute','.gltf','.import','.cpp','.h','.hpp','.gdextension','.txt'}
 ASSETS={'.glb','.gltf','.bin','.rg8','.r8','.rgb8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
 
 def test_dependency_paths(root,seeds):
@@ -77,7 +77,7 @@ def input_paths(root=ROOT):
     versioned=set(subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z'],cwd=root).decode().split('\0'))
     paths=set()
     for directory,suffixes in [('game/scripts',{'.gd'}),('game/scenes',{'.tscn','.tres'}),
-                               ('game/data',{'.json'}),('game/shaders',{'.gdshader','.gdshaderinc'}),
+                               ('game/data',{'.json'}),('game/shaders',{'.gdshader','.gdshaderinc','.compute'}),
                                ('game/native',{'.cpp','.h','.hpp','.gdextension','.json','.dll','.so','.dylib'}),
                                ('game/assets',ASSETS),('art/blender/scripts',{'.py'}),
                                ('art/blender/front_lighting_candidate',{'.py'}),
