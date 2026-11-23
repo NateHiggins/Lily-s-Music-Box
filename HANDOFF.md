@@ -1,3 +1,19 @@
+# Orison integration checkpoint - November 23
+
+Evidence class: **INERT**
+
+PR #521 merged the service-light cleanup, Queensboro elevated trains and approved
+piano-truck panel at **f1dcda11a**. The first slice passed 369 checks, the surface
+suite passed 818 and the static comparison found zero regressions.
+[Lighting qualification](D:/ov_reports/orison_service_lights_20261123/REPORT.md)
+
+PR #520 followed at **ae006bdf8**, adding three views of the lobby redistribution
+already implemented. The exact candidate passed 36 checks and all nine views
+were technically reviewed. Lily's play and artistic review remain open.
+[First-floor captures](D:/ov_reports/first_floor_pr520_20261123/combined/first_floor.jpg)
+
+Claude retains the shared route repairs. Athena and Optimus remain on hold.
+
 # Building Services valise controls - November 23
 
 Evidence class: **INERT**
