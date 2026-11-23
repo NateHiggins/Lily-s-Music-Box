@@ -49,7 +49,10 @@ var _track_offers := [
 
 var _hero_art: TextureRect
 var _shade: TextureRect
+var _menu_scroll: ScrollContainer
+var _settings_layer: CenterContainer
 var _settings_panel: PanelContainer
+var _settings_scroll: ScrollContainer
 var _first_menu_button: Button
 var _services_button: Button
 var _primary_button: Button
@@ -109,6 +112,8 @@ func _ready() -> void:
 		notice_layer.set_title_presenter(self)
 	_first_menu_button.grab_focus()
 	get_viewport().size_changed.connect(_place_backdrop)
+	get_viewport().size_changed.connect(_size_settings)
+	_size_settings()
 	_place_backdrop()
 
 
@@ -189,12 +194,12 @@ func _build_menu() -> void:
 	margin.add_theme_constant_override("margin_top", 30)
 	margin.add_theme_constant_override("margin_right", 30)
 	margin.add_theme_constant_override("margin_bottom", 28)
-	var menu_scroll := ScrollContainer.new()
-	menu_scroll.name = "TitleMenuScroll"
-	menu_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	menu_scroll.follow_focus = true
-	panel.add_child(menu_scroll)
-	menu_scroll.add_child(margin)
+	_menu_scroll = ScrollContainer.new()
+	_menu_scroll.name = "TitleMenuScroll"
+	_menu_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_menu_scroll.follow_focus = true
+	panel.add_child(_menu_scroll)
+	_menu_scroll.add_child(margin)
 	var menu := VBoxContainer.new()
 	menu.add_theme_constant_override("separation", 8)
 	margin.add_child(menu)
@@ -265,12 +270,14 @@ func _build_menu() -> void:
 
 
 func _build_settings() -> void:
+	_settings_layer = CenterContainer.new()
+	_settings_layer.name = "BuildingServicesModal"
+	_settings_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_settings_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	_settings_layer.hide()
+	add_child(_settings_layer)
 	_settings_panel = PanelContainer.new()
 	_settings_panel.name = "BuildingServices"
-	_settings_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_settings_panel.position = Vector2(-300, -320)
-	_settings_panel.custom_minimum_size = Vector2(600, 640)
-	_settings_panel.visible = false
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.025, 0.029, 0.034, 0.97)
 	style.border_width_left = 1
@@ -279,16 +286,20 @@ func _build_settings() -> void:
 	style.border_width_bottom = 1
 	style.border_color = Color(0.50, 0.38, 0.22, 0.72)
 	_settings_panel.add_theme_stylebox_override("panel", style)
-	add_child(_settings_panel)
-	var scroll := ScrollContainer.new()
-	scroll.name = "BuildingServicesScroll"
-	scroll.custom_minimum_size = Vector2(564, 604)
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	_settings_panel.add_child(scroll)
+	_settings_layer.add_child(_settings_panel)
+	var sheet := VBoxContainer.new()
+	sheet.add_theme_constant_override("separation", 0)
+	_settings_panel.add_child(sheet)
+	_settings_scroll = ScrollContainer.new()
+	_settings_scroll.name = "BuildingServicesScroll"
+	_settings_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_settings_scroll.follow_focus = true
+	_settings_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sheet.add_child(_settings_scroll)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 18)
-	scroll.add_child(margin)
+	_settings_scroll.add_child(margin)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 10)
 	margin.add_child(box)
@@ -301,52 +312,35 @@ func _build_settings() -> void:
 	_quality = OptionButton.new()
 	_quality.add_item("Cinematic — maximum (default)", 0)
 	_quality.add_item("Balanced — debug-tested", 1)
-	_quality.select(int(GameBoot.settings.get("quality", 0)))
 	box.add_child(_quality)
 	_fullscreen = CheckBox.new()
 	_fullscreen.text = "EXCLUSIVE FULLSCREEN"
-	_fullscreen.button_pressed = bool(GameBoot.settings.get(
-			"fullscreen", false))
 	box.add_child(_fullscreen)
 	_always_warn = CheckBox.new()
 	_always_warn.name = "AlwaysWarnBeforeSleep"
 	_always_warn.text = AccessibilityCopyText.SLEEP_WARNING_LABEL
 	_always_warn.tooltip_text = AccessibilityCopyText.SLEEP_WARNING_HELP
-	_always_warn.button_pressed = bool(GameBoot.settings.get(
-			"always_warn_before_sleep", false))
 	box.add_child(_always_warn)
 	_sound_captions = CheckBox.new()
 	_sound_captions.name = "GameplaySoundCaptions"
 	_sound_captions.text = AccessibilityCopyText.SOUND_CAPTIONS_LABEL
 	_sound_captions.tooltip_text = AccessibilityCopyText.SOUND_CAPTIONS_HELP
-	_sound_captions.button_pressed = bool(GameBoot.settings.get(
-			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
-			"dream_directional_captions", false))
 	box.add_child(_sound_captions)
 	_weather_network_enabled = CheckBox.new()
 	_weather_network_enabled.name = "WeatherNetworkEnabled"
 	_weather_network_enabled.text = "FETCH LIVE WEATHER FROM OPEN-METEO"
 	_weather_network_enabled.tooltip_text = \
 			"Makes an internet request and exposes your IP address to Open-Meteo. Off uses the authored Queens weather."
-	_weather_network_enabled.button_pressed = bool(GameBoot.settings.get(
-			"weather_network_enabled", false))
 	box.add_child(_weather_network_enabled)
 	_live_local_weather = CheckBox.new()
 	_live_local_weather.name = "LiveLocalWeather"
 	_live_local_weather.text = "MATCH WEATHER TO MY LOCATION"
 	_live_local_weather.tooltip_text = \
 			"Opt in by entering a city or postal code. Otherwise the Orison uses Queens, New York."
-	_live_local_weather.button_pressed = bool(GameBoot.settings.get(
-			"live_local_weather", false))
 	box.add_child(_live_local_weather)
 	_weather_location = LineEdit.new()
 	_weather_location.name = "WeatherLocation"
 	_weather_location.placeholder_text = "CITY OR POSTAL CODE  ·  blank uses Queens"
-	_weather_location.text = str(GameBoot.settings.get(
-			"weather_location_query", ""))
-	_live_local_weather.disabled = not _weather_network_enabled.button_pressed
-	_weather_location.editable = _weather_network_enabled.button_pressed \
-			and _live_local_weather.button_pressed
 	_weather_network_enabled.toggled.connect(func(enabled: bool):
 		_live_local_weather.disabled = not enabled
 		_weather_location.editable = enabled and _live_local_weather.button_pressed)
@@ -358,7 +352,6 @@ func _build_settings() -> void:
 	_volume.min_value = 0.0
 	_volume.max_value = 1.0
 	_volume.step = 0.01
-	_volume.value = float(GameBoot.settings.get("master_volume", 0.82))
 	box.add_child(_volume)
 	box.add_child(_label("MIX CATEGORIES", 12, Color(0.61, 0.60, 0.55)))
 	var mix := GridContainer.new()
@@ -388,22 +381,72 @@ func _build_settings() -> void:
 	_controller_invert_y = CheckBox.new()
 	_controller_invert_y.name = "ControllerInvertY"
 	_controller_invert_y.text = "INVERT Y"
-	_controller_invert_y.button_pressed = bool(GameBoot.settings.get(
-			"controller_invert_y", false))
 	controller_grid.add_child(_controller_invert_y)
-	_add_button(box, "APPLY", _save_settings)
-	_add_button(box, "BACK", _close_settings)
+	var footer := MarginContainer.new()
+	for side in ["left", "top", "right", "bottom"]:
+		footer.add_theme_constant_override("margin_" + side, 12)
+	sheet.add_child(footer)
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 8)
+	footer.add_child(actions)
+	var apply := _add_button(actions, "APPLY", _save_settings)
+	apply.name = "ApplyTitleSettings"
+	var back := _add_button(actions, "BACK", _close_settings)
+	back.name = "CancelTitleSettings"
+	for button: Button in [apply, back]:
+		button.custom_minimum_size.x = 0.0
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_reset_settings_controls()
+
+
+func _size_settings() -> void:
+	var available := get_viewport_rect().size - Vector2(32, 32)
+	_settings_panel.custom_minimum_size = Vector2(minf(600.0, available.x), minf(640.0, available.y))
+
+
+func _reset_settings_controls() -> void:
+	var values := GameBoot.settings
+	_quality.select(int(values.quality))
+	_fullscreen.set_pressed_no_signal(bool(values.fullscreen))
+	_always_warn.set_pressed_no_signal(bool(values.always_warn_before_sleep))
+	_sound_captions.set_pressed_no_signal(bool(values.gameplay_sound_captions)
+			or bool(values.dream_directional_captions))
+	_weather_network_enabled.set_pressed_no_signal(bool(values.weather_network_enabled))
+	_live_local_weather.set_pressed_no_signal(bool(values.live_local_weather))
+	_weather_location.text = str(values.weather_location_query)
+	_live_local_weather.disabled = not _weather_network_enabled.button_pressed
+	_weather_location.editable = _weather_network_enabled.button_pressed \
+			and _live_local_weather.button_pressed
+	_controller_invert_y.set_pressed_no_signal(bool(values.controller_invert_y))
+	_volume.set_value_no_signal(float(values.master_volume))
+	_gameplay_volume.set_value_no_signal(float(values.gameplay_volume))
+	_voice_volume.set_value_no_signal(float(values.voice_volume))
+	_world_volume.set_value_no_signal(float(values.world_volume))
+	_music_volume.set_value_no_signal(float(values.music_volume))
+	_ui_volume.set_value_no_signal(float(values.ui_volume))
+	_controller_look_sensitivity.set_value_no_signal(float(values.controller_look_sensitivity))
+	_controller_look_deadzone.set_value_no_signal(float(values.controller_look_deadzone))
+	_controller_look_curve.set_value_no_signal(float(values.controller_look_curve))
 
 
 func _open_settings() -> void:
-	if _leaving or _replacement_layer.visible:
+	if _leaving or _replacement_layer.visible or _settings_layer.visible:
 		return
-	_settings_panel.visible = true
+	_reset_settings_controls()
+	_settings_scroll.scroll_vertical = 0
+	_set_main_buttons_disabled(true)
+	_menu_scroll.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	_settings_layer.show()
 	_quality.grab_focus()
 
 
 func _close_settings() -> void:
-	_settings_panel.visible = false
+	if not _settings_layer.visible:
+		return
+	_settings_layer.hide()
+	GameBoot.apply_audio_settings()
+	_menu_scroll.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED
+	_set_main_buttons_disabled(false)
 	_services_button.grab_focus()
 
 
@@ -637,14 +680,13 @@ func _primary_game() -> void:
 
 
 func _new_game() -> void:
-	if _leaving or _replacement_layer.visible:
+	if _leaving or _replacement_layer.visible or _settings_layer.visible:
 		return
 	var status := RealityState.load_status()
 	if str(status.get("status", "protected")) == "missing" \
 			and not bool(status.get("has_saved_campaign", true)):
 		_primary_game()
 		return
-	_settings_panel.hide()
 	_replacement_copy.text = (
 			"Start a new night at the Orison?\n\n"
 			+ "Your current progress will be replaced. The existing save will be kept as an archive, "
@@ -815,6 +857,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _replacement_layer.visible:
 		_cancel_new_campaign()
 		get_viewport().set_input_as_handled()
-	elif _settings_panel.visible:
+	elif _settings_layer.visible:
 		_close_settings()
 		get_viewport().set_input_as_handled()

@@ -252223,7 +252223,7 @@
     "_build_music"
    ],
    "lines": [
-    414
+    457
    ],
    "count": 1,
    "context": [
@@ -285990,7 +285990,7 @@
     "run"
    ],
    "lines": [
-    103
+    106
    ],
    "count": 1,
    "context": [
@@ -286020,7 +286020,7 @@
     "run"
    ],
    "lines": [
-    89
+    92
    ],
    "count": 1,
    "context": [
@@ -286050,13 +286050,11 @@
     "run"
    ],
    "lines": [
-    50,
-    93,
-    111
+    96,
+    114
    ],
-   "count": 3,
+   "count": 2,
    "context": [
-    "if not player._grab.active() or stock.held!=\"VENT_SPARE_2\":",
     "if part.id==\"VENT_SPARE_2\":",
     "if stock.held!=\"VENT_SPARE_2\" or prop._native_held!=\"vent_orifice\": failures.append(\"restoration fixture acquires mounted insert through actual cursor\")"
    ],
@@ -286084,7 +286082,7 @@
     "run"
    ],
    "lines": [
-    46
+    45
    ],
    "count": 1,
    "context": [
