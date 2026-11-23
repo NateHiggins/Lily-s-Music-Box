@@ -221983,7 +221983,7 @@
     "_validate_layout"
    ],
    "lines": [
-    141
+    150
    ],
    "count": 1,
    "context": [
@@ -222013,7 +222013,7 @@
     "_wall_segment"
    ],
    "lines": [
-    779
+    795
    ],
    "count": 1,
    "context": [
@@ -222041,11 +222041,39 @@
     "_wall_segment"
    ],
    "lines": [
-    781
+    797
    ],
    "count": 1,
    "context": [
     "if str(door.id)!=\"B1_SHOP_STAIR_DOOR\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "28c0d003cb0c51d4",
+   "kind": "id_reference",
+   "token": "F01_BYPASS_HALL_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_service_opening_practical"
+   ],
+   "lines": [
+    753
+   ],
+   "count": 1,
+   "context": [
+    "if str(opening.id) == \"F01_BYPASS_HALL_OPENING\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -222069,7 +222097,7 @@
     "_validate_layout"
    ],
    "lines": [
-    137
+    146
    ],
    "count": 1,
    "context": [
@@ -222089,6 +222117,34 @@
    "target_exists": true
   },
   {
+   "key": "df261d19cd63a635",
+   "kind": "id_reference",
+   "token": "F01_TRANSFER_BYPASS_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_TRANSFER_BYPASS_OPENING\": true,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5e5db22382d87e7b",
    "kind": "id_reference",
    "token": "F02_A_MAIN_VANTRY_POINT",
@@ -222099,7 +222155,7 @@
     "_validate_layout"
    ],
    "lines": [
-    138
+    147
    ],
    "count": 1,
    "context": [
@@ -222119,6 +222175,34 @@
    "target_exists": true
   },
   {
+   "key": "f2204ebaa843fabf",
+   "kind": "id_reference",
+   "token": "F02_BYPASS_HALL_NORTH_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_BYPASS_HALL_NORTH_OPENING\": true,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "98430a1a86c943a6",
    "kind": "id_reference",
    "token": "F02_B_RADIATOR_01",
@@ -222129,7 +222213,7 @@
     "_validate_layout"
    ],
    "lines": [
-    141
+    150
    ],
    "count": 1,
    "context": [
@@ -222159,7 +222243,7 @@
     "_validate_layout"
    ],
    "lines": [
-    137
+    146
    ],
    "count": 1,
    "context": [
@@ -222179,6 +222263,90 @@
    "target_exists": true
   },
   {
+   "key": "fb4405cf59ceca40",
+   "kind": "id_reference",
+   "token": "F03_CORE_EAST_HALL_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_CORE_EAST_HALL_OPENING\": true,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "19da16744cbdf5d7",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_NORTH_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_SERVICE_NORTH_OPENING\": true,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4b8fd3e5e9cc0df3",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_SOUTH_OPENING",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_SERVICE_SOUTH_OPENING\": true,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "bf27dd411d226b8a",
    "kind": "id_reference",
    "token": "F04_B_MONITOR_01",
@@ -222189,7 +222357,7 @@
     "_validate_layout"
    ],
    "lines": [
-    138
+    147
    ],
    "count": 1,
    "context": [
@@ -222219,7 +222387,7 @@
     "_validate_layout"
    ],
    "lines": [
-    137
+    146
    ],
    "count": 1,
    "context": [
@@ -222249,7 +222417,7 @@
     "_validate_layout"
    ],
    "lines": [
-    139
+    148
    ],
    "count": 1,
    "context": [
@@ -222279,7 +222447,7 @@
     "_validate_layout"
    ],
    "lines": [
-    140
+    149
    ],
    "count": 1,
    "context": [
@@ -222309,7 +222477,7 @@
     "_validate_layout"
    ],
    "lines": [
-    140
+    149
    ],
    "count": 1,
    "context": [
@@ -222339,7 +222507,7 @@
     "_validate_layout"
    ],
    "lines": [
-    139
+    148
    ],
    "count": 1,
    "context": [
@@ -222369,7 +222537,7 @@
     "_validate_layout"
    ],
    "lines": [
-    138
+    147
    ],
    "count": 1,
    "context": [
@@ -223088,7 +223256,7 @@
     "_build_furniture"
    ],
    "lines": [
-    212
+    217
    ],
    "count": 1,
    "context": [
@@ -223118,7 +223286,7 @@
     "_build_panes"
    ],
    "lines": [
-    171
+    176
    ],
    "count": 1,
    "context": [
@@ -235361,7 +235529,7 @@
     "_add_batch"
    ],
    "lines": [
-    324
+    332
    ],
    "count": 1,
    "context": [
@@ -235391,7 +235559,7 @@
     "_build_signs"
    ],
    "lines": [
-    336
+    344
    ],
    "count": 1,
    "context": [
@@ -235421,7 +235589,7 @@
     "_park"
    ],
    "lines": [
-    372
+    380
    ],
    "count": 1,
    "context": [
@@ -267333,7 +267501,7 @@
    ],
    "lines": [
     918,
-    933
+    934
    ],
    "count": 2,
    "context": [
@@ -267419,7 +267587,7 @@
    "lines": [
     878,
     902,
-    938
+    939
    ],
    "count": 3,
    "context": [
@@ -268144,13 +268312,13 @@
     903,
     903,
     903,
-    937,
-    937,
-    939,
-    939,
-    939,
-    939,
-    954
+    938,
+    938,
+    940,
+    940,
+    940,
+    940,
+    955
    ],
    "count": 20,
    "context": [
@@ -287334,7 +287502,7 @@
     "_run"
    ],
    "lines": [
-    94
+    99
    ],
    "count": 1,
    "context": [
@@ -287366,7 +287534,7 @@
    "lines": [
     52,
     52,
-    94
+    99
    ],
    "count": 3,
    "context": [
@@ -287400,7 +287568,7 @@
     52,
     53,
     53,
-    94
+    99
    ],
    "count": 4,
    "context": [
@@ -287434,13 +287602,15 @@
    "lines": [
     52,
     55,
-    56
+    56,
+    57
    ],
-   "count": 3,
+   "count": 4,
    "context": [
     "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
     "{\"id\": \"F01_SEALED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 2.34, 0)},",
-    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},",
+    "{\"id\": \"F01_OMITTED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"omit\": true},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -287468,13 +287638,15 @@
    "lines": [
     52,
     55,
-    56
+    56,
+    57
    ],
-   "count": 3,
+   "count": 4,
    "context": [
     "\"spaces\": [_space(\"F01_A\", \"F01\"), _space(\"F01_B\", \"F01\"), _space(\"F02_A\", \"F02\"),",
     "{\"id\": \"F01_SEALED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0, 2.34, 0)},",
-    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+    "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},",
+    "{\"id\": \"F01_OMITTED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"omit\": true},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -287505,6 +287677,36 @@
    "count": 1,
    "context": [
     "{\"id\": \"F01_CROWDED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"at\": Vector3(0.8, 2.34, 0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d7b648cd7161f3be",
+   "kind": "id_candidate",
+   "token": "F01_OMITTED",
+   "file": "game/tests/service_light_scope_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\": \"F01_OMITTED\", \"connects\": [\"F01_A\", \"F01_B\"], \"shared_wall_owner\": \"x\", \"omit\": true},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -287561,7 +287763,7 @@
    ],
    "lines": [
     52,
-    57
+    58
    ],
    "count": 2,
    "context": [
@@ -287593,8 +287795,8 @@
    ],
    "lines": [
     53,
-    57,
-    58
+    58,
+    59
    ],
    "count": 3,
    "context": [
@@ -287627,7 +287829,7 @@
    ],
    "lines": [
     53,
-    58
+    59
    ],
    "count": 2,
    "context": [
@@ -287658,7 +287860,7 @@
     "_run"
    ],
    "lines": [
-    57
+    58
    ],
    "count": 1,
    "context": [
@@ -287688,7 +287890,7 @@
     "_run"
    ],
    "lines": [
-    58
+    59
    ],
    "count": 1,
    "context": [
@@ -287718,8 +287920,8 @@
     "_run"
    ],
    "lines": [
-    97,
-    111
+    102,
+    116
    ],
    "count": 2,
    "context": [
