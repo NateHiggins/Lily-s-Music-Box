@@ -46,7 +46,7 @@ func _ready() -> void:
 	sleep_pressure.name = "SleepPressureDirector"
 	sleep_pressure.manual_clock = sleep_manual_clock
 	add_child(sleep_pressure)
-	sleep_pressure.setup(dream_director)
+	sleep_pressure.setup(dream_director, _release_sleep_at_home)
 	dream_director.world_swap_requested.connect(_on_world_swap_requested)
 	if uses_prologue_entry() and dream_director.phase() not in ["entered", "active"]:
 		# Composition yields while the real companion services load. Hide the
@@ -93,6 +93,14 @@ func bind_waking_services(work_orders: WorkOrders, player: Node3D,
 	core_loop.setup(work_orders, player, layout, return_anchor_resolver)
 	sleep_pressure.bind_waking_services(player, elevator, traffic)
 	return core_loop
+
+
+## A release can be armed when its slip prints. Its sleep starts in present-day 4B.
+func _release_sleep_at_home() -> bool:
+	if active_kind != "waking" or not is_instance_valid(active_world) or not active_world.has_method("player_unit"):
+		return false
+	var temporal: Node = active_world.get("temporal_loop")
+	return temporal != null and not temporal.in_visit() and active_world.player_unit() == "4B"
 
 
 func world_kind() -> String:

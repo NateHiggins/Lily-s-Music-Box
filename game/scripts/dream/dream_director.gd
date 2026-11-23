@@ -31,6 +31,10 @@ func phase() -> String:
 	return str(_state().phase)
 
 
+func is_release_print() -> bool:
+	return bool((_state().window as Dictionary).get("release", false))
+
+
 func dream_state() -> Dictionary:
 	return _state().duplicate(true)
 
