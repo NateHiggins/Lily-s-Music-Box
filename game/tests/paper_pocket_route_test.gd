@@ -140,6 +140,10 @@ func _route() -> void:
 	if not _require(offers.size() == 8, "a full rack: eight papers on offer (%d)" % offers.size()): return
 	_require(not stand.shuttered(), "the stand is open at six")
 
+	# These assertions compare exact transaction deltas. The live stock poll
+	# also consumes fractional stock as the clock advances between choices.
+	var stock_was_processing: bool = stock.is_processing()
+	stock.set_process(false)
 	# LILITH has its own entry after all eight papers, before Leave.
 	view.economy.book().cash = 3
 	stand.interact_control("papers", player)
@@ -206,6 +210,7 @@ func _route() -> void:
 	await get_tree().process_frame
 	_require(PaperPocket.transit_news() == key and not catalog.is_collected(str(second.paper), str(second.date)), "a second paper is refused: the case holds one")
 	_require(_money() == money_before and _units(stand) == units - 2.0, "before any charge or stock")
+	stock.set_process(stock_was_processing)
 	if is_instance_valid(stand._panel):
 		stand._panel.close()
 	await get_tree().process_frame
@@ -265,6 +270,19 @@ func _route() -> void:
 	await get_tree().create_timer(0.4).timeout
 	_require(not is_instance_valid(view._reading) and view.opened, "ESC puts the paper back, the case stays open")
 	_require(player.call_locked, "and keeps the player")
+	await _draw_out(view, 3, view.DRAW_PIXELS)
+	await get_tree().process_frame
+	_require(view._reading is NewspaperPanel, "the same paper reopens before controller Back")
+	var back := InputEventJoypadButton.new()
+	back.button_index = JOY_BUTTON_B
+	back.pressed = true
+	get_tree().root.push_input(back, true)
+	back = back.duplicate()
+	back.pressed = false
+	get_tree().root.push_input(back, true)
+	await get_tree().create_timer(0.4).timeout
+	_require(not is_instance_valid(view._reading) and view.opened and player.call_locked,
+			"controller Back returns the newspaper and keeps the case open")
 	await _key(KEY_TAB)
 	await get_tree().create_timer(0.6).timeout
 	_require(not view.opened and not player.call_locked, "the key closes the case")

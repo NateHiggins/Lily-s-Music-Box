@@ -1,3 +1,19 @@
+# Building Services valise controls - November 23
+
+Evidence class: **INERT**
+
+PR506 opens the existing valise while Building Services keeps the world
+paused. The stick and D-pad move the pointer, A picks up or places goods,
+Y turns them, and B returns from the valise to Building Services.
+
+The composed candidate **f8e01cf6b** passed 42 pause and controller checks,
+34 installed mouse checks, and 72 newspaper checks. The original first slice
+passed 369 checks and 176 walking waypoints through repair and disk
+reconstruction. The physical cohort passed 818 checks with all 23 captures
+reviewed. The first mouse timeout and prior packets remain archived.
+Human play review remains open.
+[Qualification evidence](C:/ov/reports/pause_valise_controls_20261123/composed_f8e01cf6/REPORT.md).
+
 # Qualification and Laurel diagnostics - November 23
 
 Evidence class: **INERT**
