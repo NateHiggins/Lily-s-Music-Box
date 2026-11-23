@@ -151,10 +151,15 @@ static func valid_packed_inserts(case_book: Dictionary, records: Variant) -> boo
 			return false
 		var identity := item.trim_prefix(VENT_INSERT_PREFIX)
 		if not parts.any(func(part): return part is Dictionary and part.get("id") == identity \
-				and not part.has("slot") and part.get("rack") in range(5) and part.get("grade") in range(5) \
+				and not part.has("slot") and _valid_vent_index(part.get("rack")) and _valid_vent_index(part.get("grade")) \
 				and identity == "VENT_SPARE_%d" % int(part.grade)):
 			return false
 	return true
+
+
+static func _valid_vent_index(value: Variant) -> bool:
+	return typeof(value) in [TYPE_INT, TYPE_FLOAT] and value >= 0 and value < 5 \
+		and value == floorf(float(value))
 
 
 static func place_of(item: String) -> Dictionary:
