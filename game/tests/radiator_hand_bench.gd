@@ -438,6 +438,7 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	await _carry_to(player,part.position+Vector3(0,.12,-.12))
 	await _carry_to(player,part.home().origin+Vector3.FORWARD*.12)
 	await _carry_to(player,part.home().origin)
+	print("PACKING DELIVERY held ",player._grab.active()," delta ",part.position.distance_to(part.home().origin)," BLOCK ",part.last_block)
 	reviewer._click(player)
 	print("PACKING RESEAT station ",part.station," delta ",part.position.distance_to(part.home().origin)," BLOCK ",part.last_block)
 	if part.station!=0: failures.append("hand-delivered packing reseats");return

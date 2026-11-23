@@ -108,7 +108,9 @@ func manipulation_target(_hit: Dictionary) -> Dictionary:
 func grip() -> Dictionary:
 	if station==0 and (radiator.supply_position>.02 or radiator.native_service_progress<.999): return {}
 	var constrained := station==0
-	return {"owner":radiator,"part":self,"frame":radiator,"kind":"slide" if constrained else "free",
+	# Loose packing is a local service control, with a seat and a fixed park.
+	# Keep the hand on the part while the cursor moves it back to the union.
+	return {"owner":radiator,"part":self,"frame":radiator,"kind":"slide" if constrained else "free","pickup":false,
 		"axis":Vector3.FORWARD,"minimum":0.0,"maximum":PEEL+LIFT,
 		"read":func(): return radiator.native_packing_spread*PEEL+radiator.native_packing_out*LIFT if constrained else position,
 		"begin":func():
