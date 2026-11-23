@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 155.43,
+  "exit_code": 0,
+  "finished_utc": "2026-11-23T18:54:47Z",
+  "started_utc": "2026-11-23T18:52:11Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/traffic_spec_20261123/patched/shot.log.stderr",
+  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
+  "stdout": "C:/ov/reports/traffic_spec_20261123/patched/shot.log",
+  "stdout_sha256": "7c8eef350cba4e0a8361c06856753292df404e4ae6439d8172f665c9e6b22bce"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2TrafficSpecShot.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/traffic_spec_20261123/patched/shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "14c8dbcbb637b6dbaed152da91ac582e8c589cfe",
+  "repository_tree": "71f8d0ce58b48c324dc0247f7f3b6fc77ccb780b",
+  "runtime_inputs_sha256": "b62d0d45148d06032732fd45c5752861aee4e2da998bc6760ecd6387011bbd7b",
+  "test_path": "game/tests/v2_traffic_spec_shot.gd",
+  "test_sha256": "07fdf46dfca342ec146b6c6ab4f4e53433e685c61e0a31278b9479d11c1011db"
+ },
+ "windowed": true
+}

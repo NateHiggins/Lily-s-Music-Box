@@ -247,6 +247,7 @@ func _run() -> void:
 			junctions[signf(float(c.x))] = true
 	check(most >= 3 and headings.size() == 2 and junctions.size() == 2,
 			"both cross streets carry traffic both ways (up to %d at once)" % most)
+	_animation_contracts(traffic)
 	_height_contacts(traffic, person, model_a, lane_east)
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
@@ -285,3 +286,149 @@ func _height_contacts(traffic: OrisonV2StreetTraffic, person: ContactProbe, kind
 					check(person.impulses.size()==1, "ground shove keeps its cooldown")
 	traffic.transform = original_transform
 	person.position = Vector3(0,0,-50)
+
+
+## Animation that reads on the road (design/V2_TRAFFIC_INVENTORY_2026-11-23.md): whole vehicles the length of
+## the block, wheels that roll without sliding, front axles that steer, bodies that pitch, gaits that never jump,
+## cross-street stops on the braking curves, and the WE TUNA PIANOS truck with its legend and its solo rule.
+func _animation_contracts(traffic: OrisonV2StreetTraffic) -> void:
+	var data := traffic.data
+	traffic.clock_override = {"valid": true, "day": "tue", "month": 11, "day_of_month": 20, "year": 1928, "minute_of_day": 600.0}
+	traffic._read_clock()
+	# Whole at the far end of the block, where the 24 m cut-off used to strip wheels and drivers.
+	traffic.stage([{"id": "model_t_touring", "lane_west": false, "x": 55.0, "speed": 0.0}])
+	var wheels_far: int = traffic._batches.wheel_artillery.multimesh.visible_instance_count
+	var driver_far: int = traffic._batches.figure.multimesh.visible_instance_count
+	check(wheels_far == 4 and driver_far == 1, "a Model T 55 m up the block keeps its four wheels and its driver (%d, %d)" % [wheels_far, driver_far])
+
+	# Rolling, not sliding: the point of the tyre on the road stays put while the car moves on.
+	traffic.stage([{"id": "model_a_tudor", "lane_west": false, "x": -10.0, "speed": 6.0}])
+	traffic.tracing = true
+	traffic._write_instances()
+	var radius := float(_kind(traffic, "model_a_tudor").wheels[0].radius)
+	var worst_slip := 0.0
+	var moved := 0.0
+	for i in 30:
+		var before: Transform3D = traffic.trace.wheel_wire[0]
+		var contact := before.affine_inverse() * (before.origin + Vector3.DOWN * radius)
+		var p0 := float(traffic._live[0].p)
+		traffic._advance(DT)
+		traffic._write_instances(DT)
+		var after: Transform3D = traffic.trace.wheel_wire[0]
+		var step := float(traffic._live[0].p) - p0
+		moved += step
+		worst_slip = maxf(worst_slip, (after * contact - (before.origin + Vector3.DOWN * radius)).length() / maxf(step, 0.001))
+	check(moved > 1.0 and worst_slip < 0.3, "wheels roll at ground speed: the tyre's road contact barely moves (worst %.3f of the step)" % worst_slip)
+
+	# Braking into the T: the body dips, the wheels do not; the front axle steers through the turn and back.
+	traffic.stage([{"id": "model_a_tudor", "lane_west": false, "x": 35.0, "speed": 9.0}])
+	var v: Dictionary = traffic._live[0]
+	var most_dip := 0.0
+	var most_steer := 0.0
+	var steer_jump := 0.0
+	var last_steer := 0.0
+	var last_surge := 0.0
+	var straight_after := INF
+	for i in 60 * 30:
+		traffic._advance(DT)
+		if traffic._live.is_empty():
+			break
+		v = traffic._live[0]
+		traffic._write_instances(DT)
+		var pitch := clampf(float(v.surge) * OrisonV2StreetTraffic.PITCH_PER_MS2, -OrisonV2StreetTraffic.PITCH_LIMIT, OrisonV2StreetTraffic.PITCH_LIMIT)
+		if str(v.phase) == "street":
+			most_dip = minf(most_dip, pitch)
+		steer_jump = maxf(steer_jump, absf(float(v.steer) - last_steer))
+		last_steer = float(v.steer)
+		last_surge = float(v.surge)
+		if str(v.phase) == "exit":
+			most_steer = maxf(most_steer, absf(float(v.steer)))
+			if float(v.run) > 6.0:
+				straight_after = minf(straight_after, absf(float(v.steer)))
+	check(most_dip < -0.008 and most_dip >= -OrisonV2StreetTraffic.PITCH_LIMIT, "the body dips under service braking (%.3f rad)" % most_dip)
+	check(most_steer > 0.2 and steer_jump <= OrisonV2StreetTraffic.STEER_RATE * DT + 0.0001 and straight_after < 0.05,
+			"the front axle steers into the turn and back out, never snapping (peak %.2f, step %.3f, after %.3f rad)" % [most_steer, steer_jump, straight_after])
+
+	# Walk into trot: the horse's legs never jump.
+	traffic.stage([{"id": "milk_wagon", "lane_west": false, "x": -30.0, "speed": 1.4}])
+	v = traffic._live[0]
+	v.cruise = 3.2
+	var last_swing := NAN
+	var swing_jump := 0.0
+	var crossed := false
+	for i in 60 * 6:
+		traffic._advance(DT)
+		traffic._write_instances(DT)
+		var local: Transform3D = (traffic.trace.horse_body[0] as Transform3D).affine_inverse() * (traffic.trace.horse_leg[0] as Transform3D)
+		var swing := atan2(local.basis.x.y, local.basis.x.x)
+		if not is_nan(last_swing):
+			swing_jump = maxf(swing_jump, absf(swing - last_swing))
+		last_swing = swing
+		crossed = crossed or float(traffic._live[0].speed) > OrisonV2StreetTraffic.TROT_BAND.y
+	check(crossed and swing_jump < 0.09, "a milk horse breaks from walk into trot with no jump in its legs (largest step %.3f rad)" % swing_jump)
+
+	# The cross street: a car comes up behind one standing and stops on its class's curve, short of it.
+	var cab_index := -1
+	for i in traffic._kinds.size():
+		if str(traffic._kinds[i].id) == "checker_cab":
+			cab_index = i
+	var taxi: Dictionary = traffic._classes["taxi"]
+	var x := float(data.junctions.east_x) + 20.0
+	traffic.stage([])
+	traffic._cross = [{"kind": cab_index, "x": x, "z": 0.0, "heading": 1.0, "cruise": 0.0, "speed": 0.0, "paint": Color.WHITE, "coat": Color.WHITE, "travel": 0.0},
+			{"kind": cab_index, "x": x, "z": -22.0, "heading": 1.0, "cruise": 9.0, "speed": 9.0, "paint": Color.WHITE, "coat": Color.WHITE, "travel": 0.0}]
+	var follower: Dictionary = traffic._cross[1]
+	var peak := 0.0
+	var last := 9.0
+	for i in 60 * 8:
+		traffic._advance_cross(DT)
+		if last > 0.5:
+			peak = maxf(peak, (last - float(follower.speed)) / DT)
+		last = float(follower.speed)
+	var cab := _kind(traffic, "checker_cab")
+	var gap := (0.0 + float(cab.extent[0])) - (float(follower.z) + float(cab.extent[1]))
+	check(float(follower.speed) < 0.05 and gap >= 1.5 and peak <= float(taxi.panic_brake) + 0.01,
+			"a cross-street cab brakes to a stand behind another (gap %.2f m, peak %.2f m/s2), no instant stop" % [gap, peak])
+	traffic._cross.clear()
+
+	# WE TUNA PIANOS: one at a time, its legend on its body, busiest on New York's Moving Day.
+	var piano := _kind(traffic, "piano_truck")
+	check(not piano.is_empty() and bool(piano.solo) and (piano.signs as Array).size() == 4, "the piano truck is in the stock, solo, with its signwriting")
+	var piano_index := -1
+	for i in traffic._kinds.size():
+		if str(traffic._kinds[i].id) == "piano_truck":
+			piano_index = i
+	traffic.clock_override = {"valid": true, "day": "wed", "month": 5, "day_of_month": 1, "year": 1929, "minute_of_day": 600.0}
+	traffic._read_clock()
+	var moving_day := traffic._kind_rate(piano)
+	traffic.clock_override.day_of_month = 8
+	traffic._read_clock()
+	check(moving_day > traffic._kind_rate(piano) * 4.0, "Moving Day brings the piano truck out")
+	traffic.clock_override.day_of_month = 1
+	traffic._read_clock()
+	traffic.stage([{"id": "piano_truck", "lane_west": true, "x": 6.0, "speed": 0.0}])
+	var again := false
+	for i in 4000:
+		if traffic._pick() == piano_index:
+			again = true
+	check(not again, "while one piano truck is out, the lottery never sends another")
+	var holder: Node3D = traffic._signs.get(piano_index)
+	var body: Transform3D = traffic.trace.piano_truck[0]
+	var legend := holder != null and holder.visible and holder.transform.is_equal_approx(body)
+	var fits := true
+	if holder != null:
+		for i in holder.get_child_count():
+			var label := holder.get_child(i) as Label3D
+			var sign: Dictionary = piano.signs[i]
+			var size := OrisonV2StreetTraffic.SIGN_FONT.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, label.font_size) * label.pixel_size
+			fits = fits and label.text == str(sign.text) and size.x <= float(sign.width) + 0.001 and size.y <= float(sign.height) + 0.001
+	check(legend and fits and holder.get_child_count() == 4, "WE TUNA PIANOS rides on the truck as Label3D within its panels")
+	traffic.stage([])
+	check(holder != null and not holder.visible, "and goes with it")
+	var picked := false
+	for i in 4000:
+		if traffic._pick() == piano_index:
+			picked = true
+	check(picked, "with the street clear, the piano truck can come again")
+	traffic.tracing = false
+	traffic.frozen = true

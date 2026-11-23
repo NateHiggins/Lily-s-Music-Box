@@ -17,8 +17,13 @@ extends Node3D
 ## at one T, drives the block under its class's acceleration and braking,
 ## follows whoever is ahead, stops at the far T, looks for a gap in the cross
 ## traffic, signals by hand and turns off. The cross streets carry a cheaper
-## flow (bodies and horses only, no wheels, riders or sound) both ways, so the
-## block reads as one street in a city rather than a stage.
+## flow (no arms, no voices, no yielding to people) both ways, so the block
+## reads as one street in a city rather than a stage.
+##
+## Animation reads on the road: wheels turn by the distance covered, front
+## axles steer into the turns, motor bodies dip under braking and squat pulling
+## away, horses carry their gait phase from walk into trot, and every vehicle is
+## drawn whole wherever it is. Signwriting is Label3D on its vehicle (RUL-008).
 ##
 ## THE CROSSING STAYS A TEXTURE (design/ORISON_STREET_BRIEF.md §2): no death,
 ## no UI, cross anywhere. A driver who sees a person in the road brakes; one
@@ -42,6 +47,20 @@ const SIGNAL_POSES := {"left": 0.0, "right": 1.05, "stop": -0.8}
 ## Every warning a class may sound, each a cue in game/data/audio_cues.json.
 const WARNING_CUES := ["traffic.klaxon", "traffic.bulb_horn", "traffic.foot_gong",
 		"traffic.whip_crack", "traffic.brake_shriek"]
+## A motor body dips under braking and squats pulling away: radians of pitch per m/s^2 of the smoothed
+## fore-and-aft acceleration, about a degree at service braking, and the most it ever leans. It pivots near the
+## axles, so the wheels stay on the road.
+const PITCH_PER_MS2 := 0.011
+const PITCH_LIMIT := 0.045
+const PITCH_PIVOT := Vector3(0.0, 0.45, 0.0)
+## A front axle steers toward the curvature the vehicle is driving, at this rate (rad/s) up to this lock.
+const STEER_RATE := 1.6
+const STEER_LOCK := 0.6
+## Horses lengthen their stride from walk to trot across this band (m/s); the gait phase is carried, never reset.
+const TROT_BAND := Vector2(1.9, 2.6)
+## Signwriting (RUL-008: lettering is Label3D, never in a texture), legible across the street.
+const SIGN_FONT := preload("res://assets/fonts/abrilfatface/AbrilFatface-Regular.ttf")
+const SIGN_RANGE_M := 45.0
 
 var data: Dictionary = {}
 var startup_failed := false
@@ -70,6 +89,12 @@ var warnings: Array[Dictionary] = []
 ## Rail vehicles (OrisonV2StreetTrams): their stock meshes, and the line that spawns them on its own headway.
 var extra_meshes: Dictionary = {}
 var rail: Object = null
+## Kind index -> the Node3D carrying that kind's Label3D legend. Such a kind is `solo`: one on the street at most.
+var _signs: Dictionary = {}
+## Tests may trace every instance written in the last frame (stock -> transforms): a headless renderer keeps no
+## MultiMesh transforms to read back.
+var tracing := false
+var trace: Dictionary = {}
 
 
 static func mount(world: Node) -> OrisonV2StreetTraffic:
@@ -154,18 +179,28 @@ func _ready() -> void:
 	var vehicles := int(data.timing.max_vehicles)
 	var crowd: int = vehicles + int(data.lod.max_cross_vehicles) + (data.parked as Array).size()
 	var stocks := {}
-	for kind: Dictionary in _kinds:
+	# Every vehicle draws its wheels and its people wherever it is, the cross streets included: a body that loses
+	# its wheels or its driver as it passes a line is the pop the street must never show.
+	var wheel_stocks := {}
+	var most_wheels := 1
+	var most_figures := 1
+	for kind: Dictionary in _kinds + (data.parked as Array):
 		stocks[str(kind.stock)] = true
-	for parked: Dictionary in data.parked:
-		stocks[str(parked.stock)] = true
+		most_wheels = maxi(most_wheels, (kind.wheels as Array).size())
+		most_figures = maxi(most_figures, (kind.get("figures", []) as Array).size())
+		for wheel: Dictionary in kind.wheels:
+			wheel_stocks[str(wheel.stock)] = true
 	for stock: String in stocks:
 		_add_batch(stock, meshes, crowd)
-	for wheel: String in ["wheel_wagon", "wheel_artillery", "wheel_wire", "wheel_disc", "wheel_solid"]:
-		_add_batch(wheel, meshes, (vehicles + data.parked.size()) * 6)
+	for wheel: String in wheel_stocks:
+		_add_batch(wheel, meshes, crowd * most_wheels)
 	_add_batch("horse_body", meshes, crowd)
 	_add_batch("horse_leg", meshes, crowd * 4)
-	_add_batch("figure", meshes, vehicles * 2)
+	_add_batch("figure", meshes, (vehicles + int(data.lod.max_cross_vehicles)) * most_figures)
 	_add_batch("signal_arm", meshes, vehicles)
+	for i in _kinds.size():
+		if not (_kinds[i].get("signs", []) as Array).is_empty():
+			_signs[i] = _build_signs(_kinds[i])
 	if startup_failed:
 		return
 	for parked: Dictionary in data.parked:
@@ -193,7 +228,7 @@ func _process(delta: float) -> void:
 	if startup_failed or frozen:
 		return
 	_step(delta)
-	_write_instances()
+	_write_instances(delta)
 	_voice_nearest()
 	_check_shove()
 
@@ -293,6 +328,34 @@ func _add_batch(stock: String, meshes: Dictionary, count: int) -> void:
 	node.visible = false
 	add_child(node)
 	_batches[stock] = node
+
+
+## A kind's signwritten legend as Label3D, in the vehicle's frame; the holder follows that kind's one vehicle.
+func _build_signs(kind: Dictionary) -> Node3D:
+	var holder := Node3D.new()
+	holder.name = "Signs_" + str(kind.id)
+	holder.visible = false
+	for sign: Dictionary in kind.signs:
+		var label := Label3D.new()
+		label.text = str(sign.text)
+		label.font = SIGN_FONT
+		label.font_size = 64
+		var measured := SIGN_FONT.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, label.font_size)
+		label.pixel_size = minf(float(sign.width) / measured.x, float(sign.height) / measured.y)
+		var colour: Array = sign.colour
+		label.modulate = Color(float(colour[0]), float(colour[1]), float(colour[2]))
+		label.outline_size = 0
+		label.double_sided = false
+		label.shaded = true
+		label.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+		label.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		label.visibility_range_end = SIGN_RANGE_M
+		var at: Array = sign.at
+		label.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(float(sign.yaw_degrees))),
+				Vector3(float(at[0]), float(at[1]), float(at[2])))
+		holder.add_child(label)
+	add_child(holder)
+	return holder
 
 
 func _park(parked: Dictionary) -> void:
@@ -764,9 +827,13 @@ func _journey(index: int, lane_west: bool, at_p := NAN, side := 0.0) -> Dictiona
 func _pick() -> int:
 	var rates: Array[float] = []
 	var total := 0.0
-	for kind: Dictionary in _kinds:
+	for i in _kinds.size():
+		var kind: Dictionary = _kinds[i]
 		if bool(kind.get("rail", false)):
 			rates.append(0.0)  # rail cars run to their line's headway, never by the street's lottery
+			continue
+		if bool(kind.get("solo", false)) and _present_kind(i):
+			rates.append(0.0)  # one of these at a time, here or on the cross streets
 			continue
 		var rate := float(kind.weight) * _kind_rate(kind)
 		rates.append(rate)
@@ -781,6 +848,13 @@ func _pick() -> int:
 	return rates.size() - 1
 
 
+func _present_kind(index: int) -> bool:
+	for v in _live + _cross:
+		if int(v.kind) == index:
+			return true
+	return false
+
+
 ## Palettes are authored in sRGB; instance colour reaches the shader linear.
 static func _palette(colour: Color) -> Color:
 	return colour.srgb_to_linear()
@@ -788,8 +862,9 @@ static func _palette(colour: Color) -> Color:
 
 # ---------------------------------------------------------------- cross streets
 # The middle distance: both cross streets carry their own flow, both ways,
-# drawn cheaply (bodies and horses, no wheels, riders, arms or voices). It
-# yields to anything of ours turning at the T, and our drivers wait for it.
+# drawn like the street's own (bodies, wheels, horses and drivers) but with no
+# arms or voices. It yields to anything of ours turning at the T, and our
+# drivers wait for it. It brakes and pulls away on its class's curves.
 
 func _spawn_cross(delta: float) -> void:
 	_cross_accum -= delta
@@ -815,8 +890,9 @@ func _spawn_cross(delta: float) -> void:
 	var paint: Array = kind.paint[_rng.randi() % (kind.paint as Array).size()]
 	var coat: Array = data.horse_coats[_rng.randi() % (data.horse_coats as Array).size()]
 	var speed: Array = kind.speed
+	var cruise := _rng.randf_range(float(speed[0]), float(speed[1]))
 	_cross.append({"kind": index, "x": x, "z": float(data.junctions.center_z) - heading * reach,
-			"heading": heading, "speed": _rng.randf_range(float(speed[0]), float(speed[1])),
+			"heading": heading, "cruise": cruise, "speed": cruise,
 			"paint": _palette(Color(paint[0], paint[1], paint[2])), "coat": _palette(Color(coat[0], coat[1], coat[2])),
 			"travel": 0.0})
 
@@ -827,23 +903,40 @@ func _advance_cross(delta: float) -> void:
 	var reach := float(data.lod.cross_reach_m)
 	for c in _cross:
 		var kind: Dictionary = _kinds[int(c.kind)]
-		var nose := float(c.z) + float(c.heading) * float(kind.extent[1])
-		var step := float(c.speed) * delta
-		# Hold short of the junction box while one of ours is turning in it.
-		var box_edge := centre - float(c.heading) * (float(data.site.carriageway_z[1]) - centre + 0.5)
-		if float(c.heading) * (box_edge - nose) > 0.0 and float(c.heading) * (box_edge - nose) < 3.0 \
-				and _junction_busy(float(c.x)):
-			step = 0.0
+		var klass: Dictionary = _classes[str(kind["class"])]
+		var heading := float(c.heading)
+		var nose := float(c.z) + heading * float(kind.extent[1])
+		# Room ahead: the junction box while one of ours is turning in it, and whoever is in front.
+		var room := INF
+		var box_edge := centre - heading * (float(data.site.carriageway_z[1]) - centre + 0.5)
+		var to_box := heading * (box_edge - nose)
+		if to_box > -0.05 and to_box < 14.0 and _junction_busy(float(c.x)):
+			room = maxf(to_box, 0.0)
 		for other in _cross:
 			if other == c or not is_equal_approx(float(other.x), float(c.x)):
 				continue
 			var other_kind: Dictionary = _kinds[int(other.kind)]
-			var gap := float(c.heading) * ((float(other.z) + float(c.heading) * float(other_kind.extent[0])) - nose)
-			if gap > -0.5 and gap < step + 2.0:
-				step = maxf(0.0, gap - 2.0)
-		c.z = float(c.z) + float(c.heading) * step
+			var gap := heading * ((float(other.z) + heading * float(other_kind.extent[0])) - nose)
+			if gap > -0.5:
+				room = minf(room, maxf(gap - 2.0, 0.0))
+		var speed := float(c.speed)
+		var target := float(c.cruise)
+		if room < INF:
+			target = minf(target, sqrt(2.0 * float(klass.service_brake) * room))
+		if target < speed:
+			var needed := speed * speed / (2.0 * maxf(room, 0.05)) if room < INF else 0.0
+			var decel := clampf(maxf(float(klass.service_brake), needed), 0.0, float(klass.panic_brake))
+			speed = maxf(target, speed - decel * delta)
+		else:
+			speed = minf(target, speed + float(klass.acceleration) * delta)
+		var step := speed * delta
+		if step > room:
+			step = maxf(room, 0.0)
+			speed = step / delta if delta > 0.0 else 0.0
+		c.speed = speed
+		c.z = float(c.z) + heading * step
 		c.travel = float(c.travel) + step
-		if float(c.heading) * (float(c.z) - centre) < reach:
+		if heading * (float(c.z) - centre) < reach:
 			kept.append(c)
 	_cross = kept
 
@@ -859,25 +952,75 @@ func _junction_busy(x: float) -> bool:
 
 # ---------------------------------------------------------------- drawing
 
-func _write_instances() -> void:
+## `delta` is the time since the last write; zero (warm start, staging) places without smoothing.
+func _write_instances(delta := 0.0) -> void:
 	var counts := {}
 	for stock: String in _batches:
 		counts[stock] = 0
+	trace.clear()
 	var road_y := float(data.site.road_y)
-	var detail := float(data.lod.detail_x)
+	var placed := {}
 	for v in _live:
 		var pose := _world_pose(v)
-		_write_vehicle(_kinds[int(v.kind)], v, counts, road_y, float(pose[0]), float(pose[1]), float(pose[2]),
-				absf(float(pose[0])) <= detail)
+		var kind: Dictionary = _kinds[int(v.kind)]
+		_animate(v, kind, float(pose[2]), delta)
+		placed[int(v.kind)] = _write_vehicle(kind, v, counts, road_y, float(pose[0]), float(pose[1]), float(pose[2]))
 	for p in _parked:
-		_write_vehicle(p, p, counts, road_y, float(p.px), float(p.pz), float(p.yaw), true)
+		_write_vehicle(p, p, counts, road_y, float(p.px), float(p.pz), float(p.yaw))
 	for c in _cross:
 		var yaw := -PI * 0.5 if float(c.heading) > 0.0 else PI * 0.5
-		_write_vehicle(_kinds[int(c.kind)], c, counts, road_y, float(c.x), float(c.z), yaw, false)
+		var kind: Dictionary = _kinds[int(c.kind)]
+		_animate(c, kind, yaw, delta)
+		placed[int(c.kind)] = _write_vehicle(kind, c, counts, road_y, float(c.x), float(c.z), yaw)
 	for stock: String in _batches:
 		var node: MultiMeshInstance3D = _batches[stock]
 		node.multimesh.visible_instance_count = int(counts[stock])
 		node.visible = int(counts[stock]) > 0
+	# The legend rides on its vehicle's body.
+	for index: int in _signs:
+		var holder: Node3D = _signs[index]
+		holder.visible = placed.has(index)
+		if holder.visible:
+			holder.transform = placed[index]
+
+
+## Per-vehicle motion state carried between frames: the horse's gait phase, the body's pitch from its
+## smoothed acceleration, and the front axle's steer toward the curve it is driving.
+func _animate(v: Dictionary, kind: Dictionary, yaw: float, delta: float) -> void:
+	var speed := float(v.get("speed", 0.0))
+	var travel := float(v.travel)
+	var moved := maxf(travel - float(v.get("last_travel", travel)), 0.0)
+	v.last_travel = travel
+	v.trot = smoothstep(TROT_BAND.x, TROT_BAND.y, speed)
+	var stride := float(data.timing.stride_m) * (1.0 + 0.5 * float(v.trot))
+	v.gait = float(v.get("gait", travel / stride)) + moved / stride
+	if delta <= 0.0 or not v.has("yaw"):
+		v.yaw = yaw
+		v.last_speed = speed
+		v.surge = float(v.get("surge", 0.0))
+		v.steer = float(v.get("steer", 0.0))
+		return
+	v.surge = lerpf(float(v.surge), (speed - float(v.last_speed)) / delta, 1.0 - exp(-6.0 * delta))
+	v.last_speed = speed
+	var turned := wrapf(yaw - float(v.yaw), -PI, PI)
+	v.yaw = yaw
+	var target := float(v.steer)  # standing still, the wheels stay as they were left
+	if moved > 0.0005:
+		target = clampf(atan(turned / moved * _wheelbase(kind)), -STEER_LOCK, STEER_LOCK)
+	v.steer = move_toward(float(v.steer), target, STEER_RATE * delta)
+
+
+## Front axle to rear axle, measured once from the kind's wheels; the front axle is the one that steers.
+func _wheelbase(kind: Dictionary) -> float:
+	if not kind.has("_wheelbase"):
+		var front := -INF
+		var rear := INF
+		for wheel: Dictionary in kind.wheels:
+			front = maxf(front, float(wheel.at[0]))
+			rear = minf(rear, float(wheel.at[0]))
+		kind._wheelbase = maxf(front - rear, 0.0) if front > rear else 0.0
+		kind._front_axle = (front + rear) * 0.5 if front > rear else INF
+	return float(kind._wheelbase)
 
 
 func _put(stock: String, counts: Dictionary, transform_: Transform3D, colour: Color) -> void:
@@ -888,48 +1031,58 @@ func _put(stock: String, counts: Dictionary, transform_: Transform3D, colour: Co
 	node.multimesh.set_instance_transform(i, transform_)
 	node.multimesh.set_instance_color(i, colour)
 	counts[stock] = i + 1
+	if tracing:
+		(trace.get_or_add(stock, []) as Array).append(transform_)
 
 
+## Draws one vehicle and returns its body's transform (pitched, for whatever rides on the body).
 func _write_vehicle(kind: Dictionary, v: Dictionary, counts: Dictionary, road_y: float,
-		x: float, z: float, yaw: float, detailed: bool) -> void:
+		x: float, z: float, yaw: float) -> Transform3D:
 	var frame := Transform3D(StreetSurface.road_basis(x, yaw), Vector3(x, road_y + StreetSurface.surface_height(x), z))
 	var travel := float(v.travel)
 	var speed := float(v.get("speed", 0.0))
-	_put(str(kind.stock), counts, frame, v.paint)
-	if detailed:
-		for wheel: Dictionary in kind.wheels:
-			var radius := float(wheel.radius)
-			var s := radius / 0.5
-			var at: Array = wheel.at
-			var basis := Basis(Vector3.BACK, -travel / radius).scaled(Vector3(s, s, s * float(wheel.width)))
-			_put(str(wheel.stock), counts, frame * Transform3D(basis, Vector3(at[0], at[1], at[2])), Color.WHITE)
+	var rail := bool(kind.get("rail", false))
+	var body := frame
+	if kind.get("horse") == null and not rail:
+		var pitch := clampf(float(v.get("surge", 0.0)) * PITCH_PER_MS2, -PITCH_LIMIT, PITCH_LIMIT)
+		body = frame * Transform3D(Basis(Vector3.BACK, pitch), PITCH_PIVOT) * Transform3D(Basis.IDENTITY, -PITCH_PIVOT)
+	_put(str(kind.stock), counts, body, v.paint)
+	# Wheels roll by the distance covered (never slide) and the front axle steers; rail trucks do not.
+	_wheelbase(kind)
+	var steer := 0.0 if rail else float(v.get("steer", 0.0))
+	for wheel: Dictionary in kind.wheels:
+		var radius := float(wheel.radius)
+		var s := radius / 0.5
+		var at: Array = wheel.at
+		var basis := Basis(Vector3.BACK, -travel / radius).scaled(Vector3(s, s, s * float(wheel.width)))
+		if steer != 0.0 and float(at[0]) > float(kind._front_axle):
+			basis = Basis(Vector3.UP, steer) * basis
+		_put(str(wheel.stock), counts, frame * Transform3D(basis, Vector3(at[0], at[1], at[2])), Color.WHITE)
 	var horse: Variant = kind.get("horse")
 	if horse is Dictionary:
-		# Walk below 2.2 m/s, trot above: longer stride, more swing.
-		var trot := speed > 2.2
-		var stride := float(data.timing.stride_m) * (1.5 if trot else 1.0)
-		var swing_amp := deg_to_rad(float(data.timing.leg_swing_degrees)) * (1.3 if trot else 1.0)
-		var phase := travel / stride
+		# Walk into trot: the stride lengthens and the swing grows across the band, the phase carried through.
+		var trot := float(v.get("trot", 0.0))
+		var swing_amp := deg_to_rad(float(data.timing.leg_swing_degrees)) * (1.0 + 0.3 * trot)
+		var phase := float(v.get("gait", 0.0))
 		var at: Array = horse.at
 		var scale := float(horse.scale)
 		var bob := 0.022 * sin(TAU * phase * 2.0) * minf(speed / 2.0, 1.0)
-		var body := frame * Transform3D(Basis().scaled(Vector3.ONE * scale), Vector3(at[0], at[1] + bob, at[2]))
-		_put("horse_body", counts, body, v.coat)
+		var horse_body := frame * Transform3D(Basis().scaled(Vector3.ONE * scale), Vector3(at[0], at[1] + bob, at[2]))
+		_put("horse_body", counts, horse_body, v.coat)
 		var legs: Array = horse.legs
 		for i in legs.size():
 			var pivot: Array = legs[i]
 			var swing := swing_amp * sin(TAU * (phase + float(GAIT_OFFSETS[i]))) * minf(speed / 0.6, 1.0)
-			_put("horse_leg", counts, body * Transform3D(Basis(Vector3.BACK, swing),
+			_put("horse_leg", counts, horse_body * Transform3D(Basis(Vector3.BACK, swing),
 					Vector3(pivot[0], pivot[1], pivot[2])), v.coat)
-	if not detailed:
-		return
 	for seat: Array in kind.get("figures", []):
-		_put("figure", counts, frame * Transform3D(Basis(), Vector3(seat[0], seat[1], seat[2])), Color.WHITE)
+		_put("figure", counts, body * Transform3D(Basis(), Vector3(seat[0], seat[1], seat[2])), Color.WHITE)
 	var shoulder: Array = kind.get("signal_arm", [])
 	var gesture := str(v.get("hand", ""))
 	if not shoulder.is_empty() and SIGNAL_POSES.has(gesture):
-		_put("signal_arm", counts, frame * Transform3D(Basis(Vector3.RIGHT, float(SIGNAL_POSES[gesture])),
+		_put("signal_arm", counts, body * Transform3D(Basis(Vector3.RIGHT, float(SIGNAL_POSES[gesture])),
 				Vector3(shoulder[0], shoulder[1], shoulder[2])), Color.WHITE)
+	return body
 
 
 # ---------------------------------------------------------------- contact
@@ -1028,6 +1181,7 @@ func stage(entries: Array) -> void:
 		v.cruise = maxf(float(v.cruise), float(v.speed))
 		v.travel = float(entry.get("travel", 0.0))
 		v.hand = str(entry.get("hand", ""))
+		v.steer = float(entry.get("steer", 0.0))
 		_live.append(v)
 	frozen = true
 	_write_instances()

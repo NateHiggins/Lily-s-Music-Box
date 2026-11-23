@@ -4,8 +4,8 @@
  "design": "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
  "runtime_table": "game/data/orison_v2/exterior/street_traffic.json",
  "export_proof": {
-  "primitives": 169,
-  "triangles": 25216,
+  "primitives": 184,
+  "triangles": 27572,
   "minimum_tangent_agreement": 0.9999999603127512,
   "status": "PASS"
  },
@@ -101,6 +101,12 @@
    "period": "The Record's remote car: cage aerial, pickup horn and its own wet cells."
   },
   {
+   "id": "piano_truck",
+   "stock": "piano_truck",
+   "signal": false,
+   "period": "WE TUNA PIANOS, a 1928 one-ton piano truck out of Astoria, where Steinway builds. Rare, never remarked on."
+  },
+  {
    "id": "pushcart",
    "stock": "pushcart",
    "signal": false,
@@ -131,6 +137,7 @@
   "sound_wagon": 2388,
   "mack_ac": 1156,
   "saloon_bus": 1120,
-  "motorcycle": 942
+  "motorcycle": 942,
+  "piano_truck": 2356
  }
 }

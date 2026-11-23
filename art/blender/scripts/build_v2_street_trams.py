@@ -9,6 +9,10 @@ Exports game/assets/props/v2_street_trams.glb, one object per (stock, finish):
   convention), the ground is Z 0, and the trailing trolley pole is raised to the wire with its wheel at POLE_TIP.
 - tram_span_pole: the tubular steel pole that carries a span wire, base at the origin.
 - tram_rosette: the wall plate a span wire is anchored to on a facade, face toward Blender -Y.
+- tram_wheel: a flanged steel car wheel at the traffic's reference size (radius 0.5, axle on Y, centred), so the
+  traffic turns it at the car's ground speed like every other wheel. The trucks carry no wheels of their own.
+- el_car: a steel elevated car for the distant Queensboro Bridge el (orison_v2_city_far_motion.gd), +X forward,
+  rail top at Z 0. Its window band uses the lit `window` finish; the far motion dims it by daylight.
 
 Writes game/data/orison_v2/exterior/street_trams.json from the same numbers. The runtime
 (orison_v2_street_trams.gd) registers the car as a rail vehicle with the period traffic and lays the rails and
@@ -25,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(Path(__file__).parent))
 from fabrication_native_batch import material, partition, export
 import build_v2_period_traffic as kit
-from build_v2_period_traffic import add, box, cyl, lathe, tube, prism, W
+from build_v2_period_traffic import add, box, cyl, lathe, tube, prism, ring, W
 
 FAMILY = "v2_street_trams"
 FINISHES = {
@@ -67,13 +71,59 @@ POLE_TIP = (round(POLE_BASE[0] - math.sqrt(POLE_LENGTH ** 2 - _rise ** 2), 3), 0
 
 
 def truck(p, x):
-    """A Brill-pattern truck: side frames, bolster, four wheels on two axles."""
+    """A Brill-pattern truck: side frames, bolster and two axles. Its four wheels are the shared tram_wheel stock."""
     for s in (1, -1):
         add(p, "japan_black", box((x, s * 0.86, 0.52), (2.3, 0.08, 0.28), 0.01), box((x, s * 0.86, 0.78), (1.1, 0.1, 0.14), 0.01))
-        add(p, "running_iron", *[cyl((x + dx, s * 0.72, WHEEL_R), WHEEL_R, 0.09, "Y", 16) for dx in (-0.75, 0.75)])
         add(p, "running_iron", box((x, s * 0.86, 0.36), (0.5, 0.14, 0.16), 0.02))
     add(p, "running_iron", *[cyl((x + dx, 0, WHEEL_R), 0.06, 1.52, "Y", 8) for dx in (-0.75, 0.75)])
     add(p, "japan_black", box((x, 0, 0.86), (0.36, 1.7, 0.14), 0.01))
+
+
+WHEEL_AXLES = [x + dx for x in (TRUCK_X, -TRUCK_X) for dx in (0.75, -0.75)]
+WHEEL_TRACK = 0.72      # wheel centre off the car's centre line
+
+
+def tram_wheel():
+    """Flanged steel wheel at the reference radius 0.5 (the runtime scales it to WHEEL_R): rolled tread, a flange
+    at the mid-plane that reads past the truck frame, a cast spoked centre and the axle boss."""
+    r = 0.5
+    k = r / WHEEL_R          # reference units per metre of the real wheel
+    p = {}
+    add(p, "running_iron", ring((0, 0, 0), r, r - 0.05 * k, 0.09 * k, n=28), ring((0, 0, 0), r + 0.022 * k, r - 0.02 * k, 0.025 * k, n=28))
+    add(p, "cast_iron", ring((0, 0, 0), r - 0.05 * k, r - 0.075 * k, 0.07 * k, n=28), cyl((0, 0, 0), 0.07 * k, 0.11 * k, "Y", 12))
+    add(p, "cast_iron", *[tube([(math.cos(a) * 0.06 * k, 0, math.sin(a) * 0.06 * k), (math.cos(a) * (r - 0.06 * k), 0, math.sin(a) * (r - 0.06 * k))], 0.018 * k, 5)
+                          for a in [2 * math.pi * i / 6 for i in range(6)]])
+    return p
+
+
+# ---------------------------------------------------------------- the el car, for the distant bridge
+EL_LENGTH = 14.6        # body; cars run at a 15.2 m pitch
+EL_WIDTH = 2.7
+
+
+def el_car():
+    """A steel elevated car of the 1920s, seen from a kilometre: trucks, body, window band, monitor roof, end doors."""
+    p = {}
+    half = EL_LENGTH / 2
+    for x in (half - 2.3, -half + 2.3):
+        add(p, "japan_black", box((x, 0, 0.5), (2.4, EL_WIDTH - 0.5, 0.7), 0.02))
+    add(p, "running_iron", box((0, 0, 1.0), (EL_LENGTH - 0.4, EL_WIDTH - 0.3, 0.2)))
+    add(p, "coachwork", box((0, 0, 2.2), (EL_LENGTH, EL_WIDTH, 2.2), 0.03))
+    bays = 9
+    pitch = (EL_LENGTH - 1.6) / bays
+    for s in (1, -1):
+        for i in range(bays):
+            add(p, "window", box((-half + 0.8 + pitch * (i + 0.5), s * (EL_WIDTH / 2 + 0.01), 2.55), (pitch - 0.3, 0.02, 0.7)))
+        for x in (-half / 2, half / 2):
+            add(p, "japan_black", box((x, s * (EL_WIDTH / 2 + 0.012), 2.05), (1.2, 0.02, 1.85)))
+    for e in (1, -1):
+        add(p, "window", box((e * (half + 0.01), 0, 2.55), (0.02, 0.6, 0.7)))
+        add(p, "japan_black", box((e * (half + 0.03), 0, 1.25), (0.06, EL_WIDTH - 0.6, 0.18)))
+    add(p, "roof_canvas", box((0, 0, 3.36), (EL_LENGTH + 0.1, EL_WIDTH + 0.06, 0.12), 0.04))
+    add(p, "roof_canvas", box((0, 0, 3.62), (EL_LENGTH - 1.4, 1.5, 0.3), 0.05))
+    for s in (1, -1):
+        add(p, "window", box((0, s * 0.76, 3.58), (EL_LENGTH - 2.0, 0.02, 0.12)))
+    return p
 
 
 def tram_car():
@@ -174,13 +224,16 @@ def tram_rosette():
     return p
 
 
-STOCKS = {"tram_car": tram_car, "tram_span_pole": tram_span_pole, "tram_rosette": tram_rosette}
+STOCKS = {"tram_car": tram_car, "tram_span_pole": tram_span_pole, "tram_rosette": tram_rosette,
+          "tram_wheel": tram_wheel, "el_car": el_car}
 
 # ---------------------------------------------------------------- the line, for the runtime
 # The car as a period-traffic rail kind (the traffic's kind record, read by OrisonV2StreetTraffic).
 KIND = {"id": "tram", "stock": "tram_car", "speed": [4.5, 6.0],
         "paint": [[0.16, 0.25, 0.19], [0.17, 0.27, 0.20], [0.15, 0.24, 0.18]],
-        "extent": [-HALF, HALF], "width": WIDTH, "wheels": [], "horse": None,
+        "extent": [-HALF, HALF], "width": WIDTH, "horse": None,
+        "wheels": [{"stock": "tram_wheel", "at": W(x, s * WHEEL_TRACK, WHEEL_R), "radius": WHEEL_R, "width": 1.0}
+                   for x in WHEEL_AXLES for s in (1, -1)],
         # Motorman at the front platform; passengers at the windows.
         "figures": [W(HALF - 0.75, 0.45, 1.6)] + [W(-4.2 + 1.55 * i, (-1) ** i * 0.72, 1.55) for i in range(6)],
         "voice": "heavy", "class": "tram", "signal_arm": []}

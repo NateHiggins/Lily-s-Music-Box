@@ -235361,11 +235361,41 @@
     "_add_batch"
    ],
    "lines": [
-    289
+    324
    ],
    "count": 1,
    "context": [
     "\"Traffic_\" + stock"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "69614c2af399db74",
+   "kind": "generated_name",
+   "token": "_build_signs",
+   "file": "game/scripts/building/orison_v2_street_traffic.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_signs"
+   ],
+   "lines": [
+    336
+   ],
+   "count": 1,
+   "context": [
+    "\"Signs_\" + str(kind.id)"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -235391,7 +235421,7 @@
     "_park"
    ],
    "lines": [
-    309
+    372
    ],
    "count": 1,
    "context": [
@@ -235421,7 +235451,7 @@
     "_place"
    ],
    "lines": [
-    402
+    411
    ],
    "count": 1,
    "context": [
@@ -283601,7 +283631,7 @@
     "_height_contacts"
    ],
    "lines": [
-    287
+    288
    ],
    "count": 1,
    "context": [
