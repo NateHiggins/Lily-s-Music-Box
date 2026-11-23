@@ -299,6 +299,14 @@ static func stock_material(finish: Dictionary) -> StandardMaterial3D:
 		mat.vertex_color_use_as_albedo = true
 	else:
 		mat.albedo_color = Color(tint[0], tint[1], tint[2], tint[3])
+	if finish.has("picture"):
+		# A painted picture: its own image is the albedo, mapped once across the panel by the stock's picture UVs,
+		# over the substrate's catalogue roughness and normal maps (as the shop's portraits lie over paper).
+		var picture := load(str(finish.picture)) as Texture2D
+		assert(picture != null, "Missing street stock picture: " + str(finish.picture))
+		mat.albedo_texture = picture
+		mat.uv1_scale = Vector3.ONE
+		mat.uv1_offset = Vector3.ZERO
 	if finish.has("emission"):
 		var glow: Array = finish.emission
 		mat.emission_enabled = true

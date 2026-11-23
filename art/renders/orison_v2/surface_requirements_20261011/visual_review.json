@@ -2,126 +2,126 @@
   "evidence_class": "Technical rendered surface review",
   "status": "PASS",
   "reviewer": "Codex",
-  "reviewed_at_utc": "2026-11-23T20:02:00Z",
+  "reviewed_at_utc": "2026-11-23T21:39:29.947528+00:00",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "4b194e117cc2575706b576f40b21b79df0249ceac03ee66344866b36c9aa5c6b",
-  "review_scope": "Compared all 23 current default-on Vulkan captures side by side with the prior main packet. Cel bands are visible in lamp pools, sky, and furnishings. The dark watch-station shot has lower wall contrast and the unit remains identifiable by its outline and dial. Vantry and the visible dream surfaces retain their fine detail. This is technical review of posed surfaces, without player handling, save reconstruction, or Lily's artistic acceptance.",
+  "surface_inputs_sha256": "cbe31276ce9073332e684519c79ba7cecfc2bcadce0788141ec972760751da61",
+  "review_scope": "WE TUNA PIANOS side-panel picture (Lily pick A). All 23 captures compared beside the previous packet by mean pixel difference (largest 5.38 of 255 on staff_closet_deep_services.png) and looked at; no new layout or finish defect seen. Physical-only: does not qualify interaction or save programmes, held animation, human play or artistic acceptance.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "2f93fc56cb8fe6e55f106015fe0ed28588b52e887b6f770fd69eee1eeb20fa83",
+      "sha256": "14aaa0e96492b99923b016efd77fcdba7e4f60f69311fdcd910679ba321f1ffb",
       "observation": "Pendant light forms distinct bands across the ceiling and rear wall. The planks and desk remain legible, and Vantry and the floor organism retain their detail."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "0431fb24fad9c00511dac5e49ed7d478c35bea776bdb4568a6e1421635159026",
+      "sha256": "fd7d8ec0e7cb986ebe797dcf48d805dc28fe45fcd5802032378397578aaad633",
       "observation": "The lamp bands span the plaster and tiles. Grout and curtain edge remain visible, beside the unchanged-looking companion screen."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "36e1c08505ad9f9e8e785e3074ae337c1d62650dc5686d25d93b95bbaaca5f54",
+      "sha256": "edb03f25d3c9b40012e10ecf00d9fb1376e29fe92a5c47dae006d8fbf84e6c0f",
       "observation": "Floorboards, shelves, and the cabinet retain their edges around the resident. The companion stays visually separate from the wall."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "5dd732104598e19c5d529cf62a95a730636258f9e247b2eb8d8c7c2e7b231af8",
+      "sha256": "d0488af1290e2de6f85630e94f245de5aa5758978949b0e2469f8367271ec135",
       "observation": "The back wall has a readable light pool. Table, chair legs, and window remain distinct."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "e438466b58d481e9b86c93e1a938f6db827f070979d19f2ceed6539061167b0b",
+      "sha256": "944454f241a2de03b1b066e5b9856547be3364816d923061918135cbb6bad48b",
       "observation": "The pool of light has a distinct edge. Upper cupboard, sink rim, and range still separate from the wall."
     },
     {
       "file": "boiler.png",
-      "sha256": "30dc270831b087085f1ae8d60508276d76d473c18be94af8de499346b8926ced",
+      "sha256": "20306f4625f8032408bd7429ecfba4ca75c4779f79197d2a004a74d2afa10600",
       "observation": "The boiler casing and vertical pipe read clearly. The cel palette deepens the corners and floor shadow."
     },
     {
       "file": "bookcase.png",
-      "sha256": "37ba48cb13c16493bd6245d6a6629828aae22e61a3cc62d35d183deb7a274937",
+      "sha256": "9b67b7a9fb41be31796e85172f029dbc5ef0771c3720de9a5b0d051f153f7cb8",
       "observation": "The shelf frame and the books remain visible in the darker corner. The chair keeps a readable silhouette against the bookcase."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "ee8daf0d07081f65bffd049836f0e698b4132e273cb37dada2e8be554bf85bc8",
+      "sha256": "6c3f19858d91a282e6bd3bd4b55383e7e8c0f7cf35a3017e192ae6263577f4e6",
       "observation": "The cistern, channel and tiled joints are distinct. Grout runs visibly into the wall corner."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "ea63fd385853eef9d70199725d3d031554fd8d548e11c25ed6aa040f57b9c801",
+      "sha256": "0f87eb6696dad52cedb3ade7d017bceca5679b019d69361183dc12ff10fde8a1",
       "observation": "The close brickwork remains dark in both versions. Courses and mortar edges are still visible."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "772949d887b1f91d6a0af4b3909008f472cdc55822ab4c4b35a405b10ddab0a8",
+      "sha256": "d9840be253f869b3562c7c85654066c80aca6ca7c597bacf991b952080fc39fc",
       "observation": "The open door, internal hardware and conduit remain visible. The wall grain and brightness differ across the view."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "eb1260602d0a8b26940b863a9a5b12e2e0ae22c97a736adf87ca2090297dbb05",
+      "sha256": "5a649d30d18bdc5f78d5433da026525f4d5cf4947a0e189a1c6e52a35c6992a3",
       "observation": "The Judge silhouette remains visible under the shelf in a dark recess. Brass rail and floor joints still separate."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "0eafc3c4875dfc8aa52bb404c9c0f2c132a958858ce4e8a7730b6f74169cb829",
+      "sha256": "4c63c52320a0e7ecadaa6068e00a6b091c488a0240f80aa17391c88cb1258435",
       "observation": "The shelf edge, framed portrait and curled Lafitte remain distinguishable in the low light."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "3b4bc7ffe134f8b66f4e9b536aba57aad32d7c434d105b2801f4ffe80c3b3fc9",
+      "sha256": "7430facfdeacf005ae0bc54df8c563d9e5f9dd4c690ed1476ce0a854f8d4b4d2",
       "observation": "Under-counter framing and brackets remain visible against the wall, with the light cut held on the right."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "dc4aaeb489e96f00bad21f0496c42f15958a45ca9d23d4f043e0860be465de85",
+      "sha256": "4b260b7651158298619b049c248e927062139a2f53065e5ad88ce8a9409ea717",
       "observation": "Mailbox divisions and door positions remain visible. Small labels are dimmer and are not treated as lettering acceptance here."
     },
     {
       "file": "radiator.png",
-      "sha256": "f321630e3cb7dbedf85b3e4c89ddb31075bad6d1783dc0696f86644ead779384",
-      "observation": "Radiator ribs and valve separate from the wall and floor. The curtain and blind remain distinct against the dark window."
+      "sha256": "464d6e6fa3a6aa0efedf5dbdb57601fd16b08adc7baa31eec42983a90a1d099c",
+      "observation": "Radiator sections, valve, blinds, curtains and the sewing table remain distinct; lamp light falls differently this run."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "41f423e50ef291db256efcd80dfe38fbf263fb55506706670cfd69f92f77458f",
+      "sha256": "74bdc82b56009de1608893d596e1fe3e9645c33d70c93f1ddbc7b99b9979e2dd",
       "observation": "Railing bars, conduit, machinery and their floor shadows remain distinct under the banded overhead light."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "d8053e163dd7e6f2370e49f9ab3650a6ee404d57f73b99d20d9446e8bcac5c34",
+      "sha256": "ec3b6ec4399d8072e94d304224c3fb505d2743d070fd1062441a17a95156cb5f",
       "observation": "The tank and its supports retain their silhouette against the stylized sky, with the city edge still visible behind them."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "5c1014105e617c2dca7b4ea70cd6310a383342b875eb12facf64ef4d9c7fa1e7",
+      "sha256": "9266882ef1c591ee2f0aa0daf342e9dc09bc78cb39b41a4009624dffd7db16d2",
       "observation": "The green glow holds at the terminal. Screen casing, wall board and floorboards remain distinct."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "adb5c56581d2fb59f31012b3f3310f995b0e76ac5a775b627d61b503a8d9037a",
-      "observation": "The higher-exposure view retains distinct tile courses, the vent edge, and the cistern lid."
+      "sha256": "6365a1879ab08eb5ff0d4afec024c1d6fd00c29c33b6bcf3049dd169304ed39a",
+      "observation": "Tiled walls, the cistern, its brackets and the seat stay clean and distinct; the light differs this run, not the surface."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "7a845874658941180b6337db3e54f98f3171f6da5490a117f854f90ce3ce0462",
+      "sha256": "59a19b8a0594abfda266cf5fc14d25f064f812e4e84fb466e69686abe72a6e51",
       "observation": "The iridescent residue retains its color variation inside the banded lamp pool, alongside the detailed Vantry screen."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "a48ed1d5e9ecfb3672d6c44d0d62e4dda0b23e3d3b7e091a01ce182dd9c62f4e",
+      "sha256": "e34a348faed7508df15044ffe58ff9145e52a8958f04de2d9c9b7e2ad2d20a62",
       "observation": "Tentacle ridges and silhouette stay distinct against the cel-shaded floor, radiator and tilted cover."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "1b81a04b4c279cac200106acceb126236c14ba4283b8a3353e6ed2576504ef71",
+      "sha256": "e1cc09fad62751bbdfd89dfc29328b872f0b6ed25641df41418ede7a76871efb",
       "observation": "The toaster slots, counter lip, and individual crumbs remain distinguishable under the changed tonal bands."
     },
     {
       "file": "watch_station.png",
-      "sha256": "e3433795516c74d8c6fc1ac1a70d537355cb97fe0e957afd0b1cdadeb3e40c00",
+      "sha256": "d3abdd93f9081f83573f34aba85f17b2af0acf879a0b1296c21ce6efde2f43fd",
       "observation": "The neighboring beam is absent in this frame and the wall reads darker. The mount silhouette and amber dial remain visible."
     }
   ]
