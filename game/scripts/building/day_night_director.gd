@@ -151,6 +151,14 @@ var _last_minute := 180.0
 var _ambient_gain := 1.0
 var _fog_gain := 1.0
 var _sky_key_gain := 1.0
+## The key's cascaded shadow re-renders the whole near scene four times. At
+## moonlight, dusk and overcast energies (0.05 or less against a clear noon's
+## 0.21) paired captures show nothing it adds, so below KEY_SHADOW_OFF_E it is
+## off and above KEY_SHADOW_ON_E it is back; the gap keeps a passing cloud
+## from flickering it. key_shadow_gate false keeps the shadow always on.
+const KEY_SHADOW_OFF_E := 0.11
+const KEY_SHADOW_ON_E := 0.13
+var key_shadow_gate := true
 var _pair_key := ""
 var _texture_a: Texture2D
 var _texture_b: Texture2D
@@ -161,6 +169,17 @@ var _last_profile: Dictionary = {}
 var _live_conditions: Dictionary = {}
 var _campaign_clock: CampaignClock
 var extreme_weather: RefCounted
+
+
+func _gate_key_shadow() -> void:
+	if not _sky_key:
+		return
+	if not key_shadow_gate:
+		_sky_key.shadow_enabled = true
+	elif _sky_key.shadow_enabled and _sky_key.light_energy < KEY_SHADOW_OFF_E:
+		_sky_key.shadow_enabled = false
+	elif not _sky_key.shadow_enabled and _sky_key.light_energy > KEY_SHADOW_ON_E:
+		_sky_key.shadow_enabled = true
 
 
 func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
@@ -383,6 +402,7 @@ func _apply(minute: float) -> void:
 		_sky_key.light_color = profile.key
 		_sky_key.light_energy = profile.key_e * _sky_key_gain
 		_sky_key.look_at(_sky_key.global_position - source_dir, Vector3.UP)
+		_gate_key_shadow()
 		if profile.has("sun_optics"):
 			# The Sun is half a degree wide; haze and smoke widen the source and
 			# soften shadows. Night keeps hard moonlight shadows.
