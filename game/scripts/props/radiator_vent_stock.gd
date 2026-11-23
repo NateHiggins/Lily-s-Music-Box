@@ -98,7 +98,7 @@ func _add_part(identity: String,grade: int,slot: String,rack: int) -> void:
 	stamp.rotation.x=-PI/2
 	stamp.position=Vector3(0,.0042,0)
 	body.add_child(stamp)
-	rows[identity]={"body":body,"draw":draw,"head":head,"stamp":stamp,"grade":grade,"slot":slot,"rack":rack,"turn":0.0,"sleeping":true}
+	rows[identity]={"body":body,"draw":draw,"head":head,"stamp":stamp,"grade":grade,"slot":slot,"rack":rack,"turn":0.0,"sleeping":true,"packed":false}
 
 func active(radiator: Node3D) -> Dictionary:
 	for row: Dictionary in rows.values():
@@ -224,6 +224,7 @@ func inspection_ended() -> void:borrow_inspection_end(self)
 
 func grip(identity: String) -> Dictionary:
 	var row: Dictionary=rows[identity]
+	if row.packed: return {}
 	var observed_slot: String=row.slot
 	var mounted: bool=not row.slot.is_empty()
 	var radiator: Node3D=radiators.get(row.slot)
@@ -353,6 +354,7 @@ func restore_mechanism(value: Dictionary) -> void:
 	_restoring=true
 	if _held_radiator!=null and _held_radiator._native_held=="vent_orifice": _held_radiator._native_held=""
 	held="";_held_radiator=null
+	var places: Dictionary = RealityState.data.get(CarriedCase.KEY, {}).get("places", {})
 	for part: Dictionary in value.parts:
 		var row: Dictionary=rows[part.id]
 		row.grade=int(part.grade)
@@ -364,6 +366,9 @@ func restore_mechanism(value: Dictionary) -> void:
 			replacement.free()
 			row.draw.set_meta("native_stock","VentOrificeInsert_%d"%row.grade)
 		row.slot=part.get("slot","");row.rack=int(part.get("rack",-1));row.turn=float(part.get("turn",0))
+		row.packed = row.rack >= 0 and places.has(CarriedCase.VENT_INSERT_PREFIX + part.id)
+		row.body.visible = not row.packed
+		row.draw.get_node("ManipulationTarget").collision_layer = 0 if row.packed else 1
 		row.body.freeze=true
 		row.body.linear_velocity=Vector3.ZERO;row.body.angular_velocity=Vector3.ZERO
 		if row.slot.is_empty() and row.rack<0:
@@ -372,6 +377,39 @@ func restore_mechanism(value: Dictionary) -> void:
 			_drop(row)
 	_changed()
 	_restoring=false
+
+
+func held_workshop_spare(holder: PlayerController) -> String:
+	if not stock_grades.has(held):
+		return ""
+	var row: Dictionary = rows[held]
+	if row.before_rack < 0 or row.packed or holder.held_stock_body() != row.body:
+		return ""
+	# Packing begins at the rack, with a short stationary acquisition in reach.
+	if holder.camera.global_position.distance_to(row.before.origin) > 1.5:
+		return ""
+	return held
+
+
+func case_destination(holder: PlayerController, identity: String) -> Node3D:
+	var row: Dictionary = rows.get(identity, {})
+	if row.is_empty() or not row.packed or row.rack < 0 or not held.is_empty() \
+			or holder.inspecting() or holder._grab.active():
+		return null
+	var aimed: Dictionary = holder._grab.find_target()
+	var radiator := aimed.get("owner") as RadiatorProp
+	if is_instance_valid(radiator) and radiator.native_orifices == self and aimed.get("part") == radiator.native_vent_cap \
+			and radiator.supply_position <= .02 and not radiator._supply_held and radiator._native_held.is_empty() \
+			and active(radiator).is_empty():
+		return radiator
+	var pocket := to_global(rack_pose(row.rack).origin + Vector3.UP * .01)
+	var eye := holder.camera.global_position
+	var direction := pocket - eye
+	if direction.length() > 1.5 or direction.normalized().dot(-holder.camera.global_basis.z) < .85:
+		return null
+	var query := PhysicsRayQueryParameters3D.create(eye, pocket, 1, [holder.get_rid()])
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	return self if hit.is_empty() or is_ancestor_of(hit.collider) else null
 
 func migrate_legacy_snapshot(value: Dictionary,records: Dictionary) -> Dictionary:
 	var result := value.duplicate(true)

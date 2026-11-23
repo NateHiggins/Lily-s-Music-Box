@@ -9,6 +9,9 @@ const KEY := "carried_case"
 const DATA_PATH := "res://data/carried_case.json"
 const MAINTENANCE_WASHER := "fire_hose_spare_gasket"
 const WASHER_FORM := "maintenance_washer"
+const VENT_INSERT_PREFIX := "radiator_insert:"
+const VENT_INSERT_FORM := "radiator_vent_insert"
+const VENT_INSERT_SOURCE := "res://data/orison_v2/heating_service_stock.json"
 const BOOK_PREFIX := "library_book:"
 const LIBRARY_PATH := "res://data/orison_v2/readable_library.json"
 const LIBRARY_COPIES_PATH := "res://data/orison_v2/nook_readable_books.json"
@@ -17,6 +20,7 @@ const BOOK_FOOTPRINT_ALLOWANCE := 0.004
 
 static var _data: Dictionary = {}
 static var _book_sizes: Dictionary = {}
+static var _vent_stock_id := ""
 
 
 static func data() -> Dictionary:
@@ -119,7 +123,8 @@ static func valid(value: Variant) -> bool:
 					or float(place.x) != floorf(float(place.x)) or float(place.y) != floorf(float(place.y)) \
 					or _book_size(copy) == Vector2i.ZERO:
 				return false
-		elif not has_form(place.form) or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM):
+		elif not has_form(place.form) or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM) \
+				or item.begins_with(VENT_INSERT_PREFIX) != (place.form == VENT_INSERT_FORM):
 			return false
 		var rect := _rect(place)
 		if not bounds.encloses(rect) or taken.any(func(other: Rect2i): return other.intersects(rect)):
@@ -132,6 +137,38 @@ static func washer_is_packed(document: Dictionary) -> bool:
 	var case_book: Variant = document.get(KEY)
 	return case_book is Dictionary and case_book.get("places") is Dictionary \
 			and case_book.places.has(MAINTENANCE_WASHER)
+
+
+## A packed spare still reserves its rack pocket. The case owns only its location in transit.
+static func valid_packed_inserts(case_book: Dictionary, records: Variant) -> bool:
+	for item: String in case_book.get("places", {}):
+		if not item.begins_with(VENT_INSERT_PREFIX):
+			continue
+		var stock: Variant = records.get(vent_insert_stock_id()) if records is Dictionary else null
+		if stock is not Dictionary or stock.get("kind") != "mechanism" or stock.get("value") is not Dictionary:
+			return false
+		var parts: Variant = stock.value.get("parts")
+		if parts is not Array:
+			return false
+		var identity := item.trim_prefix(VENT_INSERT_PREFIX)
+		if not parts.any(func(part): return part is Dictionary and part.get("id") == identity \
+				and not part.has("slot") and _valid_vent_index(part.get("rack")) and _valid_vent_index(part.get("grade")) \
+				and identity == "VENT_SPARE_%d" % int(part.grade)):
+			return false
+	return true
+
+
+static func _valid_vent_index(value: Variant) -> bool:
+	return typeof(value) in [TYPE_INT, TYPE_FLOAT] and value >= 0 and value < 5 \
+		and value == floorf(float(value))
+
+
+static func vent_insert_stock_id() -> String:
+	if _vent_stock_id.is_empty():
+		var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(VENT_INSERT_SOURCE))
+		if source is Dictionary:
+			_vent_stock_id = str(source.get("id", ""))
+	return _vent_stock_id
 
 
 static func place_of(item: String) -> Dictionary:
@@ -179,14 +216,14 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 	var place := place_of(item)
 	if place.is_empty() or not fits(item, str(place.form), x, y, turned):
 		return false
-	if item.begins_with(BOOK_PREFIX):
+	if item.begins_with(BOOK_PREFIX) or item.begins_with(VENT_INSERT_PREFIX):
 		var prepare := func(document: Dictionary) -> bool:
 			if place_of(item) != place or not fits(item, str(place.form), x, y, turned):
 				return false
 			var staged: Dictionary = document[KEY].places[item]
 			staged.merge({"x": x, "y": y, "turned": turned}, true)
 			return true
-		return RealityState.commit_library_case_change(prepare)
+		return RealityState.commit_case_and_household(prepare)
 	place.x = x
 	place.y = y
 	place.turned = turned

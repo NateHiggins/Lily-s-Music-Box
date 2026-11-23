@@ -254,6 +254,8 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary, d
 				errors.append("inconsistent related mechanism identities")
 	if errors.is_empty() and not _valid_purchased_gasket_pair(value.records, document, adopted_gasket_station):
 		errors.append("inconsistent purchased gasket custody")
+	if errors.is_empty() and not CarriedCase.valid_packed_inserts(document.get(CarriedCase.KEY, {}), value.records):
+		errors.append("inconsistent packed vent insert custody")
 	_profile_end("validate",profile_started)
 	return errors.is_empty()
 
@@ -343,6 +345,89 @@ func commit_purchased_gasket(counter: Node, cabinet: Node, pickup: Node, fit: Di
 	return saved
 
 
+func packed_vent_insert(item: String) -> Dictionary:
+	var stock: Node = _subjects.get(CarriedCase.vent_insert_stock_id())
+	if not is_instance_valid(stock) or not item.begins_with(CarriedCase.VENT_INSERT_PREFIX):
+		return {}
+	var row: Dictionary = stock.rows.get(item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX), {})
+	return row if row.get("packed", false) else {}
+
+
+func vent_insert_fit(holder: PlayerController) -> Dictionary:
+	var stock: Node = _subjects.get(CarriedCase.vent_insert_stock_id())
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_instance_valid(stock):
+		return {}
+	var identity: String = stock.held_workshop_spare(holder)
+	if identity.is_empty():
+		return {}
+	var item := CarriedCase.VENT_INSERT_PREFIX + identity
+	var place := CarriedCase.first_fit(item, CarriedCase.VENT_INSERT_FORM)
+	return {"identity": identity, "item": item, "place": place} if not place.is_empty() else {}
+
+
+func pack_vent_insert(holder: PlayerController) -> String:
+	var fit := vent_insert_fit(holder)
+	if fit.is_empty():
+		return ""
+	var stock: Node = _subjects[CarriedCase.vent_insert_stock_id()]
+	var prepare := func(document: Dictionary) -> bool:
+		if vent_insert_fit(holder) != fit:
+			return false
+		var controls: Dictionary = document[KEY]
+		var parts: Array = controls.records[CarriedCase.vent_insert_stock_id()].value.parts
+		var index := parts.find_custom(func(part): return part.id == fit.identity)
+		if index < 0:
+			return false
+		var row: Dictionary = stock.rows[fit.identity]
+		parts[index] = {"id": fit.identity, "grade": row.grade, "rack": row.before_rack}
+		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
+		grid.places[fit.item] = fit.place
+		return _validate(controls, _kinds, _last_saved.get("records", {}), document)
+	if not _commit_vent_insert(prepare, stock):
+		return ""
+	holder._grab.validate()
+	return fit.item
+
+
+func vent_insert_destination(holder: PlayerController, item: String) -> Node3D:
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or packed_vent_insert(item).is_empty():
+		return null
+	return _subjects[CarriedCase.vent_insert_stock_id()].case_destination(holder, item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX))
+
+
+func deliver_vent_insert(holder: PlayerController, item: String) -> bool:
+	var destination := vent_insert_destination(holder, item)
+	if not is_instance_valid(destination):
+		return false
+	var stock: Node = _subjects[CarriedCase.vent_insert_stock_id()]
+	var identity := item.trim_prefix(CarriedCase.VENT_INSERT_PREFIX)
+	var prepare := func(document: Dictionary) -> bool:
+		if vent_insert_destination(holder, item) != destination:
+			return false
+		var controls: Dictionary = document[KEY]
+		var parts: Array = controls.records[CarriedCase.vent_insert_stock_id()].value.parts
+		var index := parts.find_custom(func(part): return part.id == identity)
+		if index < 0:
+			return false
+		if destination != stock:
+			var grade: int = parts[index].grade
+			var slot: String = destination.graph_node_id
+			parts[index] = {"id": identity, "grade": grade, "slot": slot, "turn": stock.THREAD_END}
+			controls.records[slot].value.vent_grade = grade
+		document[CarriedCase.KEY].places.erase(item)
+		return _validate(controls, _kinds, _last_saved.get("records", {}), document)
+	return _commit_vent_insert(prepare, stock)
+
+
+func _commit_vent_insert(prepare: Callable, stock: Node) -> bool:
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		stock.restore_mechanism(verified.records[CarriedCase.vent_insert_stock_id()].value)
+		_restoring = false
+	return RealityState.commit_case_and_household(prepare, publish)
+
+
 func packed_book(item: String) -> Book:
 	if not item.begins_with(CarriedCase.BOOK_PREFIX):
 		return null
@@ -381,7 +466,7 @@ func pack_book(holder: PlayerController) -> bool:
 		holder._grab.release(false)
 		copy.set_valise_packed(true)
 		_restoring = false
-	return RealityState.commit_library_case_change(prepare, publish)
+	return RealityState.commit_case_and_household(prepare, publish)
 
 
 func unpack_book(holder: PlayerController, item: String) -> bool:
@@ -412,7 +497,7 @@ func unpack_book(holder: PlayerController, item: String) -> bool:
 		_restoring = false
 		if not acquired:
 			push_error("Verified valise exit lost the reserved library hand: " + item)
-	return RealityState.commit_library_case_change(prepare, publish)
+	return RealityState.commit_case_and_household(prepare, publish)
 
 
 func _stage_book_pose(document: Dictionary, collection: String, copy: Book, pose: Transform3D) -> bool:
@@ -522,8 +607,17 @@ func visit_restore(records: Dictionary) -> bool:
 	for identity: String in records:
 		if not merged.records.has(identity) or not _borrowed_in_visit(identity): continue
 		var was: Variant = records[identity]
-		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]) or merged.records[identity] == was: continue
-		merged.records[identity] = (was as Dictionary).duplicate(true)
+		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]): continue
+		var restored: Dictionary = was.duplicate(true)
+		if restored.kind == "radiator" and restored.value is Dictionary:
+			var radiator := _subjects[identity] as RadiatorProp
+			if is_instance_valid(radiator.native_orifices):
+				# The rack and its insert identities stay outside visit rewinds.
+				var insert: Dictionary = radiator.native_orifices.active(radiator)
+				if not insert.is_empty():
+					restored.value.vent_grade = int(insert.grade)
+		if merged.records[identity] == restored: continue
+		merged.records[identity] = restored
 		moved[identity] = true
 	if moved.is_empty(): return true
 	if not validate(merged, _kinds): return false

@@ -54,6 +54,10 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("carried_case washer custody")
 	if not _valid_packed_books(candidate):
 		return _invalid_shape("carried_case book custody")
+	var household: Variant = candidate.get("v2_household_controls")
+	var control_records: Variant = household.get("records") if household is Dictionary else null
+	if not CarriedCase.valid_packed_inserts(candidate.get(CarriedCase.KEY, {}), control_records):
+		return _invalid_shape("carried_case vent insert custody")
 	if candidate.has("shop_stock") and not preload("res://scripts/game/shop_stock.gd").valid(candidate.shop_stock):
 		return _invalid_shape("shop_stock")
 	var stored_inventory: Variant = candidate.get("inventories")
