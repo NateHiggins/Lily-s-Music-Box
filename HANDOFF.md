@@ -1,3 +1,21 @@
+# Fresh save lineage through both endings - November 22
+
+Evidence class: **INERT**
+
+The verified fifth and eighth filings now connect fresh Begin to the
+finished ending through two exact native Continue saves. The three
+sessions passed 362 checks and 674 walking waypoints. The last session
+filed clues nine through eleven, reached the roof and submitted the
+authored line. Replaying the exact unanswered choice passed eight
+checks for the left ending. Both native ending saves matched after exit.
+
+The harness used scripted movement and controlled visit clocks and
+allowance days. The earlier 4B waypoint failure is retained. A
+fresh-title-to-ending session without Continue and Lily's play review
+remain open.
+
+[Fresh save lineage](C:/ov/reports/title_campaign_chain_20261122/after_eighth_to_finished_main_05/verified_fresh_save_lineage.json).
+
 # Resumed campaign through the eighth filing - November 22
 
 Evidence class: **INERT**
