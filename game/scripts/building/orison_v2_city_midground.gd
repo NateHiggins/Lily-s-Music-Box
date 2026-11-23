@@ -11,6 +11,7 @@ const ASSET := "res://assets/props/city_midground.glb"
 const DATA := "res://data/orison_v2/exterior/city_midground.json"
 const FacadeShader := preload("res://shaders/v2_far_city_facade.gdshader")
 const WindowMaterial := preload("res://scripts/building/v2_background_window_material.gd")
+const QueensboroEl := preload("res://scripts/building/orison_v2_queensboro_el.gd")
 const FAR_FACADES := {"far_brick": "brick", "far_city_grey_brick": "city_grey_brick", "far_limestone": "limestone"}
 const PLAIN := ["brick", "city_grey_brick", "limestone", "terracotta", "galvanized_roof", "roof_bitumen",
 	"door_paint", "fabric_warm", "iron_blackened", "tank_staves", "site_softwood", "asphalt", "concrete",
@@ -34,6 +35,7 @@ var data: Dictionary = {}
 var _clock := CampaignClock.new()
 var _elapsed := INF
 var _minute := -INF
+var _queensboro_el: QueensboroEl
 
 
 static func mount(parent: Node3D) -> Node3D:
@@ -91,6 +93,9 @@ func _ready() -> void:
 	_build_parked()
 	_build_signs()
 	_build_colliders()
+	_queensboro_el = QueensboroEl.new()
+	_queensboro_el.name = "QueensboroElCars"
+	add_child(_queensboro_el)
 	_refresh(true)
 
 
@@ -383,6 +388,7 @@ func project_clock(clock: CampaignClock) -> bool:
 		material.set_shader_parameter("dusk_fill", dusk)
 	for material in window_materials:
 		WindowMaterial.sync_clock(material, clock)
+	_queensboro_el.set_darkness_from_minute(minute_of_day)
 	_copy_fog()
 	return true
 
