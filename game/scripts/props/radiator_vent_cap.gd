@@ -6,6 +6,9 @@ static var TURN_END: float=TAU*THREAD_TRAVEL/float(_thread.pitch_m)
 const LEGACY_TURN_END := TAU*2.0
 const LEGACY_TRAVEL := .014
 const PIVOT := Vector3(.043,.054,0)
+const TRANSFER_HEIGHT := .034
+const TRANSFER_RADIUS := .019
+const RECEIVER_LEAD_IN := .030
 var radiator: Node3D
 var turn := 0.0
 var loose := false
@@ -13,6 +16,7 @@ var draw: MeshInstance3D
 var insert_collision: CollisionShape3D
 var _hulls: Array[ConvexPolygonShape3D] = []
 static var _shared_hulls: Array[ConvexPolygonShape3D] = []
+static var _transfer_shape: CylinderShape3D
 var _was_sleeping := true
 var _float_held := false
 var _float_lift := 0.0
@@ -72,6 +76,9 @@ static func _cap_hulls() -> Array[ConvexPolygonShape3D]:
 
 func home() -> Transform3D:
 	return radiator.native_rig.vent.global_transform*Transform3D(Basis.IDENTITY,PIVOT)
+
+func return_approach() -> Transform3D:
+	return home().translated_local(Vector3.UP * (THREAD_TRAVEL + RECEIVER_LEAD_IN))
 
 func manipulation_target(_hit: Dictionary) -> Dictionary:
 	return grip()
@@ -170,28 +177,35 @@ func leak() -> float:
 
 func _carry(value: Vector3) -> void:
 	if not value.is_finite(): return
-	var pose := global_transform
-	var remaining: Vector3=radiator.global_basis*(value-position)
-	for slide in 4:
-		if remaining.length_squared()<1e-10: break
-		var query := PhysicsTestMotionParameters3D.new()
-		query.from=pose
-		query.motion=remaining
-		query.margin=.0002
-		var result := PhysicsTestMotionResult3D.new()
-		if not PhysicsServer3D.body_test_motion(get_rid(),query,result):
-			pose.origin+=remaining
-			break
-		pose.origin+=result.get_travel()
-		remaining=result.get_remainder().slide(result.get_collision_normal())
-	global_transform=pose
+	var motion: Vector3 = radiator.global_basis * (value - position)
+	if motion.length_squared() < 1e-10:
+		return
+	if _transfer_shape == null:
+		_transfer_shape = CylinderShape3D.new()
+		_transfer_shape.height = TRANSFER_HEIGHT
+		_transfer_shape.radius = TRANSFER_RADIUS
+	# A simple envelope limits loose movement. The thread still uses the exact bore.
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _transfer_shape
+	query.transform = global_transform.translated_local(Vector3.UP * (TRANSFER_HEIGHT * .5))
+	query.exclude = [get_rid()]
+	query.collision_mask = collision_mask
+	query.margin = .0002
+	var space := get_world_3d().direct_space_state
+	var rest := space.get_rest_info(query)
+	if not rest.is_empty() and motion.dot(rest.normal) < 0.0:
+		motion = motion.slide(rest.normal)
+	query.motion = motion
+	var fractions := space.cast_motion(query)
+	global_position += motion * fractions[0]
 	_sync_insert()
 
 func _release() -> void:
 	# Catch the mouth only after the hand brings the cap to its real axis.
 	# It still requires the matched screw travel to seal; proximity is not repair.
 	var receiving := home().translated_local(Vector3.UP*THREAD_TRAVEL)
-	if radiator.supply_position<=.02 and global_position.distance_to(receiving.origin)<.006:
+	if radiator.supply_position <= .02 and (global_position.distance_to(receiving.origin) < .006 \
+			or global_position.distance_to(return_approach().origin) < .006):
 		loose=false
 		turn=TURN_END
 		refresh()

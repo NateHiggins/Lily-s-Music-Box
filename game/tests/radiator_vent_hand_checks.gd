@@ -112,7 +112,7 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	player.camera.look_at(contact)
 	driver._click(player)
 	if not player._grab.active() or prop._native_held!="vent_cap": failures.append("loose cap pickup after restore");return
-	var receiver: Vector3 = prop.to_local(cap.home().translated_local(Vector3.UP * cap.THREAD_TRAVEL).origin)
+	var receiver: Vector3 = prop.to_local(cap.return_approach().origin)
 	var above := receiver + Vector3.UP * .08
 	var lifted := Vector3(cap.position.x, above.y, cap.position.z)
 	player.camera.global_position = prop.to_global((cap.position + receiver) * .5 + Vector3(-.24,.15,-.45))
