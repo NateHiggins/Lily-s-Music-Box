@@ -19,7 +19,8 @@ checks and 176 walking waypoints. It walked the spare up in the valise,
 earned both comparisons, closed the order with Lena and reconstructed
 the same job from disk. [Service contract](C:/ov/reports/radiator_service_visit_20261123/REPORT.md).
 
-The legacy hand-transfer bench and Lily's play review remain open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
+PR501 qualifies the isolated hand bench against preset parking and the
+actual replacement thread. Lily's play review remains open. [Installed exchange](C:/ov/reports/radiator_original_insert_20261123/REPORT.md).
 
 # Fresh save lineage through both endings - November 22
 
