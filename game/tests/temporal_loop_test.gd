@@ -92,6 +92,39 @@ func work_room() -> void:
 			"shift": loop.report_shift(str(step.object))
 
 
+func _check_box_clock() -> void:
+	var pace := CampaignPace.new()
+	var previous: CampaignPace = loop.pace
+	loop.pace = pace
+	var before := clock.elapsed_minutes()
+	var plan: Dictionary = loop.pace_plan()
+	var depart := before - float(loop.loop_minutes()) + 48.0
+	check(plan.get("why") == "wait:box:nadia" and is_equal_approx(float(plan.get("until", -1)), depart),
+			"holding the kept papers runs the clock only to Nadia's departure")
+	check(loop.visit_hint().contains("Miss Quell") and loop.visit_hint().contains("HOME"),
+			"the Box hint tells the player how to hear the exchange or leave")
+	tick()
+	var elapsed := 0.0
+	while clock.elapsed_minutes() < depart and elapsed < 75.0:
+		clock.advance_seconds(pace.seconds_for(0.1, clock.elapsed_minutes()))
+		elapsed += 0.1
+		tick()
+	check(clock.elapsed_minutes() >= depart and clock.elapsed_minutes() < depart + 0.05
+			and loop.pace_plan().is_empty() and not pace.running(),
+			"the real pace lands at departure and then returns to ordinary time")
+	for second in 90:
+		clock.advance_seconds(pace.seconds_for(1.0, clock.elapsed_minutes()))
+		tick()
+	check(loop.visit_anchor() == "box" and loop.holds("kept_papers") and loop.pace_plan().is_empty()
+			and is_equal_approx(clock.elapsed_minutes(), depart + 1.5),
+			"ordinary time gives Nadia a full approach without expiring the Box visit")
+	RealityState.grant_knowledge("m_mae_answered")
+	check(loop.pace_plan().get("why") == "done:box",
+			"hearing Nadia restores the normal answered-visit pace")
+	RealityState.data.knowledge_flags.erase("m_mae_answered")
+	loop.pace = previous
+
+
 func _ready() -> void:
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
@@ -394,6 +427,8 @@ func _ready() -> void:
 		var got: Dictionary = loop.take_clue()
 		check(RealityState.has_knowledge("m_receipt_seen") == (anchor_id == "box"),
 			"only collecting the kept papers teaches the August receipt")
+		if anchor_id == "box":
+			_check_box_clock()
 		var home: Dictionary = loop.go_home()
 		var put: Dictionary = loop.pin_next()
 		file_all()

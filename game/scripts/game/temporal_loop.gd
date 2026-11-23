@@ -56,6 +56,8 @@ const STEP_KINDS: Array[String] = ["at", "after", "shift", "flag"]
 const HINT_FIRST_MINUTES := 4.0
 const HINT_EVERY_MINUTES := 12.0
 const WARN_MINUTES := 10.0
+# Match Nadia's approach phase in performances.json. The spoken scene opens at 15:50.
+const BOX_NADIA_APPROACH_MINUTE := 48.0
 
 var clock: CampaignClock
 var economy: Node
@@ -1170,6 +1172,10 @@ func _settle_pace() -> void:
 		pace.settle()
 
 
+func _box_exchange_pending() -> bool:
+	return visit_anchor() == "box" and holds(RECEIPT_CLUE) and not RealityState.has_knowledge("m_mae_answered")
+
+
 ## What the clock should run to now, and why: {} when the player has
 ## something to do, or has said STEADY. `until` is in elapsed minutes.
 func pace_plan() -> Dictionary:
@@ -1179,7 +1185,14 @@ func pace_plan() -> Dictionary:
 	var now := clock.elapsed_minutes()
 	if in_visit():
 		var anchor_id := visit_anchor()
-		var ends := float((ledger().visit as Dictionary).loop_started) + float(int(table.anchors[anchor_id].minutes))
+		var started := float((ledger().visit as Dictionary).loop_started)
+		var ends := started + float(int(table.anchors[anchor_id].minutes))
+		if _box_exchange_pending():
+			var approach := started + BOX_NADIA_APPROACH_MINUTE
+			if now >= approach:
+				return {} # Let Nadia cross the building and give the player time to speak.
+			return {"until": approach, "rate": float(rules.wait_rate), "why": "wait:box:nadia",
+					"say": "Miss Quell is coming with Mr. Ewald's note. I will run the clock until she sets out. HOME goes at once."}
 		if answered(anchor_id):
 			return {"until": ends, "rate": float(rules.done_rate), "why": "done:" + anchor_id,
 					"say": "You have what you came for. I am running the clock to the end of the hours. HOME goes at once."}
@@ -1563,6 +1576,8 @@ func visit_hint() -> String:
 	var witness := _witness_of(visit_anchor())
 	if not witness.is_empty():
 		return "You have heard it. HOME takes you back." if answered(visit_anchor()) else str(witness.hint)
+	if _box_exchange_pending():
+		return "Miss Quell is bringing Mr. Ewald's note to 6C about ten to four. Speak to Mrs. Kessler when she arrives. HOME takes you back whenever you like."
 	if answered(visit_anchor()):
 		return "You have it. HOME, and pin it to the wall."
 	var step := current_step()

@@ -298,11 +298,16 @@ func _s14_nadia_names_her() -> void:
 	var s14_open := func() -> bool:
 		return conversations.active_threads("mae_kessler", conversations.today(), conversations.minute_now()) \
 				.any(func(thread: Dictionary) -> bool: return str(thread.id) == "mk_box")
-	_advance(49.0)
+	_advance(47.5)
 	RealityState.grant_knowledge("m_receipt_seen")
 	check(str(performance.phase_for("nadia_quell").get("place", "x")).is_empty() and not s14_open.call(),
-			"before ten to four Nadia has not come up and S14 is not open")
-	_advance(1.5)
+			"before 15:48 Nadia has not set out and S14 is closed")
+	_advance(1.0)
+	var approach: Dictionary = performance.phase_for("nadia_quell")
+	check(str(approach.get("place", "")) == "visit:6C" and not s14_open.call()
+			and is_equal_approx(float(approach.start), Loop.BOX_NADIA_APPROACH_MINUTE),
+			"Nadia sets out at the clock landing point and the thread still waits until 15:50")
+	_advance(2.0)
 	var nadia: Route = world.resident_routes.nadia_quell
 	nadia.arrive("unit:main")
 	check(not s14_open.call() and not conversations.has_spoken_thread("mae_kessler"),
