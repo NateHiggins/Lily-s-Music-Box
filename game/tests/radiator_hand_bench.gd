@@ -186,7 +186,7 @@ func _run() -> void:
 			push_error("RADIATOR HAND BENCH: FAIL diagnostic write")
 			get_tree().quit(1)
 			return
-		file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Fast production actor/player controls, loose physics, in-memory pose restore, native surface import, bearing cache parity and shared steam budget. No composed-world or disk reconstruction contract.","surface_checks":inspector.checks,"kinematic_cases":20,"failures":failures},"\t"))
+		file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Fast production actor/player controls, preset loose-part parking, in-memory pose restore, native surface import, bearing cache parity and shared steam budget. No composed-world or disk reconstruction contract.","surface_checks":inspector.checks,"kinematic_cases":20,"failures":failures},"\t"))
 	inspector.free()
 	codec.free()
 	reviewer.free()
@@ -397,7 +397,7 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	if part.station!=1 or not part.freeze: failures.append("packing becomes a loose part held still")
 	if not prop.inventory.has_item(prop.PACKING_ITEM): failures.append("one historical part acquisition")
 	await get_tree().create_timer(1.5).timeout
-	print("PACKING FALL ",height," -> ",part.global_position.y," SPEED ",part.linear_velocity)
+	print("PACKING PARK ",height," -> ",part.global_position.y," SPEED ",part.linear_velocity)
 	var lowest := INF
 	for collider: CollisionShape3D in part.get_children().filter(func(n): return n is CollisionShape3D):
 		for vertex: Vector3 in collider.shape.points: lowest=minf(lowest,collider.to_global(vertex).y)
@@ -424,15 +424,13 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	prop.native_service_progress=1.0
 	prop.set_supply_position(0.0,0.0)
 	await _aim(player,prop,_packing_contact(part,prop))
-	# Physics may settle a restored loose body during those two frames. Aim at
-	# its current surface, as the live cursor does, rather than a stale point.
+	# Aim at the restored part's actual cursor surface.
 	var loose_contact := _packing_contact(part,prop)
 	player.camera.global_position=loose_contact+prop.global_basis*Vector3(-.03,.10,-.32)
 	player.camera.look_at(loose_contact)
 	reviewer._click(player)
 	if not player._grab.active() or prop._native_held!="packing": failures.append("loose packing re-grab");return
-	# The physical wedges change where released cloth can settle. Frame the
-	# actual part and receiver, then lift clear before approaching the cup.
+	# Frame the part and receiver, then lift clear before approaching the cup.
 	player.camera.global_position=(part.global_position+prop.to_global(part.home().origin))*.5+prop.global_basis*Vector3(-.35,.28,-.65)
 	player.camera.look_at(_packing_contact(part,prop))
 	await _carry_to(player,part.position+Vector3(0,.12,-.12))
