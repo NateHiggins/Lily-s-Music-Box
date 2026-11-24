@@ -148,7 +148,10 @@ func run() -> void:
 	_solid(Vector3(3, RISERS * RISE, 2), Vector3(STAIR_X + RISERS * TREAD + 1.5, RISERS * RISE * 0.5, 0))
 	for frame in 3:
 		await get_tree().physics_frame
-	for id: String in ["mina_vale", "malcolm_reed"]:
+	# RESIDENTS=a,b,... checks a batch; the default is the two pilot bodies.
+	var who := OS.get_environment("RESIDENTS")
+	var residents: PackedStringArray = who.split(",", false) if not who.is_empty() else PackedStringArray(["mina_vale", "malcolm_reed"])
+	for id: String in residents:
 		var actor: Node3D = await _resident(id)
 		check(actor.walking_feet != null, "%s has walking foot placement installed" % id)
 		if actor.walking_feet == null:
@@ -171,7 +174,9 @@ func run() -> void:
 			body.queue_free()
 		await get_tree().physics_frame
 		details[id + "_crowded"] = crowded
-		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.03,
+		# p90 is the discriminator: stepping onto the crate held feet ~0.3 m up for many frames (p90 0.325 against
+		# 0.085). The single worst frame moves by ~0.05 m run to run with frame timing, so its margin only catches a lift.
+		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.1,
 				"%s's feet follow the treads past a player body and a loose crate (hover p90 %.3f m, clear %.3f m)" % [id, float(crowded.hover_p90), float(on.hover_p90)])
 		# The same climb without the stage, for the comparison.
 		actor.walking_feet.active = false
@@ -185,8 +190,8 @@ func run() -> void:
 		actor.set_route_motion(false, 0.0, 0.0)
 		actor.queue_free()
 		await get_tree().process_frame
-	var peter: Node3D = await _resident("peter_wren")
-	check(peter.walking_feet == null, "a resident outside the pilot has no foot placement")
+	var peter: Node3D = await _resident("omar_bell")
+	check(peter.walking_feet == null, "a resident outside the gate (Omar) has no foot placement")
 	peter.queue_free()
 	await get_tree().process_frame
 	_finish(started)
