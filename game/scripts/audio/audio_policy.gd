@@ -85,19 +85,22 @@ func _no_reverb_area_query(node: Node) -> void:
 ## loops this gate stopped are restarted; an owner's own stop() stands.
 const SILENT_LOOP_DB := -55.0
 const SILENT_LOOP_CHECK_SECONDS := .25
-var _silent_loops: Array[AudioStreamPlayer3D] = []
-var _gated: Dictionary = {}
+## Watched loops by instance id; the autoload outlives every world, so a retired
+## voice's entry (and its gated mark) is dropped together, never left behind.
+var _silent_loops: Dictionary[int, WeakRef] = {}
+var _gated: Dictionary[int, bool] = {}
 var _silent_loop_age := 0.0
 
 
 func gate_silent_loop(voice: AudioStreamPlayer3D) -> void:
-	if voice == null or voice in _silent_loops: return
-	_silent_loops.append(voice)
-	_apply_silent_gate(voice)
-
-
-func _apply_silent_gate(voice: AudioStreamPlayer3D) -> void:
+	if voice == null: return
 	var id := voice.get_instance_id()
+	if _silent_loops.has(id): return
+	_silent_loops[id] = weakref(voice)
+	_apply_silent_gate(id, voice)
+
+
+func _apply_silent_gate(id: int, voice: AudioStreamPlayer3D) -> void:
 	if voice.volume_db <= SILENT_LOOP_DB:
 		if voice.playing:
 			voice.stop()
@@ -108,13 +111,14 @@ func _apply_silent_gate(voice: AudioStreamPlayer3D) -> void:
 
 
 func _gate_silent_loops() -> void:
-	for index in range(_silent_loops.size() - 1, -1, -1):
-		var voice := _silent_loops[index]
-		if not is_instance_valid(voice):
-			_silent_loops.remove_at(index)
+	for id: int in _silent_loops.keys():
+		var voice := _silent_loops[id].get_ref() as AudioStreamPlayer3D
+		if voice == null:
+			_silent_loops.erase(id)
+			_gated.erase(id)
 			continue
 		if not voice.is_inside_tree(): continue
-		_apply_silent_gate(voice)
+		_apply_silent_gate(id, voice)
 
 
 func setup(catalog_path := CATALOG_PATH, build_voices := true) -> bool:
