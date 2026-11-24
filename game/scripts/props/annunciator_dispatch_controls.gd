@@ -82,7 +82,7 @@ func grip(i: int) -> Dictionary:
 		"minimum":0.,"maximum":float(data.travel),"read":func():return strokes[i],
 		"begin":func():
 			if held>=0 or board._native_service.held!=null or RealityState.save_write_blocked:return false
-			held=i;return true,
+			held=i;set_physics_process(true);return true,
 		"owns":func():return held==i,
 		"write":func(value: float):
 			if held!=i:return
@@ -98,7 +98,7 @@ func grip(i: int) -> Dictionary:
 					lift.npc_request(str(levels[i]))
 				if board._clack!=null:board._clack.play()
 			apply_pose(),
-		"end":func():held=-1;_settling=true;board.manipulation_changed.emit()}
+		"end":func():held=-1;_settling=true;set_physics_process(true);board.manipulation_changed.emit()}
 
 func apply_pose() -> void:
 	for i in buttons.size():
@@ -107,13 +107,18 @@ func apply_pose() -> void:
 
 func _physics_process(delta: float) -> void:
 	var moving := false
+	var changed := false
 	for i in strokes.size():
 		if held==i:continue
-		strokes[i]=move_toward(strokes[i],0.,float(data.return_speed)*delta)
+		var stroke: float=move_toward(strokes[i],0.,float(data.return_speed)*delta)
+		changed=changed or stroke!=strokes[i];strokes[i]=stroke
 		if strokes[i]<=float(data.travel)*.1:spent[i]=false
 		moving=moving or strokes[i]>0.
-	apply_pose()
+	# A held key poses itself through its grip write.
+	if changed:apply_pose()
 	if _settling and not moving and held<0:_settling=false;board.manipulation_changed.emit()
+	# Every spring home and no hand on a key: sleep until a grip or restore.
+	if not moving and held<0 and not _settling:set_physics_process(false)
 
 func drive_indicators() -> void:
 	if not is_instance_valid(lift) or lift._cabin==null:return
@@ -146,7 +151,7 @@ func valid(value: Variant) -> bool:
 func restore(value: Dictionary) -> void:
 	held=-1;strokes.assign(value.strokes);spent.assign(value.spent)
 	for i in strokes.size():strokes[i]=clampf(strokes[i],0.,float(data.travel))
-	_settling=true;apply_pose()
+	_settling=true;apply_pose();set_physics_process(true)
 
 func rest_snapshot() -> Dictionary:
 	var values: Array[float]=strokes.duplicate();values.fill(0.)

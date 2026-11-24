@@ -294,8 +294,40 @@ func _far_from_player() -> bool:
 	var offset := actor.global_position - player.global_position
 	return absf(offset.y) > 2.4 or Vector2(offset.x, offset.z).length() > FAR_STEP_METRES
 
+## A parked resident skips its route tick until the 0.5 s re-selection is due (Lily 2026-11-24, 30 fps target:
+## ~18 idle residents cost ~1.5 ms a physics tick). Parked means the last full tick ended at the ordinary
+## "standing at the destination" return, or hidden off-map at it, and nothing that tick read has moved since:
+## same destination, no path, at the desired vertex, no held door, no managed grocery leg, not talking.
+## Any external change (a retarget, a path, a reset `_sample`) runs the full tick at once. Mina is never parked:
+## her animation owner resumes her idle from the per-tick `_set_walking(false)`.
+var _parked := false
+var _parked_outside := false
+var _parked_destination := ""
+
+func _parked_idle() -> bool:
+	return _parked and actor.mina_animation == null and outside == _parked_outside \
+			and destination == _parked_destination and path.is_empty() and current_id == desired_id \
+			and _door_passages.is_empty() and (_bodega_route == null or not _bodega_route.manages_path()) \
+			and not _talking()
+
+func _park() -> void:
+	_parked = true
+	_parked_outside = outside
+	_parked_destination = destination
+
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
+	if _parked_idle():
+		# The skipped ticks spend only the re-selection timer, so the sample fires on the same tick as before
+		# and a new destination starts walking in that tick, with that tick's own step time.
+		delta += _far_delta
+		_far_delta = 0.0
+		_far_ticks = 0
+		if _sample - delta > 0.0:
+			_sample -= delta
+			return
+		_route_tick(delta)
+		return
 	# The courtesy timer requires consecutive contacts before a pass.
 	if _far_from_player() and not squeeze.has_recent_contact():
 		_far_delta += delta
@@ -307,6 +339,7 @@ func _physics_process(delta: float) -> void:
 	_route_tick(delta)
 
 func _route_tick(delta: float) -> void:
+	_parked = false
 	_release_passed_doors()
 	if _talking():
 		actor._set_walking(false)
@@ -326,22 +359,37 @@ func _route_tick(delta: float) -> void:
 	if _leaves_unseen() and current_id == desired_id and (_bodega_route == null or _bodega_route.release_upstream_for_outside()):
 		actor._set_walking(false)
 		if not outside and not _observed(): _set_outside(true)
+		if outside: _park()
 		return
 	if outside:
-		if _observed(): return
+		# The off-map look (up to 12 rays) is taken at most every OUTSIDE_LOOK_SECONDS while the body
+		# waits; a seen body simply waits for the next look.
+		_outside_look_age += delta
+		if _outside_look_age >= OUTSIDE_LOOK_SECONDS:
+			_outside_look_age = 0.0
+			_outside_seen = _observed()
+		if _outside_seen: return
 		# Publication is placement, not an ordinary movement step. A hidden
 		# return must not appear inside a peer and borrow move-apart courtesy.
 		if not _initial_peer_clear(actor.global_position):
 			blocked_reason = "waiting for a clear off-map return"
 			actor._set_walking(false)
 			return
+		# A hidden return only happens unseen: publication always rests on a look taken this tick.
+		if _outside_look_age > 0.0:
+			_outside_look_age = 0.0
+			_outside_seen = _observed()
+			if _outside_seen: return
 		_set_outside(false)
+	else:
+		_outside_look_age = INF
 	if _bodega_route != null and not _bodega_route.guide_path():
 		actor._set_walking(false)
 		return
 	if _bodega_route == null or not _bodega_route.manages_path():
 		if path.is_empty() and current_id == desired_id:
 			actor._set_walking(false)
+			_park()
 			return
 		if not path.is_empty() and planned_id != desired_id:
 			# Keep the next vertex on retarget; never cut a corner mid-edge.
@@ -570,8 +618,16 @@ func _blocked(delta: float) -> void:
 	blocked_seconds += delta
 	actor._set_walking(false)
 
+## The off-map look cadence: a hidden body re-checks whether it is seen at most this often.
+const OUTSIDE_LOOK_SECONDS := .25
+var _outside_look_age := INF
+var _outside_seen := false
+
 func _set_outside(value: bool) -> void:
 	outside = value
+	# Each hidden spell starts with a fresh look.
+	_outside_look_age = INF
+	_outside_seen = false
 	actor.visible = not value
 	var interaction: Area3D = actor.get_node("Interaction")
 	interaction.collision_layer = 0 if value else 1
