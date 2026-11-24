@@ -138,23 +138,46 @@ var _rules: RefCounted
 ## out of sight; the caller makes sure nobody is looking). True when the clothes changed. A refused change
 ## leaves the person as they were.
 func dress_for(dressing: Dictionary) -> bool:
-	if cast_body == null or not bool(cast_body.ready_ok):
+	var parts := outfit_change_for(dressing)
+	if parts.is_empty():
 		return false
+	var asked := _outfit_key
+	var changed := bool(cast_body.wear(parts))
+	# A wear that leaves the worn parts as they were (refused, or the outfit folds a part into another slot)
+	# would only repeat itself: not again until the dressing or the worn parts change.
+	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
+	worn.sort()
+	if var_to_str([dressing, worn]) == asked:
+		_outfit_parts = []
+	return changed
+
+
+var _outfit_key := ""
+var _outfit_parts: Array = []
+
+## The parts the wardrobe rules want for a dressing, or none when they are worn already or nothing applies.
+## The rules are a table lookup on the dressing alone, so the answer is kept until the dressing or the worn
+## parts change (frame time, 24 Nov: every resident asked on the same tick twice a second).
+func outfit_change_for(dressing: Dictionary) -> Array:
+	if cast_body == null or not bool(cast_body.ready_ok):
+		return []
 	if _rules == null:
 		_rules = WardrobeRules.new()
 		if not _rules.load_table():
 			_rules = null
-			return false
-	var who := CastBodies.cast_person(resident_id)
-	var outfit: String = _rules.choose(who, dressing)
-	var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
-	var wanted := parts.duplicate()
-	wanted.sort()
+			return []
 	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
 	worn.sort()
-	if parts.is_empty() or wanted == worn:
-		return false
-	return bool(cast_body.wear(parts))
+	var key := var_to_str([dressing, worn])
+	if key != _outfit_key:
+		var who := CastBodies.cast_person(resident_id)
+		var outfit: String = _rules.choose(who, dressing)
+		var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
+		var wanted := parts.duplicate()
+		wanted.sort()
+		_outfit_parts = [] if parts.is_empty() or wanted == worn else parts.duplicate()
+		_outfit_key = key
+	return _outfit_parts.duplicate()
 
 
 ## Restored at half strength (ruled 2026-08-05). A resident is never a
