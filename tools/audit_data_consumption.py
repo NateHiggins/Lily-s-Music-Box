@@ -157,6 +157,13 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "mystery/stacy.json": frozenset({"entries", "nodes"}),
     # Lily and Stacy name their parts per outfit: person, then outfit, both read by key (WardrobeRules.parts_for).
     "characters/wardrobe_rules.json": frozenset({"person_looks", "person_looks[]"}),
+    # MoodReading indexes cue and gesture maps by feeling, punctuation by
+    # mark, and temperament by trait. _apply iterates the nested score maps.
+    "characters/mood_reading.json": frozenset({
+        "subject_cues", "punctuation", "punctuation[]", "traits", "traits[]",
+        "trust.warm", "trust.cold", "choice.trust_gained", "choice.trust_lost",
+        "choice.inferred", "choice.evidence", "emote.clips",
+    }),
     "mystery/teresa_vale.json": frozenset({"entries", "nodes"}),
     "mystery/the_party.json": frozenset({"entries", "nodes"}),
     "mystery/transient_guests.json": frozenset({"entries", "nodes"}),

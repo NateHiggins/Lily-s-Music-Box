@@ -1,6 +1,5 @@
 {
 	"schema_version": 1,
-	"description": "How a resident's feeling in a conversation is read from what the game already holds (Lily, ruling npc_face_mood_source_20261124: synthesize mood, trust, temperament and the subject at hand; exaggerate the face; add stage-acting emotes). Rules only: no model reads or writes anything. First draft for Lily's review in play.",
 	"rest_expression": "interest",
 	"rest_intensity": 0.6,
 	"exaggeration": 1.7,
