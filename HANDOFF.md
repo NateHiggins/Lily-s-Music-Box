@@ -1,3 +1,18 @@
+# Resident walking feet, November 24
+
+Evidence class: **INERT**.
+
+PR #541 adds walking-foot placement for Mina and Malcolm. The installed
+routes covered 86.7 m and 81.3 m respectively, including stairs and door
+passage. Both Harukiya access suites passed. On the replay, first slice
+passed 369 checks and 176 walking waypoints through radiator repair,
+disk reconstruction and teardown. The earlier reload timeout remains
+archived. Physical surfaces passed 818 checks, with 23 views technically
+reviewed. Lily accepted Malcolm's visible trailing backswing for this
+pilot. Owner play and wider cast review remain open.
+
+[First-slice replay and custody](D:/ov_reports/orison_npc_gait_face_intake_20261124/foot_composed/first_slice_retry/QUEUE_CUSTODY.json).
+
 # Resident mood and stage gestures, November 24
 
 Evidence class: **INERT**.
@@ -11,8 +26,8 @@ The 23 paired views received technical review, with visibility limits
 recorded for the dark and obstructed views.
 
 The dialogue and body changes remain a pilot for owner play and artistic
-review. PR #539's F03 performance comparison, PR #541 foot placement and
-PR #542's bodega save-boundary follow-up remain separate intakes.
+review. PR #539's F03 wardrobe optimization and PR #542's bodega
+save-boundary follow-up remain separate intakes.
 
 [Qualification records](D:/ov_reports/orison_npc_gait_face_intake_20261124/PR540_INTAKE.md)
 
