@@ -117,30 +117,47 @@ func _route() -> void:
 	var news: DoorProp = passage.doors.get("SITE_SHOP_DOOR_NEWS_CIGARS")
 	if not _require(news != null and news.leaf_state=="closed","actual V2 News Cigars starts unlocked"): return
 	var news_center := news.to_global(Vector3(news.width*.5,0,0))
-	for point in [Vector3(14,0,news_center.z),Vector3(15.6,0,news_center.z)]:
+	# A paired shop door's two leaves meet at its centre: aim at the middle of
+	# the hinged left leaf, not at the seam between them.
+	var news_aim_x := minf(news.width*.5,.5)
+	# Since the arcade rework (V2_ARCADE_PLAZA_REWORK_2026-11-16) News Cigars
+	# may front either side of the aisle at x 14; measure the stances from its
+	# own door: outside within reach, then just in, then a step into the shop.
+	var aisle_side := signf(14.0-news_center.x)
+	var news_outside := Vector3(news_center.x+aisle_side*1.57,0,news_center.z)
+	var news_threshold := Vector3(news_center.x-aisle_side*.05,0,news_center.z)
+	var news_inside := Vector3(news_center.x-aisle_side*1.15,0,news_center.z)
+	for point in [Vector3(14,0,news_center.z),news_outside]:
 		if not await _walk_world(point): return
-	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_lock"): return
+	# In shop hours the leaf may stand open; shut it by click before locking.
+	if not await _wait_for_door(news): return
+	if news.open:
+		if not await _use(news,news._body.to_global(Vector3(news_aim_x,1.1,0)),"news_close_before_lock"): return
+		if not await _wait_for_door(news): return
+	if not await _key(news,news.to_global(Vector3(news_aim_x,1.1,0)),"news_lock"): return
 	if not _require(news.leaf_state=="locked" and not news.open,"actual key input locks News Cigars"): return
-	# The hand takes the bolted leaf and drags it; it must not move.
-	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
-	add_child(hand)
-	hand.player = player
+	# RUL-018: a full-size leaf offers the hand no grip to drag, locked or not
+	# (a click on it is the key holder's passage request). The bolted leaf must
+	# give the hand nothing to take and stay shut and locked under the aim.
 	player.set_mouse_released(false)
-	var moved: bool = await hand.operate(news.to_global(Vector3(news.width*.5,1.1,0)), news.motion_target_angle(true)*.86, news)
-	hand.free()
-	if not _require(not moved and not news.open and not news._moving,"locked shop refuses normal opening"): return
-	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_unlock"): return
-	if not await _use(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_open"): return
+	player.camera.look_at(news.to_global(Vector3(news_aim_x,1.1,0)))
+	await get_tree().physics_frame
+	var grip: Dictionary = player._grab.find_target()
+	for frame in 10: await get_tree().physics_frame
+	if not _require(not grip.has("part") and not player._grab.active() and news.leaf_state=="locked"
+			and not news.open and not news._moving,"locked shop leaf offers no grip and stays shut"): return
+	if not await _key(news,news.to_global(Vector3(news_aim_x,1.1,0)),"news_unlock"): return
+	if not await _use(news,news.to_global(Vector3(news_aim_x,1.1,0)),"news_open"): return
 	if not await _wait_for_door(news): return
-	for point in [Vector3(17.2,0,news_center.z),Vector3(18.3,0,news_center.z)]:
+	for point in [news_threshold,news_inside]:
 		if not await _walk_world(point): return
-	if not await _use(news,news._body.to_global(Vector3(news.width*.5,1.1,0)),"news_close_inside"): return
+	if not await _use(news,news._body.to_global(Vector3(news_aim_x,1.1,0)),"news_close_inside"): return
 	if not await _wait_for_door(news): return
-	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_lock_inside",&"controller"): return
-	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_unlock_inside",&"touch"): return
-	if not await _use(news,news._body.to_global(Vector3(news.width*.5,1.1,0)),"news_exit"): return
+	if not await _key(news,news.to_global(Vector3(news_aim_x,1.1,0)),"news_lock_inside",&"controller"): return
+	if not await _key(news,news.to_global(Vector3(news_aim_x,1.1,0)),"news_unlock_inside",&"touch"): return
+	if not await _use(news,news._body.to_global(Vector3(news_aim_x,1.1,0)),"news_exit"): return
 	if not await _wait_for_door(news): return
-	for point in [Vector3(17.2,0,news_center.z),Vector3(15.6,0,news_center.z),Vector3(14,0,news_center.z),Vector3(14,0,32)]:
+	for point in [news_threshold,news_outside,Vector3(14,0,news_center.z),Vector3(14,0,32)]:
 		if not await _walk_world(point): return
 	outward.reverse()
 	for point: Vector3 in outward:
@@ -261,6 +278,10 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	while node and answering == null:
 		if node.has_method("interact_key") or node.has_method("interact"): answering = node
 		node = node.get_parent()
+	if answering!=owner_node:
+		print("KEY RAY DIAGNOSTIC ",label," player=",player.global_position," camera=",player.camera.global_position," target=",target,
+				" distance=",player.camera.global_position.distance_to(target)," hit=",hit.get("collider")," hit_at=",hit.get("position"),
+				" owner_at=",owner_node.global_position," body_at=",(owner_node as DoorProp)._body.global_position if owner_node is DoorProp else Vector3.ZERO," open=",owner_node.get("open"))
 	if not _require(answering==owner_node,"real key ray reaches "+label+": "+(str(answering.get_path()) if answering else str(hit.get("collider")))): return false
 	var before := owner_node.leaf_state as String if owner_node is DoorProp else ""
 	var key_event := InputEventKey.new()

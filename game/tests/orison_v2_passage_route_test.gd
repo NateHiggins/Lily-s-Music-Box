@@ -318,12 +318,8 @@ func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 		var door:=owner_node as DoorProp
 		# Use the exposed original hinge stile from both sides of the native leaf.
 		target=door._body.to_global(Vector3(.065,1.35,door._hinge_offset+.0275))
-		var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
-		add_child(hand);hand.player=player;player.set_mouse_released(false)
-		var moved: bool=await hand.operate(target,0.0 if door.open else door.motion_target_angle(true)*0.86,door)
-		var follows: bool=hand.follows_cursor
-		hand.free()
-		return _require(moved and follows,"actual grab, mouse motion and release: "+label)
+		# RUL-018: a full-size leaf answers a click; there is no grip to drag.
+		return await _hand_door(door,target,label)
 	return await super._use(owner_node,target,label)
 
 func _check_requisition_duplicate_refusal() -> bool:
