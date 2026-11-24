@@ -101,7 +101,7 @@ NpcPilotMinaGaitTest is the headless behaviour test. It writes a schema-2 runtim
 
 These ran through the lane, with receipts in **C:/ov/reports/npc_pilot_20261123/tests1**:
 
-- NpcPilotMinaGaitTest: 19 checks, PASS.
+- NpcPilotMinaGaitTest: 18 assertions, PASS. The wrapper counts the PASS summary as a nineteenth matching line.
 - CastResidentTest: 24/0.
 - CastClipPresentationTest: 43/0.
 - CastMovesLibraryTest: 184/0.

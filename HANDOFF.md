@@ -1,3 +1,18 @@
+# Companion and Mina qualification, November 24
+
+Evidence class: **INERT**
+
+PR #533 merged at **f14a205cb**. The companion passed 123 checks covering
+native typing, background save, outbox reconstruction and teardown. The
+same integration passed the audio and resident door lifetime checks.
+
+PR #534 integrates the Mina gait pilot from PR #532. The exact pilot
+passed 18 gait assertions, both Harukiya routes, 369 first-slice checks
+and 176 walking waypoints. The surface suite passed 818 checks with 23
+technically reviewed captures. Descent foot placement, a second rig
+family and the inherited bodega capacity hold remain open.
+[Qualification records](D:/ov_reports/orison_capture_typing_20261124/pr532_preflight/STATUS.md)
+
 # Route and radio qualification, November 24
 
 Evidence class: **INERT**
@@ -19,10 +34,9 @@ captures were compared with the previous packet. The final candidate
 matched all 17 protected paths and had zero gate regressions.
 [Radio receipts and retained failures](D:/ov_reports/broadcast_card_teardown_20261124/STATUS.md).
 
-One anonymous freed-capture diagnostic remains in the first-slice log.
-Claude is investigating the ambient radiator reply timer under the
-existing 3D sound order. The radio fixture verifies the radio lifetime
-fix independently. Human play and artistic acceptance are still open.
+The first-slice logs for PR #528 and PR #533 contain one anonymous
+freed-capture diagnostic. It was absent in the PR #534 run. Its source
+remains unidentified. Human play and artistic acceptance are open.
 
 # Orison stairs and frame pacing - November 24
 
