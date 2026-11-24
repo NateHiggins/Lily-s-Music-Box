@@ -118,12 +118,16 @@ def map_metres(obj):
     if 'custom_normal' in mesh.attributes: mesh.attributes.remove(mesh.attributes['custom_normal'])
     mesh.update()
 
-def guard_template(span, transition=None):
+def guard_template(span, transition=None, first_post=.025):
     groups={k:[] for k in materials}; feet=[]
-    count=math.ceil((span-.05)/.105)
-    for i in range(count+1):
-        x=.025+(span-.05)*i/count
-        heavy=i in [0,count]; size=.025 if heavy else .014
+    last_post=span-.025
+    count=math.ceil((last_post-first_post)/.105)
+    posts=[(first_post+(last_post-first_post)*i/count, i in (0,count))
+           for i in range(count+1)]
+    if first_post > .105:
+        posts.insert(0, (first_post*.5, False))
+    for x,heavy in posts:
+        size=.025 if heavy else .014
         groups['cast_iron'].append(box('ForgedUpright',(x,.540,0),(size,1.02,size),'cast_iron'))
         if heavy:
             groups['cast_iron'].append(box('SeatedFoot',(x,.014,0),(.050,.028,.065),'cast_iron',.003))
@@ -147,7 +151,7 @@ def guard_template(span, transition=None):
 guards=[]; joins=[]; meshes=[]
 guard_templates={}
 
-def install_guard(kind, level, start, end, floor_owner, transition=None):
+def install_guard(kind, level, start, end, floor_owner, transition=None, first_post=.025):
     x,z=start
     dx,dz=end[0]-x,end[1]-z
     span=math.hypot(dx,dz)
@@ -155,9 +159,9 @@ def install_guard(kind, level, start, end, floor_owner, transition=None):
     prefix=f'{level}_LightCourtGuard_{kind}'
     # Share identical meshes across floors as in the original assembly.
     span=round(span,9)
-    key=(span,transition)
+    key=(span,transition,first_post)
     if key not in guard_templates:
-        guard_templates[key]=guard_template(span,transition)
+        guard_templates[key]=guard_template(span,transition,first_post)
     templates,feet=guard_templates[key]
     for template in templates:
         source=template.copy()
@@ -196,7 +200,10 @@ for level in ['F01','F02','F03','F04','F05','F06']:
                  if row['id'] == level+'_SERVICE_ENTRY_PLATFORM'), None)
     z = deck['rect'][3]-.045 if deck else 4.955
     owner = deck['id'] if deck else level+'_SERVICE_LANDING'
-    install_guard('ServiceSide',level,(9.525,z),(10.55,z),owner)
+    # The F01 deck extends over the basement wall cap here. Seat its post
+    # on the clear deck, while retaining the rail and infill to the west edge.
+    first_post=.14 if level=='F01' else .025
+    install_guard('ServiceSide',level,(9.525,z),(10.55,z),owner,first_post=first_post)
 # Sloping handrails drop below the occupied roof edges away from the nose.
 install_guard('West','ROOF',(1.385,-1.945),(1.385,1.70),'ROOF_LIFT_DECK_E')
 install_guard('East','ROOF',(4.515,-1.945),(4.515,1.70),'ROOF_PUBLIC_LANDING_E')
