@@ -73,6 +73,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
 	await _check_household_receiver()
 	await _check_specialist_receivers()
+	await _check_card_receiver_teardown(order)
 	print("[V2 BROADCAST] RESULT: %s (%d failures)" % [
 			"PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
@@ -155,3 +156,45 @@ func _check_specialist_receivers() -> void:
 	for radio: Node in sets:
 		radio.queue_free()
 	await get_tree().process_frame
+
+
+func _check_card_receiver_teardown(order: Array[Dictionary]) -> void:
+	var carrier := AudioStreamGenerator.new()
+	var retired := AudioStreamPlayer3D.new()
+	var switched_off := AudioStreamPlayer3D.new()
+	var listening := AudioStreamPlayer3D.new()
+	for receiver in [retired, switched_off, listening]:
+		receiver.stream = carrier
+		add_child(receiver)
+
+	var logger := preload("res://tests/guide_bell_error_capture.gd").new()
+	OS.add_logger(logger)
+	Broadcast.break_every = 1
+	Broadcast.break_seconds = 0.7
+	Broadcast._started_msec = Time.get_ticks_msec() - roundi(float(order[0].length) * 1000.0) - 40
+	for receiver in [retired, switched_off, listening]:
+		var slot := Broadcast.join(receiver, -18.0)
+		_check("receiver joins the running card break on its carrier",
+				slot.get("break", false) and receiver.stream == carrier)
+
+	var retired_ref: WeakRef = weakref(retired)
+	Broadcast.restore_carrier(retired)
+	retired.free()
+	Broadcast.leave(switched_off)
+
+	var deadline := Time.get_ticks_msec() + 3200
+	while listening.get_meta("broadcast_record", "") != order[1].id and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	_check("the live receiver resumes on the next record",
+			listening.get_meta("broadcast_record", "") == order[1].id
+			and listening.stream == order[1].stream and listening.playing)
+	_check("the switched-off receiver stays silent",
+			not switched_off.playing and not switched_off.has_meta("broadcast_on"))
+	_check("the retired receiver stays freed without timer errors (%s)" % [logger.errors],
+			retired_ref.get_ref() == null and logger.errors.is_empty())
+	OS.remove_logger(logger)
+	for receiver in [switched_off, listening]:
+		Broadcast.restore_carrier(receiver)
+		receiver.queue_free()
+	Broadcast.break_every = 0
+	Broadcast.break_seconds = 0.0
