@@ -73,6 +73,8 @@ func _build_visual() -> void:
 	var board := make_box(Vector3(4.35, 0.55, 0.05),
 			Vector3(0, -0.32, 1.05), BOARD_GREEN)
 	var paint := _pmat(BOARD_GREEN, 0.72)
+	# Flat sign-writer's paint: a low specular keeps a near lamp from glaring.
+	paint.metallic_specular = 0.2
 	board.material_override = paint
 	for sx in [-2.175, 2.175]:
 		var side := make_box(Vector3(0.05, 0.55, 1.02),
@@ -88,12 +90,10 @@ func _build_visual() -> void:
 		var panel := _charted_box(Vector3(0.02, 1.38, 0.50),
 				Vector3(-2.05 + face_sign * 0.085, 0.42, 0.62), BOARD_GREEN)
 		var pm := _pmat(BOARD_GREEN, 0.72)
+		pm.metallic_specular = 0.2
 		panel.material_override = pm
 		_cabinet_mats.append(pm)
-		var text := _gilt("HALF
-BAKED
-
-GROCERY", 46, 0.0030,
+		var text := _gilt("HALF\nBAKED\n\nGROCERY", 46, 0.0030,
 				Vector3(-2.05 + face_sign * 0.10, 0.42, 0.62))
 		text.rotation.y = face_sign * PI * 0.5
 	# -- two shaded gooseneck lamps over the board, steady incandescent
@@ -121,13 +121,16 @@ GROCERY", 46, 0.0030,
 		var lamp := SpotLight3D.new()
 		lamp.name = "GooseneckLamp"
 		var at := Vector3(x, -0.17, 1.40)
-		var aim := Vector3(x * 0.55, -0.40, 1.075)
+		# Aimed in toward the middle of the lettering, low and soft: a lamp
+		# 0.33 m off the board aimed at its own end burned a hot spot there.
+		var aim := Vector3(x * 0.2, -0.36, 1.075)
 		lamp.transform = Transform3D(Basis.looking_at(aim - at, Vector3.UP), at)
 		lamp.light_color = LAMP_WARM
-		lamp.light_energy = 1.0
+		lamp.light_energy = 0.55
 		lamp.spot_range = 2.6
-		lamp.spot_angle = 62.0
-		lamp.spot_attenuation = 1.4
+		lamp.spot_angle = 70.0
+		lamp.spot_attenuation = 1.0
+		lamp.spot_angle_attenuation = 2.0
 		lamp.shadow_enabled = false
 		add_child(lamp)
 
