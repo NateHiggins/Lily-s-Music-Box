@@ -203,10 +203,9 @@ func _route() -> void:
 					"lifted clear, the sack goes into the case")
 			_require(not sack.visible and sack.target_area.collision_layer == 0, "and the counter is clear")
 			door = world.conversations.with_errand(resident, world.conversations.trees[resident])
-			_require(door.nodes.has(ResidentConversations.ERRAND_THANKS), "the sack can be handed over at the door")
 			var short := errands.missing(resident)
-			var thanks := str(door.nodes[ResidentConversations.ERRAND_THANKS].line)
-			_require(short.is_empty() == thanks.begins_with("Put them down"), "the door's words match what is in the sack: " + thanks)
+			var answer := ResidentConversations.ERRAND_THANKS if short.is_empty() else ResidentConversations.ERRAND_SHORT
+			_require(door.nodes.has(answer), "the sack can be handed over at the door, answered as " + answer)
 			var sacked: Dictionary = RealityState.data.resident_errands[resident].sack.duplicate()
 			var paid := int(economy.book().cash)
 			_require(errands.deliver(resident), "the sack is handed over")
@@ -229,9 +228,9 @@ func _route() -> void:
 				"stage": "carried", "sack": {"milk": 4.0}}
 			PersonInventory.carry_goods(PersonInventory.PLAYER, ResidentErrands.sack_item(other), "Paper sack", ResidentErrands.SACK_FORM)
 			var short_door: Dictionary = world.conversations.with_errand(other, world.conversations.trees[other])
-			var line := str(short_door.nodes.get(ResidentConversations.ERRAND_THANKS, {}).get("line", ""))
-			_require(line.begins_with("There's no") and errands.larder.groceries.ingredients.butter.name in line,
-					"the resident notices what is missing: " + line)
+			var line := str(short_door.nodes.get(ResidentConversations.ERRAND_SHORT, {}).get("line", ""))
+			_require(not short_door.nodes.has(ResidentConversations.ERRAND_THANKS) and line.begins_with("That isn't all of it"),
+					"the resident notices something is missing: " + line)
 			var full_tip := int(economy.book().tips.get("errand:%s:%d" % [other, errands._day()], -1))
 			_require(full_tip == -1 and errands.deliver(other), "a short sack is still taken in")
 			var tip := int(economy.book().tips.get("errand:%s:%d" % [other, errands._day()], 0))
