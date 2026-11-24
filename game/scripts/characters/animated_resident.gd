@@ -72,7 +72,8 @@ func _ready() -> void:
 		_animation_player = _find_animation_player(_model)
 	if resident_id == "mina_vale":
 		var behavior := preload("res://scripts/characters/mina_animation_behavior.gd").new()
-		if behavior.install(_animation_player):
+		var gait_skeleton: Skeleton3D = cast_body.skeleton if cast_body != null else null
+		if behavior.install(_animation_player, gait_skeleton, CastBodies.cast_person(resident_id)):
 			mina_animation = behavior
 			preferred_idle = "mina_idle_calm"
 			preferred_walk = "mina_walk"
