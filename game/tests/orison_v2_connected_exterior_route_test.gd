@@ -128,15 +128,37 @@ func _capture_interaction(label: String) -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
 
-## Doors are grabbed and moved by hand since the direct-manipulation ruling
-## (RUL-013); the old interact key no longer offers them a prompt. A
-## storefront leaf meets its own shopfront a little short of the nominal
-## 100 degrees, so 86 is asked for: a full walk-through opening.
+## A full-size door answers a deliberate click since Lily's door ruling
+## (RUL-018, 2026-11-13): the click opens or shuts the leaf, which swings to
+## its own stop through the production tween and solid sweep. There is no grip
+## to drag and no [E] prompt. The ray and reach are still the player's own.
 func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
 	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
 	add_child(hand)
 	hand.player = player
 	player.set_mouse_released(false)
-	var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
+	var want_open := not leaf.open
+	player.camera.look_at(target)
+	await get_tree().physics_frame
+	player.camera.look_at(target)
+	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
+			player.camera.global_position - player.camera.global_basis.z * 2.1)
+	ray.collide_with_areas = true
+	ray.exclude = [player.get_rid()]
+	var node := world.get_world_3d().direct_space_state.intersect_ray(ray).get("collider") as Node
+	var matched := false
+	while node != null:
+		if node == leaf: matched = true
+		node = node.get_parent()
+	if not _require(matched and not player._grab.active(), "actual click ray reaches leaf: " + label):
+		hand.free()
+		return false
+	hand.click()
+	for frame in 180:
+		await get_tree().physics_frame
+		if not leaf._moving and not leaf._key_turning: break
 	hand.free()
-	return _require(moved, "actual grab, mouse motion and release: " + label)
+	var reached: bool = leaf.open == want_open and not player._grab.active() \
+			and absf(leaf._body.rotation.y - leaf.motion_target_angle(want_open)) < .01
+	if want_open: reached = reached and leaf.is_ready_for_passage()
+	return _require(reached, "actual click operates the leaf to its stop, open=%s: %s" % [want_open, label])

@@ -65,7 +65,9 @@ class PatrolHand extends Node3D:
 		await get_tree().physics_frame
 		click()
 		if not player._grab.active():
-			print("[PATROL POINTER] acquisition refused at ",point," camera=",player.camera.global_position)
+			print("[PATROL POINTER] acquisition refused at ",point," camera=",player.camera.global_position,
+					" ray_hit=",player._grab.last_hit.get("collider")," hit_at=",player._grab.last_hit.get("position"),
+					" hit_path=",(player._grab.last_hit.get("collider") as Node).get_path() if player._grab.last_hit.get("collider") is Node else "")
 			return false
 		var picked: Dictionary=player._grab.target
 		if owner!=null and picked.owner!=owner:
