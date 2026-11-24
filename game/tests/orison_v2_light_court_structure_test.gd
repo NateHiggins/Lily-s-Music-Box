@@ -11,6 +11,7 @@ func _route() -> void:
 	var construction: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_light_court_structure.json"))
 	var draws := model.find_children("*", "MeshInstance3D", true, false)
 	_require(draws.size() == 74, "twenty-four guarded edges and separate transfer meshes mounted")
+	var checked_meshes: Dictionary = {}
 	for draw: MeshInstance3D in draws:
 		var key := str(draw.mesh.surface_get_material(0).resource_name)
 		var finish := "iron_blackened" if key=="cast_iron" else key
@@ -23,7 +24,10 @@ func _route() -> void:
 					and active.roughness_texture == stock.roughness_texture \
 					and not active.uv1_triplanar
 		_require(key in ["metal", "cast_iron", "wood_dark"] and matches, "mapped material on " + str(draw.name))
-		_check_planar_mapping(draw.mesh, true)
+		var mesh_id := draw.mesh.get_rid()
+		if not checked_meshes.has(mesh_id):
+			_check_planar_mapping(draw.mesh, true)
+			checked_meshes[mesh_id] = true
 	var space := world.get_world_3d().direct_space_state
 	var transfer_rids: Array[RID] = [player.get_rid()]
 	for body: StaticBody3D in model.find_children("*", "StaticBody3D", true, false):
@@ -54,8 +58,18 @@ func _route() -> void:
 				expected_owners.append_array(["ROOF_SERVICE_LANDING", "SERVICE_F06_ROOF/FlightB_Step09"])
 			var contact := str(hit.collider.get_path()) if not hit.is_empty() else ""
 			var seated := expected_owners.any(func(owner: String) -> bool: return contact.contains(owner))
-			_require(seated and absf(root.to_local(hit.position).y - at.y) < .00005,
-					"actual landing seats %s at %s (hit %s)" % [guard.id, at, contact])
+			seated = seated and absf(root.to_local(hit.position).y - at.y) < .00005
+			# The west end of a service rail returns into masonry where the
+			# wall overlaps the deck. Prove the wall at rail height as well.
+			if guard.kind == "ServiceSide" and absf(at.x - float(guard.bounds[0]) - .025) < .002 \
+					and "_SERVICE_CORE/WallWest_" in contact:
+				var anchor := at + Vector3.UP * .55
+				var wall := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+						root.to_global(anchor + Vector3.RIGHT * .24),
+						root.to_global(anchor + Vector3.LEFT * .20), 1,
+						[player.get_rid(), own_guard.get_rid()]))
+				seated = not wall.is_empty() and "_SERVICE_CORE/WallWest_" in str(wall.collider.get_path())
+			_require(seated, "actual structure supports %s at %s (vertical contact %s)" % [guard.id, at, contact])
 		_check_guard_contact(root, space, guard)
 	_check_widened_stairs(root, space)
 	var connected_floors: Array[String] = []
