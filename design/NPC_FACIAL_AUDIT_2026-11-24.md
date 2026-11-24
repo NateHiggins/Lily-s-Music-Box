@@ -146,5 +146,24 @@ Over the 550 authored dialogue lines the reading gives:
 46 lines carry a gesture. NpcMoodReadingTest is 17/0; its receipt is
 C:/ov/logs/face_20261124/m_mood.log.receipt.json.
 
+**Guard and native exchange.** These were added after Codex's intake review of PR 540.
+
+- A gesture now interrupts only a standing idle (clips 01, 02, 03 and 05) while the resident is not walking.
+  It declines, leaving the current pose playing, for a seated body (clip_06), a busy, reaching or looking-up
+  clip, or a clip a loop activity has borrowed.
+- Mina takes only her one-shot roles, and only while her own owner already holds her in a conversation.
+
+NpcMoodExchangeTest runs a real authored ResidentConversations exchange. Its receipt is
+C:/ov/logs/face_20261124/x_exchange.log.receipt.json, with 24 checks and 0 failures. It shows:
+
+- **Jonah:** his opening line reads as sadness, his face shows it, mina_strained plays on his body and his
+  idle clip_02 returns afterwards.
+- **Jonah seated:** he stays in clip_06 for the whole exchange, and a gesture asked for directly is declined.
+- **Mina:** a gesture is declined outside her owned conversation and nothing latches. Her recognition plays
+  inside one and gives way to her talk loop, and her owner still releases her.
+- **Stacy:** her staff body carries no clip player, her visible expression follows the reading (0.42 on its
+  shapes), and her hands do not move. She was tested in her standing at-ease pose; the full stage show needs
+  the composed bar world.
+
 This is a first draft for Lily to read in play. Dry humour rarely uses joke words, so amusement is
 under-read. All the weights are in the data file.
