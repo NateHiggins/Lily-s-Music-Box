@@ -22,11 +22,15 @@ func _route() -> void:
 	var shop: Node3D = world.exterior_cell.instance_node("SHOP_BODEGA")
 	if not _require(shop != null and Lighting.culled(shop), "the installed bodega lighting is culled"):
 		return
-	var lights := shop.find_children("*", "Light3D", true, false)
-	var shown := lights.filter(func(l): return l.is_visible_in_tree())
-	var shadowed := shown.filter(func(l): return l.shadow_enabled)
-	_require(lights.size() == 7 and shown.size() == 4 and shadowed.size() == 1,
-			"seven authored lights retained, four burn, one casts: %d/%d/%d" % [lights.size(), shown.size(), shadowed.size()])
+	# The template's seven practicals (the signboard's two lamps live here too).
+	var lights := shop.find_children("*", "Light3D", true, false).filter(func(l): return str(l.get_meta("authored_record_id", "")) != "")
+	var shown := lights.filter(func(l): return l.visible)
+	# Distant shadows are the far-light owner's; it manages only what still casts.
+	var managed: Array = world.far_light_shadows.rows.map(func(r): return r.light)
+	var casting := lights.filter(func(l): return managed.has(l))
+	_require(lights.size() == 7 and shown.size() == 4 and casting.size() == 1
+			and str(casting[0].get_meta("authored_record_id")) == "front_shop_practical",
+			"seven authored lights retained, four burn, the front pendant alone casts: %d/%d/%d" % [lights.size(), shown.size(), casting.size()])
 	var dark := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "ceiling_practical_back")
 	_require(dark != null and _unlit(dark), "the back pendant's bulb is dark")
 	world.player.set_physics_process(false)
