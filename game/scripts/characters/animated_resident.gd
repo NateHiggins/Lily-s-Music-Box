@@ -29,11 +29,16 @@ var mina_animation: MinaAnimationBehavior
 ## Distance matching on the generic path (NPC repair pilot, order w3473eaaf58a9): the walk is measured on the
 ## rebuilt body and played each frame at the rate that keeps its planted foot on the floor. Residents join in
 ## batches once the pilot qualifies; the rest keep the plain 1x walk.
-const GAIT_PILOT := ["malcolm_reed"]
+const GAIT_PILOT := ["malcolm_reed",
+		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
 var walk_gait: ClipGait
 ## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
-## pilot bodies first, one per cast base; everyone else joins in batches once it qualifies.
-const FEET_PILOT := ["mina_vale", "malcolm_reed"]
+## pilot bodies first, one per cast base; then batches (batch one by her ruling npc_feet_descent_backswing_20261124,
+## "widen to more residents"): two more of each base; batch two, three more of each. Everyone else joins later.
+const FEET_PILOT := ["mina_vale", "malcolm_reed",
+		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
 const WalkingFeet := preload("res://scripts/characters/walking_feet.gd")
 var walking_feet: Node
 var _ground_speed := 0.0
@@ -147,23 +152,46 @@ var _rules: RefCounted
 ## out of sight; the caller makes sure nobody is looking). True when the clothes changed. A refused change
 ## leaves the person as they were.
 func dress_for(dressing: Dictionary) -> bool:
-	if cast_body == null or not bool(cast_body.ready_ok):
+	var parts := outfit_change_for(dressing)
+	if parts.is_empty():
 		return false
+	var asked := _outfit_key
+	var changed := bool(cast_body.wear(parts))
+	# A wear that leaves the worn parts as they were (refused, or the outfit folds a part into another slot)
+	# would only repeat itself: not again until the dressing or the worn parts change.
+	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
+	worn.sort()
+	if var_to_str([dressing, worn]) == asked:
+		_outfit_parts = []
+	return changed
+
+
+var _outfit_key := ""
+var _outfit_parts: Array = []
+
+## The parts the wardrobe rules want for a dressing, or none when they are worn already or nothing applies.
+## The rules are a table lookup on the dressing alone, so the answer is kept until the dressing or the worn
+## parts change (frame time, 24 Nov: every resident asked on the same tick twice a second).
+func outfit_change_for(dressing: Dictionary) -> Array:
+	if cast_body == null or not bool(cast_body.ready_ok):
+		return []
 	if _rules == null:
 		_rules = WardrobeRules.new()
 		if not _rules.load_table():
 			_rules = null
-			return false
-	var who := CastBodies.cast_person(resident_id)
-	var outfit: String = _rules.choose(who, dressing)
-	var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
-	var wanted := parts.duplicate()
-	wanted.sort()
+			return []
 	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
 	worn.sort()
-	if parts.is_empty() or wanted == worn:
-		return false
-	return bool(cast_body.wear(parts))
+	var key := var_to_str([dressing, worn])
+	if key != _outfit_key:
+		var who := CastBodies.cast_person(resident_id)
+		var outfit: String = _rules.choose(who, dressing)
+		var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
+		var wanted := parts.duplicate()
+		wanted.sort()
+		_outfit_parts = [] if parts.is_empty() or wanted == worn else parts.duplicate()
+		_outfit_key = key
+	return _outfit_parts.duplicate()
 
 
 ## Restored at half strength (ruled 2026-08-05). A resident is never a
