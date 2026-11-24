@@ -4,6 +4,7 @@ const Frontier := preload("res://tests/street_frontier_points.gd")
 const Traffic := preload("res://scripts/characters/public_foot_traffic.gd")
 const Proposals := preload("res://scripts/characters/public_avoidance_proposals.gd")
 var public_traffic: Node3D
+var street_lamps: Node3D
 var production: Dictionary = {}
 var paired_solver_frames := 0
 var last_paired_frame := -1
@@ -45,13 +46,16 @@ func _mount_extra_exterior() -> bool:
 	exterior_cell=exterior
 	var frame:=Node3D.new(); frame.name="ProductionPavingFrame"; add_child(frame); owned.append(frame); frame.transform=production.registered_frame
 	frame.add_child(preload("res://scripts/building/orison_v2_front_pavement.gd").new())
-	return preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)!=null
+	street_lamps = preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)
+	return street_lamps != null
 
 func _registered_fixture() -> void:
 	await _proposal_contract()
 	public_traffic=Traffic.new()
 	if not _check(public_traffic.configure(self,exterior),"production public owner configures actual street frame"): return
 	add_child(public_traffic); owned.append(public_traffic)
+	public_traffic.register_lamp_posts(street_lamps)
+	_check(not public_traffic.solver._static_obstacles.is_empty(), "public avoidance registers fitted lamp collision outlines")
 	_boundary_contract()
 	await super._registered_fixture()
 	# All ordinary actors are held by fixture setup, not relocated in this check.
@@ -136,6 +140,7 @@ func _overflow_newcomer() -> void:
 	_check(int(public_traffic.stats.proposals)>0,"actual ordinary motor consumed production avoidance proposals")
 	public_traffic.shutdown()
 	_check(not public_traffic.solver.map.is_valid() and public_traffic.solver.agents.is_empty(),"production owner frees map/agents before preview retirement")
+	_check(public_traffic.solver._static_obstacles.is_empty(), "production owner releases lamp outlines before preview retirement")
 
 func _check_crossing(rhea: Node3D, incoming: Node3D) -> void:
 	var new_cues: int = rhea.squeeze.cue_count + incoming.squeeze.cue_count - courtesy_cues_before

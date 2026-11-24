@@ -43,6 +43,20 @@ func _ready() -> void:
 	process_physics_priority=-100; process_mode=Node.PROCESS_MODE_ALWAYS
 	solver.open()
 
+## The fitted lamp scene owns its collision sizes and coordinate frame.
+func register_lamp_posts(lamps: Node3D) -> void:
+	for child in lamps.find_children("*", "CollisionShape3D", true, false):
+		var collision := child as CollisionShape3D
+		var cylinder := collision.shape as CylinderShape3D
+		if cylinder == null or collision.disabled:
+			continue
+		var scale := collision.global_basis.get_scale().abs()
+		var radius := cylinder.radius * maxf(scale.x, scale.z)
+		var height := cylinder.height * scale.y
+		var base := collision.global_position - Vector3.UP * height * 0.5
+		if _inside(base, radius):
+			solver.add_static_cylinder(base, radius, height)
+
 func _live(body: Node3D) -> bool:
 	return is_instance_valid(body) and body.is_inside_tree() and body.is_visible_in_tree()
 

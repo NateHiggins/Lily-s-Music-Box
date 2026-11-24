@@ -26,6 +26,12 @@ var topic_is_present: Callable
 ## Stationary scenes can keep the fitted stand pose instead of a walking-rig idle.
 var use_cast_stand_pose := false
 var mina_animation: MinaAnimationBehavior
+## Distance matching on the generic path (NPC repair pilot, order w3473eaaf58a9): the walk is measured on the
+## rebuilt body and played each frame at the rate that keeps its planted foot on the floor. Residents join in
+## batches once the pilot qualifies; the rest keep the plain 1x walk.
+const GAIT_PILOT := ["malcolm_reed"]
+var walk_gait: ClipGait
+var _ground_speed := 0.0
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
 ## The rebuilt body's presentation when this resident wears one (CastBodies), else null.
@@ -79,6 +85,8 @@ func _ready() -> void:
 			preferred_walk = "mina_walk"
 		else:
 			push_error("Mina Gray Resolve batch is incomplete")
+	elif resident_id in GAIT_PILOT and cast_body != null and _animation_player != null and _animation_player.has_animation(preferred_walk):
+		walk_gait = ClipGait.measure(_animation_player, cast_body.skeleton, preferred_walk, CastBodies.cast_person(resident_id))
 	# The rebuilt body brings its own attention owner; a second one would fight it.
 	if cast_body == null:
 		attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
@@ -271,6 +279,7 @@ func _build_nameplate() -> void:
 func _process(delta: float) -> void:
 	if mina_animation:
 		mina_animation.update(delta)
+	_match_ground()
 	if externally_driven:
 		return
 	if mina_animation and (mina_animation.conversation_active or mina_animation.route_busy): return
@@ -290,6 +299,7 @@ func _process(delta: float) -> void:
 		_pace_direction *= -1.0
 		_pace_clock = 0.0
 	_set_walking(position.distance_to(before) > 0.0001)
+	_ground_speed = 0.48 if _walking else 0.0
 	if _walking:
 		rotation.y = lerp_angle(rotation.y,
 				PI * 0.5 if _pace_direction > 0 else -PI * 0.5,
@@ -304,7 +314,19 @@ func _set_walking(on: bool) -> void:
 	if _walking == on:
 		return
 	_walking = on
+	if not on and walk_gait != null and _animation_player != null:
+		_animation_player.speed_scale = 1.0
 	_play_named("walk" if on else "idle")
+
+
+## While a measured walk plays, its speed scale follows the clip's own planted-foot speed at its current point in
+## the cycle, so the foot stays where it landed.
+func _match_ground() -> void:
+	if walk_gait == null or not _walking or _ground_speed <= 0.0 or _animation_player == null:
+		return
+	if str(_animation_player.current_animation) != preferred_walk:
+		return
+	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed)
 
 
 func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
@@ -313,6 +335,7 @@ func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
 		mina_animation.set_motion(on, slope, metres_per_second)
 	else:
 		_set_walking(on)
+		_ground_speed = metres_per_second if on else 0.0
 
 
 ## Case beats may borrow the actor: the dialogue tree asks for roles like

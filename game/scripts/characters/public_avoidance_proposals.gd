@@ -4,6 +4,7 @@ extends RefCounted
 ## No navmesh, physics substitute, movement callback, or progress guarantee.
 var map: RID
 var agents: Dictionary = {}
+var _static_obstacles: Array[RID] = []
 var errors: Array[String] = []
 
 func open() -> void:
@@ -12,6 +13,24 @@ func open() -> void:
 	map = NavigationServer3D.map_create()
 	NavigationServer3D.map_set_up(map, Vector3.UP)
 	NavigationServer3D.map_set_active(map, true)
+
+## Called once per fitted post in the public controller's registered bounds.
+func add_static_cylinder(base: Vector3, radius: float, height: float) -> void:
+	const SIDES := 16
+	var outline := PackedVector3Array()
+	var outline_radius := radius / cos(PI / SIDES)
+	for index in range(SIDES):
+		var angle := TAU * float(index) / SIDES
+		outline.append(Vector3(cos(angle), 0.0, sin(angle)) * outline_radius)
+	var obstacle := NavigationServer3D.obstacle_create()
+	NavigationServer3D.obstacle_set_use_3d_avoidance(obstacle, false)
+	NavigationServer3D.obstacle_set_avoidance_layers(obstacle, 1)
+	NavigationServer3D.obstacle_set_height(obstacle, height)
+	NavigationServer3D.obstacle_set_position(obstacle, base)
+	NavigationServer3D.obstacle_set_vertices(obstacle, outline)
+	NavigationServer3D.obstacle_set_map(obstacle, map)
+	NavigationServer3D.obstacle_set_avoidance_enabled(obstacle, true)
+	_static_obstacles.append(obstacle)
 
 ## Complete snapshot rows: id, feet, preferred, steer, player.
 ## For unsteered bodies preferred MUST be observed actual velocity (zero if parked).
@@ -93,6 +112,10 @@ func _remove(key: int) -> void:
 func close() -> void:
 	for key in agents.keys():
 		_remove(key)
+	for obstacle: RID in _static_obstacles:
+		NavigationServer3D.obstacle_set_map(obstacle, RID())
+		NavigationServer3D.free_rid(obstacle)
+	_static_obstacles.clear()
 	if map.is_valid():
 		NavigationServer3D.map_set_active(map, false)
 		NavigationServer3D.free_rid(map)
