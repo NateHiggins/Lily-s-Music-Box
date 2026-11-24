@@ -29,10 +29,12 @@ import intake
 # list limit and join are unchanged. resident_conversations.gd adds one fixed line on a
 # new node, errand:short, for a sack that came back short; its ask/thanks/wait text,
 # the list slip and the gift and parcel joins are unchanged.
+# Renewed 2026-11-24 (save boundary): lay() and deliver() commit atomically; list_words,
+# LIST_LIMIT, SHOP and every spoken template are unchanged.
 PROVIDERS = {
     'game/scripts/game/resident_conversations.gd': '292cb6757085d487c2e8ed158517da4dbcbb823b226a3a3f8b42f58e99c73e05',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
-    'game/scripts/game/resident_errands.gd': '692400fdafbe5781bdd029ad445ff88fc1fd2645d2fe00bdce83e36cb7e3c2a1',
+    'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
     'game/scripts/game/kitchen_larder.gd': 'acb3db1b323c86e48352f6aa91749c9da6e1ad3ed1383b0ba7118c13054ecc89',
     'game/scripts/audio/orison_v2_music_library.gd': '53d2c208f2e953f15b1425e2399991f0357aae194d3754d4d44645e2d981bd88',

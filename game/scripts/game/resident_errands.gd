@@ -20,8 +20,10 @@ const LIST_PREFIX := "errand_list:"
 const SACK_PREFIX := "errand_sack:"
 const LIST_FORM := "card"
 const SACK_FORM := "parcel"
-## stage: "list" in the case, "sack" waiting on the counter, "carried" in the case.
-const STAGES := ["list", "sack", "carried"]
+## stage: "list" in the case; "filling" while the counter packs it (the list is
+## still in the case, and the saved sack holds every paid pack); "sack" waiting
+## on the counter; "carried" in the case.
+const STAGES := ["list", "filling", "sack", "carried"]
 
 var larder: KitchenLarder
 var economy: Node
@@ -159,19 +161,25 @@ func sack_waiting() -> String:
 
 
 func can_lay(resident: String) -> bool:
-	return has_open(resident) and stage(resident) == "list" and sack_waiting() == "" \
+	return has_open(resident) and stage(resident) in ["list", "filling"] and sack_waiting() == "" \
 			and PersonInventory.goods_count(PersonInventory.PLAYER, list_item(resident)) > 0
 
 
 ## The list goes on the counter and the counter fills a sack, line by line through
 ## the shop's own settlement: stock, the radio and the ledger refuse as they would at
-## the lever, and a refused line stays out of the sack. If nothing at all can be
-## packed, the list stays in the case.
+## the lever, and a refused line stays out of the sack. Each pack is one settlement
+## whose single commit saves the debit, the stock unit and the saved sack together, so
+## an interrupted fill resumes from the last saved pack and never pays twice. If
+## nothing at all can be packed, the list stays in the case.
 func lay(resident: String, sales: ShopSales) -> bool:
 	if not can_lay(resident) or sales == null or sales.shop_id != SHOP:
 		return false
 	var errand: Dictionary = _book()[resident]
-	var sack := {}
+	var was_stage := str(errand.stage)
+	if not errand.has("sack"):
+		errand.sack = {}
+	var sack: Dictionary = errand.sack
+	errand.stage = "filling"
 	for item: String in errand.items:
 		var record := sales.stock_record(item)
 		if record.is_empty() or str(record.get("kind", "")) != "grocery":
@@ -183,20 +191,21 @@ func lay(resident: String, sales: ShopSales) -> bool:
 		while float(sack.get(item, 0.0)) + 0.0001 < wanted:
 			if sales.transaction_status(item) != "available":
 				break
-			var packed := sales.transact_delivering(item, SHOP, func() -> bool:
-				# The sale put the pack in the pockets; it goes into the sack instead.
-				PersonInventory.lose(PersonInventory.PLAYER, item, pack)
+			var packed := sales.transact_into(item, SHOP, func(_record: Dictionary) -> bool:
 				sack[item] = float(sack.get(item, 0.0)) + pack
 				return true)
 			if not packed:
 				break
 	if sack.is_empty():
+		# Nothing was paid for or saved; the list stays as it was.
+		errand.stage = was_stage
+		errand.erase("sack")
 		return false
-	if not PersonInventory.spend_goods(PersonInventory.PLAYER, list_item(resident)):
-		return false
+	# The sack goes on the counter and the list leaves the case in one commit.
 	errand.stage = "sack"
-	errand.sack = sack
-	RealityState.commit()
+	if not PersonInventory.spend_goods(PersonInventory.PLAYER, list_item(resident)):
+		errand.stage = "filling"
+		return false
 	sack_changed.emit()
 	return true
 
@@ -255,7 +264,9 @@ func _completeness(errand: Dictionary) -> float:
 	return total / float(errand.items.size())
 
 
-## The sack passes from the case to the resident's bag, contents and all.
+## The sack passes from the case to the resident's bag, contents and all. The sack
+## leaving the case, the resident's groceries, the errand's end and its one tip are
+## saved in a single commit.
 func deliver(resident: String) -> bool:
 	if not can_deliver(resident):
 		return false
@@ -265,16 +276,16 @@ func deliver(resident: String) -> bool:
 		for item: String in errand.items:
 			var amount := float(errand.items[item])
 			PersonInventory.lose(PersonInventory.PLAYER, item, amount)
-			PersonInventory.carry(resident, item, amount)
+			PersonInventory.carry(resident, item, amount, false)
 	else:
-		if not PersonInventory.spend_goods(PersonInventory.PLAYER, sack_item(resident)):
+		if not PersonInventory.spend_goods(PersonInventory.PLAYER, sack_item(resident), false):
 			return false
 		var sack: Dictionary = errand.get("sack", {})
 		for item: String in sack:
-			PersonInventory.carry(resident, item, float(sack[item]))
+			PersonInventory.carry(resident, item, float(sack[item]), false)
 		completeness = _completeness(errand)
 	errand.done = true
 	errand.day = _day()
-	economy.tip("errand:%s:%d" % [resident, _day()], resident, completeness, _clock.elapsed_minutes())
+	economy.tip("errand:%s:%d" % [resident, _day()], resident, completeness, _clock.elapsed_minutes(), false)
 	RealityState.commit()
 	return true
