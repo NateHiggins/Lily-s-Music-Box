@@ -43,6 +43,37 @@ func _route() -> void:
 		_require(loaded == Delivery.loaded_at(target) and loaded == (target < Delivery.UNPACKED),
 				"at %02d:%02d the handcart is %s" % [floori(target / 60.0), floori(fmod(target, 60.0)), "loaded" if loaded else "empty"])
 		await _capture_interaction("bodega_delivery_%04d" % int(target))
+	# Produce thins through the day: full at dawn, thin by midday, sparse by night;
+	# a thin pantry puts out a thinner display. No new nodes: visibility only.
+	var Produce: Dictionary = Delivery.Produce
+	_require(Delivery.produce_at(300.0, ShopStock.FULL) == Produce.FULL
+			and Delivery.produce_at(720.0, ShopStock.FULL) == Produce.THIN
+			and Delivery.produce_at(1200.0, ShopStock.FULL) == Produce.SPARSE
+			and Delivery.produce_at(300.0, ShopStock.THIN) == Produce.THIN
+			and Delivery.produce_at(120.0, ShopStock.FULL) == Produce.SPARSE,
+			"the produce curve: full at 05:00, thin at 12:00, sparse at 20:00 and before dawn; a thin pantry starts thin")
+	while world.shop_stock.level("bodega", "pantry") != ShopStock.FULL:
+		world.shop_stock.put_back("bodega", "pantry")
+	var aisle_1 := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "stock_aisle_1_top_03")
+	var aisle_2 := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "stock_aisle_2_top_03")
+	var window := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "stock_right_window_baskets")
+	if not _require(aisle_1 != null and aisle_2 != null and window != null, "the three produce displays are found"):
+		return
+	camera.global_position = shop.to_global(Vector3(0.0, 1.75, -2.6))
+	camera.look_at(shop.to_global(Vector3(0.0, 1.0, -6.0)))
+	var expected := {300.0: [true, true], 720.0: [true, false], 1200.0: [false, false]}
+	for target: float in expected:
+		var clock: CampaignClock = world.campaign_clock
+		var ahead := fposmod(target - clock.minute_of_day(), 1440.0)
+		clock.advance_to(clock.elapsed_minutes() + ahead)
+		delivery.refresh()
+		world.exterior_cell.refresh_shop_presentation()
+		for frame in 10:
+			await RenderingServer.frame_post_draw
+		var want: Array = expected[target]
+		_require(window.visible and aisle_1.visible == bool(want[0]) and aisle_2.visible == bool(want[1]),
+				"at %02d:%02d the produce shows window %s, aisle one %s, aisle two %s" % [floori(target / 60.0), floori(fmod(target, 60.0)), window.visible, aisle_1.visible, aisle_2.visible])
+		await _capture_interaction("bodega_produce_%04d" % int(target))
 	_require(delivery.get_child_count() >= 2 and delivery.find_children("*", "Timer", false, false).size() == 1
 			and not delivery.is_processing() and not delivery.is_physics_processing(),
 			"the load is polled by a slow timer, not every frame")
