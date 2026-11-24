@@ -227,5 +227,23 @@ regressions are the surface qualification and the first-slice and other runtime
 receipts: any change under **game/scripts** or **game/data** changes the runtime-input
 digest those receipts bind, and they are renewed at integration.
 
+Save boundary (Codex's intake of **81cec294f**). Each pack is one settlement through
+**ShopSales.transact_into**, whose single commit saves the debit, the stock unit and the
+saved sack. A durable **filling** stage resumes an interrupted fill. Delivery commits
+once with its tip (**PersonInventory.carry** and **spend_goods** take an opt-in persist
+flag). **boundary/shop_counters.log.receipt.json** (commit **bb72af8b8**, exit 0) records
+the proof:
+
+- Every disk write during the fill and the delivery was checked.
+- The save was crashed on the second pack's write and reloaded: exactly the first pack
+  was paid, 8 cents.
+- The fill was retried: each pack paid once, 58 of 58 cents, with stock exact.
+- The save was crashed on the delivery's write and reloaded: the sack was still in the
+  case and no tip had been paid.
+- The delivery was retried and reloaded: one tip.
+
+The sign glare fix (**7f8d05f97**) re-rendered in **glare/signage.log.receipt.json**; it
+fails only the "persistent facts" check that also fails on main.
+
 Not run here: the resident route and queue suites and the surface packet, which Codex
 qualifies against the merged tree.
