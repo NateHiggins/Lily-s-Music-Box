@@ -373,10 +373,14 @@ func _errand_save_boundary(errands: ResidentErrands, item_use: ItemUse, economy:
 	await _stand_before(bodega)
 	var original_path := RealityState.save_path
 	var original_persistence := RealityState.persistence_enabled
-	var path := "user://bodega_errand_boundary_save.json"
+	# A fresh file each run: a backup left by an earlier run is a recovery case.
+	var path := "user://bodega_errand_boundary_%d.json" % Time.get_ticks_usec()
 	RealityState.save_path = path
 	RealityState.persistence_enabled = true
-	if not _require(RealityState.save_game(), "the boundary starts from a real disk save"):
+	var saved := RealityState.save_game()
+	if not saved:
+		print("[SHOP COUNTERS] boundary save refused: ", RealityState._last_save_result)
+	if not _require(saved, "the boundary starts from a real disk save"):
 		RealityState.save_path = original_path; RealityState.persistence_enabled = original_persistence
 		return
 	var start := {"cash": int(economy.book().cash), "stock": {}, "pockets": {}, "records": {}, "resident": {},
@@ -486,4 +490,5 @@ func _errand_save_boundary(errands: ResidentErrands, item_use: ItemUse, economy:
 	_require(watch.faults.is_empty(), "every saved snapshot across the boundary is whole: %s" % [watch.faults])
 	RealityState.save_path = original_path
 	RealityState.persistence_enabled = original_persistence
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	for suffix: String in ["", ".bak", ".tmp"]:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path + suffix))
