@@ -130,7 +130,10 @@ func run() -> void:
 		# The same climb without the stage, for the comparison.
 		actor.walking_feet.active = false
 		var off: Dictionary = await _walk(actor, STAIR_X + 0.2, 3.5, 0.55, RISE / TREAD)
-		details[id] = {"level": level, "stair_on": on, "stair_off": off}
+		var per_frame := float(actor.walking_feet.cost_usec) / maxf(float(actor.walking_feet.worked_frames), 1.0)
+		details[id] = {"level": level, "stair_on": on, "stair_off": off, "usec_per_frame": snappedf(per_frame, .1),
+				"rays_per_frame": snappedf(float(actor.walking_feet.rays) / maxf(float(actor.walking_feet.worked_frames), 1.0), .01)}
+		check(per_frame < 250.0, "%s: the stage costs %.0f us a frame while walking" % [id, per_frame])
 		check(float(on.sink_median) < float(off.sink_median) - 0.03,
 				"%s's feet stand on the treads, not in them (sink median %.3f m with, %.3f m without)" % [id, float(on.sink_median), float(off.sink_median)])
 		actor.set_route_motion(false, 0.0, 0.0)

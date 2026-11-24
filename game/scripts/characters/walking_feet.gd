@@ -44,6 +44,9 @@ var last_offsets := [0.0, 0.0]
 var last_reach_error := [0.0, 0.0]
 var last_hip := 0.0
 var rays := 0
+## The stage's own cost: frames it worked (walking, weight above zero) and the microseconds they took.
+var worked_frames := 0
+var cost_usec := 0
 ## Where the stage put the feet last frame, in the world: left toe, right toe, left heel, right heel. The engine
 ## restores the clip's pose after skinning, so this is the only readable record of the placed feet. Empty while the
 ## stage is at rest (the clip's own pose is then the true one).
@@ -77,6 +80,9 @@ func _process_modification() -> void:
 	var delta := clampf(float(now - _last_usec) / 1000000.0, 0.0, 0.1) if _last_usec > 0 else 0.016
 	_last_usec = now
 	apply(skeleton, _write, delta)
+	if weight >= 0.001:
+		worked_frames += 1
+		cost_usec += Time.get_ticks_usec() - now
 
 
 func _write(bone: int, pose: Transform3D, _layer: String) -> bool:

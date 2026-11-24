@@ -87,10 +87,27 @@ NpcPilotWalkingFeetTest is the headless test, and it writes a schema-2 runtime_c
 - the sink is lower than the same climb with the stage off;
 - Peter, outside the gate, has no stage.
 
+Lane runs, with receipts in **C:/ov/reports/npc_pilot_20261123/feet/tests**:
+
+- NpcPilotWalkingFeetTest: PASS.
+- NpcPilotGenericGaitTest: PASS.
+- NpcPilotMinaGaitTest: PASS.
+- CastResidentTest: 24/0.
+- CastClipPresentationTest: 43/0.
+
+OrisonV2ResidentWalkTest in the house:
+
+- **Mina:** 384.9 m and every stop but the known bodega hold, with stop timings identical to her run before foot
+  placement and no script errors.
+- **Malcolm:** every stop matches his earlier run to within a second, through the walk out. He reached the
+  1,500 s ceiling before the last leg home. Lily was using the machine heavily: both runs took about 30% more
+  wall time than before, while the stage measures 40 microseconds a frame. His full run is to repeat on a
+  quiet machine.
+
 ## 4. What is left
 
 - **Batches.** Add residents to FEET_PILOT (and to GAIT_PILOT for flat matching), qualify, then measure.
 - **Malcolm's descending back-swing.** It needs Lily's look before the batch.
-- **Cost.** It is two or three rays per foot each frame while walking. It is not yet measured on the
-  performance matrix.
+- **Cost.** Measured in NpcPilotWalkingFeetTest at about 40 microseconds a frame per walking body (4.9
+  rays). The stage works only while the route walks the body. It is not yet on the performance matrix.
 - **Earlier open items.** Mina's descent at the 3x rate bound and her climb's head pitch, as before.
