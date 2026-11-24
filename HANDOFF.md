@@ -12,6 +12,8 @@ The full-calendar audit checked all 365 dates and preserved his alibis.
 The newspaper contract passed 80 checks. The corrected Funeral Parlor and
 Hearthside Parlor Systems names were reviewed in the in-game issues.
 The story quotations, shop IDs and illustration paths retain their authority.
+The weather calendar now agrees with 21 corrected copies of the Loud Speaker's
+weather text. All weather conditions, forecast bulletins and fallout match main.
 Owner play and the separate whole-year print proof remain open.
 
 The composed first slice passed 369 checks and 176 walking waypoints,
