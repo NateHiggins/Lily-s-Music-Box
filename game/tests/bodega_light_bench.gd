@@ -31,6 +31,14 @@ func _route() -> void:
 	_require(lights.size() == 7 and shown.size() == 4 and casting.size() == 1
 			and str(casting[0].get_meta("authored_record_id")) == "front_shop_practical",
 			"seven authored lights retained, four burn, the front pendant alone casts: %d/%d/%d" % [lights.size(), shown.size(), casting.size()])
+	var practicals := {}
+	for light: Light3D in lights:
+		practicals[str(light.get_meta("authored_record_id"))] = light
+	# The signboard's own two lamps, separately: steady, unshadowed, both burning.
+	var sign_lamps: Array = shop.find_children("*", "Light3D", true, false).filter(
+			func(l): return str(l.get_meta("authored_record_id", "")) == "")
+	_require(sign_lamps.size() == 2 and sign_lamps.all(func(l): return l is SpotLight3D and l.visible and not l.shadow_enabled
+			and l.get_parent() is BodegaSignageProp), "the signboard's two lamps are the only other lights: %d" % sign_lamps.size())
 	var dark := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "ceiling_practical_back")
 	_require(dark != null and _unlit(dark), "the back pendant's bulb is dark")
 	world.player.set_physics_process(false)
@@ -52,6 +60,13 @@ func _route() -> void:
 			camera.make_current()
 			for frame in WARM:
 				await RenderingServer.frame_post_draw
+			if condition != "authored":
+				# Live, after the camera is placed and the distance owner has ticked.
+				var front: Light3D = practicals.get("front_shop_practical")
+				var spill: Light3D = practicals.get("storefront_spill")
+				_require(front.shadow_enabled and not spill.shadow_enabled
+						and world.far_light_shadows.get("enabled") == true,
+						"%s %s: in the shop the front pendant casts and the spill does not" % [condition, view])
 			var cpu: Array[float] = []
 			var gpu: Array[float] = []
 			var draws: Array[int] = []
