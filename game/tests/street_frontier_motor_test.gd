@@ -8,6 +8,8 @@ var street_lamps: Node3D
 var frontier: Dictionary = {}
 var frontier_started := false
 var player_minimum := INF
+var active_player_passes: Dictionary = {}
+var completed_player_passes: Dictionary = {}
 class OutsideBarRoute extends BarRoute:
 	# Only the real outside people predicate; this fixture has no bar/seat registry.
 	func clear_step(next: Vector3) -> bool:
@@ -80,6 +82,9 @@ func _finish() -> void:
 				await get_tree().physics_frame
 			_check(cam_alignment_observed,"Cam ordinarily clears fixed player and reaches actual shop alignment")
 			_check(routes[1].current_id==int(routes[1].identities.bar_street_1),"following guest ordinarily clears entrance to actual outside bar waypoint")
+			_check(completed_player_passes.has("cam_ortiz") and active_player_passes.is_empty(),
+					"Cam completes the cued pass and both residents separate from the unchanged player")
+			details.frontier_player_passes = completed_player_passes.duplicate(true)
 			details.frontier_final=_queue_state()
 		queue_watch=false
 		details.frontier_summary={"physics_frames":queue_frames,"minimum_peer_axis_distance_m":str(queue_minimum),"minimum_player_axis_distance_m":str(player_minimum)}
@@ -126,5 +131,31 @@ func _physics_process(delta: float) -> void:
 	for route: Node3D in routes:
 		var gap:=_axis_distance(route.actor.global_position+Vector3.UP*.95,.28,1.40,player._shape.global_position,player._capsule.radius,player._capsule.height)
 		player_minimum=minf(player_minimum,gap)
-		if gap<.28+player._capsule.radius-.00001: _check(false,"actual unchanged player capsule clears "+str(route.resident))
+		if not _observe_player_pass(route, gap):
+			_check(false, "any player overlap follows an authorized, cued pass: " + str(route.resident))
 		if absf(route.route_speed-1.05)>.00001: _check(false,"frontier retains normal1.05 speed")
+
+## Only the player contact is eligible for this exception. The parent still
+## checks every resident pair and the supported, native capsule sweep.
+func _observe_player_pass(route: Node3D, gap: float) -> bool:
+	var id := str(route.resident)
+	var frame := Engine.get_physics_frames()
+	if gap >= route._capsule.radius + player._capsule.radius - .00001:
+		if active_player_passes.has(id):
+			var witness: Dictionary = active_player_passes[id]
+			witness["separated_frame"] = frame
+			completed_player_passes[id] = witness
+			active_player_passes.erase(id)
+		return true
+	if active_player_passes.has(id):
+		return frame - int(active_player_passes[id].frame) < 10 * Engine.physics_ticks_per_second
+	var contact: Dictionary = route.squeeze._contacts.get(player.get_instance_id(), {})
+	var age := frame - int(contact.get("frame", -1))
+	var seconds := float(contact.get("seconds", 0.0))
+	if age < 0 or age > 1 or not is_finite(seconds) or seconds < route.squeeze.WAIT:
+		return false
+	if route.squeeze.cue_count <= 0 or not is_instance_valid(route.actor.get_node_or_null("PassingCourtesy")):
+		return false
+	active_player_passes[id] = {"frame": frame, "contact": contact.duplicate(), "first_gap_m": gap,
+			"cue_count": route.squeeze.cue_count}
+	return true
