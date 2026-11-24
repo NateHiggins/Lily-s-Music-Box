@@ -7,11 +7,17 @@ const POSITIONS := ["resident_wait_front", "resident_wait_rear", "resident_overf
 	"interior_arrival", "street_alignment"]
 const SHELF_TURN := "resident_shelf_turn"
 const SHELF_STOP := "resident_shelf_stop"
+## Cam's dawn delivery stands here, before the back-alcove handcart, clear of the
+## aisle bodies, the cooler and the crates (cam_restock_run_20261124). Never a
+## queue place or the service stance: it is reached only through transit holds.
+const RECEIVING_STOP := "resident_receiving_stop"
 ## Shop-local feet on the east retail aisle, beyond the rear queue station.
-const SHELF_POINTS := {SHELF_TURN: Vector3(1.08, .04, -4.30), SHELF_STOP: Vector3(.9, .04, -5.55)}
+const SHELF_POINTS := {SHELF_TURN: Vector3(1.08, .04, -4.30), SHELF_STOP: Vector3(.9, .04, -5.55),
+	RECEIVING_STOP: Vector3(.15, .04, -8.55)}
 const SERVICE_HOLDS := ["resident_wait_front", "resident_wait_rear", "resident_overflow"]
+## Appended, never inserted: callers address these holds by index.
 const TRANSIT_HOLDS := ["service_stance", "resident_wait_front", "resident_wait_rear",
-	"resident_overflow", "resident_overflow_approach", SHELF_STOP]
+	"resident_overflow", "resident_overflow_approach", SHELF_STOP, RECEIVING_STOP]
 const ARRIVAL_RADIUS := .06
 const HEIGHT_TOLERANCE := .3 # Same supported endpoint tolerance as the route owner.
 var _service := Passage.new()

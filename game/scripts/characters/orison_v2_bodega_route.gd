@@ -16,12 +16,13 @@ const EXT := "exterior_stance"
 const INT := "interior_arrival"
 const SHELF_TURN := Admission.SHELF_TURN
 const SHELF := Admission.SHELF_STOP
+const RECEIVING := Admission.RECEIVING_STOP
 const PUBLIC_STREET := "public_street"
 const PUBLIC_PAVEMENT := "public_pavement"
 const PUBLIC_TURN := "public_inbound_turn"
 const TRANSIT_HOLDS := Admission.TRANSIT_HOLDS
 const EDGES := [[ALIGN,OFA],[OFA,OF],[OF,EXT],[EXT,INT],[INT,ET],[ET,ST],
-	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE],[AR,SHELF_TURN],[SHELF_TURN,SHELF]]
+	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE],[AR,SHELF_TURN],[SHELF_TURN,SHELF],[SHELF,RECEIVING]]
 var route: Node3D
 var owner: Admission
 var errors: Array[String] = []
@@ -44,7 +45,7 @@ func attach(selected: Node3D) -> bool:
 		var identity := "bodega" if name == SERVICE else "bodega_route_%d" % {ALIGN:2,EXT:3,INT:4}[name]
 		if not route.identities.has(identity): return _fault("missing original bodega node " + identity)
 		_nodes[name] = int(route.identities[identity])
-	for name: String in Admission.POSITIONS + [SHELF_TURN, SHELF]:
+	for name: String in Admission.POSITIONS + [SHELF_TURN, SHELF, RECEIVING]:
 		var marker := owner.call("position_marker",name) as Node3D
 		if marker == null: return _fault("missing configured admission marker " + name)
 		if _nodes.has(name):
@@ -79,6 +80,10 @@ func bind_actor() -> bool:
 func initial_placement() -> Dictionary:
 	if not _enabled or route.destination != "bodega": return {"handled":false}
 	if not _bound: return {"handled":true,"ok":false,"reason":"actor not bound"}
+	if _delivery():
+		# A delivery begins at the handcart only if it is physically free; never a queue place.
+		if _point_clear(int(_nodes[RECEIVING])): return _initial_at(int(_nodes[RECEIVING]),"initial delivery stance")
+		return {"handled":true,"ok":false,"reason":"delivery stance occupied"}
 	var marker := owner.call("request_service",str(route.resident),route.actor) as Node3D
 	if marker != null:
 		_holding = str(marker.name)
@@ -141,6 +146,7 @@ func guide_path() -> bool:
 		if route.path.is_empty(): return _fault("mid-edge without committed next vertex")
 		route.path.resize(1); route.planned_id=route.desired_id; return true
 	if not wants: return _depart()
+	if _delivery(): return _deliver()
 	if _station == SHELF:
 		if route.bodega_shelf_stop: return _wait("reading the list at the bodega shelf")
 		return _depart()
@@ -165,6 +171,46 @@ func guide_path() -> bool:
 	var approach := _public_approach(int(route.current_id))
 	if approach.is_empty(): return _fault("no ordinary upstream approach")
 	return _start_ids(approach,"approach")
+
+## Cam's dawn delivery (cam_restock_run_20261124): a work block at the bodega.
+## No one else works there; the semantic place stays the route owner's.
+func _delivery() -> bool:
+	return route.destination == "bodega" and str(route.get("activity")) == "work" and not _cancelled
+
+## To the handcart through transit holds only: never a queue place, never the
+## service stance. A queued service request is dropped; a held stance is released
+## only once the body stands at the receiving stop.
+func _deliver() -> bool:
+	if _station == RECEIVING: return _wait("unloading the delivery at the bodega handcart")
+	if _station.is_empty():
+		if not _holding.is_empty():
+			if not bool(owner.call("release_service",str(route.resident),route.actor,false)): return _wait("queued request retained")
+			_holding = ""
+		if not _at(int(_nodes[OFA])):
+			var approach := _public_approach(int(route.current_id))
+			if approach.is_empty(): return _fault("no ordinary upstream approach")
+			return _start_ids(approach,"approach")
+		_station = OFA
+	var path := _delivery_path(_station)
+	if path.is_empty(): return _fault("no delivery itinerary from " + _station)
+	if not _people_path_clear(path): return _wait("delivery path occupied")
+	var slot := TRANSIT_HOLDS.find(_station)
+	var allowed: Array[int] = [slot]
+	if slot < 0 or owner.call("request_transit",str(route.resident),route.actor,allowed) == null: return _wait("delivery holding unavailable")
+	if not bool(owner.call("has_service",str(route.resident),route.actor)):
+		if not bool(owner.call("release_service",str(route.resident),route.actor,false)): return _wait("queued delivery retains service holding")
+		_holding = ""
+	return _transit(path,"delivery")
+
+func _delivery_path(at: String) -> Array:
+	var tail := [AF,AR,SHELF_TURN,SHELF,RECEIVING]
+	if at == SHELF: return [SHELF,RECEIVING]
+	if at == SERVICE: return [SERVICE,ST] + tail
+	if at == FRONT: return [FRONT] + tail
+	if at == REAR: return [REAR,AR,SHELF_TURN,SHELF,RECEIVING]
+	if at == OF: return [OF,EXT,INT,ET,ST] + tail
+	if at == OFA: return [OFA,OF,EXT,INT,ET,ST] + tail
+	return []
 
 ## The shared pavement turn remains available to a standing player. Grocery
 ## arrivals use their own authored corner, rather than pushing through her.
@@ -231,10 +277,13 @@ func _install_tail() -> bool:
 func _finish_leg() -> bool:
 	_station=str(_nodes.find_key(int(_leg[-1])))
 	if _leg_kind == "transfer" and not bool(owner.call("arrive_service",str(route.resident),route.actor)): return _wait("service foot acknowledgement pending")
-	if _leg_kind in ["entry","transfer","exit","shelf"]:
+	if _leg_kind in ["entry","transfer","exit","shelf","delivery"]:
 		if not bool(owner.call("release_transit",str(route.resident),route.actor,true)): return _wait("transit release pending")
 	if _leg_kind == "shelf":
 		if not bool(owner.call("release_service",str(route.resident),route.actor,true)): return _wait("service release pending after shelf arrival")
+		_holding=""
+	if _leg_kind == "delivery":
+		if not bool(owner.call("release_service",str(route.resident),route.actor,true)): return _wait("service release pending after delivery arrival")
 		_holding=""
 	if _leg_kind == "exit":
 		if not bool(owner.call("release_service",str(route.resident),route.actor,true)): return _wait("service release pending after physical exit")
@@ -256,6 +305,7 @@ func _transfer(at: String) -> Array:
 	return []
 
 func _exit(at: String) -> Array:
+	if at == RECEIVING: return [RECEIVING,SHELF,SHELF_TURN,AR,AF,ST,ET,INT,EXT,ALIGN]
 	if at == SHELF: return [SHELF,SHELF_TURN,AR,AF,ST,ET,INT,EXT,ALIGN]
 	if at == SERVICE: return [SERVICE,INT,EXT,ALIGN]
 	if at == FRONT: return [FRONT,AF,ST,ET,INT,EXT,ALIGN]
@@ -341,7 +391,7 @@ func cancel() -> bool:
 	_cancelled=true
 	if not _enabled or not _bound: return true
 	if not is_instance_valid(owner): return false # Missing state owner certifies no clearance.
-	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not owner.has_active_service_or_transit(str(route.resident), route.actor)
+	return _station not in [SHELF, RECEIVING] and _holding.is_empty() and _leg.is_empty() and not owner.has_active_service_or_transit(str(route.resident), route.actor)
 
 ## Include a queued-for-deletion presentation until it actually leaves the tree.
 ## Logical FIFO pruning is never evidence that its physical space is clear.

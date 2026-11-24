@@ -55,6 +55,9 @@ var shop_bucket_registry: Variant
 ## Optional: answers whether a shop has anything on its shelves. When bound, it
 ## wins over the bucket, which still counts resident visits but is never refilled.
 var stock_presence: Callable = Callable()
+## Optional per-visual refinement of a shop that has stock: (shop_id, authored
+## record id) -> shown. A shop with no stock hides every stock visual regardless.
+var stock_visual_filter: Callable = Callable()
 
 var _objective_tracker: ObjectiveTracker
 var _geometry_source: Dictionary = {}
@@ -265,7 +268,10 @@ func refresh_shop_presentation() -> Dictionary:
 		for raw: Variant in visuals:
 			var visual := raw as GeometryInstance3D
 			if is_instance_valid(visual):
-				visual.visible = has_stock
+				var shown := has_stock
+				if shown and stock_visual_filter.is_valid():
+					shown = bool(stock_visual_filter.call(shop_id, str(visual.get_meta("authored_record_id", ""))))
+				visual.visible = shown
 		var cell := instance_node(instance_id)
 		if is_instance_valid(cell):
 			cell.set_meta("presented_stock", int(state.get("stock", 0)))
