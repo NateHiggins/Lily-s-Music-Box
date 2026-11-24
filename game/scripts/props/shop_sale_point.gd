@@ -102,23 +102,33 @@ func _letter(parent: Node3D, label: String, text: String, at: Vector3, em: float
 	return result
 
 
-## Prints the counter slip the first time a hand finds any counter, if the set is on
-## to print it; remembered on the campaign so it is never issued twice.
-func teach() -> void:
-	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
-	if slips is Dictionary and bool(slips.get(SLIP_ID, false)):
-		return
+## Prints the counter slip the first time a hand finds any counter, if the set can
+## print it; remembered on the campaign once paper is issued, never issued twice.
+func teach() -> bool:
+	if issued():
+		return false
 	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
-	if player == null or player.carried_device == null \
-			or not player.carried_device.has_method("radio_is_powered") \
-			or not bool(player.carried_device.call("radio_is_powered")):
-		return
-	player.present_service_note(terminal, SLIP.duplicate())
+	# A call holds the set; a missing or unpowered printer cannot issue paper.
+	if player == null or player.call_locked or not is_instance_valid(player.carried_device) 			or not player.carried_device.has_method("print_telegram_card"):
+		return false
+	# The printer authority answers whether paper actually came out. Only then is
+	# the slip issued; otherwise the next time the hand finds a counter tries again.
+	if not bool(player.carried_device.call("print_telegram_card", SLIP.duplicate())):
+		return false
+	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
 	if slips is not Dictionary:
 		slips = {}
 	slips[SLIP_ID] = true
 	RealityState.data[SLIPS_KEY] = slips
 	RealityState.commit()
+	return true
+
+
+## Whether the counter slip has been issued on this campaign. A save from before
+## the slip existed has no field_slips and simply has not issued it.
+static func issued() -> bool:
+	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
+	return slips is Dictionary and bool(slips.get(SLIP_ID, false))
 
 
 func _selector_grip() -> Dictionary:
