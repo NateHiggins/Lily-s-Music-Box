@@ -1,3 +1,25 @@
+# Cam's dawn restock and newspaper spelling, November 24
+
+Evidence class: **INERT**.
+
+PR #550 brings Cam's 04:00 bodega restock and the newspaper house spelling
+into one release. The Triangle date retains its unseen-carrier exception.
+Cam's meal visit still works. His installed receiving walk passed 15 checks,
+including the loaded cart, release of his meal counter claim, and departure
+without joining a new queue. The pantry and stock clock passed 21 checks.
+The full-calendar audit checked all 365 dates and preserved his alibis.
+
+The newspaper contract passed 80 checks. The corrected Funeral Parlor and
+Hearthside Parlor Systems names were reviewed in the in-game issues.
+The story quotations, shop IDs and illustration paths retain their authority.
+Owner play and the separate whole-year print proof remain open.
+
+The composed first slice passed 369 checks and 176 walking waypoints,
+including the original radiator repair and reconstruction from disk.
+The physical-surface suite passed 818 checks with 23 paired views reviewed.
+The mail bank and watch station remain difficult to read at this exposure.
+[Release qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/paper_and_cam_5d0a7d2b/STATUS.md).
+
 # Resident foot placement and wardrobe, November 24
 
 Evidence class: **INERT**.
