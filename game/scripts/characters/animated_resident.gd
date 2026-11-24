@@ -308,6 +308,25 @@ func play_case_role(fragment: String) -> bool:
 	return false
 
 
+## A stage gesture while talking (ruling npc_face_mood_source_20261124). Only standing still, only a clip this body
+## has, and the clip it was playing comes back when the gesture is done. False when nothing was played.
+func stage_emote(clip: String) -> bool:
+	if _walking or cast_body == null:
+		return false
+	if mina_animation:
+		return mina_animation.speak(clip.trim_prefix("mina_"))
+	if _animation_player == null or not _animation_player.has_animation(clip):
+		return false
+	var resume := str(_animation_player.current_animation)
+	_animation_player.play(clip, 0.3)
+	var length := _animation_player.get_animation(clip).length
+	if resume != "" and resume != clip:
+		get_tree().create_timer(maxf(length - 0.3, 0.3)).timeout.connect(func() -> void:
+			if is_instance_valid(_animation_player) and str(_animation_player.current_animation) == clip and not _walking:
+				_animation_player.play(resume, 0.3))
+	return true
+
+
 func _play_named(fragment: String) -> void:
 	if mina_animation:
 		if fragment == "walk": mina_animation.set_motion(true)

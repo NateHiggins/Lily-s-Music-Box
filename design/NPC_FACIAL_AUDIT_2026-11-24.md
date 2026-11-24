@@ -106,10 +106,45 @@ The receipts that digest these sources need renewal by their owner.
   repo until Lily approves them, and runtime voice playback is a separate qualification step (see
   game/data/voice/README.md). The controller already takes cue files (`speak_cues`). The wiring from a
   playing line to its cues waits on voice playback.
-- **Layered expression from a mood owner.** The plan (design/NPC_BODIES_AND_PERFORMANCE_PLAN_2026-11-11.md,
-  section 3.6) calls for one small mood owner beside the conversation state. Dialogue nodes carry no emotion
-  tag today. Where a resident's feeling comes from (authored per line, or derived from trust and agenda) is a
-  ruling for Lily before anything is built.
 - **The closed-lid repair** in the base head, in Blender.
 - **A close conversation** reviewed at conversation distance and close up (plan section 8). Most
   conversations happen at a closed door. The pilot needs the door open or a luncheonette seat.
+
+## 5. Mood reading (ruling npc_face_mood_source_20261124)
+
+Lily ruled that feelings are to be read from mood, trust, temperament and the subject at hand, with the face
+exaggerated and stage-acting gestures added. This is now built: **MoodReading** (mood_reading.gd and
+mood_reading.json). It uses rules and weights only; no model is involved (RUL-015). For each line a resident
+says, it scores the eight expressions from:
+
+- **the line itself:** word and phrase cues matched whole, and its punctuation;
+- **trust:** the resident's trust in the player, warm at 3 and cold below 0;
+- **temperament:** the resident's traits in resident_motives.json, centred so that 0.5 leans neither way;
+- **the last exchange:** whether trust rose or fell since the previous line.
+
+The strongest feeling is shown at up to 1.7 times its written size. The controller now accepts intensities up
+to 2, and each shape still stops at its own full extent. Below the settle threshold the face rests on
+interest, as it did before.
+
+When a feeling is strong, the resident's actor plays a gesture from the shared cast clips. The new
+AnimatedResident.stage_emote plays it only while the resident stands still, never more often than every
+5 s, and returns to the clip it interrupted. Mina's gestures go through her own behaviour. The Harukiya staff
+get the face reading only, because their bodies keep their staged show poses.
+
+Over the 550 authored dialogue lines the reading gives:
+
+| Feeling | Lines |
+|---|---|
+| interest (including the resting face) | 294 |
+| recognition | 78 |
+| frustration | 65 |
+| sadness | 48 |
+| concern | 41 |
+| amusement | 19 |
+| surprise | 5 |
+
+46 lines carry a gesture. NpcMoodReadingTest is 17/0; its receipt is
+C:/ov/logs/face_20261124/m_mood.log.receipt.json.
+
+This is a first draft for Lily to read in play. Dry humour rarely uses joke words, so amusement is
+under-read. All the weights are in the data file.
