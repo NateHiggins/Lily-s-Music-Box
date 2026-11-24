@@ -203,7 +203,7 @@ Work order **w2005ff86065f** tracks the build.
 Runs from the short-path checkout **C:/ov/bodega** through **tools/lane.ps1**, with the
 patched editor **C:/devkit/orison-godot-4.7.1-motion-20261123**, a private APPDATA and
 windowed captures on the hidden desktop. Receipts are **.receipt.json** files beside each
-log under **D:/ov_reports/bodega_overhaul_20261124** (reached through **C:/ov/reports**).
+log under **C:/ov/reports/bodega_overhaul_20261124**.
 Wrapper receipts prove how a run ended; none is runtime-contract proof.
 
 | Run | Commit | Result | Receipt |
