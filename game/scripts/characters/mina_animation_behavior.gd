@@ -29,6 +29,11 @@ var motion_speed := 1.0
 var _one_shot := ""
 var _elapsed := 0.0
 var _duration := 0.0
+## Distance matching (ClipGait), measured on the body at install: travelling clips play at the rate whose planted
+## foot keeps pace with the route, frame by frame. Empty for a body without a skeleton handed in (the old shell).
+const TRAVELLING := ["mina_walk", "mina_walk_hurried", "mina_stairs_up", "mina_stairs_down", "mina_walk_start"]
+var gaits := {}
+var ground_speed := 0.0
 
 static func configure(animation_player: AnimationPlayer) -> bool:
 	if animation_player == null: return false
@@ -37,15 +42,21 @@ static func configure(animation_player: AnimationPlayer) -> bool:
 		animation_player.get_animation(clip).loop_mode = Animation.LOOP_LINEAR if CLIPS[clip] else Animation.LOOP_NONE
 	return true
 
-func install(animation_player: AnimationPlayer) -> bool:
+func install(animation_player: AnimationPlayer, skeleton: Skeleton3D = null, body_id := "") -> bool:
 	if not configure(animation_player): return false
 	player = animation_player
+	if skeleton != null:
+		for clip: String in TRAVELLING:
+			var gait := ClipGait.measure(player, skeleton, clip, body_id)
+			if gait != null: gaits[clip] = gait
 	_play(ROLES.idle)
 	return true
 
 func update(delta: float) -> void:
+	_match_ground()
 	if _one_shot.is_empty(): return
-	_elapsed += delta
+	# Clip time, not wall time: a distance-matched one-shot (the walk start) plays faster or slower than 1x.
+	_elapsed += delta * player.speed_scale
 	if _elapsed < _duration: return
 	_one_shot = ""
 	route_busy = false
@@ -57,10 +68,19 @@ func set_motion(on: bool, slope := 0.0, metres_per_second := 1.05) -> void:
 	# The route supplies real speed; stair timing follows the installed ramps.
 	var source_speed := .91 if motion_role == "hurried" else .88
 	motion_speed = clampf(metres_per_second / source_speed, .65, 1.8) if motion_role in ["walk", "hurried"] else 1.0
+	ground_speed = metres_per_second if on else 0.0
+	var gait: ClipGait = gaits.get(ROLES[motion_role])
+	if gait != null:
+		motion_speed = clampf(metres_per_second / gait.mean_rate(), ClipGait.MIN_SCALE, ClipGait.MAX_SCALE)
 	var changed := moving != on
 	moving = on
 	if conversation_active or route_busy: return
-	if changed:
+	if changed and not on and gaits.has("mina_walk"):
+		# The stop clip walks on for 3.7 s, but the route has already stopped the body: on a measured body its
+		# feet would slide the whole time. Settle straight into the idle instead.
+		_one_shot = ""
+		_resume()
+	elif changed:
 		_once("mina_walk_start" if on else "mina_walk_stop")
 	elif _one_shot.is_empty():
 		_resume()
@@ -118,6 +138,17 @@ func _once(clip: String) -> void:
 	_duration = player.get_animation(clip).length
 	_play(clip)
 
+## While she travels in a measured clip, hold its planted foot to the ground: the speed scale follows the clip's
+## own ground speed at its current point in the cycle.
+func _match_ground() -> void:
+	if not moving or ground_speed <= 0.0 or conversation_active or player == null:
+		return
+	if not _one_shot.is_empty() and not gaits.has(_one_shot):
+		return
+	var gait: ClipGait = gaits.get(str(player.current_animation))
+	if gait != null:
+		player.speed_scale = gait.scale_for(player.current_animation_position, ground_speed)
+
 func _resume() -> void:
 	if conversation_active:
 		_play(ROLES.talk)
@@ -128,6 +159,10 @@ func _resume() -> void:
 
 func _play(clip: String, speed := 1.0) -> void:
 	if player.current_animation == clip and player.is_playing():
+		# A travelling clip already under way keeps its distance-matched rate; the route calls in every frame.
+		var gait: ClipGait = gaits.get(clip)
+		if gait != null and moving and ground_speed > 0.0 and not conversation_active:
+			speed = gait.scale_for(player.current_animation_position, ground_speed)
 		player.speed_scale = speed
 		return
 	player.speed_scale = speed

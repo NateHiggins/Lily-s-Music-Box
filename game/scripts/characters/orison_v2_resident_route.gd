@@ -279,6 +279,19 @@ func _node_for(place: String) -> String:
 func _speed() -> float:
 	return 1.05
 
+## Climbing pace on a stair edge, metres a second along the floor plan. A person on the house's stairs
+## (rise 0.16, tread 0.285) takes under two treads a second; at the level pace the stair clip would have to
+## play three times over to keep its feet on the treads (NPC repair pilot, order w3473eaaf58a9).
+const STAIR_PACE := 0.55
+const STAIR_SLOPE := .08
+
+## The pace for the edge from `from` to `target`: the stair pace where it climbs or descends. A cap on the step,
+## like the squeeze's; the member route_speed stays the base pace that traffic and the receipts read.
+func _pace_on(from: Vector3, target: Vector3) -> float:
+	var edge := target - from
+	var stair := absf(edge.y) > STAIR_SLOPE * maxf(Vector2(edge.x, edge.z).length(), .01)
+	return minf(_speed(), STAIR_PACE) if stair else _speed()
+
 ## A resident far from the player, or on another storey, steps every second physics tick with the two ticks' time
 ## (frame time, 20 Nov: the route step's floor ray and clearance query, run every tick for every resident and
 ## multiplied by physics catch-up, were the largest physics cost). Near the player every tick still steps.
@@ -420,6 +433,9 @@ func _route_tick(delta: float) -> void:
 		return
 	var next := _proposed_step(target, delta)
 	if squeeze.active(): next = at + (next-at).limit_length(delta * minf(route_speed, .65))
+	# On a stair the step is capped at the climbing pace, as the squeeze caps it; route_speed stays the base pace.
+	var pace := _pace_on(graph.get_point_position(current_id), target)
+	if pace < route_speed: next = at + (next-at).limit_length(delta * pace)
 	var proposed := next - at
 	if not next.is_finite() or absf(proposed.y) > .00001 or proposed.length() > delta*route_speed+.00001:
 		blocked_reason = "invalid walking velocity proposal"
@@ -483,8 +499,11 @@ func _route_tick(delta: float) -> void:
 	# Use the authored edge slope, rather than a single tread sample, so a
 	# flat tread doesn't alternate ordinary and stair clips every frame.
 	var edge := target - graph.get_point_position(current_id)
-	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01), route_speed)
 	var walked := next - at
+	# The animation is told the speed she actually stepped at (stair pace, squeeze or traffic slowing included),
+	# so a distance-matched clip keeps its planted foot on the floor.
+	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01),
+			Vector2(walked.x, walked.z).length() / delta if delta > 0.0 else route_speed)
 	if walked.length_squared() > .00001:
 		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(walked.x,walked.z),minf(1,delta*7))
 
