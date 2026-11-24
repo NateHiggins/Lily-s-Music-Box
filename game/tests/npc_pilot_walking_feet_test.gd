@@ -38,6 +38,35 @@ func _solid(size: Vector3, at: Vector3) -> void:
 	add_child(body)
 
 
+## A player-sized CharacterBody3D standing on the fifth tread and a RigidBody3D crate resting on the third, both on
+## layer 1 like the player and loose props, both in the feet's path.
+func _intruders() -> Array[Node]:
+	var bodies: Array[Node] = []
+	var player := CharacterBody3D.new()
+	var capsule := CollisionShape3D.new()
+	var capsule_shape := CapsuleShape3D.new()
+	capsule_shape.radius = 0.3
+	capsule_shape.height = 1.75
+	capsule.shape = capsule_shape
+	player.add_child(capsule)
+	player.collision_layer = 1
+	player.position = Vector3(STAIR_X + 4.5 * TREAD, 5 * RISE + 0.875, 0)
+	add_child(player)
+	bodies.append(player)
+	var crate := RigidBody3D.new()
+	crate.freeze = true
+	var box := CollisionShape3D.new()
+	var box_shape := BoxShape3D.new()
+	box_shape.size = Vector3(0.25, 0.3, 0.6)
+	box.shape = box_shape
+	crate.add_child(box)
+	crate.collision_layer = 1
+	crate.position = Vector3(STAIR_X + 2.5 * TREAD, 3 * RISE + 0.15, 0)
+	add_child(crate)
+	bodies.append(crate)
+	return bodies
+
+
 func _floor_at(x: float) -> float:
 	if x < STAIR_X:
 		return 0.0
@@ -56,6 +85,9 @@ func _walk(actor: Node3D, from_x: float, seconds: float, pace: float, slope: flo
 	var x := from_x
 	var t := 0.0
 	var sinks: Array[float] = []
+	## The lowest heel or toe joint's height above the floor under it: lifted onto something that is not the
+	## floor, it rises.
+	var hovers: Array[float] = []
 	var asked := 0.0
 	while t < seconds:
 		await get_tree().physics_frame
@@ -78,10 +110,12 @@ func _walk(actor: Node3D, from_x: float, seconds: float, pace: float, slope: flo
 		for p: Vector3 in placed:
 			deepest = maxf(deepest, (_floor_at(p.x) if slope != 0.0 else 0.0) - p.y)
 		sinks.append(deepest)
+		hovers.append(-deepest)
 		if actor.walking_feet != null:
 			asked = maxf(asked, absf(float(actor.walking_feet.last_offsets[0])))
 	sinks.sort()
-	return {"sink_median": snappedf(sinks[sinks.size() / 2], .001), "sink_p90": snappedf(sinks[sinks.size() * 9 / 10], .001),
+	hovers.sort()
+	return {"hover_p90": snappedf(hovers[hovers.size() * 9 / 10], .001), "hover_max": snappedf(hovers[hovers.size() - 1], .001),"sink_median": snappedf(sinks[sinks.size() / 2], .001), "sink_p90": snappedf(sinks[sinks.size() * 9 / 10], .001),
 			"largest_offset": snappedf(asked, .001), "frames": sinks.size()}
 
 
@@ -127,6 +161,18 @@ func run() -> void:
 		check(float(on.largest_offset) > 0.05, "%s on the stair: the tread under a foot is found (largest offset %.3f m)" % [id, float(on.largest_offset)])
 		check(int(pipeline.refused_writes) == 0 and actor.walking_feet.get_index() == pipeline.get_index() + 1,
 				"%s: the stage runs straight after the pose pipeline, which refuses no write (%d refused)" % [id, int(pipeline.refused_writes)])
+		# Bodies that are not the floor, on the stair in the feet's path: a player-sized body standing on a tread, and
+		# a loose crate resting on one. The feet must still follow the treads, as in the clear climb.
+		var intruders := _intruders()
+		for _frame in 2:
+			await get_tree().physics_frame
+		var crowded: Dictionary = await _walk(actor, STAIR_X + 0.2, 3.5, 0.55, RISE / TREAD)
+		for body: Node in intruders:
+			body.queue_free()
+		await get_tree().physics_frame
+		details[id + "_crowded"] = crowded
+		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.03,
+				"%s's feet follow the treads past a player body and a loose crate (hover p90 %.3f m, clear %.3f m)" % [id, float(crowded.hover_p90), float(on.hover_p90)])
 		# The same climb without the stage, for the comparison.
 		actor.walking_feet.active = false
 		var off: Dictionary = await _walk(actor, STAIR_X + 0.2, 3.5, 0.55, RISE / TREAD)

@@ -25,6 +25,11 @@ const PROBE := 0.6
 const LOOK_AHEAD := 0.12
 ## A foot is swinging when its toe is this much higher in the clip than the other one's.
 const SWING_LIFT := 0.015
+## The floor the route walks on: its rays use layer 1 and accept a face pointing at least this far up.
+const FLOOR_MASK := 1
+const FLOOR_NORMAL_Y := 0.45
+## How many moving bodies one floor ray may pass through before it gives up on that foot this frame.
+const PASS_THROUGH := 3
 ## How fast one foot's correction follows the floor under it.
 const FOOT_SECONDS := 0.06
 
@@ -107,12 +112,24 @@ func bind(body_actor: Node3D, profile: RefCounted) -> bool:
 	return true
 
 
+## The walking floor under `at`, read the way the resident route reads its own support: collision layer 1, an
+## up-facing face (normal.y of at least 0.45). The player and loose props share layer 1, so anything that moves (a
+## CharacterBody3D or a RigidBody3D) is passed through and the ray goes on to the floor beneath it.
 func _floor_under(world: World3D, at: Vector3, floor_y: float) -> float:
-	var query := PhysicsRayQueryParameters3D.create(Vector3(at.x, floor_y + PROBE, at.z), Vector3(at.x, floor_y - PROBE, at.z))
+	var query := PhysicsRayQueryParameters3D.create(Vector3(at.x, floor_y + PROBE, at.z), Vector3(at.x, floor_y - PROBE, at.z), FLOOR_MASK)
 	query.collide_with_areas = false
-	rays += 1
-	var hit := world.direct_space_state.intersect_ray(query)
-	return float(hit.position.y) if not hit.is_empty() else NAN
+	var passed: Array[RID] = []
+	for _attempt in PASS_THROUGH + 1:
+		query.exclude = passed
+		rays += 1
+		var hit := world.direct_space_state.intersect_ray(query)
+		if hit.is_empty():
+			return NAN
+		if hit.collider is CharacterBody3D or hit.collider is RigidBody3D or (hit.normal as Vector3).y < FLOOR_NORMAL_Y:
+			passed.append(hit.rid)
+			continue
+		return float(hit.position.y)
+	return NAN
 
 
 func apply(skeleton: Skeleton3D, write: Callable, delta: float) -> void:

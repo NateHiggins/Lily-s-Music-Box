@@ -38,6 +38,13 @@ Each frame while the route walks the body, the stage:
    bends instead of overreaching.
 4. Solves each leg as thigh and shin in the clip's own knee plane. The foot keeps the clip's orientation.
 
+The floor ray reads support the way the resident route does: collision layer 1 and an up-facing face (normal.y of
+at least 0.45). The player and loose props share layer 1, so a CharacterBody3D or RigidBody3D in the way is passed
+through to the floor beneath it. Codex raised this after intake. Before the fix, in NpcPilotWalkingFeetTest, a
+player-sized body and a loose crate on the stair lifted Mina's lowest foot to 0.325 m above the treads at p90,
+against 0.085 m on a clear stair. After it, the figures are 0.088 m for Mina and 0.103 m for Malcolm (clear:
+0.102 m).
+
 On a level floor both corrections are zero and the clip passes through unchanged. The stage eases out when the
 body stops. The engine restores the clip's pose after skinning, so the stage records where it placed the feet
 (`last_feet_world`) for tests and captures.
@@ -109,5 +116,5 @@ OrisonV2ResidentWalkTest in the house:
 - **Batches.** Add residents to FEET_PILOT (and to GAIT_PILOT for flat matching), qualify, then measure.
 - **Malcolm's descending back-swing.** It needs Lily's look before the batch.
 - **Cost.** Measured in NpcPilotWalkingFeetTest at about 40 microseconds a frame per walking body (4.9
-  rays). The stage works only while the route walks the body. It is not yet on the performance matrix.
+  rays) before the floor-ray fix, and about 60 under heavy machine load after it. The stage works only while the route walks the body. It is not yet on the performance matrix.
 - **Earlier open items.** Mina's descent at the 3x rate bound and her climb's head pitch, as before.
