@@ -12,6 +12,8 @@ var _held := false
 var _attempted := false
 var _lever_origin := Vector3.ZERO
 var last_status := ""
+## Called when the hand first finds the lever; the sale point prints its slip then.
+var on_found: Callable = Callable()
 
 func configure(service: Object, identity: String,
 		moving_lever: Node3D) -> bool:
@@ -22,6 +24,7 @@ func configure(service: Object, identity: String,
 	return target_area.get_child_count()>0
 
 func grip() -> Dictionary:
+	if on_found.is_valid():on_found.call()
 	if merchant==null or lever==null or _locked():return {}
 	return {"owner":self,"part":lever,"frame":self,"kind":"slide","axis":Vector3.BACK,
 		"minimum":0.,"maximum":TRAVEL,"gesture_travel_px":140.,"gesture_screen_axis":Vector2.DOWN,

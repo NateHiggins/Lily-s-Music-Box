@@ -78,6 +78,13 @@ func _route() -> void:
 	add_child(_hand)
 	_hand.player = player
 
+	# The counter's teaching slip: once, when the hand first finds a counter.
+	var slips := {"count": 0}
+	var SalePoint := preload("res://scripts/props/shop_sale_point.gd")
+	RealityState.data.erase(SalePoint.SLIPS_KEY)
+	player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
+		if str(card.get("title", "")) == str(SalePoint.SLIP.title):
+			slips.count += 1)
 	# Hardware: the real hand on the selector, then the lever.
 	var hardware: Node3D = points.hardware_paint
 	await _stand_before(hardware)
@@ -85,6 +92,8 @@ func _route() -> void:
 	var chosen: String = hardware.selected_item()
 	var moved: bool = await _slide_selector(hardware, 0.05)
 	_require(moved, "the real hand moves the selector")
+	_require(int(slips.count) == 1 and bool(RealityState.data.get(SalePoint.SLIPS_KEY, {}).get(SalePoint.SLIP_ID, false)),
+			"finding the first counter prints its slip once and remembers it: %d" % int(slips.count))
 	_require(hardware.selected_item() != chosen, "the selector walks the list")
 	chosen = hardware.selected_item()
 	var record: Dictionary = hardware.sales.stock_record(chosen)
@@ -128,6 +137,7 @@ func _route() -> void:
 	_require(bodega.flag.text == "SETTLED", "the Bodega's flag says settled: " + bodega.flag.text)
 	_require(PersonInventory.carried("player", item) > 0.0, "and goes in the bag")
 
+	_require(int(slips.count) == 1, "no other picker or lever reprints it: %d" % int(slips.count))
 	# News: ordinary stock at the counter and newspapers at the rack.
 	await _stand_before(points.news_cigars)
 	await _capture_interaction("shop_news_counter")

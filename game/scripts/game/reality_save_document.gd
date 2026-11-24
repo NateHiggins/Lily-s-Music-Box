@@ -36,6 +36,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("parcel_errands")
 	if candidate.has("otis_fountain") and not preload("res://scripts/props/otis_fountain.gd").valid(candidate.otis_fountain):
 		return _invalid_shape("otis_fountain")
+	if candidate.has("field_slips") and not _valid_field_slips(candidate.field_slips):
+		return _invalid_shape("field_slips")
 	if candidate.has("luncheonette_served") and not preload("res://scripts/props/luncheonette_counter.gd").valid(candidate.luncheonette_served):
 		return _invalid_shape("luncheonette_served")
 	if candidate.has("mail_orders") and not preload("res://scripts/game/mail_orders.gd").valid(candidate.mail_orders):
@@ -178,3 +180,13 @@ static func _whole_number(value: Variant) -> bool:
 
 static func _invalid_shape(key: String) -> Dictionary:
 	return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid saved field: " + key + "."}
+
+
+## Teaching slips already issued once: slip id -> true (shop_sale_point.gd).
+static func _valid_field_slips(value: Variant) -> bool:
+	if value is not Dictionary:
+		return false
+	for key: Variant in value:
+		if key is not String or value[key] is not bool:
+			return false
+	return true

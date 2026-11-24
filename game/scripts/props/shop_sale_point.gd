@@ -18,6 +18,14 @@ const SELECTOR_TRAVEL := 0.10
 const SELECTOR_AT := Vector3(-0.26, 0.0, 0.0)
 const PIXELS_PER_STOP := 16.0
 const MIN_GESTURE_PIXELS := 120.0
+## One teaching slip, once per campaign, the first time the hand finds a counter's
+## picker or lever (Bible VIII.5.l: an opaque handheld message and a crude drawing on
+## the field-slip printer). It never gates the sale: the counter works without it.
+const SLIPS_KEY := "field_slips"
+const SLIP_ID := "sale_point"
+const SLIP := {"title": "QUEENS MUTUAL / COUNTER",
+	"body": "THE PICKER WALKS THE LIST STOP\nTHE LEVER SETTLES IT STOP\n\n   [ <--- o ---> ]        |\n       pick one           o\n                          |   all the way\n                          v\n\nCARBON COMES BACK BY RADIO STOP",
+	"condition": "COUNTER COPY / ONE ISSUE", "stamp": "SERVICE NOTE"}
 
 var sales: ShopSales
 var item_ids: Array[String] = []
@@ -58,6 +66,7 @@ func configure(shop_sales: ShopSales, identities: Array[String]) -> bool:
 	stock.draw(lever, "TerminalLever")
 	if not terminal.configure(sales, item_ids[0], lever):
 		return false
+	terminal.on_found = teach
 	terminal.sale_result.connect(_on_sale)
 	selector = Node3D.new()
 	selector.name = "Selector"
@@ -93,7 +102,27 @@ func _letter(parent: Node3D, label: String, text: String, at: Vector3, em: float
 	return result
 
 
+## Prints the counter slip the first time a hand finds any counter, if the set is on
+## to print it; remembered on the campaign so it is never issued twice.
+func teach() -> void:
+	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
+	if slips is Dictionary and bool(slips.get(SLIP_ID, false)):
+		return
+	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
+	if player == null or player.carried_device == null \
+			or not player.carried_device.has_method("radio_is_powered") \
+			or not bool(player.carried_device.call("radio_is_powered")):
+		return
+	player.present_service_note(terminal, SLIP.duplicate())
+	if slips is not Dictionary:
+		slips = {}
+	slips[SLIP_ID] = true
+	RealityState.data[SLIPS_KEY] = slips
+	RealityState.commit()
+
+
 func _selector_grip() -> Dictionary:
+	teach()
 	if selector == null or item_ids.size() < 2:
 		return {}
 	return {"owner": self, "part": selector, "frame": self, "kind": "slide", "axis": Vector3.RIGHT,
