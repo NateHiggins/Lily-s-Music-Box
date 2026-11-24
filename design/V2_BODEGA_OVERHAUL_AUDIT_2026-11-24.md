@@ -156,9 +156,10 @@ the words at mount and keeps the source wording in its retained meta.
 - **bodega_sack.gd**: the sack stands on the counter. The real hand grabs it, mouse
   motion lifts it, and lifted clear it goes into the case (form parcel). Released short,
   it sets back down. It has no physics body and no per-frame work.
-- At the door the resident looks in the sack. A short sack gets "There's no ... in here.
-  Well. I'll manage without. Thank you." The tip's completeness is the share of the list
-  that came, inside the existing caps.
+- At the door the resident looks in the sack. A short sack is answered on its own node,
+  **errand:short**: "That isn't all of it. Never mind, I'll manage. Thank you." The voice
+  inventory reads it like the thanks and wait lines. The tip's completeness is the share
+  of the list that came, inside the existing caps.
 - Lists now keep to what the bodega sells, since 21 of the 73 larder ingredients are
   sold elsewhere and would always be short.
 - Errands taken before this change have no stage and keep the old pocket path.
