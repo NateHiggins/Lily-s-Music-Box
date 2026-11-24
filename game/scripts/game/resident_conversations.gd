@@ -124,6 +124,8 @@ const MYSTERY_MENU := "mystery_menu"
 const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
 const ERRAND_ASK := "errand:ask"
 const ERRAND_THANKS := "errand:thanks"
+## The sack came back short and the resident noticed (bodega_list_and_bag_20261124).
+const ERRAND_SHORT := "errand:short"
 const ERRAND_WAIT := "errand:wait"
 const PARCEL_ASK := "parcel:ask"
 const PARCEL_THANKS := "parcel:thanks"
@@ -483,7 +485,7 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 		if errands.ask(resident_id):
 			_print_list(resident_id, words)
 		return
-	if flag == ERRAND_THANKS:
+	if flag == ERRAND_THANKS or flag == ERRAND_SHORT:
 		errands.deliver(resident_id)
 		return
 	if flag == ERRAND_WAIT or flag == PARCEL_WAIT:
@@ -716,12 +718,13 @@ func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
 	var line := ""
 	if errands.can_deliver(resident_id):
 		topic = "I brought your groceries."
-		node_id = ERRAND_THANKS
-		line = "Put them down there. That's the lot. Thank you."
 		# The resident looks in the sack at the door (bodega_list_and_bag_20261124).
-		var short := errands.missing(resident_id)
-		if not short.is_empty():
-			line = "There's no %s in here. Well. I'll manage without. Thank you." % " or ".join(short)
+		if errands.missing(resident_id).is_empty():
+			node_id = ERRAND_THANKS
+			line = "Put them down there. That's the lot. Thank you."
+		else:
+			node_id = ERRAND_SHORT
+			line = "That isn't all of it. Never mind, I'll manage. Thank you."
 	elif errands.can_ask(resident_id):
 		topic = "Need anything from the shops?"
 		node_id = ERRAND_ASK
