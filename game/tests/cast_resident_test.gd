@@ -87,11 +87,22 @@ func run() -> void:
 	# Clothes by the wardrobe rules (the route calls this only while nobody is looking).
 	var at_home_parts: Array = (body.worn_parts() as Array).duplicate()
 	var cold_street := {"date": "1929-01-15", "hour": 10.0, "place": "street", "activity": "errand"}
+	var cold_plan: Array = actor.outfit_change_for(cold_street)
+	check(not cold_plan.is_empty() and body.worn_parts() == at_home_parts,
+			"planning street clothes leaves the current wardrobe untouched")
 	var changed: bool = actor.dress_for(cold_street)
 	await frames(2)
 	var street_parts: Array = (body.worn_parts() as Array).duplicate()
 	check(changed and street_parts != at_home_parts, "out on a January street he changes (%s -> %s)" % [at_home_parts, street_parts])
 	check(not actor.dress_for(cold_street), "the same situation changes nothing")
+	check(actor.outfit_change_for(cold_street).is_empty(), "settled street clothes need no more changes")
+	check(bool(body.wear(at_home_parts)) and body.worn_parts() == at_home_parts,
+			"a separate wardrobe change restores the initial clothes")
+	await frames(2)
+	check(actor.outfit_change_for(cold_street) == cold_plan,
+			"the same dressing is recalculated when the worn parts change")
+	check(actor.dress_for(cold_street) and body.worn_parts() == street_parts,
+			"the recalculated outfit can be applied again")
 	var home_late := {"date": "1929-01-15", "hour": 23.0, "place": "home", "activity": "rest"}
 	actor.dress_for(home_late)
 	await frames(2)

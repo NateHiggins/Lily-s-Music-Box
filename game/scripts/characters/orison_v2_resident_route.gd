@@ -662,14 +662,17 @@ const WARDROBE_PLACE := {"unit": "home", "harukiya_bar": "bar", "lobby": "lobby"
 func _dress_unseen() -> void:
 	if actor == null or actor.cast_body == null or not actor.visible and not outside:
 		return
-	if not outside and _observed():
-		return
 	var stamp: String = world.campaign_clock.datetime_string()
 	if stamp.length() < 13:
 		return
 	var place := destination.get_slice(":", 0)
 	var dressing := {"date": stamp.substr(0, 10), "hour": float(stamp.substr(11, 2)) + float(stamp.substr(14, 2)) / 60.0,
 		"place": str(WARDROBE_PLACE.get(place, "street")), "activity": "sleep" if activity == "sleeping" else activity}
+	# Ask the wardrobe first: the look (up to 12 rays) is only needed when the clothes would change.
+	if actor.outfit_change_for(dressing).is_empty():
+		return
+	if not outside and _observed():
+		return
 	actor.dress_for(dressing)
 
 func _observed() -> bool:
