@@ -62,7 +62,11 @@ func _route() -> void:
 	Input.parse_input_event(escape)
 	await get_tree().process_frame;await get_tree().process_frame
 	escape=InputEventKey.new();escape.keycode=KEY_ESCAPE;escape.pressed=false;Input.parse_input_event(escape)
-	if not _require(chalk._panel==null and not player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
+	print("[BAR ROUTE] after Escape panel=",chalk._panel," valid=",is_instance_valid(chalk._panel)," call_locked=",player.call_locked,
+			" mouse=",Input.mouse_mode," paused=",get_tree().paused," services_open=",player.pause_services.get("is_open") if player.pause_services else null)
+	# The player's own capture authority: a headless DisplayServer cannot
+	# capture the mouse, so Input.mouse_mode reads VISIBLE there regardless.
+	if not _require(chalk._panel==null and not player.call_locked and player.pointer_captured(),
 			"ordinary Escape restores movement and clears the original pool panel owner"):return
 	if not await DestinationRoutes.walk(bar,"pool_interaction","wc_approach",_walk_world,_require): return
 	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
