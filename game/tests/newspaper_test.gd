@@ -299,6 +299,17 @@ func _renamed_advertisers(catalog: NewspaperCatalog) -> void:
 				_check("%s is typeset on the %s back for %s" % [firm, paper, day],
 						panel.side == "back" and _set_in(texts, firm) and _set_in(texts, str(ad.headline)))
 				if not shots.is_empty() and DisplayServer.get_name() != "headless":
+					var signature: Label
+					for label: Label in panel._page.find_children("*", "Label", true, false):
+						if label.text.strip_edges().nocasecmp_to(firm) == 0:
+							signature = label
+							break
+					_check("%s has a printed signature" % firm, is_instance_valid(signature))
+					if is_instance_valid(signature):
+						panel._scroll.ensure_control_visible(signature)
+						await get_tree().process_frame
+						_check("%s signature is inside the captured viewport" % firm,
+								panel._scroll.get_global_rect().encloses(signature.get_global_rect()))
 					DirAccess.make_dir_recursive_absolute(shots)
 					await RenderingServer.frame_post_draw
 					var frame := get_viewport().get_texture().get_image()
