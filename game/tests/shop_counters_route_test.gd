@@ -142,9 +142,12 @@ func _route() -> void:
 	_require(int(economy.book().cash) < news_cash, "News charges its price")
 	await _newspaper_sales(economy)
 
-	# An errand, end to end, through the real conversations node.
+	# An errand, end to end (bodega_list_and_bag_20261124): the list comes from the
+	# door into the case, is laid on the bodega counter, the counter fills a sack
+	# through its own sales, the real hand lifts the sack, and it goes to the door.
 	var errands: ResidentErrands = world.conversations.errands
-	if _require(errands != null and errands.ready(), "errands are bound"):
+	var item_use: ItemUse = world.get_node("ItemUse")
+	if _require(errands != null and errands.ready() and item_use.errands == errands, "errands are bound to the counter"):
 		var resident := ""
 		for candidate: String in world.conversations.resident_ids():
 			if errands.can_ask(candidate):
@@ -161,17 +164,78 @@ func _route() -> void:
 			var door: Dictionary = world.conversations.with_errand(resident, world.conversations.trees[resident])
 			_require(door.nodes.has(ResidentConversations.ERRAND_ASK) and not errands.has_open(resident),
 					"offering the reply takes nothing down")
-			errands.ask(resident)
-			_require(not errands.can_deliver(resident), "an empty bag cannot deliver")
+			var list := ResidentErrands.list_item(resident)
+			_require(errands.ask(resident), "the list is written down and handed over")
+			_require(PersonInventory.goods_count(PersonInventory.PLAYER, list) == 1 and CarriedCase.place_of(list).size() > 0,
+					"the written list is a slip in the case")
 			for wanted: String in RealityState.data.resident_errands[resident].items:
-				PersonInventory.carry("player", wanted, float(RealityState.data.resident_errands[resident].items[wanted]))
+				_require(str(errands.larder.groceries.ingredients[wanted].shop) == "bodega", "the list keeps to the bodega's stock: " + wanted)
+			_require(not errands.can_deliver(resident), "a list alone cannot be delivered")
+			_require(item_use.verb_for(list) == "FOR THE BODEGA COUNTER", "away from the counter the list waits")
+			# Fill the bodega's shelves and the purse so the whole list can be packed.
+			for group: String in ["icebox", "pantry", "notions"]:
+				while world.shop_stock.units("bodega", group) < 40.0 and world.shop_stock.level("bodega", group) != "full":
+					world.shop_stock.put_back("bodega", group)
+			economy.book().cash = 2000
+			await _stand_before(bodega)
+			_require(item_use.verb_for(list) == "LAY THE LIST ON THE COUNTER", "at the counter the list is offered: " + item_use.verb_for(list))
+			var before_lay := int(economy.book().cash)
+			_require(item_use.use(list), "the list is laid on the counter")
+			_require(errands.sack_waiting() == resident and PersonInventory.goods_count(PersonInventory.PLAYER, list) == 0,
+					"the list is spent and a sack waits on the counter")
+			_require(int(economy.book().cash) < before_lay, "the sack is paid for through the counter's settlement")
+			var sack: Node3D = bodega.get_node("BodegaErrandSack")
+			_require(sack.visible and sack.target_area.collision_layer == 1, "the sack stands on the counter, offered to the hand")
+			await _capture_interaction("shop_bodega_sack")
+			await _hand.aim(sack.part.to_global(Vector3(0, sack.SIZE.y * 0.6, -sack.SIZE.z * 0.5)))
+			_hand.click()
+			var gripped: bool = player._grab.active() and player._grab.target.part == sack.part
+			if not gripped:
+				print("[SHOP COUNTERS] sack not grabbed; hit=", player._grab.last_hit)
+				if player._grab.active(): _hand.click()
+			_require(gripped, "the real hand takes hold of the sack")
+			if gripped:
+				var lifted: bool = await _hand._gesture_to(sack.LIFT)
+				if player._grab.active(): _hand.click()
+				_require(lifted and not player._grab.active(), "mouse motion lifts it and the next click lets go")
+			var sack_item := ResidentErrands.sack_item(resident)
+			_require(errands.stage(resident) == "carried" and CarriedCase.place_of(sack_item).size() > 0,
+					"lifted clear, the sack goes into the case")
+			_require(not sack.visible and sack.target_area.collision_layer == 0, "and the counter is clear")
+			door = world.conversations.with_errand(resident, world.conversations.trees[resident])
+			_require(door.nodes.has(ResidentConversations.ERRAND_THANKS), "the sack can be handed over at the door")
+			var short := errands.missing(resident)
+			var thanks := str(door.nodes[ResidentConversations.ERRAND_THANKS].line)
+			_require(short.is_empty() == thanks.begins_with("Put them down"), "the door's words match what is in the sack: " + thanks)
+			var sacked: Dictionary = RealityState.data.resident_errands[resident].sack.duplicate()
 			var paid := int(economy.book().cash)
-			_require(errands.can_deliver(resident), "a full bag can")
-			_require(errands.deliver(resident), "the list is handed over")
+			_require(errands.deliver(resident), "the sack is handed over")
 			_require(int(economy.book().cash) > paid, "the errand tips")
+			_require(PersonInventory.goods_count(PersonInventory.PLAYER, sack_item) == 0, "the sack leaves the case")
 			_require(not errands.can_ask(resident), "and not again today")
-			for wanted: String in RealityState.data.resident_errands[resident].items:
+			for wanted: String in sacked:
 				_require(PersonInventory.carried(resident, wanted) > 0.0, "the bag is the resident's: " + wanted)
+	# A short sack: the resident notices at the door, and the tip follows what came.
+	if errands != null and errands.ready():
+		var other := ""
+		for candidate: String in world.conversations.resident_ids():
+			if errands.larder.unit_of(candidate) != "" and not errands.has_open(candidate) \
+					and not RealityState.data.get("resident_errands", {}).has(candidate):
+				other = candidate
+				break
+		if _require(other != "", "a second household for the short sack"):
+			var whole := {"milk": 4.0, "butter": 1.0}
+			RealityState.data.resident_errands[other] = {"items": whole, "day": 0, "done": false,
+				"stage": "carried", "sack": {"milk": 4.0}}
+			PersonInventory.carry_goods(PersonInventory.PLAYER, ResidentErrands.sack_item(other), "Paper sack", ResidentErrands.SACK_FORM)
+			var short_door: Dictionary = world.conversations.with_errand(other, world.conversations.trees[other])
+			var line := str(short_door.nodes.get(ResidentConversations.ERRAND_THANKS, {}).get("line", ""))
+			_require(line.begins_with("There's no") and errands.larder.groceries.ingredients.butter.name in line,
+					"the resident notices what is missing: " + line)
+			var full_tip := int(economy.book().tips.get("errand:%s:%d" % [other, errands._day()], -1))
+			_require(full_tip == -1 and errands.deliver(other), "a short sack is still taken in")
+			var tip := int(economy.book().tips.get("errand:%s:%d" % [other, errands._day()], 0))
+			_require(tip > 0 and PersonInventory.carried(other, "butter") <= 0.0001, "half a list earns part of a tip, and no butter: %d" % tip)
 	_require(ResidentErrands.valid(RealityState.data.get("resident_errands", {})), "errands stay valid")
 	await _capture_interaction("shop_news_counter_after")
 

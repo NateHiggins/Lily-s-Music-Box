@@ -479,7 +479,9 @@ func _pay(resident_id: String, flag: String) -> bool:
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
 	if flag == ERRAND_ASK:
-		errands.ask(resident_id)
+		var words := errands.list_words(resident_id)
+		if errands.ask(resident_id):
+			_print_list(resident_id, words)
 		return
 	if flag == ERRAND_THANKS:
 		errands.deliver(resident_id)
@@ -716,6 +718,10 @@ func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
 		topic = "I brought your groceries."
 		node_id = ERRAND_THANKS
 		line = "Put them down there. That's the lot. Thank you."
+		# The resident looks in the sack at the door (bodega_list_and_bag_20261124).
+		var short := errands.missing(resident_id)
+		if not short.is_empty():
+			line = "There's no %s in here. Well. I'll manage without. Thank you." % " or ".join(short)
 	elif errands.can_ask(resident_id):
 		topic = "Need anything from the shops?"
 		node_id = ERRAND_ASK
@@ -753,6 +759,15 @@ func _print_ticket() -> void:
 	_print_card({"title": "CLAIM TICKET %d" % number,
 		"body": "PARCEL WALL AT MODEL LAUNDRY STOP\nFIND THE TAG STOP\n\n   _________\n  /   %d   |\n  \\_________|\n\nTAKE HOLD AND DRAW IT TOWARD YOU\nALL THE WAY STOP" % number,
 		"condition": "TICKET %d / TO THE DOOR" % number,
+		"stamp": "SERVICE NOTE"}, _last_player)
+
+
+## The written list, as the resident gave it (bodega_list_and_bag_20261124).
+func _print_list(resident_id: String, words: String) -> void:
+	var unit := errands.larder.unit_of(resident_id)
+	_print_card({"title": "GROCERY LIST / %s" % unit,
+		"body": "%s STOP\n\n    ______\n   |~~~~~~|\n   | ~~~  |  -->  [ COUNTER ]\n   |______|\n\nLAY IT ON THE BODEGA COUNTER STOP\nTAKE UP THE SACK STOP" % words.to_upper(),
+		"condition": "LIST %s / TO THE DOOR" % unit,
 		"stamp": "SERVICE NOTE"}, _last_player)
 
 

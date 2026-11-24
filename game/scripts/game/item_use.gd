@@ -15,11 +15,16 @@ const EARS_MINUTES := 480.0
 const POLL_SECONDS := 2.0
 const REMARK_SECONDS := 300.0
 const PAWN_REACH := 2.2
+const BODEGA_REACH := 2.2
 
 var catalogue: ShopCatalogue
 var player: PlayerController
 ## The grille. Within reach of it, a stack off the shelf is offered as a pledge.
 var pawn_point: Node3D
+## The bodega's counter. Within reach of it, a resident's list off the shelf is laid
+## on the counter and the counter fills their sack (bodega_list_and_bag_20261124).
+var bodega_point: Node3D
+var errands: ResidentErrands
 var _clock := CampaignClock.new()
 var _accumulator := 0.0
 
@@ -59,6 +64,16 @@ func at_pawn() -> bool:
 			and player.global_position.distance_to(pawn_point.global_position) <= PAWN_REACH
 
 
+func at_bodega() -> bool:
+	return is_instance_valid(bodega_point) and is_instance_valid(player) \
+			and player.global_position.distance_to(bodega_point.global_position) <= BODEGA_REACH
+
+
+func can_lay_list(item: String) -> bool:
+	return item.begins_with(ResidentErrands.LIST_PREFIX) and errands != null and at_bodega() \
+			and errands.can_lay(ResidentErrands.resident_of(item))
+
+
 func _worth(item: String) -> int:
 	return int(record_of(item).get("cents", 0))
 
@@ -71,6 +86,14 @@ func can_pledge(item: String) -> bool:
 func verb_for(item: String) -> String:
 	if can_pledge(item):
 		return "PLEDGE IT: %d CENTS" % PawnSales.loan_for(_worth(item))
+	if item.begins_with(ResidentErrands.LIST_PREFIX):
+		if can_lay_list(item):
+			return "LAY THE LIST ON THE COUNTER"
+		if errands != null and at_bodega() and errands.sack_waiting() != "":
+			return "TAKE THE SACK ON THE COUNTER FIRST"
+		return "FOR THE BODEGA COUNTER"
+	if item.begins_with(ResidentErrands.SACK_PREFIX):
+		return "FOR THEIR DOOR"
 	return str(VERBS.get(use_of(item), "NOTHING TO DO WITH IT"))
 
 
@@ -79,6 +102,8 @@ func use(item: String) -> bool:
 		var held: Dictionary = PersonInventory.items(PersonInventory.PLAYER).get("goods:" + item, {})
 		var sales: PawnSales = pawn_point.sales
 		return sales.pledge(item, str(held.get("name", item)), str(held.get("form", "packet")), _worth(item))
+	if can_lay_list(item):
+		return errands.lay(ResidentErrands.resident_of(item), bodega_point.sales)
 	var kind := use_of(item)
 	if kind == "roll_hoop":
 		return PersonInventory.goods_count(PersonInventory.PLAYER, item) > 0 and player.equip_rolling_hoop()
