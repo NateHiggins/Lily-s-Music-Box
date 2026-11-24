@@ -1,3 +1,19 @@
+# Bodega refurbishment and errands, November 24
+
+Evidence class: **INERT**.
+
+PR #542 installs the painted grocery sign, cuts the interior light count
+and gives residents a physical grocery slip and paper sack. The bodega
+queue passed 163 checks, signage passed 361, and the counter passed 80
+through interrupted packing and delivery, disk reload and retry. It
+retained the first paid pack, charged the remaining packs once and paid
+one tip after delivery. The composed first slice passed 369 checks and
+176 waypoints through the radiator repair and disk reconstruction.
+Physical surfaces passed 818 checks with 23 paired renders reviewed.
+Lily's play and artistic review remain open.
+
+[Qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/bodega_after_feet/STATUS.md).
+
 # Resident walking feet, November 24
 
 Evidence class: **INERT**.
