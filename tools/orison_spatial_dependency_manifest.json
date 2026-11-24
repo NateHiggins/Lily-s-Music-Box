@@ -260658,6 +260658,37 @@
    "target_exists": true
   },
   {
+   "key": "b1dce18bf083ab27",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/npc_face_audit_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    108
+   ],
+   "count": 1,
+   "context": [
+    "camera.position = aim + Vector3(0, 0.01, 0.78)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "bf1638b9740099b1",
    "kind": "unit_reference",
    "token": "2A",

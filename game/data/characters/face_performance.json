@@ -347,6 +347,23 @@
 		"yaw_degrees": 30,
 		"pitch_degrees": 20
 	},
+	"gaze": {
+		"saccade_least_seconds": 0.6,
+		"saccade_most_seconds": 2.2,
+		"saccade_degrees": 1.5,
+		"aversion_chance": 0.55,
+		"aversion_yaw_degrees": [
+			7,
+			14
+		],
+		"aversion_pitch_degrees": [
+			-3,
+			6
+		],
+		"aversion_least_seconds": 0.5,
+		"aversion_most_seconds": 1.6,
+		"blink_with_shift_degrees": 10
+	},
 	"fallback_jaw": {
 		"shape": "jawOpen",
 		"most": 0.32,

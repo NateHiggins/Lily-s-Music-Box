@@ -186,6 +186,48 @@ func _ready() -> void:
 	face.look(Vector2.ZERO)
 	_run(face, 0.5)
 
+	print("NPC FACE: gaze with intention")
+	# Held on one point the eyes are never fixed: small saccades about it.
+	face.look(Vector2(12, 0))
+	_run(face, 0.6)
+	var low := 1.0
+	var high := 0.0
+	for index in 8 * 60:
+		face.step(STEP)
+		var out_left := _shape(model, "eyeLookOutLeft")
+		low = minf(low, out_left)
+		high = maxf(high, out_left)
+	# 12 degrees is 0.4 of the 30-degree reach; 1.5 degrees of saccade is 0.05.
+	_check(high - low > 0.01 and high - low < 0.12 and low > 0.3, "held on a point, the eyes make small saccades about it (%.3f..%.3f)" % [low, high])
+	# A spoken turn sometimes begins with a glance away and always ends back on the listener.
+	var averted := 0
+	var returned := 0
+	for turn in 12:
+		face.look(Vector2.ZERO)
+		_run(face, 0.8)
+		face.speak_untimed(2.0)
+		_run(face, 0.35)
+		var away := maxf(_shape(model, "eyeLookOutLeft"), _shape(model, "eyeLookInLeft")) * 30.0
+		if away > 5.0:
+			averted += 1
+		_run(face, 2.0)
+		var back := maxf(_shape(model, "eyeLookOutLeft"), _shape(model, "eyeLookInLeft")) * 30.0
+		if not face.is_speaking() and back < 3.0:
+			returned += 1
+	_check(averted >= 2 and averted <= 11, "some turns, not all, begin with a glance away (%d of 12)" % averted)
+	_check(returned == 12, "every turn ends with the eyes back on the listener (%d of 12)" % returned)
+	# A large shift of gaze carries a blink.
+	face.look(Vector2.ZERO)
+	_run(face, 1.0)
+	face.look(Vector2(25, 0))
+	var lid_peak := 0.0
+	for index in 8:
+		face.step(STEP)
+		lid_peak = maxf(lid_peak, _shape(model, "eyeBlinkLeft"))
+	_check(lid_peak > 0.9, "a large shift of gaze carries a blink (%.2f)" % lid_peak)
+	face.look(Vector2.ZERO)
+	_run(face, 0.5)
+
 	print("NPC FACE: one writer")
 	face.express("surprise", 1.0)
 	face.speak(cues)
