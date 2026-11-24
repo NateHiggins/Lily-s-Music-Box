@@ -26,7 +26,9 @@ const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
 const SELLING_UNTIL := 1320.0
 const PRODUCE_THIN := ["stock_aisle_2_top_03"]
 const PRODUCE_SPARSE := ["stock_aisle_2_top_03", "stock_aisle_1_top_03"]
-enum Produce { FULL, THIN, SPARSE }
+## An empty pantry shows no produce at all, whatever the other groups hold.
+const PRODUCE_ALL := ["stock_aisle_2_top_03", "stock_aisle_1_top_03", "stock_right_window_baskets"]
+enum Produce { FULL, THIN, SPARSE, NONE }
 
 var load_node: Node3D
 var _clock := CampaignClock.new()
@@ -43,6 +45,8 @@ static func loaded_at(minute_of_day: float) -> bool:
 ## How much of the day's produce is left: time since it went out, scaled by the
 ## pantry's real level (a thin pantry puts out a thin display).
 static func produce_at(minute_of_day: float, pantry_level: String) -> int:
+	if pantry_level == ShopStock.OUT:
+		return Produce.NONE
 	var selling := SELLING_UNTIL - DELIVERED
 	var since := fposmod(minute_of_day - DELIVERED, 1440.0)
 	var left := clampf(1.0 - since / selling, 0.15, 1.0)
@@ -73,6 +77,8 @@ func produce_shown(shop_id: String, record_id: String) -> bool:
 		hidden = PRODUCE_THIN
 	elif produce == Produce.SPARSE:
 		hidden = PRODUCE_SPARSE
+	elif produce == Produce.NONE:
+		hidden = PRODUCE_ALL
 	return record_id not in hidden
 
 

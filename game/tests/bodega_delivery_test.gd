@@ -74,6 +74,25 @@ func _route() -> void:
 		_require(window.visible and aisle_1.visible == bool(want[0]) and aisle_2.visible == bool(want[1]),
 				"at %02d:%02d the produce shows window %s, aisle one %s, aisle two %s" % [floori(target / 60.0), floori(fmod(target, 60.0)), window.visible, aisle_1.visible, aisle_2.visible])
 		await _capture_interaction("bodega_produce_%04d" % int(target))
+	# An empty pantry shows no produce, even while the icebox keeps the shop stocked.
+	_require(Delivery.produce_at(300.0, ShopStock.OUT) == Produce.NONE, "an empty pantry puts out no produce")
+	var groups_state: Dictionary = RealityState.data[ShopStock.KEY].groups.bodega
+	var kept_pantry := float(groups_state.pantry)
+	while world.shop_stock.level("bodega", "icebox") == ShopStock.OUT:
+		world.shop_stock.put_back("bodega", "icebox")
+	groups_state.pantry = 0.0
+	var other := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "stock_aisle_1_top_01")
+	delivery.refresh()
+	world.exterior_cell.refresh_shop_presentation()
+	for frame in 10:
+		await RenderingServer.frame_post_draw
+	_require(world.shop_stock.level("bodega", "pantry") == ShopStock.OUT and world.shop_stock.level("bodega", "icebox") != ShopStock.OUT
+			and not window.visible and not aisle_1.visible and not aisle_2.visible and other != null and other.visible,
+			"pantry out, icebox stocked: no produce shows (window %s, aisles %s/%s) and other stock stays (%s)" % [window.visible, aisle_1.visible, aisle_2.visible, other.visible if other != null else "missing"])
+	await _capture_interaction("bodega_produce_pantry_out")
+	groups_state.pantry = kept_pantry
+	delivery.refresh()
+	world.exterior_cell.refresh_shop_presentation()
 	_require(delivery.get_child_count() >= 2 and delivery.find_children("*", "Timer", false, false).size() == 1
 			and not delivery.is_processing() and not delivery.is_physics_processing(),
 			"the load is polled by a slow timer, not every frame")
