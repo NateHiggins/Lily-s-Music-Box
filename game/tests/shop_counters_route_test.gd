@@ -46,6 +46,25 @@ func _fitted_counter_support(shop_id: String, model_name: String, point: Node3D)
 	return absf(at.y-bounds.end.y)<.001 and at.x>bounds.position.x and at.x<bounds.end.x \
 		and at.z>bounds.position.z and at.z<bounds.end.z
 
+## The bodega has no prepared fitting; its counter top is an authored box.
+func _bodega_counter_support(point: Node3D) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(OrisonV2ExteriorCell.GEOMETRY_PATH))
+	if source is not Dictionary: return false
+	var top: Dictionary = {}
+	for template: Dictionary in source.templates:
+		if template.id != "TEMPLATE_BODEGA_CELL_V1": continue
+		for box: Dictionary in template.boxes:
+			if box.id == "counter_top": top = box
+	if top.is_empty(): return false
+	var frame: Transform3D = world.exterior_cell.spatial_resolver.instance_world_transform("SHOP_BODEGA")
+	var local: Vector3 = frame.affine_inverse() * point.global_position
+	var centre := Vector3(float(top.position_m[0]), float(top.position_m[1]), float(top.position_m[2]))
+	var half := Vector3(float(top.size_m[0]), float(top.size_m[1]), float(top.size_m[2])) * .5
+	var ok := absf(local.y - (centre.y + half.y)) < .002 and absf(local.x - centre.x) < half.x \
+		and absf(local.z - centre.z) < half.z
+	if not ok: print("[SHOP COUNTERS] bodega terminal local=", local, " top=", centre, "+", half)
+	return ok
+
 func _route() -> void:
 	var points: Dictionary = world.shop_counters
 	for shop_id: String in ["hardware_paint", "news_cigars", "bodega"]:
@@ -93,8 +112,18 @@ func _route() -> void:
 			break
 	_require(bodega.item_ids.size() >= 50, "the Bodega sells the residents' list")
 	_require(grocery_at >= 0, "the Bodega sells groceries")
-	bodega.select(grocery_at)
+	_require(_bodega_counter_support(bodega), "the Bodega's terminal rests on its counter top")
+	# Aim inside a run of groceries so one stop either side is still a grocery.
+	var aim_at := grocery_at
+	for i in range(grocery_at, bodega.item_ids.size() - 1):
+		if str(bodega.sales.stock_record(bodega.item_ids[i + 1]).kind) == "grocery":
+			aim_at = i + 1
+			break
+	var bodega_moved: bool = await _slide_selector(bodega, bodega._stop_travel(aim_at))
+	_require(bodega_moved, "the real hand walks the Bodega's selector down its list")
 	var item: String = bodega.selected_item()
+	_require(str(bodega.sales.stock_record(item).kind) == "grocery",
+			"the hand-chosen stop is a grocery: " + item)
 	await _capture_interaction("shop_bodega_selected")
 	_require(await _hand._stroke(bodega.terminal, bodega.terminal.TRAVEL), "the real hand settles a grocery")
 	_require(bodega.flag.text == "SETTLED", "the Bodega's flag says settled: " + bodega.flag.text)

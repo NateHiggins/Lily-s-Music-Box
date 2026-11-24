@@ -154,6 +154,10 @@ func _process(delta: float) -> void:
 	# every few minutes, dimming the acrylic to a quarter, then recovers.
 	var gate := pow(maxf(0.0, sin(_time * 0.031 + 1.3)), 60.0)
 	var chatter := 0.25 if gate > 0.5 and sin(_time * 31.0) > -0.2 else 1.0
-	_cabinet_dropped = chatter < 1.0
+	var dropped := chatter < 1.0
+	# Write the two face materials only when the tube changes state.
+	if dropped == _cabinet_dropped:
+		return
+	_cabinet_dropped = dropped
 	for pm in _cabinet_mats:
 		pm.emission_energy_multiplier = 1.05 * chatter
