@@ -108,37 +108,94 @@ at the mid-block lamp is being fixed in public foot traffic, not in admission. T
 branch does not touch **bodega_admission.gd**, **orison_v2_bodega_route.gd**, resident
 routes, schedules or any main cast member's behaviour.
 
-## 3. Built on this branch (no ruling needed)
+## 3. Built on this branch
 
-1. **bodega_signage_prop.gd**: the dropout writes the two face materials only when the
-   tube changes state. The look and its timing are unchanged.
-2. **radio_sale_terminal.gd**: no physics callback at rest; the hand's release turns the
+### 3.1 Without a ruling
+
+1. **radio_sale_terminal.gd**: no physics callback at rest; the hand's release turns the
    spring on while the lever is off its stop, and the spring turns itself off at rest.
    This covers every shop's terminal, not only the bodega's. Sale, refusal and
    settlement code is untouched.
-3. **shop_counters_route_test.gd**: the real hand now walks the bodega selector to a
-   grocery stop, and a new check holds the bodega terminal on its authored counter top.
+2. **shop_counters_route_test.gd**: the real hand now walks the bodega selector to a
+   grocery stop, and a ray from the terminal's foot holds it on the real counter
+   collision. (The first version measured against the authored box and failed: the
+   fitted counter stands in its place.)
+3. The sign's per-frame emission writes were first reduced to state changes; the period
+   sign below then removed the per-frame callback altogether.
 
-For Codex's intake: no authored coordinate, clearance, collision, route, profile,
-admission, purchase owner or save field changes. The one cadence change is that sale
-terminals stop ticking at rest; their only per-tick job was the spring return.
+### 3.2 From Lily's rulings of 2026-11-24
 
-## 4. Rulings filed for Lily
+**bodega_sign_period_20261124.** **bodega_signage_prop.gd** now builds a painted
+dark-green timber board and blade with gilt Label3D lettering, HALF BAKED · GROCERY,
+lit by two shaded gooseneck lamps (steady SpotLight3D, no shadows) in place of the two
+omni lights. The east lamp stands on the existing branch termination at the board's
+top edge. No tube, no dropout, no **_process**. The card reads OPEN ALL NIGHT, the
+period phrase the prop reference research recorded
+(**tools/prop_reference/queries.json**). The native fit's indexed replacements 0-4 and
+**signage.glb** are unchanged. The source plan gains an explicit mesh count of 13 (seven
+fitted primitives and the lamps' six meshes), **signage_geometry.py** honours it, and
+the finish moves to painted green with no emission. The runtime data, the test fixture
+and its construction twin follow, and only the four files this branch changed are
+re-bound in their source digests. The legacy palette maps the board to **door_paint**,
+the arms to **iron_blackened** and the shades to **enamel_appliance**. New boxes carry
+metre UV charts.
 
-| Id | Question | Recommended |
-|---|---|---|
-| **bodega_sign_period_20261124** | Replace the modern lightbox sign with a period front, and what it says | Painted timber fascia in the approved dark green with gilt Label3D lettering, keeping the name HALF BAKED, incandescent gooseneck lamps on the existing supply, no tube dropout |
-| **bodega_list_and_bag_20261124** | How the list-and-bag errand works in the hand | A written list slip handed over at the counter, a paper sack set on the counter to carry, a missing item noticed at the door by the carried contents |
-| **bodega_counter_keys_20261124** | "KEYS" on the bodega counter lettering | Drop it: "NOTIONS · HOUSEHOLD" |
+**bodega_counter_keys_20261124.** The counter lettering reads NOTIONS · HOUSEHOLD. The
+geometry record is hash-bound (**SOURCE_GEOMETRY_SHA256_LF**), so the fittings owner sets
+the words at mount and keeps the source wording in its retained meta.
 
-Work order **w2005ff86065f** records the follow-up build.
+**bodega_list_and_bag_20261124.**
+
+- At the door, taking the list puts a written list slip (form card) in the carried case
+  and prints it on the field-slip printer with a crude sack-and-counter sketch.
+- Held off the case shelf within reach of the bodega counter, the slip offers LAY THE
+  LIST ON THE COUNTER. This uses the same **ItemUse** hook as the pawn grille.
+- Laid, the counter fills a paper sack line by line through the bodega's own
+  **ShopSales** settlement, so stock, radio and ledger refusals hold. A refused line
+  stays out of the sack. If nothing can be packed, the list stays in the case.
+- **bodega_sack.gd**: the sack stands on the counter. The real hand grabs it, mouse
+  motion lifts it, and lifted clear it goes into the case (form parcel). Released short,
+  it sets back down. It has no physics body and no per-frame work.
+- At the door the resident looks in the sack. A short sack gets "There's no ... in here.
+  Well. I'll manage without. Thank you." The tip's completeness is the share of the list
+  that came, inside the existing caps.
+- Lists now keep to what the bodega sells, since 21 of the 73 larder ingredients are
+  sold elsewhere and would always be short.
+- Errands taken before this change have no stage and keep the old pocket path.
+
+### 3.3 For Codex's intake
+
+- No route, doorway, queue, admission, clearance or collision coordinate changes. The
+  sack adds one manipulation area on the counter top, beside the terminal (sale-point
+  frame **(0.34, 0, 0.02)**), and nothing a body can collide with.
+- Authority changes: **ResidentErrands** gains stages and a sack record; **ItemUse** gains
+  the bodega point; the runtime root mounts the sack. Purchase stays with **ShopSales**
+  and the radio clearing; save validation accepts the two new optional fields.
+- Cadence: sale terminals stop ticking at rest; the sign has no per-frame callback.
+- Lighting: the sign's two omni lights become two unshadowed spot lights.
+
+## 4. Rulings
+
+All three were answered by Lily on 2026-11-24 with the recommended option.
+
+| Id | Answer |
+|---|---|
+| **bodega_sign_period_20261124** | Painted dark-green wooden signboard, gold lettering reading HALF BAKED · GROCERY, two shaded lamps that don't flicker, open all night |
+| **bodega_list_and_bag_20261124** | Written list slip, laid on the counter, the counter fills a paper sack, carried to the door, missing items noticed there |
+| **bodega_counter_keys_20261124** | Drop KEYS: NOTIONS · HOUSEHOLD |
+
+Work order **w2005ff86065f** tracks the build.
 
 ## 5. Not done
 
-- The period sign, list-and-bag props, light cull and Cam's restock runs wait on the
-  rulings.
-- No render review of the bodega interior's texture scale or grain.
-- The full surface packet is not renewed; the branch changes scripts only.
+- The resident's new door line for a short sack and the list slip's printed sketch are
+  first-draft authored text for Lily's playtest read.
+- The case view is not driven by its own UI in the test; the test calls **ItemUse** as
+  the case does, and drives the sack with the real hand.
+- The interior light cull, Cam carrying deliveries, produce thinning through the day
+  and a selector-and-lever teaching slip remain open.
+- No render review of the interior's texture scale or grain beyond the captures cited.
+- The full surface packet is not renewed here; Codex renews it at integration.
 
 ## 6. Verification
 
