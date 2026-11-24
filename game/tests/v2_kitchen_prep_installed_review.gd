@@ -67,12 +67,20 @@ func run(world: OrisonV2RuntimeRoot,directory: String) -> bool:
 		var point: Vector3=body.to_global(Vector3(0,.02,-.11))
 		player.camera.look_at(point);await get_tree().physics_frame;await get_tree().physics_frame;player.camera.look_at(point)
 		check(player._grab.find_target().get("part")==body,"installed board ray selection: "+str(row.id))
+		# A held pickup follows the hand in the Player's own physics step, so the real
+		# Player runs for the grab-and-move window only, with movement input isolated.
+		for action: String in ["move_forward","move_back","move_left","move_right","jump","sprint","crouch"]:
+			if InputMap.has_action(action):Input.action_release(action)
+		player.velocity=Vector3.ZERO;var stance:=player.global_position
+		player.set_physics_process(true)
 		var before:=body.transform;click(player)
 		check(player._grab.active() and station.held==body,"installed click grabs board: "+str(row.id))
 		for step in 6:
 			var motion:=InputEventMouseMotion.new();motion.relative=Vector2(0,-12);player._unhandled_input(motion);await get_tree().physics_frame
 		check(body.position.distance_to(before.origin)>.025,"installed mouse lifts board: "+str(row.id))
 		click(player);check(not player._grab.active() and station.held==null,"installed click releases board: "+str(row.id))
+		player.set_physics_process(false)
+		check(player.global_position.distance_to(stance)<.01,"the Player held its stance while the hand worked: "+str(row.id))
 		# Restore the retained original scene arrangement for visual comparison.
 		player.cancel_manipulation();station.restore_mechanism(saved.records[str(row.id)].value)
 		camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_HIDDEN

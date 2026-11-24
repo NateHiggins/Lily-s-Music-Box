@@ -102,6 +102,13 @@ func _run() -> void:
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":player.global_position=actor.to_global(Vector3(-.1,-1.175,1.15))
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var hand: Node=Hand.PatrolHand.new();hand.player=player;add_child(hand)
+	# A positive carry witness without native cursor delivery: the FPS carry aims
+	# by camera, so it stands apart from the inspection steps the hidden desktop
+	# cannot deliver. Every assertion is the full programme's own.
+	if OS.get_environment("ORISON_NOZZLE_CARRY_ONLY")=="1":
+		await exercise_fps_carry(actor)
+		print("V2 FIRE NOZZLE CARRY ONLY: ","PASS" if failures.is_empty() else "FAIL"," failures=",failures.size())
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	# The standalone programme includes the installed review's actual valve
 	# closure, after entering its supported inspection camera.
 	OS.set_environment("ORISON_NOZZLE_CLOSED_VALVE","1")
