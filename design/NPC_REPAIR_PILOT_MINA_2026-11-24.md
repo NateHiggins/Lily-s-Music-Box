@@ -97,7 +97,25 @@ Evidence is in **C:/ov/reports/npc_pilot_20261123** (outside the repo):
 
 NpcPilotMinaGaitTest is the headless behaviour test. It writes a schema-2 runtime_contract receipt.
 
-## 6. What is left
+## 6. Existing tests on this branch
+
+These ran through the lane, with receipts in **C:/ov/reports/npc_pilot_20261123/tests1**:
+
+- NpcPilotMinaGaitTest: 19 checks, PASS.
+- CastResidentTest: 24/0.
+- CastClipPresentationTest: 43/0.
+- CastMovesLibraryTest: 184/0.
+- OrisonV2MinaDoorSafetyTest: PASS.
+- LuncheonetteRouteTest: PASS.
+- PublicTrafficCounterflowTest: PASS.
+- HarukiyaBalconyDepartureTest: PASS.
+- HarukiyaBackstageAccessTest: 80/0.
+
+OrisonV2ResidentWalkTest for Mina has one failure. She walks 384.9 m and reaches every stop over the stairs
+except the bodega, where she holds for 150 s on its capacity reservation with no path. Codex reproduced the
+same hold for Mae on the base without this change. It is an admission issue, not a movement one.
+
+## 7. What is left
 
 - **Descent at the cap.** At 0.55 m/s the descending clip needs about 5x and is held at 3x, so it still
   slides a little. The choices are a slower descending pace, a regenerated descent clip, or foot IK.
