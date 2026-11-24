@@ -94,6 +94,8 @@ func _route() -> void:
 	_require(moved, "the real hand moves the selector")
 	_require(int(slips.count) == 1 and bool(RealityState.data.get(SalePoint.SLIPS_KEY, {}).get(SalePoint.SLIP_ID, false)),
 			"finding the first counter prints its slip once and remembers it: %d" % int(slips.count))
+	await get_tree().create_timer(1.5).timeout
+	await _capture_interaction("shop_counter_teaching_slip")
 	_require(hardware.selected_item() != chosen, "the selector walks the list")
 	chosen = hardware.selected_item()
 	var record: Dictionary = hardware.sales.stock_record(chosen)
