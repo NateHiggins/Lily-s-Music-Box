@@ -7,8 +7,6 @@ const BLOCKOUT := preload("res://scenes/building/orison_v2_blockout.tscn")
 const CUES := preload("res://scripts/building/orison_v2_readability_cues.gd")
 const Adapter := preload("res://scripts/building/orison_v2_anchor_adapter.gd")
 const FrameContract := preload("res://scripts/building/orison_v2_frame_contract.gd")
-## Sale-point frame: beside the terminal on the bodega counter top, away from the selector.
-const BODEGA_SACK_AT := Vector3(0.34, 0.0, 0.02)
 const LineageRegistry := preload("res://scripts/reality/corruption_lineage_registry.gd")
 const WorldConnection := preload("res://scripts/building/orison_v2_world_connection.gd")
 const ExteriorResolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
@@ -1194,7 +1192,14 @@ func _compose_authorities() -> void:
 		var sack: Node3D=preload("res://scripts/props/bodega_sack.gd").new()
 		sack.name="BodegaErrandSack"
 		shop_counters.bodega.add_child(sack)
-		sack.position=BODEGA_SACK_AT
+		# The sack stands at the middle of the fitted counter top, clear of the
+		# terminal and scale along its back edge.
+		var top_draw: MeshInstance3D=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(
+			exterior_cell.instance_node("SHOP_BODEGA"),"counter_top")
+		if top_draw==null:
+			startup_failed=true;push_error("ORISON V2 RUNTIME: bodega counter top missing for the sack");return
+		var top: AABB=top_draw.global_transform*top_draw.get_aabb()
+		sack.global_position=Vector3(top.get_center().x,top.end.y,top.get_center().z)
 		if not sack.configure(conversations.errands):
 			startup_failed=true;push_error("ORISON V2 RUNTIME: bodega sack refused");return
 	if conversations!=null:

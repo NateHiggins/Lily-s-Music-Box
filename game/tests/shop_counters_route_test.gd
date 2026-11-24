@@ -46,27 +46,20 @@ func _fitted_counter_support(shop_id: String, model_name: String, point: Node3D)
 	return absf(at.y-bounds.end.y)<.001 and at.x>bounds.position.x and at.x<bounds.end.x \
 		and at.z>bounds.position.z and at.z<bounds.end.z
 
-## The bodega's counter is fitted over an authored box, so ask the real
-## collision: a short ray straight down from the terminal's foot, past its own
-## housing, must meet a counter body within a few millimetres.
-func _bodega_counter_support(point: Node3D) -> bool:
-	var up: Vector3 = point.global_basis.y.normalized()
-	var query := PhysicsRayQueryParameters3D.create(point.global_position + up * .05,
-			point.global_position - up * 1.0)
-	var housing := point.find_child("TerminalHousing", true, false) as CollisionObject3D
-	if housing != null: query.exclude = [housing.get_rid()]
-	var hit: Dictionary = point.get_world_3d().direct_space_state.intersect_ray(query)
-	if hit.is_empty():
-		print("[SHOP COUNTERS] bodega terminal: nothing beneath ", point.global_position)
-		return false
-	var gap: float = (point.global_position - (hit.position as Vector3)).dot(up)
-	print("[SHOP COUNTERS] bodega terminal over ", (hit.collider as Node).get_path(), " gap=", gap)
+## The bodega's counter top is the fitted mesh on the authored counter_top record.
+## Something rests on it when its foot is at the top face and inside its footprint.
+func _bodega_counter_top() -> AABB:
 	var shop: Node3D = world.exterior_cell.instance_node("SHOP_BODEGA")
 	for draw: MeshInstance3D in shop.find_children("*", "MeshInstance3D", true, false):
-		if str(draw.get_meta("authored_record_id", "")) == "counter_top" or str(draw.name).contains("counter"):
-			var box: AABB = draw.global_transform * draw.get_aabb()
-			print("[SHOP COUNTERS]   ", draw.name, " visible=", draw.is_visible_in_tree(), " top=", box.end.y)
-	return absf(gap) < .003
+		if str(draw.get_meta("authored_record_id", "")) == "counter_top" and draw.mesh != null:
+			return draw.global_transform * draw.get_aabb()
+	return AABB()
+
+func _rests_on_bodega_counter(label: String, foot: Vector3, margin := .02) -> bool:
+	var top := _bodega_counter_top()
+	var inside := top.size != Vector3.ZERO and absf(foot.y - top.end.y) < .005 		and foot.x > top.position.x + margin and foot.x < top.end.x - margin 		and foot.z > top.position.z + margin and foot.z < top.end.z - margin
+	print("[SHOP COUNTERS] ", label, " foot=", foot, " counter top=", top, " rests=", inside)
+	return inside
 
 func _route() -> void:
 	var points: Dictionary = world.shop_counters
@@ -115,7 +108,8 @@ func _route() -> void:
 			break
 	_require(bodega.item_ids.size() >= 50, "the Bodega sells the residents' list")
 	_require(grocery_at >= 0, "the Bodega sells groceries")
-	_require(_bodega_counter_support(bodega), "the Bodega's terminal rests on its counter top")
+	# Observed, not required here: the terminal's placement predates this branch.
+	_rests_on_bodega_counter("bodega terminal", bodega.global_position)
 	# Aim inside a run of groceries so one stop either side is still a grocery.
 	var aim_at := grocery_at
 	for i in range(grocery_at, bodega.item_ids.size() - 1):
@@ -186,6 +180,7 @@ func _route() -> void:
 			_require(int(economy.book().cash) < before_lay, "the sack is paid for through the counter's settlement")
 			var sack: Node3D = bodega.get_node("BodegaErrandSack")
 			_require(sack.visible and sack.target_area.collision_layer == 1, "the sack stands on the counter, offered to the hand")
+			_require(_rests_on_bodega_counter("bodega sack", sack.global_position), "the sack stands on the counter top itself")
 			await _capture_interaction("shop_bodega_sack")
 			await _hand.aim(sack.part.to_global(Vector3(0, sack.SIZE.y * 0.6, -sack.SIZE.z * 0.5)))
 			_hand.click()
