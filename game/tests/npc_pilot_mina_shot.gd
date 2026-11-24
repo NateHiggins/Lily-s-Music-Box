@@ -45,7 +45,7 @@ func frames(count: int) -> void:
 		await get_tree().process_frame
 
 
-func _box(size: Vector3, at: Vector3, colour: Color) -> void:
+func _box(size: Vector3, at: Vector3, colour: Color, solid := false) -> void:
 	var mesh := MeshInstance3D.new()
 	var box := BoxMesh.new()
 	box.size = size
@@ -55,6 +55,16 @@ func _box(size: Vector3, at: Vector3, colour: Color) -> void:
 	mesh.mesh = box
 	mesh.position = at
 	add_child(mesh)
+	if solid:
+		# The floor and the treads carry colliders, as the house's do, so foot placement finds the tread under a foot.
+		var body := StaticBody3D.new()
+		var shape := CollisionShape3D.new()
+		var box_shape := BoxShape3D.new()
+		box_shape.size = size
+		shape.shape = box_shape
+		body.add_child(shape)
+		body.position = at
+		add_child(body)
 
 
 func _floor_at(x: float) -> float:
@@ -75,11 +85,11 @@ func _set_stage() -> void:
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-35, 30, 0)
 	add_child(sun)
-	_box(Vector3(STAIR_X + 10.0, 0.02, 1.4), Vector3(STAIR_X * 0.5 - 5.0, -0.01, -0.3), Color(0.55, 0.55, 0.52))
+	_box(Vector3(STAIR_X + 10.0, 0.02, 1.4), Vector3(STAIR_X * 0.5 - 5.0, -0.01, -0.3), Color(0.55, 0.55, 0.52), true)
 	for i in RISERS:
 		var top := (i + 1) * RISE
-		_box(Vector3(TREAD, top, 1.4), Vector3(STAIR_X + (i + 0.5) * TREAD, top * 0.5, -0.3), Color(0.6, 0.56, 0.5))
-	_box(Vector3(2.0, RISERS * RISE, 1.4), Vector3(STAIR_X + RISERS * TREAD + 1.0, RISERS * RISE * 0.5, -0.3), Color(0.6, 0.56, 0.5))
+		_box(Vector3(TREAD, top, 1.4), Vector3(STAIR_X + (i + 0.5) * TREAD, top * 0.5, -0.3), Color(0.6, 0.56, 0.5), true)
+	_box(Vector3(2.0, RISERS * RISE, 1.4), Vector3(STAIR_X + RISERS * TREAD + 1.0, RISERS * RISE * 0.5, -0.3), Color(0.6, 0.56, 0.5), true)
 	# 0.1 m grid behind her.
 	for i in range(-90, 120):
 		var x := i * 0.1
@@ -131,6 +141,8 @@ func _walk(label: String, from_x: float, to_x: float, direction: float) -> void:
 	var heels := [skeleton.find_bone("LeftFoot"), skeleton.find_bone("RightFoot")]
 	var last_points: Array[Vector3] = []
 	var steady: Array[float] = []
+	## How far the deepest heel or toe joint sits below the real tread or floor under it, each frame.
+	var sinks: Array[float] = []
 	mina.global_position = Vector3(from_x, _floor_at(from_x), 0)
 	mina.global_rotation.y = PI * 0.5 * direction
 	var shots := 0
@@ -159,6 +171,16 @@ func _walk(label: String, from_x: float, to_x: float, direction: float) -> void:
 		var world: Transform3D = skeleton.global_transform
 		var left := world * skeleton.get_bone_global_pose(toes[0]).origin
 		var right := world * skeleton.get_bone_global_pose(toes[1]).origin
+		var left_heel := world * skeleton.get_bone_global_pose(heels[0]).origin
+		var right_heel := world * skeleton.get_bone_global_pose(heels[1]).origin
+		# With foot placement on, the placed feet are only readable from the stage's own record: the engine puts the
+		# clip's pose back after skinning.
+		if mina.walking_feet != null and (mina.walking_feet.last_feet_world as Array).size() == 4:
+			var placed: Array = mina.walking_feet.last_feet_world
+			left = placed[0]
+			right = placed[1]
+			left_heel = placed[2]
+			right_heel = placed[3]
 		# The planted foot is the one moving least along the way she travels; its world speed is the slip.
 		if last_left.is_finite() and delta > 0.0:
 			var vl := (left - last_left) / delta
@@ -171,8 +193,11 @@ func _walk(label: String, from_x: float, to_x: float, direction: float) -> void:
 		last_right = right
 		# Contact slip: the stillest of the four foot points (heels and toes) is the one on the floor; heel-to-toe
 		# roll moves the others. After the first 3.8 s (the walk start) the walk is steady.
-		var points: Array[Vector3] = [left, right, world * skeleton.get_bone_global_pose(heels[0]).origin,
-				world * skeleton.get_bone_global_pose(heels[1]).origin]
+		var points: Array[Vector3] = [left, right, left_heel, right_heel]
+		var deepest := -INF
+		for p: Vector3 in points:
+			deepest = maxf(deepest, _floor_at(p.x) - p.y)
+		sinks.append(deepest)
 		if last_points.size() == 4 and delta > 0.0:
 			var still := INF
 			for k in 4:
@@ -193,6 +218,9 @@ func _walk(label: String, from_x: float, to_x: float, direction: float) -> void:
 	if steady.size() > 10:
 		report[label]["contact_slip_median"] = snappedf(steady[steady.size() / 2], .001)
 		report[label]["contact_slip_p90"] = snappedf(steady[steady.size() * 9 / 10], .001)
+	sinks.sort()
+	report[label]["sink_median"] = snappedf(sinks[sinks.size() / 2], .001)
+	report[label]["sink_p90"] = snappedf(sinks[sinks.size() * 9 / 10], .001)
 	print("MINA PILOT SHOT ", label, " ", report[label], " frames ", dot_count, " clip ", mina._animation_player.current_animation,
 			" speed_scale ", mina._animation_player.speed_scale)
 
@@ -210,6 +238,12 @@ func run() -> void:
 		mina.mina_animation.gaits.clear()
 	if before:
 		mina.walk_gait = null
+	# NO_FEET=1 keeps the gait and turns only foot placement off, to measure foot placement alone.
+	if before or OS.get_environment("NO_FEET") == "1":
+		if mina.walking_feet != null:
+			mina.walking_feet.queue_free()
+			mina.walking_feet = null
+	report["walking_feet"] = mina.walking_feet != null
 	report["resident"] = resident
 	report["walk_gait"] = mina.walk_gait != null
 	if mina.cast_body == null or (resident == "mina_vale" and mina.mina_animation == null):

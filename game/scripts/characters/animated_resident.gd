@@ -31,6 +31,11 @@ var mina_animation: MinaAnimationBehavior
 ## batches once the pilot qualifies; the rest keep the plain 1x walk.
 const GAIT_PILOT := ["malcolm_reed"]
 var walk_gait: ClipGait
+## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
+## pilot bodies first, one per cast base; everyone else joins in batches once it qualifies.
+const FEET_PILOT := ["mina_vale", "malcolm_reed"]
+const WalkingFeet := preload("res://scripts/characters/walking_feet.gd")
+var walking_feet: Node
 var _ground_speed := 0.0
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
@@ -87,6 +92,10 @@ func _ready() -> void:
 			push_error("Mina Gray Resolve batch is incomplete")
 	elif resident_id in GAIT_PILOT and cast_body != null and _animation_player != null and _animation_player.has_animation(preferred_walk):
 		walk_gait = ClipGait.measure(_animation_player, cast_body.skeleton, preferred_walk, CastBodies.cast_person(resident_id))
+	if resident_id in FEET_PILOT and cast_body != null:
+		var owner_of_attention: Node = cast_body.get("attention")
+		if owner_of_attention != null and owner_of_attention.pipeline != null:
+			walking_feet = WalkingFeet.install(self, owner_of_attention.pipeline)
 	# The rebuilt body brings its own attention owner; a second one would fight it.
 	if cast_body == null:
 		attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
@@ -288,6 +297,8 @@ func _set_walking(on: bool) -> void:
 		_walking = on
 		mina_animation.set_motion(on)
 		return
+	if walking_feet != null:
+		walking_feet.walking = on
 	if _walking == on:
 		return
 	_walking = on
@@ -307,6 +318,8 @@ func _match_ground() -> void:
 
 
 func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
+	if walking_feet != null:
+		walking_feet.walking = on
 	if mina_animation:
 		_walking = on
 		mina_animation.set_motion(on, slope, metres_per_second)
