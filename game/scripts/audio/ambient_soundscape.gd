@@ -184,10 +184,14 @@ func _cue_radiator(pressure: float) -> void:
 	if kind == "knock" and candidates.size() > 1 and _rng.randf() < 0.32:
 		var reply: Node3D = candidates[_rng.randi_range(1,
 				mini(candidates.size() - 1, 5))]
+		# Capture the id, not the node: a world retiring mid-knock frees the reply
+		# before the timer, and a freed lambda capture errors before the body runs.
+		var reply_id := reply.get_instance_id()
 		get_tree().create_timer(_rng.randf_range(0.7, 2.4), false).timeout.connect(
 				func():
-					if is_instance_valid(reply):
-						reply.call("play_ambient_cycle", "tick", 0.30))
+					var later := instance_from_id(reply_id) as Node3D
+					if later != null and later.is_inside_tree():
+						later.call("play_ambient_cycle", "tick", 0.30))
 
 
 func _cue_architecture(outside: bool, basement: bool, pressure: float) -> void:

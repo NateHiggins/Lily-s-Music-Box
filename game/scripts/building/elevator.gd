@@ -109,6 +109,7 @@ func setup(elevator_data: Dictionary) -> void:
 	_hum.volume_db = -60.0
 	_cabin.add_child(_hum)
 	_hum.play()
+	AudioPolicy.gate_silent_loop(_hum)
 	_cabin.position.y = stops[current]
 
 	var door_w: float = float(elevator_data.get("door_w", 0.91))
