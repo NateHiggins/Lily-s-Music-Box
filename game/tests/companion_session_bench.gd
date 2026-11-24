@@ -1,6 +1,7 @@
 extends Node3D
 ## Actual native-input/save diagnostic. Occupied-world qualification is separate.
 const Campaign = preload("res://scripts/device/companion_campaign_state.gd")
+const Opening = preload("res://scripts/game/prologue_state.gd")
 var player: PlayerController
 var carrier: Node
 var checks: Array[Dictionary] = []
@@ -349,8 +350,17 @@ func exercise_s01() -> void:
 	carrier.session.bind_temporal_loop(loop)
 	var had_prologue: bool = RealityState.data.has("prologue")
 	var prologue_before: Dictionary = RealityState.data.get("prologue", {})
-	var prologue := prologue_before.duplicate(true)
+	# The scripted exchange autosaves. Use a complete skipped-opening
+	# fixture so the temporary state is valid without moving the live clock.
+	var prologue := Opening.initial()
 	prologue["phase"] = "prologue_complete"
+	prologue["skipped"] = true
+	prologue["target"] = {
+		"utc_unix_seconds": Opening.LOOP_START_UTC,
+		"local_bias_minutes": -300,
+		"local_zone": "Queens EST",
+	}
+	prologue["effects"] = {"companion_materialized": true, "clock_applied": true}
 	RealityState.data["prologue"] = prologue
 	(loop.ledger() as Dictionary).erase("arc")
 	await _exercise_s01(loop)
@@ -392,10 +402,16 @@ func _exercise_s01(loop: RefusingLoop) -> void:
 	if not check(await wait_for(func(): return carrier.session._edit.text == first, 8.0), "S01: her line is typed again"):
 		return
 	await wait_for(func(): return carrier.rig.typing_ready(), 4.0)
+	var save_request_before := int(RealityState.background_save_status().requested)
 	await joy(JOY_BUTTON_A)
 	check(carrier.device.printed_count == reports + 1 and loop.arc_draft() == "Is that enough?",
 		"S01: the retry prints, and only then does she ask if it is enough")
 	check(carrier.session.draft == own_draft, "S01: the player's draft is still their own")
+	RealityState.flush_background_saves()
+	var saved := RealityState.background_save_status()
+	check(int(saved.requested) > save_request_before and int(saved.completed) == int(saved.requested)
+			and bool(RealityState.last_save_result().get("ok", false)),
+			"S01: the accepted retry saves through the background queue")
 	await wait_for(func(): return not carrier.device.teletype.printing)
 	await capture("s01_reply.png")
 
