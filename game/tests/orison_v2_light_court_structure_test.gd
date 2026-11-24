@@ -10,7 +10,8 @@ func _route() -> void:
 	var model: Node3D = root.get_node("LightCourtStructure")
 	var construction: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_light_court_structure.json"))
 	var draws := model.find_children("*", "MeshInstance3D", true, false)
-	_require(draws.size() == 44, "fourteen guarded edges and separate transfer meshes mounted")
+	_require(draws.size() == 74, "twenty-four guarded edges and separate transfer meshes mounted")
+	var checked_meshes: Dictionary = {}
 	for draw: MeshInstance3D in draws:
 		var key := str(draw.mesh.surface_get_material(0).resource_name)
 		var finish := "iron_blackened" if key=="cast_iron" else key
@@ -23,7 +24,10 @@ func _route() -> void:
 					and active.roughness_texture == stock.roughness_texture \
 					and not active.uv1_triplanar
 		_require(key in ["metal", "cast_iron", "wood_dark"] and matches, "mapped material on " + str(draw.name))
-		_check_planar_mapping(draw.mesh, true)
+		var mesh_id := draw.mesh.get_rid()
+		if not checked_meshes.has(mesh_id):
+			_check_planar_mapping(draw.mesh, true)
+			checked_meshes[mesh_id] = true
 	var space := world.get_world_3d().direct_space_state
 	var transfer_rids: Array[RID] = [player.get_rid()]
 	for body: StaticBody3D in model.find_children("*", "StaticBody3D", true, false):
@@ -47,33 +51,27 @@ func _route() -> void:
 			var own_guard: StaticBody3D = model.get_node(guard.id + "Collision")
 			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
 					root.to_global(at + Vector3.UP*.001), root.to_global(at - Vector3.UP*.004), 1, [player.get_rid(), own_guard.get_rid()]))
-			_require(not hit.is_empty() and absf(root.to_local(hit.position).y - at.y) < .00005
-					and guard.floor_owner in str(hit.collider.get_path()), "actual landing seats " + guard.id + " foot " + str(at.x))
-		var north: bool = guard.kind == "North"
-		var z_start: float = 2.6 if north else (-2.8 if guard.kind == "South" else -1.4)
-		var direction := -1.0 if north else 1.0
-		# Narrow court starts must clear the retained sloping side rails before
-		# sweeping into this edge. Use five positions within the standing capsule's
-		# actual available width; the whole native span gets separate first rays.
-		var fractions: Array[float] = []
-		fractions.assign([.15,.35,.5,.65,.85] if north else [.38,.44,.5,.56,.62])
-		for fraction: float in fractions:
-			var x: float = lerpf(guard.bounds[0], guard.bounds[3], fraction)
-			var query := PhysicsShapeQueryParameters3D.new()
-			var capsule := CapsuleShape3D.new()
-			capsule.radius = .33
-			capsule.height = player.STANDING_HEIGHT
-			query.shape = capsule
-			query.transform = Transform3D(root.global_basis, root.to_global(Vector3(x, guard.bounds[1]+player.STANDING_HEIGHT*.5+.01, z_start)))
-			query.motion = root.global_basis*Vector3(0,0,direction*1.5)
-			query.collision_mask = 1
-			query.exclude = [player.get_rid()]
-			var result := space.cast_motion(query)
-			_require(result[0] < .99 and result[0] > .01, "standing capsule stopped at " + guard.id + " station " + str(fraction))
-			var ray_height: float = guard.bounds[1] + .7
-			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
-					root.to_global(Vector3(x,ray_height,z_start)), root.to_global(Vector3(x,ray_height,z_start+direction*1.5)), 1, [player.get_rid()]))
-			_require(not hit.is_empty() and str(hit.collider.name) == guard.id + "Collision", "the fitted guard owns first contact at " + guard.id)
+			var expected_owners := [str(guard.floor_owner)]
+			if guard.kind == "East":
+				expected_owners.append_array(["ROOF_PUBLIC_LANDING_N", "ROOF_PUBLIC_LANDING_S"])
+			if guard.kind == "ServiceReturn":
+				expected_owners.append_array(["ROOF_SERVICE_LANDING", "SERVICE_F06_ROOF/FlightB_Step09"])
+			var contact := str(hit.collider.get_path()) if not hit.is_empty() else ""
+			var seated := expected_owners.any(func(owner: String) -> bool: return contact.contains(owner))
+			seated = seated and absf(root.to_local(hit.position).y - at.y) < .00005
+			# The west end of a service rail returns into masonry where the
+			# wall overlaps the deck. Prove the wall at rail height as well.
+			if guard.kind == "ServiceSide" and absf(at.x - float(guard.bounds[0]) - .025) < .002 \
+					and "_SERVICE_CORE/WallWest_" in contact:
+				var anchor := at + Vector3.UP * .55
+				var wall := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+						root.to_global(anchor + Vector3.RIGHT * .24),
+						root.to_global(anchor + Vector3.LEFT * .20), 1,
+						[player.get_rid(), own_guard.get_rid()]))
+				seated = not wall.is_empty() and "_SERVICE_CORE/WallWest_" in str(wall.collider.get_path())
+			_require(seated, "actual structure supports %s at %s (vertical contact %s)" % [guard.id, at, contact])
+		_check_guard_contact(root, space, guard)
+	_check_widened_stairs(root, space)
 	var connected_floors: Array[String] = []
 	for join: Dictionary in construction.joins:
 		var floor_id: String = str(join.id).get_slice("_", 0)
@@ -82,7 +80,7 @@ func _route() -> void:
 		var foot_y := float(join.start[1])
 		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
 				root.to_global(Vector3(3.84, foot_y + .7, middle_z)),
-				root.to_global(Vector3(3.28, foot_y + .7, middle_z)), 1, [player.get_rid()]))
+				root.to_global(Vector3(2.95, foot_y + .7, middle_z)), 1, [player.get_rid()]))
 		_require(not hit.is_empty() and str(hit.collider.name) == join.id + "Collision",
 				floor_id + " court guard closes the landing-to-flight joint")
 		var capsule := CapsuleShape3D.new()
@@ -100,6 +98,8 @@ func _route() -> void:
 	for view: Dictionary in [
 		{"id":"court_guard_ground", "at":Vector3(2.95,0,-1.4), "look":Vector3(2.95,.8,-.58)},
 		{"id":"court_guard_north", "at":Vector3(2.95,0,2.5), "look":Vector3(2.95,.65,1.7)},
+		{"id":"roof_court_gate", "at":Vector3(4.9,19.2,-2.2), "look":Vector3(2.95,19.85,-1.7)},
+		{"id":"roof_service_gate", "at":Vector3(12.35,19.2,4.3), "look":Vector3(10.85,19.85,5.3)},
 		{"id":"court_guard_upper", "at":Vector3(2.95,3.2,-2.8), "look":Vector3(2.95,3.85,-1.945)},
 		{"id":"court_transfer_overview", "at":Vector3(4.9,-3.2,-1.1), "look":Vector3(2.95,-1.4,-1.2)},
 		{"id":"court_transfer_feet", "at":Vector3(4.9,-3.2,-1.1), "look":Vector3(3.35,-3.188,-.55)},
@@ -110,7 +110,93 @@ func _route() -> void:
 		await _court_capture(view.id, view.look)
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("structure-checks.json"), FileAccess.WRITE).store_string(
 			JSON.stringify({"evidence_class":"INERT", "guards":construction.guards.size(), "draws":draws.size(), "joined_floors":connected_floors,
-			"failures":failures, "note":"Installed contact/capsule/mapping checks; no structural capacity or roof acceptance."}, "\t"))
+			"failures":failures, "note":"Installed stair bearing, guard contact and material checks."}, "\t"))
+
+func _check_guard_contact(root: Node3D, space: PhysicsDirectSpaceState3D, guard: Dictionary) -> void:
+	var bounds: Array = guard.bounds
+	var along_z: bool = guard.kind in ["West", "East", "ServiceReturn"]
+	var heading: Vector3
+	var approach: float
+	match guard.kind:
+		"North":
+			heading = Vector3.FORWARD
+			approach = 2.6
+		"West":
+			heading = Vector3.RIGHT
+			approach = .92
+		"East":
+			heading = Vector3.LEFT
+			approach = 4.93
+		"ServiceReturn":
+			heading = Vector3.LEFT
+			approach = 12.35
+		"ServiceSide":
+			heading = Vector3.BACK
+			approach = (float(bounds[2]) + float(bounds[5])) * .5 - .43
+		"ServiceLanding":
+			heading = Vector3.BACK
+			approach = 4.3
+		"South":
+			heading = Vector3.BACK
+			approach = -2.8
+		_:
+			heading = Vector3.BACK
+			approach = -1.4
+	var capsule := CapsuleShape3D.new()
+	capsule.radius = .33
+	capsule.height = player.STANDING_HEIGHT
+	for fraction: float in [.38, .44, .5, .56, .62]:
+		var station := lerpf(bounds[2 if along_z else 0], bounds[5 if along_z else 3], fraction)
+		var from := Vector3(approach if along_z else station, bounds[1], station if along_z else approach)
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = capsule
+		query.transform = Transform3D(root.global_basis,
+				root.to_global(from + Vector3.UP * (player.STANDING_HEIGHT * .5 + .01)))
+		query.motion = root.global_basis * heading * 1.5
+		query.collision_mask = 1
+		query.exclude = [player.get_rid()]
+		var motion := space.cast_motion(query)
+		var ray_origin := from + Vector3.UP * .7
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+				root.to_global(ray_origin), root.to_global(ray_origin + heading * 1.5), 1, [player.get_rid()]))
+		_require(not hit.is_empty() and str(hit.collider.name) == guard.id + "Collision",
+				"the fitted guard owns first contact at %s station %.2f" % [guard.id, fraction])
+		# At narrow junctions the neighboring slope guard can already touch
+		# the capsule. Its mate must still stop the independent first ray.
+		_require(motion[0] < .99, "standing capsule stopped at %s station %.2f" % [guard.id, fraction])
+
+func _check_widened_stairs(root: Node3D, space: PhysicsDirectSpaceState3D) -> void:
+	var levels: Dictionary = {}
+	for level: Dictionary in world.layout.levels:
+		levels[level.id] = float(level.y)
+	for stair: Dictionary in world.layout.stairs:
+		var exterior_wall: bool = str(stair.id).begins_with("SERVICE_")
+		var bay_width: float = 2.0 * stair.width + stair.gap
+		var base_y: float = levels[stair.from]
+		var half: float = stair.rise * stair.risers_per_flight
+		var run: float = stair.tread * stair.risers_per_flight
+		for flight: String in ["A", "B"]:
+			var returning := flight == "B"
+			var retained_lobby_edge: bool = (stair.id == "PRIMARY_F01_F02" and not returning
+					or stair.id == "PRIMARY_B1_F01" and returning)
+			var middle := bay_width * .5 + (.07 if returning else -.07)
+			if retained_lobby_edge:
+				middle = stair.width + stair.gap + .07 if returning else stair.width - .07
+			var outer := bay_width + (.113 if exterior_wall else -.07) if returning else .07
+			var phase := .25 if returning else .5
+			for step: int in [0, 4, 9]:
+				var z: float = (run + stair.landing_depth - stair.tread * (step + .5)
+						if returning else stair.tread * (step + .5))
+				z += (2 + phase) * stair.tread / 6.0 - stair.tread * .5
+				var y: float = base_y + (half if returning else 0.0) + (step + 1) * stair.rise
+				for x: float in [middle, outer]:
+					var station := Vector3(float(stair.origin[0]) + x, y, float(stair.origin[1]) + z)
+					var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+							root.to_global(station + Vector3.UP * .035), root.to_global(station - Vector3.UP * .035),
+							1, [player.get_rid()]))
+					var owner := "%s/Flight%s_Step%02d/" % [stair.id, flight, step]
+					var contact := str(hit.collider.get_path()) if not hit.is_empty() else ""
+					_require(contact.contains(owner), "tread bearings carry %s at %s (hit %s)" % [owner, station, contact])
 
 func _check_planar_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
 	for surface in mesh.get_surface_count():

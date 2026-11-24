@@ -222407,6 +222407,62 @@
    "target_exists": true
   },
   {
+   "key": "ab97877ddd9f32e4",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_u_stair"
+   ],
+   "lines": [
+    1114
+   ],
+   "count": 1,
+   "context": [
+    "var into_lobby_aisle := str(stair.id) == \"PRIMARY_B1_F01\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5b701cc71d10ce11",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_u_stair"
+   ],
+   "lines": [
+    1113
+   ],
+   "count": 1,
+   "context": [
+    "var over_lobby_aisle := str(stair.id) == \"PRIMARY_F01_F02\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "379d919ebececdd3",
    "kind": "runtime_id",
    "token": "F01_NIGHT_REGISTER",
@@ -235456,6 +235512,68 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F06/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7c12182b4ea53b75",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/scripts/building/orison_v2_stair_ironwork.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount",
+    "_mount_guards"
+   ],
+   "lines": [
+    22,
+    70
+   ],
+   "count": 2,
+   "context": [
+    "\"PRIMARY_B1_F01\":",
+    "elif returning and str(stair.id) == \"PRIMARY_B1_F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a410584dc6cb1838",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/scripts/building/orison_v2_stair_ironwork.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount",
+    "_mount_guards"
+   ],
+   "lines": [
+    20,
+    68
+   ],
+   "count": 2,
+   "context": [
+    "\"PRIMARY_F01_F02\":",
+    "if not returning and str(stair.id) == \"PRIMARY_F01_F02\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -267256,7 +267374,7 @@
     "operate"
    ],
    "lines": [
-    99
+    101
    ],
    "count": 1,
    "context": [
@@ -267286,7 +267404,7 @@
     "operate"
    ],
    "lines": [
-    94
+    96
    ],
    "count": 1,
    "context": [
@@ -267316,7 +267434,7 @@
     "operate"
    ],
    "lines": [
-    95
+    97
    ],
    "count": 1,
    "context": [
@@ -267346,7 +267464,7 @@
     "operate"
    ],
    "lines": [
-    96
+    98
    ],
    "count": 1,
    "context": [
@@ -267376,7 +267494,7 @@
     "operate"
    ],
    "lines": [
-    97
+    99
    ],
    "count": 1,
    "context": [
@@ -267406,7 +267524,7 @@
     "operate"
    ],
    "lines": [
-    98
+    100
    ],
    "count": 1,
    "context": [
@@ -267437,9 +267555,9 @@
     "_ready"
    ],
    "lines": [
-    86,
-    104,
-    165
+    88,
+    106,
+    167
    ],
    "count": 3,
    "context": [
@@ -267471,8 +267589,8 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    911,
-    916
+    914,
+    919
    ],
    "count": 2,
    "context": [
@@ -267500,8 +267618,8 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    918,
-    934
+    921,
+    937
    ],
    "count": 2,
    "context": [
@@ -267529,7 +267647,7 @@
     "operate"
    ],
    "lines": [
-    93
+    95
    ],
    "count": 1,
    "context": [
@@ -267557,7 +267675,7 @@
     "operate"
    ],
    "lines": [
-    99
+    101
    ],
    "count": 1,
    "context": [
@@ -267585,9 +267703,9 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    878,
-    902,
-    939
+    881,
+    905,
+    942
    ],
    "count": 3,
    "context": [
@@ -267616,9 +267734,9 @@
     "_ready"
    ],
    "lines": [
-    86,
-    103,
-    163
+    88,
+    105,
+    165
    ],
    "count": 3,
    "context": [
@@ -267650,7 +267768,7 @@
     "operate"
    ],
    "lines": [
-    94
+    96
    ],
    "count": 1,
    "context": [
@@ -267678,7 +267796,7 @@
     "operate"
    ],
    "lines": [
-    95
+    97
    ],
    "count": 1,
    "context": [
@@ -267706,7 +267824,7 @@
     "operate"
    ],
    "lines": [
-    96
+    98
    ],
    "count": 1,
    "context": [
@@ -267734,7 +267852,7 @@
     "operate"
    ],
    "lines": [
-    97
+    99
    ],
    "count": 1,
    "context": [
@@ -267762,7 +267880,7 @@
     "operate"
    ],
    "lines": [
-    98
+    100
    ],
    "count": 1,
    "context": [
@@ -267790,7 +267908,7 @@
     "<module>"
    ],
    "lines": [
-    255
+    257
    ],
    "count": 1,
    "context": [],
@@ -267818,7 +267936,7 @@
     "_ready"
    ],
    "lines": [
-    165
+    167
    ],
    "count": 1,
    "context": [
@@ -267849,7 +267967,7 @@
     "_ready"
    ],
    "lines": [
-    160
+    162
    ],
    "count": 1,
    "context": [
@@ -267881,8 +267999,8 @@
     "_run_patrol"
    ],
    "lines": [
-    161,
-    424
+    163,
+    426
    ],
    "count": 2,
    "context": [
@@ -267915,8 +268033,8 @@
     "_run_patrol"
    ],
    "lines": [
-    162,
-    425
+    164,
+    427
    ],
    "count": 2,
    "context": [
@@ -267948,7 +268066,7 @@
     "_ready"
    ],
    "lines": [
-    159
+    161
    ],
    "count": 1,
    "context": [
@@ -267979,7 +268097,7 @@
     "_ready"
    ],
    "lines": [
-    163
+    165
    ],
    "count": 1,
    "context": [
@@ -268010,7 +268128,7 @@
     "_ready"
    ],
    "lines": [
-    164
+    166
    ],
    "count": 1,
    "context": [
@@ -268041,7 +268159,7 @@
     "operate"
    ],
    "lines": [
-    93
+    95
    ],
    "count": 1,
    "context": [
@@ -268074,10 +268192,10 @@
     "_exercise_ritual"
    ],
    "lines": [
-    84,
-    102,
-    160,
-    301
+    86,
+    104,
+    162,
+    303
    ],
    "count": 4,
    "context": [
@@ -268114,11 +268232,11 @@
     "_run_patrol"
    ],
    "lines": [
-    85,
-    103,
-    161,
-    362,
-    424
+    87,
+    105,
+    163,
+    364,
+    426
    ],
    "count": 5,
    "context": [
@@ -268156,12 +268274,12 @@
     "_run_patrol"
    ],
    "lines": [
-    85,
-    103,
-    162,
-    302,
-    361,
-    425
+    87,
+    105,
+    164,
+    304,
+    363,
+    427
    ],
    "count": 6,
    "context": [
@@ -268197,10 +268315,10 @@
     "_exercise_ritual"
    ],
    "lines": [
-    84,
-    102,
-    159,
-    300
+    86,
+    104,
+    161,
+    302
    ],
    "count": 4,
    "context": [
@@ -268234,7 +268352,7 @@
     "_ready"
    ],
    "lines": [
-    229
+    231
    ],
    "count": 1,
    "context": [
@@ -268266,8 +268384,8 @@
     "_ready"
    ],
    "lines": [
-    104,
-    164
+    106,
+    166
    ],
    "count": 2,
    "context": [
@@ -268299,26 +268417,26 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    877,
-    877,
-    879,
-    879,
-    879,
-    879,
-    901,
-    901,
-    901,
-    901,
-    903,
-    903,
-    903,
-    938,
-    938,
-    940,
-    940,
-    940,
-    940,
-    955
+    880,
+    880,
+    882,
+    882,
+    882,
+    882,
+    904,
+    904,
+    904,
+    904,
+    906,
+    906,
+    906,
+    941,
+    941,
+    943,
+    943,
+    943,
+    943,
+    958
    ],
    "count": 20,
    "context": [
@@ -269762,7 +269880,7 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    138
+    139
    ],
    "count": 1,
    "context": [
@@ -269792,7 +269910,7 @@
     "_prepared_door_id"
    ],
    "lines": [
-    149
+    150
    ],
    "count": 1,
    "context": [
@@ -269822,7 +269940,7 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    139
+    140
    ],
    "count": 1,
    "context": [
@@ -269915,7 +270033,7 @@
     "_enter_2a"
    ],
    "lines": [
-    184
+    185
    ],
    "count": 1,
    "context": [
@@ -273128,7 +273246,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273158,7 +273276,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273188,7 +273306,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273218,7 +273336,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273248,7 +273366,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273278,7 +273396,7 @@
     "_route"
    ],
    "lines": [
-    98
+    96
    ],
    "count": 1,
    "context": [
@@ -273308,7 +273426,7 @@
     "_route"
    ],
    "lines": [
-    38
+    42
    ],
    "count": 1,
    "context": [
@@ -273336,11 +273454,151 @@
     "_route"
    ],
    "lines": [
-    43
+    47
    ],
    "count": 1,
    "context": [
     "and \"F01_LIGHT_COURT_BASE\" in str(hit.collider.get_path()), \"actual new slab bears on crossbeam at \" + str(z))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "27bb30d6f5a0efbd",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_widened_stairs"
+   ],
+   "lines": [
+    181
+   ],
+   "count": 1,
+   "context": [
+    "or stair.id == \"PRIMARY_B1_F01\" and returning)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7964b467e052c139",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_widened_stairs"
+   ],
+   "lines": [
+    180
+   ],
+   "count": 1,
+   "context": [
+    "var retained_lobby_edge: bool = (stair.id == \"PRIMARY_F01_F02\" and not returning"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1e74032d76d5c193",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_LANDING_N",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_PUBLIC_LANDING_N\", \"ROOF_PUBLIC_LANDING_S\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ffbf0dbad1367fc4",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_LANDING_S",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_PUBLIC_LANDING_N\", \"ROOF_PUBLIC_LANDING_S\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9d3b07fff06f7e08",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_LANDING",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_SERVICE_LANDING\", \"SERVICE_F06_ROOF/FlightB_Step09\"])"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -273364,7 +273622,11 @@
     "_route"
    ],
    "lines": [
+    99,
+    100,
     101,
+    101,
+    102,
     102,
     103,
     103,
@@ -273373,12 +273635,12 @@
     105,
     106
    ],
-   "count": 8,
+   "count": 12,
    "context": [
     "{\"id\":\"court_guard_ground\", \"at\":Vector3(2.95,0,-1.4), \"look\":Vector3(2.95,.8,-.58)},",
     "{\"id\":\"court_guard_north\", \"at\":Vector3(2.95,0,2.5), \"look\":Vector3(2.95,.65,1.7)},",
-    "{\"id\":\"court_guard_upper\", \"at\":Vector3(2.95,3.2,-2.8), \"look\":Vector3(2.95,3.85,-1.945)},",
-    "{\"id\":\"court_transfer_overview\", \"at\":Vector3(4.9,-3.2,-1.1), \"look\":Vector3(2.95,-1.4,-1.2)},"
+    "{\"id\":\"roof_court_gate\", \"at\":Vector3(4.9,19.2,-2.2), \"look\":Vector3(2.95,19.85,-1.7)},",
+    "{\"id\":\"roof_service_gate\", \"at\":Vector3(12.35,19.2,4.3), \"look\":Vector3(10.85,19.85,5.3)},"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -273973,7 +274235,7 @@
     "_route"
    ],
    "lines": [
-    19
+    26
    ],
    "count": 1,
    "context": [
@@ -274008,16 +274270,16 @@
     6,
     6,
     6,
-    16,
-    16,
-    16,
-    16,
-    17,
-    17,
-    30,
-    30,
-    30,
-    30
+    23,
+    23,
+    23,
+    23,
+    24,
+    24,
+    37,
+    37,
+    37,
+    37
    ],
    "count": 14,
    "context": [
@@ -280134,9 +280396,9 @@
     "_write_contract"
    ],
    "lines": [
-    159,
-    196,
-    226
+    176,
+    213,
+    243
    ],
    "count": 3,
    "context": [
@@ -280169,7 +280431,7 @@
    ],
    "lines": [
     70,
-    226
+    243
    ],
    "count": 2,
    "context": [
@@ -280202,7 +280464,7 @@
    ],
    "lines": [
     117,
-    226
+    243
    ],
    "count": 2,
    "context": [
@@ -280234,8 +280496,8 @@
     "_save_rebuild"
    ],
    "lines": [
-    160,
-    197
+    177,
+    214
    ],
    "count": 2,
    "context": [
@@ -280320,9 +280582,9 @@
     65,
     66,
     66,
-    143,
-    150,
-    150
+    160,
+    167,
+    167
    ],
    "count": 29,
    "context": [

@@ -6,10 +6,17 @@ func _route() -> void:
 	for point in [Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),Vector3(-4,0,-1.35)]:
 		if not await _walk(point): return
 	var guard: Node3D = world.adapter.resolve("F01_TOUR_KEY_GUARD")
-	if not await _use(guard,guard.to_global(Vector3(0,.15,.06)),"tour_key_guard"): return
-	_require(guard.key_carried(),"physical tour-key guard yields its actual key")
-	if not await _use(guard,guard.to_global(Vector3(0,.15,.06)),"tour_key_return"): return
-	_require(not guard.key_carried(),"physical tour-key guard accepts its key back")
+	# The guard is worked by hand (RUL-013): its latch swings, the key lifts
+	# off the hook and drops back on it. It offers no [E] prompt.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var lifted: bool = await hand.operate(guard._latch.to_global(Vector3(-.030,0,.012)),1.4,guard) 			and await hand.operate(guard._key.to_global(Vector3(0,-.028,.01)),.065,guard)
+	_require(lifted and guard.key_carried(),"physical tour-key guard yields its actual key")
+	var returned: bool = await hand.operate(guard._check.to_global(Vector3(0,0,.01)),0,guard)
+	hand.free()
+	_require(returned and not guard.key_carried(),"physical tour-key guard accepts its key back")
 	# The mail bank stands in the lobby since the first-floor ruling
 	# (v1r_first_floor_layout_20261111): back out of the watch room, through the
 	# core and into the lobby. No door of the watch room is on the way any more.

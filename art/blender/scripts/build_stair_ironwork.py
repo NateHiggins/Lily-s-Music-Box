@@ -12,6 +12,8 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from repair_surface_uvs import repair_scene
 
+bpy.context.preferences.filepaths.save_version = 0
+
 def point(v):
     return Vector((v[0], -v[2], v[1]))
 
@@ -84,7 +86,7 @@ def stringer(name, x, width, tread, rise, count, offset, reverse, mat):
     obj.modifiers.new('Plate normals', 'WEIGHTED_NORMAL')
     return obj
 
-def build(name, width, tread, landing):
+def build(name, width, tread, landing, gap):
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
     # Keep catalogue names exact across both assemblies in one Blender run.
@@ -93,7 +95,7 @@ def build(name, width, tread, landing):
     iron = material('cast_iron', (.055,.055,.052), .65, .55)
     wood = material('wood_dark', (.095,.052,.025), 0, .35)
     steel = material('steel', (.26,.27,.27), .8, .4)
-    rise, count, gap, guard = .16, 10, .30, .91
+    rise, count, guard = .16, 10, .91
     run, half = tread*count, rise*count
     right = width*2+gap-.025
     rear = run+landing+.7-.025
@@ -133,6 +135,17 @@ def build(name, width, tread, landing):
         if heavy:
             box('NewelCap', (x,floor+height-.025,z), (.048,.04,.052), wood, .006)
 
+    def baluster_panel(flight,x):
+        # Intermediate bars close the spaces between the existing posts.
+        for i in range(count):
+            floor = rise*(i+1)+(half if flight=='B' else 0)
+            z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
+            for side in [-1,1]:
+                offset = side*tread/3
+                z_sloping = -offset if flight=='B' else offset
+                top = guard-.038 + rise*z_sloping/tread
+                box('GuardInfill',(x,floor+top*.5,z+offset),(.014,top,.014),iron)
+
     for flight in ['A','B']:
         points = []
         for i in range(count):
@@ -141,6 +154,7 @@ def build(name, width, tread, landing):
             x = right if flight=='B' else .025
             post(flight+str(i),x,floor,z,i in [0,count-1])
             points.append((x,floor+guard-.025,z))
+        baluster_panel(flight,x)
         # A round graspable timber cap, with a narrow continuous iron bearer.
         rod('Handrail'+flight,points[0],points[-1],.023,wood)
         rod('RailBearer'+flight,(points[0][0],points[0][1]-.035,points[0][2]),
@@ -171,6 +185,7 @@ def build(name, width, tread, landing):
             z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
             post('Inner'+flight+str(i),x,floor,z,i in [0,count-1])
             points.append((x,floor+guard-.025,z))
+        baluster_panel(flight,x)
         rod('InnerHandrail'+flight,points[0],points[-1],.023,wood)
         rod('InnerBearer'+flight,(x,points[0][1]-.035,points[0][2]),
             (x,points[-1][1]-.035,points[-1][2]),.009,iron)
@@ -205,5 +220,6 @@ def build(name, width, tread, landing):
     bpy.ops.export_scene.gltf(filepath=str(ROOT/f'game/assets/props/{name}.glb'),
         export_format='GLB',export_apply=True,export_yup=True,export_animations=False)
 
-build('stair_ironwork_public',1.2,.285,1.2)
-build('stair_ironwork_service',1.05,.275,1.05)
+if '--service-only' not in sys.argv:
+    build('stair_ironwork_public', 1.2, .285, 1.2, .30)
+build('stair_ironwork_service', 1.2, .275, 1.05, 0.0)

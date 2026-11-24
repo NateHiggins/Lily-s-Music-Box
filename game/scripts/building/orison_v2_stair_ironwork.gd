@@ -2,6 +2,8 @@ extends RefCounted
 ## Blender dressing and semantic guard barriers. Steps and ramps remain owned
 ## by the blockout; collision is never inferred from imported visual triangles.
 const PUBLIC := preload("res://assets/props/stair_ironwork_court.glb")
+const PUBLIC_LOBBY := preload("res://assets/props/stair_ironwork_court_lobby.glb")
+const PUBLIC_BASEMENT := preload("res://assets/props/stair_ironwork_court_basement.glb")
 const SERVICE := preload("res://assets/props/stair_ironwork_service.glb")
 
 func mount(parent: Node3D, stair: Dictionary, base_y: float) -> bool:
@@ -13,7 +15,15 @@ func mount(parent: Node3D, stair: Dictionary, base_y: float) -> bool:
 		or not is_equal_approx(float(stair.rise),.16) or int(stair.risers_per_flight)!=10 \
 		or not is_equal_approx(float(stair.gap),1.0 if public else .3) or not is_equal_approx(float(stair.guard_height),.91):
 		return false
-	var model := (PUBLIC if public else SERVICE).instantiate() as Node3D
+	var packed := SERVICE
+	match str(stair.id):
+		"PRIMARY_F01_F02":
+			packed = PUBLIC_LOBBY
+		"PRIMARY_B1_F01":
+			packed = PUBLIC_BASEMENT
+		_:
+			if public: packed = PUBLIC
+	var model := packed.instantiate() as Node3D
 	model.name = "Ironwork"
 	parent.add_child(model)
 	model.position = Vector3(float(stair.origin[0]),base_y,float(stair.origin[1]))
@@ -54,7 +64,11 @@ func _mount_guards(parent: Node3D, origin: Vector3, stair: Dictionary) -> void:
 		var low_y := half+rise if returning else rise
 		var high_y := half*2 if returning else half
 		var outer := right if returning else .025
-		var inner := width+gap+.025 if returning else width-.025
+		var inner := width + gap * 0.5 + (.025 if returning else -.025)
+		if not returning and str(stair.id) == "PRIMARY_F01_F02":
+			inner = width - .025
+		elif returning and str(stair.id) == "PRIMARY_B1_F01":
+			inner = width + gap + .025
 		for x in [outer,inner]:
 			_guard(body,Vector3(x,low_y,low_z),Vector3(x,high_y,high_z),height)
 		var end_z := low_z if returning else high_z

@@ -4,6 +4,7 @@ Run through Blender: art/blender/scripts/build_light_court_stair.py
 A separately authored public variant preserves the retained service assembly.
 """
 from pathlib import Path
+import sys
 import bpy
 import bmesh
 from mathutils import Vector
@@ -85,7 +86,7 @@ def stringer(name, x, landing, tread, rise, count, offset, reverse, mat):
     obj.modifiers.new('Plate normals', 'WEIGHTED_NORMAL')
     return obj
 
-def build(name, width, tread, landing, gap):
+def build(name, width, tread, landing, gap, retained_flight=''):
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
     # Keep catalogue names exact across both assemblies in one Blender run.
@@ -116,6 +117,29 @@ def build(name, width, tread, landing, gap):
                 marker = bpy.data.objects.new('Bearing_'+flight+str(i)+'_'+str(side),None)
                 bpy.context.collection.objects.link(marker)
                 marker.location = point((x0+side,y-.02,z))
+    # Flush infill meets at the centre of the old eye. Openings between
+    # the dark iron bars retain daylight from the skylight.
+    centre = width + gap * .5
+    for flight in ['A', 'B']:
+        if flight == retained_flight:
+            continue
+        phase = .5 if flight == 'A' else .25
+        inner_edge = width if flight == 'A' else width + gap
+        # Keep a 24 mm line of sight through the stacked flights.
+        inner_limit = centre + (.012 if flight == 'B' else -.012)
+        infill_x = (inner_edge + inner_limit) * .5
+        ext = abs(inner_edge - inner_limit)
+        for i in range(count):
+            top = rise * (i + 1) + (half if flight == 'B' else 0)
+            z = run + landing - tread * (i + .5) if flight == 'B' else tread * (i + .5)
+            for bar in range(6):
+                offset = (bar + phase) * tread / 6 - tread * .5
+                structure.append(box('InfillCrossbar', (infill_x, top - .025, z + offset),
+                                     (ext, .05, .011), iron, .0008))
+            for bar in range(5):
+                offset = (bar + .5) * ext / 5 - ext * .5
+                structure.append(box('InfillRib', (infill_x + offset, top - .033, z),
+                                     (.010, .034, tread), iron, .0008))
     for z in [run+.07,rear-.045]:
         structure.append(box('LandingBeam',(width+gap*.5,half-.26,z),
                              (width*2+gap-.02,.15,.10),iron,.003))
@@ -134,6 +158,17 @@ def build(name, width, tread, landing, gap):
         if heavy:
             box('NewelCap', (x,floor+height-.025,z), (.048,.04,.052), wood, .006)
 
+    def baluster_panel(flight,x):
+        # Intermediate bars close the spaces between the existing posts.
+        for i in range(count):
+            floor = rise*(i+1)+(half if flight=='B' else 0)
+            z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
+            for side in [-1,1]:
+                offset = side*tread/3
+                z_sloping = -offset if flight=='B' else offset
+                top = guard-.038 + rise*z_sloping/tread
+                box('GuardInfill',(x,floor+top*.5,z+offset),(.014,top,.014),iron)
+
     for flight in ['A','B']:
         points = []
         for i in range(count):
@@ -142,6 +177,7 @@ def build(name, width, tread, landing, gap):
             x = right if flight=='B' else .025
             post(flight+str(i),x,floor,z,i in [0,count-1])
             points.append((x,floor+guard-.025,z))
+        baluster_panel(flight,x)
         # A round graspable timber cap, with a narrow continuous iron bearer.
         rod('Handrail'+flight,points[0],points[-1],.023,wood)
         rod('RailBearer'+flight,(points[0][0],points[0][1]-.035,points[0][2]),
@@ -165,13 +201,16 @@ def build(name, width, tread, landing, gap):
     # Inner flights remain separate. The return flight stops at its first
     # tread post: extending it onto the landing pinches the player's U-turn.
     for flight in ['A','B']:
-        x = width+gap+.025 if flight=='B' else width-.025
+        x = width + gap * .5 + (.025 if flight == 'B' else -.025)
+        if flight == retained_flight:
+            x = width + gap + .025 if flight == 'B' else width - .025
         points = []
         for i in range(count):
             floor = rise*(i+1)+(half if flight=='B' else 0)
             z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
             post('Inner'+flight+str(i),x,floor,z,i in [0,count-1])
             points.append((x,floor+guard-.025,z))
+        baluster_panel(flight,x)
         rod('InnerHandrail'+flight,points[0],points[-1],.023,wood)
         rod('InnerBearer'+flight,(x,points[0][1]-.035,points[0][2]),
             (x,points[-1][1]-.035,points[-1][2]),.009,iron)
@@ -244,4 +283,8 @@ assert len(public)==7
 shape={k:public[0][k] for k in ['width','tread','landing_depth','gap','rise','risers_per_flight','guard_height']}
 assert all(all(r[k]==v for k,v in shape.items()) for r in public)
 assert shape==dict(width=1.05,tread=.285,landing_depth=1.2,gap=1.,rise=.16,risers_per_flight=10,guard_height=.91)
-build('stair_ironwork_court',shape['width'],shape['tread'],shape['landing_depth'],shape['gap'])
+dimensions = (shape['width'], shape['tread'], shape['landing_depth'], shape['gap'])
+if '--basement-only' not in sys.argv:
+    build('stair_ironwork_court', *dimensions)
+    build('stair_ironwork_court_lobby', *dimensions, retained_flight='A')
+build('stair_ironwork_court_basement', *dimensions, retained_flight='B')

@@ -1104,56 +1104,88 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	var run := tread * count
 	var half_rise := rise * count
 	var guard_h := float(stair.guard_height)
+	# Share the existing opening between the two usable flights. Their outer
+	# bearings, tread datums and turning landing keep their original positions.
+	var inside_extension := gap * 0.5
+	var public := str(stair.id).begins_with("PRIMARY_")
+	# The first lobby flight crosses the ground-floor aisle before it has
+	# headroom for an extension. Its original inside face stays guarded.
+	var over_lobby_aisle := str(stair.id) == "PRIMARY_F01_F02"
+	var into_lobby_aisle := str(stair.id) == "PRIMARY_B1_F01"
+	var width_a := width if (production_materials and public) or over_lobby_aisle else width + inside_extension
+	var width_b := width if (production_materials and public) or into_lobby_aisle else width + inside_extension
+	# The service core's east masonry face is 125 mm beyond the old stringer.
+	var wall_infill := 0.0 if public else 0.125
+	var lower_x := x0 + width_a * 0.5
 	# Bound each tread to one riser's thickness. Filling it down to base_y
 	# creates a false low ceiling beneath the next stacked flight.
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := z0 + tread * (i + 0.5)
 		var step_a := _box(parent, "FlightA_Step%02d" % i,
-				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
-				Vector3(width, rise, tread), "core", true)
-		if production_materials: step_a.mesh = _dished_tread(Vector3(width, rise, tread), 1.0)
+				Vector3(lower_x, base_y + step_h - rise * 0.5, z),
+				Vector3(width_a, rise, tread), "core", true)
+		if production_materials: step_a.mesh = _dished_tread(Vector3(width_a, rise, tread), 1.0)
+		if production_materials and public and not over_lobby_aisle:
+			_seat_stair_grating(step_a, width, rise, tread, inside_extension)
 		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
 		guard_a.visible = not production_materials
 	_ramp_collision(parent, "FlightATraversalRamp",
-			Vector3(x0 + width * 0.5, base_y + half_rise * 0.5,
-					z0 + run * 0.5), width, run, half_rise, -1.0)
+			Vector3(lower_x, base_y + half_rise * 0.5,
+					z0 + run * 0.5), width_a, run, half_rise, -1.0)
 	var landing_depth := float(stair.landing_depth)
 	# A body needs clear standing room beyond the return flight's first nosing in
 	# order to execute the U-turn; the semantic depth describes the clear landing.
 	var turn_clearance := 0.7
 	_box(parent, "HalfLanding",
-			Vector3(x0 + width + gap * 0.5, base_y + half_rise - 0.1,
+			Vector3(x0 + width + gap * 0.5 + wall_infill * 0.5, base_y + half_rise - 0.1,
 					z0 + run + (landing_depth + turn_clearance) * 0.5),
-			Vector3(width * 2.0 + gap, 0.2, landing_depth + turn_clearance), "core", true)
+			Vector3(width * 2.0 + gap + wall_infill, 0.2, landing_depth + turn_clearance), "core", true)
 	var landing_guard := _box(parent, "HalfLandingGuard",
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise + guard_h * 0.5,
 					z0 + run + landing_depth + turn_clearance - 0.025),
 			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
 	landing_guard.visible = not production_materials
-	var x_b := x0 + width + gap
+	var right_edge := x0 + width * 2.0 + gap
+	width_b += wall_infill
+	var upper_x := right_edge + wall_infill - width_b * 0.5
 	var north_start := z0 + run + landing_depth
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := north_start - tread * (i + 0.5)
 		var step_b := _box(parent, "FlightB_Step%02d" % i,
-				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
-				Vector3(width, rise, tread), "core", true)
-		if production_materials: step_b.mesh = _dished_tread(Vector3(width, rise, tread), -1.0)
+				Vector3(upper_x, base_y + half_rise + step_h - rise * 0.5, z),
+				Vector3(width_b, rise, tread), "core", true)
+		if production_materials: step_b.mesh = _dished_tread(Vector3(width_b, rise, tread), -1.0)
+		if production_materials and public and not into_lobby_aisle:
+			_seat_stair_grating(step_b, width, rise, tread, -inside_extension)
 		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
-				Vector3(x_b + width - 0.025,
+				Vector3(right_edge - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
 		guard_b.visible = not production_materials
 	_ramp_collision(parent, "FlightBTraversalRamp",
-			Vector3(x_b + width * 0.5, base_y + half_rise + half_rise * 0.5,
-					north_start - run * 0.5), width, run, half_rise, 1.0)
+			Vector3(upper_x, base_y + half_rise + half_rise * 0.5,
+					north_start - run * 0.5), width_b, run, half_rise, 1.0)
 	if production_materials:
 		var ironwork := preload("res://scripts/building/orison_v2_stair_ironwork.gd").new()
 		if not ironwork.mount(parent,stair,base_y):
 			failures.append("unsupported ironwork dimensions: "+str(stair.id))
+
+## One thin bearing per steel panel. Leave the native 24 mm seam unobstructed
+## for the lobby-to-skylight sightline through the stacked flights.
+func _seat_stair_grating(step: MeshInstance3D, width: float, rise: float,
+		tread: float, extension: float) -> void:
+	var body := step.get_node("Collision") as StaticBody3D
+	var bearing_width := absf(extension) - 0.012
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(bearing_width, 0.05, tread)
+	var bearing := CollisionShape3D.new()
+	bearing.shape = shape
+	bearing.position = Vector3(signf(extension) * (width + bearing_width) * 0.5, rise * 0.5 - 0.025, 0)
+	body.add_child(bearing)
 
 ## Dossier slice 50: inherited dishing on the honed treads. Only the visible top face
 ## dips, 5 mm at most, along the walking line and deepest just behind the nosing; it is

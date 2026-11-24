@@ -30,6 +30,32 @@
       "floor_owner": "F01_PUBLIC_LANDING_N"
     },
     {
+      "id": "F01_LightCourtGuard_CourtStop",
+      "level": "F01",
+      "kind": "CourtStop",
+      "bounds": [
+        2.45,
+        0.0,
+        -0.6124999999999999,
+        3.45,
+        1.05,
+        -0.5475
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          0.0,
+          -0.58
+        ],
+        [
+          3.4250000000000003,
+          0.0,
+          -0.58
+        ]
+      ],
+      "floor_owner": "F01_LIGHT_COURT_BASE"
+    },
+    {
       "id": "F02_LightCourtGuard_North",
       "level": "F02",
       "kind": "North",
@@ -54,6 +80,32 @@
         ]
       ],
       "floor_owner": "F02_PUBLIC_LANDING_N"
+    },
+    {
+      "id": "F02_LightCourtGuard_South",
+      "level": "F02",
+      "kind": "South",
+      "bounds": [
+        2.45,
+        3.2,
+        -1.9775,
+        2.95,
+        4.25,
+        -1.9125
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          3.2,
+          -1.945
+        ],
+        [
+          2.9250000000000003,
+          3.2,
+          -1.945
+        ]
+      ],
+      "floor_owner": "F02_PUBLIC_LANDING_S"
     },
     {
       "id": "F03_LightCourtGuard_North",
@@ -82,6 +134,32 @@
       "floor_owner": "F03_PUBLIC_LANDING_N"
     },
     {
+      "id": "F03_LightCourtGuard_South",
+      "level": "F03",
+      "kind": "South",
+      "bounds": [
+        2.45,
+        6.4,
+        -1.9775,
+        2.95,
+        7.45,
+        -1.9125
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          6.4,
+          -1.945
+        ],
+        [
+          2.9250000000000003,
+          6.4,
+          -1.945
+        ]
+      ],
+      "floor_owner": "F03_PUBLIC_LANDING_S"
+    },
+    {
       "id": "F04_LightCourtGuard_North",
       "level": "F04",
       "kind": "North",
@@ -106,6 +184,32 @@
         ]
       ],
       "floor_owner": "F04_PUBLIC_LANDING_N"
+    },
+    {
+      "id": "F04_LightCourtGuard_South",
+      "level": "F04",
+      "kind": "South",
+      "bounds": [
+        2.45,
+        9.6,
+        -1.9775,
+        2.95,
+        10.65,
+        -1.9125
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          9.6,
+          -1.945
+        ],
+        [
+          2.9250000000000003,
+          9.6,
+          -1.945
+        ]
+      ],
+      "floor_owner": "F04_PUBLIC_LANDING_S"
     },
     {
       "id": "F05_LightCourtGuard_North",
@@ -134,6 +238,32 @@
       "floor_owner": "F05_PUBLIC_LANDING_N"
     },
     {
+      "id": "F05_LightCourtGuard_South",
+      "level": "F05",
+      "kind": "South",
+      "bounds": [
+        2.45,
+        12.8,
+        -1.9775,
+        2.95,
+        13.850000000000001,
+        -1.9125
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          12.8,
+          -1.945
+        ],
+        [
+          2.9250000000000003,
+          12.8,
+          -1.945
+        ]
+      ],
+      "floor_owner": "F05_PUBLIC_LANDING_S"
+    },
+    {
       "id": "F06_LightCourtGuard_North",
       "level": "F06",
       "kind": "North",
@@ -158,6 +288,32 @@
         ]
       ],
       "floor_owner": "F06_PUBLIC_LANDING_N"
+    },
+    {
+      "id": "F06_LightCourtGuard_South",
+      "level": "F06",
+      "kind": "South",
+      "bounds": [
+        2.45,
+        16.0,
+        -1.9775,
+        2.95,
+        17.05,
+        -1.9125
+      ],
+      "foot_contacts": [
+        [
+          2.475,
+          16.0,
+          -1.945
+        ],
+        [
+          2.9250000000000003,
+          16.0,
+          -1.945
+        ]
+      ],
+      "floor_owner": "F06_PUBLIC_LANDING_S"
     },
     {
       "id": "ROOF_LightCourtGuard_North",
@@ -186,155 +342,25 @@
       "floor_owner": "ROOF_PUBLIC_LANDING_N"
     },
     {
-      "id": "F02_LightCourtGuard_South",
-      "level": "F02",
-      "kind": "South",
-      "bounds": [
-        2.45,
-        3.2,
-        -1.9775,
-        3.45,
-        4.25,
-        -1.9125
-      ],
-      "foot_contacts": [
-        [
-          2.475,
-          3.2,
-          -1.945
-        ],
-        [
-          3.4250000000000003,
-          3.2,
-          -1.945
-        ]
-      ],
-      "floor_owner": "F02_PUBLIC_LANDING_S"
-    },
-    {
-      "id": "F03_LightCourtGuard_South",
-      "level": "F03",
-      "kind": "South",
-      "bounds": [
-        2.45,
-        6.4,
-        -1.9775,
-        3.45,
-        7.45,
-        -1.9125
-      ],
-      "foot_contacts": [
-        [
-          2.475,
-          6.4,
-          -1.945
-        ],
-        [
-          3.4250000000000003,
-          6.4,
-          -1.945
-        ]
-      ],
-      "floor_owner": "F03_PUBLIC_LANDING_S"
-    },
-    {
-      "id": "F04_LightCourtGuard_South",
-      "level": "F04",
-      "kind": "South",
-      "bounds": [
-        2.45,
-        9.6,
-        -1.9775,
-        3.45,
-        10.65,
-        -1.9125
-      ],
-      "foot_contacts": [
-        [
-          2.475,
-          9.6,
-          -1.945
-        ],
-        [
-          3.4250000000000003,
-          9.6,
-          -1.945
-        ]
-      ],
-      "floor_owner": "F04_PUBLIC_LANDING_S"
-    },
-    {
-      "id": "F05_LightCourtGuard_South",
-      "level": "F05",
-      "kind": "South",
-      "bounds": [
-        2.45,
-        12.8,
-        -1.9775,
-        3.45,
-        13.850000000000001,
-        -1.9125
-      ],
-      "foot_contacts": [
-        [
-          2.475,
-          12.8,
-          -1.945
-        ],
-        [
-          3.4250000000000003,
-          12.8,
-          -1.945
-        ]
-      ],
-      "floor_owner": "F05_PUBLIC_LANDING_S"
-    },
-    {
-      "id": "F06_LightCourtGuard_South",
-      "level": "F06",
-      "kind": "South",
-      "bounds": [
-        2.45,
-        16.0,
-        -1.9775,
-        3.45,
-        17.05,
-        -1.9125
-      ],
-      "foot_contacts": [
-        [
-          2.475,
-          16.0,
-          -1.945
-        ],
-        [
-          3.4250000000000003,
-          16.0,
-          -1.945
-        ]
-      ],
-      "floor_owner": "F06_PUBLIC_LANDING_S"
-    },
-    {
       "id": "ROOF_LightCourtGuard_South",
       "level": "ROOF",
       "kind": "South",
       "bounds": [
-        2.45,
+        1.4,
         19.2,
         -1.9775,
-        3.45,
+        2.95,
         20.25,
         -1.9125
       ],
       "foot_contacts": [
         [
-          2.475,
+          1.4249999999999998,
           19.2,
           -1.945
         ],
         [
-          3.4250000000000003,
+          2.9250000000000003,
           19.2,
           -1.945
         ]
@@ -342,43 +368,277 @@
       "floor_owner": "ROOF_PUBLIC_LANDING_S"
     },
     {
-      "id": "F01_LightCourtGuard_CourtStop",
+      "id": "F01_LightCourtGuard_ServiceSide",
       "level": "F01",
-      "kind": "CourtStop",
+      "kind": "ServiceSide",
       "bounds": [
-        2.45,
+        9.525,
         0.0,
-        -0.6124999999999999,
-        3.45,
+        6.6725,
+        10.55,
         1.05,
-        -0.5475
+        6.7375
       ],
       "foot_contacts": [
         [
-          2.475,
+          9.665000000000001,
           0.0,
-          -0.58
+          6.705
         ],
         [
-          3.4250000000000003,
+          10.525,
           0.0,
-          -0.58
+          6.705
         ]
       ],
-      "floor_owner": "F01_LIGHT_COURT_BASE"
+      "floor_owner": "F01_SERVICE_ENTRY_PLATFORM"
+    },
+    {
+      "id": "F02_LightCourtGuard_ServiceSide",
+      "level": "F02",
+      "kind": "ServiceSide",
+      "bounds": [
+        9.525,
+        3.2,
+        4.9225,
+        10.55,
+        4.25,
+        4.9875
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          3.2,
+          4.955
+        ],
+        [
+          10.525,
+          3.2,
+          4.955
+        ]
+      ],
+      "floor_owner": "F02_SERVICE_LANDING"
+    },
+    {
+      "id": "F03_LightCourtGuard_ServiceSide",
+      "level": "F03",
+      "kind": "ServiceSide",
+      "bounds": [
+        9.525,
+        6.4,
+        5.9725,
+        10.55,
+        7.45,
+        6.0375
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          6.4,
+          6.005
+        ],
+        [
+          10.525,
+          6.4,
+          6.005
+        ]
+      ],
+      "floor_owner": "F03_SERVICE_ENTRY_PLATFORM"
+    },
+    {
+      "id": "F04_LightCourtGuard_ServiceSide",
+      "level": "F04",
+      "kind": "ServiceSide",
+      "bounds": [
+        9.525,
+        9.6,
+        4.9225,
+        10.55,
+        10.65,
+        4.9875
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          9.6,
+          4.955
+        ],
+        [
+          10.525,
+          9.6,
+          4.955
+        ]
+      ],
+      "floor_owner": "F04_SERVICE_LANDING"
+    },
+    {
+      "id": "F05_LightCourtGuard_ServiceSide",
+      "level": "F05",
+      "kind": "ServiceSide",
+      "bounds": [
+        9.525,
+        12.8,
+        4.9225,
+        10.55,
+        13.850000000000001,
+        4.9875
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          12.8,
+          4.955
+        ],
+        [
+          10.525,
+          12.8,
+          4.955
+        ]
+      ],
+      "floor_owner": "F05_SERVICE_LANDING"
+    },
+    {
+      "id": "F06_LightCourtGuard_ServiceSide",
+      "level": "F06",
+      "kind": "ServiceSide",
+      "bounds": [
+        9.525,
+        16.0,
+        4.9225,
+        10.55,
+        17.05,
+        4.9875
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          16.0,
+          4.955
+        ],
+        [
+          10.525,
+          16.0,
+          4.955
+        ]
+      ],
+      "floor_owner": "F06_SERVICE_LANDING"
+    },
+    {
+      "id": "ROOF_LightCourtGuard_West",
+      "level": "ROOF",
+      "kind": "West",
+      "bounds": [
+        1.3525,
+        19.2,
+        -1.945,
+        1.4175,
+        20.25,
+        1.7
+      ],
+      "foot_contacts": [
+        [
+          1.385,
+          19.2,
+          -1.9200000000000002
+        ],
+        [
+          1.385,
+          19.2,
+          1.675
+        ]
+      ],
+      "floor_owner": "ROOF_LIFT_DECK_E"
+    },
+    {
+      "id": "ROOF_LightCourtGuard_East",
+      "level": "ROOF",
+      "kind": "East",
+      "bounds": [
+        4.4825,
+        19.2,
+        -1.945,
+        4.547499999999999,
+        20.25,
+        1.7
+      ],
+      "foot_contacts": [
+        [
+          4.515,
+          19.2,
+          -1.9200000000000002
+        ],
+        [
+          4.515,
+          19.2,
+          1.675
+        ]
+      ],
+      "floor_owner": "ROOF_PUBLIC_LANDING_E"
+    },
+    {
+      "id": "ROOF_LightCourtGuard_ServiceLanding",
+      "level": "ROOF",
+      "kind": "ServiceLanding",
+      "bounds": [
+        9.525,
+        19.2,
+        4.9225,
+        11.765,
+        20.25,
+        4.9875
+      ],
+      "foot_contacts": [
+        [
+          9.55,
+          19.2,
+          4.955
+        ],
+        [
+          11.74,
+          19.2,
+          4.955
+        ]
+      ],
+      "floor_owner": "ROOF_SERVICE_LANDING"
+    },
+    {
+      "id": "ROOF_LightCourtGuard_ServiceReturn",
+      "level": "ROOF",
+      "kind": "ServiceReturn",
+      "bounds": [
+        11.7325,
+        19.2,
+        4.955,
+        11.797500000000001,
+        20.25,
+        6.1875
+      ],
+      "foot_contacts": [
+        [
+          11.765,
+          19.2,
+          4.98
+        ],
+        [
+          11.765,
+          19.2,
+          6.1625
+        ]
+      ],
+      "floor_owner": "ROOF_SERVICE_RETURN"
     }
   ],
   "joins": [
     {
       "id": "F02_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         3.2,
         -1.945,
         4.25
       ],
       "end": [
-        3.475,
+        2.975,
         3.2,
         -1.7575,
         4.108
@@ -388,13 +648,13 @@
     {
       "id": "F03_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         6.4,
         -1.945,
         7.450000000000001
       ],
       "end": [
-        3.475,
+        2.975,
         6.4,
         -1.7575,
         7.308
@@ -404,13 +664,13 @@
     {
       "id": "F04_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         9.6,
         -1.945,
         10.65
       ],
       "end": [
-        3.475,
+        2.975,
         9.6,
         -1.7575,
         10.508
@@ -420,13 +680,13 @@
     {
       "id": "F05_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         12.8,
         -1.945,
         13.850000000000001
       ],
       "end": [
-        3.475,
+        2.975,
         12.8,
         -1.7575,
         13.708
@@ -436,13 +696,13 @@
     {
       "id": "F06_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         16.0,
         -1.945,
         17.049999999999997
       ],
       "end": [
-        3.475,
+        2.975,
         16.0,
         -1.7575,
         16.908
@@ -452,13 +712,13 @@
     {
       "id": "ROOF_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         19.2,
         -1.945,
         20.249999999999996
       ],
       "end": [
-        3.475,
+        2.975,
         19.2,
         -1.7575,
         20.108

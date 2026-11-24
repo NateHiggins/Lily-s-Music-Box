@@ -12,6 +12,17 @@
       ]
     },
     {
+      "id": "F01_LightCourtGuard_CourtStop",
+      "bounds": [
+        2.45,
+        0.0,
+        -0.6124999999999999,
+        3.45,
+        1.05,
+        -0.5475
+      ]
+    },
+    {
       "id": "F02_LightCourtGuard_North",
       "bounds": [
         1.4,
@@ -20,6 +31,17 @@
         4.5,
         4.25,
         1.7325
+      ]
+    },
+    {
+      "id": "F02_LightCourtGuard_South",
+      "bounds": [
+        2.45,
+        3.2,
+        -1.9775,
+        2.95,
+        4.25,
+        -1.9125
       ]
     },
     {
@@ -34,6 +56,17 @@
       ]
     },
     {
+      "id": "F03_LightCourtGuard_South",
+      "bounds": [
+        2.45,
+        6.4,
+        -1.9775,
+        2.95,
+        7.45,
+        -1.9125
+      ]
+    },
+    {
       "id": "F04_LightCourtGuard_North",
       "bounds": [
         1.4,
@@ -42,6 +75,17 @@
         4.5,
         10.65,
         1.7325
+      ]
+    },
+    {
+      "id": "F04_LightCourtGuard_South",
+      "bounds": [
+        2.45,
+        9.6,
+        -1.9775,
+        2.95,
+        10.65,
+        -1.9125
       ]
     },
     {
@@ -56,6 +100,17 @@
       ]
     },
     {
+      "id": "F05_LightCourtGuard_South",
+      "bounds": [
+        2.45,
+        12.8,
+        -1.9775,
+        2.95,
+        13.850000000000001,
+        -1.9125
+      ]
+    },
+    {
       "id": "F06_LightCourtGuard_North",
       "bounds": [
         1.4,
@@ -64,6 +119,17 @@
         4.5,
         17.05,
         1.7325
+      ]
+    },
+    {
+      "id": "F06_LightCourtGuard_South",
+      "bounds": [
+        2.45,
+        16.0,
+        -1.9775,
+        2.95,
+        17.05,
+        -1.9125
       ]
     },
     {
@@ -78,80 +144,124 @@
       ]
     },
     {
-      "id": "F02_LightCourtGuard_South",
-      "bounds": [
-        2.45,
-        3.2,
-        -1.9775,
-        3.45,
-        4.25,
-        -1.9125
-      ]
-    },
-    {
-      "id": "F03_LightCourtGuard_South",
-      "bounds": [
-        2.45,
-        6.4,
-        -1.9775,
-        3.45,
-        7.45,
-        -1.9125
-      ]
-    },
-    {
-      "id": "F04_LightCourtGuard_South",
-      "bounds": [
-        2.45,
-        9.6,
-        -1.9775,
-        3.45,
-        10.65,
-        -1.9125
-      ]
-    },
-    {
-      "id": "F05_LightCourtGuard_South",
-      "bounds": [
-        2.45,
-        12.8,
-        -1.9775,
-        3.45,
-        13.850000000000001,
-        -1.9125
-      ]
-    },
-    {
-      "id": "F06_LightCourtGuard_South",
-      "bounds": [
-        2.45,
-        16.0,
-        -1.9775,
-        3.45,
-        17.05,
-        -1.9125
-      ]
-    },
-    {
       "id": "ROOF_LightCourtGuard_South",
       "bounds": [
-        2.45,
+        1.4,
         19.2,
         -1.9775,
-        3.45,
+        2.95,
         20.25,
         -1.9125
       ]
     },
     {
-      "id": "F01_LightCourtGuard_CourtStop",
+      "id": "F01_LightCourtGuard_ServiceSide",
       "bounds": [
-        2.45,
+        9.525,
         0.0,
-        -0.6124999999999999,
-        3.45,
+        6.6725,
+        10.55,
         1.05,
-        -0.5475
+        6.7375
+      ]
+    },
+    {
+      "id": "F02_LightCourtGuard_ServiceSide",
+      "bounds": [
+        9.525,
+        3.2,
+        4.9225,
+        10.55,
+        4.25,
+        4.9875
+      ]
+    },
+    {
+      "id": "F03_LightCourtGuard_ServiceSide",
+      "bounds": [
+        9.525,
+        6.4,
+        5.9725,
+        10.55,
+        7.45,
+        6.0375
+      ]
+    },
+    {
+      "id": "F04_LightCourtGuard_ServiceSide",
+      "bounds": [
+        9.525,
+        9.6,
+        4.9225,
+        10.55,
+        10.65,
+        4.9875
+      ]
+    },
+    {
+      "id": "F05_LightCourtGuard_ServiceSide",
+      "bounds": [
+        9.525,
+        12.8,
+        4.9225,
+        10.55,
+        13.850000000000001,
+        4.9875
+      ]
+    },
+    {
+      "id": "F06_LightCourtGuard_ServiceSide",
+      "bounds": [
+        9.525,
+        16.0,
+        4.9225,
+        10.55,
+        17.05,
+        4.9875
+      ]
+    },
+    {
+      "id": "ROOF_LightCourtGuard_West",
+      "bounds": [
+        1.3525,
+        19.2,
+        -1.945,
+        1.4175,
+        20.25,
+        1.7
+      ]
+    },
+    {
+      "id": "ROOF_LightCourtGuard_East",
+      "bounds": [
+        4.4825,
+        19.2,
+        -1.945,
+        4.547499999999999,
+        20.25,
+        1.7
+      ]
+    },
+    {
+      "id": "ROOF_LightCourtGuard_ServiceLanding",
+      "bounds": [
+        9.525,
+        19.2,
+        4.9225,
+        11.765,
+        20.25,
+        4.9875
+      ]
+    },
+    {
+      "id": "ROOF_LightCourtGuard_ServiceReturn",
+      "bounds": [
+        11.7325,
+        19.2,
+        4.955,
+        11.797500000000001,
+        20.25,
+        6.1875
       ]
     }
   ],
@@ -159,13 +269,13 @@
     {
       "id": "F02_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         3.2,
         -1.945,
         4.25
       ],
       "end": [
-        3.475,
+        2.975,
         3.2,
         -1.7575,
         4.108
@@ -175,13 +285,13 @@
     {
       "id": "F03_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         6.4,
         -1.945,
         7.450000000000001
       ],
       "end": [
-        3.475,
+        2.975,
         6.4,
         -1.7575,
         7.308
@@ -191,13 +301,13 @@
     {
       "id": "F04_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         9.6,
         -1.945,
         10.65
       ],
       "end": [
-        3.475,
+        2.975,
         9.6,
         -1.7575,
         10.508
@@ -207,13 +317,13 @@
     {
       "id": "F05_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         12.8,
         -1.945,
         13.850000000000001
       ],
       "end": [
-        3.475,
+        2.975,
         12.8,
         -1.7575,
         13.708
@@ -223,13 +333,13 @@
     {
       "id": "F06_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         16.0,
         -1.945,
         17.049999999999997
       ],
       "end": [
-        3.475,
+        2.975,
         16.0,
         -1.7575,
         16.908
@@ -239,13 +349,13 @@
     {
       "id": "ROOF_LightCourtGuard_South_StairJoin",
       "start": [
-        3.45,
+        2.95,
         19.2,
         -1.945,
         20.249999999999996
       ],
       "end": [
-        3.475,
+        2.975,
         19.2,
         -1.7575,
         20.108
