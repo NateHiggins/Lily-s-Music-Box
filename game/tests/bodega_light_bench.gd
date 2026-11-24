@@ -37,8 +37,8 @@ func _route() -> void:
 	# The signboard's own two lamps, separately: steady, unshadowed, both burning.
 	var sign_lamps: Array = shop.find_children("*", "Light3D", true, false).filter(
 			func(l): return str(l.get_meta("authored_record_id", "")) == "")
-	_require(sign_lamps.size() == 2 and sign_lamps.all(func(l): return l is SpotLight3D and l.visible and not l.shadow_enabled
-			and l.get_parent() is BodegaSignageProp), "the signboard's two lamps are the only other lights: %d" % sign_lamps.size())
+	_require(sign_lamps.size() == 2 and sign_lamps.all(_steady_sign_lamp),
+			"the signboard's two lamps are the only other lights: %d" % sign_lamps.size())
 	var dark := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "ceiling_practical_back")
 	_require(dark != null and _unlit(dark), "the back pendant's bulb is dark")
 	world.player.set_physics_process(false)
@@ -101,6 +101,10 @@ func _route() -> void:
 		var file := FileAccess.open(directory.path_join("bodega_light_bench.json"), FileAccess.WRITE)
 		file.store_string(JSON.stringify({"evidence_class": "INERT", "rows": rows,
 			"limits": "Fixed cameras, player lamp off, overlays hidden; A/B/A by the owner's own restore. GPU and CPU medians on a shared machine are reported, not claimed. Not a runtime contract or artistic acceptance."}, "\t"))
+
+
+func _steady_sign_lamp(light: Light3D) -> bool:
+	return light is SpotLight3D and light.visible and not light.shadow_enabled 			and light.get_parent() is BodegaSignageProp
 
 
 func _unlit(draw: MeshInstance3D) -> bool:
