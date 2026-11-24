@@ -96,7 +96,7 @@ The proposal's section 2 line "the Bodega counter has no collision in V2" was wr
 | Sign | **_process** wrote the emission level to both cabinet materials every frame, lit or not. | Fixed: writes only when the tube changes state |
 | Sale terminal | **_physics_process** ran every physics tick on every sale point in the game, returning early at rest. It missed the idle-physics pass. | Fixed: idle at rest, woken on release while off its stop |
 | Stock simulation | One-second poll, whole-minute catch-up. | Fine |
-| Lights | Seven template lights (two shadowed) plus two sign omnis and the receiving practical. Lily allows culling (2026-11-23). Not changed here: the sign's two omnis go with the sign ruling, and the interior set needs a rendered pass. | Deferred to the sign build |
+| Lights | Seven template lights, two of them re-rendering cube shadows every frame, plus the sign's lights. Lily allows culling (2026-11-23). | Culled, section 3.4 |
 
 ### 2.7 Residents and queue
 
@@ -164,6 +164,35 @@ the words at mount and keeps the source wording in its retained meta.
   sold elsewhere and would always be short.
 - Errands taken before this change have no stage and keep the old pocket path.
 
+### 3.4 Night lighting (Lily's lighting latitude, 2026-11-23)
+
+**orison_v2_bodega_lighting.gd**, applied when the fittings mount and before the
+far-light shadow owner collects:
+
+- The counter and cooler fills go; both sit inside the front and middle pools.
+- The back practical goes, and the back ceiling pendant's bulb is dark.
+- The middle pendant reaches 6.6 m instead of 5.7 m to carry the aisle ends.
+- The storefront spill keeps its light but drops its cube shadow.
+- The front pendant casts the one interior shadow.
+
+The authored template is untouched; its digest is bound. The owner records every
+original value, and **restore()** returns them exactly.
+
+**BodegaLightBench** measures two fixed interior views culled, restored and culled
+again (A/B/A). It checks the authored practicals by record id (7 retained, 4 burning,
+the front pendant the only caster, structurally and live after camera placement), and
+the signboard's two lamps separately.
+
+| View | Draw calls, culled A / B | Draw calls, authored | Shadow draws, culled A / B | Shadow draws, authored |
+|---|---|---|---|---|
+| From the door | 9,603 / 9,596 | 10,223 | 7,024 / 7,020 | 7,647 |
+| From the rear | 8,671 / 8,654 | 9,467 | 6,666 / 6,664 | 7,488 |
+
+GPU medians scatter on the shared machine (door 10.6 and 6.6 ms culled against 10.6 ms
+authored), so no frame-time gain is claimed. Renders: the back of the shop falls dark
+beyond the second pendant, and the cooler case goes unlit. It reads moodier and is
+still legible. Captures are in **shots_lights**.
+
 ### 3.3 For Codex's intake
 
 - No route, doorway, queue, admission, clearance or collision coordinate changes. The
@@ -193,8 +222,8 @@ Work order **w2005ff86065f** tracks the build.
   first-draft authored text for Lily's playtest read.
 - The case view is not driven by its own UI in the test; the test calls **ItemUse** as
   the case does, and drives the sack with the real hand.
-- The interior light cull, Cam carrying deliveries, produce thinning through the day
-  and a selector-and-lever teaching slip remain open.
+- Cam carrying deliveries, produce thinning through the day and a selector-and-lever
+  teaching slip remain open.
 - No render review of the interior's texture scale or grain beyond the captures cited.
 - The full surface packet is not renewed here; Codex renews it at integration.
 
@@ -244,6 +273,19 @@ the proof:
 
 The sign glare fix (**7f8d05f97**) re-rendered in **glare/signage.log.receipt.json**; it
 fails only the "persistent facts" check that also fails on main.
+
+Lighting, compile-first and in a fresh private APPDATA:
+
+- **lights/bench.log.receipt.json**: BodegaLightBench at **bfd9eaf42**, exit 0.
+- **lights_counters2/shop_counters.log.receipt.json**: ShopCountersRouteTest at
+  **99e0a2271**, exit 0, 0 failures, save boundary included.
+
+The earlier failures are kept, not replaced:
+
+- **lights_parse_error/**: a parse error at **c5455b2ff** held the lane until the run was
+  stopped.
+- **lights/shop_counters.log**: a backup left by an earlier boundary run made the first
+  save a recovery case. The test now uses a fresh save file per run.
 
 Not run here: the resident route and queue suites and the surface packet, which Codex
 qualifies against the merged tree.
