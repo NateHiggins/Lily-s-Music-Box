@@ -20,18 +20,7 @@ func _route() -> void:
 	var before := ShopStock.advanced_units(10.0, icebox, day_start, day_start + 239.0)
 	var after := ShopStock.advanced_units(10.0, icebox, day_start, day_start + 241.0)
 	_require(after > before + float(icebox.delivery.units) * 0.9, "the icebox delivery arrives at 04:00: %.2f -> %.2f" % [before, after])
-	# Cam's dawn run resolves every ordinary day, Monday's long circuit included; only
-	# the Triangle fire date (day 84) keeps Cam out and leaves the carter unseen.
-	var presence: Node = world.resident_presence
-	var cases := [["mon", 100, 200.0, "out", ""], ["mon", 100, 215.0, "bodega", "eating"],
-		["mon", 100, 235.0, "bodega", "work"], ["tue", 101, 235.0, "bodega", "work"],
-		["mon", 100, 255.0, "stairs", ""], ["mon", 84, 235.0, "out", ""]]
-	for row: Array in cases:
-		var block: Dictionary = presence.resolve("cam_ortiz", str(row[0]), float(row[2]), int(row[1]), false)
-		var place := str(block.get("place", ""))
-		var activity := str(block.get("activity", ""))
-		_require(place == str(row[3]) and (str(row[4]).is_empty() or activity == str(row[4])),
-				"Cam on %s (day %d) at %02d:%02d: %s/%s" % [row[0], row[1], floori(float(row[2]) / 60.0), floori(fmod(float(row[2]), 60.0)), place, activity])
+	_check_cam_schedule()
 	var shop: Node3D = world.exterior_cell.instance_node("SHOP_BODEGA")
 	var delivery: Node3D = shop.get_node_or_null("BodegaDeliveryLoad")
 	if not _require(delivery != null and delivery.load_node.get_child_count() == 3, "the handcart load is mounted"):
@@ -112,3 +101,18 @@ func _route() -> void:
 	_require(delivery.get_child_count() >= 2 and delivery.find_children("*", "Timer", false, false).size() == 1
 			and not delivery.is_processing() and not delivery.is_physics_processing(),
 			"the load is polled by a slow timer, not every frame")
+
+
+func _check_cam_schedule() -> void:
+	# Cam's dawn run resolves every ordinary day, Monday's long circuit included; only
+	# the Triangle fire date (day 84) keeps Cam out and leaves the carter unseen.
+	var presence: Node = world.resident_presence
+	var cases := [["mon", 100, 200.0, "out", ""], ["mon", 100, 215.0, "bodega", "eating"],
+		["mon", 100, 235.0, "bodega", "work"], ["tue", 101, 235.0, "bodega", "work"],
+		["mon", 100, 255.0, "stairs", ""], ["mon", 84, 235.0, "out", ""]]
+	for row: Array in cases:
+		var block: Dictionary = presence.resolve("cam_ortiz", str(row[0]), float(row[2]), int(row[1]), false)
+		var place := str(block.get("place", ""))
+		var activity := str(block.get("activity", ""))
+		_require(place == str(row[3]) and (str(row[4]).is_empty() or activity == str(row[4])),
+				"Cam on %s (day %d) at %02d:%02d: %s/%s" % [row[0], row[1], floori(float(row[2]) / 60.0), floori(fmod(float(row[2]), 60.0)), place, activity])
