@@ -46,24 +46,22 @@ func _fitted_counter_support(shop_id: String, model_name: String, point: Node3D)
 	return absf(at.y-bounds.end.y)<.001 and at.x>bounds.position.x and at.x<bounds.end.x \
 		and at.z>bounds.position.z and at.z<bounds.end.z
 
-## The bodega has no prepared fitting; its counter top is an authored box.
+## The bodega's counter is fitted over an authored box, so ask the real
+## collision: a short ray straight down from the terminal's foot, past its own
+## housing, must meet a counter body within a few millimetres.
 func _bodega_counter_support(point: Node3D) -> bool:
-	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(OrisonV2ExteriorCell.GEOMETRY_PATH))
-	if source is not Dictionary: return false
-	var top: Dictionary = {}
-	for template: Dictionary in source.templates:
-		if template.id != "TEMPLATE_BODEGA_CELL_V1": continue
-		for box: Dictionary in template.boxes:
-			if box.id == "counter_top": top = box
-	if top.is_empty(): return false
-	var frame: Transform3D = world.exterior_cell.spatial_resolver.instance_world_transform("SHOP_BODEGA")
-	var local: Vector3 = frame.affine_inverse() * point.global_position
-	var centre := Vector3(float(top.position_m[0]), float(top.position_m[1]), float(top.position_m[2]))
-	var half := Vector3(float(top.size_m[0]), float(top.size_m[1]), float(top.size_m[2])) * .5
-	var ok := absf(local.y - (centre.y + half.y)) < .002 and absf(local.x - centre.x) < half.x \
-		and absf(local.z - centre.z) < half.z
-	if not ok: print("[SHOP COUNTERS] bodega terminal local=", local, " top=", centre, "+", half)
-	return ok
+	var up: Vector3 = point.global_basis.y.normalized()
+	var query := PhysicsRayQueryParameters3D.create(point.global_position + up * .05,
+			point.global_position - up * .05)
+	var housing := point.find_child("TerminalHousing", true, false) as CollisionObject3D
+	if housing != null: query.exclude = [housing.get_rid()]
+	var hit: Dictionary = point.get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		print("[SHOP COUNTERS] bodega terminal: nothing beneath ", point.global_position)
+		return false
+	var gap: float = (point.global_position - (hit.position as Vector3)).dot(up)
+	print("[SHOP COUNTERS] bodega terminal rests on ", (hit.collider as Node).name, " gap=", gap)
+	return absf(gap) < .003
 
 func _route() -> void:
 	var points: Dictionary = world.shop_counters
