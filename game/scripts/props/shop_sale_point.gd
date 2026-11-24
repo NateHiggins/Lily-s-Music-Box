@@ -109,7 +109,14 @@ func teach() -> bool:
 		return false
 	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
 	# A call holds the set; a missing or unpowered printer cannot issue paper.
-	if player == null or player.call_locked or not is_instance_valid(player.carried_device) 			or not player.carried_device.has_method("print_telegram_card"):
+	if player == null or player.call_locked or not is_instance_valid(player.carried_device) \
+			or not player.carried_device.has_method("print_telegram_card"):
+		return false
+	# The slip never replaces a page still printing or feeding, a keyed copy or a draft.
+	var device: Variant = player.carried_device.get("device")
+	var teletype: Variant = device.get("teletype") if device is Node else null
+	if teletype is Node and teletype.has_method("accepts_low_priority_copy") \
+			and not bool(teletype.call("accepts_low_priority_copy")):
 		return false
 	# The printer authority answers whether paper actually came out. Only then is
 	# the slip issued; otherwise the next time the hand finds a counter tries again.
@@ -132,7 +139,6 @@ static func issued() -> bool:
 
 
 func _selector_grip() -> Dictionary:
-	teach()
 	if selector == null or item_ids.size() < 2:
 		return {}
 	return {"owner": self, "part": selector, "frame": self, "kind": "slide", "axis": Vector3.RIGHT,
@@ -146,6 +152,8 @@ func _selector_grip() -> Dictionary:
 				return false
 			refresh_list()
 			_selector_held = true
+			# Only a successful take, never the reticle's query, may print the slip.
+			teach()
 			return true,
 		"owns": func(): return _selector_held,
 		"end": func():

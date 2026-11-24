@@ -94,11 +94,33 @@ func _route() -> void:
 	await _stand_before(hardware)
 	await _capture_interaction("shop_hardware_counter")
 	var chosen: String = hardware.selected_item()
-	var before_first := int(printer.printed_count)
+	# Aiming alone (the reticle queries the grip every frame) prints nothing.
+	var before_aim := int(printer.printed_count)
+	await _hand.aim(hardware.selector.to_global(Vector3(0, .094, -.025)))
+	for frame in 6:
+		player._update_prompt()
+		await get_tree().physics_frame
+	_require(int(printer.printed_count) == before_aim and not SalePoint.issued() and not player._grab.active(),
+			"aiming at the picker without taking it prints nothing and issues nothing")
+	# A field copy still printing is never replaced: the slip waits for the next take.
+	var teletype: Node = printer.teletype
+	var busy := {"title": "BUSY FIELD COPY", "body": "A LONG FIELD REPORT STILL COMING OFF THE PLATEN STOP ".repeat(8)}
+	_require(bool(printer.print_telegram_card(busy)) and not teletype.accepts_low_priority_copy(), "a long field copy is printing")
+	var before_busy := int(printer.printed_count)
 	var moved: bool = await _slide_selector(hardware, 0.05)
 	_require(moved, "the real hand moves the selector")
-	_require(int(printer.printed_count) == before_first + 1 and SalePoint.issued(),
-			"with the set on, finding the first counter prints the slip once and issues it: %d" % (int(printer.printed_count) - before_first))
+	_require(int(printer.printed_count) == before_busy and not SalePoint.issued()
+			and teletype.pages.size() > 0 and str(teletype.pages[0]).begins_with("BUSY FIELD COPY"),
+			"while a copy prints, taking the picker leaves the copy on the page and the slip unissued")
+	var waited := 0.0
+	while not teletype.accepts_low_priority_copy() and waited < 30.0:
+		await get_tree().create_timer(0.25).timeout
+		waited += 0.25
+	_require(teletype.accepts_low_priority_copy(), "the field copy is delivered (%.1f s)" % waited)
+	var before_first := int(printer.printed_count)
+	var moved_again: bool = await _slide_selector(hardware, 0.08)
+	_require(moved_again and int(printer.printed_count) == before_first + 1 and SalePoint.issued(),
+			"the next take prints the slip once and issues it: %d" % (int(printer.printed_count) - before_first))
 	await get_tree().create_timer(1.5).timeout
 	await _capture_interaction("shop_counter_teaching_slip")
 	_require(hardware.selected_item() != chosen, "the selector walks the list")

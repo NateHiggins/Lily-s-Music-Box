@@ -12,7 +12,7 @@ var _held := false
 var _attempted := false
 var _lever_origin := Vector3.ZERO
 var last_status := ""
-## Called when the hand first finds the lever; the sale point prints its slip then.
+## Called when a hand actually takes the lever; the sale point prints its slip then.
 var on_found: Callable = Callable()
 
 func configure(service: Object, identity: String,
@@ -24,7 +24,6 @@ func configure(service: Object, identity: String,
 	return target_area.get_child_count()>0
 
 func grip() -> Dictionary:
-	if on_found.is_valid():on_found.call()
 	if merchant==null or lever==null or _locked():return {}
 	return {"owner":self,"part":lever,"frame":self,"kind":"slide","axis":Vector3.BACK,
 		"minimum":0.,"maximum":TRAVEL,"gesture_travel_px":140.,"gesture_screen_axis":Vector2.DOWN,
@@ -33,7 +32,10 @@ func grip() -> Dictionary:
 			if _held:_move(value),
 		"begin":func():
 			if _held:return false
-			_held=true;_attempted=false;return true,
+			_held=true;_attempted=false
+			# Only a successful take, never the reticle's query, may print the slip.
+			if on_found.is_valid():on_found.call()
+			return true,
 		"owns":func():return _held,
 		"end":func():
 			_held=false
