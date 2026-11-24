@@ -92,6 +92,17 @@ NpcPilotGenericGaitTest is the headless test, and it writes a schema-2 runtime_c
 - the stop;
 - that a resident outside the gate (Peter) still walks at 1x.
 
+Lane runs on this branch, with receipts in **C:/ov/reports/npc_pilot_20261123/second/tests**:
+
+- NpcPilotGenericGaitTest: PASS, with 0 frames off on the level and at the stair pace.
+- NpcPilotMinaGaitTest: PASS.
+- CastResidentTest: 24/0.
+- CastClipPresentationTest: 43/0.
+- OrisonV2ResidentWalkTest for Malcolm: 754.7 m from the third floor, and every stop but the bodega.
+
+At the bodega he stands with an empty path while its local itinerary is occupied for 150 s. Codex attributes
+that to the grocery's admission, separately from movement.
+
 ## 5. What the pilot shows
 
 - **Flat walking.** The repair carries across both body bases and both animation paths. A batch of residents
