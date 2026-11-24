@@ -441,9 +441,19 @@ func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 	# A failed acquisition must still release any different part actually picked.
 	if player._grab.active(): hand.click()
 	check(closet._held.is_empty() and not player._grab.active(), "cover release leaves no transient input owner")
+	# Lily 2026-11-24: the released cover rests at a set place (its seat or a floor spot beside the pan), never mid-air.
+	if acquired:
+		await get_tree().create_timer(.6).timeout
+		var rest: Vector3 = closet.parts.CisternCover.position
+		var at_place: bool = rest.is_equal_approx(closet._cover_seat)
+		for spot: Vector3 in closet.COVER_FLOOR_SPOTS:
+			at_place = at_place or rest.is_equal_approx(spot)
+		check(at_place, "released cistern cover rests at its seat or a set floor spot: " + str(rest))
 	await RenderingServer.frame_post_draw
 	await capture("installed_closet_services")
 	player.cancel_manipulation();closet.restore_mechanism(saved)
+	for frame in 4: await get_tree().process_frame
+	check(not closet.is_processing() and not closet.is_physics_processing(), "a settled closet does no per-frame work")
 	world.household_state.capture_now();hand.free()
 	player.global_transform = old_pose;player.camera.global_transform = old_view
 	player.set_physics_process(old_physics);Input.mouse_mode = old_mouse

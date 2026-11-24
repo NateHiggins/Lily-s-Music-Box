@@ -252,6 +252,8 @@ func make_emitter(stream_key: String, volume_db := -8.0,
 	add_child(p)
 	if loop_play:
 		p.play()
+		# Loops parked at -60 dB until their appliance runs stop instead of playing unheard.
+		AudioPolicy.gate_silent_loop(p)
 	return p
 
 

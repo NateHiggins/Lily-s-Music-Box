@@ -109,6 +109,7 @@ func setup(elevator_data: Dictionary) -> void:
 	_hum.volume_db = -60.0
 	_cabin.add_child(_hum)
 	_hum.play()
+	AudioPolicy.gate_silent_loop(_hum)
 	_cabin.position.y = stops[current]
 
 	var door_w: float = float(elevator_data.get("door_w", 0.91))
@@ -737,7 +738,11 @@ func _drive_cab_hardware() -> void:
 				if _doors.has(current) else 0.0
 		# A collapsed gate is not zero-width - the leaves stack against
 		# the jamb - so it bottoms out at a tenth of its span.
-		_gate.scale.x = lerpf(1.0, 0.10, open_t)
+		var span := lerpf(1.0, 0.10, open_t)
+		# Rewriting an unchanged scale still re-dirties the whole lattice
+		# subtree every tick; only a real change is written.
+		if _gate.scale.x != span:
+			_gate.scale.x = span
 	if _needle and stop_order.size() > 1:
 		var lo: float = stops[stop_order[0]]
 		var hi: float = stops[stop_order[stop_order.size() - 1]]
@@ -745,7 +750,9 @@ func _drive_cab_hardware() -> void:
 				0.0, 1.0)
 		# bottom of the building at the left horn of the dial, top at the
 		# right, so the needle sweeps the way the car climbs
-		_needle.rotation.z = deg_to_rad(lerpf(72.0, -72.0, f))*_needle_sweep_sign
+		var sweep := deg_to_rad(lerpf(72.0, -72.0, f))*_needle_sweep_sign
+		if _needle.rotation.z != sweep:
+			_needle.rotation.z = sweep
 
 
 ## Cabin control panel: a brass plate carrying one pressable button per

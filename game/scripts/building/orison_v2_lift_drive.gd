@@ -16,6 +16,7 @@ var deflectors: Array[Node3D] = []
 var deflector_bases: Array[Basis] = []
 var counter_height := 0.0
 var total_vertical_rope := 0.0
+var _drive_applied := false
 
 func configure(source: OrisonElevator) -> bool:
 	if source == null or source._cabin == null: return false
@@ -78,6 +79,9 @@ func configure(source: OrisonElevator) -> bool:
 	return true
 
 func _physics_process(_delta: float) -> void:
+	# Every drive pose derives from the car height alone; a standing car
+	# leaves sheave, ropes, crosshead and counterweight exactly as they are.
+	if _drive_applied and is_instance_valid(lift) and is_instance_valid(lift._cabin) and lift._cabin.position.y == observed_car_height: return
 	_update_drive()
 
 func _update_drive() -> void:
@@ -103,6 +107,7 @@ func _update_drive() -> void:
 	for index in deflectors.size():
 		var direction := -1.0 if index == 0 else 1.0
 		deflectors[index].basis = deflector_bases[index] * Basis(Vector3.RIGHT,direction*driven_angle*SHEAVE_RADIUS/.15)
+	_drive_applied = true
 
 func _set_rope(rope: Node3D, top: float, length: float) -> void:
 	rope.position.y = top-length*.5

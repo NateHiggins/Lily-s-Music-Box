@@ -222,6 +222,34 @@ var _stagger_left := 0.0
 var _stagger_velocity := Vector3.ZERO
 var _stagger_roll := 0.0
 
+## STANDING STILL IS CHEAP (30 fps work, 2026-11-24). A settled body on a
+## static floor with no input skips move_and_slide for up to
+## IDLE_REVALIDATE_TICKS - 1 consecutive ticks, then runs the full step again
+## so a removed floor or a push is still caught. Any gap in physics ticks
+## (processing disabled, direct calls), any position change the controller did
+## not make, any velocity, input, crouch, collision or support change forces
+## the full step on that same tick.
+const IDLE_REVALIDATE_TICKS := 6
+var _idle_ticks := 0
+var _idle_last_frame := -2
+var _idle_settled_position := Vector3.INF
+var _idle_support_static := false
+var _idle_support_ids: PackedInt64Array = PackedInt64Array()
+var _idle_collision_mask := -1
+var _idle_collision_layer := -1
+var _idle_capsule_height := -1.0
+var _idle_shape_position := Vector3.INF
+## Passage-door steering only scans every door when one could be in reach.
+## The scan is refreshed on every new movement, every DOOR_SCAN_REFRESH_TICKS
+## ticks and after DOOR_SCAN_TRAVEL metres, with a margin beyond the guide's
+## own acceptance box (door_passage_guide.gd _find_door).
+const DOOR_SCAN_REFRESH_TICKS := 15
+const DOOR_SCAN_TRAVEL := 1.0
+const DOOR_SCAN_MARGIN := 1.5
+var _door_scan_origin := Vector3.INF
+var _door_scan_frame := -1000
+var _door_scan_near := true
+
 
 ## SleepPressureDirector asks the body owner whether replacing the waking
 ## world is physically safe. Engagement, traffic and elevator seams remain
@@ -1262,12 +1290,32 @@ func _physics_process(delta: float) -> void:
 			_stagger_roll * stagger_weight)
 	camera.rotation.z = lerpf(camera.rotation.z, roll_target,
 			minf(1.0, delta * (10.0 if _stagger_left > 0.0 else 4.5)))
+	if _idle_step_allowed(wish, gravity_direction):
+		# Settled: no collision solve this tick. Mirror the full path's
+		# zero-input bookkeeping (guide release, zero planar velocity, no
+		# into-floor speed) and keep the holder and stride owners ticking.
+		_idle_ticks += 1
+		_door_scan_origin = Vector3.INF
+		_door_passage.steer(self, wish, delta, WALK)
+		velocity.x = 0.0
+		velocity.z = 0.0
+		if velocity.y < 0.0:
+			velocity.y = 0.0
+		if _grab != null: _grab.follow_holder()
+		_publish_foot_contacts()
+		return
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
 	var input_gain := 1.0 - stagger_weight * STAGGER_INPUT_DAMP
 	if gravity_direction.dot(Vector3.DOWN) > 0.98 and stagger_weight == 0.0 \
 			and not (_grab != null and _grab.active() and not _grab.holding_pickup()):
-		wish = _door_passage.steer(self, wish, delta, speed)
+		# With no door anywhere in reach, steer() would only search and return
+		# the intent unchanged; skip that whole-group search.
+		if Vector3(wish.x, 0.0, wish.z).length_squared() < 0.01:
+			_door_scan_origin = Vector3.INF
+			wish = _door_passage.steer(self, wish, delta, speed)
+		elif _door_passage.active() or _passage_doors_near():
+			wish = _door_passage.steer(self, wish, delta, speed)
 	else:
 		_door_passage.reset()
 	var hoop_rolling := false
@@ -1346,6 +1394,7 @@ func _physics_process(delta: float) -> void:
 	var slide_done:=Time.get_ticks_usec() if profile_physics else 0
 	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()
+	_record_idle_support(wish)
 	if profile_physics and Time.get_ticks_usec()-sync_started>1000:
 		var contacts: Array=[]
 		for index in get_slide_collision_count():
@@ -1367,6 +1416,147 @@ func resolved_camera_roll(gravity_direction: Vector3,
 	if bool(GameBoot.settings.get("reduce_camera_roll", false)):
 		return 0.0
 	return -gravity_direction.x * 0.42 + stagger_roll
+
+
+## True when this tick may skip the collision solve. Called once per tick that
+## reaches the movement step; it also stamps the tick so a gap is detected.
+func _idle_step_allowed(wish: Vector3, gravity_direction: Vector3) -> bool:
+	var frame: int = Engine.get_physics_frames()
+	var consecutive: bool = frame == _idle_last_frame + 1
+	_idle_last_frame = frame
+	if not consecutive or not _idle_support_static:
+		return false
+	if _idle_ticks >= IDLE_REVALIDATE_TICKS - 1:
+		return false
+	if wish != Vector3.ZERO or autopilot != Vector3.ZERO:
+		return false
+	if Input.is_action_just_pressed("jump") or Input.is_action_pressed("jump"):
+		return false
+	if gravity_direction != Vector3.DOWN or up_direction != Vector3.UP:
+		return false
+	if _stagger_left > 0.0 or _mantle_left > 0.0 or _door_passage.active():
+		return false
+	if (_grab != null and _grab.active()) or is_instance_valid(_rolling_hoop):
+		return false
+	if not is_on_floor():
+		return false
+	if velocity.length_squared() > 0.000001 or get_real_velocity().length_squared() > 0.000001:
+		return false
+	if get_platform_velocity().length_squared() > 0.00000001 \
+			or get_platform_angular_velocity().length_squared() > 0.00000001:
+		return false
+	# Teleports, placements and carries are made by someone else.
+	if global_position != _idle_settled_position:
+		return false
+	if collision_mask != _idle_collision_mask or collision_layer != _idle_collision_layer:
+		return false
+	if _capsule == null or _shape == null or _capsule.height != _idle_capsule_height \
+			or _shape.position != _idle_shape_position:
+		return false
+	for id: int in _idle_support_ids:
+		if not is_instance_id_valid(id):
+			return false
+		var support := instance_from_id(id) as Node
+		if support == null or not support.is_inside_tree():
+			return false
+	return true
+
+
+## After a full step: may the following ticks settle? Only a body at rest on
+## the floor, every touched body static (never an AnimatableBody3D, a moving
+## StaticBody3D or anything inside the elevator), qualifies. The walk over the
+## contacts runs only when the step already ended at rest.
+func _record_idle_support(wish: Vector3) -> void:
+	_idle_ticks = 0
+	_idle_settled_position = global_position
+	_idle_support_static = false
+	_idle_support_ids.clear()
+	if Vector3(wish.x, 0.0, wish.z).length_squared() > 0.0 or autopilot != Vector3.ZERO:
+		return
+	if not is_on_floor() or up_direction != Vector3.UP or _stagger_left > 0.0 \
+			or _mantle_left > 0.0 or noclip:
+		return
+	if velocity.length_squared() > 0.000001 or get_real_velocity().length_squared() > 0.000001:
+		return
+	if get_platform_velocity().length_squared() > 0.00000001 \
+			or get_platform_angular_velocity().length_squared() > 0.00000001:
+		return
+	if _capsule == null or _shape == null:
+		return
+	var floor_found := false
+	var floor_dot: float = cos(floor_max_angle) - 0.01
+	for index: int in get_slide_collision_count():
+		var contact: KinematicCollision3D = get_slide_collision(index)
+		for c: int in contact.get_collision_count():
+			var collider: Object = contact.get_collider(c)
+			if not _idle_static_collider(collider):
+				return
+			_idle_support_ids.append(collider.get_instance_id())
+			if contact.get_normal(c).dot(up_direction) >= floor_dot:
+				floor_found = true
+	if not floor_found:
+		# Floor snap can hold the body without a reported slide contact.
+		# Identify the support under the feet with one ray.
+		var ray := PhysicsRayQueryParameters3D.create(global_position + Vector3.UP * 0.2,
+				global_position - Vector3.UP * 0.3, collision_mask)
+		ray.exclude = [get_rid()]
+		var hit: Dictionary = get_world_3d().direct_space_state.intersect_ray(ray)
+		if hit.is_empty():
+			return
+		var below: Object = hit.get("collider")
+		if not _idle_static_collider(below):
+			return
+		_idle_support_ids.append(below.get_instance_id())
+	_idle_collision_mask = collision_mask
+	_idle_collision_layer = collision_layer
+	_idle_capsule_height = _capsule.height
+	_idle_shape_position = _shape.position
+	_idle_support_static = true
+
+
+func _idle_static_collider(collider: Object) -> bool:
+	if collider == null or collider is AnimatableBody3D:
+		return false
+	if collider is StaticBody3D:
+		var body := collider as StaticBody3D
+		if body.constant_linear_velocity != Vector3.ZERO \
+				or body.constant_angular_velocity != Vector3.ZERO:
+			return false
+	elif not (collider is CSGShape3D or collider is GridMap):
+		return false
+	var node := collider as Node
+	while node != null:
+		if node is OrisonElevator:
+			return false
+		node = node.get_parent()
+	return true
+
+
+## Superset of door_passage_guide.gd _find_door's acceptance box, so skipping
+## steer() when this is false changes nothing the guide would have done.
+func _passage_doors_near() -> bool:
+	var frame: int = Engine.get_physics_frames()
+	var here: Vector3 = global_position
+	if _door_scan_origin != Vector3.INF and frame >= _door_scan_frame \
+			and frame - _door_scan_frame < DOOR_SCAN_REFRESH_TICKS \
+			and here.distance_squared_to(_door_scan_origin) <= DOOR_SCAN_TRAVEL * DOOR_SCAN_TRAVEL:
+		return _door_scan_near
+	_door_scan_origin = here
+	_door_scan_frame = frame
+	_door_scan_near = false
+	var radius: float = _capsule.radius if _capsule != null else BODY_RADIUS
+	for item: Node in get_tree().get_nodes_in_group("passage_doors"):
+		var door := item as DoorProp
+		if door == null or not door.is_inside_tree():
+			continue
+		var door_scale: Vector3 = door.global_basis.get_scale().abs()
+		var widest: float = maxf(1.0, maxf(door_scale.x, maxf(door_scale.y, door_scale.z)))
+		var reach: float = ((door.width + 0.25) + (door.width + radius + 0.6) + 0.35) * widest \
+				+ DOOR_SCAN_MARGIN
+		if door.global_position.distance_squared_to(here) <= reach * reach:
+			_door_scan_near = true
+			break
+	return _door_scan_near
 
 
 ## A step is measured after collision resolution. Animation and footstep

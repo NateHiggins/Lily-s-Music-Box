@@ -171,6 +171,12 @@ func _input(event: InputEvent) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
+	var player := get_parent().get("player") as PlayerController
+	var focus := get_viewport().gui_get_focus_owner()
+	# The text lease can remain active during a GUI focus transition.
+	if (is_instance_valid(player) and is_instance_valid(player.text_input_owner)) \
+			or focus is LineEdit or focus is TextEdit:
+		return
 	if event is InputEventKey and event.pressed and event.physical_keycode==KEY_F8:
 		if toggle_inspection_camera():get_viewport().set_input_as_handled()
 		return

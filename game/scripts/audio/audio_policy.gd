@@ -69,6 +69,56 @@ func _ready() -> void:
 	_caption_layer.name = "AudioCaptionLayer"
 	add_child(_caption_layer)
 	_caption_layer.call("listen_to", self)
+	# Nothing in the game uses audio reverb areas, so no 3D voice looks for one.
+	get_tree().node_added.connect(_no_reverb_area_query)
+
+
+## Lily 2026-11-24, ruling audio3d_simplify_20261124 (A): the game has no
+## reverb Area3Ds, so a 3D voice's per-tick area lookup only ever finds nothing.
+func _no_reverb_area_query(node: Node) -> void:
+	if node is AudioStreamPlayer3D:
+		(node as AudioStreamPlayer3D).area_mask = 0
+
+
+## Same ruling: a machinery loop held at or below SILENT_LOOP_DB is stopped,
+## not played inaudibly, and resumes when its owner fades it up. Only the
+## loops this gate stopped are restarted; an owner's own stop() stands.
+const SILENT_LOOP_DB := -55.0
+const SILENT_LOOP_CHECK_SECONDS := .25
+## Watched loops by instance id; the autoload outlives every world, so a retired
+## voice's entry (and its gated mark) is dropped together, never left behind.
+var _silent_loops: Dictionary[int, WeakRef] = {}
+var _gated: Dictionary[int, bool] = {}
+var _silent_loop_age := 0.0
+
+
+func gate_silent_loop(voice: AudioStreamPlayer3D) -> void:
+	if voice == null: return
+	var id := voice.get_instance_id()
+	if _silent_loops.has(id): return
+	_silent_loops[id] = weakref(voice)
+	_apply_silent_gate(id, voice)
+
+
+func _apply_silent_gate(id: int, voice: AudioStreamPlayer3D) -> void:
+	if voice.volume_db <= SILENT_LOOP_DB:
+		if voice.playing:
+			voice.stop()
+			_gated[id] = true
+	elif _gated.has(id):
+		_gated.erase(id)
+		if not voice.playing and voice.is_inside_tree(): voice.play()
+
+
+func _gate_silent_loops() -> void:
+	for id: int in _silent_loops.keys():
+		var voice := _silent_loops[id].get_ref() as AudioStreamPlayer3D
+		if voice == null:
+			_silent_loops.erase(id)
+			_gated.erase(id)
+			continue
+		if not voice.is_inside_tree(): continue
+		_apply_silent_gate(id, voice)
 
 
 func setup(catalog_path := CATALOG_PATH, build_voices := true) -> bool:
@@ -83,6 +133,10 @@ func setup(catalog_path := CATALOG_PATH, build_voices := true) -> bool:
 
 func _process(delta: float) -> void:
 	_clock += delta
+	_silent_loop_age += delta
+	if _silent_loop_age >= SILENT_LOOP_CHECK_SECONDS:
+		_silent_loop_age = 0.0
+		_gate_silent_loops()
 
 
 func bind_listener(listener: Node3D) -> void:
