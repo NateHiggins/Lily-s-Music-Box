@@ -260759,11 +260759,11 @@
     "run"
    ],
    "lines": [
-    200
+    205
    ],
    "count": 1,
    "context": [
-    "mina.setup(\"Mina Vale\", \"mina_vale\", \"2A\", CastBodies.model_for(\"mina_vale\"))"
+    "mina.setup(resident.capitalize(), resident, \"2A\", CastBodies.model_for(resident))"
    ],
    "gameplay_binding": false,
    "authority": [
