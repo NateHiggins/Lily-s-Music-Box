@@ -148,7 +148,10 @@ func run() -> void:
 	_solid(Vector3(3, RISERS * RISE, 2), Vector3(STAIR_X + RISERS * TREAD + 1.5, RISERS * RISE * 0.5, 0))
 	for frame in 3:
 		await get_tree().physics_frame
-	for id: String in ["mina_vale", "malcolm_reed"]:
+	# RESIDENTS=a,b,... checks a batch; the default is the two pilot bodies.
+	var who := OS.get_environment("RESIDENTS")
+	var residents: PackedStringArray = who.split(",", false) if not who.is_empty() else PackedStringArray(["mina_vale", "malcolm_reed"])
+	for id: String in residents:
 		var actor: Node3D = await _resident(id)
 		check(actor.walking_feet != null, "%s has walking foot placement installed" % id)
 		if actor.walking_feet == null:
@@ -185,8 +188,8 @@ func run() -> void:
 		actor.set_route_motion(false, 0.0, 0.0)
 		actor.queue_free()
 		await get_tree().process_frame
-	var peter: Node3D = await _resident("peter_wren")
-	check(peter.walking_feet == null, "a resident outside the pilot has no foot placement")
+	var peter: Node3D = await _resident("omar_bell")
+	check(peter.walking_feet == null, "a resident outside the gate (Omar) has no foot placement")
 	peter.queue_free()
 	await get_tree().process_frame
 	_finish(started)
