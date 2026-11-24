@@ -167,6 +167,9 @@ var margin_on_storey_only := false
 var source_points: Dictionary = {}
 var _margin_floor := ""
 var _margin_live := true
+## Every floor level of the building (layout floors' z), so the player's storey
+## is the one they stand on even where that storey has no case.
+var _storey_z: Array[float] = []
 const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
 		"juno_feedback_tetris": 2, "mae_contradictory_antiques": 3,
 		"cal_memory_radio": 4, "omar_unrepairable": 5}
@@ -197,6 +200,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		print("[ENCROACH] disabled by ENCROACH=0")
 		return 0
 	_read_substance_keys()
+	_storey_z.clear()
+	for fl in layout.get("floors", []):
+		if fl is Dictionary and fl.has("z"):
+			_storey_z.append(float(fl.z))
 	var total := 0
 	for case_id in CASES:
 		var spec: Dictionary = CASES[case_id]
@@ -801,10 +808,19 @@ func _player_floor() -> String:
 	if root == null or not ("player" in root) or root.player == null:
 		return ""
 	var y: float = (root.player as Node3D).global_position.y
+	# The storey is the highest floor of the building at or below the feet.
+	# A case storey's window used to run 3.4 m up from its floor, past the next
+	# floor 3.2 m above, so a player anywhere on F03 counted as on F02 and
+	# F02's margin never paused there (perf_margin_pause_20261123).
+	var storey := -INF
+	for z: float in _storey_z:
+		if y >= z - 0.3 and z > storey:
+			storey = z
 	for case_id in units:
 		var unit: Dictionary = units[case_id]
 		var fy := float(unit.floor_y)
-		if y >= fy - 0.3 and y < fy + 3.4:
+		var on_it := absf(fy - storey) < 0.05 if storey > -INF else (y >= fy - 0.3 and y < fy + 3.4)
+		if on_it and y < fy + 3.4:
 			var floor_node: Node = unit.floor_node
 			return floor_node.name if floor_node != null else ""
 	return ""
