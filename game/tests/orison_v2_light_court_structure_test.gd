@@ -163,9 +163,11 @@ func _check_widened_stairs(root: Node3D, space: PhysicsDirectSpaceState3D) -> vo
 		var run: float = stair.tread * stair.risers_per_flight
 		for flight: String in ["A", "B"]:
 			var returning := flight == "B"
-			if stair.id == "PRIMARY_F01_F02" and not returning:
-				continue # Preserved lobby passage is exercised by the entry route.
+			var retained_lobby_edge: bool = (stair.id == "PRIMARY_F01_F02" and not returning
+					or stair.id == "PRIMARY_B1_F01" and returning)
 			var middle := bay_width * .5 + (.07 if returning else -.07)
+			if retained_lobby_edge:
+				middle = stair.width + stair.gap + .07 if returning else stair.width - .07
 			var outer := bay_width + (.113 if exterior_wall else -.07) if returning else .07
 			var phase := .25 if returning else .5
 			for step: int in [0, 4, 9]:

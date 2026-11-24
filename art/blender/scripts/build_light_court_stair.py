@@ -4,6 +4,7 @@ Run through Blender: art/blender/scripts/build_light_court_stair.py
 A separately authored public variant preserves the retained service assembly.
 """
 from pathlib import Path
+import sys
 import bpy
 import bmesh
 from mathutils import Vector
@@ -85,7 +86,7 @@ def stringer(name, x, landing, tread, rise, count, offset, reverse, mat):
     obj.modifiers.new('Plate normals', 'WEIGHTED_NORMAL')
     return obj
 
-def build(name, width, tread, landing, gap, retain_lobby_aisle=False):
+def build(name, width, tread, landing, gap, retained_flight=''):
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
     # Keep catalogue names exact across both assemblies in one Blender run.
@@ -120,7 +121,7 @@ def build(name, width, tread, landing, gap, retain_lobby_aisle=False):
     # the dark iron bars retain daylight from the skylight.
     centre = width + gap * .5
     for flight in ['A', 'B']:
-        if retain_lobby_aisle and flight == 'A':
+        if flight == retained_flight:
             continue
         phase = .5 if flight == 'A' else .25
         inner_edge = width if flight == 'A' else width + gap
@@ -201,8 +202,8 @@ def build(name, width, tread, landing, gap, retain_lobby_aisle=False):
     # tread post: extending it onto the landing pinches the player's U-turn.
     for flight in ['A','B']:
         x = width + gap * .5 + (.025 if flight == 'B' else -.025)
-        if retain_lobby_aisle and flight == 'A':
-            x = width - .025
+        if flight == retained_flight:
+            x = width + gap + .025 if flight == 'B' else width - .025
         points = []
         for i in range(count):
             floor = rise*(i+1)+(half if flight=='B' else 0)
@@ -283,5 +284,7 @@ shape={k:public[0][k] for k in ['width','tread','landing_depth','gap','rise','ri
 assert all(all(r[k]==v for k,v in shape.items()) for r in public)
 assert shape==dict(width=1.05,tread=.285,landing_depth=1.2,gap=1.,rise=.16,risers_per_flight=10,guard_height=.91)
 dimensions = (shape['width'], shape['tread'], shape['landing_depth'], shape['gap'])
-build('stair_ironwork_court', *dimensions)
-build('stair_ironwork_court_lobby', *dimensions, retain_lobby_aisle=True)
+if '--basement-only' not in sys.argv:
+    build('stair_ironwork_court', *dimensions)
+    build('stair_ironwork_court_lobby', *dimensions, retained_flight='A')
+build('stair_ironwork_court_basement', *dimensions, retained_flight='B')

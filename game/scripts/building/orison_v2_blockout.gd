@@ -1110,9 +1110,10 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	var public := str(stair.id).begins_with("PRIMARY_")
 	# The first lobby flight crosses the ground-floor aisle before it has
 	# headroom for an extension. Its original inside face stays guarded.
-	var lobby_aisle := str(stair.id) == "PRIMARY_F01_F02"
-	var width_a := width if (production_materials and public) or lobby_aisle else width + inside_extension
-	var width_b := width if production_materials and public else width + inside_extension
+	var over_lobby_aisle := str(stair.id) == "PRIMARY_F01_F02"
+	var into_lobby_aisle := str(stair.id) == "PRIMARY_B1_F01"
+	var width_a := width if (production_materials and public) or over_lobby_aisle else width + inside_extension
+	var width_b := width if (production_materials and public) or into_lobby_aisle else width + inside_extension
 	# The service core's east masonry face is 125 mm beyond the old stringer.
 	var wall_infill := 0.0 if public else 0.125
 	var lower_x := x0 + width_a * 0.5
@@ -1125,7 +1126,7 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 				Vector3(lower_x, base_y + step_h - rise * 0.5, z),
 				Vector3(width_a, rise, tread), "core", true)
 		if production_materials: step_a.mesh = _dished_tread(Vector3(width_a, rise, tread), 1.0)
-		if production_materials and public and not lobby_aisle:
+		if production_materials and public and not over_lobby_aisle:
 			_seat_stair_grating(step_a, width, rise, tread, inside_extension)
 		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
@@ -1158,7 +1159,7 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 				Vector3(upper_x, base_y + half_rise + step_h - rise * 0.5, z),
 				Vector3(width_b, rise, tread), "core", true)
 		if production_materials: step_b.mesh = _dished_tread(Vector3(width_b, rise, tread), -1.0)
-		if production_materials and public:
+		if production_materials and public and not into_lobby_aisle:
 			_seat_stair_grating(step_b, width, rise, tread, -inside_extension)
 		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
 				Vector3(right_edge - 0.025,

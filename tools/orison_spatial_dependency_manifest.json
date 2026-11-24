@@ -222407,6 +222407,34 @@
    "target_exists": true
   },
   {
+   "key": "ab97877ddd9f32e4",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_u_stair"
+   ],
+   "lines": [
+    1114
+   ],
+   "count": 1,
+   "context": [
+    "var into_lobby_aisle := str(stair.id) == \"PRIMARY_B1_F01\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5b701cc71d10ce11",
    "kind": "id_reference",
    "token": "PRIMARY_F01_F02",
@@ -222421,7 +222449,7 @@
    ],
    "count": 1,
    "context": [
-    "var lobby_aisle := str(stair.id) == \"PRIMARY_F01_F02\""
+    "var over_lobby_aisle := str(stair.id) == \"PRIMARY_F01_F02\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -235487,6 +235515,37 @@
    "target_exists": true
   },
   {
+   "key": "7c12182b4ea53b75",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/scripts/building/orison_v2_stair_ironwork.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount",
+    "_mount_guards"
+   ],
+   "lines": [
+    22,
+    70
+   ],
+   "count": 2,
+   "context": [
+    "\"PRIMARY_B1_F01\":",
+    "elif returning and str(stair.id) == \"PRIMARY_B1_F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a410584dc6cb1838",
    "kind": "id_reference",
    "token": "PRIMARY_F01_F02",
@@ -235498,12 +235557,12 @@
     "_mount_guards"
    ],
    "lines": [
-    19,
-    62
+    20,
+    68
    ],
    "count": 2,
    "context": [
-    "packed = PUBLIC_LOBBY if str(stair.id) == \"PRIMARY_F01_F02\" else PUBLIC",
+    "\"PRIMARY_F01_F02\":",
     "if not returning and str(stair.id) == \"PRIMARY_F01_F02\":"
    ],
    "gameplay_binding": false,
@@ -273187,7 +273246,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273217,7 +273276,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273247,7 +273306,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273277,7 +273336,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273307,7 +273366,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273337,7 +273396,7 @@
     "_route"
    ],
    "lines": [
-    80
+    82
    ],
    "count": 1,
    "context": [
@@ -273413,6 +273472,34 @@
    "target_exists": true
   },
   {
+   "key": "27bb30d6f5a0efbd",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_widened_stairs"
+   ],
+   "lines": [
+    167
+   ],
+   "count": 1,
+   "context": [
+    "or stair.id == \"PRIMARY_B1_F01\" and returning)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "7964b467e052c139",
    "kind": "id_reference",
    "token": "PRIMARY_F01_F02",
@@ -273423,11 +273510,67 @@
     "_check_widened_stairs"
    ],
    "lines": [
-    164
+    166
    ],
    "count": 1,
    "context": [
-    "if stair.id == \"PRIMARY_F01_F02\" and not returning:"
+    "var retained_lobby_edge: bool = (stair.id == \"PRIMARY_F01_F02\" and not returning"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1e74032d76d5c193",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_LANDING_N",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_PUBLIC_LANDING_N\", \"ROOF_PUBLIC_LANDING_S\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ffbf0dbad1367fc4",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_LANDING_S",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_PUBLIC_LANDING_N\", \"ROOF_PUBLIC_LANDING_S\"])"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -273451,7 +273594,7 @@
     "_route"
    ],
    "lines": [
-    52
+    54
    ],
    "count": 1,
    "context": [
@@ -273479,18 +273622,18 @@
     "_route"
    ],
    "lines": [
-    83,
-    84,
     85,
-    85,
-    86,
     86,
     87,
     87,
     88,
     88,
     89,
-    90
+    89,
+    90,
+    90,
+    91,
+    92
    ],
    "count": 12,
    "context": [
