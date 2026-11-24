@@ -67,7 +67,9 @@ func _loose(station: Node3D,assembly: String,at: Vector3,yaw: float) -> void:
 	# convex stocks simultaneously otherwise injects a Jolt startup impulse.
 	body.freeze=true
 	body.mass=1.6 if assembly=="SinkBridge" else (.65 if assembly=="Breadboard" else .35)
-	body.continuous_cd=true;body.contact_monitor=true;body.max_contacts_reported=8
+	# Frozen at rest and carried by script (the station casts every move), so
+	# the solver never simulates them: no contact reports, no continuous sweeps.
+	body.continuous_cd=false;body.contact_monitor=false
 	var friction:=PhysicsMaterial.new();friction.friction=.85;body.physics_material_override=friction
 	station.add_child(body);station.tools[assembly]=body
 	station.hulls[assembly]=source.tool_hulls[assembly]
