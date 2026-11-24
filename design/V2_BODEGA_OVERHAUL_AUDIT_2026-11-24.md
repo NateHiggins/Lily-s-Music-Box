@@ -200,6 +200,32 @@ Work order **w2005ff86065f** tracks the build.
 
 ## 6. Verification
 
-Runs from a short-path checkout at **C:/ov/bodega**, through **tools/lane.ps1**, with the
-patched editor. Receipts: see the PR description, which cites each
-**.receipt.json** by path.
+Runs from the short-path checkout **C:/ov/bodega** through **tools/lane.ps1**, with the
+patched editor **C:/devkit/orison-godot-4.7.1-motion-20261123**, a private APPDATA and
+windowed captures on the hidden desktop. Receipts are **.receipt.json** files beside each
+log under **D:/ov_reports/bodega_overhaul_20261124** (reached through **C:/ov/reports**).
+Wrapper receipts prove how a run ended; none is runtime-contract proof.
+
+| Run | Commit | Result | Receipt |
+|---|---|---|---|
+| CompileChangedScripts (12 changed scripts and tests) | **6d9c0037b** | exit 0 | **final/compile.log.receipt.json** |
+| ShopCountersRouteTest, windowed | **6d9c0037b** | exit 0, 0 failures | **final2/shop_counters.log.receipt.json** |
+| OrisonV2FabricationBatch, signage module, windowed | **3130f5908** | exit 1: one failure, "signage state exercise creates no persistent facts" | **final2/signage.log.receipt.json** |
+| The same module on main **67e06d89e** (control) | main | exit 1, the same single failure | **final/main_signage.log.receipt.json** |
+| ShopCommerceTest | **9dccc9dca** | exit 0 | **final/shop_commerce.log.receipt.json** |
+
+The final counters run, at **6d9c0037b**, logs the terminal foot at y 0.97 on the fitted
+top (it was 1.195), the selector on the top, and the sack at the top's customer edge.
+The list-and-sack errand ran end to end with the real hand on the sack. The signage run
+was made at **3130f5908** and adds the lamp bulbs. Captures: **shots_final2_signage**
+(the board, before/after against **shots_main_signage**) and **shots_final2_counters**.
+
+Static: the gate board against a main board built at **67e06d89e**
+(**C:/ov/boards/bodega_main_67e06d89e**) has the reader gate at NEW 0. The voice,
+ticket-word and arcade carrier tests pass after the re-pins in section 3. The expected
+regressions are the surface qualification and the first-slice and other runtime
+receipts: any change under **game/scripts** or **game/data** changes the runtime-input
+digest those receipts bind, and they are renewed at integration.
+
+Not run here: the resident route and queue suites and the surface packet, which Codex
+qualifies against the merged tree.
