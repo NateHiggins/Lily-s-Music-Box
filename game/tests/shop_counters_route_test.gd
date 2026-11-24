@@ -52,7 +52,7 @@ func _fitted_counter_support(shop_id: String, model_name: String, point: Node3D)
 func _bodega_counter_support(point: Node3D) -> bool:
 	var up: Vector3 = point.global_basis.y.normalized()
 	var query := PhysicsRayQueryParameters3D.create(point.global_position + up * .05,
-			point.global_position - up * .05)
+			point.global_position - up * 1.0)
 	var housing := point.find_child("TerminalHousing", true, false) as CollisionObject3D
 	if housing != null: query.exclude = [housing.get_rid()]
 	var hit: Dictionary = point.get_world_3d().direct_space_state.intersect_ray(query)
@@ -60,7 +60,12 @@ func _bodega_counter_support(point: Node3D) -> bool:
 		print("[SHOP COUNTERS] bodega terminal: nothing beneath ", point.global_position)
 		return false
 	var gap: float = (point.global_position - (hit.position as Vector3)).dot(up)
-	print("[SHOP COUNTERS] bodega terminal rests on ", (hit.collider as Node).name, " gap=", gap)
+	print("[SHOP COUNTERS] bodega terminal over ", (hit.collider as Node).get_path(), " gap=", gap)
+	var shop: Node3D = world.exterior_cell.instance_node("SHOP_BODEGA")
+	for draw: MeshInstance3D in shop.find_children("*", "MeshInstance3D", true, false):
+		if str(draw.get_meta("authored_record_id", "")) == "counter_top" or str(draw.name).contains("counter"):
+			var box: AABB = draw.global_transform * draw.get_aabb()
+			print("[SHOP COUNTERS]   ", draw.name, " visible=", draw.is_visible_in_tree(), " top=", box.end.y)
 	return absf(gap) < .003
 
 func _route() -> void:

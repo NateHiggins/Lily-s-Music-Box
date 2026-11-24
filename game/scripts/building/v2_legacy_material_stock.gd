@@ -118,7 +118,8 @@ const PALETTES := {
 		[Color(.85,.82,.72),"trim"],[Color(.95,.80,.55),"milk_glass"],
 		[Color(.95,.85,.62),"milk_glass"],[Color(.35,.33,.30),"iron_neutral"],
 		[Color(.72,.14,.08),"paper"]],
-	"bodega_signage_prop": [[Color(.84,.73,.42),"milk_glass"],[Color(.93,.91,.84),"milk_glass"]],
+	# Painted timber board and blade, iron lamp arms, enamelled shades (bodega_sign_period_20261124).
+	"bodega_signage_prop": [[Color(.10,.22,.15),"door_paint"],[Color(.16,.16,.17),"iron_blackened"],[Color(.12,.26,.18),"enamel_appliance"]],
 	"otis_prop": [
 		[Color(.30,.26,.16),"indicator_enamel"],[Color(.78,.74,.66),"indicator_enamel"],
 		[Color(.48,.08,.055),"indicator_enamel"],[Color(.72,.70,.62),"porcelain_fixture"],

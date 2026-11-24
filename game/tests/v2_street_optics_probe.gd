@@ -59,10 +59,11 @@ func run(current: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var actors := world.find_children("*","Node3D",true,false).filter(func(n):return n is BodegaSignageProp)
 	suite.check(actors.size()==1,"one original bodega sign authority")
 	var sign: BodegaSignageProp=actors[0]
-	suite.check(sign._cabinet_mats.size()==2,"both original cabinet emission owners remain separate from the valance")
+	suite.check(sign._cabinet_mats.size()==2,"both painted blade faces remain separate from the board")
 	var frontage: Dictionary=world.adapter.root.get_meta("v2_native_signage").retained.FittedBodegaSignage
 	var valance := (frontage.draws[0].node.get_ref() as MeshInstance3D).get_active_material(0) as StandardMaterial3D
-	suite.check(valance.emission_enabled and valance.emission_energy_multiplier>0 and valance.emission_energy_multiplier<=.2,"sign face keeps soft transmitted light below the former clipping range")
+	# Period board (bodega_sign_period_20261124): lit from in front by its lamps, not from behind.
+	suite.check(not valance.emission_enabled,"painted sign board carries no transmitted light")
 	world.player.set_physics_process(false)
 	world.player.set_lamp_enabled(false)
 	var deadline := Time.get_ticks_msec()+6000

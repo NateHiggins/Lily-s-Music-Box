@@ -214,4 +214,4 @@ for actor in plan['actors']:
  if len(pieces)>start:
   obj,used=mesh_partition(aid+'_Fixed',pieces[start:]);display=obj.copy();review.objects.link(display);display['actor']=aid;display.name=aid+'_Fixed_review';additions=[{'mesh':obj.name,'materials':used}]
  else:additions=[]
- records.append({'id':actor['actor'],'script':actor['script'],'source_mesh_count':len(actor['meshes']),'replacements':replacements,'additions':additions})
+ records.append({'id':actor['actor'],'script':actor['script'],'source_mesh_count':actor.get('source_mesh_count',len(actor['meshes'])),'replacements':replacements,'additions':additions})

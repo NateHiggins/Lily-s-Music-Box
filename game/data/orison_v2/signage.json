@@ -164,7 +164,7 @@
     {
       "id": "FittedBodegaSignage",
       "script": "res://scripts/props/bodega_signage_prop.gd",
-      "source_mesh_count": 7,
+      "source_mesh_count": 13,
       "replacements": [
         {
           "index": 0,
@@ -405,19 +405,14 @@
     {
       "actor": "FittedBodegaSignage",
       "index": 0,
-      "roughness": 0.79,
+      "roughness": 0.72,
       "color": [
-        0.84,
-        0.73,
-        0.42,
+        0.1,
+        0.22,
+        0.15,
         1.0
       ],
-      "emission": [
-        1.0,
-        0.88,
-        0.55
-      ],
-      "emission_energy": 0.15
+      "emission": []
     }
   ]
 }

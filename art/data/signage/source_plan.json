@@ -2523,7 +2523,8 @@
         }
       ],
       "script": "res://scripts/props/bodega_signage_prop.gd",
-      "source_sha256": "81d67ced3b43a1c007fcfa95a00c28ce4025a0e38b6fd04325d4385587df2c8a"
+      "source_sha256": "81d67ced3b43a1c007fcfa95a00c28ce4025a0e38b6fd04325d4385587df2c8a",
+      "source_mesh_count": 13
     },
     {
       "actor": "F01_NEON_BLADE",
@@ -4596,19 +4597,14 @@
     {
       "actor": "FittedBodegaSignage",
       "index": 0,
-      "roughness": 0.79,
+      "roughness": 0.72,
       "color": [
-        0.84,
-        0.73,
-        0.42,
+        0.1,
+        0.22,
+        0.15,
         1.0
       ],
-      "emission": [
-        1.0,
-        0.88,
-        0.55
-      ],
-      "emission_energy": 0.15
+      "emission": []
     }
   ],
   "scope": "Existing sign spans, lettering, light/material state owners and observation bindings. Native housings only.",
