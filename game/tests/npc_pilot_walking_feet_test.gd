@@ -174,7 +174,9 @@ func run() -> void:
 			body.queue_free()
 		await get_tree().physics_frame
 		details[id + "_crowded"] = crowded
-		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.03,
+		# p90 is the discriminator: stepping onto the crate held feet ~0.3 m up for many frames (p90 0.325 against
+		# 0.085). The single worst frame moves by ~0.05 m run to run with frame timing, so its margin only catches a lift.
+		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.1,
 				"%s's feet follow the treads past a player body and a loose crate (hover p90 %.3f m, clear %.3f m)" % [id, float(crowded.hover_p90), float(on.hover_p90)])
 		# The same climb without the stage, for the comparison.
 		actor.walking_feet.active = false

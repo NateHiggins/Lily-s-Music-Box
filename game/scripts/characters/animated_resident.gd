@@ -30,13 +30,15 @@ var mina_animation: MinaAnimationBehavior
 ## rebuilt body and played each frame at the rate that keeps its planted foot on the floor. Residents join in
 ## batches once the pilot qualifies; the rest keep the plain 1x walk.
 const GAIT_PILOT := ["malcolm_reed",
-		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price"]
+		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
 var walk_gait: ClipGait
 ## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
 ## pilot bodies first, one per cast base; then batches (batch one by her ruling npc_feet_descent_backswing_20261124,
-## "widen to more residents"): two more of each base. Everyone else joins in later batches.
+## "widen to more residents"): two more of each base; batch two, three more of each. Everyone else joins later.
 const FEET_PILOT := ["mina_vale", "malcolm_reed",
-		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price"]
+		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
 const WalkingFeet := preload("res://scripts/characters/walking_feet.gd")
 var walking_feet: Node
 var _ground_speed := 0.0
