@@ -193,6 +193,51 @@ authored), so no frame-time gain is claimed. Renders: the back of the shop falls
 beyond the second pendant, and the cooler case goes unlit. It reads moodier and is
 still legible. Captures are in **shots_lights**.
 
+### 3.5 Cam's dawn restock and produce through the day (branch claude/cam-restock-20261124)
+
+Lily's ruling **cam_restock_run_20261124** (2026-11-24): one dawn run after the counter
+meal, Cam bringing the day's delivery by handcart to the back alcove 03:50-04:10,
+then the stairs and bed at 04:20. All deliveries move to 04:00. On the Triangle fire
+date, when there is no bodega stop, a carter brings them unseen.
+
+- **Calendar:** **bodega.json** moves all three groups' deliveries to 04:00. Units and
+  periods are unchanged.
+- **Timetable:** **resident_schedules.json** gives Cam a bodega work block 03:50-04:10,
+  with the stairs and sleep from 04:20. The Triangle fire date's special day already
+  covers the window, so on that date nobody is seen and the stock still arrives.
+- **Route** (Codex's routing rule): a work block at the bodega is the delivery intent.
+  There is no street service door, so Cam shares the ordinary approach. From any stance
+  he reserves transit, drops a queued service request, and walks the holds past the
+  shelf to a new receiving stop before the handcart (shop-local **(0.15, 0.04, -8.55)**,
+  appended to the transit holds). He never takes a queue place or the service stance,
+  and leaves by the same holds. Door, people and capsule checks are the guide's own.
+  **orison_v2_resident_route.gd** is untouched; the guide reads the route owner's public
+  activity.
+- **Handcart:** **orison_v2_bodega_delivery.gd** stacks three crates on the back-alcove
+  handcart from 04:00 until the shelves are filled at 07:00. It is presentation only, on
+  a 5-second timer.
+- **Produce through the day** (shop proposal, section 5): the produce goes out with the
+  delivery and sells through to 22:00. The display goes from full, to thin (one aisle
+  crate sold through), to sparse (only the window baskets), scaled by the real pantry
+  level. It adds no nodes: the exterior cell's stock refresh gains an optional
+  per-visual filter, refreshed only when the state changes.
+
+Evidence, from C:/ov/cam, compile-first, private APPDATA, receipts under
+**C:/ov/reports/cam_restock_20261124/**:
+
+- **logs/delivery.log.receipt.json**: BodegaDeliveryTest, exit 0, 0 failures. It checks
+  the catalogue times, the 04:00 boundary in the stock maths, the handcart at 04:30
+  and 08:00, and the produce displays at 05:00, 12:00 and 20:00, with captures.
+- **walk2/walk.log.receipt.json**: BodegaDeliveryWalkTest on the production clock. It
+  checks the 03:30 meal, Cam at the receiving stop by 03:50 with no queue place or
+  service stance, the load at 04:00, and departure at 04:10 with no claim left. The
+  first run, **logs/walk.log**, failed one over-strict check: it counted the queue
+  request held over from the meal before the guide's first tick dropped it.
+
+Codex reviews the route topology after PR 542 lands. The gate board's expected
+regressions are the stale runtime and surface receipts. The spatial manifest and the
+arcade succession pin are regenerated.
+
 ### 3.3 For Codex's intake
 
 - No route, doorway, queue, admission, clearance or collision coordinate changes. The
@@ -222,8 +267,7 @@ Work order **w2005ff86065f** tracks the build.
   first-draft authored text for Lily's playtest read.
 - The case view is not driven by its own UI in the test; the test calls **ItemUse** as
   the case does, and drives the sack with the real hand.
-- Cam carrying deliveries, produce thinning through the day and a selector-and-lever
-  teaching slip remain open.
+- A selector-and-lever teaching slip remains open.
 - No render review of the interior's texture scale or grain beyond the captures cited.
 - The full surface packet is not renewed here; Codex renews it at integration.
 
