@@ -14,6 +14,7 @@ extends FunctionalProp
 ## The geometry pass already builds the canvas awning slab. The native
 ## signage fit keeps these primitive indices: 0-2 the board and its two
 ## returns, 3-4 the blade bracket and frame, 5-6 the blade's painted faces.
+## Each lamp adds four meshes after them: arm, drop, shade and bulb.
 
 const BOARD_GREEN := Color(0.10, 0.22, 0.15)
 const GILT := Color(0.86, 0.68, 0.30)
@@ -21,6 +22,7 @@ const GILT_SHADOW := Color(0.18, 0.11, 0.03)
 const LAMP_IRON := Color(0.16, 0.16, 0.17)
 const SHADE_ENAMEL := Color(0.12, 0.26, 0.18)
 const LAMP_WARM := Color(1.0, 0.82, 0.56)
+const BULB_GLASS := Color(1.0, 0.90, 0.70)
 ## Board-local lamp stations: each arm leaves the board's top edge and
 ## reaches forward so the shade looks back down at the lettering. The east
 ## lamp sits on the existing branch termination at the board's top edge.
@@ -108,15 +110,24 @@ GROCERY", 46, 0.0030,
 		shade.position = Vector3(x, -0.15, 1.42)
 		# Tip the shade's open mouth back toward the board and down.
 		shade.rotation = Vector3(deg_to_rad(35.0), 0, 0)
+		# The bulb shows in the shade's mouth: the lamp reads at night.
+		var bulb := make_cyl(0.022, 0.022, 0.04, Vector3.ZERO, BULB_GLASS, 0.3)
+		bulb.position = Vector3(x, -0.166, 1.409)
+		bulb.rotation = shade.rotation
+		var glow := bulb.material_override as StandardMaterial3D
+		glow.emission_enabled = true
+		glow.emission = LAMP_WARM
+		glow.emission_energy_multiplier = 2.0
 		var lamp := SpotLight3D.new()
 		lamp.name = "GooseneckLamp"
 		var at := Vector3(x, -0.17, 1.40)
 		var aim := Vector3(x * 0.55, -0.40, 1.075)
 		lamp.transform = Transform3D(Basis.looking_at(aim - at, Vector3.UP), at)
 		lamp.light_color = LAMP_WARM
-		lamp.light_energy = 1.6
+		lamp.light_energy = 1.0
 		lamp.spot_range = 2.6
-		lamp.spot_angle = 52.0
+		lamp.spot_angle = 62.0
+		lamp.spot_attenuation = 1.4
 		lamp.shadow_enabled = false
 		add_child(lamp)
 

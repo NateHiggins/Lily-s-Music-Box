@@ -127,13 +127,13 @@ routes, schedules or any main cast member's behaviour.
 
 **bodega_sign_period_20261124.** **bodega_signage_prop.gd** now builds a painted
 dark-green timber board and blade with gilt Label3D lettering, HALF BAKED · GROCERY,
-lit by two shaded gooseneck lamps (steady SpotLight3D, no shadows) in place of the two
-omni lights. The east lamp stands on the existing branch termination at the board's
+lit by two shaded gooseneck lamps (steady SpotLight3D, no shadows, a warm bulb showing
+in each shade's mouth) in place of the two omni lights. The east lamp stands on the existing branch termination at the board's
 top edge. No tube, no dropout, no **_process**. The card reads OPEN ALL NIGHT, the
 period phrase the prop reference research recorded
 (**tools/prop_reference/queries.json**). The native fit's indexed replacements 0-4 and
-**signage.glb** are unchanged. The source plan gains an explicit mesh count of 13 (seven
-fitted primitives and the lamps' six meshes), **signage_geometry.py** honours it, and
+**signage.glb** are unchanged. The source plan gains an explicit mesh count of 15 (seven
+fitted primitives and the lamps' eight meshes: arm, drop, shade and lit bulb each), **signage_geometry.py** honours it, and
 the finish moves to painted green with no emission. The runtime data, the test fixture
 and its construction twin follow, and only the four files this branch changed are
 re-bound in their source digests. The legacy palette maps the board to **door_paint**,

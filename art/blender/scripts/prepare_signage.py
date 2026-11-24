@@ -17,9 +17,9 @@ for a in actors:
     # Bodega is the sole owner of this script, reached by its original class;
     # its generic exterior node name must never be treated as an identity.
     if a['id']=='M17':a['actor']='FittedBodegaSignage'
-    # Lily's period ruling (bodega_sign_period_20261124) adds two lamps of three meshes
+    # Lily's period ruling (bodega_sign_period_20261124) adds two lamps of four meshes
     # each after the seven fitted primitives; only indices 0-4 are replaced.
-    if a['id']=='M17':a['source_mesh_count']=13
+    if a['id']=='M17':a['source_mesh_count']=15
 dims=dimensions()
 frontage=json.loads((ROOT/'art/data/bodega_frontage/source_plan.json').read_text())
 plan={'evidence_class':'INERT','classification':'ADAPTATION','source_census_sha256':digest(args.census),'actors':actors,
