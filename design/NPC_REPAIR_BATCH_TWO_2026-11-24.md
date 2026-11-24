@@ -57,12 +57,18 @@ Evidence is in **C:/ov/reports/npc_pilot_20261123/batch2** (outside the repo): t
 
 ## 3. The crowded check
 
-The first run failed Juno's and Rhea's crowded climbs on the single worst frame: 0.19 m against 0.15 m clear, and
-0.20 m against 0.14 m. Their p90 matched the clear climb (0.087 against 0.090, and 0.085 against 0.086). That worst
-frame moves by about 0.05 m from run to run with frame timing. Cal's was lower with the crowd than without.
+The producer's first run exited 1. Its lane transcript is preserved. A retry
+reused the output names, so the original detailed contract and raw samples
+are unavailable. The producer recalled excessive peaks for Juno and Rhea.
+The retry raised the peak margin to 0.10 m.
 
-The test now holds the worst frame to the clear climb plus 0.1 m. p90 keeps its 0.02 m margin and remains the
-discriminator. A step onto the crate held the feet about 0.3 m up for many frames, and the p90 still catches it.
+Integration retained the original margins of 0.02 m at p90 and 0.03 m at
+peak. It added a separate support check that samples the same 18 locations
+before and after inserting both obstacles. The isolated Juno and Rhea
+diagnostic passed 17 checks. Every fixed location read the tread with and
+without obstacles. Crowded-minus-clear hover changes were +0.002 m p90
+and -0.008 m peak for Juno, and 0.000 m p90 and -0.010 m peak for Rhea.
+Those measurements cover the isolated diagnostic.
 
 Final lane runs, receipts in the batch folder:
 
