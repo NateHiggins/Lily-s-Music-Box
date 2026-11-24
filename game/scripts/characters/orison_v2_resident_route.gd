@@ -578,10 +578,11 @@ func _route_doors_ready(step: float) -> bool:
 ## closer stays where it was left until an explicit operation asks it to move.
 ## Installed closer hardware and the leaf owner retain their own safety checks.
 func _release_passed_doors() -> void:
-	for door: DoorProp in _door_passages.keys():
-		if not is_instance_valid(door):
-			_door_passages.erase(door)
+	for key in _door_passages.keys():
+		if not is_instance_valid(key):
+			_door_passages.erase(key)
 			continue
+		var door := key as DoorProp
 		var passage: Dictionary = _door_passages[door]
 		# A later accepted operation supersedes our approach, even if it ends
 		# open again. Rejected/locked interactions do not change the revision.
@@ -665,7 +666,9 @@ func _observed() -> bool:
 	return false
 
 func _exit_tree() -> void:
-	for door: DoorProp in _door_passages:
+	# A door can leave the tree before its route, especially on Continue.
+	# Check each key before treating it as a DoorProp.
+	for door in _door_passages:
 		if is_instance_valid(door): door.release_passage(actor)
 	_door_passages.clear()
 	if _bar_route != null: _bar_route.cancel()
