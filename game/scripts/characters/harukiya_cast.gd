@@ -258,6 +258,12 @@ func _on_node_shown(_node: String) -> void:
 	# Authored text has a restrained jaw fallback until a qualified voice line
 	# supplies exact cues through CastModel.speak_cues; no sound/text is generated.
 	actor.speak_untimed(clampf(float(words.length())/18.0,1.0,12.0))
+	# The face shows how they feel about the line (ruling npc_face_mood_source_20261124). Staff bodies keep their
+	# staged show poses, so no stage gesture here.
+	var mood: RefCounted = preload("res://scripts/characters/cast_resident_speech.gd").reader()
+	if mood != null:
+		var reading: Dictionary = mood.read(_speaker, words, int(RealityState.resident_trust(_speaker)))
+		actor.express(str(reading.expression), float(reading.intensity))
 
 func shutdown() -> void:
 	_retired=true

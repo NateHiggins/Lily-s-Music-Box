@@ -3,6 +3,13 @@ extends Node
 ## w9189b10b24ac: the face controller wired to dialogue; attention already follows the conversation). The same
 ## restrained jaw fallback the bar staff use (harukiya_cast.gd): no sound or text is generated, and hidden text
 ## never keeps a mouth moving.
+##
+## How they feel about each line is read by MoodReading from the line, their trust and temperament and how the
+## last exchange went (ruling npc_face_mood_source_20261124), shown exaggerated on the face and, when strong, as a
+## stage gesture through the actor's own clip owner.
+
+const MoodReading := preload("res://scripts/characters/mood_reading.gd")
+static var _reader: RefCounted
 
 var body: Node
 var resident_id := ""
@@ -10,6 +17,10 @@ var _conversations: Object
 var _speaker_label := ""
 var _talking := false
 var _clock := 0.0
+var _trust_seen := 0
+var _last_emote := -1000.0
+## The last reading, for tests and review captures.
+var last_reading: Dictionary = {}
 
 
 func _ready() -> void:
@@ -35,6 +46,7 @@ func _on_started(id: String, _entry: String) -> void:
 	if id != resident_id:
 		return
 	_talking = true
+	_trust_seen = _trust()
 	if is_instance_valid(body):
 		body.express("interest", 0.5)
 	_on_node_shown("")
@@ -62,6 +74,35 @@ func _on_node_shown(_node: String) -> void:
 		body.stop_speaking()
 		return
 	body.speak_untimed(clampf(float(words.length()) / 18.0, 1.0, 12.0))
+	_perform(words)
+
+
+func _trust() -> int:
+	var state: Node = get_node_or_null("/root/RealityState")
+	return int(state.call("resident_trust", resident_id)) if state != null and state.has_method("resident_trust") else 0
+
+
+static func reader() -> RefCounted:
+	if _reader == null:
+		var made: RefCounted = MoodReading.new()
+		if made.load_data():
+			_reader = made
+	return _reader
+
+
+func _perform(words: String) -> void:
+	var mood := reader()
+	if mood == null:
+		return
+	var trust := _trust()
+	last_reading = mood.read(resident_id, words, trust, {"trust_delta": trust - _trust_seen})
+	_trust_seen = trust
+	body.express(str(last_reading.expression), float(last_reading.intensity))
+	var emote := str(last_reading.emote)
+	var now := Time.get_ticks_msec() / 1000.0
+	var actor := get_parent()
+	if emote != "" and now - _last_emote >= float(mood.emote_gap()) 			and actor != null and actor.has_method("stage_emote") and bool(actor.call("stage_emote", emote)):
+		_last_emote = now
 
 
 func _process(delta: float) -> void:
