@@ -1,3 +1,21 @@
+# Resident mood and stage gestures, November 24
+
+Evidence class: **INERT**.
+
+PR #540's reader-fixed candidate **1fc815058** passed 50 nearby checks for
+authored moods, dialogue and speech. The exact release source passed the
+24-check exchange again, both Harukiya access tests, and 369 first-slice
+checks with 176 walking waypoints. The completed native radiator repair
+survived a disk reconstruction. Physical surfaces passed 818 checks.
+The 23 paired views received technical review, with visibility limits
+recorded for the dark and obstructed views.
+
+The dialogue and body changes remain a pilot for owner play and artistic
+review. PR #539's F03 performance comparison, PR #541 foot placement and
+PR #542's bodega save-boundary follow-up remain separate intakes.
+
+[Qualification records](D:/ov_reports/orison_npc_gait_face_intake_20261124/PR540_INTAKE.md)
+
 # Grocery routes and NPC pilots, November 24
 
 Evidence class: **INERT**

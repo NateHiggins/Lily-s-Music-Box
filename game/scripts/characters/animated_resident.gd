@@ -331,6 +331,40 @@ func play_case_role(fragment: String) -> bool:
 	return false
 
 
+## Standing poses a stage gesture may interrupt: relaxed, fretting, attentive and glancing (resident_routines.gd).
+## Seated, busy, reaching and looking-up clips belong to other owners and are never interrupted.
+const STANDING_CLIPS: Array[String] = ["clip_01", "clip_02", "clip_03", "clip_05"]
+
+
+## A stage gesture while talking (ruling npc_face_mood_source_20261124). Only standing still in a standing idle,
+## only a clip this body has, and the clip it was playing comes back when the gesture is done. When it declines
+## nothing is touched: the pose that was playing keeps playing. False when nothing was played.
+func stage_emote(clip: String) -> bool:
+	if mina_animation:
+		# Mina's own owner plays her clips. Only her one-shot roles, and only inside a conversation her owner
+		# already holds, so the gesture never latches her into a conversation nobody will release.
+		var role := clip.trim_prefix("mina_")
+		var named := str(MinaAnimationBehavior.ROLES.get(role, ""))
+		if named.is_empty() or bool(MinaAnimationBehavior.CLIPS.get(named, true)) 				or not mina_animation.conversation_active or mina_animation.moving or mina_animation.route_busy:
+			return false
+		return mina_animation.speak(role)
+	if not _emote_allowed() or not _animation_player.has_animation(clip):
+		return false
+	var resume := str(_animation_player.current_animation)
+	_animation_player.play(clip, 0.3)
+	var length := _animation_player.get_animation(clip).length
+	get_tree().create_timer(maxf(length - 0.3, 0.3)).timeout.connect(func() -> void:
+		if is_instance_valid(_animation_player) and str(_animation_player.current_animation) == clip and not _walking:
+			_animation_player.play(resume, 0.3))
+	return true
+
+
+func _emote_allowed() -> bool:
+	if _walking or cast_body == null or _animation_player == null or not _animation_player.is_playing():
+		return false
+	return str(_animation_player.current_animation) in STANDING_CLIPS
+
+
 func _play_named(fragment: String) -> void:
 	if mina_animation:
 		if fragment == "walk": mina_animation.set_motion(true)

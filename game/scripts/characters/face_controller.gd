@@ -96,12 +96,14 @@ func can_speak_shapes() -> bool:
 	return targets.has("viseme_aa")
 
 
-## Show a named expression at an intensity from 0 to 1.
+## Show a named expression at an intensity: 1 is the expression as written,
+## up to 2 for a stage-sized performance (ruling npc_face_mood_source_20261124).
+## Each shape still stops at its own full extent.
 func express(expression: String, intensity: float = 1.0) -> bool:
 	if not (_data.get("expressions", {}) as Dictionary).has(expression):
 		return false
 	_expression = expression
-	_intensity = clampf(intensity, 0.0, 1.0)
+	_intensity = clampf(intensity, 0.0, 2.0)
 	return true
 
 

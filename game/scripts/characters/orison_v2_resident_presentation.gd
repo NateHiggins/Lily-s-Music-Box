@@ -133,6 +133,10 @@ func play_case_role(fragment: String) -> bool:
 	if not _loop_activity.is_empty(): clear_loop_activity()
 	return super.play_case_role(fragment)
 
+## A stage gesture never takes a seated body or a clip a loop activity has borrowed.
+func _emote_allowed() -> bool:
+	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated()
+
 func play_seated() -> bool:
 	# Mina's supplied twenty clips have no seated motion. Her owner retains
 	# its own idle and standing spot; never graft a retired donor pose onto her.

@@ -1,0 +1,269 @@
+{
+	"schema_version": 1,
+	"rest_expression": "interest",
+	"rest_intensity": 0.6,
+	"exaggeration": 1.7,
+	"most_intensity": 1.9,
+	"subject_cues": {
+		"sadness": [
+			"sorry",
+			"gone",
+			"died",
+			"dead",
+			"death",
+			"miss",
+			"missed",
+			"lost",
+			"grave",
+			"funeral",
+			"alone",
+			"goodbye",
+			"widow",
+			"never came",
+			"used to",
+			"last time",
+			"too late",
+			"buried",
+			"empty",
+			"cry",
+			"tears",
+			"mourning",
+			"nobody writes",
+			"anymore",
+			"no one",
+			"years ago",
+			"the last",
+			"without her",
+			"without him",
+			"alone now",
+			"quiet now"
+		],
+		"concern": [
+			"afraid",
+			"worry",
+			"worried",
+			"careful",
+			"fire",
+			"danger",
+			"sick",
+			"ill",
+			"hurt",
+			"police",
+			"landlord",
+			"rent",
+			"debt",
+			"late",
+			"trouble",
+			"evict",
+			"cough",
+			"doctor",
+			"can't sleep",
+			"something's wrong",
+			"listen to me",
+			"mind the",
+			"be careful",
+			"nervous",
+			"strange",
+			"wrong",
+			"what happened",
+			"are you all right",
+			"hurry",
+			"don't go"
+		],
+		"amusement": [
+			"ha",
+			"haha",
+			"laugh",
+			"joke",
+			"funny",
+			"silly",
+			"fool",
+			"grin",
+			"kidding",
+			"imagine that",
+			"of all things",
+			"charming",
+			"lovely",
+			"darling",
+			"wager",
+			"naturally",
+			"devastated",
+			"mostly",
+			"bites",
+			"tease",
+			"fancy",
+			"clever",
+			"delighted",
+			"i suppose",
+			"what a",
+			"bless",
+			"oh, please",
+			"dear"
+		],
+		"frustration": [
+			"won't",
+			"stop",
+			"enough",
+			"damn",
+			"nonsense",
+			"fault",
+			"ridiculous",
+			"how dare",
+			"not now",
+			"leave it",
+			"none of your",
+			"i said",
+			"go away",
+			"don't you",
+			"i told you",
+			"not again",
+			"for the last time",
+			"spare me"
+		],
+		"surprise": [
+			"what?",
+			"really?",
+			"you?",
+			"good heavens",
+			"my god",
+			"oh!",
+			"goodness",
+			"you don't say",
+			"how did you",
+			"who told you",
+			"you're joking",
+			"already?",
+			"is it?",
+			"no!",
+			"oh."
+		],
+		"recognition": [
+			"remember",
+			"i know you",
+			"of course",
+			"that's it",
+			"exactly",
+			"there it is",
+			"you see",
+			"you're right",
+			"you noticed",
+			"thank you",
+			"yes",
+			"that one",
+			"i knew",
+			"you see it",
+			"good.",
+			"you heard"
+		],
+		"interest": [
+			"listen",
+			"look",
+			"tell me",
+			"why",
+			"how",
+			"what if",
+			"notice",
+			"consider",
+			"the thing is"
+		]
+	},
+	"punctuation": {
+		"!": {
+			"surprise": 0.35,
+			"frustration": 0.25
+		},
+		"?": {
+			"interest": 0.3,
+			"surprise": 0.15
+		},
+		"...": {
+			"sadness": 0.25,
+			"concern": 0.15
+		}
+	},
+	"trust": {
+		"warm_at": 3,
+		"cold_below": 0,
+		"warm": {
+			"amusement": 0.35,
+			"recognition": 0.35,
+			"frustration": -0.3
+		},
+		"cold": {
+			"frustration": 0.35,
+			"concern": 0.25,
+			"amusement": -0.3
+		}
+	},
+	"traits": {
+		"sociable": {
+			"amusement": 0.4,
+			"interest": 0.2
+		},
+		"routine": {
+			"frustration": 0.25
+		},
+		"homebody": {
+			"concern": 0.2
+		},
+		"hardy": {
+			"sadness": -0.3
+		},
+		"night": {
+			"sadness": 0.15
+		}
+	},
+	"choice": {
+		"trust_gained": {
+			"recognition": 0.6,
+			"amusement": 0.25
+		},
+		"trust_lost": {
+			"frustration": 0.6,
+			"sadness": 0.2
+		},
+		"inferred": {
+			"surprise": 0.5,
+			"recognition": 0.3
+		},
+		"evidence": {
+			"concern": 0.4,
+			"surprise": 0.3
+		}
+	},
+	"cue_weight": 0.55,
+	"settle_threshold": 0.4,
+	"emote": {
+		"least_seconds_between": 5.0,
+		"threshold": 1.1,
+		"clips": {
+			"amusement": [
+				"agree_gesture",
+				"cheer_with_both_hands"
+			],
+			"frustration": [
+				"finger_wag_no",
+				"hand_on_hip_gesture"
+			],
+			"concern": [
+				"confused_scratch",
+				"mina_strained"
+			],
+			"surprise": [
+				"cheer_with_both_hands",
+				"confused_scratch"
+			],
+			"sadness": [
+				"mina_strained"
+			],
+			"recognition": [
+				"mina_recognition",
+				"agree_gesture",
+				"formal_bow"
+			],
+			"interest": [
+				"mina_talk_measured"
+			]
+		}
+	}
+}
