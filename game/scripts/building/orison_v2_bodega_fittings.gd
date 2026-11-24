@@ -2,6 +2,7 @@ extends RefCounted
 ## Source-owned mesh nodes retain stock visibility, transforms and collision.
 const ASSET := preload("res://assets/props/bodega_fittings.glb")
 const FABRICATION := preload("res://scripts/generated/v2_bodega_fittings.gd")
+const COUNTER_WORDS := "NOTIONS  ·  HOUSEHOLD"
 const MAPPED := {
 	"terrazzo":"terrazzo", "brick":"brick", "limestone":"limestone",
 	"bodega_enamel":"enamel", "aged_green":"enamel", "cream_tile":"bath_wall_tile",
@@ -81,7 +82,10 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 	# and read backwards
 	# through its glass. Source text/semantic identity stay with this same node.
 	owner.set_meta("retained_counter_lettering",{"text":lettering.text,"transform":lettering.transform})
-	lettering.text=lettering.text.replace("Â·","·")
+	# Keys are the Keys Cut shop's one job: Lily's ruling bodega_counter_keys_20261124
+	# drops KEYS. The authored record and its hash stay as they are; the
+	# retained meta above keeps the source wording.
+	lettering.text=COUNTER_WORDS
 	var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_upper_rail")
 	var panel_bounds: AABB=panel.transform*panel.mesh.get_aabb()
 	var font:=ThemeDB.fallback_font
@@ -99,4 +103,7 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 	owner.set_meta("retained_collision",collision_fabric)
 	owner.set_meta("source_geometry_sha256_lf",FABRICATION.SOURCE_GEOMETRY_SHA256_LF)
 	native.free()
+	# Night lighting culled for cost and mood; the authored lights stay retained.
+	if not preload("res://scripts/building/orison_v2_bodega_lighting.gd").apply(shop):
+		push_error("Bodega fittings: night lighting cull refused")
 	return owner

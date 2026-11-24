@@ -217,7 +217,8 @@ static func hand_over(giver: String, taker: String, id: String) -> bool:
 
 ## ---- groceries -------------------------------------------------------
 
-static func carry(holder: String, item: String, amount: float) -> void:
+## persist false leaves the commit to a caller saving several changes together.
+static func carry(holder: String, item: String, amount: float, persist := true) -> void:
 	var value := book()
 	if value.is_empty() or RealityState.save_write_blocked or amount <= 0.0:
 		return
@@ -227,7 +228,8 @@ static func carry(holder: String, item: String, amount: float) -> void:
 	var record: Dictionary = value.holders[holder].get(id, {"kind": "grocery", "item": item, "qty": 0.0})
 	record.qty = float(record.qty) + amount
 	value.holders[holder][id] = record
-	RealityState.commit()
+	if persist:
+		RealityState.commit()
 
 
 ## Taking groceries back out of a bag; a spent line leaves it.
@@ -293,7 +295,8 @@ static func carry_goods(holder: String, item: String, shown_name: String, form :
 	return true
 
 
-static func spend_goods(holder: String, item: String) -> bool:
+## persist false leaves the commit to a caller saving several changes together.
+static func spend_goods(holder: String, item: String, persist := true) -> bool:
 	var value := book()
 	var count := goods_count(holder, item)
 	if value.is_empty() or RealityState.save_write_blocked or count <= 0:
@@ -304,7 +307,8 @@ static func spend_goods(holder: String, item: String) -> bool:
 			CarriedCase.remove(item)
 	else:
 		value.holders[holder]["goods:" + item].qty = count - 1
-	RealityState.commit()
+	if persist:
+		RealityState.commit()
 	return true
 
 

@@ -24,10 +24,17 @@ import intake
 # no new spoken text, provider join or finite dynamic component is introduced.
 # kitchen_larder.gd renewed 2026-11-18: shop ranking consumes the same shortages.
 # Grocery names, owner bindings and spoken components are identical.
+# Reviewed 2026-11-24 (bodega_list_and_bag_20261124): resident_errands.gd lists only what
+# the bodega sells (const SHOP), so the grocery domain keeps to that shop; sort order,
+# list limit and join are unchanged. resident_conversations.gd adds one fixed line on a
+# new node, errand:short, for a sack that came back short; its ask/thanks/wait text,
+# the list slip and the gift and parcel joins are unchanged.
+# Renewed 2026-11-24 (save boundary): lay() and deliver() commit atomically; list_words,
+# LIST_LIMIT, SHOP and every spoken template are unchanged.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': 'd12e4f8de091b2fcc285a5f8dfd220bcfa39f3a3feafabff923c680fdecaa7a6',
+    'game/scripts/game/resident_conversations.gd': '292cb6757085d487c2e8ed158517da4dbcbb823b226a3a3f8b42f58e99c73e05',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
-    'game/scripts/game/resident_errands.gd': '17e09ab3343fc20e11f0c86719d85785c90b5854714ae9774944350146ce2381',
+    'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
     'game/scripts/game/kitchen_larder.gd': 'acb3db1b323c86e48352f6aa91749c9da6e1ad3ed1383b0ba7118c13054ecc89',
     'game/scripts/audio/orison_v2_music_library.gd': '53d2c208f2e953f15b1425e2399991f0357aae194d3754d4d44645e2d981bd88',
@@ -213,7 +220,7 @@ def build(root: Path, registry=None):
 
     # Read every spoken template from the actual consumer, not a duplicate script.
     errand = {}
-    for constant in ('ERRAND_ASK', 'ERRAND_THANKS', 'ERRAND_WAIT'):
+    for constant in ('ERRAND_ASK', 'ERRAND_THANKS', 'ERRAND_SHORT', 'ERRAND_WAIT'):
         match, binding = sources.match(CONVERSATIONS, 'with_errand',
             r'node_id\s*=\s*' + constant + r'\s*\n\s*line\s*=\s*(' + QUOTED + r')')
         errand[constant] = (json.loads(match[1]), binding)
@@ -226,6 +233,7 @@ def build(root: Path, registry=None):
     match, list_binding = sources.match(ERRANDS, 'list_words', r'return\s+(' + QUOTED + r')\.join\(names\)')
     list_separator = json.loads(match[1])
     list_limit = int(re.search(r'(?m)^const LIST_LIMIT := (\d+)', sources.text(ERRANDS))[1])
+    list_shop = json.loads(re.search(r'(?m)^const SHOP := (' + QUOTED + r')', sources.text(ERRANDS))[1])
 
     def split_suffix(template, token):
         if template.count(token) != 1:
@@ -265,13 +273,16 @@ def build(root: Path, registry=None):
         for item in ingredients:
             if item not in groceries['ingredients']:
                 raise ValueError(f'Unknown grocery ingredient {item}')
+            # The errand list keeps to the one shop that fills its sack.
+            if groceries['ingredients'][item].get('shop') != list_shop:
+                continue
             runtime = 'component:ingredient:' + item
             binding = sources.bind(grocery_path, pointer='/ingredients/' + item + '/name')
             add(owner, runtime, groceries['ingredients'][item]['name'], 'component', [binding] + bindings)
             domain.append(dict(ingredient_id=item, runtime_node_id=runtime,
                                display_name=groceries['ingredients'][item]['name']))
         add(owner, 'component:errand_suffix', errand_suffix, 'component', [errand_binding])
-        for constant, runtime in [('ERRAND_THANKS', 'errand:thanks'), ('ERRAND_WAIT', 'errand:wait')]:
+        for constant, runtime in [('ERRAND_THANKS', 'errand:thanks'), ('ERRAND_SHORT', 'errand:short'), ('ERRAND_WAIT', 'errand:wait')]:
             text, binding = errand[constant]
             add(owner, runtime, text, 'errand', [binding, base[owner]])
         recipes.append(dict(kind='grocery_list', owner_resident_id=owner, profile_id=voice_for(owner, cookbook_path),
