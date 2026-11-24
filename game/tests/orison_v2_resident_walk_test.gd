@@ -6,6 +6,7 @@ extends Node
 ## place it names, home between each, without a teleport, a block or their
 ## capsule ever overlapping a door leaf. Unit leaves opened for passage stay
 ## open until explicitly operated. Windowed: the runtime refuses headless.
+## RESIDENT_WALK_BATCH maps resident IDs to comma-separated destinations in one world.
 
 const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
 const BodegaAdmission := preload("res://scripts/building/bodega_admission.gd")
@@ -15,6 +16,7 @@ var failures: Array[String] = []
 var _route: Node3D
 var _metres := 0.0
 var _resident := ""
+var _walk_destinations: PackedStringArray
 var _opened_doors: Dictionary = {}
 
 
@@ -44,19 +46,48 @@ func _physics_process(_delta: float) -> void:
 
 func _ready() -> void:
 	_resident = OS.get_environment("RESIDENT")
+	var batch := OS.get_environment("RESIDENT_WALK_BATCH")
+	var requests: Dictionary = {_resident: OS.get_environment("WALK_ONLY")}
+	if not batch.is_empty():
+		var parsed: Variant = JSON.parse_string(batch)
+		if not parsed is Dictionary or parsed.is_empty():
+			failures.append("RESIDENT_WALK_BATCH must map residents to destinations")
+		else:
+			requests = parsed
+			for resident: String in requests:
+				if resident.is_empty() or not requests[resident] is String or requests[resident].split(",", false).is_empty():
+					failures.append("each batch walk needs a resident and a destination")
+	if not failures.is_empty():
+		print("RESIDENT WALK BATCH: 0 residents; %d failures %s" % [failures.size(), failures])
+		get_tree().quit(1)
+		return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 600)
 	var world: OrisonV2RuntimeRoot = load("res://scenes/building/orison_v2_runtime.tscn").instantiate()
 	add_child(world)
 	await get_tree().create_timer(.5).timeout
-	if _resident == "":
-		failures.append("RESIDENT not set")
-	elif world.startup_failed:
-		failures.append("startup")
-	else:
-		await _run(world)
-	print("RESIDENT WALK %s: %.1f metres walked; %d failures %s" % [_resident, _metres, failures.size(), failures])
+	for resident: String in requests:
+		_resident = resident
+		_route = null
+		_opened_doors.clear()
+		_metres = 0.0
+		_walk_destinations = str(requests[resident]).split(",", false)
+		var first_failure := failures.size()
+		if _resident.is_empty():
+			failures.append("RESIDENT not set")
+		elif world.startup_failed:
+			failures.append("startup")
+		else:
+			var camera_pose: Transform3D = world.player.camera.global_transform
+			await _run(world)
+			if not batch.is_empty():
+				world.player.camera.global_transform = camera_pose
+				_check("%s walked a measurable distance" % resident, _metres > 1.0)
+		var case_failures := failures.slice(first_failure)
+		print("RESIDENT WALK %s: %.1f metres walked; %d failures %s" % [_resident, _metres, case_failures.size(), case_failures])
+	if not batch.is_empty():
+		print("RESIDENT WALK BATCH: %d residents; %d failures" % [requests.size(), failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 
@@ -80,6 +111,10 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		return
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(_route.source_path))
 	var unit := str(source.unit)
+	for place: String in _walk_destinations:
+		if place == "unit" or not source.places.has(place):
+			_check("%s has an authored outbound destination %s" % [_resident, place], false)
+			return
 	if _route.outside:
 		# An off-map resident must not pop into the arrival camera's view.
 		# Exercise that guard, then actually look away instead of disabling it
@@ -92,9 +127,8 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		away.y = 0.0
 		world.player.camera.look_at(world.player.camera.global_position + away.normalized())
 		_check("player looks away before an unseen return", not _route._observed())
-	var only := OS.get_environment("WALK_ONLY").split(",", false)
 	for place: String in source.places:
-		if place == "unit" or (not only.is_empty() and not only.has(place)):
+		if place == "unit" or (not _walk_destinations.is_empty() and not _walk_destinations.has(place)):
 			continue
 		_route.force_destination = place
 		await _walk(place)
