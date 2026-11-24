@@ -2,6 +2,9 @@ extends "res://tests/bodega_queue_motor_test.gd"
 ## Nearby fresh-source entry reproduction: real Cam/guest/player and production
 ## exterior paving/lamps. Explicit birth stations/goals, not natural attendance.
 const Frontier := preload("res://tests/street_frontier_points.gd")
+const Traffic := preload("res://scripts/characters/public_foot_traffic.gd")
+var public_traffic: Node3D
+var street_lamps: Node3D
 var frontier: Dictionary = {}
 var frontier_started := false
 var player_minimum := INF
@@ -13,6 +16,7 @@ class OutsideBarRoute extends BarRoute:
 func _snapshot() -> Dictionary:
 	var result := super._snapshot()
 	for source: String in ["res://tests/street_frontier_points.gd","res://tests/bodega_queue_motor_test.gd",
+		"res://scripts/characters/public_foot_traffic.gd","res://scripts/characters/public_avoidance_proposals.gd",
 		"res://tests/bodega_initial_placement_test.gd","res://scripts/building/orison_v2_world_connection.gd",
 		"res://scripts/building/orison_v2_front_pavement.gd","res://scripts/building/orison_v2_native_faces.gd",
 		"res://scripts/building/orison_v2_street_lamps.gd","res://data/orison_v2/exterior/street_lamps.json",
@@ -37,7 +41,8 @@ func _mount_extra_exterior() -> bool:
 	exterior_cell=exterior
 	var registered:=Node3D.new(); registered.name="ProductionPavingFrame"; add_child(registered); owned.append(registered); registered.transform=frontier.registered_frame
 	registered.add_child(preload("res://scripts/building/orison_v2_front_pavement.gd").new())
-	return preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)!=null
+	street_lamps = preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)
+	return street_lamps != null
 
 func _finish() -> void:
 	if failures.is_empty() and not frontier_started:
@@ -50,9 +55,17 @@ func _finish() -> void:
 		player.global_position=frontier.player_observed; player.set_physics_process(false)
 		bodega_admission=preload("res://scripts/building/bodega_admission.gd").new(); add_child(bodega_admission); owned.append(bodega_admission)
 		_check(bodega_admission.configure(exterior),"actual admission owner configures on production geometry")
+		public_traffic = Traffic.new()
+		if not _check(public_traffic.configure(self, exterior), "public avoidance configures on the actual street frame"):
+			public_traffic.free()
+			await super._finish()
+			return
+		add_child(public_traffic)
+		owned.append(public_traffic)
+		public_traffic.register_lamp_posts(street_lamps)
 		details.queue_trace=[]; details.queue_failures=[]; details.frontier_births=[]
 		var report:=frontier.duplicate(); report.erase("production_geometry"); details.frontier_sources=report
-		details.frontier_scope="nearby fresh actual source street stations; forced Cam bodega goal and guest outside bar waypoint; production paving and lamps; stationary full player; no complete world/setup/bar admission/natural attendance proof"
+		details.frontier_scope="nearby fresh actual source street stations; forced Cam bodega goal and guest outside bar waypoint; production paving, lamps and avoidance proposals; stationary full player; no complete world/setup/bar admission/natural attendance proof"
 		if failures.is_empty(): _birth("cam_ortiz",frontier.cam_ortiz_street,true)
 		if failures.is_empty(): _birth("transient_guests",frontier.transient_guests_street,false)
 		await get_tree().physics_frame
@@ -71,6 +84,10 @@ func _finish() -> void:
 		queue_watch=false
 		details.frontier_summary={"physics_frames":queue_frames,"minimum_peer_axis_distance_m":str(queue_minimum),"minimum_player_axis_distance_m":str(player_minimum)}
 		_check(queue_frames>0,"frontier ordinary motor witnesses executed")
+		details.frontier_avoidance = public_traffic.stats.duplicate()
+		_check(int(public_traffic.stats.proposals) > 0, "frontier motor consumes public avoidance proposals")
+		_check(public_traffic.solver.errors.is_empty(), "frontier avoidance reports no solver errors")
+		public_traffic.shutdown()
 	await super._finish()
 
 func _birth(id: String, source_point: Vector3, grocery: bool) -> void:
