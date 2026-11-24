@@ -32,18 +32,26 @@ func _route() -> void:
 	# 03:50: the delivery.
 	await _jump_to(230.0)
 	_require(str(_cam.destination) == "bodega" and str(_cam.activity) == "work", "at 03:50 Cam's block is the bodega delivery: %s/%s" % [_cam.destination, _cam.activity])
-	var queued_again := {"seen": false}
+	# A request held over from the counter meal is dropped on the first tick; what
+	# must never happen is a new queue request once it has gone.
+	var queued_again := {"seen": false, "dropped": false, "inherited": str(_guide._holding)}
 	var watch := func() -> bool:
-		if str(_guide._station) != SERVICE_STANCE and not str(_guide._holding).is_empty() and _guide._leg_kind != "delivery":
+		var holding := str(_guide._holding)
+		if holding.is_empty():
+			queued_again.dropped = true
+		elif queued_again.dropped and str(_guide._station) != Admission.RECEIVING_STOP:
 			queued_again.seen = true
 		return str(_guide._station) == Admission.RECEIVING_STOP and _guide._leg.is_empty()
 	var arrived: bool = await _until(watch, WALK_LIMIT)
 	var receiving := int(_guide._nodes[Admission.RECEIVING_STOP])
 	_require(arrived and int(_cam.current_id) == receiving, "Cam reaches the receiving stop by the handcart: station %s, blocked '%s'" % [_guide._station, _cam.blocked_reason])
-	_require(not queued_again.seen, "and never takes a queue place on the way")
+	print("[DELIVERY WALK] inherited request at 03:50: '", queued_again.inherited, "'")
+	_require(not queued_again.seen and str(_guide._holding).is_empty(), "and takes no new queue place on the way")
 	var snapshot: Dictionary = world.bodega_admission.debug_snapshot()
 	var stance: Dictionary = snapshot.service_owner
 	_require(stance.is_empty() or str(stance.get("resident", "")) != "cam_ortiz", "nor holds the service stance at the handcart")
+	var queue: Array = snapshot.service.queue
+	_require(queue.all(func(entry): return str(entry.get("resident", "")) != "cam_ortiz"), "and is nowhere in the service queue")
 	_require(_guide.errors.is_empty(), "the guide raised no faults: %s" % [_guide.errors])
 	# 04:00: the delivery lands on the handcart while Cam stands there.
 	await _jump_to(240.0)
