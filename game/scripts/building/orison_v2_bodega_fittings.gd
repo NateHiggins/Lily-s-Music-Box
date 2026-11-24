@@ -103,4 +103,7 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 	owner.set_meta("retained_collision",collision_fabric)
 	owner.set_meta("source_geometry_sha256_lf",FABRICATION.SOURCE_GEOMETRY_SHA256_LF)
 	native.free()
+	# Night lighting culled for cost and mood; the authored lights stay retained.
+	if not preload("res://scripts/building/orison_v2_bodega_lighting.gd").apply(shop):
+		push_error("Bodega fittings: night lighting cull refused")
 	return owner
