@@ -145,6 +145,7 @@ def guard_template(span, transition=None):
     return templates,feet
 
 guards=[]; joins=[]; meshes=[]
+guard_templates={}
 
 def install_guard(kind, level, start, end, floor_owner, transition=None):
     x,z=start
@@ -152,8 +153,15 @@ def install_guard(kind, level, start, end, floor_owner, transition=None):
     span=math.hypot(dx,dz)
     y=levels[level]
     prefix=f'{level}_LightCourtGuard_{kind}'
-    templates,feet=guard_template(span,transition)
-    for source in templates:
+    # Share identical meshes across floors as in the original assembly.
+    span=round(span,9)
+    key=(span,transition)
+    if key not in guard_templates:
+        guard_templates[key]=guard_template(span,transition)
+    templates,feet=guard_templates[key]
+    for template in templates:
+        source=template.copy()
+        bpy.context.scene.collection.objects.link(source)
         source.name=prefix+'_'+source.data.materials[0].name
         source.location=point((x,y,z))
         source.rotation_euler.z=math.atan2(-dz,dx)
@@ -181,12 +189,23 @@ for level in ['F01','F02','F03','F04','F05','F06','ROOF']:
     install_guard('South',level,(left,z),(right,z),level+'_PUBLIC_LANDING_S',
                   south_join(level,left,z,right-left))
 
-# Sloping flight handrails drop below the occupied roof floor away from
-# the upper nosing. These upright rails protect the retained floor edges.
+# Ground and F03 have a side door at this edge. Guard the far end of
+# their approach decks; on the other floors the drop starts at the landing.
+for level in ['F01','F02','F03','F04','F05','F06']:
+    deck = next((row for row in layout['platforms']
+                 if row['id'] == level+'_SERVICE_ENTRY_PLATFORM'), None)
+    z = deck['rect'][3]-.045 if deck else 4.955
+    owner = deck['id'] if deck else level+'_SERVICE_LANDING'
+    install_guard('ServiceSide',level,(9.525,z),(10.55,z),owner)
+# Sloping handrails drop below the occupied roof edges away from the nose.
 install_guard('West','ROOF',(1.385,-1.945),(1.385,1.70),'ROOF_LIFT_DECK_E')
 install_guard('East','ROOF',(4.515,-1.945),(4.515,1.70),'ROOF_PUBLIC_LANDING_E')
 install_guard('ServiceLanding','ROOF',(9.525,4.955),(11.765,4.955),'ROOF_SERVICE_LANDING')
 install_guard('ServiceReturn','ROOF',(11.765,4.955),(11.765,6.1875),'ROOF_SERVICE_RETURN')
+
+for templates,_ in guard_templates.values():
+    for template in templates:
+        bpy.data.objects.remove(template,do_unlink=True)
 
 # Four columns and two closed I-section beams seat the new slab on B1.
 supports=[]; contacts=[]

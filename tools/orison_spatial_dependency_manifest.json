@@ -222407,6 +222407,34 @@
    "target_exists": true
   },
   {
+   "key": "5b701cc71d10ce11",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_u_stair"
+   ],
+   "lines": [
+    1113
+   ],
+   "count": 1,
+   "context": [
+    "var lobby_aisle := str(stair.id) == \"PRIMARY_F01_F02\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "379d919ebececdd3",
    "kind": "runtime_id",
    "token": "F01_NIGHT_REGISTER",
@@ -235456,6 +235484,37 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F06/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a410584dc6cb1838",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/scripts/building/orison_v2_stair_ironwork.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount",
+    "_mount_guards"
+   ],
+   "lines": [
+    19,
+    62
+   ],
+   "count": 2,
+   "context": [
+    "packed = PUBLIC_LOBBY if str(stair.id) == \"PRIMARY_F01_F02\" else PUBLIC",
+    "if not returning and str(stair.id) == \"PRIMARY_F01_F02\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -273128,7 +273187,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273158,7 +273217,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273188,7 +273247,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273218,7 +273277,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273248,7 +273307,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273278,7 +273337,7 @@
     "_route"
    ],
    "lines": [
-    98
+    80
    ],
    "count": 1,
    "context": [
@@ -273354,6 +273413,62 @@
    "target_exists": true
   },
   {
+   "key": "7964b467e052c139",
+   "kind": "id_reference",
+   "token": "PRIMARY_F01_F02",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_widened_stairs"
+   ],
+   "lines": [
+    164
+   ],
+   "count": 1,
+   "context": [
+    "if stair.id == \"PRIMARY_F01_F02\" and not returning:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9d3b07fff06f7e08",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_LANDING",
+   "file": "game/tests/orison_v2_light_court_structure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [
+    "expected_owners.append_array([\"ROOF_SERVICE_LANDING\", \"SERVICE_F06_ROOF/FlightB_Step09\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "55991bb087bb36b9",
    "kind": "vector3_coordinate",
    "token": "_route",
@@ -273364,21 +273479,25 @@
     "_route"
    ],
    "lines": [
-    101,
-    102,
-    103,
-    103,
-    104,
-    104,
-    105,
-    106
+    83,
+    84,
+    85,
+    85,
+    86,
+    86,
+    87,
+    87,
+    88,
+    88,
+    89,
+    90
    ],
-   "count": 8,
+   "count": 12,
    "context": [
     "{\"id\":\"court_guard_ground\", \"at\":Vector3(2.95,0,-1.4), \"look\":Vector3(2.95,.8,-.58)},",
     "{\"id\":\"court_guard_north\", \"at\":Vector3(2.95,0,2.5), \"look\":Vector3(2.95,.65,1.7)},",
-    "{\"id\":\"court_guard_upper\", \"at\":Vector3(2.95,3.2,-2.8), \"look\":Vector3(2.95,3.85,-1.945)},",
-    "{\"id\":\"court_transfer_overview\", \"at\":Vector3(4.9,-3.2,-1.1), \"look\":Vector3(2.95,-1.4,-1.2)},"
+    "{\"id\":\"roof_court_gate\", \"at\":Vector3(4.9,19.2,-2.2), \"look\":Vector3(2.95,19.85,-1.7)},",
+    "{\"id\":\"roof_service_gate\", \"at\":Vector3(12.35,19.2,4.3), \"look\":Vector3(10.85,19.85,5.3)},"
    ],
    "gameplay_binding": true,
    "authority": [
