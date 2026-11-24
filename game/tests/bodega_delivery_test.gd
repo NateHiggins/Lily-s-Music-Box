@@ -76,6 +76,9 @@ func _route() -> void:
 		await _capture_interaction("bodega_produce_%04d" % int(target))
 	# An empty pantry shows no produce, even while the icebox keeps the shop stocked.
 	_require(Delivery.produce_at(300.0, ShopStock.OUT) == Produce.NONE, "an empty pantry puts out no produce")
+	# Bring the stock cursor up to the jumped clock first, so no catch-up moves
+	# these levels under the check.
+	world.shop_stock.advance_to(world.campaign_clock.absolute_minutes(), world.shop_stock._today())
 	var groups_state: Dictionary = RealityState.data[ShopStock.KEY].groups.bodega
 	var kept_pantry := float(groups_state.pantry)
 	while world.shop_stock.level("bodega", "icebox") == ShopStock.OUT:
@@ -84,11 +87,12 @@ func _route() -> void:
 	var other := preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "stock_aisle_1_top_01")
 	delivery.refresh()
 	world.exterior_cell.refresh_shop_presentation()
-	for frame in 10:
-		await RenderingServer.frame_post_draw
+	print("[DELIVERY] pantry ", world.shop_stock.level("bodega", "pantry"), " icebox ", world.shop_stock.level("bodega", "icebox"), " notions ", world.shop_stock.level("bodega", "notions"))
 	_require(world.shop_stock.level("bodega", "pantry") == ShopStock.OUT and world.shop_stock.level("bodega", "icebox") != ShopStock.OUT
 			and not window.visible and not aisle_1.visible and not aisle_2.visible and other != null and other.visible,
 			"pantry out, icebox stocked: no produce shows (window %s, aisles %s/%s) and other stock stays (%s)" % [window.visible, aisle_1.visible, aisle_2.visible, other.visible if other != null else "missing"])
+	for frame in 10:
+		await RenderingServer.frame_post_draw
 	await _capture_interaction("bodega_produce_pantry_out")
 	groups_state.pantry = kept_pantry
 	delivery.refresh()
