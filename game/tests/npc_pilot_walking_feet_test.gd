@@ -73,6 +73,23 @@ func _floor_at(x: float) -> float:
 	return minf(floor((x - STAIR_X) / TREAD) + 1.0, RISERS) * RISE
 
 
+func _intruder_tread_support(actor: Node3D) -> Dictionary:
+	var samples := 0
+	var mismatches: Array[Dictionary] = []
+	for tread: int in [2, 4]:
+		for fraction: float in [0.25, 0.5, 0.75]:
+			for z: float in [-0.24, 0.0, 0.24]:
+				var x := STAIR_X + (tread + fraction) * TREAD
+				var ramp_y := (tread + fraction) * RISE
+				var expected := (tread + 1) * RISE
+				var at := Vector3(x, ramp_y, z)
+				var actual: float = actor.walking_feet._floor_under(actor.get_world_3d(), at, ramp_y)
+				samples += 1
+				if not is_finite(actual) or not is_equal_approx(actual, expected):
+					mismatches.append({"at": str(at), "expected": expected, "actual": str(actual)})
+	return {"samples": samples, "mismatches": mismatches}
+
+
 ## Walks `actor` from `from_x` for `seconds` along +x at `pace`, height on the ramp line, and returns the median and
 ## 90th percentile of how far the deepest heel or toe joint sits below the floor under it, and the largest offset
 ## the stage asked for.
@@ -166,18 +183,22 @@ func run() -> void:
 				"%s: the stage runs straight after the pose pipeline, which refuses no write (%d refused)" % [id, int(pipeline.refused_writes)])
 		# Bodies that are not the floor, on the stair in the feet's path: a player-sized body standing on a tread, and
 		# a loose crate resting on one. The feet must still follow the treads, as in the clear climb.
+		var clear_support := _intruder_tread_support(actor)
 		var intruders := _intruders()
 		for _frame in 2:
 			await get_tree().physics_frame
+		var crowded_support := _intruder_tread_support(actor)
+		details[id + "_support"] = {"clear": clear_support, "crowded": crowded_support}
+		check(clear_support.mismatches.is_empty() and crowded_support.mismatches.is_empty(),
+				"%s: fixed samples read the tread under both clear and crowded columns" % id)
 		var crowded: Dictionary = await _walk(actor, STAIR_X + 0.2, 3.5, 0.55, RISE / TREAD)
 		for body: Node in intruders:
 			body.queue_free()
 		await get_tree().physics_frame
 		details[id + "_crowded"] = crowded
-		# p90 is the discriminator: stepping onto the crate held feet ~0.3 m up for many frames (p90 0.325 against
-		# 0.085). The single worst frame moves by ~0.05 m run to run with frame timing, so its margin only catches a lift.
-		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.1,
-				"%s's feet follow the treads past a player body and a loose crate (hover p90 %.3f m, clear %.3f m)" % [id, float(crowded.hover_p90), float(on.hover_p90)])
+		check(float(crowded.hover_p90) < float(on.hover_p90) + 0.02 and float(crowded.hover_max) < float(on.hover_max) + 0.03,
+				"%s's feet follow the treads past a player body and a loose crate (hover p90 %.3f m vs %.3f m, peak %.3f m vs %.3f m)" %
+				[id, float(crowded.hover_p90), float(on.hover_p90), float(crowded.hover_max), float(on.hover_max)])
 		# The same climb without the stage, for the comparison.
 		actor.walking_feet.active = false
 		var off: Dictionary = await _walk(actor, STAIR_X + 0.2, 3.5, 0.55, RISE / TREAD)
@@ -205,7 +226,7 @@ func _finish(started: int) -> void:
 		DirAccess.make_dir_recursive_absolute(output)
 		var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "production_runtime": false, "selector": "v2",
 				"suite": "NpcPilotWalkingFeetTest", "status": "PASS" if passed else "FAIL",
-				"scope": "Walking foot placement on Mina's and Malcolm's rebuilt bodies on a collider stair of the house's dimensions, moved along the ramp line as the route moves them: tread finding, sink against the same climb without the stage, level pass-through, single-writer pipeline, pilot gate. No production stair, no rendered surface.",
+				"scope": "Walking foot placement on selected rebuilt bodies over a synthetic stair. Clear and crowded columns sample the same tread positions before comparing the timed climbs. No production stair or rendered surface.",
 				"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
 				"source": {"test_path": "game/" + get_script().resource_path.trim_prefix("res://"), "test_sha256": FileAccess.get_sha256(get_script().resource_path),
 					"test_scene_path": "game/" + scene_file_path.trim_prefix("res://"), "test_scene_sha256": FileAccess.get_sha256(scene_file_path)},
