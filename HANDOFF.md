@@ -1,3 +1,26 @@
+# Grocery routes and NPC pilots, November 24
+
+Evidence class: **INERT**
+
+The combined qualification at **43fc42bd4** contains PRs #535, #536 and
+#537. Mae walked 154.8 m and Mina walked 155.3 m through the installed
+bodega routes. Both entered after a scheduled departure freed a place in
+the full queue, and both returned home with zero failures. The nearby
+frontier proved Cam waited, visibly cued a courtesy pass, separated from
+the player and reached shop alignment. Counterflow proved the fitted
+lamps register and release their local avoidance outlines.
+
+The exact gait and facial pilot batch passed eight suites. Its all-body
+audit captured 374 images and the sampled technical review covered 22
+bodies. The composed Harukiya balcony and backstage checks passed.
+First slice passed 369 checks and 176 walking waypoints, including
+radiator repair and disk reconstruction. Physical surfaces passed 818
+checks and 23 paired views were technically reviewed. Human play and
+artistic review remain open. Malcolm's separate bodega-local hold,
+legacy artistic fixture bindings and stair foot placement remain open.
+
+[Qualification records](D:/ov_reports/orison_npc_gait_face_intake_20261124/STATUS.md)
+
 # Companion and Mina qualification, November 24
 
 Evidence class: **INERT**

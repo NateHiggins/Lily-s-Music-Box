@@ -4,7 +4,10 @@ extends Node
 ##
 ##   1. expression   a named state at an intensity, eased, a little uneven
 ##                   from side to side in a way that is this actor's own
-##   2. eyes         where the eyes are turned, ahead of the head
+##   2. eyes         where the eyes are turned, ahead of the head, never
+##                   fixed: small saccades about the target, a glance
+##                   away as a spoken turn begins and back when it ends,
+##                   and a blink with any large shift of gaze
 ##   3. blink        on its own clock; closes over anything
 ##   4. speech       mouth shapes from the timing of the line being spoken,
 ##                   or a restrained jaw when a line has no timing; speech
@@ -23,6 +26,13 @@ var targets: Dictionary = {}
 var writes_last_frame := 0
 var _data: Dictionary = {}
 var _random := RandomNumberGenerator.new()
+## Gaze has its own stream, so it never shifts this actor's blink timing.
+var _gaze_random := RandomNumberGenerator.new()
+var _saccade := Vector2.ZERO
+var _saccade_at := 0.0
+var _avert := Vector2.ZERO
+var _avert_until := -1.0
+var _last_gaze := Vector2.ZERO
 var _lean: Dictionary = {}
 var _expression := "neutral"
 var _intensity := 0.0
@@ -66,6 +76,8 @@ func bind(model: Node, seed_text: String) -> bool:
 	for shape: String in targets:
 		_lean[shape] = _random.randf_range(0.86, 1.0)
 	_blink_at = _random.randf_range(0.6, 3.0)
+	_gaze_random.seed = hash(seed_text + ":gaze")
+	_saccade_at = _gaze_random.randf_range(0.2, 1.0)
 	return bound
 
 
@@ -116,6 +128,7 @@ func speak(cues: Array) -> void:
 	_speech_ends = 0.0
 	for cue: Dictionary in cues:
 		_speech_ends = maxf(_speech_ends, float(cue.get("end", 0.0)))
+	_begin_turn()
 
 
 ## Speak a line that is heard but has no timing: a restrained jaw, no shapes.
@@ -124,6 +137,7 @@ func speak_untimed(seconds: float) -> void:
 	_fallback = true
 	_speech_clock = 0.0
 	_speech_ends = maxf(seconds, 0.0)
+	_begin_turn()
 
 
 ## A written or silent line moves no mouth; an interrupted one stops here and
@@ -132,6 +146,23 @@ func stop_speaking() -> void:
 	_speech_clock = -1.0
 	_cues = []
 	_fallback = false
+	# The turn is over: the eyes come back to whoever they were on.
+	_avert = Vector2.ZERO
+	_avert_until = -1.0
+
+
+## A speaker often looks away as a turn begins, gathering it, and back to the
+## listener before it ends. Not every turn, and never for long.
+func _begin_turn() -> void:
+	var gaze: Dictionary = _data.get("gaze", {})
+	if gaze.is_empty() or _gaze_random.randf() >= float(gaze.aversion_chance):
+		return
+	var side := -1.0 if _gaze_random.randf() < 0.5 else 1.0
+	var yaw: Array = gaze.aversion_yaw_degrees
+	var pitch: Array = gaze.aversion_pitch_degrees
+	_avert = Vector2(side * _gaze_random.randf_range(float(yaw[0]), float(yaw[1])),
+			_gaze_random.randf_range(float(pitch[0]), float(pitch[1])))
+	_avert_until = _clock + _gaze_random.randf_range(float(gaze.aversion_least_seconds), float(gaze.aversion_most_seconds))
 
 
 func is_speaking() -> bool:
@@ -188,7 +219,22 @@ func step(delta: float) -> void:
 
 	# 2. Eyes.
 	var eyes: Dictionary = _data.eyes
-	_eye = Vector2(_toward(_eye.x, _eye_goal.x, delta, 0.07), _toward(_eye.y, _eye_goal.y, delta, 0.07))
+	var gaze: Dictionary = _data.get("gaze", {})
+	var aim := _eye_goal
+	if not gaze.is_empty():
+		if _clock >= _saccade_at:
+			_saccade = Vector2.from_angle(_gaze_random.randf() * TAU) * _gaze_random.randf_range(0.0, float(gaze.saccade_degrees))
+			_saccade_at = _clock + _gaze_random.randf_range(float(gaze.saccade_least_seconds), float(gaze.saccade_most_seconds))
+		if _avert_until >= 0.0 and _clock >= _avert_until:
+			_avert = Vector2.ZERO
+			_avert_until = -1.0
+		aim += _saccade + _avert
+		# A large shift of gaze carries a blink with it.
+		if _blink_phase < 0.0 and aim.distance_to(_last_gaze) > float(gaze.blink_with_shift_degrees):
+			_blink_phase = 0.0
+			_blinks_owed = 0
+	_last_gaze = aim
+	_eye = Vector2(_toward(_eye.x, aim.x, delta, 0.07), _toward(_eye.y, aim.y, delta, 0.07))
 	var yaw := clampf(_eye.x / float(eyes.yaw_degrees), -1.0, 1.0)
 	var pitch := clampf(_eye.y / float(eyes.pitch_degrees), -1.0, 1.0)
 	if yaw > 0.0:

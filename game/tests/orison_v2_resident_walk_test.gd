@@ -8,6 +8,9 @@ extends Node
 ## open until explicitly operated. Windowed: the runtime refuses headless.
 
 const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
+const BodegaAdmission := preload("res://scripts/building/bodega_admission.gd")
+const BODEGA_FULL := "bodega capacity: hold upstream vertex"
+const BODEGA_TEST_WAIT := "resident walk bodega turnover"
 var failures: Array[String] = []
 var _route: Node3D
 var _metres := 0.0
@@ -141,6 +144,7 @@ func _walk(place: String) -> void:
 	var previous := actor.global_position
 	var elapsed := 0.0
 	var reached := false
+	var waited_for_bodega := false
 	while elapsed < 150.0:
 		await get_tree().create_timer(.5).timeout
 		elapsed += .5
@@ -149,6 +153,16 @@ func _walk(place: String) -> void:
 			failures.append("teleported on the way to " + place)
 		_metres += at.distance_to(previous) if actor.visible else 0.0
 		previous = at
+		if place == "bodega" and not waited_for_bodega and _route.blocked_reason == BODEGA_FULL and _bodega_queue_is_full():
+			waited_for_bodega = true
+			var admitted := await _await_bodega_turnover()
+			_check("a scheduled departure admits %s from the full bodega queue" % _resident, admitted)
+			if not admitted:
+				_print_block_state()
+				return
+			previous = actor.global_position
+			if actor.visible:
+				_metres += previous.distance_to(at)
 		if _route.blocked_seconds > 3.0:
 			failures.append("blocked on the way to %s at %v: %s" % [place, at, _route.blocked_reason])
 			_print_block_state()
@@ -160,6 +174,34 @@ func _walk(place: String) -> void:
 		print("STALLED on the way to ", place, ": ", _route.blocked_reason, " passages=", _route._door_passages.size(), " busy=", actor.mina_animation.route_busy if actor.mina_animation != null else false)
 		_print_block_state()
 	_check("reaches %s (%.0f s)" % [place, elapsed], reached)
+
+
+func _bodega_queue_is_full() -> bool:
+	var admission := _route.world.get("bodega_admission") as BodegaAdmission
+	if not is_instance_valid(admission):
+		return false
+	var service: Dictionary = admission.debug_snapshot().service
+	return service.queue.size() + int(not service.active.is_empty()) == BodegaAdmission.SERVICE_HOLDS.size()
+
+
+func _await_bodega_turnover() -> bool:
+	var driver := get_tree().get_first_node_in_group("campaign_time_owner") as CampaignClockDriver
+	if driver == null or driver.pace.held() or driver.pace.running():
+		return false
+	var clock: CampaignClock = _route.world.campaign_clock
+	# Let the scheduled residents release their real holds. Keep ordinary route
+	# speed and all door and admission checks in charge of the actual crossing.
+	if not driver.pace.run_to(clock.elapsed_minutes() + 120.0, 240.0, BODEGA_TEST_WAIT):
+		return false
+	var admitted := false
+	for sample in range(120):
+		await get_tree().create_timer(0.5).timeout
+		admitted = not _route._bodega_route._holding.is_empty() and not _route.path.is_empty()
+		if admitted or driver.pace.reason != BODEGA_TEST_WAIT:
+			break
+	if driver.pace.reason == BODEGA_TEST_WAIT:
+		driver.pace.settle()
+	return admitted
 
 
 func _print_block_state() -> void:
