@@ -138,6 +138,17 @@ func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
 	hand.player = player
 	player.set_mouse_released(false)
 	var want_open := not leaf.open
+	# The production sweep refuses a leaf that would swing through the body
+	# operating it. Stand back from the door on this side, as a person would,
+	# until the swing is clear; the reach is still checked by the ray below.
+	if not leaf.motion_clear(want_open):
+		var stance := leaf.to_local(player.global_position)
+		var side := -1.0 if stance.z < 0.0 else 1.0
+		for step: float in [.3, .6, .9, 1.2]:
+			if not await _walk_world(leaf.to_global(Vector3(stance.x, 0.0, side * (absf(stance.z) + step)))):
+				hand.free()
+				return false
+			if leaf.motion_clear(want_open): break
 	player.camera.look_at(target)
 	await get_tree().physics_frame
 	player.camera.look_at(target)
@@ -161,4 +172,8 @@ func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
 	var reached: bool = leaf.open == want_open and not player._grab.active() \
 			and absf(leaf._body.rotation.y - leaf.motion_target_angle(want_open)) < .01
 	if want_open: reached = reached and leaf.is_ready_for_passage()
+	if not reached:
+		print("DOOR CLICK DIAGNOSTIC ", label, " open=", leaf.open, " angle=", leaf._body.rotation.y,
+				" goal=", leaf.motion_target_angle(want_open), " clear=", leaf.motion_clear(want_open),
+				" state=", leaf.leaf_state, " player_local=", leaf.to_local(player.global_position))
 	return _require(reached, "actual click operates the leaf to its stop, open=%s: %s" % [want_open, label])

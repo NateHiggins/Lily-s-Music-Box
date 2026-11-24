@@ -53,7 +53,13 @@ func _route() -> void:
 	var column_top := panel._column.get_global_rect().position.y
 	print("[KNOCK ROUTE] column_top=%.0f centre_y=%.0f replies=%d" % [
 			column_top, centre.y, panel.offered_labels().size()])
-	_require(column_top > centre.y, "the lower third leaves the corridor's centre clear")
+	# A headless run draws into a 64 px dummy window, where any reply column
+	# reaches the top. Judge the framing only in a real window; the panel's fit
+	# at 720p and 1080p is held by resident_conversation_test's SubViewport check.
+	if DisplayServer.get_name() == "headless":
+		print("[KNOCK ROUTE] lower-third framing not judged headless (viewport %s)" % str(get_viewport().get_visible_rect().size))
+	else:
+		_require(column_top > centre.y, "the lower third leaves the corridor's centre clear")
 	var evidence_offered := false
 	for label in panel.offered_labels():
 		if str(label).contains("[") and str(label).contains("]"):
