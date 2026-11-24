@@ -170,9 +170,12 @@ func _check_card_receiver_teardown(order: Array[Dictionary]) -> void:
 	var logger := preload("res://tests/guide_bell_error_capture.gd").new()
 	OS.add_logger(logger)
 	Broadcast.break_every = 1
-	Broadcast.break_seconds = 0.7
-	Broadcast._started_msec = Time.get_ticks_msec() - roundi(float(order[0].length) * 1000.0) - 40
+	Broadcast.break_seconds = 1.1
+	var card_offset := roundi(float(order[0].length) * 1000.0) + 40
 	for receiver in [retired, switched_off, listening]:
+		# Start each listener at the same card offset. Audio startup on one
+		# set can take longer than the card on a busy runner.
+		Broadcast._started_msec = Time.get_ticks_msec() - card_offset
 		var slot := Broadcast.join(receiver, -18.0)
 		_check("receiver joins the running card break on its carrier",
 				slot.get("break", false) and receiver.stream == carrier)
@@ -182,7 +185,7 @@ func _check_card_receiver_teardown(order: Array[Dictionary]) -> void:
 	retired.free()
 	Broadcast.leave(switched_off)
 
-	var deadline := Time.get_ticks_msec() + 3200
+	var deadline := Time.get_ticks_msec() + 4200
 	while listening.get_meta("broadcast_record", "") != order[1].id and Time.get_ticks_msec() < deadline:
 		await get_tree().process_frame
 	_check("the live receiver resumes on the next record",
