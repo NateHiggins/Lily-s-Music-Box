@@ -18,6 +18,8 @@ var dot_count := 0
 var camera: Camera3D
 ## BEFORE=1 reproduces main before the pilot: no distance matching, level pace on the stairs.
 var before := false
+## RESIDENT=<id> stages another resident (the second pilot, a male-base body on the generic path).
+var resident := "mina_vale"
 var report := {}
 
 
@@ -32,6 +34,9 @@ func _ready() -> void:
 	var speed := OS.get_environment("ROUTE_SPEED")
 	if not speed.is_empty():
 		route_speed = float(speed)
+	var who := OS.get_environment("RESIDENT")
+	if not who.is_empty():
+		resident = who
 	run.call_deferred()
 
 
@@ -195,16 +200,20 @@ func _walk(label: String, from_x: float, to_x: float, direction: float) -> void:
 func run() -> void:
 	RealityState.persistence_enabled = false
 	_set_stage()
-	CastBodies.set_for_test(["mina_vale"])
+	CastBodies.set_for_test([resident])
 	mina = Presentation.new()
-	mina.setup("Mina Vale", "mina_vale", "2A", CastBodies.model_for("mina_vale"))
+	mina.setup(resident.capitalize(), resident, "2A", CastBodies.model_for(resident))
 	mina.externally_driven = true
 	add_child(mina)
 	await frames(10)
 	if before and mina.mina_animation != null:
 		mina.mina_animation.gaits.clear()
-	if mina.cast_body == null or mina.mina_animation == null:
-		push_error("Mina pilot shot: no cast body or behaviour")
+	if before:
+		mina.walk_gait = null
+	report["resident"] = resident
+	report["walk_gait"] = mina.walk_gait != null
+	if mina.cast_body == null or (resident == "mina_vale" and mina.mina_animation == null):
+		push_error("Pilot shot: no cast body or behaviour")
 		get_tree().quit(1)
 		return
 	# From a standstill, as the route starts her: the walk start plays first.
