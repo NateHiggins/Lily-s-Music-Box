@@ -35,7 +35,8 @@ func grip() -> Dictionary:
 		"end":func():
 			_held=false
 			# The spring needs ticks only while the lever is off its stop.
-			set_physics_process(travel>0.)}
+			set_physics_process(travel>0.),
+	}
 
 func _locked() -> bool:
 	return merchant.sale_locked(item_id) if merchant.has_method("sale_locked") else merchant.inventory.has_item(item_id)
