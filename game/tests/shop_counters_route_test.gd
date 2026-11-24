@@ -294,6 +294,10 @@ func _newspaper_sales(economy: Node) -> void:
 	await get_tree().process_frame
 
 
+## CaretakerEconomy has no class_name; its saved key.
+const ECONOMY_KEY := "caretaker_economy"
+
+
 func _errand_snapshot_faults(document: Dictionary, resident: String, start: Dictionary) -> Array[String]:
 	var faults: Array[String] = []
 	var errand: Dictionary = document.get(ResidentErrands.KEY, {}).get(resident, {})
@@ -307,7 +311,7 @@ func _errand_snapshot_faults(document: Dictionary, resident: String, start: Dict
 		var packs := roundi(float(sack[item]) / float(record.pack))
 		spent += packs * int(record.cents)
 		taken[str(record.group)] = int(taken.get(str(record.group), 0)) + packs
-	var cash := int(document.get(CaretakerEconomy.KEY, {}).get("cash", -1))
+	var cash := int(document.get(ECONOMY_KEY, {}).get("cash", -1))
 	var paid := int(start.cash) - cash
 	if not bool(errand.done) and paid != spent:
 		faults.append("cash %d paid against %d packed" % [paid, spent])
@@ -327,8 +331,8 @@ func _errand_snapshot_faults(document: Dictionary, resident: String, start: Dict
 	var has_sack := player.has("goods:" + ResidentErrands.sack_item(resident))
 	if has_list != (stage in ["list", "filling"]):
 		faults.append("list custody %s at stage %s" % [has_list, stage])
-	var tipped: bool = document.get(CaretakerEconomy.KEY, {}).get("tips", {}).has(start.tip)
-	var resident_has := holders.get(resident, {})
+	var tipped: bool = document.get(ECONOMY_KEY, {}).get("tips", {}).has(start.tip)
+	var resident_has: Dictionary = holders.get(resident, {})
 	var delivered := not sack.is_empty()
 	for item: String in sack:
 		var held := float(resident_has.get("grocery:" + item, {}).get("qty", 0.0))
