@@ -67,17 +67,20 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var at := bodega.to_global(Vector3(supply.x,.53,z))
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at-Vector3.UP*.10,at+Vector3.UP*.10,1))
 		check(not hit.is_empty() and at.distance_to(hit.position)<.001,"internal conduit hangers bear on existing shop ceiling")
-	var previous_time := bodega._time
-	var saw_drop := false
-	for time in range(1000):
-		bodega._time=float(time)*.1;bodega._process(0.)
-		if bodega._cabinet_dropped:saw_drop=true;break
-	check(saw_drop and bodega._cabinet_mats.all(func(m):return is_equal_approx(m.emission_energy_multiplier,.2625)),"both original blade faces retain source dropout")
-	if capture_enabled:await _front_view(world,bodega,Vector2(1.,4.5),Vector3(0,-.32,.6),"bodega_dropout")
-	bodega._time=100.;bodega._process(0.)
-	check(not bodega._cabinet_dropped,"original bodega cabinet recovers")
+	# Period front (bodega_sign_period_20261124): painted board and blade, gilt
+	# letters, two steady shaded lamps; no tube, no per-frame work.
+	check(not bodega.is_processing() and not bodega.has_method("_process"),"period sign does no per-frame work")
+	var faces: Array=bodega._cabinet_mats
+	check(faces.size()==2 and faces.all(func(m):return not m.emission_enabled),"both painted blade faces are unlit paint")
+	var board := (factory.retained.FittedBodegaSignage.draws[0].node.get_ref() as MeshInstance3D).get_active_material(0) as StandardMaterial3D
+	check(board!=null and not board.emission_enabled and board.albedo_color.is_equal_approx(BodegaSignageProp.BOARD_GREEN),"board is painted dark green, not lit from behind")
+	var lamps := bodega.find_children("*","SpotLight3D",true,false)
+	check(lamps.size()==2 and lamps.all(func(l):return not l.shadow_enabled and l.light_energy>0.),"two steady shaded lamps light the board")
+	check(bodega.find_children("*","OmniLight3D",true,false).is_empty(),"no lightbox or valance wash remains")
+	var words: Array=bodega.find_children("*","Label3D",true,false).map(func(l):return l.text)
+	check(words.has("HALF BAKED  ·  GROCERY") and not words.any(func(t):return "24" in t or "DELI" in t),"the board reads HALF BAKED · GROCERY")
 	if capture_enabled:await _front_view(world,bodega,Vector2(-2.,4.5),Vector3(-.7,.05,.6),"bodega_lit")
-	bodega._time=previous_time;bodega._process(0.)
+	if capture_enabled:await _front_view(world,bodega,Vector2(1.,4.5),Vector3(0,-.32,.6),"bodega_board")
 	if capture_enabled:await _front_view(world,bodega,Vector2(1.5,-1.4),Vector3(1.6875,.20,-.10),"bodega_inside_service")
 	if capture_enabled:await _front_view(world,bar,Vector2(0.,-1.5),Vector3(.85,-.3,.1),"harukiya_inside_approach")
 	for at: Vector3 in [Vector3(-2.05,.88,.07),Vector3(-2.175,-.32,.06),Vector3(2.175,-.32,.06)]:_bearing(world,bodega,at)

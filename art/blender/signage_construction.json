@@ -938,7 +938,7 @@
       {
         "id": "FittedBodegaSignage",
         "script": "res://scripts/props/bodega_signage_prop.gd",
-        "source_mesh_count": 7,
+        "source_mesh_count": 15,
         "replacements": [
           {
             "index": 0,
@@ -1179,19 +1179,14 @@
       {
         "actor": "FittedBodegaSignage",
         "index": 0,
-        "roughness": 0.79,
+        "roughness": 0.72,
         "color": [
-          0.84,
-          0.73,
-          0.42,
+          0.1,
+          0.22,
+          0.15,
           1.0
         ],
-        "emission": [
-          1.0,
-          0.88,
-          0.55
-        ],
-        "emission_energy": 0.15
+        "emission": []
       }
     ]
   },
@@ -1225,11 +1220,11 @@
     "status": "PASS"
   },
   "source_bindings": {
-    "art/data/signage/source_plan.json": "590b1ffd25cb3160160ea6c24edad50dbaa99d6d72c49a906e631fcad48f6f16",
+    "art/data/signage/source_plan.json": "f2ffa20d37eaf284f708a55afd6b322b03a0195aae4b0e9b01994509cf91cbb1",
     "art/blender/scripts/build_signage.py": "eee89611d09f3b76f62e45d7b0a7b4e57d66a00976d4ac15e7111cdd3c155426",
-    "art/blender/scripts/signage_geometry.py": "fa1b86e3320c49a48374e6b7a2f0be1e5477cd82a4a9fcb944621e76ac9f0511",
+    "art/blender/scripts/signage_geometry.py": "d35535d5f8d36c5f87fd9907ff28fbec5acf28a1e0ffbac30d49900483e6a6dd",
     "art/blender/scripts/render_signage.py": "4cd3a5a780f6e1487484d98b4f11f2e7dffb74bb652215e7f3cef8b6e93ae5e3",
-    "art/blender/scripts/prepare_signage.py": "fea1051e1c13abd6378399c6a9b1bbaa2ac25ab26cc11060606dbc89743bacd6",
+    "art/blender/scripts/prepare_signage.py": "59f23474eac58e2f5e51d23e445613ff86ab241f1667b93093daf8a7bc7e5ea2",
     "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
     "art/blender/scripts/bodega_services_geometry.py": "e235031c50855fa3ae06bdd7dc0361b7e61f4377f29c2b519412ca7bcc69180c",
@@ -1260,7 +1255,7 @@
     "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",
     "game/scripts/props/harukiya_signage_prop.gd": "4b3b2664da6f9fb76751f47e733653de55b5b33ef97209890dd3c07d22e62d93",
-    "game/scripts/props/bodega_signage_prop.gd": "81d67ced3b43a1c007fcfa95a00c28ce4025a0e38b6fd04325d4385587df2c8a",
+    "game/scripts/props/bodega_signage_prop.gd": "f92e8d84d68e1c41b54b57692d5d0f4d7ca6844c4d38f905010a41ccacf6035a",
     "game/scripts/props/neon_sign_prop.gd": "4e82597de3a6e069278ea00040b202bee00516f8055311b7030f745b91c91ce9"
   }
 }

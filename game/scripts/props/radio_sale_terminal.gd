@@ -32,7 +32,11 @@ func grip() -> Dictionary:
 			if _held:return false
 			_held=true;_attempted=false;return true,
 		"owns":func():return _held,
-		"end":func():_held=false}
+		"end":func():
+			_held=false
+			# The spring needs ticks only while the lever is off its stop.
+			set_physics_process(travel>0.),
+	}
 
 func _locked() -> bool:
 	return merchant.sale_locked(item_id) if merchant.has_method("sale_locked") else merchant.inventory.has_item(item_id)
@@ -50,8 +54,14 @@ func _move(value: float) -> void:
 	if accepted:last_status="paid"
 	sale_result.emit(accepted)
 
+func _ready() -> void:
+	# At rest the terminal takes no per-tick callback (the 30 fps order).
+	set_physics_process(travel>0. and not _held)
+
 func _physics_process(delta: float) -> void:
 	# Passive spring return is independent of payment and never retries a sale.
-	if _held or travel<=0.:return
+	if _held:return
+	if travel<=0.:
+		set_physics_process(false);return
 	travel=move_toward(travel,0.,delta*.10)
 	if lever!=null:lever.position=_lever_origin+Vector3.BACK*travel

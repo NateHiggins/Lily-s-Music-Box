@@ -43,13 +43,14 @@ class DynamicVoiceTests(unittest.TestCase):
             'transient_guests': {'favorite': 'record_b', 'anecdote': "We know this hotel.", 'gift_line': 'Our room again.'},
             'lily': {'favorite': 'record_c', 'anecdote': 'A private recording.', 'gift_line': 'No reference yet.'}}})
         self.data('game/data/kitchen/cookbook.json', {'dishes': [
-            {'resident': 'alpha', 'ingredients': [['rice', 2], ['onions', 1]]},
+            {'resident': 'alpha', 'ingredients': [['rice', 2], ['onions', 1], ['lard', 1]]},  # lard: another shop's
             {'resident': 'transient_guests', 'ingredients': [['rice', 1]]}]})
         self.data('game/data/kitchen/groceries.json', {
             'household': {'lighting': {'matches': 1}, 'washing_up': {'soap': 1, 'scour': 1}},
-            'ingredients': {key: {'name': label} for key, label in
-                            [('rice', 'Rice'), ('onions', 'Onions'), ('matches', 'Matches'),
-                             ('soap', 'Soap flakes'), ('scour', 'Scouring powder'), ('unused_honey', 'Honey')]}})
+            'ingredients': {key: {'name': label, 'shop': shop} for key, label, shop in
+                            [('rice', 'Rice', 'bodega'), ('onions', 'Onions', 'bodega'), ('matches', 'Matches', 'bodega'),
+                             ('soap', 'Soap flakes', 'bodega'), ('scour', 'Scouring powder', 'bodega'),
+                             ('unused_honey', 'Honey', 'bodega'), ('lard', 'Lard', 'luncheonette')]}})
         for source in re.findall(r'"res://([^\"]+\.json)"',
                                  re.search(r'const PATHS:.*?=\s*\[(.*?)\]',
                                            (ROOT / 'game/scripts/game/shop_catalogue.gd').read_text(), re.S)[1]):

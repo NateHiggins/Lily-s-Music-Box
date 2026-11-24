@@ -7,6 +7,8 @@ const BLOCKOUT := preload("res://scenes/building/orison_v2_blockout.tscn")
 const CUES := preload("res://scripts/building/orison_v2_readability_cues.gd")
 const Adapter := preload("res://scripts/building/orison_v2_anchor_adapter.gd")
 const FrameContract := preload("res://scripts/building/orison_v2_frame_contract.gd")
+## The errand sack's distance in from the bodega counter top's end and customer edge.
+const BODEGA_SACK_INSET := Vector3(0.30, 0.0, 0.12)
 const LineageRegistry := preload("res://scripts/reality/corruption_lineage_registry.gd")
 const WorldConnection := preload("res://scripts/building/orison_v2_world_connection.gd")
 const ExteriorResolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
@@ -1185,6 +1187,22 @@ func _compose_authorities() -> void:
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy
+		# The list is laid on the bodega counter and its sack lifted off it
+		# (bodega_list_and_bag_20261124). Sales stay with the counter's ShopSales.
+		item_use.bodega_point=shop_counters.bodega
+		item_use.errands=conversations.errands
+		var sack: Node3D=preload("res://scripts/props/bodega_sack.gd").new()
+		sack.name="BodegaErrandSack"
+		shop_counters.bodega.add_child(sack)
+		# The sack stands at the customer edge of the fitted counter top, at the
+		# end clear of the till and scale that sit along its middle.
+		var top: Dictionary=preload("res://scripts/building/orison_v2_shop_counters.gd").bodega_counter_top(self)
+		if top.is_empty():
+			startup_failed=true;push_error("ORISON V2 RUNTIME: bodega counter top missing for the sack");return
+		var box: AABB=top.box
+		sack.global_position=(top.frame as Transform3D)*Vector3(box.end.x-BODEGA_SACK_INSET.x,box.end.y,box.end.z-BODEGA_SACK_INSET.z)
+		if not sack.configure(conversations.errands):
+			startup_failed=true;push_error("ORISON V2 RUNTIME: bodega sack refused");return
 	if conversations!=null:
 		conversations.gifts=ResidentGifts.new()
 		conversations.gifts.setup(shop_catalogue,economy)

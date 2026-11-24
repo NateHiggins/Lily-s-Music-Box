@@ -124,6 +124,8 @@ const MYSTERY_MENU := "mystery_menu"
 const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
 const ERRAND_ASK := "errand:ask"
 const ERRAND_THANKS := "errand:thanks"
+## The sack came back short and the resident noticed (bodega_list_and_bag_20261124).
+const ERRAND_SHORT := "errand:short"
 const ERRAND_WAIT := "errand:wait"
 const PARCEL_ASK := "parcel:ask"
 const PARCEL_THANKS := "parcel:thanks"
@@ -479,9 +481,11 @@ func _pay(resident_id: String, flag: String) -> bool:
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
 	if flag == ERRAND_ASK:
-		errands.ask(resident_id)
+		var words := errands.list_words(resident_id)
+		if errands.ask(resident_id):
+			_print_list(resident_id, words)
 		return
-	if flag == ERRAND_THANKS:
+	if flag == ERRAND_THANKS or flag == ERRAND_SHORT:
 		errands.deliver(resident_id)
 		return
 	if flag == ERRAND_WAIT or flag == PARCEL_WAIT:
@@ -714,8 +718,13 @@ func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
 	var line := ""
 	if errands.can_deliver(resident_id):
 		topic = "I brought your groceries."
-		node_id = ERRAND_THANKS
-		line = "Put them down there. That's the lot. Thank you."
+		# The resident looks in the sack at the door (bodega_list_and_bag_20261124).
+		if errands.missing(resident_id).is_empty():
+			node_id = ERRAND_THANKS
+			line = "Put them down there. That's the lot. Thank you."
+		else:
+			node_id = ERRAND_SHORT
+			line = "That isn't all of it. Never mind, I'll manage. Thank you."
 	elif errands.can_ask(resident_id):
 		topic = "Need anything from the shops?"
 		node_id = ERRAND_ASK
@@ -753,6 +762,15 @@ func _print_ticket() -> void:
 	_print_card({"title": "CLAIM TICKET %d" % number,
 		"body": "PARCEL WALL AT MODEL LAUNDRY STOP\nFIND THE TAG STOP\n\n   _________\n  /   %d   |\n  \\_________|\n\nTAKE HOLD AND DRAW IT TOWARD YOU\nALL THE WAY STOP" % number,
 		"condition": "TICKET %d / TO THE DOOR" % number,
+		"stamp": "SERVICE NOTE"}, _last_player)
+
+
+## The written list, as the resident gave it (bodega_list_and_bag_20261124).
+func _print_list(resident_id: String, words: String) -> void:
+	var unit := errands.larder.unit_of(resident_id)
+	_print_card({"title": "GROCERY LIST / %s" % unit,
+		"body": "%s STOP\n\n    ______\n   |~~~~~~|\n   | ~~~  |  -->  [ COUNTER ]\n   |______|\n\nLAY IT ON THE BODEGA COUNTER STOP\nTAKE UP THE SACK STOP" % words.to_upper(),
+		"condition": "LIST %s / TO THE DOOR" % unit,
 		"stamp": "SERVICE NOTE"}, _last_player)
 
 

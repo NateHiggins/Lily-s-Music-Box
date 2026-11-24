@@ -23,6 +23,8 @@ const NEWS_ROW := "storm_shop_news_cigars_counter_top"
 const NEWS_ALONG := 18.45
 const NEWS_ACROSS := -49.47
 const BODEGA_INSET := Vector3(0.35, 0.0, 0.1)
+## How far inside the fitted counter top's edge the terminal and selector stand.
+const BODEGA_EDGE_MARGIN := 0.12
 const OTIS_ROW := "storm_shop_otis___son_counter_top"
 ## Clear of the telephone and ledger at the counter's other end.
 const OTIS_ACROSS := 21.2
@@ -131,10 +133,53 @@ static func mount(world: Node3D) -> Dictionary:
 		var turned := bodega_counter.global_basis * Basis(Vector3.UP, -PI * 0.5)
 		points["bodega"] = _place(world, "bodega", world, Transform3D(turned,
 				bodega_counter.global_position + bodega_counter.global_basis * BODEGA_INSET))
+		if points["bodega"] != null:
+			seat_on_bodega_counter(world, points["bodega"])
 	for shop_id: String in points:
 		if points[shop_id] == null:
 			return {}
 	return points
+
+
+## The bodega's fitted counter top in its shop's frame: {"frame": shop global
+## transform, "box": the top's AABB in that frame}, or {} before the fittings mount.
+static func bodega_counter_top(world: Node3D) -> Dictionary:
+	var shop: Node3D = world.exterior_cell.instance_node("SHOP_BODEGA")
+	if shop == null:
+		return {}
+	var draw: MeshInstance3D = preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop, "counter_top")
+	if draw == null or draw.mesh == null:
+		return {}
+	var frame: Transform3D = shop.global_transform
+	return {"frame": frame, "box": frame.affine_inverse() * draw.global_transform * draw.get_aabb()}
+
+
+## The service-area placement left the terminal 0.225 m above the fitted top and
+## past its rear edge. Seat its foot on the top and move it, as little as needed,
+## until the terminal and its selector both stand inside the top's footprint.
+static func seat_on_bodega_counter(world: Node3D, point: Node3D, margin := BODEGA_EDGE_MARGIN) -> bool:
+	var top := bodega_counter_top(world)
+	if top.is_empty():
+		push_warning("ORISON V2: bodega counter top not fitted; the sale point keeps its service-area pose")
+		return false
+	var frame: Transform3D = top.frame
+	var box: AABB = top.box
+	var feet: Array[Vector3] = [frame.affine_inverse() * point.global_position]
+	if point.get("selector") is Node3D:
+		feet.append(frame.affine_inverse() * (point.selector as Node3D).global_position)
+	var shift := Vector3(0.0, box.end.y - feet[0].y, 0.0)
+	for axis in [Vector3.AXIS_X, Vector3.AXIS_Z]:
+		var low := INF
+		var high := -INF
+		for foot: Vector3 in feet:
+			low = minf(low, foot[axis])
+			high = maxf(high, foot[axis])
+		if low < box.position[axis] + margin:
+			shift[axis] = box.position[axis] + margin - low
+		elif high > box.end[axis] - margin:
+			shift[axis] = box.end[axis] - margin - high
+	point.global_position += frame.basis * shift
+	return true
 
 
 ## The carriage stands on the cutter's vises, worked from the shop floor side.

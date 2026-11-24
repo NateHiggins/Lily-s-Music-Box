@@ -17,6 +17,9 @@ for a in actors:
     # Bodega is the sole owner of this script, reached by its original class;
     # its generic exterior node name must never be treated as an identity.
     if a['id']=='M17':a['actor']='FittedBodegaSignage'
+    # Lily's period ruling (bodega_sign_period_20261124) adds two lamps of four meshes
+    # each after the seven fitted primitives; only indices 0-4 are replaced.
+    if a['id']=='M17':a['source_mesh_count']=15
 dims=dimensions()
 frontage=json.loads((ROOT/'art/data/bodega_frontage/source_plan.json').read_text())
 plan={'evidence_class':'INERT','classification':'ADAPTATION','source_census_sha256':digest(args.census),'actors':actors,
@@ -25,7 +28,7 @@ plan={'evidence_class':'INERT','classification':'ADAPTATION','source_census_sha2
                         'ceiling':dims['ceiling']},
       'bodega_service_port':frontage['sign_service_port'],
       'source_finishes':[{'actor':'F01_BAR_SIGNAGE','index':35,'roughness':.93,'color':[.72,.14,.08,1.],'emission':[]},
-                         {'actor':'FittedBodegaSignage','index':0,'roughness':.79,'color':[.84,.73,.42,1.],'emission':[1.,.88,.55],'emission_energy':.15}],
+                         {'actor':'FittedBodegaSignage','index':0,'roughness':.72,'color':[.10,.22,.15,1.],'emission':[]}],
       'scope':'Existing sign spans, lettering, light/material state owners and observation bindings. Native housings only.',
       'electrical_scope':'Harukiya internal branches terminate at original fixture sockets and a rear service junction. Bodega branch connects to its existing independent lighting conduit. Orison retains the existing transformer, conduit and wall condulet route.'}
 p=ROOT/'art/data/signage/source_plan.json';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(plan,indent=2)+'\n',newline='\n')

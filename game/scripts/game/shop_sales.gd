@@ -91,6 +91,26 @@ func transact_delivering(item_id: String, shop: String, hand_over: Callable) -> 
 		return false)
 
 
+## A sale whose goods go straight into the caller's own saved record (a resident's sack
+## on the counter) instead of the player's pockets. `receive` gets the catalogue record
+## and mutates its saved state without committing; the settlement's one commit then
+## saves the debit, the stock unit and that record together. If it refuses, the stock
+## goes back and the economy refunds, and nothing was written.
+func transact_into(item_id: String, shop: String, receive: Callable) -> bool:
+	if shop != shop_id or not receive.is_valid() or transaction_status(item_id) != "available":
+		return false
+	var record := catalogue.item(shop_id, item_id)
+	var group := str(record.get("group", ""))
+	return clearing.settle_repeat(shop_id, item_id, int(record.cents), func():
+		if group != "" and not stock.take(shop_id, group):
+			return false
+		if bool(receive.call(record)):
+			return true
+		if group != "":
+			stock.put_back(shop_id, group)
+		return false)
+
+
 func _deliver(record: Dictionary) -> bool:
 	if str(record.kind) == "post":
 		return MailOrders.post(str(record.order))
