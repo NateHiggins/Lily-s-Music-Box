@@ -34,6 +34,13 @@ const FEELER_RINGS := 7
 const FEELER_SEGS := 8
 const DETAIL_RINGS := 9
 const DETAIL_SEGS := 12
+## Leg-IK ray cache. A standing animal re-casts its foot rays at most this
+## often (to notice removed floors or moved furniture); a moving one, as soon
+## as its pose changes. Animals outside the camera frustum skip the foot rays
+## and reuse their last surface offsets: feet only matter where they are seen.
+const LEG_RAY_REFRESH_S := 0.5
+const LEG_RAY_POSE_EPSILON_SQ := 0.0005 * 0.0005
+const LEG_RAY_TURN_DOT := 0.99999
 
 signal critter_born(id: int, species: String)
 signal critter_died(id: int)
@@ -94,6 +101,9 @@ var _lamp_pose: Dictionary = {}
 var _voxel_texture: Texture3D = null
 var _voxel_extent_m := 0.0
 var _voxel_height_m := 0.0
+## World-space camera frustum for leg-IK culling, fetched lazily once per walk.
+var _leg_frustum: Array[Plane] = []
+var _leg_frustum_ready := false
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -802,6 +812,7 @@ func _reseat_any(c: Dictionary, ups: Array) -> void:
 ## way they prefer to turn, and where their gait starts.
 func _walk(delta: float) -> void:
 	if companion != null: companion.lunch.advance(self,delta)
+	_leg_frustum_ready = false
 	var i := critters.size() - 1
 	while i >= 0:
 		var c: Dictionary = critters[i]
@@ -907,6 +918,22 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 				"swing_to": Vector3.ZERO, "was_stance": true, "phase": 0.0})
 	var supports := 0
 	var gap_max := 0.0
+	# Cost only: the foot rays snap each desired foot onto the substrate. Their
+	# result is cached as a per-leg offset and re-used while the body holds its
+	# pose (re-checked every LEG_RAY_REFRESH_S) or while it is off-screen. The
+	# first solve for an animal always casts.
+	var ray_delta: PackedVector3Array = c.get("leg_ray_delta", PackedVector3Array())
+	var ray_age: float = float(c.get("leg_ray_age", 0.0)) + delta
+	var ray_pos: Vector3 = c.get("leg_ray_pos", Vector3.INF)
+	var ray_fwd: Vector3 = c.get("leg_ray_fwd", Vector3.ZERO)
+	var ray_up: Vector3 = c.get("leg_ray_up", Vector3.ZERO)
+	var pose_moved: bool = (c.pos as Vector3).distance_squared_to(ray_pos) > LEG_RAY_POSE_EPSILON_SQ \
+			or fwd.dot(ray_fwd) < LEG_RAY_TURN_DOT or up.dot(ray_up) < LEG_RAY_TURN_DOT
+	var cast_rays: bool = _space != null and (ray_delta.size() != count
+			or ((pose_moved or ray_age >= LEG_RAY_REFRESH_S) and _leg_ik_seen(c)))
+	var reuse_rays: bool = not cast_rays and ray_delta.size() == count
+	if cast_rays:
+		ray_delta.resize(count)
 	for leg_i in count:
 		var flank := -1.0 if leg_i < per_side else 1.0
 		var row_i := leg_i if leg_i < per_side else leg_i - per_side
@@ -918,12 +945,16 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 				+ sin(float(c.gait) * 0.37 + leg_i * 1.71) * float(m.length) * 0.04) \
 				+ side * flank * float(m.wide) * (.70 if tardigrade else 1.02) * inner_stride \
 				- up * float(m.tall) * 0.52
-		if _space != null:
+		if cast_rays:
+			var unsnapped: Vector3 = desired
 			var query := PhysicsRayQueryParameters3D.create(desired + up * 0.14,
 					desired - up * 0.28)
 			var hit: Dictionary = _space.intersect_ray(query)
 			if not hit.is_empty() and (hit.normal as Vector3).dot(up) > 0.45:
 				desired = hit.position
+			ray_delta[leg_i] = desired - unsnapped
+		elif reuse_rays:
+			desired += ray_delta[leg_i]
 		# Tardigrade swing propagates posterior-to-anterior on each side and
 		# keeps contralateral legs offset. The fourth pair is shorter and later.
 		var phase := fposmod(float(c.gait) / TAU + float(leg_i % 2) * 0.50
@@ -963,6 +994,38 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 	c.leg_state = legs
 	c.support_legs = supports
 	c.leg_root_gap_max = gap_max
+	if cast_rays:
+		c.leg_ray_delta = ray_delta
+		c.leg_ray_age = 0.0
+		c.leg_ray_pos = c.pos
+		c.leg_ray_fwd = fwd
+		c.leg_ray_up = up
+	else:
+		c.leg_ray_age = ray_age
+
+
+## Whether an animal's feet can be seen by the active camera: a sphere around
+## the body against the camera frustum. No camera, or no frustum, counts as
+## seen, so harnesses without a camera are never culled.
+func _leg_ik_seen(c: Dictionary) -> bool:
+	if not is_visible_in_tree():
+		return false
+	if not _leg_frustum_ready:
+		_leg_frustum_ready = true
+		_leg_frustum.clear()
+		var vp := get_viewport()
+		var camera: Camera3D = vp.get_camera_3d() if vp != null else null
+		if camera != null and camera.is_inside_tree():
+			_leg_frustum = camera.get_frustum()
+	if _leg_frustum.is_empty():
+		return true
+	var m: Dictionary = c.morph
+	var radius: float = (float(m.length) + float(m.wide) + float(m.tall)) * 0.75 + 0.05
+	var centre: Vector3 = c.pos
+	for plane: Plane in _leg_frustum:
+		if plane.distance_to(centre) > radius:
+			return false
+	return true
 
 
 ## §22 — THE HERO, RARELY AND MEANINGFULLY.

@@ -24,10 +24,17 @@ const PartTarget = preload("res://scripts/props/manipulation_area.gd")
 const Sweep = preload("res://scripts/props/mechanism_sweep.gd")
 var parts: Dictionary = {}
 var _held := ""
-var _idle_settled := false
 var water_level := 1.0
 var _draining := false
-var _cover_velocity := 0.0
+## The cistern cover rests only at set places (Lily 2026-11-24: "fix the interaction to set positions"; as for
+## radiator parts, ruling 2026-11-20). Let go over the cistern it seats; anywhere else it goes to the nearest clear
+## floor spot beside the pan. Nothing falls, so an idle closet does no per-frame work at all.
+var _cover_seat := Vector3.INF
+var _cover_tween: Tween
+const COVER_FLOOR_Y := .025
+const COVER_FLOOR_SPOTS: Array[Vector3] = [Vector3(.5,COVER_FLOOR_Y,.1), Vector3(-.5,COVER_FLOOR_Y,.1),
+		Vector3(.5,COVER_FLOOR_Y,-.1), Vector3(-.5,COVER_FLOOR_Y,-.1), Vector3(.62,COVER_FLOOR_Y,.1),
+		Vector3(-.62,COVER_FLOOR_Y,.1)]
 var _native_finishes: Dictionary = {}
 var _chain: Node3D
 var _chain_from := Vector3.INF
@@ -76,7 +83,11 @@ func _ready() -> void:
 	if not preload("res://scripts/props/native_bath_contacts.gd").install(casting,self,"bath_water_closet"):
 		push_error("Native water closet contact stock did not load")
 	parts["Water"] = model.find_child("CisternWaterSurface", true, false)
+	_cover_seat = (parts.CisternCover as Node3D).position
 	_install_services()
+	# Asleep until a hand or a flush wakes it; the mechanism animates on the frame clock, not physics.
+	set_process(false)
+	set_physics_process(false)
 
 func _install_services() -> void:
 	# Empty is retained only for existing isolated legacy-fixture benches.
@@ -142,10 +153,14 @@ func _target(key: String) -> Dictionary:
 		"begin":func():
 			if not _held.is_empty() or RealityState.save_write_blocked: return false
 			_held = key
-			_idle_settled = false
+			if key == "CisternCover" and _cover_tween != null and _cover_tween.is_valid(): _cover_tween.kill()
+			_wake()
 			return true,
 		"owns":func(): return _held == key,
-		"end":func(): _held = ""; manipulation_changed.emit()}
+		"end":func():
+			_held = ""
+			if key == "CisternCover": _place_cover(true)
+			manipulation_changed.emit()}
 
 func _limits(key: String) -> Vector2:
 	match key:
@@ -170,7 +185,6 @@ func _move_part(key: String, value: Variant) -> void:
 		var pose := part.transform
 		pose.origin=proposed
 		if Sweep.clear(self,part,pose,_service_collision_rids): part.position=proposed
-		_cover_velocity=0
 		return
 	var limits := _limits(key)
 	var proposed := clampf(float(value),limits.x,limits.y)
@@ -186,21 +200,48 @@ func _move_part(key: String, value: Variant) -> void:
 		_draining=true
 		_refilling=true
 
-## A settled cistern skips its step after the final full pass at rest.
+func _wake() -> void:
+	if not parts.is_empty(): set_process(true)
+
+## A settled cistern sleeps after the final full pass at rest.
 func _settled() -> bool:
 	if not _held.is_empty() or _draining or _refilling or water_level < 1.0 or absf(_lever.rotation.z) > .0001:
 		return false
 	if _value("FloatArm") < -.001:
 		return false
-	var cover: Node3D = parts.CisternCover
-	var floor_y := .817 if absf(cover.position.x)<.45 and absf(cover.position.z-.235)<.21 else .025
-	return cover.position.y <= floor_y and not _water.playing
+	return not _water.playing
 
-func _physics_process(delta: float) -> void:
+## Over the cistern the cover seats; elsewhere the nearest clear floor spot beside the pan, tried once at release.
+func _cover_rest(from: Vector3) -> Vector3:
+	if absf(from.x-_cover_seat.x)<.45 and absf(from.z-_cover_seat.z)<.21: return _cover_seat
+	if not is_inside_tree(): return _cover_seat
+	var cover: Node3D = parts.CisternCover
+	var spots := COVER_FLOOR_SPOTS.duplicate()
+	spots.sort_custom(func(a: Vector3, b: Vector3) -> bool:
+		return Vector2(a.x-from.x,a.z-from.z).length() < Vector2(b.x-from.x,b.z-from.z).length())
+	for spot: Vector3 in spots:
+		var pose := cover.transform
+		pose.origin = spot
+		if Sweep.clear(self,cover,pose,_service_collision_rids): return spot
+	return _cover_seat
+
+func _place_cover(animate: bool) -> void:
+	var cover: Node3D = parts.CisternCover
+	var rest := _cover_rest(cover.position)
+	if cover.position.is_equal_approx(rest): return
+	if _cover_tween != null and _cover_tween.is_valid(): _cover_tween.kill()
+	if not animate:
+		cover.position = rest
+		return
+	_cover_tween = create_tween()
+	var duration := clampf(cover.position.distance_to(rest)*.6,.12,.45)
+	_cover_tween.tween_property(cover, "position", rest, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _process(delta: float) -> void:
 	if parts.is_empty(): return
-	var settled := _settled()
-	if settled and _idle_settled: return
-	_idle_settled = settled
+	if _settled():
+		set_process(false)
+		return
 	if _held != "CisternHandle": _lever.rotation.z=move_toward(_lever.rotation.z,0,delta*2.0)
 	var ball: Node3D=parts.FlushBall
 	if _held != "FlushBall":
@@ -220,15 +261,6 @@ func _physics_process(delta: float) -> void:
 	if _refilling and not _draining and water_level>=1: _finish_refill()
 	if (_draining or water_level<.99) and not _water.playing: _water.play()
 	elif not _draining and water_level>=.99: _water.stop()
-	if _held != "CisternCover":
-		var cover: Node3D=parts.CisternCover
-		var floor_y := .817 if absf(cover.position.x)<.45 and absf(cover.position.z-.235)<.21 else .025
-		if cover.position.y>floor_y:
-			_cover_velocity+=delta*3.0
-			var pose := cover.transform
-			pose.origin.y=maxf(floor_y,pose.origin.y-_cover_velocity*delta)
-			if Sweep.clear(self,cover,pose,_service_collision_rids): cover.transform=pose
-			else: _cover_velocity=0
 
 func _chain_points(start: Vector3, finish: Vector3, bow: float) -> PackedVector3Array:
 	var points := PackedVector3Array()
@@ -284,7 +316,6 @@ func valid_mechanism(state: Dictionary) -> bool:
 func restore_mechanism(state: Dictionary) -> void:
 	if not valid_mechanism(state): return
 	_held=""
-	_idle_settled=false
 	for key in ["SeatHinge","RaisedLid","CisternHandle","FloatArm","FlushBall"]:
 		if key=="FlushBall": parts[key].position.y=state[key]
 		elif key in ["SeatHinge","RaisedLid"]: parts[key].rotation.x=state[key]
@@ -294,8 +325,10 @@ func restore_mechanism(state: Dictionary) -> void:
 	_draining=state.draining
 	_refilling=state.refilling
 	_flush_stroke_completed=state.stroke
-	_cover_velocity=0
+	# An older save may hold a cover left mid-fall or anywhere on the floor; it rests at its set place.
+	_place_cover(false)
 	_update_chain()
+	_wake()
 
 func _skin(node: Node) -> void:
 	if node is MeshInstance3D:
@@ -321,7 +354,7 @@ func _skin(node: Node) -> void:
 	for child in node.get_children(): _skin(child)
 
 func _exit_tree() -> void:
-	for tween in [_flush_tween, _busy_tween]:
+	for tween in [_flush_tween, _busy_tween, _cover_tween]:
 		if tween != null and tween.is_valid():
 			tween.kill()
 	if _water != null:

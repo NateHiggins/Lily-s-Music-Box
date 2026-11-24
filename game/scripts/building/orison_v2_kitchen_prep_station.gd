@@ -27,13 +27,32 @@ func _bottom_points(body: RigidBody3D) -> Array[Vector3]:
 			result.append(center.lerp(points[index],.9));result.append(center.lerp(points[index],.5))
 	return result
 
+func _ready() -> void:
+	# Stock at rest sleeps. Grabs and restores wake it at once; this slow pose
+	# check (no rays) catches any mover that bypasses those entry points.
+	var watch:=Timer.new();watch.name="RestWatch";watch.wait_time=.5;watch.autostart=true
+	watch.process_callback=Timer.TIMER_PROCESS_PHYSICS;watch.timeout.connect(_watch_rests)
+	add_child(watch,false,Node.INTERNAL_MODE_BACK)
+
+func _rested(body: RigidBody3D) -> bool:
+	if not _rests.has(body.name):return false
+	var rest: Dictionary=_rests[body.name];var support: Node3D=rest.owner.get_ref()
+	return is_instance_valid(support) and support.global_transform.is_equal_approx(rest.support_pose) and body.global_transform.is_equal_approx(rest.pose)
+
+func _wake() -> void:
+	set_physics_process(true)
+
+func _watch_rests() -> void:
+	if is_physics_processing():return
+	for body: RigidBody3D in tools.values():
+		if not _rested(body):_wake();return
+
 func _physics_process(delta: float) -> void:
+	var settled: bool=held==null and payload.is_empty()
 	for body: RigidBody3D in tools.values():
 		if body==held or body in payload:continue
-		if _rests.has(body.name):
-			var rest: Dictionary=_rests[body.name];var support: Node3D=rest.owner.get_ref()
-			if is_instance_valid(support) and support.global_transform==rest.support_pose and body.global_transform==rest.pose:continue
-			_rests.erase(body.name)
+		if _rested(body):continue
+		_rests.erase(body.name);settled=false
 		var speed: float=float(_fall_speed.get(body.name,0.))+9.81*delta
 		var travel:=minf(.04,speed*delta);var bearing: Dictionary={}
 		# Cast from the actual lowest native hull vertices. Thin wooden stock
@@ -46,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		body.global_position.y-=travel
 		_fall_speed[body.name]=speed if bearing.is_empty() else 0.
 		if not bearing.is_empty():_rests[body.name]={"owner":weakref(bearing.collider),"support_pose":bearing.collider.global_transform,"pose":body.global_transform}
+	if settled:set_physics_process(false)
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
 	var body:=hit.get("collider") as RigidBody3D
@@ -66,12 +86,12 @@ func manipulation_target(hit: Dictionary) -> Dictionary:
 			for part: RigidBody3D in [body]+payload:
 				_rests.erase(part.name);_fall_speed[part.name]=0.
 				part.freeze=true;part.linear_velocity=Vector3.ZERO;part.angular_velocity=Vector3.ZERO
-			return true,
+			_wake();return true,
 		"owns":func():return held==body,
 		"end":func():
 			held=null
 			for part: RigidBody3D in [body]+payload:_fall_speed[part.name]=0.
-			payload.clear();manipulation_changed.emit()}
+			payload.clear();_wake();manipulation_changed.emit()}
 
 func _carry(body: RigidBody3D,value: Vector3) -> void:
 	if not value.is_finite():return
@@ -128,3 +148,4 @@ func restore_mechanism(value: Dictionary) -> void:
 		body.position=Vector3(pose.position[0],pose.position[1],pose.position[2])
 		body.basis=Basis(Quaternion(pose.rotation[0],pose.rotation[1],pose.rotation[2],pose.rotation[3]))
 		body.sleeping=false
+	_wake()
