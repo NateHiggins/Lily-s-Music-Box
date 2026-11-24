@@ -108,8 +108,10 @@ func _route() -> void:
 			break
 	_require(bodega.item_ids.size() >= 50, "the Bodega sells the residents' list")
 	_require(grocery_at >= 0, "the Bodega sells groceries")
-	# Observed, not required here: the terminal's placement predates this branch.
-	_rests_on_bodega_counter("bodega terminal", bodega.global_position)
+	# The service-area pose left the terminal floating 0.225 m above and behind the
+	# fitted top; it is seated now, selector and all.
+	_require(_rests_on_bodega_counter("bodega terminal", bodega.global_position), "the Bodega's terminal rests on its counter top")
+	_require(_rests_on_bodega_counter("bodega selector", bodega.selector.global_position), "and so does its selector")
 	# Aim inside a run of groceries so one stop either side is still a grocery.
 	var aim_at := grocery_at
 	for i in range(grocery_at, bodega.item_ids.size() - 1):

@@ -74,7 +74,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(faces.size()==2 and faces.all(func(m):return not m.emission_enabled),"both painted blade faces are unlit paint")
 	var board := (factory.retained.FittedBodegaSignage.draws[0].node.get_ref() as MeshInstance3D).get_active_material(0) as StandardMaterial3D
 	check(board!=null and not board.emission_enabled and board.albedo_color.is_equal_approx(BodegaSignageProp.BOARD_GREEN),"board is painted dark green, not lit from behind")
-	var lamps := bodega.find_children("GooseneckLamp*","SpotLight3D",true,false)
+	var lamps := bodega.find_children("*","SpotLight3D",true,false)
 	check(lamps.size()==2 and lamps.all(func(l):return not l.shadow_enabled and l.light_energy>0.),"two steady shaded lamps light the board")
 	check(bodega.find_children("*","OmniLight3D",true,false).is_empty(),"no lightbox or valance wash remains")
 	var words: Array=bodega.find_children("*","Label3D",true,false).map(func(l):return l.text)
