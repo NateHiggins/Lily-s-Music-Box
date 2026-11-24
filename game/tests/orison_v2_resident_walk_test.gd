@@ -79,7 +79,9 @@ func _ready() -> void:
 		elif world.startup_failed:
 			failures.append("startup")
 		else:
-			var camera_pose: Transform3D = world.player.camera.global_transform
+			var camera_pose := Transform3D.IDENTITY
+			if not batch.is_empty():
+				camera_pose = world.player.camera.global_transform
 			await _run(world)
 			if not batch.is_empty():
 				world.player.camera.global_transform = camera_pose
