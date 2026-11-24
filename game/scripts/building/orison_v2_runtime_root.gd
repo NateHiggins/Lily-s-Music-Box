@@ -1442,7 +1442,9 @@ func _compose_exterior() -> bool:
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	period_traffic = preload("res://scripts/building/orison_v2_street_traffic.gd").mount(self)
 	if period_traffic == null:return false
-	if preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self) == null:return false
+	var street_lamps := preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)
+	if street_lamps == null:return false
+	public_traffic.register_lamp_posts(street_lamps)
 	# Street trees, yard trees and weeds, planted clear of everything above (build_city_greenery.py).
 	preload("res://scripts/building/orison_v2_city_greenery.gd").mount(self)
 	# The placed overlays use the same world frame as the production exterior.
