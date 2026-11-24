@@ -1,0 +1,14 @@
+{
+	"schema": "optimus.recipe.v1",
+	"recipe": "gate-board-static",
+	"role": "precheck",
+	"source": {"tree": "whole"},
+	"tools": ["python"],
+	"argv": ["{python}", "tools/gate_board.py", "--out", "{out}"],
+	"env": {},
+	"timeout_seconds": 3600,
+	"outputs": ["board.json", "board.md"],
+	"needs": {"ram_gb": 6, "disk_gb": 40, "gpu": false},
+	"exit_meaning": "The board's exit is 0 without a baseline; the verdict is the comparison of board.json against a board made on iApricot at the same commit.",
+	"acceptance": "per gate: id, exit, severity, counts and defects equal to iApricot's board at the same commit; created_utc, elapsed_s and python may differ"
+}

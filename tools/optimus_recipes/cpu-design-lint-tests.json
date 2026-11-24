@@ -1,0 +1,14 @@
+{
+	"schema": "optimus.recipe.v1",
+	"recipe": "cpu-design-lint-tests",
+	"role": "precheck",
+	"source": {"tree": "text"},
+	"tools": ["python"],
+	"argv": ["{python}", "tools/tests/test_lint_design_doc.py", "-v"],
+	"env": {},
+	"timeout_seconds": 60,
+	"outputs": [],
+	"needs": {"ram_gb": 1, "disk_gb": 3, "gpu": false},
+	"exit_meaning": "0 when every test passes.",
+	"acceptance": "exit 0 and the same test names and outcomes as a run on iApricot at the same commit"
+}
