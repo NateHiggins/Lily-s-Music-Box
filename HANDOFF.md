@@ -1,3 +1,41 @@
+# Resident foot placement and wardrobe, November 24
+
+Evidence class: **INERT**.
+
+The combined resident candidate applies foot placement to ten more regular
+residents and skips wardrobe visibility rays when the outfit would stay put.
+The candidate compiled six changed scripts, passed 29 cast checks, 11 gait
+checks and 81 strict foot-placement checks. Exact tread samples held with
+the player-sized body and loose crate present. The largest crowded-minus-clear
+hover was 0.002 m at p90 and 0.021 m at peak.
+
+Ten installed route witnesses cover the new residents. Evelyn's original
+door-to-laundry route caught on the lobby sculpture. The replacement follows
+the west approach, and the isolated replay passed through the same world.
+The exact first slice passed 369 checks and 176 walking waypoints, including
+the original radiator repair and reconstruction from disk. The physical
+surface suite passed 818 checks. All 23 views received technical review.
+The watch station and mail-bank text remain difficult to read in this capture.
+The original failure remains in custody. The stills verify resident presence
+and door state. Foot-slide refinement, play and artistic review remain open.
+
+[Resident qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/STATUS.md).
+
+# Closed venue, sound and bodega orders
+
+Evidence class: **INERT**.
+
+The Harukiya destination order **wdead817e255d** is closed. Lily played
+and accepted the scheduled live set. The live-set release is on main
+at **d1ee2b35c**. The spatial-audio order **w9679e699623f** is closed
+on **f14a205cb**, with its companion and composed qualification.
+The bodega refurbishment order **w2005ff86065f** is closed on
+**5732614ae**. Cam's dawn restock **wedcf259faaf0** is a separate intake.
+
+The open-state entries lower in this handoff record earlier custody. The
+active remaining venue performance work belongs to the separate frame-rate
+order **w836d04dd9eb9**.
+
 # Bodega refurbishment and errands, November 24
 
 Evidence class: **INERT**.
