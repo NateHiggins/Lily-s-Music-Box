@@ -2,6 +2,30 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## November 24 — SceneTree timers can outlive the nodes they address
+
+A house broadcast card-break timer captured a receiver Node. Godot
+resolves lambda captures before entering the body, so the validity
+check inside the callback could not prevent the freed-capture diagnostic.
+An isolated patched-engine baseline reproduced it while a live receiver
+still resumed. PR #528 captures a WeakRef and resolves it at callback
+time, retaining the radio's on/off and tune-turn checks. The focused run
+passed 32 checks with empty stderr. It covered three receivers entering
+the same break, then staying live, switching off, and being freed.
+
+A separate anonymous lambda diagnostic remains in the composed log.
+Match the reproducer and the lifecycle before attributing a general
+engine message to a subsystem. The [radio handoff](../HANDOFF.md#route-and-radio-qualification-november-24)
+links the original failures and both evidence scopes.
+
+Use fresh process-start APPDATA for Windows world suites. The
+RealityState autoload reads the default slot before the test scene can
+reset it. Loading may recover a backup or migrate an older version and
+write to disk. A private save path selected by the scene protects its
+own writes, while process isolation also protects startup. PR #527
+replaced its queued recipe before launch, then passed each route in a
+separate empty profile.
+
 ## November15 — import cleanup has an execution cost
 
 Restoring1,701 CRLF-only import sidecars during lift qualification left their

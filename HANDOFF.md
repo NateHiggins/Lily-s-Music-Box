@@ -1,3 +1,29 @@
+# Route and radio qualification, November 24
+
+Evidence class: **INERT**
+
+PR #527 merged at **23a4a716d**. The patched, isolated front-entrance and
+Harukiya tests passed five and 67 waypoints. The front test also restored
+the original keys and locked leaf from disk. The hidden 720p knock test
+put the dialogue column at y=404, below the screen center at y=360.
+Choosing a reply ended the visit and the device printed one note. Known
+dummy-renderer teardown messages remain in the two headless logs.
+[Route receipts and limits](D:/ov_reports/orison_route_pr527_20261124/MERGED.md).
+
+PR #528 merged at **2ab1a3dbd**. The patched radio test passed 32 checks
+with empty stderr. The freed receiver stayed retired, the live receiver
+resumed, and the switched-off receiver stayed silent. The composed first
+slice passed 369 checks and 176 waypoints, including the radiator round
+save and rebuild. The physical suite passed 818 checks and all 23
+captures were compared with the previous packet. The final candidate
+matched all 17 protected paths and had zero gate regressions.
+[Radio receipts and retained failures](D:/ov_reports/broadcast_card_teardown_20261124/STATUS.md).
+
+One anonymous freed-capture diagnostic remains in the first-slice log.
+Claude is investigating the ambient radiator reply timer under the
+existing 3D sound order. The radio fixture verifies the radio lifetime
+fix independently. Human play and artistic acceptance are still open.
+
 # Orison stairs and frame pacing - November 24
 
 Evidence class: **INERT**
