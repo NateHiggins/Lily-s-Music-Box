@@ -2,9 +2,14 @@ extends "res://tests/bodega_queue_motor_test.gd"
 ## Nearby fresh-source entry reproduction: real Cam/guest/player and production
 ## exterior paving/lamps. Explicit birth stations/goals, not natural attendance.
 const Frontier := preload("res://tests/street_frontier_points.gd")
+const Traffic := preload("res://scripts/characters/public_foot_traffic.gd")
+var public_traffic: Node3D
+var street_lamps: Node3D
 var frontier: Dictionary = {}
 var frontier_started := false
 var player_minimum := INF
+var active_player_passes: Dictionary = {}
+var completed_player_passes: Dictionary = {}
 class OutsideBarRoute extends BarRoute:
 	# Only the real outside people predicate; this fixture has no bar/seat registry.
 	func clear_step(next: Vector3) -> bool:
@@ -13,6 +18,7 @@ class OutsideBarRoute extends BarRoute:
 func _snapshot() -> Dictionary:
 	var result := super._snapshot()
 	for source: String in ["res://tests/street_frontier_points.gd","res://tests/bodega_queue_motor_test.gd",
+		"res://scripts/characters/public_foot_traffic.gd","res://scripts/characters/public_avoidance_proposals.gd",
 		"res://tests/bodega_initial_placement_test.gd","res://scripts/building/orison_v2_world_connection.gd",
 		"res://scripts/building/orison_v2_front_pavement.gd","res://scripts/building/orison_v2_native_faces.gd",
 		"res://scripts/building/orison_v2_street_lamps.gd","res://data/orison_v2/exterior/street_lamps.json",
@@ -37,7 +43,8 @@ func _mount_extra_exterior() -> bool:
 	exterior_cell=exterior
 	var registered:=Node3D.new(); registered.name="ProductionPavingFrame"; add_child(registered); owned.append(registered); registered.transform=frontier.registered_frame
 	registered.add_child(preload("res://scripts/building/orison_v2_front_pavement.gd").new())
-	return preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)!=null
+	street_lamps = preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self)
+	return street_lamps != null
 
 func _finish() -> void:
 	if failures.is_empty() and not frontier_started:
@@ -50,9 +57,17 @@ func _finish() -> void:
 		player.global_position=frontier.player_observed; player.set_physics_process(false)
 		bodega_admission=preload("res://scripts/building/bodega_admission.gd").new(); add_child(bodega_admission); owned.append(bodega_admission)
 		_check(bodega_admission.configure(exterior),"actual admission owner configures on production geometry")
+		public_traffic = Traffic.new()
+		if not _check(public_traffic.configure(self, exterior), "public avoidance configures on the actual street frame"):
+			public_traffic.free()
+			await super._finish()
+			return
+		add_child(public_traffic)
+		owned.append(public_traffic)
+		public_traffic.register_lamp_posts(street_lamps)
 		details.queue_trace=[]; details.queue_failures=[]; details.frontier_births=[]
 		var report:=frontier.duplicate(); report.erase("production_geometry"); details.frontier_sources=report
-		details.frontier_scope="nearby fresh actual source street stations; forced Cam bodega goal and guest outside bar waypoint; production paving and lamps; stationary full player; no complete world/setup/bar admission/natural attendance proof"
+		details.frontier_scope="nearby fresh actual source street stations; forced Cam bodega goal and guest outside bar waypoint; production paving, lamps and avoidance proposals; stationary full player; no complete world/setup/bar admission/natural attendance proof"
 		if failures.is_empty(): _birth("cam_ortiz",frontier.cam_ortiz_street,true)
 		if failures.is_empty(): _birth("transient_guests",frontier.transient_guests_street,false)
 		await get_tree().physics_frame
@@ -67,10 +82,17 @@ func _finish() -> void:
 				await get_tree().physics_frame
 			_check(cam_alignment_observed,"Cam ordinarily clears fixed player and reaches actual shop alignment")
 			_check(routes[1].current_id==int(routes[1].identities.bar_street_1),"following guest ordinarily clears entrance to actual outside bar waypoint")
+			_check(completed_player_passes.has("cam_ortiz") and active_player_passes.is_empty(),
+					"Cam completes the cued pass and both residents separate from the unchanged player")
+			details.frontier_player_passes = completed_player_passes.duplicate(true)
 			details.frontier_final=_queue_state()
 		queue_watch=false
 		details.frontier_summary={"physics_frames":queue_frames,"minimum_peer_axis_distance_m":str(queue_minimum),"minimum_player_axis_distance_m":str(player_minimum)}
 		_check(queue_frames>0,"frontier ordinary motor witnesses executed")
+		details.frontier_avoidance = public_traffic.stats.duplicate()
+		_check(int(public_traffic.stats.proposals) > 0, "frontier motor consumes public avoidance proposals")
+		_check(public_traffic.solver.errors.is_empty(), "frontier avoidance reports no solver errors")
+		public_traffic.shutdown()
 	await super._finish()
 
 func _birth(id: String, source_point: Vector3, grocery: bool) -> void:
@@ -109,5 +131,31 @@ func _physics_process(delta: float) -> void:
 	for route: Node3D in routes:
 		var gap:=_axis_distance(route.actor.global_position+Vector3.UP*.95,.28,1.40,player._shape.global_position,player._capsule.radius,player._capsule.height)
 		player_minimum=minf(player_minimum,gap)
-		if gap<.28+player._capsule.radius-.00001: _check(false,"actual unchanged player capsule clears "+str(route.resident))
+		if not _observe_player_pass(route, gap):
+			_check(false, "any player overlap follows an authorized, cued pass: " + str(route.resident))
 		if absf(route.route_speed-1.05)>.00001: _check(false,"frontier retains normal1.05 speed")
+
+## Only the player contact is eligible for this exception. The parent still
+## checks every resident pair and the supported, native capsule sweep.
+func _observe_player_pass(route: Node3D, gap: float) -> bool:
+	var id := str(route.resident)
+	var frame := Engine.get_physics_frames()
+	if gap >= route._capsule.radius + player._capsule.radius - .00001:
+		if active_player_passes.has(id):
+			var witness: Dictionary = active_player_passes[id]
+			witness["separated_frame"] = frame
+			completed_player_passes[id] = witness
+			active_player_passes.erase(id)
+		return true
+	if active_player_passes.has(id):
+		return frame - int(active_player_passes[id].frame) < 10 * Engine.physics_ticks_per_second
+	var contact: Dictionary = route.squeeze._contacts.get(player.get_instance_id(), {})
+	var age := frame - int(contact.get("frame", -1))
+	var seconds := float(contact.get("seconds", 0.0))
+	if age < 0 or age > 1 or not is_finite(seconds) or seconds < route.squeeze.WAIT:
+		return false
+	if route.squeeze.cue_count <= 0 or not is_instance_valid(route.actor.get_node_or_null("PassingCourtesy")):
+		return false
+	active_player_passes[id] = {"frame": frame, "contact": contact.duplicate(), "first_gap_m": gap,
+			"cue_count": route.squeeze.cue_count}
+	return true
