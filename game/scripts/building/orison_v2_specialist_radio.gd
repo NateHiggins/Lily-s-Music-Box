@@ -6,7 +6,7 @@ const BROADCAST_DB := -18.0
 var native_ready := false
 func _ready() -> void:
 	super._ready()
-	var factory: RefCounted = get_meta("v2_radio_factory",null)
+	var factory: RefCounted = get_meta("v2_radio_factory") if has_meta("v2_radio_factory") else null
 	if factory != null:
 		native_ready = factory.mount_on(self,record_id)
 		remove_meta("v2_radio_factory")

@@ -169,10 +169,13 @@ static func join(player: AudioStreamPlayer3D, volume_db: float) -> Dictionary:
 		player.remove_meta("broadcast_title")
 		player.set_meta("broadcast_break", true)
 		if player.is_inside_tree():
+			# The SceneTree timer can outlive a receiver during world teardown.
+			var receiver: WeakRef = weakref(player)
 			player.get_tree().create_timer(float(now.remaining) + 0.03).timeout.connect(func():
-				if is_instance_valid(player) and player.has_meta("broadcast_on") \
-						and int(player.get_meta("broadcast_turn", 0)) == turn:
-					join(player, volume_db))
+				var live := receiver.get_ref() as AudioStreamPlayer3D
+				if live != null and live.has_meta("broadcast_on") \
+						and int(live.get_meta("broadcast_turn", 0)) == turn:
+					join(live, volume_db))
 		return now
 	player.remove_meta("broadcast_break")
 	player.stream = now.stream

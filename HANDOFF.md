@@ -1,3 +1,55 @@
+# Route and radio qualification, November 24
+
+Evidence class: **INERT**
+
+PR #527 merged at **23a4a716d**. The patched, isolated front-entrance and
+Harukiya tests passed five and 67 waypoints. The front test also restored
+the original keys and locked leaf from disk. The hidden 720p knock test
+put the dialogue column at y=404, below the screen center at y=360.
+Choosing a reply ended the visit and the device printed one note. Known
+dummy-renderer teardown messages remain in the two headless logs.
+[Route receipts and limits](D:/ov_reports/orison_route_pr527_20261124/MERGED.md).
+
+PR #528 merged at **2ab1a3dbd**. The patched radio test passed 32 checks
+with empty stderr. The freed receiver stayed retired, the live receiver
+resumed, and the switched-off receiver stayed silent. The composed first
+slice passed 369 checks and 176 waypoints, including the radiator round
+save and rebuild. The physical suite passed 818 checks and all 23
+captures were compared with the previous packet. The final candidate
+matched all 17 protected paths and had zero gate regressions.
+[Radio receipts and retained failures](D:/ov_reports/broadcast_card_teardown_20261124/STATUS.md).
+
+One anonymous freed-capture diagnostic remains in the first-slice log.
+Claude is investigating the ambient radiator reply timer under the
+existing 3D sound order. The radio fixture verifies the radio lifetime
+fix independently. Human play and artistic acceptance are still open.
+
+# Orison stairs and frame pacing - November 24
+
+Evidence class: **INERT**
+
+[PR #523](https://github.com/NateHiggins/Lily-s-Music-Box/pull/523) is on main at
+**35579fb2b**. The widened public and service stairs passed 130 and 437 walking
+waypoints from the basement to the roof and back. Installed checks also passed
+24 guards, 168 tread samples and 30 roof guard sweeps. The two lobby aisle
+edges keep their original width and have closer uprights for clearance.
+[Stair evidence and original failures](D:/ov_reports/orison_stair_safety_20261123/STATUS.md).
+
+[PR #525](https://github.com/NateHiggins/Lily-s-Music-Box/pull/525) is on main at
+**8cba1cee7** with PR #522 preserved in its history. The dream margin pauses
+off its floor, and physics catch-up is capped at two steps per frame. The
+waking-organism and temporal-loop suites passed 922 and 274 checks. The
+first-slice suite passed 369 checks and 176 waypoints through radiator repair
+and reload. The surface suite passed 818 checks with 23 reviewed captures.
+The candidate comparison found zero regressions and preserved all 17
+protected paths. Both prior evidence packets were archived.
+[Receipts and candidate comparison](D:/ov_reports/orison_margin_pr522_20261123/after_stairs/STATUS.md).
+
+The 30 fps order remains with Claude. One unmatched reload took 329 seconds
+versus 112 on the stair candidate, mainly in world composition. Cold startup
+was 96 versus 95 seconds. Use a paired run to investigate the reload timing.
+Lily's play and artistic review remain open.
+
 # Building Services valise controls - November 23
 
 Evidence class: **INERT**
