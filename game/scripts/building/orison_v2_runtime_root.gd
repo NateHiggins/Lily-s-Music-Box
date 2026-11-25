@@ -740,7 +740,7 @@ func _compose_authorities() -> void:
 	player.position = _connection.arrival.position
 	add_child(player)
 	player.enable_low_step_probe()
-	player_avatar=preload("res://scripts/player/doodle_player_avatar.gd").new()
+	player_avatar=preload("res://scripts/player/toon_player_avatar.gd").new()
 	player_avatar.name="ReflectedPlayer";player_avatar.holder=player;player.add_child(player_avatar)
 	if not player_avatar.native_ready:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: owner player rig refused");return
