@@ -1,3 +1,11 @@
+# Orison F02 shadow fade, November 25
+
+Evidence class: **INERT**.
+
+PR #563 tunes eight measured F02 fixtures. Each retains its installed energy, range, switch and shadow-slot ownership. The native renderer uses dual-paraboloid maps and fades distant shadows over one metre starting at each fixture's range. The installed 1440p landing comparison measured 33.278 and 35.549 ms median with the tuning, versus 39.822 ms with the original cube maps and no fade. Main shadow draws fell from 11,238 to 4,731–4,737. The close gallery proof retained the local cast shadows and practical pools. The building-wide 30 fps order and owner acceptance remain open.
+
+The nearby, release and gate receipts are under D:/ov_reports/frame_rate_20261125 in f02_shadow_fade_installed_cb429a3c5 and f02_shadow_release_66b3e7f3b.
+
 # Orison lift mirror visibility, November 25
 
 Evidence class: **INERT**.
