@@ -59,6 +59,9 @@ func _route() -> void:
 	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95, "holding, the arm has reached in and the glove is closed (reach %.2f, curl %.2f)" % [arm.reach, arm.curl])
 	_require(gap < 0.06, "the drawn palm is on the grip (%.3f m)" % gap)
 	_require(_arm_keeps_depth_isolation(arm, "drawn"), "with the arm drawn, nothing of the arm disturbs the lamp's depth isolation")
+	var depth_view: Camera3D = world.get_node("LampAtmosphere").get("scene_shadow").get("camera")
+	_require(arm.visible and depth_view != null and depth_view.cull_mask & Arm.LAYER == 0,
+			"with the glove visible, the lamp's depth camera does not draw the arm (mask %d)" % (depth_view.cull_mask if depth_view != null else -1))
 	await _capture_interaction("hose_arm_holding")
 	# Move the picker while holding: the glove follows it.
 	var motion := InputEventMouseMotion.new()
