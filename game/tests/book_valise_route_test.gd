@@ -201,7 +201,7 @@ func _route() -> void:
 			and CarriedCase.hand() == item and CarriedCase.place_of(item) == place,
 			"a click with the book in the glove brings it up into the reading view"):
 		return
-	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
 	var glove: Node = _avatar().get("glove_slot") if _avatar() != null else null
 	_require(not is_instance_valid(glove) or glove.part() == null or not glove.part().visible,
 		"the glove's copy is out of sight while the book is read")
@@ -213,6 +213,9 @@ func _route() -> void:
 		float(original.construction.height) * .7, float(original.construction.thickness) * .5))
 	var expected_pixel := player.camera.unproject_position(leaf).round()
 	await _motion(expected_pixel)
+	if not _require(get_viewport().get_mouse_position().distance_to(expected_pixel) < .6,
+			"embedded cursor reaches the floating cover pixel"):
+		return
 	var found: Dictionary = player._grab.find_target()
 	var hit: Dictionary = player._grab.last_hit
 	var ray_collider: Node = hit.get("collider")
@@ -284,6 +287,40 @@ func _route() -> void:
 	record = shelved_save.v2_household_controls.records[collection].value.books[original.stock_id]
 	_require(not shelved_save[CarriedCase.KEY].places.has(item) and int(record.slot) == original.shelf_slot,
 		"the save records the shelved copy in its slot")
+
+
+# A hidden Windows desktop cannot reliably deliver native free-cursor
+# coordinates. The embedded viewport owns its input pointer, while the
+# player still resolves selections and interaction through the real ray.
+func _motion(at: Vector2) -> void:
+	var event := InputEventMouseMotion.new()
+	event.position = at
+	event.global_position = at
+	get_viewport().push_input(event, true)
+	await get_tree().process_frame
+
+
+func _press(at: Vector2, button := MOUSE_BUTTON_LEFT) -> void:
+	await _motion(at)
+	for pressed: bool in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.position = at
+		event.global_position = at
+		event.button_index = button
+		event.pressed = pressed
+		get_viewport().push_input(event, true)
+		await get_tree().process_frame
+
+
+func _key(keycode: Key) -> void:
+	for pressed: bool in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = keycode
+		event.physical_keycode = keycode
+		event.pressed = pressed
+		get_viewport().push_input(event, true)
+		await get_tree().process_frame
+		await get_tree().process_frame
 
 
 func _reading_diagnostic(stage: String, original: Node3D, glove: Node) -> void:
