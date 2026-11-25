@@ -355,9 +355,9 @@ func _full_valise_denies_book(book: Book, item: String, path: String) -> bool:
 	var full := CarriedCase.library_fit(str(book.shelf.name), book.stock_id).is_empty()
 	var before := FileAccess.get_file_as_bytes(path)
 	var pose := book.transform
-	var target := player._grab.find_target()
+	var target: Dictionary = player._grab.find_target()
 	player.use_primary_interaction()
-	var stayed := (bool(target.get("blocked", false)) and not player._grab.active() and book.visible
+	var stayed: bool = (bool(target.get("blocked", false)) and not player._grab.active() and book.visible
 		and not book.valise_packed and book.transform == pose and CarriedCase.hand().is_empty()
 		and CarriedCase.place_of(item).is_empty() and FileAccess.get_file_as_bytes(path) == before)
 	for filler in fillers:
