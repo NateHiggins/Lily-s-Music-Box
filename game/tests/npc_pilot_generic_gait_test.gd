@@ -5,6 +5,11 @@ extends Node
 ## schema-2 runtime_contract receipt to OUTPUT when it is set. The foot slip itself is measured by the windowed
 ## NpcPilotMinaShot with RESIDENT=malcolm_reed.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
+const RISE_PER_TREAD := 0.16 / 0.285
+## The male cast base, from the hips rest and shin in design/NPC_REPAIR_PILOT_SECOND_RESIDENT_2026-11-24.md.
+## The male cast base (its skin is the male MPFB base): every man on the resident list.
+const LONG_LEGGED := ["cal_dwyer", "cam_ortiz", "jonah_price", "malcolm_reed", "noel_price", "omar_bell", "peter_wren", "sacha_reed",
+		"transient_guests"]
 
 var checks: Array = []
 var failures: Array = []
@@ -34,21 +39,24 @@ func _resident(id: String) -> Node:
 
 
 ## Walks `actor` for `seconds` of frame time at `mps`; returns how many frames the rate missed the gait.
-func _walk(actor: Node, seconds: float, mps: float) -> Dictionary:
+## `slope` is the route's (a stair is 0.16 / 0.285); `lowest` is the playback floor the gait should be held to.
+func _walk(actor: Node, seconds: float, mps: float, slope: float = 0.0, lowest: float = ClipGait.MIN_SCALE) -> Dictionary:
 	var player: AnimationPlayer = actor._animation_player
 	var gait: ClipGait = actor.walk_gait
 	var walked := 0.0
 	var off := 0
 	var rates := {}
-	actor.set_route_motion(true, 0.0, mps)
+	var slowest := INF
+	actor.set_route_motion(true, slope, mps)
 	while walked < seconds:
 		await get_tree().process_frame
 		walked += get_process_delta_time()
-		actor.set_route_motion(true, 0.0, mps)
+		actor.set_route_motion(true, slope, mps)
 		rates[snappedf(player.speed_scale, .05)] = true
 		if gait != null and str(player.current_animation) == actor.preferred_walk:
-			off += 1 if absf(player.speed_scale - gait.scale_for(player.current_animation_position, mps)) > .25 else 0
-	return {"off": off, "rates": rates.size(), "clip": str(player.current_animation)}
+			slowest = minf(slowest, player.speed_scale)
+			off += 1 if absf(player.speed_scale - gait.scale_for(player.current_animation_position, mps, lowest)) > .25 else 0
+	return {"off": off, "rates": rates.size(), "clip": str(player.current_animation), "slowest": snappedf(slowest, .001)}
 
 
 func run() -> void:
@@ -77,6 +85,14 @@ func run() -> void:
 	var stair: Dictionary = await _walk(malcolm, 3.0, .55)
 	details["stair_pace"] = stair
 	check(int(stair.off) <= 4, "the rate follows the stair pace too (%d frames off)" % int(stair.off))
+	check(float(stair.slowest) >= ClipGait.MIN_SCALE - .001, "on the level the walk never plays below %.2fx (slowest %.3f)" % [ClipGait.MIN_SCALE, float(stair.slowest)])
+	# Lily's ruling npc_male_stair_slide_20261125: on a stair the long-legged walk may slow to a third.
+	check(bool(malcolm.long_legged), "his long shin marks the long-legged walk")
+	var climb: Dictionary = await _walk(malcolm, 3.0, .55, RISE_PER_TREAD, ClipGait.STAIR_MIN_SCALE)
+	details["stair_climb"] = climb
+	check(int(climb.off) <= 4, "on a stair his rate follows the stair floor (%d frames off)" % int(climb.off))
+	check(float(climb.slowest) < ClipGait.MIN_SCALE - .02 and float(climb.slowest) >= ClipGait.STAIR_MIN_SCALE - .001,
+			"on a stair his walk slows below %.2fx, down to a third (slowest %.3f)" % [ClipGait.MIN_SCALE, float(climb.slowest)])
 	malcolm.set_route_motion(false, 0.0, 0.0)
 	for _frame in 4:
 		await get_tree().process_frame
@@ -84,6 +100,27 @@ func run() -> void:
 			"stopping returns him to his idle at 1x (%s %.2f)" % [malcolm._animation_player.current_animation, malcolm._animation_player.speed_scale])
 	malcolm.queue_free()
 	await get_tree().process_frame
+	# Only the long-legged base takes the stair floor: every resident is classed by their own shin, and a short-legged
+	# resident on the same stair keeps the 0.5x floor.
+	var classes := {}
+	var roster: Variant = JSON.parse_string(FileAccess.get_file_as_string(CastBodies.LIST_PATH))
+	for id: String in (roster.residents as Array):
+		var body: Node = await _resident(id)
+		if body.walk_gait != null:
+			classes[id] = bool(body.long_legged)
+			details["shin_" + id] = snappedf(body._shin_length(body.cast_body.skeleton), .001)
+		if id == "evelyn_marsh":
+			var short_climb: Dictionary = await _walk(body, 3.0, .55, RISE_PER_TREAD)
+			details["evelyn_stair_climb"] = short_climb
+			check(float(short_climb.slowest) >= ClipGait.MIN_SCALE - .001,
+					"a short-legged resident (Evelyn) keeps the 0.5x floor on a stair (slowest %.3f)" % float(short_climb.slowest))
+			body.set_route_motion(false, 0.0, 0.0)
+		body.queue_free()
+		await get_tree().process_frame
+	details["long_legged"] = classes
+	var long_ids: Array = classes.keys().filter(func(k: String) -> bool: return classes[k])
+	long_ids.sort()
+	check(long_ids == LONG_LEGGED, "the long-legged walk is the male base: %s" % ", ".join(long_ids))
 
 	# Outside the pilot list the walk is untouched.
 	# Every regular resident is in the gate now; Adela's rebuilt body (staff) is the outside witness.
