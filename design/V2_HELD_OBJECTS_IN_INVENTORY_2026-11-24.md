@@ -39,15 +39,31 @@ operated where they stand.
   object becomes a sixth slot, **hand**: a part weighted wholly to the hand bone, loaded
   only while worn. The player's body is the doodle avatar (**doodle_player_avatar.gd**),
   and residents use their cast bodies. Both carry the same slot.
-- **Putting it down** returns it to its preset place (the no-prop-physics ruling,
-  2026-11-20). The owner restores the world copy at its authored rest, and the hand slot
-  is emptied.
-- **Saves:** the inventory owns the held item. The world owner's saved mechanism records
-  where the copy rests, so a reload never shows both copies.
+- **Putting it down** keeps it in the inventory (Lily, **held_put_down_20261124**: "It
+  stays in the inventory until you use it somewhere"). The hand slot is emptied and the
+  item stays packed in the carried case.
+- **Using it somewhere** is what returns it to the world. For a kitchen tool that is its
+  own station: with the tool in hand, a primary click on the station puts it back at its
+  authored rest. Other uses (a rolling pin at another kitchen, a plug in another basin)
+  are later slices.
+- **Saves:** the carried case owns where the item sits in the case (item
+  **kitchen_tool:<station>/<assembly>**). The station's saved mechanism marks the tool
+  **stowed**, so a reload never shows both copies, and the household state refuses a save
+  where the two disagree. What is in hand is saved with the case.
 
-## 3. Open choices for Lily
+## 3. Choices for Lily
 
-Filed as rulings, recommended option first:
+Answered 2026-11-25: **held_put_down_20261124** (it stays in the inventory until used
+somewhere) and **held_scope_20261124** (all of them, kitchen tools first, then books, the
+plug, the pen, the fire maintenance stock and the closet part). The first-person answer
+came through as "i answered", so it was filed again as **held_view_first_person_20261125**.
+Until it is answered, the held part is drawn on the avatar's hand (seen in mirrors) and
+not in the first-person view. If it is to show in first person, it shares the
+first-person render bit of the hose arm (PR 553, 1<<13), taken from
+**first_person_hose_arm.gd** **LAYER** rather than written as a literal; bits 1<<16 and
+up belong to the lamp's depth isolation.
+
+Originally filed, recommended option first:
 
 - **held_view_first_person_20261124:** what the player sees in first person while holding
   something. The avatar is drawn only in mirrors today.

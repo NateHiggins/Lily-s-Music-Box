@@ -66,13 +66,13 @@ func run(world: OrisonV2RuntimeRoot,directory: String) -> bool:
 		# Pick the clear front edge; a pin laid across the board remains a separate part.
 		var point: Vector3=body.to_global(Vector3(0,.02,-.11))
 		player.camera.look_at(point);await get_tree().physics_frame;await get_tree().physics_frame;player.camera.look_at(point)
-		check(player._grab.find_target().get("part")==body,"installed board ray selection: "+str(row.id))
-		var before:=body.transform;click(player)
-		check(player._grab.active() and station.held==body,"installed click grabs board: "+str(row.id))
-		for step in 6:
-			var motion:=InputEventMouseMotion.new();motion.relative=Vector2(0,-12);player._unhandled_input(motion);await get_tree().physics_frame
-		check(body.position.distance_to(before.origin)>.025,"installed mouse lifts board: "+str(row.id))
-		click(player);check(not player._grab.active() and station.held==null,"installed click releases board: "+str(row.id))
+		# Taking into the inventory, putting down and putting back are exercised with
+		# real clicks and a disk reload in KitchenToolInventoryRouteTest (order
+		# w4b7f08c909bb). Here: the ray offers the take, and aiming alone changes nothing.
+		var target: Dictionary=player._grab.find_target()
+		var key: String="SinkBridge" if bridge else "Breadboard"
+		check(target.get("part")==body and (target.get("take")==key or station.bearing_load(key)),"installed board ray selection: "+str(row.id))
+		check(not station.stowed.has(key) and body.visible and not player._grab.active(),"installed aim leaves the board in place: "+str(row.id))
 		# Restore the retained original scene arrangement for visual comparison.
 		player.cancel_manipulation();station.restore_mechanism(saved.records[str(row.id)].value)
 		camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_HIDDEN
