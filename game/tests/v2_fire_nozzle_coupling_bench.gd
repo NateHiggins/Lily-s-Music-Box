@@ -165,7 +165,20 @@ func exercise_fps_carry(actor: Node3D) -> void:
 	for frame in 30:await get_tree().physics_frame
 	var start: Vector3=player.global_position
 	Input.action_press("move_right")
-	for frame in 30:await get_tree().physics_frame
+	for frame in 30:
+		await get_tree().physics_frame
+		if frame in [0, 14, 29]:
+			var movement := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+			var contacts: Array[String] = []
+			for index in player.get_slide_collision_count():
+				var contact := player.get_slide_collision(index)
+				var collider := contact.get_collider() as Node
+				if is_instance_valid(collider):
+					contacts.append("%s %s" % [collider.get_path(), contact.get_normal()])
+			print("FPS NOZZLE WALK: frame=", frame, " start=", start,
+				" position=", player.global_position, " yaw=", player.rotation.y,
+				" movement=", movement, " velocity=", player.velocity,
+				" crouched=", player.crouched, " contacts=", contacts)
 	Input.action_release("move_right")
 	for frame in 30:await get_tree().physics_frame
 	check(player.global_position.distance_to(start)>.75,"actual movement carries the player away from the cabinet")
