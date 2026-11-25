@@ -98,6 +98,14 @@ func _run() -> void:
 	var facts: Dictionary=actor.maintenance_snapshot();facts.door_open=true;actor.restore_maintenance_snapshot(facts)
 	for frame in range(15):await get_tree().physics_frame
 	check(joint.loose and not actor.nozzle_coupled and joint.body.position.y<joint.receiver.origin.y-.01,"unthreaded original nozzle starts at its authored rest pose")
+	var carry_only := OS.get_environment("ORISON_NOZZLE_CARRY_ONLY") == "1"
+	if carry_only:
+		# Windows joypad polling can feed the hidden desktop. Give this standalone
+		# walk its own input by clearing native bindings before the player enters.
+		# The fixture still drives the normal movement actions and capsule solver.
+		for action: StringName in [&"move_left", &"move_right", &"move_forward", &"move_back"]:
+			InputMap.action_erase_events(action)
+			Input.action_release(action)
 	player=PlayerController.new();player.position=Vector3(-.1,.025,1.15);add_child(player);player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":player.global_position=actor.to_global(Vector3(-.1,-1.175,1.15))
 	await get_tree().physics_frame;await get_tree().physics_frame
@@ -105,7 +113,7 @@ func _run() -> void:
 	# A positive carry witness without native cursor delivery: the FPS carry aims
 	# by camera, so it stands apart from the inspection steps the hidden desktop
 	# cannot deliver. Every assertion is the full programme's own.
-	if OS.get_environment("ORISON_NOZZLE_CARRY_ONLY")=="1":
+	if carry_only:
 		await exercise_fps_carry(actor)
 		print("V2 FIRE NOZZLE CARRY ONLY: ","PASS" if failures.is_empty() else "FAIL"," failures=",failures.size())
 		get_tree().quit(0 if failures.is_empty() else 1);return
