@@ -197,6 +197,17 @@ def evaluate(data):
                 and shader in ('res://shaders/hose_arm_cel.gdshader', 'res://shaders/hose_arm_outline.gdshader')
                 and not maps)
             if first_person_arm: effects.append({'id':identity,'class':'first_person_hose_arm'})
+            # The reflected player is the same flat cel drawing (Lily, 2026-11-25): only
+            # her own model under the player's avatar owner, with the arm's two shaders.
+            toon_player = (
+                draw.get('owner_script') == 'res://scripts/player/toon_player_avatar.gd'
+                and draw.get('owner', '') == 'Player/ReflectedPlayer'
+                and draw['path'].startswith(draw['owner'] + '/ToonLilyModel/')
+                and material.get('type') == 'ShaderMaterial' and material.get('shader_unshaded')
+                and shader in ('res://shaders/hose_arm_cel.gdshader', 'res://shaders/hose_arm_outline.gdshader')
+                and not maps)
+            if toon_player: effects.append({'id':identity,'class':'toon_player_avatar'})
+            first_person_arm = first_person_arm or toon_player
             complete_maps=(all(maps.get(channel) for channel in MICROSCOPY_CHANNELS) if microscopy
                            else any(all(maps.get(channel) for channel in triplet) for triplet in TRIPLETS))
             if not optical_effect and not clear_glass and not first_person_arm and not complete_maps:

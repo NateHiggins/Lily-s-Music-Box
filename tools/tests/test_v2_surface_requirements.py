@@ -67,6 +67,30 @@ class Requirements(unittest.TestCase):
         material['shader']='res://shaders/physical_stock.gdshader'
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
 
+    def test_toon_player_cel_drawing_is_scoped_to_her_model(self):
+        data = self.inventory()
+        draw = data['draws'][0]
+        owner = 'Player/ReflectedPlayer'
+        draw.update(owner=owner, path=owner + '/ToonLilyModel/ToonLilyRig/Skeleton3D/ToonLilyInk',
+                    owner_script='res://scripts/player/toon_player_avatar.gd')
+        material = data['materials']['material']
+        material.update(type='ShaderMaterial', shader='res://shaders/hose_arm_cel.gdshader',
+                        shader_unshaded=True, maps={}, next_pass={
+                            'type': 'ShaderMaterial', 'shader': 'res://shaders/hose_arm_outline.gdshader',
+                            'shader_unshaded': True, 'maps': {}})
+        result = evaluate(data)
+        self.assertEqual(result['findings'], [])
+        self.assertEqual([row['class'] for row in result['separate_effects']],
+                         ['toon_player_avatar', 'toon_player_avatar'])
+        for field, value in (
+                ('owner_script', 'res://scripts/props/world_fixture.gd'),
+                ('owner', 'World/ReflectedPlayer'),
+                ('path', owner + '/HeldPhysicalStock')):
+            with self.subTest(field=field):
+                invalid = copy.deepcopy(data)
+                invalid['draws'][0][field] = value
+                self.assertIn('incomplete_pbr_maps', evaluate(invalid)['findings'][0]['reasons'])
+
     def test_hose_arm_cel_overlay_keeps_uvs_and_cannot_exempt_world_stock(self):
         data = self.inventory()
         draw = data['draws'][0]
