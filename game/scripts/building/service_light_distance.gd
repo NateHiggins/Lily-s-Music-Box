@@ -4,6 +4,7 @@ extends RefCounted
 const BEGIN_M:=4.
 const LENGTH_M:=4.
 const END_M:=BEGIN_M+LENGTH_M
+const PAIRED_SHAFT_PRACTICALS := ["F02_SERVICE_HALL_CORE_OPENING", "F04_SERVICE_HALL_CORE_OPENING"]
 var policy: Node
 var world: Node3D
 var enabled:=false
@@ -17,7 +18,10 @@ func _init(owner_policy: Node) -> void:
 	reflections=world.get_node_or_null("V2RoomReflections")
 	for source: Dictionary in policy.sources:
 		var light: Light3D=source.light
-		originals.append({"source":source,"shadow":light.shadow_enabled,"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow})
+		var row := {"source":source,"shadow":light.shadow_enabled,"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow}
+		if light is OmniLight3D and source.shaft and str(source.id) in PAIRED_SHAFT_PRACTICALS:
+			row.omni_mode = light.omni_shadow_mode
+		originals.append(row)
 
 func set_enabled(value: bool) -> void:
 	if value==enabled:return
@@ -46,6 +50,21 @@ func _seen(source: Dictionary,eyes: Array[Vector3]) -> bool:
 		if source.shaft or policy.level_at(eye)==source.level:return true
 	return false
 
+## Use the measured two-pass map for these shaft lights when all observing
+## cameras are on other storeys. A local player or mirror keeps the fitted map.
+func _shaft_shadow_mode(light: OmniLight3D, row: Dictionary, shadow: bool,
+		eyes: Array[Vector3]) -> void:
+	var mode: int = row.omni_mode
+	if enabled and shadow and policy.spaces.has(policy.context_room):
+		var source: Dictionary = row.source
+		var local_view := eyes.any(func(eye: Vector3) -> bool:
+			return policy.level_at(eye) == source.level)
+		if not local_view:
+			mode = OmniLight3D.SHADOW_DUAL_PARABOLOID
+	if light.omni_shadow_mode != mode:
+		light.omni_shadow_mode = mode
+
+
 func tick() -> void:
 	var started: int=Time.get_ticks_usec()
 	var shadow_eyes: Array[Vector3]=[]
@@ -66,6 +85,8 @@ func tick() -> void:
 		var visible: bool=source.visible and source.graph_visible and (not enabled or _seen(source,color_eyes))
 		var shadow: bool=row.shadow and (not enabled or (visible and _seen(source,shadow_eyes)))
 		if light.visible!=visible:light.visible=visible;switches+=1
+		if row.has("omni_mode"):
+			_shaft_shadow_mode(light as OmniLight3D, row, shadow, shadow_eyes)
 		if light.shadow_enabled!=shadow:light.shadow_enabled=shadow;switches+=1
 		if visible:policy.visible_sources.append(source.id)
 	last_tick_usec=Time.get_ticks_usec()-started
