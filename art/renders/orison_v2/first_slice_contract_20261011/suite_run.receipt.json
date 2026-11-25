@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 651.27,
+  "elapsed_s": 621.72,
   "exit_code": 0,
-  "finished_utc": "2026-11-25T20:16:42Z",
-  "started_utc": "2026-11-25T20:05:50Z",
+  "finished_utc": "2026-11-25T21:27:54Z",
+  "started_utc": "2026-11-25T21:17:32Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "D:/ov_reports/held_book_valise_release_20261125/first_slice.log.stderr",
-  "stderr_sha256": "ccae174226c31959100b0f7859bc61b142f5a4a2cd0ea221bbba2b6f1ba4b598",
-  "stdout": "D:/ov_reports/held_book_valise_release_20261125/first_slice.log",
-  "stdout_sha256": "28f1f0f29316e255a1732236ed4b4fa7704fb7a0476c60eedb9a71e84d5fd5cb"
+  "stderr": "D:/ov_reports/toon_lily_held_release_20261125_r2/first_slice.log.stderr",
+  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
+  "stdout": "D:/ov_reports/toon_lily_held_release_20261125_r2/first_slice.log",
+  "stdout_sha256": "758369a0072db68c7054ef25ff2e64fdd1d0a0db6557790118db62a52fb66c79"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "D:/ov_reports/held_book_valise_release_20261125/packet",
+ "shot_dir": "D:/ov_reports/toon_lily_held_release_20261125_r2/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "ec036dd3c77fdf7d61180ce7bf6ddd67e90e159e",
-  "repository_tree": "4cd97e0463807078d3ca78e08196c9fe96e27d8e",
-  "runtime_inputs_sha256": "e190891ec80013b11c5388da59efe4e0b5b33d1b843e8a80cd1a290067cb0464",
+  "repository_head": "f419d3fc556ed2d9f498fec965f61545d64da636",
+  "repository_tree": "df62a573f41f3a66485c72060acd8257f52f0385",
+  "runtime_inputs_sha256": "7ffd80611559a549f8cd8d2840640a88b9e700204e4c5f69194d63c02172c199",
   "test_path": null,
   "test_sha256": null
  },

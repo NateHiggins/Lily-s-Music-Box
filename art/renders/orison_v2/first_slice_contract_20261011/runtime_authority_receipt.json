@@ -1081,7 +1081,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (7.65, -3.2, 4.24) actual=(7.640116, -3.19916, 4.189013)",
+			"label": "service walking (7.65, -3.2, 4.24) actual=(7.63597, -3.19916, 4.167633)",
 			"ok": true
 		},
 		{
@@ -1097,11 +1097,11 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (7.4, -3.2, 3.0) actual=(7.414036, -3.19916, 3.070938)",
+			"label": "service walking (7.4, -3.2, 3.0) actual=(7.414372, -3.19916, 3.072614)",
 			"ok": true
 		},
 		{
-			"label": "service walking (7.4, -3.2, 1.0) actual=(7.402677, -3.19916, 1.072754)",
+			"label": "service walking (7.4, -3.2, 1.0) actual=(7.402767, -3.19916, 1.072853)",
 			"ok": true
 		},
 		{
@@ -1109,7 +1109,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (7.4, -3.2, -0.4) actual=(7.400048, -3.19916, -0.327107)",
+			"label": "service walking (7.4, -3.2, -0.4) actual=(7.40005, -3.19916, -0.327101)",
 			"ok": true
 		},
 		{
@@ -1117,7 +1117,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (4.9, -3.2, -2.5) actual=(4.902508, -3.19916, -2.425235)",
+			"label": "service walking (4.9, -3.2, -2.5) actual=(4.902508, -3.19916, -2.425236)",
 			"ok": true
 		},
 		{
@@ -1511,15 +1511,15 @@
 			"shared_cache_count": 84,
 			"status": "PASS",
 			"tracked_borrowed_shapes": 168,
-			"tracked_nodes": 190618,
-			"tracked_playbacks": 113,
+			"tracked_nodes": 190612,
+			"tracked_playbacks": 130,
 			"tracked_resources": 246
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 622.017,
+		"elapsed_s": 593.276,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -3127,7 +3127,7 @@
 			"target": "(7.4, -3.2, 3.0)"
 		},
 		{
-			"actual": "(7.640116, -3.19916, 4.189013)",
+			"actual": "(7.63597, -3.19916, 4.167633)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
@@ -3142,14 +3142,14 @@
 			"target": "(7.65, -3.2, 4.24)"
 		},
 		{
-			"actual": "(7.414036, -3.19916, 3.070938)",
+			"actual": "(7.414372, -3.19916, 3.072614)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
 			],
-			"from": "(7.640116, -3.19916, 4.189013)",
+			"from": "(7.63597, -3.19916, 4.167633)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3157,14 +3157,14 @@
 			"target": "(7.4, -3.2, 3.0)"
 		},
 		{
-			"actual": "(7.402677, -3.19916, 1.072754)",
+			"actual": "(7.402767, -3.19916, 1.072853)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
 			],
-			"from": "(7.414036, -3.19916, 3.070938)",
+			"from": "(7.414372, -3.19916, 3.072614)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3172,14 +3172,14 @@
 			"target": "(7.4, -3.2, 1.0)"
 		},
 		{
-			"actual": "(7.400048, -3.19916, -0.327107)",
+			"actual": "(7.40005, -3.19916, -0.327101)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
 			],
-			"from": "(7.402677, -3.19916, 1.072754)",
+			"from": "(7.402767, -3.19916, 1.072853)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3194,7 +3194,7 @@
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_E/Collision"
 			],
-			"from": "(7.400048, -3.19916, -0.327107)",
+			"from": "(7.40005, -3.19916, -0.327101)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3202,7 +3202,7 @@
 			"target": "(4.9, -3.2, -0.4)"
 		},
 		{
-			"actual": "(4.902508, -3.19916, -2.425235)",
+			"actual": "(4.902508, -3.19916, -2.425236)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
@@ -3224,7 +3224,7 @@
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
 			],
-			"from": "(4.902508, -3.19916, -2.425235)",
+			"from": "(4.902508, -3.19916, -2.425236)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -4029,9 +4029,9 @@
 		}
 	],
 	"source": {
-		"physical_inputs_sha256": "73318bb614c71d8d82b747a09660d60b3b4bedb003ef29d1edc7cfea2b63eaef",
-		"repository_head": "ec036dd3c77fdf7d61180ce7bf6ddd67e90e159e",
-		"runtime_inputs_sha256": "e190891ec80013b11c5388da59efe4e0b5b33d1b843e8a80cd1a290067cb0464",
+		"physical_inputs_sha256": "41a228211904c8c9e303f3f8f9b6dd2733d2e8dff113fedd95a0aa5f240892ce",
+		"repository_head": "f419d3fc556ed2d9f498fec965f61545d64da636",
+		"runtime_inputs_sha256": "7ffd80611559a549f8cd8d2840640a88b9e700204e4c5f69194d63c02172c199",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_scene_path": "game/tests/orison_v2_first_slice_contract_test.tscn",
 		"test_scene_sha256": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",
