@@ -19,7 +19,7 @@ func _init(owner_policy: Node) -> void:
 	for source: Dictionary in policy.sources:
 		var light: Light3D=source.light
 		var row := {"source":source,"shadow":light.shadow_enabled,"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow}
-		if light is OmniLight3D and source.shaft and str(source.id) in PAIRED_SHAFT_PRACTICALS:
+		if light is OmniLight3D and source.shaft and source.adjacent_shadow_paraboloid:
 			row.omni_mode = light.omni_shadow_mode
 		originals.append(row)
 

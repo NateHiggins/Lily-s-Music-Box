@@ -3,7 +3,6 @@ extends "res://tests/v2_performance_matrix.gd"
 
 const TARGET_SIZE := Vector2i(2560, 1440)
 const CROSSING := "third_floor_crossing"
-const CROSSING_ROOM := "F03_SERVICE_CROSSING"
 const YAW := TAU * 0.75
 const SAMPLE_COUNT := 78
 
@@ -18,7 +17,8 @@ func _run() -> void:
 	get_window().size = TARGET_SIZE
 	await get_tree().process_frame
 	await get_tree().process_frame
-	if Vector2i(get_viewport().get_visible_rect().size) != TARGET_SIZE 			or RenderingServer.get_current_rendering_method() != "forward_plus":
+	var exact_size := Vector2i(get_viewport().get_visible_rect().size) == TARGET_SIZE
+	if not exact_size or RenderingServer.get_current_rendering_method() != "forward_plus":
 		push_error("The shaft shadow proof requires exact hidden 1440p Forward+")
 		get_tree().quit(1)
 		return
@@ -34,6 +34,10 @@ func _measure(station: Dictionary) -> Dictionary:
 	if not placed.ok or not await _settle():
 		failures.append("The F03 service crossing did not settle")
 		return {}
+	var crossing_room := world.room_at_world(placed.position)
+	if crossing_room.is_empty():
+		failures.append("The matrix station is outside the installed room layout")
+		return {}
 	var budget: RefCounted = world.service_light_visibility.distance_budget
 	var targets: Array[Dictionary] = []
 	for row: Dictionary in budget.originals:
@@ -43,7 +47,12 @@ func _measure(station: Dictionary) -> Dictionary:
 	for target: Dictionary in targets:
 		ids.append(str(target.row.source.id))
 	ids.sort()
-	if ids != ["F02_SERVICE_HALL_CORE_OPENING", "F04_SERVICE_HALL_CORE_OPENING"]:
+	var authored_ids: Array[String] = []
+	for opening: Dictionary in world.layout.openings:
+		if opening.get("adjacent_shadow_paraboloid", false):
+			authored_ids.append(str(opening.id))
+	authored_ids.sort()
+	if ids.size() != 2 or ids != authored_ids:
 		failures.append("Only the two measured shaft practicals may carry the cheaper map")
 		return {}
 	for target: Dictionary in targets:
@@ -72,7 +81,10 @@ func _measure(station: Dictionary) -> Dictionary:
 				failures.append("The shaft light treatment did not hold in arm %s" % name)
 		arms.append(sample)
 		await _corridor_frame(name)
-		if player.global_position.distance_to(placed.position) > 0.05 				or world.room_at_world(player.global_position) != CROSSING_ROOM 				or absf(angle_difference(YAW, player.rotation.y)) > 0.002:
+		var close_to_station := player.global_position.distance_to(placed.position) <= 0.05
+		var still_in_room := world.room_at_world(player.global_position) == crossing_room
+		var same_heading := absf(angle_difference(YAW, player.rotation.y)) <= 0.002
+		if not (close_to_station and still_in_room and same_heading):
 			failures.append("The F03 camera drifted in arm %s" % name)
 		print("[SHAFT INSTALLED] %s shadows %.0f visible %.0f wall %.3f ms" % [
 			name, sample.shadow_calls, sample.visible_calls, sample.wall_ms])
@@ -82,7 +94,7 @@ func _measure(station: Dictionary) -> Dictionary:
 	var stock_shadow_calls: float = (arms[0].shadow_calls + arms[2].shadow_calls) * 0.5
 	if stock_shadow_calls - arms[1].shadow_calls < 1000.0:
 		failures.append("The installed practicals did not reduce the shadow-call count")
-	return {"name": CROSSING, "room": CROSSING_ROOM, "yaw_degrees": 270,
+	return {"name": CROSSING, "room": crossing_room, "yaw_degrees": 270,
 		"practicals": ids, "arms": arms,
 		"drift_m": player.global_position.distance_to(placed.position)}
 

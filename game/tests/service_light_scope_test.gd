@@ -56,15 +56,15 @@ func _run() -> void:
 	world.layout = {
 		"dimensions": {"floor_to_floor": 3.2},
 		"spaces": [_space("F01_A", "F01"), _space("F01_B", "F01"), _space("F02_A", "F02"),
-			_space("F02_B", "F02"), _space("F02_CORE", "F02", true), _space("F01_CORE", "F01", true)],
+			_space("F02_B", "F02"), _space("F02_CORE", "F02", true), _space("lower_core", "F01", true)],
 		"openings": [
 			{"id": "F01_SEALED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0, 2.34, 0)},
 			{"id": "F01_CROWDED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0.8, 2.34, 0)},
 			{"id": "F01_OMITTED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "omit": true},
 			{"id": "F02_SEALED", "connects": ["F02_A", "F02_B"], "shared_wall_owner": "x", "at": Vector3(0, 5.54, 0)},
 			{"id": "F02_SHAFT", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(2.5, 5.54, 0)},
-			{"id": "F02_SERVICE_HALL_CORE_OPENING", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(1.8, 5.54, 0)},
-			{"id": "F01_CORE_PASSAGE", "connects": ["F01_B", "F01_CORE"]},
+			{"id": "qualified_shaft_fixture", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(1.8, 5.54, 0), "adjacent_shadow_paraboloid": true},
+			{"id": "lower_core_link", "connects": ["F01_B", "lower_core"]},
 		],
 		"doors": [],
 	}
@@ -131,7 +131,7 @@ func _run() -> void:
 	check(not f02.visible and not f02.shadow_enabled, "a source sealed above the eye's storey is dark and unshadowed")
 	check(shaft.visible and shaft.shadow_enabled, "a shaft source is still seen from the storey below")
 
-	var qualified_shaft: OmniLight3D = lights.F02_SERVICE_HALL_CORE_OPENING
+	var qualified_shaft: OmniLight3D = lights.qualified_shaft_fixture
 	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE,
 		"the unknown-room case retains the original shadow map")
 	world.context_room = "F01_A"
