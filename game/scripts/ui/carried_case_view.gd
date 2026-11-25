@@ -318,8 +318,9 @@ func _finish_close() -> void:
 	if not _return_book.is_empty():
 		var item := _return_book
 		_return_book = ""
+		# A book taken out goes to the hand; it is read from the glove (held_books_reading_20261125).
 		if is_instance_valid(household_state):
-			household_state.unpack_book(player, item)
+			household_state.set_hand(item)
 	if not _return_kitchen_tool.is_empty():
 		var tool_item := _return_kitchen_tool
 		_return_kitchen_tool = ""

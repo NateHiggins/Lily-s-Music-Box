@@ -1711,10 +1711,14 @@ func _try_interact() -> bool:
 
 ## A click on nothing usable puts down what the hand holds. It stays in the case
 ## (ruling held_put_down_20261124: it stays in the inventory until used somewhere).
+## A book in the glove is read instead (ruling held_books_reading_20261125).
 func _put_down_held() -> void:
 	if CarriedCase.hand().is_empty():
 		return
 	var state := get_tree().get_first_node_in_group("v2_household_state")
+	if state != null and CarriedCase.hand().begins_with(CarriedCase.BOOK_PREFIX) and state.has_method("read_held_book"):
+		state.read_held_book(self)
+		return
 	if state != null and state.has_method("set_hand"):
 		state.set_hand("")
 
