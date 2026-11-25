@@ -10,7 +10,8 @@ with bell cuffs. It is drawn in the Fleischer-era flapper idiom (a big round hea
 huge lashed eyes, a cupid's-bow mouth) as Lily herself with her full black bob, not as
 any existing cartoon character.
 
-  Head    white face, full black bob with a straight fringe and jaw-length sides,
+  Head    white face, a blond spiky anime bob (paper-white locks with ink strand lines:
+          pointed bangs, jaw-length sides, face-framing front locks, an ahoge),
           big black eyes with white catch-lights and three lashes, brows, a button
           nose, a cupid's-bow mouth, and a frilled maid's headband.
   Dress   black hourglass bodice with a sweetheart neckline, puff sleeves with white
@@ -220,36 +221,13 @@ def head_parts(skin, ink, paper):
     c = HEAD_CENTRE
     # The face: one big round white head, a touch fuller at the cheeks.
     ellipsoid(skin, c, HEAD_RADII, head, segments=32, rings=20)
-    # The full bob: a black shell round the back, top and sides, cut by a straight
-    # fringe across the brow and falling to the jaw at the sides, flaring a little.
-    hair = bmesh.new()
-    bmesh.ops.create_uvsphere(hair, u_segments=72, v_segments=48, radius=1.0)
-    keep = []
-    for f in hair.faces:
-        m = f.calc_center_median()
-        front = m.y < -0.30
-        fringe = m.z > 0.28 - 0.10 * (1.0 - abs(m.x))
-        curtain = abs(m.x) > 0.62
-        # Jaw-length at the front and sides, down to the nape at the back.
-        low = m.z < (-0.62 - 0.26 * max(0.0, m.y))
-        if (front and not fringe and not curtain) or low:
-            continue
-        keep.append(f)
-    drop = [f for f in hair.faces if f not in keep]
-    bmesh.ops.delete(hair, geom=drop, context="FACES")
-    bmesh.ops.solidify(hair, geom=hair.faces[:], thickness=-0.09)
-    for v in hair.verts:
-        p = v.co
-        flare = 1.0 + 0.10 * max(0.0, -p.z - 0.2)
-        v.co = Vector((p.x * HEAD_RADII[0] * 1.10 * flare, p.y * HEAD_RADII[1] * 1.10 * flare + 0.004,
-                       p.z * HEAD_RADII[2] * 1.08 + 0.012)) + c
-    bmesh.ops.recalc_face_normals(hair, faces=hair.faces[:])
-    mapping = {}
-    for v in hair.verts:
-        mapping[v] = ink.vert(v.co, head)
-    for f in hair.faces:
-        ink.face([mapping[v] for v in f.verts])
-    hair.free()
+    # Blond, spiky anime bob (Lily, 2026-11-25), drawn blond the black-and-white way:
+    # paper-white locks with ink strand lines. A white cap covers the skull under
+    # chunky pointed locks: bangs over the brow, jaw-length sides with longer locks
+    # framing the face, the back flicking out at the nape, and one ahoge on top.
+    hair_cap(paper, c, head)
+    for root, mid, tip, width in hair_locks(c):
+        lock(paper, ink, root, mid, tip, width, c, head)
 
     def on_face(x, z, lift=0.0):
         """A point on the face surface (front, -Y), lifted out along the normal."""
@@ -270,11 +248,7 @@ def head_parts(skin, ink, paper):
             base, n2 = on_face(0.068 * side + dx * side, c.z + dz, 0.003)
             out = Vector((math.sin(math.radians(angle)) * side, -0.25, math.cos(math.radians(angle)))).normalized()
             ellipsoid(ink, base + out * 0.012, (0.0035, 0.0035, 0.015), head, rotation=rotation_to(out), segments=8, rings=6)
-        # A thin arched brow.
-        for k in range(5):
-            t = (k - 2) / 2.0
-            p, _n = on_face(0.068 * side + t * 0.030 * side, c.z + 0.090 + 0.010 * (1 - t * t), 0.003)
-            ellipsoid(ink, p, (0.009, 0.004, 0.0035), head, segments=8, rings=5)
+        # No brows: the bangs cover them.
         # A soft round cheek line is left to the outline; the cheeks stay white.
     nose, _n = on_face(0.0, c.z - 0.050, 0.004)
     ellipsoid(ink, nose, (0.009, 0.006, 0.006), head, segments=10, rings=6)
@@ -288,9 +262,125 @@ def head_parts(skin, ink, paper):
     for k in range(17):
         a = math.radians(-80 + 10 * k)
         d = Vector((math.sin(a), -0.42, math.cos(a))).normalized()
-        p = c + Vector((d.x * HEAD_RADII[0] * 1.13, d.y * HEAD_RADII[1] * 1.13, d.z * HEAD_RADII[2] * 1.10 + 0.012))
+        p = c + Vector((d.x * HEAD_RADII[0] * 1.22, d.y * HEAD_RADII[1] * 1.22, d.z * HEAD_RADII[2] * 1.19 + 0.012))
         ellipsoid(paper, p, (0.024, 0.016, 0.021), head, rotation=rotation_to(d), segments=10, rings=6)
 
+
+
+def hair_cap(part, c, weights):
+    """The skull under the locks: a white shell round the top, back and sides, open
+    over the face below the hairline."""
+    cap = bmesh.new()
+    bmesh.ops.create_uvsphere(cap, u_segments=48, v_segments=32, radius=1.0)
+    drop = []
+    for f in cap.faces:
+        m = f.calc_center_median()
+        face = m.y < -0.25 and m.z < 0.45 and abs(m.x) < 0.80
+        if face or m.z < (-0.55 - 0.30 * max(0.0, m.y)):
+            drop.append(f)
+    bmesh.ops.delete(cap, geom=drop, context="FACES")
+    bmesh.ops.solidify(cap, geom=cap.faces[:], thickness=-0.06)
+    for v in cap.verts:
+        q = v.co
+        v.co = c + Vector((q.x * HEAD_RADII[0] * 1.06, q.y * HEAD_RADII[1] * 1.06 + 0.003, q.z * HEAD_RADII[2] * 1.05 + 0.008))
+    mapping = {v: part.vert(v.co, weights) for v in cap.verts}
+    for f in cap.faces:
+        part.face([mapping[v] for v in f.verts])
+    cap.free()
+
+
+def scalp(c, direction, out=1.06):
+    """A point on the hair surface in a direction from the head's centre."""
+    d = direction.normalized()
+    return c + Vector((d.x * HEAD_RADII[0] * out, d.y * HEAD_RADII[1] * out, d.z * HEAD_RADII[2] * out + 0.008))
+
+
+def hair_locks(c):
+    """(root, mid, tip, width) for every lock. Roots sit on the crown; mids bow out
+    from the head; tips end in points."""
+    locks = []
+    rx, ry, rz = HEAD_RADII
+    # Bangs: seven pointed locks over the brow, tips just above the eyes, alternating.
+    for k in range(7):
+        x = (k - 3) / 3.0
+        root = scalp(c, Vector((x * 0.55, -0.55, 0.85)))
+        tip_z = c.z + (0.072 if k % 2 == 0 else 0.092) - 0.012 * (1 - abs(x))
+        tip = Vector((c.x + x * rx * 0.86, c.y - ry * 1.04, tip_z))
+        mid = scalp(c, Vector((x * 0.75, -0.95, 0.55)), 1.20)
+        locks.append((root, mid, tip, 0.074 if k % 2 == 0 else 0.062))
+    for side in (1, -1):
+        # The long front locks that frame the face, past the jaw.
+        root = scalp(c, Vector((0.55 * side, -0.55, 0.65)))
+        mid = scalp(c, Vector((0.98 * side, -0.55, -0.05)), 1.14)
+        tip = Vector((c.x + rx * 0.80 * side, c.y - ry * 0.62, c.z - 0.185))
+        locks.append((root, mid, tip, 0.070))
+        # Jaw-length side locks, flaring out to points.
+        for k, (fy, tz) in enumerate(((-0.25, -0.120), (0.10, -0.135), (0.45, -0.125))):
+            root = scalp(c, Vector((0.55 * side, fy * 0.6, 0.80)))
+            mid = scalp(c, Vector((1.00 * side, fy, 0.15)), 1.16)
+            tip = Vector((c.x + rx * (1.16 + 0.04 * k) * side, c.y + ry * fy * 1.05, c.z + tz))
+            locks.append((root, mid, tip, 0.088))
+    # The back: eight locks from the crown to the nape, flicking out.
+    for k in range(8):
+        a = math.radians(-112 + 32 * k)
+        d = Vector((math.sin(a), math.cos(a), 0.0))
+        root = scalp(c, Vector((d.x * 0.35, d.y * 0.35 + 0.05, 0.94)))
+        mid = scalp(c, Vector((d.x, d.y, 0.05)), 1.15)
+        tip = c + Vector((d.x * rx * 1.20, d.y * ry * 1.22, -0.170 + 0.012 * (k % 2)))
+        locks.append((root, mid, tip, 0.098))
+    # Crown spikes to break the silhouette, and the ahoge.
+    for k, a in enumerate((-60, -20, 20, 60)):
+        d = Vector((math.sin(math.radians(a)), 0.35, 1.0))
+        root = scalp(c, d, 0.95)
+        locks.append((root, scalp(c, d, 1.12), scalp(c, d + Vector((d.x * 0.4, 0.15, -0.15)), 1.22), 0.075))
+    top = scalp(c, Vector((0.05, -0.15, 1.0)), 1.0)
+    locks.append((top, top + Vector((0.01, -0.02, 0.07)), top + Vector((0.045, -0.05, 0.085)), 0.022))
+    return locks
+
+
+def lock(paper, ink, root, mid, tip, width, c, weights, rings=12, sides=10):
+    """One pointed lock: a flattened, tapering tube along a quadratic curve, closed
+    at the root and ending in a point, with an ink strand line down its outer face."""
+    def at(u):
+        return root * (1 - u) ** 2 + mid * 2 * u * (1 - u) + tip * u * u
+
+    def tangent(u):
+        return ((mid - root) * 2 * (1 - u) + (tip - mid) * 2 * u).normalized()
+
+    grid = []
+    frames = []
+    for r in range(rings):
+        u = r / rings
+        p = at(u)
+        t = tangent(u)
+        n = (p - c)
+        n = (n - t * n.dot(t)).normalized()
+        b = t.cross(n).normalized()
+        w = width * 0.5 * (1.0 - u) ** 0.75 * (0.75 + 0.25 * math.sin(math.pi * min(1.0, u * 2.2)))
+        d = 0.017 * (1.0 - u) ** 0.6 + 0.003
+        row = [paper.vert(p + b * math.cos(2 * math.pi * s / sides) * w + n * math.sin(2 * math.pi * s / sides) * d, weights)
+               for s in range(sides)]
+        grid.append(row)
+        frames.append((p, n, b, w, d))
+    point = paper.vert(tip, weights)
+    base = paper.vert(root, weights)
+    for r in range(rings - 1):
+        for s in range(sides):
+            paper.face((grid[r][s], grid[r][(s + 1) % sides], grid[r + 1][(s + 1) % sides], grid[r + 1][s]))
+    for s in range(sides):
+        paper.face((point, grid[-1][s], grid[-1][(s + 1) % sides]))
+        paper.face((base, grid[0][(s + 1) % sides], grid[0][s]))
+    # Ink strand: a fine tapering line along the outer face, off the lock's centre.
+    if width > 0.03:  # the ahoge is too fine for a strand
+        offset = 0.22 if (int(root.x * 1000) % 2) else -0.22
+        strand = []
+        for r in range(2, rings - 2):
+            p, n, b, w, d = frames[r]
+            strand.append(p + n * (d + 0.0012) + b * w * offset)
+        for a, bpt in zip(strand, strand[1:]):
+            m = (a + bpt) * 0.5
+            v = bpt - a
+            ellipsoid(ink, m, (0.0016, 0.0016, v.length * 0.62), weights, rotation=rotation_to(v), segments=6, rings=4)
 
 def rotation_to(direction):
     """Rotation taking +Z to direction."""
