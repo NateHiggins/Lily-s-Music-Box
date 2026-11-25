@@ -65,6 +65,13 @@ isolation. The avatar's hand slot (1<<15) stays the mirror view and does not com
 first person. The arm's owner adds a **GloveSocket** on its Hand bone; this order then
 wears the held part there as a follow-up once both changes are on main.
 
+The glove follow-up (2026-11-25, after the arm and slice 1 reached main): the avatar
+keeps a second **HeldHandSlot** on the arm's Hand bone, offset to **palm_offset()**, on
+the socket's layer, and calls **set_holding** whenever the case's hand changes, so the
+arm carries the glove in at its carry pose. The item is drawn at world size with no
+shadow. While the glove works a world grab, the item stays in hand but is hidden, and
+it shows again on release. The arm's own file and motion are not touched.
+
 Originally filed, recommended option first:
 
 - **held_view_first_person_20261124:** what the player sees in first person while holding
