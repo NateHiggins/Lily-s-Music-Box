@@ -1,3 +1,11 @@
+## Toon Lily in reflections, November 25
+
+Evidence class: **INERT**.
+
+PR #577 installs Lily's approved toon avatar in installed mirrors. Both player rigs use the same item presentation, with the packed item shown on the mirror hand and the first-person glove. The new body remains a visual rig, with the existing player, inventory, and save systems retaining authority.
+
+The installed mirror passed 29 checks for the rig, camera layers, idle, look input, and sleep outside the mirror view. The installed book and kitchen routes, composed surface review, and original radiator and disk-reconstruction tests are recorded in D:/ov_reports/toon_lily_held_release_20261125. The standing mirror capture leaves a full-length walk review open.
+
 ## Held books and the valise, November 25
 
 Evidence class: **INERT**.

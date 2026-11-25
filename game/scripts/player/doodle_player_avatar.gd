@@ -1,13 +1,9 @@
-extends Node3D
+extends "res://scripts/player/player_avatar_held_items.gd"
 ## Owner-supplied rig is presentation only; the existing controller owns motion.
 const LAYER:=1<<15
 const MODEL:="res://assets/characters/player_doodle/player_doodle.glb"
 const FACE_SHADER:=preload("res://shaders/player_doodle.gdshader")
-const HeldHandSlotScript := preload("res://scripts/characters/held_hand_slot.gd")
-const HoseArm := preload("res://scripts/player/first_person_hose_arm.gd")
-var holder: PlayerController
 var animator: AnimationPlayer
-var skeleton: Skeleton3D
 var idle_clip: StringName
 var native_ready:=false
 var reflected:=false
@@ -74,66 +70,7 @@ func _ready() -> void:
 	head_aim.active=false;skeleton.add_child(head_aim)
 	holder.camera.cull_mask&=~LAYER
 	native_ready=true
-	_bind_hand_slot()
-
-## The hand slot shows what the carried case says is held. It is drawn on the
-## avatar's own layer, so mirrors see it and the first-person camera does not.
-## In first person the same item is worn in the rubber-hose arm's glove (ruling
-## held_view_first_person_20261125), on the arm's layer, which mirrors leave out.
-var hand_slot: HeldHandSlotScript
-var glove_slot: HeldHandSlotScript
-
-func _bind_hand_slot() -> void:
-	hand_slot=HeldHandSlotScript.new();hand_slot.name="HandSlot";hand_slot.layers=LAYER
-	skeleton.add_child(hand_slot)
-	if not hand_slot.bind_hand(skeleton):
-		hand_slot.queue_free();hand_slot=null;return
-	if not RealityState.state_changed.is_connected(refresh_hand):RealityState.state_changed.connect(refresh_hand)
-	refresh_hand()
-
-func refresh_hand() -> void:
-	if not is_instance_valid(hand_slot):return
-	var item:=CarriedCase.hand()
-	_bind_glove_slot()
-	var glove: bool=is_instance_valid(glove_slot)
-	if item==hand_slot.worn and (not glove or item==glove_slot.worn):return
-	var state: Node=get_tree().get_first_node_in_group("v2_household_state") if is_inside_tree() else null
-	var mirror:=_held_part(state,item)
-	hand_slot.wear(item if mirror!=null else "",mirror)
-	if glove:
-		var drawn:=_held_part(state,item)
-		glove_slot.wear(item if drawn!=null else "",drawn)
-		glove_slot.get_meta("arm").set_holding(not glove_slot.worn.is_empty())
-
-func _held_part(state: Node,item: String) -> Node3D:
-	if item.begins_with(CarriedCase.BOOK_PREFIX) and state!=null and state.has_method("packed_book"):
-		var copy: Node=state.packed_book(item)
-		return copy.hand_visual() if is_instance_valid(copy) and copy.has_method("hand_visual") else null
-	if item.is_empty() or state==null or not state.has_method("packed_kitchen_tool"):return null
-	var packed: Dictionary=state.packed_kitchen_tool(item)
-	return null if packed.is_empty() else packed.station.tool_visual(packed.assembly)
-
-## The glove slot rides the arm's GloveSocket bone at its palm, on the arm's layer.
-## The arm is bound after the avatar, so this binds on the first refresh that finds it.
-func _bind_glove_slot() -> void:
-	if is_instance_valid(glove_slot) or holder==null or holder.camera==null:return
-	var arm: Node=holder.camera.get_node_or_null("FirstPersonHoseArm")
-	if arm==null or not arm.has_method("glove_socket"):return
-	var socket: BoneAttachment3D=arm.glove_socket()
-	if socket==null or not socket.get_parent() is Skeleton3D:return
-	glove_slot=HeldHandSlotScript.new();glove_slot.name="GloveHeld"
-	glove_slot.layers=int(socket.get_meta("render_layers",HoseArm.LAYER))
-	glove_slot.palm=arm.palm_offset()
-	# A glove working a world grab is busy: the held item waits out of sight.
-	var grab: Object=holder.get("_grab")
-	# So is one reading: a book read from the glove is out in the reading view.
-	var reader:=holder
-	glove_slot.busy=func() -> bool: return (grab!=null and bool(grab.call("active"))) or reader.inspecting()
-	glove_slot.bone_name=socket.bone_name;glove_slot.set_meta("arm",arm)
-	socket.get_parent().add_child(glove_slot)
-
-func _exit_tree() -> void:
-	if RealityState.state_changed.is_connected(refresh_hand):RealityState.state_changed.disconnect(refresh_hand)
+	_bind_hand_slot(LAYER)
 
 func _bind_face(draw:MeshInstance3D,base:StandardMaterial3D,head:int) -> bool:
 	if draw.skin==null:return false

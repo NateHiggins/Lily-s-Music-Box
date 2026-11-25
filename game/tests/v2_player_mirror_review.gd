@@ -1,5 +1,6 @@
 extends Node
-## Actual production mirror captures; the supplied clip advances in real time.
+## Actual production mirror captures of the toon player (Lily, 2026-11-25); her
+## rubber-hose idle advances in real time.
 var failures: Array[String]=[]
 var checks:=0
 func check(ok: bool,label: String) -> void:
@@ -19,11 +20,11 @@ func run() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	var avatar: Node3D=world.player_avatar
 	var drawn:Dictionary={}
-	var head:int=avatar.skeleton.find_bone("smartrig_Head")
-	var front:int=avatar.skeleton.find_bone("headfront")
+	var head:int=avatar.skeleton.find_bone("Head")
+	var front:int=avatar.skeleton.find_bone("HeadFront")
 	avatar.skeleton.skeleton_updated.connect(func():
 		var poses:Dictionary={}
-		for bone:String in ["smartrig_Head","smartrig_LeftHand","smartrig_RightHand","smartrig_LeftFoot"]:
+		for bone:String in ["Head","LeftHand","RightHand","LeftFoot","Hips","LeftArm_06"]:
 			var index:int=avatar.skeleton.find_bone(bone)
 			if index>=0:poses[bone]=str(avatar.skeleton.get_bone_global_pose(index))
 		var origin:Vector3=avatar.skeleton.to_global(avatar.skeleton.get_bone_global_pose(head).origin)
@@ -31,17 +32,15 @@ func run() -> void:
 		drawn["bones"]=poses
 		drawn["error_degrees"]=rad_to_deg(acos(clampf(direction.dot(-world.player.camera.global_basis.z),-1,1)))
 	)
-	check(avatar.native_ready and avatar.skeleton.get_bone_count()==52,"owner rig and supplied idle loaded")
+	check(avatar.native_ready and avatar.skeleton.find_bone("RightHand")>=0 and avatar.skeleton.find_bone("LeftLeg_11")>=0,"toon player rig loaded")
 	check(avatar.find_children("*","CollisionObject3D",true,false).is_empty(),"visual rig adds no physical authority")
-	var layer: int=preload("res://scripts/player/doodle_player_avatar.gd").LAYER
+	var layer: int=preload("res://scripts/player/toon_player_avatar.gd").LAYER
 	check((world.player.camera.cull_mask&layer)==0 and (world.mirror_renderer._camera.cull_mask&layer)!=0,"real reflected view includes avatar while first-person camera excludes it")
 	check((preload("res://scripts/building/orison_v2_room_reflections.gd").CAPTURE_MASK&layer)==0,"room cube cache excludes transient avatar")
 	for draw: MeshInstance3D in avatar.find_children("*","MeshInstance3D",true,false):
-		check(draw.layers==layer and draw.mesh.get_faces().size()/3<25000,"one bounded native avatar partition")
-		var finish:=draw.material_override as ShaderMaterial
-		check(finish!=null and finish.shader==avatar.FACE_SHADER and int(finish.get_shader_parameter("head_bind"))>=0,"registered custom finish uses supplied authored UVs and native head skin")
-		for texture: Texture2D in [finish.get_shader_parameter("albedo_tex"),finish.get_shader_parameter("normal_tex"),finish.get_shader_parameter("rough_tex")]:
-			check(texture!=null and texture.get_image().get_mipmap_count()>0,"loaded character map has mip chain")
+		check(draw.layers==layer and draw.mesh.get_faces().size()/3<25000 and draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF,"one bounded avatar partition, no shadow")
+		var finish:=draw.get_surface_override_material(0) as ShaderMaterial
+		check(finish!=null and finish.shader==avatar.CEL and finish.next_pass is ShaderMaterial and (finish.next_pass as ShaderMaterial).shader==avatar.OUTLINE and float(finish.get_shader_parameter("depth_squeeze"))==1.0,"flat cel fill with ink outline, drawn in the world (no depth squeeze)")
 	world.player.set_physics_process(false);world.player.velocity=Vector3.ZERO
 	world.service_set_carrier.set_capture_hidden(true);world.player.set_lamp_enabled(false)
 	var wanted:=OS.get_environment("PLAYER_MIRROR_ID")
@@ -77,17 +76,17 @@ func run() -> void:
 	for frame in 16:await RenderingServer.frame_post_draw
 	check(world.mirror_renderer.active_mirror()==mirror,"production renderer selects this actual mirror")
 	check(world.mirror_renderer.active_camera()==world.mirror_renderer._camera,"live mirror exports the actual reflected shadow viewpoint")
-	avatar.animator.play(avatar.idle_clip);avatar.animator.seek(0,true)
 	var images: Array=[]
-	for target: float in [1.,4.8,8.4]:
-		while avatar.animator.current_animation_position<target:await RenderingServer.frame_post_draw
+	var started: float=avatar.clock
+	for target: float in [0.6,1.5,2.7]:
+		while avatar.clock-started<target:await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		var label: String="mirror_idle_"+str(images.size()+1)
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))==OK,"actual player-camera mirror image: "+label)
 		world.mirror_renderer._view.get_texture().get_image().save_png(directory.path_join(label+"_reflection.png"))
-		check(not drawn.is_empty() and drawn.error_degrees<.25,"rendered head faces actual camera aim throughout the supplied idle")
-		images.append({"image":label+".png","clip_time":avatar.animator.current_animation_position,"bones":drawn.get("bones",{}).duplicate(true),"head_aim":drawn.get("error_degrees",-1)})
-	check(images[0].bones!=images[1].bones and images[1].bones!=images[2].bones,"supplied skeletal idle changes across three real-time frames")
+		check(not drawn.is_empty() and drawn.error_degrees<.25,"rendered head faces actual camera aim throughout the idle")
+		images.append({"image":label+".png","clip_time":avatar.clock-started,"bones":drawn.get("bones",{}).duplicate(true),"head_aim":drawn.get("error_degrees",-1)})
+	check(images[0].bones!=images[1].bones and images[1].bones!=images[2].bones,"rubber-hose idle changes across three real-time frames")
 	var base_yaw:float=world.player.rotation.y
 	var base_pitch:float=world.player.camera.rotation.x
 	var sensitivity:=PlayerController.MOUSE_SENS*clampf(float(GameBoot.settings.get("look_sensitivity",1.0)),.25,2)
@@ -104,9 +103,9 @@ func run() -> void:
 		aimed.append({"degrees":str(target),"image":image,"error_degrees":drawn.get("error_degrees",-1)})
 	var turn:=InputEventMouseMotion.new();turn.relative=Vector2(PI/sensitivity,0);Input.parse_input_event(turn)
 	for frame in 8:await RenderingServer.frame_post_draw
-	check(not avatar.reflected and not avatar.animator.active and not avatar.head_aim.active,"leaving mirror stops reflected animation and head-aim work")
+	check(not avatar.reflected and not avatar.is_processing(),"leaving mirror stops reflected animation and head-aim work")
 	check(world.mirror_renderer.active_camera()==null,"sleeping mirror stops retaining distant source shadows")
 	switches.restore_room(room,saved)
-	FileAccess.open(directory.path_join("review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"images":images,"aimed":aimed,"mirror":wanted,"limits":"Installed owner rig, supplied body idle, post-modifier face aim and actual mouse-driven mirror images. Not locomotion, face morphs, full V2 qualification, performance qualification or human acceptance."},"\t"))
+	FileAccess.open(directory.path_join("review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"images":images,"aimed":aimed,"mirror":wanted,"limits":"Installed toon player, rubber-hose idle, face aim and actual mouse-driven mirror images. Not locomotion, face morphs, full V2 qualification, performance qualification or human acceptance."},"\t"))
 	print("PLAYER MIRROR REVIEW: ","PASS" if failures.is_empty() else "FAIL")
 	get_tree().quit(0 if failures.is_empty() else 1)

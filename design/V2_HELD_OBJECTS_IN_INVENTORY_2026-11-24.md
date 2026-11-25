@@ -1,7 +1,6 @@
 # Held objects live in the inventory, shown on the hand
 
-Evidence class: **INERT**. Owner direction and a migration plan, dated 2026-11-24. Nothing
-here is built, rendered or accepted.
+Evidence class: **INERT**. Owner direction, migration history and current scope.
 
 Owner direction, 2026-11-24: "in general pick up able objects like kitchen utensils
 shouldnt be carried, put it into their inventory and use the clothing system to put the
@@ -103,19 +102,20 @@ Originally filed, recommended option first:
 - **held_put_down_20261124:** where a put-down object goes.
 - **held_scope_20261124:** which objects move to the new rule first.
 
-## 4. Migration order
+## 4. Implemented scope
 
-1. Add a hand slot to the clothing system: a held part on a hand bone, worn and taken off
-   like any other part, with a save field for what is in hand.
-2. Kitchen prep tools first, the case Lily named. The 30 tools become inventory goods and
-   their world bodies retire to rest records, removing their physics bodies.
-3. Books, the basin plug, the register pen, then the fire maintenance loose stock and the
-   water-closet part. Each keeps its existing owner, save and maintenance authority.
-4. Retire the free-pickup path in **constrained_grab.gd** once nothing uses it. Its
-   carrier collision and follow-the-hand code goes with it.
-
-Each slice needs real grabbing and release in tests, a schema-2 runtime receipt where it
-changes play, the reader gate at NEW 0, and a render of the held look.
+- PR #571 installs the player glove and mirror hand for packed kitchen tools. The
+  installed 2A route verifies pickup, return and saved custody through the existing
+  household and carried-case authorities.
+- PR #576 installs book pickup into the case and glove, same-copy reading and shelf
+  return. A full case leaves the closed copy in place.
+- PR #577 shares the held-item binding between the two player rigs and qualifies it
+  with the installed Toon Lily avatar.
+- The basin plug, register pen, union nut, unracked hose, cistern lid and spare gasket
+  keep their existing hand-follow motion under **held_tethered_parts_20261125**. The
+  shared grab path remains in service for those tethered interactions.
+- Resident inventory presentation is a separate cast integration task. Installed
+  player proofs cover the kitchen tool and book paths.
 
 ## 5. Not decided here
 
