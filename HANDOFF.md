@@ -1,3 +1,15 @@
+# Orison shaft lighting, November 25
+
+Evidence class: **INERT**.
+
+The F02 and F04 service shaft practicals use a lighter shadow map when all active shadow cameras are on other storeys. Same-storey player and mirror views use the authored cube maps. The controller identifies the two openings through the existing room graph, preserving the physical layout and acoustic source binding.
+
+At one fixed F03 night view in 2560 × 1440 Forward+, the installed change saved about 1,990 main shadow draws and 1.37 ms in the median frame interval. The two stock samples differed by 0.50 ms. The focused light scope passed 22 checks. Side-by-side frames show the warm landing light and rail shadows in the same positions. The overall 30 fps work order and owner play remain open.
+
+The composed production route passed 369 checks and 176 walking waypoints, including radiator insert delivery, physical repair and reconstruction from disk. The rendered-surface suite passed 818 checks and 23 paired frames received technical review. Artistic acceptance remains open.
+
+[Installed and composed qualification](D:/ov_reports/frame_rate_20261125/f03_shaft_release_ec629332e/STATUS.md).
+
 # First-person hose arm momentum, November 25
 
 Evidence class: **INERT**.
