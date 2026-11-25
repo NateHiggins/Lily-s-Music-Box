@@ -20,6 +20,9 @@ const WARMUP_FRAMES := 60
 const SAMPLE_FRAMES := 120
 const HEADINGS := 4
 const SETTLE_SECONDS := 20.0
+const MATRIX_SIZE := Vector2i(2560, 1440)
+const MAX_HORIZONTAL_DRIFT := 0.07
+const MAX_HEADING_DRIFT := 0.005
 const EYE_NOTE := "the player's own camera at the player's own eye height"
 
 ## "local" is in the building's frame (the adapter root), "passage" in the
@@ -64,6 +67,22 @@ func _process(_delta: float) -> void:
 
 
 func _run() -> void:
+	# Keep the window client's render area at the budgeted resolution on the
+	# hidden desktop. A decorated window can lose its title-bar height.
+	get_window().borderless = true
+	get_window().size = MATRIX_SIZE
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if Vector2i(get_viewport().get_visible_rect().size) != MATRIX_SIZE \
+			or RenderingServer.get_current_rendering_method() != "forward_plus":
+		push_error("The performance matrix requires exact 2560 × 1440 Forward+")
+		get_tree().quit(1)
+		return
+	for action: StringName in InputMap.get_actions():
+		for event: InputEvent in InputMap.action_get_events(action):
+			if event is InputEventJoypadMotion or event is InputEventJoypadButton:
+				InputMap.action_erase_event(action, event)
+				Input.action_release(action)
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 20 * 60)
@@ -172,7 +191,9 @@ func _measure(station: Dictionary) -> Dictionary:
 	for index in HEADINGS:
 		player.velocity = Vector3.ZERO
 		player.global_position = placed.position
-		player.rotation.y = TAU * float(index) / float(HEADINGS)
+		var yaw := TAU * float(index) / float(HEADINGS)
+		player.rotation.y = yaw
+		player.camera.rotation.x = 0.0
 		for i in WARMUP_FRAMES:
 			await get_tree().process_frame
 		_frame_usec = PackedInt64Array()
@@ -183,12 +204,28 @@ func _measure(station: Dictionary) -> Dictionary:
 		var calls := 0.0
 		var primitives := 0.0
 		var objects := 0.0
+		var visible := PackedFloat64Array()
+		var shadows := PackedFloat64Array()
+		var max_horizontal_drift := 0.0
+		var max_heading_drift := 0.0
+		var room_before := world.room_at_world(player.global_position)
 		for i in SAMPLE_FRAMES:
 			await get_tree().process_frame
 			calls = maxf(calls, Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
 			primitives = maxf(primitives, Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME))
 			objects = maxf(objects, Performance.get_monitor(Performance.RENDER_TOTAL_OBJECTS_IN_FRAME))
+			visible.append(RenderingServer.viewport_get_render_info(_viewport_rid,
+				RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME))
+			shadows.append(RenderingServer.viewport_get_render_info(_viewport_rid,
+				RenderingServer.VIEWPORT_RENDER_INFO_TYPE_SHADOW, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME))
+			var offset: Vector3 = player.global_position - placed.position
+			max_horizontal_drift = maxf(max_horizontal_drift, Vector2(offset.x, offset.z).length())
+			max_heading_drift = maxf(max_heading_drift, absf(angle_difference(player.rotation.y, yaw)))
 		_sampling = false
+		var room_after := world.room_at_world(player.global_position)
+		if max_horizontal_drift > MAX_HORIZONTAL_DRIFT or max_heading_drift > MAX_HEADING_DRIFT or room_after != room_before:
+			failures.append("%s yaw %.0f drifted (horizontal %.3f m, heading %.4f rad, room %s to %s)" % [
+				station.name, rad_to_deg(yaw), max_horizontal_drift, max_heading_drift, room_before, room_after])
 		var wall := _summary_usec(_frame_usec)
 		headings.append({
 			"yaw_degrees": 360.0 * float(index) / float(HEADINGS),
@@ -196,6 +233,9 @@ func _measure(station: Dictionary) -> Dictionary:
 			"wall_ms_median": wall.median, "wall_ms_p95": wall.p95, "wall_ms_max": wall.maximum,
 			"render_cpu_ms_median": _median(_cpu_ms), "render_gpu_ms_median": _median(_gpu_ms),
 			"draw_calls": int(calls), "primitives": int(primitives), "objects": int(objects),
+			"main_visible_draws_median": _median(visible), "main_shadow_draws_median": _median(shadows),
+			"max_horizontal_drift_m": max_horizontal_drift, "max_heading_drift_rad": max_heading_drift,
+			"room_before": room_before, "room_after": room_after,
 		})
 	var worst: Dictionary = headings[0]
 	for heading: Dictionary in headings:
