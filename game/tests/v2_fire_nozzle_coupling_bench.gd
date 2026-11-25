@@ -80,6 +80,8 @@ func _run() -> void:
 	if not check(actor.valid_mechanism(seated),"ancestor regression starts from a valid seated mechanism"):
 		get_tree().quit(1);return
 	actor.restore_mechanism(seated)
+	for frame in 3:await get_tree().physics_frame
+	check(not joint.is_physics_processing(),"the coupling takes no physics tick while nothing moves")
 	var original_frame: Transform3D=adapter.root.global_transform
 	for shifted in [true,false]:
 		adapter.root.global_transform=original_frame*Transform3D(Basis(Vector3.UP,.13),Vector3(.11,0,.07)) if shifted else original_frame
@@ -91,6 +93,7 @@ func _run() -> void:
 			var physical: Transform3D=published*PhysicsServer3D.body_get_shape_transform(joint.body.get_rid(),index)
 			for row: Dictionary in joint._lever_rows:
 				if row.shape==lever_shape:check(physical.is_equal_approx(row.draw.global_transform),"ancestor movement keeps original lever physics at its native draw")
+	check(not joint.is_physics_processing(),"and idles again once the moves are published")
 	actor.restore_mechanism(initial_mechanism)
 	var facts: Dictionary=actor.maintenance_snapshot();facts.door_open=true;actor.restore_maintenance_snapshot(facts)
 	for frame in range(15):await get_tree().physics_frame
@@ -99,6 +102,13 @@ func _run() -> void:
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":player.global_position=actor.to_global(Vector3(-.1,-1.175,1.15))
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var hand: Node=Hand.PatrolHand.new();hand.player=player;add_child(hand)
+	# A positive carry witness without native cursor delivery: the FPS carry aims
+	# by camera, so it stands apart from the inspection steps the hidden desktop
+	# cannot deliver. Every assertion is the full programme's own.
+	if OS.get_environment("ORISON_NOZZLE_CARRY_ONLY")=="1":
+		await exercise_fps_carry(actor)
+		print("V2 FIRE NOZZLE CARRY ONLY: ","PASS" if failures.is_empty() else "FAIL"," failures=",failures.size())
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	# The standalone programme includes the installed review's actual valve
 	# closure, after entering its supported inspection camera.
 	OS.set_environment("ORISON_NOZZLE_CLOSED_VALVE","1")
