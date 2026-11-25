@@ -75,8 +75,14 @@ func _route() -> void:
 	player._unhandled_input(motion)
 	for frame in 20:
 		await get_tree().process_frame
+	# The glove poses on its own drawing cadence, independently of the render rate.
+	var previous_drawing: float = arm.clock
+	var drawing_deadline := Time.get_ticks_msec() + ceili(2000.0 / Arm.DRAWINGS_PER_SECOND)
+	while arm.clock == previous_drawing and Time.get_ticks_msec() < drawing_deadline:
+		await get_tree().process_frame
 	grip = player._grab.target.part.to_global(player._grab.contact)
-	_require(arm.palm_position().distance_to(grip) < 0.06, "the glove follows the moved part (%.3f m)" % arm.palm_position().distance_to(grip))
+	var follow_gap: float = arm.palm_position().distance_to(grip)
+	_require(arm.clock != previous_drawing and follow_gap < 0.06, "the glove follows the moved part (%.3f m)" % follow_gap)
 	await _capture_interaction("hose_arm_moved")
 	# Momentum shapes the waves: turning the view side to side swings the glove
 	# horizontally across the hose, nodding swings it vertically.
