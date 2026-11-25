@@ -259,18 +259,32 @@ func _route() -> void:
 		return
 	await _glove_wears(item, true)
 
-	# Back on its own shelf: a click on the shelf stock with the book in the hand.
+	# Approach from the installed nook route's known standing position.
+	# Aim at the exposed stock faces and let the ordinary ray select the shelf.
 	var shelf: Node3D = original.shelf
-	var out := Vector3(shelf.global_basis.z.x, 0.0, shelf.global_basis.z.z).normalized()
 	player.camera.rotation.x = 0.0
-	player.global_position = Vector3(sibling.global_position.x, shelf.global_position.y + .02, sibling.global_position.z) + out * .85
+	player.global_position = world.adapter.root.to_global(Vector3(-0.48, -3.159, 2.1))
 	player.velocity = Vector3.ZERO
 	for frame in 4:
 		await get_tree().physics_frame
-	player.camera.look_at(sibling.to_global(sibling.pickup_centre()))
-	await get_tree().physics_frame
-	var aimed: Dictionary = player._grab.find_target()
-	print("BOOK SHELVE TARGET: ", aimed.get("put_back", ""), " part=", aimed.get("part"))
+	var aimed: Dictionary = {}
+	for book: Book in shelf._books.values():
+		if not book.visible:
+			continue
+		var point := book.to_global(Vector3(-0.001, float(book.construction.height) * 0.65, 0.0))
+		if player.camera.global_position.distance_to(point) > 2.1:
+			continue
+		player.camera.look_at(point)
+		await get_tree().physics_frame
+		aimed = player._grab.find_target()
+		if str(aimed.get("put_back", "")) == original.stock_id:
+			break
+	if str(aimed.get("put_back", "")) != original.stock_id:
+		var shelf_hit: Node = player._grab.last_hit.get("collider") as Node
+		print("BOOK SHELVE RAY: eye=", player.camera.global_position, " shelf=", shelf.global_position,
+			" hit=", str(shelf_hit.get_path()) if is_instance_valid(shelf_hit) else "",
+			" descriptor=", aimed.keys())
+
 	if not _require(str(aimed.get("put_back", "")) == original.stock_id, "aiming at the shelf offers the held book's place"):
 		return
 	player.use_primary_interaction()
