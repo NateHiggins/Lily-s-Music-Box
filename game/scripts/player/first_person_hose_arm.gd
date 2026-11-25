@@ -62,6 +62,7 @@ var _rest: Dictionary = {}
 var _target := Vector3.ZERO
 var _holding := false
 var _recoil := 0.0
+var _socket: BoneAttachment3D
 
 
 func bind(owner_player: Node) -> bool:
@@ -96,8 +97,25 @@ func bind(owner_player: Node) -> bool:
 		for surface in draw.mesh.get_surface_count():
 			var source := draw.mesh.surface_get_material(surface)
 			draw.set_surface_override_material(surface, _finish(source.resource_name if source != null else ""))
+	# The glove socket: where a held item is worn in first person. The arm keeps
+	# no item of its own; the held-objects slice decides what goes in it.
+	_socket = BoneAttachment3D.new()
+	_socket.name = "GloveSocket"
+	_socket.bone_name = "Hand"
+	_socket.set_meta("render_layers", LAYER)
+	skeleton.add_child(_socket)
 	visible = false
 	return true
+
+
+## Where a held item is worn in first person: a BoneAttachment3D on the glove's
+## Hand bone. Its origin is the wrist, with +Y along the palm (the palm itself
+## is PALM_FROM_WRIST * GLOVE_SCALE out along +Y). It inherits the glove's
+## GLOVE_SCALE, so an item worn here is drawn 1.6x unless its wearer scales it back.
+## Anything placed under it must draw on LAYER (its "render_layers" meta) with no
+## shadow, so mirrors and the lamp's depth camera leave it out, as they do the arm.
+func glove_socket() -> BoneAttachment3D:
+	return _socket
 
 
 ## Flat paper white for the glove, flat ink for the hose and stitches; all inked round.

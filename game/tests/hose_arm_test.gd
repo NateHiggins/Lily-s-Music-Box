@@ -58,6 +58,12 @@ func _route() -> void:
 	var gap: float = arm.palm_position().distance_to(grip)
 	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95, "holding, the arm has reached in and the glove is closed (reach %.2f, curl %.2f)" % [arm.reach, arm.curl])
 	_require(gap < 0.06, "the drawn palm is on the grip (%.3f m)" % gap)
+	var socket: BoneAttachment3D = arm.glove_socket()
+	var wrist_gap := -1.0
+	if socket != null:
+		wrist_gap = socket.global_position.distance_to(arm.palm_position() - socket.global_basis.y.normalized() * Arm.PALM_FROM_WRIST * Arm.GLOVE_SCALE)
+	_require(socket != null and socket.name == "GloveSocket" and socket.bone_name == "Hand" and int(socket.get_meta("render_layers", 0)) == Arm.LAYER and wrist_gap >= 0.0 and wrist_gap < 0.005,
+			"the glove socket rides the Hand bone at the wrist, on the arm's layer (%.4f m)" % wrist_gap)
 	_require(_arm_keeps_depth_isolation(arm, "drawn"), "with the arm drawn, nothing of the arm disturbs the lamp's depth isolation")
 	var depth_view: Camera3D = world.get_node("LampAtmosphere").get("scene_shadow").get("camera")
 	_require(arm.visible and depth_view != null and depth_view.cull_mask & Arm.LAYER == 0,
