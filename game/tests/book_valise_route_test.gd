@@ -205,11 +205,32 @@ func _route() -> void:
 	var glove: Node = _avatar().get("glove_slot") if _avatar() != null else null
 	_require(not is_instance_valid(glove) or glove.part() == null or not glove.part().visible,
 		"the glove's copy is out of sight while the book is read")
+	_reading_diagnostic("after_process_signal", original, glove)
 	for frame in 100:
 		await get_tree().physics_frame
+	_reading_diagnostic("after_settling", original, glove)
 	var leaf: Vector3 = original.left.to_global(Vector3(float(original.construction.width) * .7,
 		float(original.construction.height) * .7, float(original.construction.thickness) * .5))
-	await _motion(player.camera.unproject_position(leaf).round())
+	var expected_pixel := player.camera.unproject_position(leaf).round()
+	await _motion(expected_pixel)
+	var found: Dictionary = player._grab.find_target()
+	var hit: Dictionary = player._grab.last_hit
+	var collider: Node = hit.get("collider")
+	var found_part: Node = found.get("part")
+	print("BOOK DIAGNOSTIC cover", {
+		"expected_pixel": expected_pixel,
+		"cursor": player.get_viewport().get_mouse_position(),
+		"in_view": player.get_viewport().get_visible_rect().has_point(expected_pixel),
+		"behind_camera": player.camera.is_position_behind(leaf),
+		"lens_distance": player.camera.global_position.distance_to(leaf),
+		"collider": str(collider.get_path()) if is_instance_valid(collider) else "",
+		"kind": found.get("kind", ""),
+		"blocked": found.get("blocked", false),
+		"part": str(found_part.get_path()) if is_instance_valid(found_part) else "",
+		"expected_part": str(original.left.get_path()),
+		"cover_target_disabled": original._cover_target.disabled,
+		"cover_collision_layer": original._cover_area.collision_layer,
+	})
 	player.use_primary_interaction()
 	if not _require(player._grab.active() and player._grab.target.part == original.left and player._grab.target.kind == "hinge",
 			"the free cursor grabs the floating cover"):
@@ -263,6 +284,19 @@ func _route() -> void:
 	record = shelved_save.v2_household_controls.records[collection].value.books[original.stock_id]
 	_require(not shelved_save[CarriedCase.KEY].places.has(item) and int(record.slot) == original.shelf_slot,
 		"the save records the shelved copy in its slot")
+
+
+func _reading_diagnostic(stage: String, original: Node3D, glove: Node) -> void:
+	var part: Node3D = glove.part() if is_instance_valid(glove) else null
+	print("BOOK DIAGNOSTIC ", stage, {
+		"inspection": player.inspecting(),
+		"reading_stock": player.inspect_owner.inspected_readable_stock() == original if player.inspecting() else false,
+		"worn_visible": part.visible if is_instance_valid(part) else false,
+		"worn_in_tree": part.is_visible_in_tree() if is_instance_valid(part) else false,
+		"glove_processing": glove.is_processing() if is_instance_valid(glove) else false,
+		"busy": bool(glove.busy.call()) if is_instance_valid(glove) and glove.busy.is_valid() else false,
+		"book_visible": original.is_visible_in_tree(),
+	})
 
 
 func _avatar() -> Node:
