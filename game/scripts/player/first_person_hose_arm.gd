@@ -31,6 +31,9 @@ const FINGERS := ["Index", "Middle", "Ring"]
 const SHOULDER := Vector3(-0.30, -0.38, 0.06)
 ## Where the glove waits, just out of frame, on its way in and out.
 const STOWED := Vector3(-0.22, -0.46, -0.20)
+## Where the glove carries a held item when no part is being worked: low in the
+## left of the view, close enough to read the item, clear of the reticle.
+const CARRY := Vector3(-0.17, -0.20, -0.42)
 const PALM_FROM_WRIST := 0.052
 const DRAWINGS_PER_SECOND := 12.0
 const REACH_SECONDS := 0.20
@@ -63,6 +66,7 @@ var _target := Vector3.ZERO
 var _holding := false
 var _recoil := 0.0
 var _socket: BoneAttachment3D
+var _carrying := false
 
 
 func bind(owner_player: Node) -> bool:
@@ -118,6 +122,22 @@ func glove_socket() -> BoneAttachment3D:
 	return _socket
 
 
+## The palm from the socket's origin (the wrist), in the socket's own space.
+func palm_offset() -> Vector3:
+	return Vector3(0.0, PALM_FROM_WRIST * GLOVE_SCALE, 0.0)
+
+
+## Set by whoever owns what is held (the held-objects slice): while true the arm
+## shows and carries the glove at CARRY, even when no part is being grabbed. A
+## grab still takes the glove to the grip. The arm never reads the case itself.
+func set_holding(held: bool) -> void:
+	_carrying = held
+
+
+func holding() -> bool:
+	return _carrying
+
+
 ## Flat paper white for the glove, flat ink for the hose and stitches; all inked round.
 func _finish(key: String) -> ShaderMaterial:
 	var outline := ShaderMaterial.new()
@@ -140,6 +160,12 @@ func _process(delta: float) -> void:
 			if not _holding:
 				_recoil = 0.0
 			_holding = true
+	elif _carrying:
+		var camera: Camera3D = player.get("camera")
+		_target = camera.to_global(CARRY)
+		if not _holding:
+			_recoil = 0.0
+		_holding = true
 	elif not visible:
 		return
 	elif _holding:

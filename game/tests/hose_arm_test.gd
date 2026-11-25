@@ -83,6 +83,19 @@ func _route() -> void:
 	await get_tree().create_timer(0.5).timeout
 	_require(not arm.visible and arm.reach == 0.0, "after release the arm stows itself out of view")
 	await _capture_interaction("hose_arm_after")
+	# Something held, nothing grabbed: the held-objects slice raises the flag and the
+	# glove carries it low in the corner of the view, then stows when it is put away.
+	arm.set_holding(true)
+	await get_tree().create_timer(0.5).timeout
+	var carry: Vector3 = player.camera.to_global(Arm.CARRY)
+	var carry_gap: float = arm.palm_position().distance_to(carry)
+	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95 and carry_gap < 0.03,
+			"holding something with no grab, the glove carries it in view (%.3f m from its place)" % carry_gap)
+	_require(arm.glove_socket().to_global(arm.palm_offset()).distance_to(arm.palm_position()) < 0.005, "palm_offset() is the palm in socket space")
+	await _capture_interaction("hose_arm_carrying")
+	arm.set_holding(false)
+	await get_tree().create_timer(0.5).timeout
+	_require(not arm.visible and arm.reach == 0.0, "put away, the arm stows itself again")
 
 
 ## The lamp's depth camera skips ordinary lights only while no drawn geometry uses
