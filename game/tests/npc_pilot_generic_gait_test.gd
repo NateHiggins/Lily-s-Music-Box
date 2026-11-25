@@ -91,7 +91,7 @@ func run() -> void:
 	check(peter.cast_body != null, "Adela's rebuilt body is mounted for the witness")
 	check(peter.walk_gait == null, "a body outside the gate (Adela) keeps the plain walk")
 	var plain: Dictionary = await _walk(peter, 2.0, 1.05)
-	check(int(plain.rates) == 1 and is_equal_approx(peter._animation_player.speed_scale, 1.0), "his walk plays at 1x as before")
+	check(int(plain.rates) == 1 and is_equal_approx(peter._animation_player.speed_scale, 1.0), "the witness walk plays at 1x as before")
 	peter.queue_free()
 	await get_tree().process_frame
 	_finish(started)
