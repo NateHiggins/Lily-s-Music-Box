@@ -3,6 +3,7 @@ extends Node3D
 const LAYER:=1<<15
 const MODEL:="res://assets/characters/player_doodle/player_doodle.glb"
 const FACE_SHADER:=preload("res://shaders/player_doodle.gdshader")
+const HeldHandSlotScript := preload("res://scripts/characters/held_hand_slot.gd")
 var holder: PlayerController
 var animator: AnimationPlayer
 var skeleton: Skeleton3D
@@ -77,10 +78,10 @@ func _ready() -> void:
 ## The hand slot shows what the carried case says is held. It is drawn on the
 ## avatar's own layer, so mirrors see it and the first-person camera does not
 ## (ruling held_view_first_person_20261125 is open).
-var hand_slot: HeldHandSlot
+var hand_slot: HeldHandSlotScript
 
 func _bind_hand_slot() -> void:
-	hand_slot=HeldHandSlot.new();hand_slot.name="HandSlot";hand_slot.layers=LAYER
+	hand_slot=HeldHandSlotScript.new();hand_slot.name="HandSlot";hand_slot.layers=LAYER
 	skeleton.add_child(hand_slot)
 	if not hand_slot.bind_hand(skeleton):
 		hand_slot.queue_free();hand_slot=null;return
