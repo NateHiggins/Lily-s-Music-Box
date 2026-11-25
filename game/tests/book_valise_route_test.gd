@@ -215,7 +215,7 @@ func _route() -> void:
 	await _motion(expected_pixel)
 	var found: Dictionary = player._grab.find_target()
 	var hit: Dictionary = player._grab.last_hit
-	var collider: Node = hit.get("collider")
+	var ray_collider: Node = hit.get("collider")
 	var found_part: Node = found.get("part")
 	print("BOOK DIAGNOSTIC cover", {
 		"expected_pixel": expected_pixel,
@@ -223,7 +223,7 @@ func _route() -> void:
 		"in_view": player.get_viewport().get_visible_rect().has_point(expected_pixel),
 		"behind_camera": player.camera.is_position_behind(leaf),
 		"lens_distance": player.camera.global_position.distance_to(leaf),
-		"collider": str(collider.get_path()) if is_instance_valid(collider) else "",
+		"collider": str(ray_collider.get_path()) if is_instance_valid(ray_collider) else "",
 		"kind": found.get("kind", ""),
 		"blocked": found.get("blocked", false),
 		"part": str(found_part.get_path()) if is_instance_valid(found_part) else "",
