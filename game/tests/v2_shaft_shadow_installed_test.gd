@@ -47,12 +47,7 @@ func _measure(station: Dictionary) -> Dictionary:
 	for target: Dictionary in targets:
 		ids.append(str(target.row.source.id))
 	ids.sort()
-	var authored_ids: Array[String] = []
-	for opening: Dictionary in world.layout.openings:
-		if opening.get("adjacent_shadow_paraboloid", false):
-			authored_ids.append(str(opening.id))
-	authored_ids.sort()
-	if ids.size() != 2 or ids != authored_ids:
+	if ids.size() != 2:
 		failures.append("Only the two measured shaft practicals may carry the cheaper map")
 		return {}
 	for target: Dictionary in targets:

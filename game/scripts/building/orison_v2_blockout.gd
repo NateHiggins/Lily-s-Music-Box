@@ -774,7 +774,6 @@ func _build_service_opening_practical(parent: Node3D,
 	(lens.mesh as BoxMesh).material = lens_material
 	var light := OmniLight3D.new()
 	light.name = "WarmServiceLight"
-	light.set_meta("adjacent_shadow_paraboloid", bool(opening.get("adjacent_shadow_paraboloid", false)))
 	light.position = Vector3(0.0, -0.22, 0.0)
 	light.light_color = Color(1.0, 0.72, 0.45)
 	light.light_energy = 3.2

@@ -28,8 +28,7 @@ func setup(owner_world: Node3D) -> bool:
 		var light:=world.adapter.root.get_node_or_null(str(opening.id)+"/ServicePractical/WarmServiceLight") as OmniLight3D
 		if light==null:return false
 		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,
-			"graph_visible":true,"level":"","shaft":true,
-			"adjacent_shadow_paraboloid":bool(light.get_meta("adjacent_shadow_paraboloid",false))})
+			"graph_visible":true,"level":"","shaft":true})
 	for record: Dictionary in world.layout.doors:
 		if record.get("connects",[]).size()!=2:continue
 		var anchor: Node=world.adapter.root.get_node_or_null(str(record.id))
@@ -58,6 +57,9 @@ func _classify_sources() -> void:
 		var second: Dictionary=spaces.get(str(rooms[1]),{})
 		source.level=str(first.get("level",""))
 		source.shaft=source.level.is_empty() or first.is_empty() or second.is_empty() or _open_room(first) or _open_room(second)
+		source.service_shaft_threshold = (str(first.get("id", "")).ends_with("_SERVICE_HALL")
+			and str(second.get("id", "")).ends_with("_SERVICE_CORE")) or (
+			str(first.get("id", "")).ends_with("_SERVICE_CORE") and str(second.get("id", "")).ends_with("_SERVICE_HALL"))
 
 ## The storey an eye at `point` stands on, from the layout's own slab pitch.
 func level_at(point: Vector3) -> String:

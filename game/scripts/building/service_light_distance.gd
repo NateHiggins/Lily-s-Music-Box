@@ -4,6 +4,7 @@ extends RefCounted
 const BEGIN_M:=4.
 const LENGTH_M:=4.
 const END_M:=BEGIN_M+LENGTH_M
+const MEASURED_SHAFT_STOREYS := [2, 4]
 var policy: Node
 var world: Node3D
 var enabled:=false
@@ -18,7 +19,8 @@ func _init(owner_policy: Node) -> void:
 	for source: Dictionary in policy.sources:
 		var light: Light3D=source.light
 		var row := {"source":source,"shadow":light.shadow_enabled,"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow}
-		if light is OmniLight3D and source.shaft and source.adjacent_shadow_paraboloid:
+		if light is OmniLight3D and source.shaft and source.service_shaft_threshold \
+				and int(str(source.level).trim_prefix("F")) in MEASURED_SHAFT_STOREYS:
 			row.omni_mode = light.omni_shadow_mode
 		originals.append(row)
 

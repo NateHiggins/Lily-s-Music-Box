@@ -56,14 +56,15 @@ func _run() -> void:
 	world.layout = {
 		"dimensions": {"floor_to_floor": 3.2},
 		"spaces": [_space("F01_A", "F01"), _space("F01_B", "F01"), _space("F02_A", "F02"),
-			_space("F02_B", "F02"), _space("F02_CORE", "F02", true), _space("lower_core", "F01", true)],
+			_space("F02_B", "F02"), _space("F02_CORE", "F02", true), _space("lower_core", "F01", true),
+			_space("bench_SERVICE_HALL", "F02"), _space("bench_SERVICE_CORE", "F02", true)],
 		"openings": [
 			{"id": "F01_SEALED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0, 2.34, 0)},
 			{"id": "F01_CROWDED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0.8, 2.34, 0)},
 			{"id": "F01_OMITTED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "omit": true},
 			{"id": "F02_SEALED", "connects": ["F02_A", "F02_B"], "shared_wall_owner": "x", "at": Vector3(0, 5.54, 0)},
 			{"id": "F02_SHAFT", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(2.5, 5.54, 0)},
-			{"id": "qualified_shaft_fixture", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(1.8, 5.54, 0), "adjacent_shadow_paraboloid": true},
+			{"id": "qualified_shaft_fixture", "connects": ["bench_SERVICE_HALL", "bench_SERVICE_CORE"], "shared_wall_owner": "x", "at": Vector3(1.8, 5.54, 0)},
 			{"id": "lower_core_link", "connects": ["F01_B", "lower_core"]},
 		],
 		"doors": [],
@@ -87,7 +88,6 @@ func _run() -> void:
 		anchor.add_child(practical)
 		var light := OmniLight3D.new()
 		light.name = "WarmServiceLight"
-		light.set_meta("adjacent_shadow_paraboloid", bool(opening.get("adjacent_shadow_paraboloid", false)))
 		light.shadow_enabled = true
 		light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 		practical.add_child(light)
