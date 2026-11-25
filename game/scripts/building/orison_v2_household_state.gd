@@ -425,8 +425,20 @@ func kitchen_tool_destination(holder: PlayerController, item: String) -> Node3D:
 	var rest: Vector3 = station.global_transform * station.rests[packed.assembly].origin
 	# Across the floor from where the holder stands, within the reach of a hand.
 	var across := Vector2(holder.global_position.x - rest.x, holder.global_position.z - rest.z).length()
-	return station if across <= 1.6 and absf(holder.global_position.y + 1.0 - rest.y) <= 1.0 \
-			and station.rest_clear(packed.assembly) else null
+	if across > 1.6 or absf(holder.global_position.y + 1.0 - rest.y) > 1.0 or not station.rest_clear(packed.assembly):
+		return null
+	return station if _kitchen_reach_clear(holder, station, rest) else null
+
+
+## Reach is a hand's, not a radius: the eye must see the rest with nothing but the
+## station's own table and stock in between (a wall between rooms is not reach).
+func _kitchen_reach_clear(holder: PlayerController, station: Node, rest: Vector3) -> bool:
+	var excluded: Array[RID] = [holder.get_rid()]
+	for body: CollisionObject3D in station.find_children("*", "CollisionObject3D", true, false):
+		excluded.append(body.get_rid())
+	var eye: Vector3 = holder.camera.global_position
+	var query := PhysicsRayQueryParameters3D.create(eye, rest + Vector3.UP * .03, 0xFFFFFFFF, excluded)
+	return holder.get_world_3d().direct_space_state.intersect_ray(query).is_empty()
 
 
 func deliver_kitchen_tool(holder: PlayerController, item: String) -> bool:

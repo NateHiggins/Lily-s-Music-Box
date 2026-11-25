@@ -270,6 +270,18 @@ func _route() -> void:
 
 	# The case's push-out puts the pin back at its own station: stand within reach first
 	# (the reload can leave the body up to a step further back than the take did).
+	# Codex 2026-11-25: across the wall in F02_A_MAIN the rest is within 1.6 m of the floor
+	# stance but behind masonry, outside the kitchen opening. The case must not offer it.
+	var far_side: Vector3 = world.adapter.root.to_global(Vector3(-13.01, 3.2, 2.55))
+	player.global_position = far_side
+	player.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await _aim(station.global_transform * station.rests.RollingPin.origin)
+	var pin_rest_world: Vector3 = station.global_transform * station.rests.RollingPin.origin
+	_require(Vector2(player.global_position.x - pin_rest_world.x, player.global_position.z - pin_rest_world.z).length() <= 1.6 \
+			and state.kitchen_tool_destination(player, pin_item) == null,
+		"across the 2A kitchen wall the packed pin is within radius but offers no put-back")
 	_require(await _stand_at(station, [.75, .85, .95]), "a near stance at the 2A table for the case's put-back")
 	await _key(KEY_TAB)
 	await get_tree().create_timer(0.65).timeout
