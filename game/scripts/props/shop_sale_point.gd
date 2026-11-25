@@ -18,6 +18,14 @@ const SELECTOR_TRAVEL := 0.10
 const SELECTOR_AT := Vector3(-0.26, 0.0, 0.0)
 const PIXELS_PER_STOP := 16.0
 const MIN_GESTURE_PIXELS := 120.0
+## One teaching slip, once per campaign, the first time the hand finds a counter's
+## picker or lever (Bible VIII.5.l: an opaque handheld message and a crude drawing on
+## the field-slip printer). It never gates the sale: the counter works without it.
+const SLIPS_KEY := "field_slips"
+const SLIP_ID := "sale_point"
+const SLIP := {"title": "QUEENS MUTUAL / COUNTER",
+	"body": "THE PICKER WALKS THE LIST STOP\nTHE LEVER SETTLES IT STOP\n\n   [ <--- o ---> ]        |\n       pick one           o\n                          |   all the way\n                          v\n\nCARBON COMES BACK BY RADIO STOP",
+	"condition": "COUNTER COPY / ONE ISSUE", "stamp": "SERVICE NOTE"}
 
 var sales: ShopSales
 var item_ids: Array[String] = []
@@ -58,6 +66,7 @@ func configure(shop_sales: ShopSales, identities: Array[String]) -> bool:
 	stock.draw(lever, "TerminalLever")
 	if not terminal.configure(sales, item_ids[0], lever):
 		return false
+	terminal.on_found = teach
 	terminal.sale_result.connect(_on_sale)
 	selector = Node3D.new()
 	selector.name = "Selector"
@@ -93,6 +102,42 @@ func _letter(parent: Node3D, label: String, text: String, at: Vector3, em: float
 	return result
 
 
+## Prints the counter slip the first time a hand finds any counter, if the set can
+## print it; remembered on the campaign once paper is issued, never issued twice.
+func teach() -> bool:
+	if issued():
+		return false
+	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
+	# A call holds the set; a missing or unpowered printer cannot issue paper.
+	if player == null or player.call_locked or not is_instance_valid(player.carried_device) \
+			or not player.carried_device.has_method("print_telegram_card"):
+		return false
+	# The slip never replaces a page still printing or feeding, a keyed copy or a draft.
+	var device: Variant = player.carried_device.get("device")
+	var teletype: Variant = device.get("teletype") if device is Node else null
+	if teletype is Node and teletype.has_method("accepts_low_priority_copy") \
+			and not bool(teletype.call("accepts_low_priority_copy")):
+		return false
+	# The printer authority answers whether paper actually came out. Only then is
+	# the slip issued; otherwise the next time the hand finds a counter tries again.
+	if not bool(player.carried_device.call("print_telegram_card", SLIP.duplicate())):
+		return false
+	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
+	if slips is not Dictionary:
+		slips = {}
+	slips[SLIP_ID] = true
+	RealityState.data[SLIPS_KEY] = slips
+	RealityState.commit()
+	return true
+
+
+## Whether the counter slip has been issued on this campaign. A save from before
+## the slip existed has no field_slips and simply has not issued it.
+static func issued() -> bool:
+	var slips: Variant = RealityState.data.get(SLIPS_KEY, {})
+	return slips is Dictionary and bool(slips.get(SLIP_ID, false))
+
+
 func _selector_grip() -> Dictionary:
 	if selector == null or item_ids.size() < 2:
 		return {}
@@ -107,6 +152,8 @@ func _selector_grip() -> Dictionary:
 				return false
 			refresh_list()
 			_selector_held = true
+			# Only a successful take, never the reticle's query, may print the slip.
+			teach()
 			return true,
 		"owns": func(): return _selector_held,
 		"end": func():

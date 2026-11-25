@@ -78,13 +78,51 @@ func _route() -> void:
 	add_child(_hand)
 	_hand.player = player
 
+	# The counter's teaching slip: once, when the hand first finds a counter.
+	# Counted at the printer authority itself, around grabs that settle nothing.
+	var SalePoint := preload("res://scripts/props/shop_sale_point.gd")
+	RealityState.data.erase(SalePoint.SLIPS_KEY)
+	var printer: Node = player.carried_device.device
+	var radio_was: bool = printer.radio_powered
+	printer.radio_powered = false
+	var before_off := int(printer.printed_count)
+	_require(not points.hardware_paint.teach() and not SalePoint.issued() and int(printer.printed_count) == before_off,
+			"with the set off no paper comes out and the slip stays unissued")
+	printer.radio_powered = radio_was
 	# Hardware: the real hand on the selector, then the lever.
 	var hardware: Node3D = points.hardware_paint
 	await _stand_before(hardware)
 	await _capture_interaction("shop_hardware_counter")
 	var chosen: String = hardware.selected_item()
+	# Aiming alone (the reticle queries the grip every frame) prints nothing.
+	var before_aim := int(printer.printed_count)
+	await _hand.aim(hardware.selector.to_global(Vector3(0, .094, -.025)))
+	for frame in 6:
+		player._update_prompt()
+		await get_tree().physics_frame
+	_require(int(printer.printed_count) == before_aim and not SalePoint.issued() and not player._grab.active(),
+			"aiming at the picker without taking it prints nothing and issues nothing")
+	# A field copy still printing is never replaced: the slip waits for the next take.
+	var teletype: Node = printer.teletype
+	var busy := {"title": "BUSY FIELD COPY", "body": "A LONG FIELD REPORT STILL COMING OFF THE PLATEN STOP ".repeat(8)}
+	_require(bool(printer.print_telegram_card(busy)) and not teletype.accepts_low_priority_copy(), "a long field copy is printing")
+	var before_busy := int(printer.printed_count)
 	var moved: bool = await _slide_selector(hardware, 0.05)
 	_require(moved, "the real hand moves the selector")
+	_require(int(printer.printed_count) == before_busy and not SalePoint.issued()
+			and teletype.pages.size() > 0 and str(teletype.pages[0]).begins_with("BUSY FIELD COPY"),
+			"while a copy prints, taking the picker leaves the copy on the page and the slip unissued")
+	var waited := 0.0
+	while not teletype.accepts_low_priority_copy() and waited < 30.0:
+		await get_tree().create_timer(0.25).timeout
+		waited += 0.25
+	_require(teletype.accepts_low_priority_copy(), "the field copy is delivered (%.1f s)" % waited)
+	var before_first := int(printer.printed_count)
+	var moved_again: bool = await _slide_selector(hardware, 0.08)
+	_require(moved_again and int(printer.printed_count) == before_first + 1 and SalePoint.issued(),
+			"the next take prints the slip once and issues it: %d" % (int(printer.printed_count) - before_first))
+	await get_tree().create_timer(1.5).timeout
+	await _capture_interaction("shop_counter_teaching_slip")
 	_require(hardware.selected_item() != chosen, "the selector walks the list")
 	chosen = hardware.selected_item()
 	var record: Dictionary = hardware.sales.stock_record(chosen)
@@ -118,7 +156,9 @@ func _route() -> void:
 		if str(bodega.sales.stock_record(bodega.item_ids[i + 1]).kind) == "grocery":
 			aim_at = i + 1
 			break
+	var before_bodega := int(printer.printed_count)
 	var bodega_moved: bool = await _slide_selector(bodega, bodega._stop_travel(aim_at))
+	_require(int(printer.printed_count) == before_bodega and not bodega.teach(), "the Bodega's picker prints nothing: the slip is issued")
 	_require(bodega_moved, "the real hand walks the Bodega's selector down its list")
 	var item: String = bodega.selected_item()
 	_require(str(bodega.sales.stock_record(item).kind) == "grocery",
@@ -128,6 +168,7 @@ func _route() -> void:
 	_require(bodega.flag.text == "SETTLED", "the Bodega's flag says settled: " + bodega.flag.text)
 	_require(PersonInventory.carried("player", item) > 0.0, "and goes in the bag")
 
+	_require(SalePoint.issued() and not points.news_cigars.teach(), "no other counter reissues it")
 	# News: ordinary stock at the counter and newspapers at the rack.
 	await _stand_before(points.news_cigars)
 	await _capture_interaction("shop_news_counter")
@@ -239,6 +280,34 @@ func _route() -> void:
 		await _errand_save_boundary(errands, item_use, economy, bodega)
 	_require(ResidentErrands.valid(RealityState.data.get("resident_errands", {})), "errands stay valid")
 	await _capture_interaction("shop_news_counter_after")
+	_teaching_slip_round_trip(points.bodega)
+
+
+## The once-per-campaign mark survives a real save and reload, and a save from
+## before the slip existed still loads, simply not having issued it.
+func _teaching_slip_round_trip(counter: Node3D) -> void:
+	var SalePoint := preload("res://scripts/props/shop_sale_point.gd")
+	var printer: Node = player.carried_device.device
+	var original_path := RealityState.save_path
+	var original_persistence := RealityState.persistence_enabled
+	var path := "user://teaching_slip_round_trip_%d.json" % Time.get_ticks_usec()
+	RealityState.save_path = path
+	RealityState.persistence_enabled = true
+	_require(SalePoint.issued() and RealityState.save_game(), "the issued slip is saved to disk")
+	RealityState.data.erase(SalePoint.SLIPS_KEY)
+	RealityState.load_game()
+	var before := int(printer.printed_count)
+	_require(SalePoint.issued() and not counter.teach() and int(printer.printed_count) == before,
+			"reloaded from disk the slip is still issued and prints nothing")
+	RealityState.data.erase(SalePoint.SLIPS_KEY)
+	_require(RealityState.save_game(), "a save without field_slips is written")
+	RealityState.load_game()
+	_require(RealityState.can_continue() and not RealityState.data.has(SalePoint.SLIPS_KEY) and not SalePoint.issued(),
+			"a save from before the slip loads and has not issued it")
+	RealityState.save_path = original_path
+	RealityState.persistence_enabled = original_persistence
+	for suffix: String in ["", ".bak", ".tmp"]:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path + suffix))
 
 
 func _newspaper_sales(economy: Node) -> void:

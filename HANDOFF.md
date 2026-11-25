@@ -1,3 +1,23 @@
+# Counter teaching slip, November 24
+
+Evidence class: **INERT**.
+
+PR #552 composes the one-time physical teaching slip from PR #549.
+The selector and lever request it after a successful grab. A busy
+printer keeps its current work and the slip retries on a later grab.
+The issued marker follows successful print and survives disk reload.
+
+The clean installed route passed 92 checks including the idle reticle,
+busy copy, retry, once-only issue, saved marker and legacy save.
+Commerce and five-script compilation passed. The composed first slice
+passed 369 checks and 176 walking waypoints through the original
+radiator repair and disk reconstruction. The physical-surface contract
+passed 818 checks and all 23 paired views received technical review.
+The slip text is too small to judge in the counter capture. Owner play
+and lettering review remain open.
+
+[Counter qualification](D:/ov_reports/orison_npc_gait_face_intake_20261124/counter_slip_def9e228/STATUS.md).
+
 # Cam's dawn restock and newspaper spelling, November 24
 
 Evidence class: **INERT**.
