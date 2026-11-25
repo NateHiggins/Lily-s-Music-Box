@@ -10,6 +10,8 @@ extends Node3D
 ##    shoulder to the glove, stretching rather than locking straight.
 ##  - It writhes like a snake: a wave runs down the hose in two crossed planes,
 ##    pinned at the shoulder and the wrist so the glove stays on what it holds.
+##    Momentum shapes it: moving sideways throws horizontal waves, moving up or
+##    down throws vertical ones, and the hose bows back against the motion.
 ##  - It keeps a rhythm: on a steady beat the hose's droop breathes, the glove bobs,
 ##    and the fingers roll over the grip one after another.
 ##  - Cartoon timing: a little pull-back before the reach, an overshoot on arrival,
@@ -42,11 +44,20 @@ const CURL_RATE := 8.0
 ## The beat the limb keeps, and the writhe that runs down it.
 const BEATS_PER_MINUTE := 104.0
 const WRITHE_WAVES := 1.35     # wavelengths along the hose
-const WRITHE_SPEED := 1.6      # waves per second running toward the glove
-const WRITHE_SIDE := 0.034     # metres, side to side
-const WRITHE_LIFT := 0.022     # metres, up and down, a quarter-wave behind
-const RECOIL_WRITHE := 2.4     # how much wilder the hose whips on the way out
-const GLOVE_BOB := 0.008
+const WRITHE_SPEED := 1.6      # waves per second running toward the glove, at rest
+const WRITHE_SIDE := 0.065     # metres, side to side, at rest
+const WRITHE_LIFT := 0.045     # metres, up and down, a quarter-wave behind, at rest
+const RECOIL_WRITHE := 1.6     # how much wilder the hose whips on the way out
+const GLOVE_BOB := 0.02
+const DROOP_BREATH := 0.75     # how far the droop swells on the beat
+## Momentum (Lily, 2026-11-25): the glove's motion across the hose drives the
+## waves. Moving sideways throws horizontal waves; moving up or down throws
+## vertical ones; the hose bows back against the motion, and the wave runs faster.
+const MOMENTUM_FULL := 0.9     # metres per second across the hose for full effect
+const MOMENTUM_WAVE := 0.11    # metres of wave in the direction of motion at full effect
+const MOMENTUM_DRAG := 0.09    # metres the hose bows back against the motion
+const MOMENTUM_HURRY := 2.2    # extra waves per second at full effect
+const MOMENTUM_EASE := 0.45    # how quickly momentum follows the glove, per drawing
 ## A cartoon glove is drawn big: it has to read at arm's length.
 const GLOVE_SCALE := 1.6
 
@@ -67,6 +78,15 @@ var _holding := false
 var _recoil := 0.0
 var _socket: BoneAttachment3D
 var _carrying := false
+var _drawing_seconds := 1.0 / DRAWINGS_PER_SECOND
+var _last_palm := Vector3.ZERO
+var _momentum := Vector3.ZERO    # skeleton space, metres per second
+var _wave_phase := 0.0
+var _fresh := true
+## The wave sizes of the last drawing (metres), side to side and up and down;
+## read-only, for tests and reviews.
+var wave_side := 0.0
+var wave_lift := 0.0
 
 
 func bind(owner_player: Node) -> bool:
@@ -187,8 +207,11 @@ func _process(delta: float) -> void:
 	curl = move_toward(curl, aim, elapsed * CURL_RATE)
 	_recoil = move_toward(_recoil, 0.0, elapsed * 3.0)
 	visible = reach > 0.0
+	_drawing_seconds = maxf(elapsed, 0.001)
 	if visible:
 		_pose()
+	else:
+		_fresh = true
 
 
 ## Anticipation, then an overshoot: pull back a little, then fling past and settle.
@@ -219,7 +242,7 @@ func _pose() -> void:
 	var length := maxf(line.length(), 0.05)
 	var forward := line / length
 	# The drooping hose breathes on the beat.
-	var droop := 1.0 + 0.35 * bounce
+	var droop := 1.0 + DROOP_BREATH * bounce
 	var sag := down * length * 0.10 * droop
 	# The glove points along the hose's last stretch, so the wrist is set back
 	# from the palm along that tangent: the palm then lands exactly on the grip.
@@ -228,17 +251,39 @@ func _pose() -> void:
 	var wrist := palm_local - arrival * palm_reach
 	var c1 := shoulder + forward * length * 0.35 + down * length * 0.18 * droop
 	var c2 := wrist - forward * length * 0.25 + sag
-	# The writhe: a two-plane wave running toward the glove, pinned at both ends.
+	# Momentum: how the glove is moving across the hose (its own motion and the
+	# camera's, since the arm hangs off the camera), smoothed drawing to drawing.
+	if _fresh:
+		_last_palm = palm_local
+		_momentum = Vector3.ZERO
+		_fresh = false
+	_momentum = _momentum.lerp((palm_local - _last_palm) / _drawing_seconds, MOMENTUM_EASE)
+	_last_palm = palm_local
 	var side := forward.cross(down).normalized()
 	var lift := side.cross(forward).normalized()
+	var across := _momentum - forward * _momentum.dot(forward)
+	var energy := clampf(across.length() / MOMENTUM_FULL, 0.0, 1.0)
+	var heading := across.normalized() if across.length() > 0.0001 else Vector3.ZERO
+	var horizontal := absf(heading.dot(side))
+	var vertical := absf(heading.dot(lift))
+	# At rest the hose snakes in both planes; moving, the waves turn into the plane
+	# of motion, grow, and hurry down the hose toward the glove.
+	var calm := 1.0 - energy
+	var side_amp := WRITHE_SIDE * calm + MOMENTUM_WAVE * energy * horizontal
+	var lift_amp := WRITHE_LIFT * calm + MOMENTUM_WAVE * energy * vertical
+	wave_side = side_amp
+	wave_lift = lift_amp
+	_wave_phase += (WRITHE_SPEED + MOMENTUM_HURRY * energy) * _drawing_seconds
+	var bow := -heading * MOMENTUM_DRAG * energy
 	var wild := 1.0 + RECOIL_WRITHE * _recoil
+	var scale_to_reach := minf(1.0, length / 0.4)
 	var points: Array[Vector3] = []
 	for i in ARM_BONES + 1:
 		var t := float(i) / ARM_BONES
-		var phase := TAU * (WRITHE_WAVES * t - WRITHE_SPEED * clock)
+		var phase := TAU * (WRITHE_WAVES * t - _wave_phase)
 		var pinned := sin(PI * t)
-		var wave := side * sin(phase) * WRITHE_SIDE + lift * sin(phase - PI * 0.5) * WRITHE_LIFT
-		points.append(_bezier(shoulder, c1, c2, wrist, t) + wave * pinned * wild * minf(1.0, length / 0.4))
+		var wave := side * sin(phase) * side_amp + lift * sin(phase - PI * 0.5) * lift_amp
+		points.append(_bezier(shoulder, c1, c2, wrist, t) + (wave * wild + bow) * pinned * scale_to_reach)
 	for i in ARM_BONES:
 		var rest: Transform3D = _rest[_arm_bones[i]]
 		var segment := points[i + 1] - points[i]
