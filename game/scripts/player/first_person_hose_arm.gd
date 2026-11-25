@@ -169,11 +169,16 @@ func _pose() -> void:
 	var line: Vector3 = palm_local - shoulder
 	var length := maxf(line.length(), 0.05)
 	var forward := line / length
-	var wrist := palm_local - forward * PALM_FROM_WRIST * GLOVE_SCALE
 	# The drooping hose breathes on the beat.
 	var droop := 1.0 + 0.35 * bounce
+	var sag := down * length * 0.10 * droop
+	# The glove points along the hose's last stretch, so the wrist is set back
+	# from the palm along that tangent: the palm then lands exactly on the grip.
+	var palm_reach := PALM_FROM_WRIST * GLOVE_SCALE
+	var arrival := (forward * length * 0.25 - sag).normalized()
+	var wrist := palm_local - arrival * palm_reach
 	var c1 := shoulder + forward * length * 0.35 + down * length * 0.18 * droop
-	var c2 := wrist - forward * length * 0.25 + down * length * 0.10 * droop
+	var c2 := wrist - forward * length * 0.25 + sag
 	# The writhe: a two-plane wave running toward the glove, pinned at both ends.
 	var side := forward.cross(down).normalized()
 	var lift := side.cross(forward).normalized()
@@ -193,7 +198,6 @@ func _pose() -> void:
 		var frame := (turn * rest.basis).scaled_local(Vector3(1.0, stretch, 1.0))
 		skeleton.set_bone_global_pose(_arm_bones[i], Transform3D(frame, points[i]))
 	var hand_rest: Transform3D = _rest[_hand]
-	var arrival := (wrist - points[ARM_BONES - 1]).normalized()
 	skeleton.set_bone_global_pose(_hand, Transform3D((Basis(Quaternion(hand_rest.basis.y.normalized(), arrival)) * hand_rest.basis).scaled_local(Vector3.ONE * GLOVE_SCALE), wrist))
 	# The fingers roll over the grip on the beat, one after another.
 	for i in _fingers.size():
