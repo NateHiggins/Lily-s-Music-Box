@@ -172,7 +172,7 @@ func _finish(key: String) -> ShaderMaterial:
 	outline.shader = OUTLINE
 	var fill := ShaderMaterial.new()
 	fill.shader = CEL
-	fill.set_shader_parameter("tone", 0.97 if key == "HoseGlove" else 0.02)
+	fill.set_shader_parameter("tone", 0.97 if key == "HoseGlove" else 0.0)
 	fill.next_pass = outline
 	return fill
 
