@@ -17,6 +17,12 @@ const LIBRARY_PATH := "res://data/orison_v2/readable_library.json"
 const LIBRARY_COPIES_PATH := "res://data/orison_v2/nook_readable_books.json"
 ## Covers extend beyond their authored block, with clearance at both edges.
 const BOOK_FOOTPRINT_ALLOWANCE := 0.004
+## Kitchen prep stock taken into the inventory (Lily 2026-11-24; ruling held_put_down_20261124:
+## it stays in the case until used somewhere). Item "kitchen_tool:<station>/<assembly>".
+const KITCHEN_TOOL_PREFIX := "kitchen_tool:"
+const KITCHEN_TOOL_FORMS := {"Breadboard": "flat", "SinkBridge": "flat", "RollingPin": "tool", "MixingBowl": "parcel"}
+## What the hand holds: one packed item or nothing. Optional, so older saves read as empty.
+const HAND := "hand"
 
 static var _data: Dictionary = {}
 static var _book_sizes: Dictionary = {}
@@ -93,6 +99,30 @@ static func library_fit(collection: String, copy: String) -> Dictionary:
 	return place
 
 
+static func kitchen_tool_item(station: String, assembly: String) -> String:
+	return KITCHEN_TOOL_PREFIX + station + "/" + assembly
+
+
+## [station, assembly] of a kitchen tool item, or [] if it is not one.
+static func kitchen_tool_parts(item: String) -> Array:
+	if not item.begins_with(KITCHEN_TOOL_PREFIX):
+		return []
+	var parts := item.trim_prefix(KITCHEN_TOOL_PREFIX).split("/")
+	if parts.size() != 2 or parts[0].is_empty() or not KITCHEN_TOOL_FORMS.has(parts[1]):
+		return []
+	return [parts[0], parts[1]]
+
+
+static func kitchen_tool_form(item: String) -> String:
+	var parts := kitchen_tool_parts(item)
+	return "" if parts.is_empty() else str(KITCHEN_TOOL_FORMS[parts[1]])
+
+
+static func hand(document: Dictionary = RealityState.data) -> String:
+	var case_book: Variant = document.get(KEY)
+	return str(case_book.get(HAND, "")) if case_book is Dictionary else ""
+
+
 static func book() -> Dictionary:
 	if not RealityState.data.has(KEY):
 		RealityState.data[KEY] = {"version": 1, "places": {}}
@@ -124,12 +154,17 @@ static func valid(value: Variant) -> bool:
 					or _book_size(copy) == Vector2i.ZERO:
 				return false
 		elif not has_form(place.form) or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM) \
-				or item.begins_with(VENT_INSERT_PREFIX) != (place.form == VENT_INSERT_FORM):
+				or item.begins_with(VENT_INSERT_PREFIX) != (place.form == VENT_INSERT_FORM) \
+				or (item.begins_with(KITCHEN_TOOL_PREFIX) and place.form != kitchen_tool_form(item)):
 			return false
 		var rect := _rect(place)
 		if not bounds.encloses(rect) or taken.any(func(other: Rect2i): return other.intersects(rect)):
 			return false
 		taken.append(rect)
+	if value.has(HAND):
+		var held: Variant = value[HAND]
+		if held is not String or (not held.is_empty() and not value.places.has(held)):
+			return false
 	return true
 
 
@@ -216,7 +251,7 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 	var place := place_of(item)
 	if place.is_empty() or not fits(item, str(place.form), x, y, turned):
 		return false
-	if item.begins_with(BOOK_PREFIX) or item.begins_with(VENT_INSERT_PREFIX):
+	if item.begins_with(BOOK_PREFIX) or item.begins_with(VENT_INSERT_PREFIX) or item.begins_with(KITCHEN_TOOL_PREFIX):
 		var prepare := func(document: Dictionary) -> bool:
 			if place_of(item) != place or not fits(item, str(place.form), x, y, turned):
 				return false

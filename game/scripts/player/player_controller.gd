@@ -1156,7 +1156,7 @@ func use_primary_interaction() -> void:
 		if not target.is_empty():
 			_grab.acquire(target)
 			return
-		if not inspecting(): _try_interact()
+		if not inspecting() and not _try_interact(): _put_down_held()
 
 
 func use_key_interaction() -> void:
@@ -1681,7 +1681,8 @@ func _blocked_above_step(motion: Vector3,step_height:float=.30) -> bool:
 	return false
 
 
-func _try_interact() -> void:
+## Answers whether something took the click.
+func _try_interact() -> bool:
 	var from := camera.global_position
 	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
 	var params := PhysicsRayQueryParameters3D.create(from, to)
@@ -1689,7 +1690,7 @@ func _try_interact() -> void:
 	params.exclude = [get_rid()]
 	var hit := get_world_3d().direct_space_state.intersect_ray(params)
 	if hit.is_empty():
-		return
+		return false
 	var node: Node = hit.collider
 	while node:
 		if hit.collider is Area3D and node.has_method("interact_area"):
@@ -1697,14 +1698,25 @@ func _try_interact() -> void:
 			_present_interaction_telegram(node, area_result)
 			world_modified.emit(node.global_position if node is Node3D
 					else global_position, node.name)
-			return
+			return true
 		if node.has_method("interact"):
 			var result: Variant = node.call("interact", self)
 			_present_interaction_telegram(node, result)
 			world_modified.emit(node.global_position if node is Node3D
 					else global_position, node.name)
-			return
+			return true
 		node = node.get_parent()
+	return false
+
+
+## A click on nothing usable puts down what the hand holds. It stays in the case
+## (ruling held_put_down_20261124: it stays in the inventory until used somewhere).
+func _put_down_held() -> void:
+	if CarriedCase.hand().is_empty():
+		return
+	var state := get_tree().get_first_node_in_group("v2_household_state")
+	if state != null and state.has_method("set_hand"):
+		state.set_hand("")
 
 
 ## Presentation follows the authoritative interaction; it cannot make a prop

@@ -256,6 +256,8 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary, d
 		errors.append("inconsistent purchased gasket custody")
 	if errors.is_empty() and not CarriedCase.valid_packed_inserts(document.get(CarriedCase.KEY, {}), value.records):
 		errors.append("inconsistent packed vent insert custody")
+	if errors.is_empty() and not valid_kitchen_custody(document.get(CarriedCase.KEY, {}), value.records):
+		errors.append("inconsistent kitchen tool custody")
 	_profile_end("validate",profile_started)
 	return errors.is_empty()
 
@@ -343,6 +345,151 @@ func commit_purchased_gasket(counter: Node, cabinet: Node, pickup: Node, fit: Di
 		cabinet.call("discard_staged_purchased_gasket")
 	_purchased_gasket_commit_active = false
 	return saved
+
+
+## Kitchen prep stock in the inventory (order w4b7f08c909bb; Lily 2026-11-24 and ruling
+## held_put_down_20261124). Taking moves a tool into the carried case and into the hand;
+## the station marks it stowed. The case and the station save together, so a reload never
+## shows both copies. Putting it down empties the hand; the item stays in the case.
+## Using it at its own station puts it back at its authored rest.
+func kitchen_station(identity: String) -> Node:
+	var station: Node = _subjects.get(identity)
+	return station if is_instance_valid(station) and _kinds.get(identity) == "mechanism" \
+			and station.has_method("rest_clear") else null
+
+
+func packed_kitchen_tool(item: String) -> Dictionary:
+	var parts := CarriedCase.kitchen_tool_parts(item)
+	if parts.is_empty() or not CarriedCase.book().places.has(item):
+		return {}
+	var station := kitchen_station(parts[0])
+	if station == null or not station.stowed.has(parts[1]):
+		return {}
+	return {"station": station, "assembly": parts[1]}
+
+
+func _kitchen_ready() -> bool:
+	return _bound and not _restoring and not _blocked and not RealityState.save_write_blocked
+
+
+func take_kitchen_tool(station: Node, assembly: String) -> bool:
+	var identity := str(station.name)
+	if not _kitchen_ready() or kitchen_station(identity) != station or not station.tools.has(assembly) \
+			or station.stowed.has(assembly) or station.bearing_load(assembly):
+		return false
+	var item := CarriedCase.kitchen_tool_item(identity, assembly)
+	var place := CarriedCase.first_fit(item, CarriedCase.kitchen_tool_form(item))
+	if place.is_empty():
+		return false
+	var prepare := func(document: Dictionary) -> bool:
+		var controls: Dictionary = document.get(KEY, {})
+		if not controls.get("records", {}).has(identity) or station.stowed.has(assembly) \
+				or station.bearing_load(assembly):
+			return false
+		controls.records[identity].value[assembly] = {"stowed": true}
+		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
+		grid.places[item] = place
+		grid[CarriedCase.HAND] = item
+		return CarriedCase.valid(grid) and _validate(controls, _kinds, _last_saved.get("records", {}), document)
+	return _commit_kitchen(prepare, station, identity)
+
+
+func return_kitchen_tool(station: Node, assembly: String) -> bool:
+	var identity := str(station.name)
+	var item := CarriedCase.kitchen_tool_item(identity, assembly)
+	if not _kitchen_ready() or kitchen_station(identity) != station or packed_kitchen_tool(item).is_empty() \
+			or not station.rest_clear(assembly):
+		return false
+	var prepare := func(document: Dictionary) -> bool:
+		var controls: Dictionary = document.get(KEY, {})
+		if not controls.get("records", {}).has(identity) or not station.rest_clear(assembly):
+			return false
+		var rest: Transform3D = station.rests[assembly]
+		var q := rest.basis.get_rotation_quaternion()
+		controls.records[identity].value[assembly] = {"position": [rest.origin.x, rest.origin.y, rest.origin.z],
+			"rotation": [q.x, q.y, q.z, q.w]}
+		var grid: Dictionary = document[CarriedCase.KEY]
+		grid.places.erase(item)
+		if str(grid.get(CarriedCase.HAND, "")) == item:
+			grid[CarriedCase.HAND] = ""
+		return CarriedCase.valid(grid) and _validate(controls, _kinds, _last_saved.get("records", {}), document)
+	return _commit_kitchen(prepare, station, identity)
+
+
+## The station of a packed tool when the holder stands at it, for the case view's "use".
+func kitchen_tool_destination(holder: PlayerController, item: String) -> Node3D:
+	var packed := packed_kitchen_tool(item)
+	if packed.is_empty() or not _kitchen_ready() or not is_instance_valid(holder):
+		return null
+	var station: Node3D = packed.station
+	var rest: Vector3 = station.global_transform * station.rests[packed.assembly].origin
+	# Across the floor from where the holder stands, within the reach of a hand.
+	var across := Vector2(holder.global_position.x - rest.x, holder.global_position.z - rest.z).length()
+	if across > 1.6 or absf(holder.global_position.y + 1.0 - rest.y) > 1.0 or not station.rest_clear(packed.assembly):
+		return null
+	return station if _kitchen_reach_clear(holder, station, rest) else null
+
+
+## Reach is a hand's, not a radius: the eye must see the rest with nothing but the
+## station's own table and stock in between (a wall between rooms is not reach).
+func _kitchen_reach_clear(holder: PlayerController, station: Node, rest: Vector3) -> bool:
+	var excluded: Array[RID] = [holder.get_rid()]
+	for body: CollisionObject3D in station.find_children("*", "CollisionObject3D", true, false):
+		excluded.append(body.get_rid())
+	var eye: Vector3 = holder.camera.global_position
+	var query := PhysicsRayQueryParameters3D.create(eye, rest + Vector3.UP * .03, 0xFFFFFFFF, excluded)
+	return holder.get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+
+
+func deliver_kitchen_tool(holder: PlayerController, item: String) -> bool:
+	var station := kitchen_tool_destination(holder, item)
+	return station != null and return_kitchen_tool(station, packed_kitchen_tool(item).assembly)
+
+
+## Change only what the hand shows: an item already in the case, or nothing.
+func set_hand(item: String) -> bool:
+	if not _kitchen_ready() or (not item.is_empty() and packed_kitchen_tool(item).is_empty()) \
+			or CarriedCase.hand() == item:
+		return false
+	var prepare := func(document: Dictionary) -> bool:
+		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
+		grid[CarriedCase.HAND] = item
+		return CarriedCase.valid(grid)
+	return RealityState.commit_case_and_household(prepare)
+
+
+func _commit_kitchen(prepare: Callable, station: Node, identity: String) -> bool:
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		station.restore_mechanism(verified.records[identity].value)
+		_restoring = false
+	return RealityState.commit_case_and_household(prepare, publish)
+
+
+## A stowed tool and its case item exist together or not at all; the hand names a packed item.
+func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
+	var places: Dictionary = case_book.get("places", {}) if case_book is Dictionary else {}
+	for item: String in places:
+		var parts := CarriedCase.kitchen_tool_parts(item)
+		if item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) and parts.is_empty():
+			return false
+		if parts.is_empty():
+			continue
+		var record: Variant = records.get(parts[0])
+		if kitchen_station(parts[0]) == null or record is not Dictionary or record.get("value") is not Dictionary \
+				or record.value.get(parts[1]) is not Dictionary or record.value[parts[1]].get("stowed") != true:
+			return false
+	for identity: String in records:
+		if kitchen_station(identity) == null or records[identity].get("value") is not Dictionary:
+			continue
+		for assembly: Variant in records[identity].value:
+			var pose: Variant = records[identity].value[assembly]
+			if pose is Dictionary and pose.get("stowed") == true \
+					and not places.has(CarriedCase.kitchen_tool_item(identity, str(assembly))):
+				return false
+	var held: String = case_book.get(CarriedCase.HAND, "") if case_book is Dictionary else ""
+	return held.is_empty() or (places.has(held) and held.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX))
 
 
 func packed_vent_insert(item: String) -> Dictionary:

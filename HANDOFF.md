@@ -1,3 +1,15 @@
+# Kitchen tools in the valise, November 25
+
+Evidence class: **INERT**.
+
+Kitchen prep tools use the household and valise save authorities. Putting a tool down clears the hand and keeps the tool in the valise. Returning it to its installed station requires a clear path and a stance within reach. Other portable item families remain in the held-object work order.
+
+The clean kitchen route passed 28 checks, with the existing carried-case and book-valise routes also passing. The shared physical surface suite passed 818 checks and 23 paired views received technical review. The composed authority and save route passed 369 checks and 176 walking waypoints, including radiator delivery, repair and disk reconstruction.
+
+The mirror avatar shows the carried tool. First-person glove fit is a separate follow-up. Owner play and artistic acceptance remain open.
+
+[Kitchen intake and preserved evidence](D:/ov_reports/orison_npc_gait_face_intake_20261124/kitchen_inventory_9554bba7a/STATUS.md).
+
 # First-person hose arm, November 25
 
 Evidence class: **INERT**.

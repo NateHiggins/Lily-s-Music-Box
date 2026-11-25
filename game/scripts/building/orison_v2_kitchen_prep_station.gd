@@ -1,9 +1,12 @@
 extends Node3D
 ## Native food-preparation stock; household state owns persistent loose poses.
+## A tool taken into the inventory is "stowed" (Lily 2026-11-24, order w4b7f08c909bb):
+## the world copy is hidden with its collision off, its rest kept, and the carried case
+## owns the item. Using it at this station puts it back at its authored rest.
 signal manipulation_changed
 var tools: Dictionary={}
-var held: RigidBody3D
-var payload: Array[RigidBody3D]=[]
+var stowed: Dictionary={}
+var rests: Dictionary={}
 var record: Dictionary
 var _fall_speed: Dictionary={}
 var _rests: Dictionary={}
@@ -44,13 +47,14 @@ func _wake() -> void:
 
 func _watch_rests() -> void:
 	if is_physics_processing():return
-	for body: RigidBody3D in tools.values():
-		if not _rested(body):_wake();return
+	for key: String in tools:
+		if not stowed.has(key) and not _rested(tools[key]):_wake();return
 
 func _physics_process(delta: float) -> void:
-	var settled: bool=held==null and payload.is_empty()
-	for body: RigidBody3D in tools.values():
-		if body==held or body in payload:continue
+	var settled:=true
+	for key: String in tools:
+		var body: RigidBody3D=tools[key]
+		if stowed.has(key):continue
 		if _rested(body):continue
 		_rests.erase(body.name);settled=false
 		var speed: float=float(_fall_speed.get(body.name,0.))+9.81*delta
@@ -67,69 +71,106 @@ func _physics_process(delta: float) -> void:
 		if not bearing.is_empty():_rests[body.name]={"owner":weakref(bearing.collider),"support_pose":bearing.collider.global_transform,"pose":body.global_transform}
 	if settled:set_physics_process(false)
 
+## Querying is free of side effects: the reticle calls this every frame. Only the
+## click (begin) takes or returns, through the household state's case commit, and
+## it never starts a carry: begin always answers false.
 func manipulation_target(hit: Dictionary) -> Dictionary:
-	var body:=hit.get("collider") as RigidBody3D
-	if body==null or not tools.values().has(body):return {}
-	return {"owner":self,"part":body,"frame":self,"kind":"free",
-		"read":func():return body.position,"write":func(value: Vector3):
-			if held==body:_carry(body,value),
-		"begin":func():
-			if held!=null or RealityState.save_write_blocked:return false
-			held=body;payload.clear()
-			# A pin/bowl actually borne by the board travels with that bearing.
-			# Test the native support, rather than guessing from matching names.
-			for other: RigidBody3D in tools.values():
-				if other==body or other.global_position.y<body.global_position.y+.015:continue
-				var query:=PhysicsRayQueryParameters3D.create(other.global_position+Vector3.UP*.01,other.global_position-Vector3.UP*.08,1,[other.get_rid()])
-				var support:=get_world_3d().direct_space_state.intersect_ray(query)
-				if support.get("collider")==body:payload.append(other)
-			for part: RigidBody3D in [body]+payload:
-				_rests.erase(part.name);_fall_speed[part.name]=0.
-				part.freeze=true;part.linear_velocity=Vector3.ZERO;part.angular_velocity=Vector3.ZERO
-			_wake();return true,
-		"owns":func():return held==body,
-		"end":func():
-			held=null
-			for part: RigidBody3D in [body]+payload:_fall_speed[part.name]=0.
-			payload.clear();_wake();manipulation_changed.emit()}
+	var collider: Object=hit.get("collider")
+	var state: Node=_household()
+	if state==null:return {}
+	var in_hand:=CarriedCase.kitchen_tool_parts(CarriedCase.hand())
+	if not in_hand.is_empty() and in_hand[0]==str(name) and stowed.has(in_hand[1]) \
+			and (collider==get_node_or_null("Worktable") or tools.values().has(collider)):
+		var assembly: String=in_hand[1]
+		return {"owner":self,"part":collider,"frame":self,"kind":"free","pickup":false,"put_back":assembly,
+			"read":func():return Vector3.ZERO,"write":func(_value: Vector3):pass,
+			"begin":func():state.return_kitchen_tool(self,assembly);return false,
+			"owns":func():return false,"end":func():pass}
+	var body:=collider as RigidBody3D
+	if body==null or not tools.values().has(body) or stowed.has(str(body.name)):return {}
+	var key:=str(body.name)
+	return {"owner":self,"part":body,"frame":self,"kind":"free","pickup":false,"take":key,
+		"read":func():return body.position,"write":func(_value: Vector3):pass,
+		"begin":func():state.take_kitchen_tool(self,key);return false,
+		"owns":func():return false,"end":func():pass}
 
-func _carry(body: RigidBody3D,value: Vector3) -> void:
-	if not value.is_finite():return
-	var remaining: Vector3=global_basis*(value-body.position)
-	var package: Array[RigidBody3D]=[body];package.append_array(payload)
-	var excluded: Array[RID]=[]
-	for part: RigidBody3D in package:excluded.append(part.get_rid())
-	for step in range(4):
-		if remaining.length_squared()<1e-12:break
-		var accepted:=remaining;var normal:=Vector3.ZERO
-		for part: RigidBody3D in package:
-			var query:=PhysicsTestMotionParameters3D.new();query.from=part.global_transform;query.motion=remaining;query.margin=.0002;query.exclude_bodies=excluded
-			var result:=PhysicsTestMotionResult3D.new()
-			if PhysicsServer3D.body_test_motion(part.get_rid(),query,result) and result.get_travel().dot(remaining)<accepted.dot(remaining):
-				accepted=result.get_travel();normal=result.get_collision_normal()
-		if accepted.y<-.000001:
-			var fraction:=1.
-			for part: RigidBody3D in package:
-				for point: Vector3 in _bottom_points(part):
-					var query:=PhysicsRayQueryParameters3D.create(point+Vector3.UP*.0001,point+accepted,1,excluded)
-					var hit:=get_world_3d().direct_space_state.intersect_ray(query)
-					if not hit.is_empty() and hit.normal.y>.5:fraction=minf(fraction,clampf((hit.position-point).dot(accepted)/accepted.length_squared(),0.,1.))
-			if fraction<1.:accepted*=fraction;normal=Vector3.UP
-		for part: RigidBody3D in package:part.global_position+=accepted
-		if normal==Vector3.ZERO:break
-		remaining=(remaining-accepted).slide(normal)
+
+func _household() -> Node:
+	return get_tree().get_first_node_in_group("v2_household_state") if is_inside_tree() else null
+
+
+## Something resting on this tool (a pin on its board) must be taken first.
+func bearing_load(key: String) -> bool:
+	var body: RigidBody3D=tools.get(key)
+	if body==null:return false
+	for other_key: String in tools:
+		var other: RigidBody3D=tools[other_key]
+		if other==body or stowed.has(other_key) or other.global_position.y<body.global_position.y+.015:continue
+		var query:=PhysicsRayQueryParameters3D.create(other.global_position+Vector3.UP*.01,other.global_position-Vector3.UP*.08,1,[other.get_rid()])
+		if get_world_3d().direct_space_state.intersect_ray(query).get("collider")==body:return true
+	return false
+
+
+## The authored rest is free of the station's other loose stock.
+func rest_clear(key: String) -> bool:
+	var body: RigidBody3D=tools.get(key)
+	if body==null or not rests.has(key):return false
+	# Lifted 2 mm: a pin's authored rest lies on its board, and resting contact is not a block.
+	var pose: Transform3D=(global_transform*rests[key]).translated(Vector3.UP*.002)
+	var others: Array[RID]=[]
+	for other_key: String in tools:
+		if other_key!=key and not stowed.has(other_key):others.append(tools[other_key].get_rid())
+	for child: Node in body.get_children():
+		var shape:=child as CollisionShape3D
+		if shape==null:continue
+		var query:=PhysicsShapeQueryParameters3D.new();query.shape=shape.shape;query.transform=pose*shape.transform;query.margin=.0005
+		for found: Dictionary in get_world_3d().direct_space_state.intersect_shape(query,8):
+			if found.get("rid") in others:return false
+	return true
+
+
+## Applied only by the household state's verified publication or a restore.
+func set_stowed(key: String, flag: bool) -> void:
+	var body: RigidBody3D=tools.get(key)
+	if body==null:return
+	if flag:
+		if not body.has_meta("kitchen_layers"):body.set_meta("kitchen_layers",[body.collision_layer,body.collision_mask])
+		stowed[key]=true;body.visible=false;body.collision_layer=0;body.collision_mask=0
+		_rests.erase(key);_fall_speed.erase(key)
+	else:
+		stowed.erase(key);body.visible=true
+		if body.has_meta("kitchen_layers"):
+			var layers: Array=body.get_meta("kitchen_layers");body.collision_layer=layers[0];body.collision_mask=layers[1]
+		body.transform=rests[key];body.freeze=true;_fall_speed[key]=0.;_wake()
+
+
+## A world copy drawn for the hand or the case: the tool's own meshes and materials.
+func tool_visual(key: String) -> Node3D:
+	var body: RigidBody3D=tools.get(key)
+	if body==null:return null
+	var copy:=Node3D.new();copy.name=key
+	for child: Node in body.get_children():
+		if child is MeshInstance3D:
+			var draw:=child.duplicate() as MeshInstance3D;copy.add_child(draw)
+	return copy
+
 
 func mechanism_snapshot() -> Dictionary:
 	var result: Dictionary={}
 	for key: String in tools:
+		if stowed.has(key):
+			result[key]={"stowed":true};continue
 		var body: RigidBody3D=tools[key];var q:=body.basis.get_rotation_quaternion()
 		result[key]={"position":[body.position.x,body.position.y,body.position.z],"rotation":[q.x,q.y,q.z,q.w]}
 	return result
 
+## Each tool is either a resting pose or {"stowed": true}. A stowed tool is valid only
+## with its case item; the household state checks that pair (valid_stowed_tools).
 func valid_mechanism(value: Variant) -> bool:
 	if value is not Dictionary or value.size()!=tools.size():return false
 	for key: String in tools:
 		var pose: Variant=value.get(key)
+		if pose is Dictionary and pose.size()==1 and pose.get("stowed")==true:continue
 		if pose is not Dictionary or pose.size()!=2:return false
 		for field: String in ["position","rotation"]:
 			if pose.get(field) is not Array or pose[field].size()!=(3 if field=="position" else 4):return false
@@ -141,9 +182,12 @@ func valid_mechanism(value: Variant) -> bool:
 	return true
 
 func restore_mechanism(value: Dictionary) -> void:
-	held=null;payload.clear();_rests.clear();_fall_speed.clear()
+	_rests.clear();_fall_speed.clear()
 	for key: String in tools:
 		var body: RigidBody3D=tools[key];var pose: Dictionary=value[key]
+		if pose.get("stowed")==true:
+			set_stowed(key,true);continue
+		if stowed.has(key):set_stowed(key,false)
 		body.freeze=true;body.linear_velocity=Vector3.ZERO;body.angular_velocity=Vector3.ZERO
 		body.position=Vector3(pose.position[0],pose.position[1],pose.position[2])
 		body.basis=Basis(Quaternion(pose.rotation[0],pose.rotation[1],pose.rotation[2],pose.rotation[3]))
