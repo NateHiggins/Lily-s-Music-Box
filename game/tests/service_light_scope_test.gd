@@ -17,13 +17,19 @@ class BenchPlayer extends Node3D:
 	var camera: Camera3D
 
 
+class BenchMirror extends Node:
+	var camera: Camera3D
+	func active_camera() -> Camera3D: return camera
+
+
 class BenchWorld extends Node3D:
 	var layout: Dictionary
 	var adapter := BenchAdapter.new()
 	var player: BenchPlayer
 	var mirror_renderer: Node = null
 	var view_override: Camera3D = null
-	func room_at_world(_point: Vector3) -> String: return ""
+	var context_room := ""
+	func room_at_world(_point: Vector3) -> String: return context_room
 
 
 func _ready() -> void:
@@ -50,13 +56,16 @@ func _run() -> void:
 	world.layout = {
 		"dimensions": {"floor_to_floor": 3.2},
 		"spaces": [_space("F01_A", "F01"), _space("F01_B", "F01"), _space("F02_A", "F02"),
-			_space("F02_B", "F02"), _space("F02_CORE", "F02", true)],
+			_space("F02_B", "F02"), _space("F02_CORE", "F02", true), _space("lower_core", "F01", true),
+			_space("bench_SERVICE_HALL", "F02"), _space("bench_SERVICE_CORE", "F02", true)],
 		"openings": [
 			{"id": "F01_SEALED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0, 2.34, 0)},
 			{"id": "F01_CROWDED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "at": Vector3(0.8, 2.34, 0)},
 			{"id": "F01_OMITTED", "connects": ["F01_A", "F01_B"], "shared_wall_owner": "x", "omit": true},
 			{"id": "F02_SEALED", "connects": ["F02_A", "F02_B"], "shared_wall_owner": "x", "at": Vector3(0, 5.54, 0)},
 			{"id": "F02_SHAFT", "connects": ["F02_B", "F02_CORE"], "shared_wall_owner": "x", "at": Vector3(2.5, 5.54, 0)},
+			{"id": "qualified_shaft_fixture", "connects": ["bench_SERVICE_HALL", "bench_SERVICE_CORE"], "shared_wall_owner": "x", "at": Vector3(1.8, 5.54, 0)},
+			{"id": "lower_core_link", "connects": ["F01_B", "lower_core"]},
 		],
 		"doors": [],
 	}
@@ -69,6 +78,8 @@ func _run() -> void:
 		var anchor := Node3D.new()
 		anchor.name = str(opening.id)
 		root.add_child(anchor)
+		if not opening.has("shared_wall_owner"):
+			continue
 		if opening.get("omit", false):
 			anchor.set_meta("service_practical_omitted", true)
 			continue
@@ -78,6 +89,7 @@ func _run() -> void:
 		var light := OmniLight3D.new()
 		light.name = "WarmServiceLight"
 		light.shadow_enabled = true
+		light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 		practical.add_child(light)
 		light.global_position = opening.at
 		lights[str(opening.id)] = light
@@ -91,7 +103,7 @@ func _run() -> void:
 	var policy := Policy.new()
 	world.add_child(policy)
 	check(policy.setup(world), "the policy binds every authored bench source")
-	check(policy.sources.size() == 4 and policy.edges.size() == 5, "an unlit opening stays in the room graph")
+	check(policy.sources.size() == 5 and policy.edges.size() == 7, "an unlit opening stays in the room graph")
 	var by_id := {}
 	for source: Dictionary in policy.sources:
 		by_id[source.id] = source
@@ -120,7 +132,40 @@ func _run() -> void:
 	check(not f02.visible and not f02.shadow_enabled, "a source sealed above the eye's storey is dark and unshadowed")
 	check(shaft.visible and shaft.shadow_enabled, "a shaft source is still seen from the storey below")
 
+	var qualified_shaft: OmniLight3D = lights.qualified_shaft_fixture
+	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE,
+		"the unknown-room case retains the original shadow map")
+	world.context_room = "F01_A"
+	policy._poll()
+	check(qualified_shaft.visible and qualified_shaft.shadow_enabled and qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_DUAL_PARABOLOID,
+		"the named shaft practical keeps light and shadow with the adjacent-storey map")
+	check(shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE, "unmeasured shaft lights keep their original map")
+
+	var mirror := BenchMirror.new()
+	world.add_child(mirror)
+	mirror.camera = Camera3D.new()
+	mirror.add_child(mirror.camera)
+	mirror.camera.global_position = Vector3(0, 4.6, 3)
+	world.mirror_renderer = mirror
+	policy.distance_budget.tick()
+	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE,
+		"a reflection on the practical's storey retains its original map")
+	world.mirror_renderer = null
+	mirror.queue_free()
+
+	camera.global_position = Vector3(0, 4.6, 3)
+	world.context_room = "F02_B"
+	policy._poll()
+	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE,
+		"walking to the practical's own storey retains its original map")
+	camera.global_position = Vector3(0, 1.4, 3)
+	world.context_room = "F01_A"
+	policy._poll()
+	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_DUAL_PARABOLOID,
+		"returning across storeys reinstates the lighter map")
 	policy.set_enabled(false)
+	check(qualified_shaft.omni_shadow_mode == OmniLight3D.SHADOW_CUBE,
+		"disabling the policy restores the authored shadow map")
 	var restored := true
 	for light: OmniLight3D in lights.values():
 		restored = restored and light.visible and light.shadow_enabled
