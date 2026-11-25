@@ -344,7 +344,7 @@ func _place_directive(slug: String, block: Dictionary) -> Dictionary:
 	if place.begins_with("unit"):
 		return {"mode": "home", "activity": activity, "key": place}
 	if place.begins_with("visit:"):
-		var point := _visit_point(place.substr(6))
+		var point := _visit_point(place.get_slice(":", 1))
 		if not point.is_finite():
 			return {"mode": "home", "activity": activity, "key": place}
 		return {"mode": "place", "activity": activity, "key": place,

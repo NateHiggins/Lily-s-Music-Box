@@ -77,6 +77,7 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 	# path. Do not park them on a transit waypoint merely to compose a two-shot.
 	_extend_visit("nadia_quell", "mae_kessler", "visit:6C", "studio")
 	_extend_visit("juno_kells", "cal_dwyer", "visit:5B", "alcove")
+	_extend_visit("juno_kells", "cal_dwyer", "visit:5B:listening", "listening_guest")
 	add_to_group("loop_performances")
 	loop.changed.connect(_sync_visit)
 	_sync_visit()
