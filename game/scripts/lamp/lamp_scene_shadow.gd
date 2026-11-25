@@ -7,6 +7,7 @@ var effect: CompositorEffect
 var field: RefCounted
 var lamp: SpotLight3D
 var excluded_light_layers := 0
+const HOSE_ARM_LAYER: int = preload("res://scripts/player/first_person_hose_arm.gd").LAYER
 func setup(owner_field: RefCounted, owner_lamp: SpotLight3D, use_scene_occlusion := false, depth_light_exclusions := 0) -> void:
 	field = owner_field
 	lamp = owner_lamp
@@ -48,7 +49,9 @@ func _process(_delta: float) -> void:
 	# Layer 2 is the separately composited handheld instrument, not world
 	# geometry. Including it here lets its housing black out the optical field
 	# even though the player/world camera deliberately cannot see that layer.
-	camera.cull_mask = lamp.shadow_caster_mask & ~excluded_light_layers & ~((1 << 14) | (1 << 1))
+	# The first-person hose arm is drawn for the eye only; its depth is squeezed
+	# to the near plane, so in this view it would black out the whole field.
+	camera.cull_mask = lamp.shadow_caster_mask & ~excluded_light_layers & ~((1 << 14) | (1 << 1) | HOSE_ARM_LAYER)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if field.enabled else SubViewport.UPDATE_DISABLED
 func _exit_tree() -> void:
 	if effect != null: effect.dispose()
