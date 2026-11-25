@@ -67,6 +67,41 @@ class Requirements(unittest.TestCase):
         material['shader']='res://shaders/physical_stock.gdshader'
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
 
+    def test_hose_arm_cel_overlay_keeps_uvs_and_cannot_exempt_world_stock(self):
+        data = self.inventory()
+        draw = data['draws'][0]
+        owner = 'Player/@Camera3D@42/FirstPersonHoseArm'
+        draw.update(owner=owner, path=owner + '/HoseArmModel/Ink',
+                    owner_script='res://scripts/player/first_person_hose_arm.gd')
+        material = data['materials']['material']
+        material.update(type='ShaderMaterial', shader='res://shaders/hose_arm_cel.gdshader',
+                        shader_unshaded=True, maps={}, next_pass={
+                            'type': 'ShaderMaterial', 'shader': 'res://shaders/hose_arm_outline.gdshader',
+                            'shader_unshaded': True, 'maps': {}})
+        result = evaluate(data)
+        self.assertEqual(result['findings'], [])
+        self.assertEqual([row['class'] for row in result['separate_effects']],
+                         ['first_person_hose_arm', 'first_person_hose_arm'])
+
+        for field, value in (
+                ('owner_script', 'res://scripts/props/world_fixture.gd'),
+                ('owner', 'World/FirstPersonHoseArm'),
+                ('path', owner + '/HeldPhysicalStock')):
+            with self.subTest(field=field):
+                invalid = copy.deepcopy(data)
+                invalid['draws'][0][field] = value
+                self.assertIn('incomplete_pbr_maps', evaluate(invalid)['findings'][0]['reasons'])
+
+        for field, value in (('shader', 'res://shaders/unrelated.gdshader'),
+                             ('shader_unshaded', False), ('maps', {'albedo_texture': 'albedo'})):
+            with self.subTest(field=field):
+                invalid = copy.deepcopy(data)
+                invalid['materials']['material'][field] = value
+                self.assertIn('incomplete_pbr_maps', evaluate(invalid)['findings'][0]['reasons'])
+
+        data['meshes'][draw['mesh']]['surfaces'][0]['missing_uv'] = True
+        self.assertIn('missing_uv', evaluate(data)['findings'][0]['reasons'])
+
     def test_typewriter_steel_keeps_required_maps_and_mips(self):
         data=self.inventory(); material=data['materials']['material']
         material.update(type='ShaderMaterial',shader='res://scripts/device/writer_type_decal.gdshader',
