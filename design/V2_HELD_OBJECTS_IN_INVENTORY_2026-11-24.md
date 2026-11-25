@@ -72,6 +72,30 @@ arm carries the glove in at its carry pose. The item is drawn at world size with
 shadow. While the glove works a world grab, the item stays in hand but is hidden, and
 it shows again on release. The arm's own file and motion are not touched.
 
+Answered 2026-11-25: **held_tethered_parts_20261125**. The basin plug, register pen,
+union nut, unracked hose, cistern lid and spare gasket stay worked where they stand,
+with no inventory. They are tethered parts, not carried pickups. The order then covers
+the kitchen tools and books. Also answered 2026-11-25: **held_books_reading_20261125**.
+A book goes into the case and the hand. To read it, the player clicks it in the glove,
+and it comes up into the same close reading view. A click on a shelf puts it back in
+that shelf's next free place.
+
+The books slice works as follows. A click on a closed copy, on its shelf or lying loose,
+commits it to the case and the hand at once, with no carry. A primary click with a book
+in the glove and nothing usable under the reticle takes the place of the put-down. The
+copy comes out at the glove's hold. The ordinary reading view takes it there, from the
+camera's own pose, and the cover is opened by hand as before. Closing the view (Space)
+closes the book and packs it again. Its save record stays the packed, closed one
+throughout, so a save while reading keeps it in the case. With a book of that shelf in
+the hand, a click on the shelf or its stock puts the book back. It goes to the first
+slot, in shelf order, that is free and that the closed copy clears. Only its own
+collection takes it back. The case view's "take in hand" now sets the hand, where
+before it unpacked the book into a carry. When the case has no room, a closed copy
+stays where it is until the player frees space. Shelves built without the household state,
+such as the library benches, keep the old carry. To empty the hand of a book without
+shelving it, the player takes another item in hand. A click on nothing reads the book
+rather than putting it down.
+
 Originally filed, recommended option first:
 
 - **held_view_first_person_20261124:** what the player sees in first person while holding

@@ -250340,6 +250340,36 @@
    "target_exists": null
   },
   {
+   "key": "01459346000e6fa6",
+   "kind": "generated_name",
+   "token": "hand_visual",
+   "file": "game/scripts/props/v2_readable_book.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "hand_visual"
+   ],
+   "lines": [
+    671
+   ],
+   "count": 1,
+   "context": [
+    "\"HeldBook_\" + stock_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "9c4e30da88508dbf",
    "kind": "generated_name",
    "token": "_build_reaches",
@@ -254793,6 +254823,37 @@
    "context": [
     "for pair: Array in [[0,Vector3.ZERO],[1,Vector3(1,0,0)],[3,Vector3(2,0,0)],[4,Vector3(3,0,0)],[9,Vector3(9,0,0)]]: route.graph.add_point(pair[0],pair[1])",
     "route.current_id=1; entrant.global_position=Vector3(1,0,0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cc1797945127307d",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/book_valise_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    307
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(-0.48, -3.159, 2.1))"
    ],
    "gameplay_binding": true,
    "authority": [
