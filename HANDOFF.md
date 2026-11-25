@@ -4,7 +4,9 @@ Evidence class: **INERT**.
 
 PR #577 installs Lily's approved toon avatar in installed mirrors. Both player rigs use the same item presentation, with the packed item shown on the mirror hand and the first-person glove. The new body remains a visual rig, with the existing player, inventory, and save systems retaining authority.
 
-The installed mirror passed 29 checks for the rig, camera layers, idle, look input, and sleep outside the mirror view. The installed book and kitchen routes, composed surface review, and original radiator and disk-reconstruction tests are recorded in D:/ov_reports/toon_lily_held_release_20261125. The standing mirror capture leaves a full-length walk review open.
+The installed mirror passed 29 checks for the rig, camera layers, idle, look input, and sleep outside the mirror view. The installed book and kitchen routes, composed surface review, and original radiator and disk-reconstruction tests are recorded in [the verified release](D:/ov_reports/toon_lily_held_release_20261125_r2/MERGE_VERIFIED.json).
+
+On merged main **2457f3752**, the full-length mirror walk passed forward, backward, both strafes and return to idle. The production controller and mirror were exercised on a temporary rehearsal floor with a neutral backdrop. Six frames were visually reviewed and all 131 exported frames decoded. An earlier bright take did not complete the backward movement check and is preserved. Lily's gameplay and artistic review remain open. [Walk, receipts and earlier failure](D:/ov_reports/toon_lily_full_length_walk_20261125_r3/REVIEW.json).
 
 ## Held books and the valise, November 25
 
@@ -12,7 +14,7 @@ Evidence class: **INERT**.
 
 PR #576 implements Lily's held-book ruling. A closed copy goes into the valise and glove, and a full case leaves it in place. The same copy opens in close reading, stays packed and closed in the save, returns to the glove on Space, and goes back to the next available shelf slot.
 
-The installed book route passed 41 checks. The kitchen inventory regression passed 35 checks. The refreshed release evidence covers 818 rendered-surface checks, 23 paired views reviewed for technical continuity, and 369 original radiator and save-reconstruction checks over 176 waypoints. Source and receipts are under D:/ov_reports/held_book_valise_release_20261125. Lily's play and art review remain open. The toon avatar still needs to retain both the first-person glove and the mirror hand when it replaces the current avatar.
+The installed book route passed 41 checks. The kitchen inventory regression passed 35 checks. The refreshed release evidence covers 818 rendered-surface checks, 23 paired views reviewed for technical continuity, and 369 original radiator and save-reconstruction checks over 176 waypoints. Source and receipts are under D:/ov_reports/held_book_valise_release_20261125. Lily's play and art review remain open.
 
 # Hose, held items and resident routes, November 25
 
@@ -20,7 +22,7 @@ Evidence class: **INERT**.
 
 PR #571 merged to main at **b291a2dd6** from verified evidence commit **b33717a3d** and tested source **526c0a56c**. It installs the first-person hose and held-item glove, the last six residents' foot placement, the men's stair rate, and the Nadia and Sacha route repairs. Ten script compiles, the hose test, 36 held-item checks, all six lobby and return walks, 818 rendered-surface checks and 369 radiator service and save-reconstruction checks passed. The final comparison found zero new static regressions. The 23 surface and 15 interaction and arrival views received technical review.
 
-[Merge custody and retained failures](D:/ov_reports/nov25_sacha_bedroom_sweep/release/MERGE_VERIFIED.json). Claude owns the remaining books and cast intake. Books WIP **925c2828b** merges cleanly with this main. Its native route still fails when hiding the glove copy and grabbing the cover after saved-copy reconstruction. The toon-avatar attachment and the NPC back-leg lift remain open. See TASKS.md for the remaining scope.
+[Merge custody and retained failures](D:/ov_reports/nov25_sacha_bedroom_sweep/release/MERGE_VERIFIED.json). The original book failure at **925c2828b** concerned hiding the glove copy and grabbing the cover after disk reconstruction. PR #576 qualified both along the installed route. PR #577 then qualified the shared first-person glove and mirror hand. The NPC back-leg lift remains open.
 
 
 # Current 1440p performance matrix after the lobby and F02 fixes
