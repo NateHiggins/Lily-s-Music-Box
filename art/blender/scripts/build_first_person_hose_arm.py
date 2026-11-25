@@ -67,21 +67,18 @@ def build_armature():
     bpy.context.view_layer.objects.active = rig
     bpy.ops.object.mode_set(mode="EDIT")
     step = ARM_LENGTH / ARM_BONES
-    parent = None
+    # The arm bones and the hand have no parents: the runtime sets each one's
+    # global pose, stretching the arm bones along their length. A child of a
+    # stretched bone would inherit a shear that a bone pose cannot hold, and its
+    # rotation then breaks (the glove smeared across the view in a 24-bone film).
     for i in range(ARM_BONES):
         bone = data.edit_bones.new("Arm_%02d" % i)
         bone.head = Vector((0, i * step, 0))
         bone.tail = Vector((0, (i + 1) * step, 0))
         bone.roll = 0.0
-        if parent:
-            bone.parent = parent
-            bone.use_connect = True
-        parent = bone
     hand = data.edit_bones.new("Hand")
     hand.head = Vector((0, ARM_LENGTH, 0))
     hand.tail = Vector((0, KNUCKLE_Y, 0))
-    hand.parent = parent
-    hand.use_connect = True
     for name, x, lengths, _radius in FINGERS:
         base = Vector((x, KNUCKLE_Y, 0))
         first = data.edit_bones.new(name + "_1")
@@ -250,10 +247,6 @@ def grip_pose(rig, curl):
         rig.pose.bones[name + "_2"].rotation_euler = (-1.25 * curl, 0, 0)
     rig.pose.bones["Thumb_1"].rotation_mode = "XYZ"
     rig.pose.bones["Thumb_1"].rotation_euler = (-0.5 * curl, 0, 0.6 * curl)
-    for i in range(ARM_BONES):
-        bone = rig.pose.bones["Arm_%02d" % i]
-        bone.rotation_mode = "XYZ"
-        bone.rotation_euler = (0.09 * 8 / ARM_BONES * curl, 0, -0.05 * 8 / ARM_BONES * curl)
     bpy.ops.object.mode_set(mode="OBJECT")
 
 

@@ -57,11 +57,11 @@ const DROOP_BREATH := 0.75     # how far the droop swells on the beat
 ## Momentum (Lily, 2026-11-25): the glove's motion across the hose drives the
 ## waves. Moving sideways throws horizontal waves; moving up or down throws
 ## vertical ones; the hose bows back against the motion, and the wave runs faster.
-const MOMENTUM_FULL := 0.9     # metres per second across the hose for full effect
+const MOMENTUM_FULL := 0.75    # metres per second across the hose for full effect
 const MOMENTUM_WAVE := 0.11    # metres of wave in the direction of motion at full effect
 const MOMENTUM_DRAG := 0.09    # metres the hose bows back against the motion
 const MOMENTUM_HURRY := 0.9    # extra waves per second at full effect
-const MOMENTUM_SETTLE := 0.16  # seconds for momentum to follow the glove (time constant)
+const MOMENTUM_SETTLE := 0.12  # seconds for momentum to follow the glove (time constant)
 ## A cartoon glove is drawn big: it has to read at arm's length.
 const GLOVE_SCALE := 1.6
 
