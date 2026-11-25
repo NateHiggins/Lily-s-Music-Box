@@ -69,7 +69,7 @@ func _loose(station: Node3D,assembly: String,at: Vector3,yaw: float) -> void:
 	body.mass=1.6 if assembly=="SinkBridge" else (.65 if assembly=="Breadboard" else .35)
 	body.continuous_cd=true;body.contact_monitor=true;body.max_contacts_reported=8
 	var friction:=PhysicsMaterial.new();friction.friction=.85;body.physics_material_override=friction
-	station.add_child(body);station.tools[assembly]=body
+	station.add_child(body);station.tools[assembly]=body;station.rests[assembly]=body.transform
 	station.hulls[assembly]=source.tool_hulls[assembly]
 	_visuals(body,assembly,station.record.tint,false)
 	for points: Array in source.tool_hulls[assembly]:

@@ -97,6 +97,8 @@ var _floor_size := Vector2.ZERO
 var _return_washer := false
 var _return_book := ""
 var _return_vent_insert := ""
+## A kitchen tool pushed out of the case: put back at its station, or into the hand.
+var _return_kitchen_tool := ""
 var _use_after_close := ""
 var held_paper := -1
 var _papers: Array[Dictionary] = []
@@ -318,6 +320,11 @@ func _finish_close() -> void:
 		_return_book = ""
 		if is_instance_valid(household_state):
 			household_state.unpack_book(player, item)
+	if not _return_kitchen_tool.is_empty():
+		var tool_item := _return_kitchen_tool
+		_return_kitchen_tool = ""
+		if is_instance_valid(household_state) and not household_state.deliver_kitchen_tool(player, tool_item):
+			household_state.set_hand(tool_item)
 	if not _return_vent_insert.is_empty():
 		var item := _return_vent_insert
 		_return_vent_insert = ""
@@ -792,6 +799,13 @@ func _lay(item: String, parent: Node3D) -> void:
 			var bounds := draw.get_aabb()
 			draw.position = -Vector3(bounds.get_center().x, bounds.position.y, bounds.get_center().z)
 			stack.add_child(draw)
+	elif item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) and is_instance_valid(household_state):
+		var packed: Dictionary = household_state.packed_kitchen_tool(item)
+		if not packed.is_empty():
+			var draw: Node3D = packed.station.tool_visual(packed.assembly)
+			if draw != null:
+				draw.transform = Transform3D.IDENTITY
+				stack.add_child(draw)
 	elif item == "rolling_hoop":
 		preload("res://scripts/player/rolling_hoop.gd").draw_in_case(stack)
 	else:
@@ -868,6 +882,10 @@ func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
 		if is_instance_valid(copy):
 			count = 1
 			record = {"name": copy.entry.get("title", copy.title_id)}
+	elif item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) and is_instance_valid(household_state):
+		if not household_state.packed_kitchen_tool(item).is_empty():
+			count = 1
+			record = {"name": kitchen_tool_name(item)}
 	elif item.begins_with(CarriedCase.VENT_INSERT_PREFIX) and is_instance_valid(household_state):
 		var insert: Dictionary = household_state.packed_vent_insert(item)
 		if not insert.is_empty():
@@ -918,6 +936,8 @@ func _verb_tag(item: String) -> String:
 		if not is_instance_valid(destination):
 			return "AIM AT A COLD, EMPTY VENT OR THE WORKSHOP RACK"
 		return "FIT TO VENT" if destination is RadiatorProp else "RETURN TO RACK"
+	if item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) and is_instance_valid(household_state):
+		return "PUT BACK" if is_instance_valid(household_state.kitchen_tool_destination(player, item)) else "TAKE IN HAND"
 	if item == CarriedCase.MAINTENANCE_WASHER or item.begins_with(CarriedCase.BOOK_PREFIX):
 		return "TAKE IN HAND"
 	if item_use == null:
@@ -934,6 +954,10 @@ func _take_out(item: String) -> void:
 		if is_instance_valid(household_state) and is_instance_valid(household_state.vent_insert_destination(player, item)):
 			_return_vent_insert = item
 			close_case()
+		return
+	if item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX):
+		_return_kitchen_tool = item
+		close_case()
 		return
 	if item == CarriedCase.MAINTENANCE_WASHER:
 		_return_washer = true
@@ -983,3 +1007,14 @@ func _fill_personal_objects(parent: Node3D) -> void:
 	caption.billboard=BaseMaterial3D.BILLBOARD_ENABLED
 	caption.position=Vector3(.18,.25,.025)
 	caption.modulate=Color(.95,.88,.68)
+
+
+## "Rolling pin, 3B kitchen": the tool and the home it belongs to.
+static func kitchen_tool_name(item: String) -> String:
+	var parts := CarriedCase.kitchen_tool_parts(item)
+	if parts.is_empty():
+		return item
+	var names := {"Breadboard": "Breadboard", "RollingPin": "Rolling pin", "MixingBowl": "Mixing bowl", "SinkBridge": "Sink board"}
+	var station := str(parts[0])
+	# Station ids are "KitchenPrep_<unit>".
+	return "%s, %s kitchen" % [names.get(parts[1], parts[1]), station.get_slice("_", 1) if "_" in station else station]
