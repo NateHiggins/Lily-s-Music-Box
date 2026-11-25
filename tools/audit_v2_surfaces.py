@@ -184,9 +184,22 @@ def evaluate(data):
             if halo: effects.append({'id':identity,'class':'optical_halo'})
             if steam: effects.append({'id':identity,'class':'steam_volume'})
             if flame: effects.append({'id':identity,'class':'gas_flame'})
+            # The hose arm is a camera-local cel overlay. Keep its UV checks
+            # above, and keep world meshes and textured material passes in scope.
+            arm_owner = draw.get('owner', '').split('/')
+            first_person_arm = (
+                draw.get('owner_script') == 'res://scripts/player/first_person_hose_arm.gd'
+                and len(arm_owner) == 3 and arm_owner[0] == 'Player'
+                and (arm_owner[1] == 'Camera3D' or arm_owner[1].startswith('@Camera3D@'))
+                and arm_owner[2] == 'FirstPersonHoseArm'
+                and draw['path'].startswith(draw['owner'] + '/HoseArmModel/')
+                and material.get('type') == 'ShaderMaterial' and material.get('shader_unshaded')
+                and shader in ('res://shaders/hose_arm_cel.gdshader', 'res://shaders/hose_arm_outline.gdshader')
+                and not maps)
+            if first_person_arm: effects.append({'id':identity,'class':'first_person_hose_arm'})
             complete_maps=(all(maps.get(channel) for channel in MICROSCOPY_CHANNELS) if microscopy
                            else any(all(maps.get(channel) for channel in triplet) for triplet in TRIPLETS))
-            if not optical_effect and not clear_glass and not complete_maps:
+            if not optical_effect and not clear_glass and not first_person_arm and not complete_maps:
                 reasons.append('incomplete_pbr_maps')
             if not optical_effect and material.get('type')=='StandardMaterial3D':
                 if 'triplanar' not in material: reasons.append('uv_application_unobserved')
