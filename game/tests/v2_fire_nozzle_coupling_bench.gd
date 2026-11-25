@@ -175,7 +175,7 @@ func exercise_fps_carry(actor: Node3D) -> void:
 	Input.action_press("move_right")
 	for frame in 30:
 		await get_tree().physics_frame
-		if frame in [0, 14, 29]:
+		if frame == 0 or frame == 14 or frame == 29:
 			var movement := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 			var contacts: Array[String] = []
 			for index in player.get_slide_collision_count():
