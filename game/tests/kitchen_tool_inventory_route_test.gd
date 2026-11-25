@@ -240,7 +240,7 @@ func _route() -> void:
 		await _capture_held("held_rolling_pin")
 
 	# Put it down: a click on nothing usable empties the hand; it stays in the case.
-	player.camera.look_at(player.camera.global_position + Vector3.UP * 3.0 + Vector3(0.01, 0, 0))
+	player.camera.look_at(player.camera.global_position + Vector3.UP * 3.0 + Vector3.RIGHT * .01)
 	await get_tree().physics_frame
 	await _click_world()
 	_require(CarriedCase.hand().is_empty() and station.stowed.has("RollingPin") \
@@ -268,19 +268,27 @@ func _route() -> void:
 			and CarriedCase.place_of(board_item).is_empty() and CarriedCase.hand().is_empty() \
 			and board.transform.is_equal_approx(station.rests.Breadboard), "a click on the worktable puts the board back at its rest")
 
-	# The case's push-out puts the pin back at its own station: stand within reach first
-	# (the reload can leave the body up to a step further back than the take did).
-	# Codex 2026-11-25: across the wall in F02_A_MAIN the rest is within 1.6 m of the floor
-	# stance but behind masonry, outside the kitchen opening. The case must not offer it.
-	var far_side: Vector3 = world.adapter.root.to_global(Vector3(-13.01, 3.2, 2.55))
+	# Find the solid partition from the actual rest, then stand on its other side.
+	var pin_rest_world: Vector3 = station.to_global(station.rests.RollingPin.origin)
+	var through_wall: Vector3 = -world.adapter.root.global_basis.z.normalized()
+	var excluded: Array[RID] = [player.get_rid()]
+	for body: CollisionObject3D in station.find_children("*", "CollisionObject3D", true, false):
+		excluded.append(body.get_rid())
+	var trace := PhysicsRayQueryParameters3D.create(pin_rest_world, pin_rest_world + through_wall, 1, excluded)
+	var partition := player.get_world_3d().direct_space_state.intersect_ray(trace)
+	if not _require(partition.get("collider") is StaticBody3D, "the pin rest faces an installed partition"):
+		return
+	var far_side: Vector3 = partition.position + through_wall * .55
+	far_side.y = station.global_position.y
+	if not _require(_clear_feet(far_side + Vector3.UP * .02), "the opposite-side floor stance clears the player capsule"):
+		return
 	player.global_position = far_side
 	player.velocity = Vector3.ZERO
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	await _aim(station.global_transform * station.rests.RollingPin.origin)
-	var pin_rest_world: Vector3 = station.global_transform * station.rests.RollingPin.origin
+	await _aim(pin_rest_world)
 	_require(Vector2(player.global_position.x - pin_rest_world.x, player.global_position.z - pin_rest_world.z).length() <= 1.6 \
-			and state.kitchen_tool_destination(player, pin_item) == null,
+			and station.rest_clear("RollingPin") and state.kitchen_tool_destination(player, pin_item) == null,
 		"across the 2A kitchen wall the packed pin is within radius but offers no put-back")
 	_require(await _stand_at(station, [.75, .85, .95]), "a near stance at the 2A table for the case's put-back")
 	await _key(KEY_TAB)
