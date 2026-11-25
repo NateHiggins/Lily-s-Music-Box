@@ -21,6 +21,7 @@ const SAMPLE_FRAMES := 120
 const HEADINGS := 4
 const SETTLE_SECONDS := 20.0
 const MATRIX_SIZE := Vector2i(2560, 1440)
+const MAX_STATION_SETTLE_DISTANCE := 0.25
 const MAX_HORIZONTAL_DRIFT := 0.07
 const MAX_HEADING_DRIFT := 0.005
 const EYE_NOTE := "the player's own camera at the player's own eye height"
@@ -185,12 +186,17 @@ func _measure(station: Dictionary) -> Dictionary:
 	var settled := await _settle()
 	if not settled:
 		failures.append("%s: streaming did not settle in %.0f s" % [station.name, SETTLE_SECONDS])
-	# Hold the station: the opening and gravity may move the player; the
-	# matrix measures the place, so the body is put back before each heading.
+	# Use the supported pose the controller finds near the authored anchor.
+	# Reference each heading to that pose, so a landing rail pushing the
+	# capsule clear before sampling is distinct from drift during sampling.
+	var settled_position := player.global_position
+	var placement_offset := settled_position.distance_to(placed.position)
+	if placement_offset > MAX_STATION_SETTLE_DISTANCE:
+		failures.append("%s: the settled stance is %.3f m from its anchor" % [station.name, placement_offset])
 	var headings: Array[Dictionary] = []
 	for index in HEADINGS:
 		player.velocity = Vector3.ZERO
-		player.global_position = placed.position
+		player.global_position = settled_position
 		var yaw := TAU * float(index) / float(HEADINGS)
 		player.rotation.y = yaw
 		player.camera.rotation.x = 0.0
@@ -218,7 +224,7 @@ func _measure(station: Dictionary) -> Dictionary:
 				RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME))
 			shadows.append(RenderingServer.viewport_get_render_info(_viewport_rid,
 				RenderingServer.VIEWPORT_RENDER_INFO_TYPE_SHADOW, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME))
-			var offset: Vector3 = player.global_position - placed.position
+			var offset := player.global_position - settled_position
 			max_horizontal_drift = maxf(max_horizontal_drift, Vector2(offset.x, offset.z).length())
 			max_heading_drift = maxf(max_heading_drift, absf(angle_difference(player.rotation.y, yaw)))
 		_sampling = false
@@ -243,8 +249,9 @@ func _measure(station: Dictionary) -> Dictionary:
 			worst = heading
 	row.merge({
 		"valid": settled, "frame": placed.frame,
-		"position": [snappedf(placed.position.x, 0.001), snappedf(placed.position.y, 0.001), snappedf(placed.position.z, 0.001)],
-		"drift_m": snappedf(player.global_position.distance_to(placed.position), 0.001),
+		"position": [snappedf(settled_position.x, 0.001), snappedf(settled_position.y, 0.001), snappedf(settled_position.z, 0.001)],
+		"placement_offset_m": snappedf(placement_offset, 0.001),
+		"drift_m": snappedf(player.global_position.distance_to(settled_position), 0.001),
 		"room": world.room_at_world(player.global_position),
 		"passage_residency": str(world.passage_region.residency.state),
 		"worst_heading": worst, "headings": headings, "memory": _memory(),
