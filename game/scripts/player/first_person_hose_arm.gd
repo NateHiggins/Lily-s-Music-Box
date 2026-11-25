@@ -41,6 +41,8 @@ const WRITHE_SIDE := 0.034     # metres, side to side
 const WRITHE_LIFT := 0.022     # metres, up and down, a quarter-wave behind
 const RECOIL_WRITHE := 2.4     # how much wilder the hose whips on the way out
 const GLOVE_BOB := 0.008
+## A cartoon glove is drawn big: it has to read at arm's length.
+const GLOVE_SCALE := 1.6
 
 var player: Node
 var skeleton: Skeleton3D
@@ -167,7 +169,7 @@ func _pose() -> void:
 	var line: Vector3 = palm_local - shoulder
 	var length := maxf(line.length(), 0.05)
 	var forward := line / length
-	var wrist := palm_local - forward * PALM_FROM_WRIST
+	var wrist := palm_local - forward * PALM_FROM_WRIST * GLOVE_SCALE
 	# The drooping hose breathes on the beat.
 	var droop := 1.0 + 0.35 * bounce
 	var c1 := shoulder + forward * length * 0.35 + down * length * 0.18 * droop
@@ -192,7 +194,7 @@ func _pose() -> void:
 		skeleton.set_bone_global_pose(_arm_bones[i], Transform3D(frame, points[i]))
 	var hand_rest: Transform3D = _rest[_hand]
 	var arrival := (wrist - points[ARM_BONES - 1]).normalized()
-	skeleton.set_bone_global_pose(_hand, Transform3D(Basis(Quaternion(hand_rest.basis.y.normalized(), arrival)) * hand_rest.basis, wrist))
+	skeleton.set_bone_global_pose(_hand, Transform3D((Basis(Quaternion(hand_rest.basis.y.normalized(), arrival)) * hand_rest.basis).scaled_local(Vector3.ONE * GLOVE_SCALE), wrist))
 	# The fingers roll over the grip on the beat, one after another.
 	for i in _fingers.size():
 		var finger := i >> 1
@@ -213,4 +215,4 @@ func palm_position() -> Vector3:
 	if _hand < 0:
 		return global_position
 	var hand: Transform3D = skeleton.global_transform * skeleton.get_bone_global_pose(_hand)
-	return hand.origin + hand.basis.y.normalized() * PALM_FROM_WRIST
+	return hand.origin + hand.basis.y.normalized() * PALM_FROM_WRIST * GLOVE_SCALE

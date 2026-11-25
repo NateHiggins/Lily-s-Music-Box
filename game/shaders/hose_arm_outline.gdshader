@@ -8,6 +8,7 @@ render_mode unshaded, cull_front, depth_draw_opaque;
 uniform float width_px : hint_range(0.0, 8.0) = 3.4;
 uniform float boil : hint_range(0.0, 1.0) = 0.3;
 uniform float frame_rate = 12.0;
+uniform float depth_squeeze = 0.01;  // matches hose_arm_cel: drawn over the set
 
 float hash(vec3 p) {
 	return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453);
@@ -22,6 +23,7 @@ void vertex() {
 	if (length(screen) > 0.00001) {
 		clip.xy += normalize(screen) * width_px * jitter * 2.0 / VIEWPORT_SIZE * clip.w;
 	}
+	clip.z = clip.z * depth_squeeze + clip.w * (1.0 - depth_squeeze);
 	POSITION = clip;
 }
 

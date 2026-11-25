@@ -10,8 +10,20 @@ uniform float tone : hint_range(0.0, 1.0) = 0.96;  // paper white or ink black
 uniform float grain : hint_range(0.0, 0.2) = 0.035;
 uniform float frame_rate = 12.0;
 
+// The arm is drawn over the set, like a cel laid on the background: its depth is
+// squeezed into the sliver in front of the near plane (reverse Z: 1 is nearest).
+// The squeeze is monotonic, so the arm still sorts against itself; the outline
+// pass uses the same squeeze.
+uniform float depth_squeeze = 0.01;
+
 float hash(vec2 p) {
 	return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void vertex() {
+	vec4 clip = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	clip.z = clip.z * depth_squeeze + clip.w * (1.0 - depth_squeeze);
+	POSITION = clip;
 }
 
 void fragment() {
