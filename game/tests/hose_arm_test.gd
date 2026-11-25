@@ -34,7 +34,7 @@ func _route() -> void:
 	_require(mirror_cameras > 0 and mirror_ok, "no mirror camera draws the arm (%d of %d mirrors have cameras)" % [mirror_cameras, mirrors.size()])
 	_require(player.camera.cull_mask & Receivers.DEPTH_LIGHT_LAYER != 0 and lights_kept, "mirrors keep the ordinary depth-light bit the eye draws")
 	_require(Arm.LAYER & (Receivers.DEPTH_CAMERA_EXCLUSIONS | Receivers.LAYER) == 0, "the arm layer is none of the lamp's reserved layers")
-	_require(_depth_isolation_intact(), "with the arm mounted, the lamp's depth isolation holds")
+	_require(_arm_keeps_depth_isolation(arm, "mounted"), "with the arm mounted, nothing of the arm disturbs the lamp's depth isolation")
 	_require(not arm.visible, "at rest the arm is out of view")
 	_hand = Hands.new()
 	_hand.set_meta("shared_world_validation", true)
@@ -58,7 +58,7 @@ func _route() -> void:
 	var gap: float = arm.palm_position().distance_to(grip)
 	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95, "holding, the arm has reached in and the glove is closed (reach %.2f, curl %.2f)" % [arm.reach, arm.curl])
 	_require(gap < 0.06, "the drawn palm is on the grip (%.3f m)" % gap)
-	_require(_depth_isolation_intact(), "with the arm drawn, the lamp's depth isolation still holds")
+	_require(_arm_keeps_depth_isolation(arm, "drawn"), "with the arm drawn, nothing of the arm disturbs the lamp's depth isolation")
 	await _capture_interaction("hose_arm_holding")
 	# Move the picker while holding: the glove follows it.
 	var motion := InputEventMouseMotion.new()
@@ -77,8 +77,10 @@ func _route() -> void:
 
 
 ## The lamp's depth camera skips ordinary lights only while no drawn geometry uses
-## its excluded bits; a first-person draw on one of them would switch that off.
-func _depth_isolation_intact() -> bool:
+## its excluded bits (the receivers' depth_geometry_clear). The arm must never be
+## such geometry. If isolation is off for some other reason, the test names the
+## offending nodes rather than blaming the arm.
+func _arm_keeps_depth_isolation(arm: Node3D, when: String) -> bool:
 	var air: Node = world.get_node_or_null("LampAtmosphere")
 	if air == null:
 		return false
@@ -86,4 +88,14 @@ func _depth_isolation_intact() -> bool:
 	var shadow: Node = air.get("scene_shadow")
 	if receivers == null or shadow == null:
 		return false
-	return bool(receivers.get("isolate_depth_lights")) and bool(receivers.get("depth_geometry_clear")) and int(shadow.get("excluded_light_layers")) == Receivers.DEPTH_CAMERA_EXCLUSIONS
+	var offenders: Array[String] = []
+	var arm_offends := false
+	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
+		if (node as GeometryInstance3D).layers & Receivers.DEPTH_CAMERA_EXCLUSIONS:
+			arm_offends = arm_offends or arm.is_ancestor_of(node)
+			if offenders.size() < 8:
+				offenders.append("%s layers=%d" % [world.get_path_to(node), (node as GeometryInstance3D).layers])
+	var clear := bool(receivers.get("depth_geometry_clear"))
+	print("HOSE ARM DEPTH ISOLATION (%s): isolate=%s clear=%s excluded=%d offenders=%s" % [when, receivers.get("isolate_depth_lights"), clear, int(shadow.get("excluded_light_layers")), offenders])
+	# The arm never offends; and isolation is on unless something else offends.
+	return bool(receivers.get("isolate_depth_lights")) and not arm_offends and (clear or not offenders.is_empty())
