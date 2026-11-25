@@ -1,3 +1,11 @@
+## Held books and the valise, November 25
+
+Evidence class: **INERT**.
+
+PR #576 implements Lily's held-book ruling. A closed copy goes into the valise and glove, and a full case leaves it in place. The same copy opens in close reading, stays packed and closed in the save, returns to the glove on Space, and goes back to the next available shelf slot.
+
+The installed book route passed 41 checks. The kitchen inventory regression passed 35 checks. The refreshed release evidence covers 818 rendered-surface checks, 23 paired views reviewed for technical continuity, and 369 original radiator and save-reconstruction checks over 176 waypoints. Source and receipts are under D:/ov_reports/held_book_valise_release_20261125. Lily's play and art review remain open. The toon avatar still needs to retain both the first-person glove and the mirror hand when it replaces the current avatar.
+
 # Hose, held items and resident routes, November 25
 
 Evidence class: **INERT**.
