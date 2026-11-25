@@ -1,3 +1,25 @@
+# First-person hose arm, November 25
+
+Evidence class: **INERT**.
+
+The first-person rubber-hose arm follows the existing grab and has a
+glove socket for the held-item follow-up. It retracts when idle or
+released. Mirrors and the lamp's depth camera exclude its layer. The
+mirror avatar, inventory and saves retain their own authorities.
+
+The clean scoped run passed five-script compile and 20 installed
+checks, including the socket, carry pose, live depth camera and mirror
+masks. The composed V2 route passed 369 checks and 176 walking waypoints
+through radiator repair and disk reconstruction. The rendered suite
+passed 818 checks and 23 paired frames received technical review. The
+three arm meshes retain their UV checks and the inventory records their
+six cel passes separately from physical surfaces.
+
+The exact GLB import settings are tracked. The motion follow-up and
+actual inventory item fit remain separate. Owner play remains open.
+
+[Arm qualification and preserved evidence](D:/ov_reports/orison_npc_gait_face_intake_20261124/hose_arm_f1235e714/STATUS.md).
+
 # Fire hose nozzle idle processing, November 24
 
 Evidence class: **INERT**.
