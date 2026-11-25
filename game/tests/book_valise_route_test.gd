@@ -6,6 +6,65 @@ extends "res://tests/carried_case_route_test.gd"
 
 const Book := preload("res://scripts/props/v2_readable_book.gd")
 
+var checks: Array[Dictionary] = []
+var route_completed := false
+
+
+func _require(ok: bool, label: String) -> bool:
+	checks.append({"label": label, "ok": ok})
+	return super._require(ok, label)
+
+
+func _prepare_campaign() -> bool:
+	return _require(DisplayServer.get_name() != "headless",
+		"the book route uses a rendered input viewport") and super._prepare_campaign()
+
+
+func _run() -> void:
+	var started := Time.get_ticks_msec()
+	await super._run()
+	var directory := OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		_write_contract(directory, started)
+	get_tree().quit(0 if route_completed and failures.is_empty() else 1)
+
+
+func _write_contract(directory: String, started: int) -> void:
+	var root := ProjectSettings.globalize_path("res://..").simplify_path()
+	var head: Array = []
+	var digest: Array = []
+	if not _require(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0
+			and not head.is_empty(), "contract resolves the repository head"):
+		return
+	if not _require(OS.execute("python", [root.path_join("tools/run_receipt.py"), "digest", "--root", root],
+			digest) == 0 and not digest.is_empty(), "contract resolves the runtime input digest"):
+		return
+	var scene := get_tree().current_scene.scene_file_path
+	var script: String = get_script().resource_path
+	DirAccess.make_dir_recursive_absolute(directory)
+	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
+	if not _require(file != null, "contract output opens"):
+		return
+	var passed := route_completed and failures.is_empty()
+	file.store_string(JSON.stringify({
+		"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2",
+		"production_runtime": true,
+		"scope": "Installed nook copy and player valise. Full capacity refusal, physical identity through disk reconstruction, glove reading, save during reading, Space close and next free shelf placement.",
+		"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false,
+			"elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
+		"source": {"test_path": "game/" + script.trim_prefix("res://"),
+			"test_sha256": FileAccess.get_sha256(script),
+			"test_scene_path": "game/" + scene.trim_prefix("res://"),
+			"test_scene_sha256": FileAccess.get_sha256(scene),
+			"repository_head": str(head[0]).strip_edges(),
+			"runtime_inputs_sha256": str(digest[0]).strip_edges()},
+		"contracts": {"held_book_valise_read_shelve": {"executed": route_completed,
+			"status": "PASS" if passed else "FAIL"}},
+		"checks": checks, "failures": failures,
+	}, "	"))
+	file.flush()
+	_require(file.get_error() == OK, "contract output was written")
+
 
 func _init() -> void:
 	route_label = "BOOK VALISE ROUTE"
@@ -53,6 +112,8 @@ func _route() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	RealityState.flush_background_saves()
+	if not _full_valise_denies_book(original, item, path):
+		return
 	var before := FileAccess.get_file_as_bytes(path)
 	var fault := {"hits": 0}
 	var refuse_case_write := func(stage: String, operation: String, arguments: Dictionary) -> Variant:
@@ -205,10 +266,8 @@ func _route() -> void:
 	var glove: Node = _avatar().get("glove_slot") if _avatar() != null else null
 	_require(not is_instance_valid(glove) or glove.part() == null or not glove.part().visible,
 		"the glove's copy is out of sight while the book is read")
-	_reading_diagnostic("after_process_signal", original, glove)
 	for frame in 100:
 		await get_tree().physics_frame
-	_reading_diagnostic("after_settling", original, glove)
 	var leaf: Vector3 = original.left.to_global(Vector3(float(original.construction.width) * .7,
 		float(original.construction.height) * .7, float(original.construction.thickness) * .5))
 	var expected_pixel := player.camera.unproject_position(leaf).round()
@@ -216,24 +275,6 @@ func _route() -> void:
 	if not _require(get_viewport().get_mouse_position().distance_to(expected_pixel) < .6,
 			"embedded cursor reaches the floating cover pixel"):
 		return
-	var found: Dictionary = player._grab.find_target()
-	var hit: Dictionary = player._grab.last_hit
-	var ray_collider: Node = hit.get("collider")
-	var found_part: Node = found.get("part")
-	print("BOOK DIAGNOSTIC cover", {
-		"expected_pixel": expected_pixel,
-		"cursor": player.get_viewport().get_mouse_position(),
-		"in_view": player.get_viewport().get_visible_rect().has_point(expected_pixel),
-		"behind_camera": player.camera.is_position_behind(leaf),
-		"lens_distance": player.camera.global_position.distance_to(leaf),
-		"collider": str(ray_collider.get_path()) if is_instance_valid(ray_collider) else "",
-		"kind": found.get("kind", ""),
-		"blocked": found.get("blocked", false),
-		"part": str(found_part.get_path()) if is_instance_valid(found_part) else "",
-		"expected_part": str(original.left.get_path()),
-		"cover_target_disabled": original._cover_target.disabled,
-		"cover_collision_layer": original._cover_area.collision_layer,
-	})
 	player.use_primary_interaction()
 	if not _require(player._grab.active() and player._grab.target.part == original.left and player._grab.target.kind == "hinge",
 			"the free cursor grabs the floating cover"):
@@ -299,8 +340,29 @@ func _route() -> void:
 	RealityState.flush_background_saves()
 	var shelved_save: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 	record = shelved_save.v2_household_controls.records[collection].value.books[original.stock_id]
-	_require(not shelved_save[CarriedCase.KEY].places.has(item) and int(record.slot) == original.shelf_slot,
-		"the save records the shelved copy in its slot")
+	route_completed = _require(not shelved_save[CarriedCase.KEY].places.has(item)
+			and int(record.slot) == original.shelf_slot, "the save records the shelved copy in its slot")
+
+
+func _full_valise_denies_book(book: Book, item: String, path: String) -> bool:
+	var fillers: Array[String] = []
+	var grid := CarriedCase.grid()
+	for index in grid.x * grid.y:
+		var filler := "book_route_filler_%d" % index
+		if not PersonInventory.carry_goods(PersonInventory.PLAYER, filler, "Test packet"):
+			break
+		fillers.append(filler)
+	var full := CarriedCase.library_fit(str(book.shelf.name), book.stock_id).is_empty()
+	var before := FileAccess.get_file_as_bytes(path)
+	var pose := book.transform
+	var target := player._grab.find_target()
+	player.use_primary_interaction()
+	var stayed := (bool(target.get("blocked", false)) and not player._grab.active() and book.visible
+		and not book.valise_packed and book.transform == pose and CarriedCase.hand().is_empty()
+		and CarriedCase.place_of(item).is_empty() and FileAccess.get_file_as_bytes(path) == before)
+	for filler in fillers:
+		PersonInventory.spend_goods(PersonInventory.PLAYER, filler, false)
+	return _require(full and stayed, "a full valise leaves the closed book in place with no carry or save write")
 
 
 # A hidden Windows desktop cannot reliably deliver native free-cursor
@@ -335,19 +397,6 @@ func _key(keycode: Key) -> void:
 		get_viewport().push_input(event, true)
 		await get_tree().process_frame
 		await get_tree().process_frame
-
-
-func _reading_diagnostic(stage: String, original: Node3D, glove: Node) -> void:
-	var part: Node3D = glove.part() if is_instance_valid(glove) else null
-	print("BOOK DIAGNOSTIC ", stage, {
-		"inspection": player.inspecting(),
-		"reading_stock": player.inspect_owner.inspected_readable_stock() == original if player.inspecting() else false,
-		"worn_visible": part.visible if is_instance_valid(part) else false,
-		"worn_in_tree": part.is_visible_in_tree() if is_instance_valid(part) else false,
-		"glove_processing": glove.is_processing() if is_instance_valid(glove) else false,
-		"busy": bool(glove.busy.call()) if is_instance_valid(glove) and glove.busy.is_valid() else false,
-		"book_visible": original.is_visible_in_tree(),
-	})
 
 
 func _avatar() -> Node:

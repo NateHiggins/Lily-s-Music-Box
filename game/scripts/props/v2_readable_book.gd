@@ -486,7 +486,7 @@ func _release() -> void:
 
 ## Off the reading view a click works the case and hand: a closed copy goes into
 ## them, or the book in the hand comes back to this shelf (held_books_reading_20261125).
-## Without room in the case the ordinary carry still answers.
+## A closed copy stays in place if the case cannot take it.
 func manipulation_target(_hit: Dictionary) -> Dictionary:
 	if hand_reading or shelf.supports_inspected_stock(self) or not shelf.has_method("hand_target"): return grip()
 	var hand: Dictionary=shelf.hand_target(self)

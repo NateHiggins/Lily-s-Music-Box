@@ -90,8 +90,8 @@ throughout, so a save while reading keeps it in the case. With a book of that sh
 the hand, a click on the shelf or its stock puts the book back. It goes to the first
 slot, in shelf order, that is free and that the closed copy clears. Only its own
 collection takes it back. The case view's "take in hand" now sets the hand, where
-before it unpacked the book into a carry. When the case has no room, the old carry
-still answers, so a book can still be read. Shelves built without the household state,
+before it unpacked the book into a carry. When the case has no room, a closed copy
+stays where it is until the player frees space. Shelves built without the household state,
 such as the library benches, keep the old carry. To empty the hand of a book without
 shelving it, the player takes another item in hand. A click on nothing reads the book
 rather than putting it down.

@@ -297,7 +297,10 @@ func hand_target(copy: Node3D) -> Dictionary:
 			"read":func():return Vector3.ZERO,"write":func(_value: Vector3):pass,
 			"begin":func():state.shelve_book(self);return false,
 			"owns":func():return false,"end":func():pass}
-	if copy==null or not state.can_take_book(copy): return {}
+	if copy == null or copy.opening != 0.0:
+		return {}
+	if not state.can_take_book(copy):
+		return {"blocked": true}
 	return {"owner":self,"part":copy,"frame":self,"kind":"free","pickup":false,"take":copy.stock_id,
 		"read":func():return copy.position,"write":func(_value: Vector3):pass,
 		"begin":func():state.take_book(copy);return false,
