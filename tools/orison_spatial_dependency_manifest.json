@@ -299363,6 +299363,230 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "0610658782953dc3",
+   "kind": "id_reference",
+   "token": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_SOUTHWEST_HALL_LT\", \"F02_B_VESTIBULE_LT_FLUSH_DOME\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b79107e54622cc65",
+   "kind": "id_reference",
+   "token": "F02_EAST_HALL_LT",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ae6ac03f294f75b5",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_LT_2",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a1ff9c6f15b9658d",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_LT_3",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2d7d53c57cbf92f0",
+   "kind": "id_reference",
+   "token": "F02_FRONT_HALL_LT_1",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b7135190eb8e88b4",
+   "kind": "id_reference",
+   "token": "F02_FRONT_HALL_LT_2",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1379d3676448276e",
+   "kind": "id_reference",
+   "token": "F02_LANDING_LT_SCONCE",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "633ec0885804800a",
+   "kind": "id_reference",
+   "token": "F02_SOUTHWEST_HALL_LT",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_SOUTHWEST_HALL_LT\", \"F02_B_VESTIBULE_LT_FLUSH_DOME\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
