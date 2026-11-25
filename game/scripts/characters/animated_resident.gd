@@ -34,6 +34,12 @@ const GAIT_PILOT := ["malcolm_reed",
 		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests",
 		"cam_ortiz", "iris_bell", "mae_kessler", "nadia_quell", "omar_bell", "sacha_reed"]
 var walk_gait: ClipGait
+## The male cast base's long shin: its shared walk may slow further on stairs (ClipGait.STAIR_MIN_SCALE). A route
+## slope this steep or steeper is a stair; the house's run 0.16 m in 0.285 m.
+const LONG_SHIN := 0.385
+const STAIR_SLOPE := 0.3
+var long_legged := false
+var _route_slope := 0.0
 ## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
 ## pilot bodies first, one per cast base; then batches (batch one by her ruling npc_feet_descent_backswing_20261124,
 ## "widen to more residents"): two more of each base; batch two, three more of each; batch three, the last six.
@@ -100,6 +106,7 @@ func _ready() -> void:
 			push_error("Mina Gray Resolve batch is incomplete")
 	elif resident_id in GAIT_PILOT and cast_body != null and _animation_player != null and _animation_player.has_animation(preferred_walk):
 		walk_gait = ClipGait.measure(_animation_player, cast_body.skeleton, preferred_walk, CastBodies.cast_person(resident_id))
+		long_legged = _shin_length(cast_body.skeleton) >= LONG_SHIN
 	if resident_id in FEET_PILOT and cast_body != null:
 		var owner_of_attention: Node = cast_body.get("attention")
 		if owner_of_attention != null and owner_of_attention.pipeline != null:
@@ -345,7 +352,17 @@ func _match_ground() -> void:
 		return
 	if str(_animation_player.current_animation) != preferred_walk:
 		return
-	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed)
+	var lowest := ClipGait.STAIR_MIN_SCALE if long_legged and absf(_route_slope) >= STAIR_SLOPE else ClipGait.MIN_SCALE
+	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed, lowest)
+
+
+## The rest length of the left shin. The cast's male base measures 0.40-0.42 m and the female 0.34-0.37 m.
+static func _shin_length(skeleton: Skeleton3D) -> float:
+	var knee := skeleton.find_bone("LeftLeg")
+	var ankle := skeleton.find_bone("LeftFoot")
+	if knee < 0 or ankle < 0:
+		return 0.0
+	return skeleton.get_bone_global_rest(knee).origin.distance_to(skeleton.get_bone_global_rest(ankle).origin)
 
 
 func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
@@ -357,6 +374,7 @@ func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
 	else:
 		_set_walking(on)
 		_ground_speed = metres_per_second if on else 0.0
+		_route_slope = slope if on else 0.0
 
 
 ## Case beats may borrow the actor: the dialogue tree asks for roles like
