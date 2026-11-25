@@ -113,8 +113,8 @@ func bind(owner_player: Node) -> bool:
 
 
 ## Where a held item is worn in first person: a BoneAttachment3D on the glove's
-## Hand bone. Its origin is the wrist, with +Y along the palm (the palm itself
-## is PALM_FROM_WRIST * GLOVE_SCALE out along +Y). It inherits the glove's
+## Hand bone. Its origin is the wrist, with +Y along the palm; palm_offset() is
+## the palm in its space (PALM_FROM_WRIST * GLOVE_SCALE out in the world). It inherits the glove's
 ## GLOVE_SCALE, so an item worn here is drawn 1.6x unless its wearer scales it back.
 ## Anything placed under it must draw on LAYER (its "render_layers" meta) with no
 ## shadow, so mirrors and the lamp's depth camera leave it out, as they do the arm.
@@ -122,9 +122,11 @@ func glove_socket() -> BoneAttachment3D:
 	return _socket
 
 
-## The palm from the socket's origin (the wrist), in the socket's own space.
+## The palm from the socket's origin (the wrist), in the socket's own space. The
+## socket already carries GLOVE_SCALE, so this is the unscaled model distance; in
+## the world the palm lands PALM_FROM_WRIST * GLOVE_SCALE from the wrist.
 func palm_offset() -> Vector3:
-	return Vector3(0.0, PALM_FROM_WRIST * GLOVE_SCALE, 0.0)
+	return Vector3(0.0, PALM_FROM_WRIST, 0.0)
 
 
 ## Set by whoever owns what is held (the held-objects slice): while true the arm
