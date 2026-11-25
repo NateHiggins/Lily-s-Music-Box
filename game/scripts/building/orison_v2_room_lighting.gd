@@ -3,6 +3,15 @@ const PATH := "res://data/orison_v2/room_lighting.json"
 const ROOF_PATH := "res://data/orison_v2/roof_plant_lighting.json"
 const Plate := preload("res://scripts/building/switch_plate.gd")
 const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
+# Only the ranked fixtures qualified together at the F02 landing and gallery.
+const F02_SHADOW_FADE_FIXTURES := [
+	"F02_EAST_HALL_LT", "F02_FRONT_HALL_LT_1", "F02_FRONT_HALL_LT_2",
+	"F02_SOUTHWEST_HALL_LT", "F02_B_VESTIBULE_LT_FLUSH_DOME",
+	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2", "F02_FRONT_GALLERY_LT_3",
+]
+const F02_SHADOW_FADE_LENGTH_M := 1.0
+# Keep emission in range for any installed observer. This tuning fades only shadows.
+const LIGHT_FADE_OUTSIDE_OBSERVATION_M := 10000.0
 var errors: Array[String] = []
 
 func mount(adapter: Variant, parent: Node3D) -> bool:
@@ -30,6 +39,13 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 		if not adapter.mount_consumer(str(record.id), prop):
 			prop.free()
 			return false
+		if str(record.id) in F02_SHADOW_FADE_FIXTURES and prop is LightFixtureProp:
+			var light := (prop as LightFixtureProp).light
+			light.omni_shadow_mode = OmniLight3D.SHADOW_DUAL_PARABOLOID
+			light.distance_fade_begin = LIGHT_FADE_OUTSIDE_OBSERVATION_M
+			light.distance_fade_length = F02_SHADOW_FADE_LENGTH_M
+			light.distance_fade_shadow = light.omni_range
+			light.distance_fade_enabled = true
 		if record.kind != "lamp":
 			if not circuits.has(record.room):
 				circuits[record.room] = []
