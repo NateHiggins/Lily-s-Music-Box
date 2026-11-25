@@ -299279,6 +299279,90 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "9b496cdef2c9cb51",
+   "kind": "id_reference",
+   "token": "PASSENGER_SHAFT_EAST",
+   "file": "game/scripts/building/orison_v2_lift_mirror.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "for wall_id: String in [\"PASSENGER_SHAFT_WEST\", \"PASSENGER_SHAFT_EAST\", \"PASSENGER_SHAFT_REAR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3f17794683e6975d",
+   "kind": "id_reference",
+   "token": "PASSENGER_SHAFT_REAR",
+   "file": "game/scripts/building/orison_v2_lift_mirror.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "for wall_id: String in [\"PASSENGER_SHAFT_WEST\", \"PASSENGER_SHAFT_EAST\", \"PASSENGER_SHAFT_REAR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0514d8bfbea918c1",
+   "kind": "id_reference",
+   "token": "PASSENGER_SHAFT_WEST",
+   "file": "game/scripts/building/orison_v2_lift_mirror.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "for wall_id: String in [\"PASSENGER_SHAFT_WEST\", \"PASSENGER_SHAFT_EAST\", \"PASSENGER_SHAFT_REAR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
