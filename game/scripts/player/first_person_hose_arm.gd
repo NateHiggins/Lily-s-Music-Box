@@ -83,6 +83,10 @@ var _last_palm := Vector3.ZERO
 var _momentum := Vector3.ZERO    # skeleton space, metres per second
 var _wave_phase := 0.0
 var _fresh := true
+## The wave sizes of the last drawing (metres), side to side and up and down;
+## read-only, for tests and reviews.
+var wave_side := 0.0
+var wave_lift := 0.0
 
 
 func bind(owner_player: Node) -> bool:
@@ -267,6 +271,8 @@ func _pose() -> void:
 	var calm := 1.0 - energy
 	var side_amp := WRITHE_SIDE * calm + MOMENTUM_WAVE * energy * horizontal
 	var lift_amp := WRITHE_LIFT * calm + MOMENTUM_WAVE * energy * vertical
+	wave_side = side_amp
+	wave_lift = lift_amp
 	_wave_phase += (WRITHE_SPEED + MOMENTUM_HURRY * energy) * _drawing_seconds
 	var bow := -heading * MOMENTUM_DRAG * energy
 	var wild := 1.0 + RECOIL_WRITHE * _recoil

@@ -78,6 +78,19 @@ func _route() -> void:
 	grip = player._grab.target.part.to_global(player._grab.contact)
 	_require(arm.palm_position().distance_to(grip) < 0.06, "the glove follows the moved part (%.3f m)" % arm.palm_position().distance_to(grip))
 	await _capture_interaction("hose_arm_moved")
+	# Momentum shapes the waves: turning the view side to side swings the glove
+	# horizontally across the hose, nodding swings it vertically.
+	var swing: Vector2 = await _swing(arm, Vector3.UP)
+	_require(swing.x > Arm.WRITHE_SIDE and swing.x > swing.y * 1.5,
+			"swinging sideways, the hose throws horizontal waves (side %.3f m, lift %.3f m)" % [swing.x, swing.y])
+	await _capture_interaction("hose_arm_swing_side")
+	var nod: Vector2 = await _swing(arm, Vector3.RIGHT)
+	_require(nod.y > Arm.WRITHE_LIFT and nod.y > nod.x * 1.5,
+			"nodding, the hose throws vertical waves (side %.3f m, lift %.3f m)" % [nod.x, nod.y])
+	await _capture_interaction("hose_arm_swing_nod")
+	await get_tree().create_timer(0.6).timeout
+	grip = player._grab.target.part.to_global(player._grab.contact)
+	_require(player._grab.active() and arm.palm_position().distance_to(grip) < 0.06, "after the swings the glove is still on the grip (%.3f m)" % arm.palm_position().distance_to(grip))
 	_hand.click()
 	_require(not player._grab.active(), "the next click lets go")
 	await get_tree().create_timer(0.5).timeout
@@ -121,3 +134,16 @@ func _arm_keeps_depth_isolation(arm: Node3D, when: String) -> bool:
 	print("HOSE ARM DEPTH ISOLATION (%s): isolate=%s clear=%s excluded=%d offenders=%s" % [when, receivers.get("isolate_depth_lights"), clear, int(shadow.get("excluded_light_layers")), offenders])
 	# The arm never offends; and isolation is on unless something else offends.
 	return bool(receivers.get("isolate_depth_lights")) and not arm_offends and (clear or not offenders.is_empty())
+
+
+## Turns the view back and forth about one camera axis while holding (out and back,
+## so it ends where it started) and returns the largest side and lift waves drawn.
+func _swing(arm: Node3D, axis: Vector3) -> Vector2:
+	var most := Vector2.ZERO
+	for leg: float in [1.0, -1.0, -1.0, 1.0]:
+		for step in 6:
+			player.camera.rotate_object_local(axis, 0.03 * leg)
+			await get_tree().create_timer(1.0 / 24.0).timeout
+			most.x = maxf(most.x, float(arm.get("wave_side")))
+			most.y = maxf(most.y, float(arm.get("wave_lift")))
+	return most
