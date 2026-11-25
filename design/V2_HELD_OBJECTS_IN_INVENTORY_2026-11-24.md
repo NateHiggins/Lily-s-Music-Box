@@ -1,0 +1,76 @@
+# Held objects live in the inventory, shown on the hand
+
+Evidence class: **INERT**. Owner direction and a migration plan, dated 2026-11-24. Nothing
+here is built, rendered or accepted.
+
+Owner direction, 2026-11-24: "in general pick up able objects like kitchen utensils
+shouldnt be carried, put it into their inventory and use the clothing system to put the
+object in their hand model not as an actual game object."
+
+## 1. What happens now
+
+A grip of kind **free** that is not marked **pickup: false** is a carried pickup
+(**constrained_grab.gd**, **holding_pickup**). While it is held, the world body follows
+the hand every physics step (**follow_holder**, called from **PlayerController._physics_process**).
+Collision exceptions bind it to the player, and motion tests cast it against the room.
+
+Free pickups on main at **d919106ac**:
+
+| Owner | What is picked up |
+|---|---|
+| **orison_v2_kitchen_prep_station.gd** | 30 breadboards, rolling pins, bowls and sink boards in 18 kitchens |
+| **v2_library_movable.gd** (and readable books) | Library books |
+| **basin_plug.gd** | The basin plug |
+| **fire_line_gasket.gd**, **fire_loose_union.gd** | The spare gasket and the loose union nut |
+| **fire_unracked_hose.gd** | Unracked hose parts |
+| **night_register_hand_controls.gd** | The register pen |
+| **orison_v2_water_closet.gd** | One loose closet part |
+
+Not pickups, and unchanged: parts already constrained in place (bath, switchboard plugs,
+**pickup: false**). Levers, drawers, doors, keys in locks and threaded couplings are
+operated where they stand.
+
+## 2. What the direction asks for
+
+- **Taking an object** moves it into the holder's inventory and retires the world copy.
+  The world copy is hidden with collision off, kept as its owner's record, not freed.
+- **The held look** comes from the clothing system. **resident_wardrobe.gd** wears parts
+  skinned to the same skeleton in five slots (bottom, top, over, feet, head). A held
+  object becomes a sixth slot, **hand**: a part weighted wholly to the hand bone, loaded
+  only while worn. The player's body is the doodle avatar (**doodle_player_avatar.gd**),
+  and residents use their cast bodies. Both carry the same slot.
+- **Putting it down** returns it to its preset place (the no-prop-physics ruling,
+  2026-11-20). The owner restores the world copy at its authored rest, and the hand slot
+  is emptied.
+- **Saves:** the inventory owns the held item. The world owner's saved mechanism records
+  where the copy rests, so a reload never shows both copies.
+
+## 3. Open choices for Lily
+
+Filed as rulings, recommended option first:
+
+- **held_view_first_person_20261124:** what the player sees in first person while holding
+  something. The avatar is drawn only in mirrors today.
+- **held_put_down_20261124:** where a put-down object goes.
+- **held_scope_20261124:** which objects move to the new rule first.
+
+## 4. Migration order
+
+1. Add a hand slot to the clothing system: a held part on a hand bone, worn and taken off
+   like any other part, with a save field for what is in hand.
+2. Kitchen prep tools first, the case Lily named. The 30 tools become inventory goods and
+   their world bodies retire to rest records, removing their physics bodies.
+3. Books, the basin plug, the register pen, then the fire maintenance loose stock and the
+   water-closet part. Each keeps its existing owner, save and maintenance authority.
+4. Retire the free-pickup path in **constrained_grab.gd** once nothing uses it. Its
+   carrier collision and follow-the-hand code goes with it.
+
+Each slice needs real grabbing and release in tests, a schema-2 runtime receipt where it
+changes play, the reader gate at NEW 0, and a render of the held look.
+
+## 5. Not decided here
+
+- The hand bone each body uses. The cast and doodle skeletons may differ, and the parts
+  must be authored on the right skeleton (Blender, RUL-006).
+- Held-object art. Each object needs a wardrobe part: a small skinned copy of its mesh,
+  which must meet the UV, PBR and mipmap requirements (RUL-012).
