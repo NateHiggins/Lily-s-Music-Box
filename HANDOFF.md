@@ -1,3 +1,12 @@
+# Hose, held items and resident routes, November 25
+
+Evidence class: **INERT**.
+
+PR #571 merged to main at **b291a2dd6** from verified evidence commit **b33717a3d** and tested source **526c0a56c**. It installs the first-person hose and held-item glove, the last six residents' foot placement, the men's stair rate, and the Nadia and Sacha route repairs. Ten script compiles, the hose test, 36 held-item checks, all six lobby and return walks, 818 rendered-surface checks and 369 radiator service and save-reconstruction checks passed. The final comparison found zero new static regressions. The 23 surface and 15 interaction and arrival views received technical review.
+
+[Merge custody and retained failures](D:/ov_reports/nov25_sacha_bedroom_sweep/release/MERGE_VERIFIED.json). Claude owns the remaining books and cast intake. Books WIP **925c2828b** merges cleanly with this main. Its native route still fails when hiding the glove copy and grabbing the cover after saved-copy reconstruction. The toon-avatar attachment and the NPC back-leg lift remain open. See TASKS.md for the remaining scope.
+
+
 # Current 1440p performance matrix after the lobby and F02 fixes
 
 Evidence class: **INERT**.
