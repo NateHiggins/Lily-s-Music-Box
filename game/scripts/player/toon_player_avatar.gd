@@ -57,6 +57,9 @@ var _head := -1
 var _head_front := -1
 var _fingers: Array[int] = []
 var _last_position := Vector3.ZERO
+## The way she is walking, in her own (skeleton) space: her front is +Z. Steps and
+## arm swings run along it, so she steps backward or sideways when she moves so.
+var move_dir := Vector3.BACK
 
 
 func _ready() -> void:
@@ -182,8 +185,14 @@ func set_reflection_active(enabled: bool) -> void:
 
 func _process(delta: float) -> void:
 	clock += delta
-	var travelled := Vector2(holder.global_position.x - _last_position.x, holder.global_position.z - _last_position.z).length()
+	var shift := holder.global_position - _last_position
+	shift.y = 0.0
+	var travelled := shift.length()
 	_last_position = holder.global_position
+	if travelled > 0.0005:
+		var local := skeleton.global_basis.orthonormalized().inverse() * shift
+		local.y = 0.0
+		move_dir = move_dir.slerp(local.normalized(), clampf(delta * 10.0, 0.0, 1.0)).normalized()
 	var moving := holder.planar_speed() > MOVING_SPEED
 	walk = move_toward(walk, 1.0 if moving else 0.0, delta * 4.0)
 	walk_phase = fmod(walk_phase + travelled / STRIDE, 1.0)
@@ -254,12 +263,15 @@ func _pose_limb(limb: Dictionary, anchor: Transform3D, bounce: float, stride: fl
 	var phase := stride + (0.0 if limb.side == "Left" else PI)
 	var tip: Vector3
 	if arm:
-		var swing := -sin(phase) * ARM_SWING * walk
+		# Back as the same-side foot reaches forward.
+		var swing := -cos(phase) * ARM_SWING * walk
 		var drift := 0.02 * sin(TAU * clock * 0.31 + flip) * (1.0 - walk)
-		tip = root + (rest_tip - (limb.root as Vector3)) + Vector3(0.0, -BOB * bounce * 0.5 * (1.0 - walk), swing + drift)
+		tip = root + (rest_tip - (limb.root as Vector3)) + Vector3(0.0, -BOB * bounce * 0.5 * (1.0 - walk), drift) + move_dir * swing
 	else:
-		var foot_lift := maxf(0.0, sin(phase)) * STEP_LIFT * walk
-		tip = rest_tip + Vector3(0.0, foot_lift, cos(phase) * STEP_REACH * walk)
+		# Reach runs as cos(phase): the foot lifts while it swings forward (cos rising)
+		# and is planted while it travels back under her.
+		var foot_lift := maxf(0.0, -sin(phase)) * STEP_LIFT * walk
+		tip = rest_tip + Vector3(0.0, foot_lift, 0.0) + move_dir * cos(phase) * STEP_REACH * walk
 	var line := tip - root
 	var span := maxf(line.length(), 0.05)
 	var forward := line / span
@@ -291,7 +303,7 @@ func _pose_limb(limb: Dictionary, anchor: Transform3D, bounce: float, stride: fl
 		skeleton.set_bone_global_pose(limb.end, Transform3D(Basis(Quaternion(end_rest.basis.y.normalized(), arrival)) * end_rest.basis, tip))
 	else:
 		# The shoe stays level, toes dipping a little as the foot lifts.
-		var dip := maxf(0.0, sin(phase)) * 0.35 * walk
+		var dip := maxf(0.0, -sin(phase)) * 0.35 * walk
 		skeleton.set_bone_global_pose(limb.end, Transform3D(Basis(Vector3.RIGHT, dip) * end_rest.basis, tip))
 
 
