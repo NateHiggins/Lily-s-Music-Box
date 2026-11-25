@@ -123,7 +123,8 @@ for i, segment in enumerate(plan['segments']):
     oriented_ring('Conduit_%03d' % i, (start+end)/2, direction, (end-start).length, level=segment['level'])
 
 for i, junction in enumerate(plan['junctions']):
-    if junction['kind'] == 'terminal':
+    fixture = fixture_boxes.get(tuple(round(v,6) for v in junction['position']))
+    if junction['kind'] == 'terminal' and not fixture:
         continue
     p = gv(junction['position'])
     level = min((l for l in level_y if l.startswith('F')), key=lambda l: abs(level_y[l]+2.9-p.y))
@@ -137,7 +138,6 @@ for i, junction in enumerate(plan['junctions']):
         cutter = cylinder(.0127, .07, p + Vector(direction)*.03)
         cutter.rotation_euler = Vector(point(direction)).to_track_quat('Z', 'Y').to_euler()
         cut(shell, cutter)
-    fixture = fixture_boxes.get(tuple(round(v,6) for v in junction['position']))
     if fixture:
         # The round adapter is welded into the open box base. Its underside
         # bears on the complete existing canopy rim; no screw heads intersect
@@ -279,6 +279,7 @@ bpy.context.view_layer.update()
 switch_materials = {key: material(ROOT, 'FrontSwitch_'+key,
     dict(catalog_key=key, tint=[1,1,1,1], pigment=1., normal=.10, roughness=.8), catalog)
     for key in ['bakelite', 'nickel_plated', 'porcelain', 'rubber_aged']}
+concealed_controls = {row['control'] for row in plan['concealed_feeds']}
 for switch in plan['switches']:
     level, yaw = switch['level'], switch['yaw']
     anchor = gv(switch['position']) + Vector((0, level_y[level], 0))
@@ -289,14 +290,16 @@ for switch in plan['switches']:
     shell = cube(switch['backbox_size'])
     cavity = cube((.098, .162, .05), (0, 0, -.009))
     cut(shell, cavity)
-    cutter = cylinder(.0127, .05, (0, .081, 0))
-    cut(shell, cutter)
+    if switch['id'] not in concealed_controls:
+        cutter = cylinder(.0127, .05, (0, .081, 0))
+        cut(shell, cutter)
     shell.matrix_world = Matrix.Translation(Vector(point(center))) @ rotation
     record(finish(switch['id']+'_Backbox', [shell], 'iron_neutral', .00025), level, 'switch_backbox')
     # Vertical stems have actual wall bearings at <=650mm pitch.
     pipe = anchor + inward*.012
     first = float(switch['position'][1])+.26
-    for n, y in enumerate([first, (first+2.70)/2, 2.70]):
+    stem_heights = [] if switch['id'] in concealed_controls else [first, (first+2.70)/2, 2.70]
+    for n, y in enumerate(stem_heights):
         p = Vector((pipe.x, level_y[level]+y, pipe.z))
         band = ring(.0165, .0127, .018, p)
         # Wall face is 20mm behind the conduit centre; a short web joins it.
@@ -324,8 +327,8 @@ bpy.data.collections.remove(temporary)
 
 # Unused spine tips close with real caps; source/canopy/switch tips stay open
 # inside their respective fitted enclosure instead of receiving false plugs.
-functional_tips = {tuple(r['points'][-1]) for r in plan['routes'] if r['kind'] in ('canopy', 'switch')}
-functional_tips |= {tuple(r['points'][0]) for r in plan['routes'] if r['kind'] == 'source'}
+functional_tips = {tuple(r['points'][-1]) for r in plan['routes'] if r['kind'] in ('canopy', 'concealed_canopy', 'switch')}
+functional_tips |= {tuple(r['points'][0]) for r in plan['routes'] if r['kind'] in ('source', 'concealed_canopy')}
 for i, junction in enumerate(plan['junctions']):
     p = junction['position']
     if junction['kind'] != 'terminal' or tuple(p) in functional_tips:

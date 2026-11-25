@@ -55,13 +55,32 @@ def source_from_plan(plan, layout):
         half=[row['half_width']]*3;half[axis]=wall/2
         bounds=[row['center'][j]-half[j] for j in range(3)]+[row['center'][j]+half[j] for j in range(3)]
         ports.append(dict(id=row['space']+'_FRONT_LIGHT_PORT_'+str(i),space=row['space'],side=row['side'],bounds=bounds))
-    return dict(schema_version=1,records=dict(anchors=anchors,wall_service_openings=ports),lighting=lighting)
+    return dict(schema_version=1, records=dict(anchors=anchors, wall_service_openings=ports),
+                lighting=lighting, concealed_feeds=plan.get('concealed_feeds', []))
+
+
+def retired_ids(source):
+    retired = set()
+    for feed in source['concealed_feeds']:
+        hall = feed['level'] + '_FRONT_HALL'
+        gallery = feed['room']
+        retired |= {hall + '_LT_1', hall + '_LT_2', hall + '_SWITCH',
+                    gallery + '_LT_1', gallery + '_LT_3'}
+    return retired
 
 
 def project(layout,lighting,source):
     result=copy.deepcopy(layout);lights=copy.deepcopy(lighting)
-    for key,rows in source['records'].items():result[key]=upsert_records(result.get(key,[]),rows)
-    for key,rows in source['lighting'].items():lights[key]=upsert_records(lights[key],rows)
+    retired = retired_ids(source)
+    result['anchors'] = [row for row in result['anchors'] if row['id'] not in retired]
+    result['wall_service_openings'] = [
+        row for row in result['wall_service_openings'] if '_FRONT_LIGHT_PORT_' not in row['id']
+    ]
+    for key, rows in source['records'].items():
+        result[key] = upsert_records(result.get(key, []), rows)
+    for key, rows in source['lighting'].items():
+        retained = [row for row in lights[key] if row['id'] not in retired]
+        lights[key] = upsert_records(retained, rows)
     return result,lights
 
 
@@ -84,6 +103,11 @@ def main():
     if args.apply:
         layout_path.write_bytes(render_layout(raw,new_layout).encode('utf-8'));save(light_path,new_lights)
         save(ROOT/'art/data/orison_v2/front_lighting_source.json',source)
+        fixture_path = ROOT/'game/data/orison_v2/front_lighting_fixtures.json'
+        fixture_stock = json.loads(fixture_path.read_text())
+        retired = retired_ids(source)
+        fixture_stock['instances'] = [row for row in fixture_stock['instances'] if row['id'] not in retired]
+        save(fixture_path, fixture_stock)
         save(ROOT/'game/data/orison_v2/front_lighting_supply.json',supply_from_export(
             (ROOT/'game/assets/props/front_lighting_supply.glb').read_bytes(),
             json.loads((ROOT/'art/data/orison_v2/front_lighting_supply_export.json').read_text())))
