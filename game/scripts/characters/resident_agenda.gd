@@ -240,7 +240,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 	candidates.append({"key": "timetable|%s|%s" % [block.get("place", "unit"), duty],
 			"place": str(block.get("place", "unit")), "activity": duty, "source": "timetable",
 			"why": str(block.get("detail", "keeps to the timetable")), "minutes": step,
-			"needs": {}, "hard": duty in motives.hard_activities or bool(block.get("appointment", false))})
+			"needs": {}, "hard": duty in motives.hard_activities or ScheduleDirector.has_appointment(block)})
 	for option: Dictionary in motives.options:
 		candidates.append(_candidate(option, "need", "need|" + str(option.id)))
 	if arc < 2:
