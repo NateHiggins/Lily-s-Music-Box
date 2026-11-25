@@ -746,6 +746,11 @@ func _compose_authorities() -> void:
 	player_avatar.name="ReflectedPlayer";player_avatar.holder=player;player.add_child(player_avatar)
 	if not player_avatar.native_ready:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: owner player rig refused");return
+	# The first-person rubber-hose arm draws a hand on whatever the player works.
+	var hose_arm: Node3D=preload("res://scripts/player/first_person_hose_arm.gd").new()
+	hose_arm.name="FirstPersonHoseArm";player.camera.add_child(hose_arm)
+	if not hose_arm.bind(player):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: first-person hose arm refused");return
 	if not _compose_exterior():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
