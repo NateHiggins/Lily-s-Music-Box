@@ -240,7 +240,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 	candidates.append({"key": "timetable|%s|%s" % [block.get("place", "unit"), duty],
 			"place": str(block.get("place", "unit")), "activity": duty, "source": "timetable",
 			"why": str(block.get("detail", "keeps to the timetable")), "minutes": step,
-			"needs": {}, "hard": duty in motives.hard_activities})
+			"needs": {}, "hard": duty in motives.hard_activities or bool(block.get("appointment", false))})
 	for option: Dictionary in motives.options:
 		candidates.append(_candidate(option, "need", "need|" + str(option.id)))
 	if arc < 2:
@@ -268,7 +268,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 				"source": "player", "why": str(motives.player.seek_why), "minutes": 30,
 				"needs": {"company": 0.3}, "hours": [0, 1440]})
 	# A choice made for a need is seen through: until its time is up it holds,
-	# unless a hard block (sleep, work, transit, ritual) begins.
+	# unless a hard timetable block or authored appointment begins.
 	var current: Dictionary = state.get("choice", {})
 	if int(state.until) > minute and not current.is_empty() and str(current.source) != "timetable" \
 			and not bool(candidates[0].hard) and not _avoided_there(slug, current, states):

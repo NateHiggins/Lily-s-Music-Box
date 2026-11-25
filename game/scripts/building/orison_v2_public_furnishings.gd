@@ -1,6 +1,7 @@
 extends RefCounted
 ## Fixed public furnishings; circulation and door ownership stay with the rooms.
 const LIBRARY := preload("res://assets/props/public_furnishings.glb")
+const GARDEN := preload("res://assets/props/roof_garden_planter.glb")
 static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 	var library := LIBRARY.instantiate()
 	for room_id in ["F01_LOBBY","F01_PACKAGE"]:
@@ -30,6 +31,7 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 			_install(furniture,library,"ParcelRack","EastRack",Vector3(float(rect[2])-.33,y,(float(rect[1])+float(rect[3]))*.5),PI*.5,"ParcelLoadEast")
 			_install(furniture,library,"ParcelRack","NorthRack",Vector3((float(rect[0])+float(rect[2]))*.5,y,float(rect[3])-.325),0,"ParcelLoadNorth")
 	library.free()
+	_mount_roof_planter(adapter)
 
 static func _install(parent: Node3D, library: Node3D, model: String, label: String, at: Vector3, yaw: float, dressing := "") -> void:
 	var body := StaticBody3D.new()
@@ -60,3 +62,35 @@ static func _add_visual(body: StaticBody3D, library: Node3D, model: String) -> v
 		shape.shape=mesh.mesh.create_trimesh_shape()
 		shape.transform=visual.transform*mesh.transform
 		body.add_child(shape)
+
+static func _mount_roof_planter(adapter: OrisonV2AnchorAdapter) -> void:
+	var deck := adapter.resolve("ROOF_DECK_WEST") as Node3D
+	if deck == null:
+		return
+	var planter := StaticBody3D.new()
+	planter.name = "CommunalHerbBed"
+	deck.add_child(planter)
+	# The four corners of the skids lie on this plane in the fitted membrane.
+	var east := Vector3(1.0, 0.01, 0.0).normalized()
+	var up := Vector3(-0.01, 1.0, 0.007272727).normalized()
+	planter.basis = Basis(east, up, east.cross(up).normalized())
+	planter.position = Vector3(-6.2, 19.3205, 2.7)
+	var stock := GARDEN.instantiate()
+	planter.add_child(stock)
+	var finishes := {"RoofGarden_Timber":"timber", "RoofGarden_Soil":"soil",
+		"RoofGarden_Stems":"plant", "RoofGarden_Leaves":"plant"}
+	for draw: MeshInstance3D in stock.find_children("*", "MeshInstance3D", true, false):
+		var key := str(finishes[str(draw.name)])
+		var material := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+		material.uv1_triplanar = false
+		draw.material_override = material
+		draw.set_meta("material_key", key)
+
+	# One collision hull represents the timber bed. Leaves never catch feet.
+	var support := CollisionShape3D.new()
+	support.name = "HerbBedCollision"
+	var box := BoxShape3D.new()
+	box.size = Vector3(1.12, 0.414, 0.55)
+	support.shape = box
+	support.position.y = 0.207
+	planter.add_child(support)
