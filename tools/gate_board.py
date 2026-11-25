@@ -27,7 +27,8 @@ Regression rules (all of them, so a reader can predict the verdict):
   - severity rose (PASS < INCOMPLETE < FAIL < ERROR);
   - a defect count rose (ledger blockers per scope, reader NEW findings,
     carrier forbidden, spatial/systemic drift, test failures);
-  - a named defect appeared that the baseline did not have;
+  - a named defect appeared that the baseline did not have. A performance
+    budget breach is identified by its station and budget;
   - a ledger requirement's status fell, or a requirement disappeared;
   - a tools test file ran fewer tests than before (a deleted test is not a
     pass).
@@ -330,6 +331,20 @@ def build_board(root: Path, include_tests: bool, only: list[str], jobs: int, tim
 # Comparison
 # ---------------------------------------------------------------------------
 
+def _defects_by_key(row: dict) -> dict[str, str]:
+    """Keep measured values in diagnostics but out of budget defect identity."""
+    defects = row.get("defects", [])
+    if row["id"] != "v2_performance_matrix":
+        return {defect: defect for defect in defects}
+    result = {}
+    for defect in defects:
+        match = re.fullmatch(
+            r"over budget: ([a-z0-9_]+) \d+\.\d+ ms median \(budget (\d+\.\d+)\)", defect)
+        key = f"over budget: {match[1]} (budget {match[2]})" if match else defect
+        result[key] = defect
+    return result
+
+
 def compare(old: dict, new: dict) -> dict:
     if old.get("tool_version") != new.get("tool_version"):
         message = (f"boards come from different gate_board versions "
@@ -369,11 +384,11 @@ def compare(old: dict, new: dict) -> dict:
                 regressions.append(f"{gid}: {key} {b} -> {a}")
             elif a < b:
                 improvements.append(f"{gid}: {key} {b} -> {a}")
-        bd, ad = set(before.get("defects", [])), set(after.get("defects", []))
-        for item in sorted(ad - bd):
-            regressions.append(f"{gid}: new defect {item}")
-        for item in sorted(bd - ad):
-            improvements.append(f"{gid}: resolved {item}")
+        bd, ad = _defects_by_key(before), _defects_by_key(after)
+        for key in sorted(ad.keys() - bd.keys()):
+            regressions.append(f"{gid}: new defect {ad[key]}")
+        for key in sorted(bd.keys() - ad.keys()):
+            improvements.append(f"{gid}: resolved {bd[key]}")
         ran_b = before.get("info", {}).get("ran")
         ran_a = after.get("info", {}).get("ran")
         if isinstance(ran_b, int) and isinstance(ran_a, int) and ran_a < ran_b:
