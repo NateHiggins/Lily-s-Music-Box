@@ -61,6 +61,29 @@ class CompareTests(unittest.TestCase):
         old = board(row("carriers", "FAIL", 1, {"forbidden": 2}, ["a.gd:1:Hold E"]))
         self.assertEqual(gb.compare(old, old)["regressions"], [])
 
+    def test_updated_timing_is_the_same_over_budget_station(self):
+        gate = "v2_performance_matrix"
+        old = board(row(gate, "FAIL", 1, {"over_budget": 1},
+                        ["over budget: lobby 41.98 ms median (budget 33.3)"]))
+        new = board(row(gate, "FAIL", 1, {"over_budget": 1},
+                        ["over budget: lobby 43.85 ms median (budget 33.3)"]))
+        result = gb.compare(old, new)
+        self.assertEqual(result["regressions"], [])
+        self.assertEqual(result["improvements"], [])
+
+    def test_new_station_budget_or_non_timing_defect_is_a_regression(self):
+        gate = "v2_performance_matrix"
+        existing = "over budget: lobby 41.98 ms median (budget 33.3)"
+        old = board(row(gate, "FAIL", 1, {"over_budget": 1}, [existing]))
+        for defect in ("over budget: studio 43.85 ms median (budget 33.3)",
+                       "over budget: lobby 43.85 ms median (budget 30.0)",
+                       "station invalid: lobby (camera drifted)"):
+            with self.subTest(defect=defect):
+                new = board(row(gate, "FAIL", 1, {"over_budget": 1}, [defect]))
+                result = gb.compare(old, new)
+                self.assertEqual(result["regressions"], [f"{gate}: new defect {defect}"])
+                self.assertEqual(result["improvements"], [f"{gate}: resolved {existing}"])
+
     def test_severity_rise_is_a_regression(self):
         old = board(row("spatial"))
         new = board(row("spatial", "FAIL", 1))

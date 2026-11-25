@@ -1,3 +1,15 @@
+# Current 1440p performance matrix, November 25
+
+Evidence class: **INERT**.
+
+The refreshed matrix covers eleven stations and four headings per station in an exact 2560 × 1440 Forward+ viewport. It measures the real player at the stance resolved by collision and checks position and yaw during sampling. The previous capture used a 2560 × 1421 viewport and remains available in Git history.
+
+On the production runtime at **a1146c1d4**, three stations meet the 33.3 ms median ceiling and eight remain above it. The lobby is slowest at 43.85 ms, followed by the F02 landing at 39.79 ms and the F03 crossing at 37.86 ms. The matrix records main visible and shadow draw counts by heading. It gives the next performance pass a current reference, and the building-wide work order remains open with Claude.
+
+The gate board tracks an over-budget result by station and budget. Updated timings remain visible in the receipt. A newly failing station or a changed budget retains a distinct defect.
+
+[Source-bound matrix and retained first attempt](D:/ov_reports/frame_rate_20261125/current_matrix_947f9c257/STATUS.md).
+
 # V2 lamp depth lighting, November 25
 
 Evidence class: **INERT**.
