@@ -1,3 +1,11 @@
+## Cal and Juno’s Saturday radio exchange, November 25
+
+Evidence class: **INERT**.
+
+PR #579 gives Juno an arrival spot beside the 5B radio for her ordinary Saturday visit. Cal’s workshop uses its existing main-room position. The dated drama still sends Juno to the alcove. Before the fix, both residents reached their destinations, but the wall and a 5.49 m gap kept the paired exchange from playing.
+
+On the installed retest, Juno walked from the 5B threshold and arrived 2.00 m from Cal in clear sight. The normal player interaction opened all seven authored turns. The exchange played once and left case, knowledge, trust, conversation, temporal and inventory records intact. The schedule test and all 678 loop-performance checks passed. The same source passed 818 rendered-surface checks and 369 original radiator and save checks over 176 waypoints. The ordinary route starts at the apartment threshold. Full travel across the building, Lily’s play and artistic review remain open. [Technical evidence and original failure](D:/ov_reports/oy04_saturday_listening_20261125_release/CUSTODY_AND_NEXT.md).
+
 ## Toon Lily in reflections, November 25
 
 Evidence class: **INERT**.
