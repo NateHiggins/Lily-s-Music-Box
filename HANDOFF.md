@@ -1,3 +1,13 @@
+# First-person hose arm momentum, November 25
+
+Evidence class: **INERT**.
+
+The rubber-hose arm now responds to the direction of the glove's motion. Sideways motion emphasizes horizontal waves. Nodding emphasizes vertical waves. The motion leaves the existing grip and socket in charge of the endpoint.
+
+The clean installed route passed 23 checks. The arm moved 8.9 cm horizontally and 2.5 cm vertically on average in the sideways test. The nod moved it 7.8 cm vertically and 3.8 cm horizontally. After both swings the drawn glove was 1.2 cm from the grip. The composed route passed 369 checks and 176 walking waypoints. Physical surface review passed 818 checks and covered 23 paired frames. Owner play, artistic acceptance and first-person fitting of carried tools remain open.
+
+[Momentum intake and preserved evidence](D:/ov_reports/orison_npc_gait_face_intake_20261124/hose_arm_momentum_acebc55ad/STATUS.md).
+
 # Kitchen tools in the valise, November 25
 
 Evidence class: **INERT**.
