@@ -51,6 +51,7 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 			light.distance_fade_begin = LIGHT_FADE_OUTSIDE_OBSERVATION_M
 			light.distance_fade_length = SHADOW_FADE_LENGTH_M
 			light.distance_fade_shadow = light.omni_range
+			light.set_meta(LightRig.SHADOW_FADE_FOLLOWS_RANGE, true)
 			light.distance_fade_enabled = true
 		if record.kind != "lamp":
 			if not circuits.has(record.room):
