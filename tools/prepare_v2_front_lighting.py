@@ -36,6 +36,10 @@ def supply_from_export(asset, report):
                 superseded_covers=[f'F{i:02}_ELECTRICAL_JUNCTION' for i in range(1,7)])
 
 
+def port_geometry(row):
+    return row['space'], row['side'], tuple(round(value, 7) for value in row['bounds'])
+
+
 def source_from_plan(plan, layout):
     rooms={s['id'] for s in layout['spaces']}
     anchors=[]
@@ -48,13 +52,25 @@ def source_from_plan(plan, layout):
                   switches=[{k:row[k] for k in ['id','room']} for row in plan['switches']])
     wall=float(layout['dimensions']['partition_wall'])
     ports=[]
+    old_ports = {port_geometry(row): row['id'] for row in layout['wall_service_openings']
+                 if '_FRONT_LIGHT_PORT_' in row['id']}
+    used_ids = set(old_ports.values())
     for i,row in enumerate(plan['wall_ports']):
         axis=0 if row['side'] in ['west','east'] else 2
         # The shell subtracts an opening through its exact wall thickness.
         # Overshoot belongs in a Boolean cutter, not an owned opening record.
         half=[row['half_width']]*3;half[axis]=wall/2
         bounds=[row['center'][j]-half[j] for j in range(3)]+[row['center'][j]+half[j] for j in range(3)]
-        ports.append(dict(id=row['space']+'_FRONT_LIGHT_PORT_'+str(i),space=row['space'],side=row['side'],bounds=bounds))
+        port = dict(space=row['space'], side=row['side'], bounds=bounds)
+        identity = old_ports.get(port_geometry(port))
+        if identity is None:
+            prefix = row['space'] + '_FRONT_LIGHT_PORT_'
+            suffix = i
+            while prefix + str(suffix) in used_ids:
+                suffix += 1
+            identity = prefix + str(suffix)
+            used_ids.add(identity)
+        ports.append(dict(id=identity, **port))
     return dict(schema_version=1, records=dict(anchors=anchors, wall_service_openings=ports),
                 lighting=lighting, concealed_feeds=plan.get('concealed_feeds', []))
 
@@ -73,8 +89,10 @@ def project(layout,lighting,source):
     result=copy.deepcopy(layout);lights=copy.deepcopy(lighting)
     retired = retired_ids(source)
     result['anchors'] = [row for row in result['anchors'] if row['id'] not in retired]
+    active_ports = {row['id'] for row in source['records']['wall_service_openings']}
     result['wall_service_openings'] = [
-        row for row in result['wall_service_openings'] if '_FRONT_LIGHT_PORT_' not in row['id']
+        row for row in result['wall_service_openings']
+        if '_FRONT_LIGHT_PORT_' not in row['id'] or row['id'] in active_ports
     ]
     for key, rows in source['records'].items():
         result[key] = upsert_records(result.get(key, []), rows)
