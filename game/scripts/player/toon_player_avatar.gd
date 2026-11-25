@@ -1,4 +1,4 @@
-extends Node3D
+extends "res://scripts/player/player_avatar_held_items.gd"
 ## The player's body as a 1930s rubber-hose cartoon of Lily (Lily, 2026-11-25): flat
 ## black and white, ink-lined, in a maid's outfit, drawn and moved like the first-person
 ## rubber-hose arm. It is presentation only. The controller owns motion; nothing here
@@ -21,7 +21,6 @@ const MODEL := preload("res://assets/characters/player_toon/player_toon_lily.glb
 const CEL := preload("res://shaders/hose_arm_cel.gdshader")
 const OUTLINE := preload("res://shaders/hose_arm_outline.gdshader")
 const Arm := preload("res://scripts/player/first_person_hose_arm.gd")
-const HeldHandSlotScript := preload("res://scripts/characters/held_hand_slot.gd")
 const LIMB_BONES := 12
 const SIDES := ["Left", "Right"]
 ## Idle and walk, in metres and seconds, at the arm's beat.
@@ -40,14 +39,11 @@ const MOVING_SPEED := 0.10
 const HEAD_YAW_LIMIT := 1.05   # radians either side of the body's front
 const HEAD_PITCH_LIMIT := 0.55
 
-var holder: PlayerController
-var skeleton: Skeleton3D
 var native_ready := false
 var reflected := false
 var clock := 0.0
 var walk_phase := 0.0
 var walk := 0.0                # 0 standing .. 1 walking, eased
-var hand_slot: HeldHandSlotScript
 var _rest: Dictionary = {}
 var _limbs: Array[Dictionary] = []
 var _hips := -1
@@ -123,7 +119,7 @@ func _ready() -> void:
 	holder.camera.cull_mask &= ~LAYER
 	native_ready = true
 	_pose()
-	_bind_hand_slot()
+	_bind_hand_slot(LAYER)
 
 
 func _finish(key: String) -> ShaderMaterial:
@@ -141,40 +137,6 @@ func _finish(key: String) -> ShaderMaterial:
 
 ## The hand slot shows what the carried case says is held, in her right glove. It is
 ## drawn on the avatar's own layer, so mirrors see it and the first-person camera does not.
-func _bind_hand_slot() -> void:
-	hand_slot = HeldHandSlotScript.new()
-	hand_slot.name = "HandSlot"
-	hand_slot.layers = LAYER
-	skeleton.add_child(hand_slot)
-	if not hand_slot.bind_hand(skeleton):
-		hand_slot.queue_free()
-		hand_slot = null
-		return
-	if not RealityState.state_changed.is_connected(refresh_hand):
-		RealityState.state_changed.connect(refresh_hand)
-	refresh_hand()
-
-
-func refresh_hand() -> void:
-	if not is_instance_valid(hand_slot):
-		return
-	var item := CarriedCase.hand()
-	if item == hand_slot.worn:
-		return
-	var part: Node3D
-	var state: Node = get_tree().get_first_node_in_group("v2_household_state") if is_inside_tree() else null
-	if not item.is_empty() and state != null and state.has_method("packed_kitchen_tool"):
-		var packed: Dictionary = state.packed_kitchen_tool(item)
-		if not packed.is_empty():
-			part = packed.station.tool_visual(packed.assembly)
-	hand_slot.wear(item if part != null else "", part)
-
-
-func _exit_tree() -> void:
-	if RealityState.state_changed.is_connected(refresh_hand):
-		RealityState.state_changed.disconnect(refresh_hand)
-
-
 func set_reflection_active(enabled: bool) -> void:
 	if not native_ready or reflected == enabled:
 		return
