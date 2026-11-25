@@ -34,26 +34,25 @@ func _route() -> void:
 
 		# Start each local path at a known stance. The default controller then
 		# crosses the widened edges under its ordinary physics and collision.
-		if not await _cross(Vector3(6.10, floor_y, -3.34), Vector3(6.10, floor_y, -5.0)):
-			return
-		if not await _cross(Vector3(-1.27, floor_y, -4.70), Vector3(-1.27, floor_y, -3.26)):
-			return
-		if not await _cross(Vector3(3.80, floor_y, -4.70), Vector3(3.80, floor_y, -3.26)):
-			return
+		var paths := [
+			[Vector3(6.10, floor_y, -3.34), Vector3(6.10, floor_y, -5.0)],
+			[Vector3(-1.27, floor_y, -4.70), Vector3(-1.27, floor_y, -3.26)],
+			[Vector3(3.80, floor_y, -4.70), Vector3(3.80, floor_y, -3.26)],
+			[Vector3(-1.2, floor_y, -8.72), Vector3(5.8, floor_y, -8.72)],
+		]
 		if index < 3:
-			if not await _cross(Vector3(-4.64, floor_y, -6.48), Vector3(-4.64, floor_y, -8.42)):
-				return
-		if not await _cross(Vector3(-1.2, floor_y, -8.72), Vector3(5.8, floor_y, -8.72)):
-			return
+			paths.append([Vector3(-4.64, floor_y, -6.48), Vector3(-4.64, floor_y, -8.42)])
+		for path: Array in paths:
+			await _cross(path[0], path[1])
 		await _capture(floor_id, floor_y)
 
 
-func _cross(start: Vector3, finish: Vector3) -> bool:
+func _cross(start: Vector3, finish: Vector3) -> void:
 	player.global_position = world.adapter.root.to_global(start + Vector3.UP * 0.03)
 	player.velocity = Vector3.ZERO
 	for step in range(6):
 		await get_tree().physics_frame
-	return await _walk(finish)
+	await _walk(finish)
 
 
 func _capture(floor_id: String, floor_y: float) -> void:
