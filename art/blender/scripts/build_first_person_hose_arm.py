@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "game/assets/characters/player_hose_arm/hose_arm.glb"
 
 ARM_LENGTH = 0.55
-ARM_RADIUS = 0.024
+ARM_RADIUS = 0.030  # at the wrist; the runtime keeps this width on screen up the hose
 ARM_BONES = 24
 SIDES = 18
 RINGS_PER_BONE = 3
