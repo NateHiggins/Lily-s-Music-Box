@@ -7,7 +7,9 @@ extends Node
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
 const RISE_PER_TREAD := 0.16 / 0.285
 ## The male cast base, from the hips rest and shin in design/NPC_REPAIR_PILOT_SECOND_RESIDENT_2026-11-24.md.
-const LONG_LEGGED := ["cal_dwyer", "jonah_price", "malcolm_reed", "noel_price", "omar_bell", "peter_wren", "transient_guests"]
+## The male cast base (its skin is the male MPFB base): every man on the resident list.
+const LONG_LEGGED := ["cal_dwyer", "cam_ortiz", "jonah_price", "malcolm_reed", "noel_price", "omar_bell", "peter_wren", "sacha_reed",
+		"transient_guests"]
 
 var checks: Array = []
 var failures: Array = []

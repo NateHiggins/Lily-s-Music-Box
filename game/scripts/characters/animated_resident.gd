@@ -36,7 +36,7 @@ const GAIT_PILOT := ["malcolm_reed",
 var walk_gait: ClipGait
 ## The male cast base's long shin: its shared walk may slow further on stairs (ClipGait.STAIR_MIN_SCALE). A route
 ## slope this steep or steeper is a stair; the house's run 0.16 m in 0.285 m.
-const LONG_SHIN := 0.385
+const LONG_SHIN := 0.40
 const STAIR_SLOPE := 0.3
 var long_legged := false
 var _route_slope := 0.0
@@ -356,7 +356,8 @@ func _match_ground() -> void:
 	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed, lowest)
 
 
-## The rest length of the left shin. The cast's male base measures 0.40-0.42 m and the female 0.34-0.37 m.
+## The rest length of the left shin. Measured 2026-11-25 on all seventeen generic bodies: the male base 0.405-0.486 m
+## (Cam shortest), the female 0.377-0.397 m. LONG_SHIN sits in that gap; NpcPilotGenericGaitTest holds the split.
 static func _shin_length(skeleton: Skeleton3D) -> float:
 	var knee := skeleton.find_bone("LeftLeg")
 	var ankle := skeleton.find_bone("LeftFoot")
