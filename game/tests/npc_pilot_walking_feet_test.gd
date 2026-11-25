@@ -211,8 +211,10 @@ func run() -> void:
 		actor.set_route_motion(false, 0.0, 0.0)
 		actor.queue_free()
 		await get_tree().process_frame
-	var peter: Node3D = await _resident("omar_bell")
-	check(peter.walking_feet == null, "a resident outside the gate (Omar) has no foot placement")
+	# Every regular resident is in the gate now; Adela's rebuilt body (staff) is the outside witness.
+	var peter: Node3D = await _resident("adela_voss")
+	check(peter.cast_body != null, "Adela's rebuilt body is mounted for the witness")
+	check(peter.walking_feet == null, "a body outside the gate (Adela) has no foot placement")
 	peter.queue_free()
 	await get_tree().process_frame
 	_finish(started)

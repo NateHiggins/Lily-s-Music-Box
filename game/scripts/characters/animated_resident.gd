@@ -31,14 +31,17 @@ var mina_animation: MinaAnimationBehavior
 ## batches once the pilot qualifies; the rest keep the plain 1x walk.
 const GAIT_PILOT := ["malcolm_reed",
 		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
-		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests",
+		"cam_ortiz", "iris_bell", "mae_kessler", "nadia_quell", "omar_bell", "sacha_reed"]
 var walk_gait: ClipGait
 ## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
 ## pilot bodies first, one per cast base; then batches (batch one by her ruling npc_feet_descent_backswing_20261124,
-## "widen to more residents"): two more of each base; batch two, three more of each. Everyone else joins later.
+## "widen to more residents"): two more of each base; batch two, three more of each; batch three, the last six.
+## Every regular resident is now in both gates. Adela (staff, not a resident) stays outside them.
 const FEET_PILOT := ["mina_vale", "malcolm_reed",
 		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
-		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests",
+		"cam_ortiz", "iris_bell", "mae_kessler", "nadia_quell", "omar_bell", "sacha_reed"]
 const WalkingFeet := preload("res://scripts/characters/walking_feet.gd")
 var walking_feet: Node
 var _ground_speed := 0.0

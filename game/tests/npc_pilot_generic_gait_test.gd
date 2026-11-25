@@ -86,8 +86,10 @@ func run() -> void:
 	await get_tree().process_frame
 
 	# Outside the pilot list the walk is untouched.
-	var peter: Node = await _resident("omar_bell")
-	check(peter.walk_gait == null, "a resident outside the gate (Omar) keeps the plain walk")
+	# Every regular resident is in the gate now; Adela's rebuilt body (staff) is the outside witness.
+	var peter: Node = await _resident("adela_voss")
+	check(peter.cast_body != null, "Adela's rebuilt body is mounted for the witness")
+	check(peter.walk_gait == null, "a body outside the gate (Adela) keeps the plain walk")
 	var plain: Dictionary = await _walk(peter, 2.0, 1.05)
 	check(int(plain.rates) == 1 and is_equal_approx(peter._animation_player.speed_scale, 1.0), "his walk plays at 1x as before")
 	peter.queue_free()
