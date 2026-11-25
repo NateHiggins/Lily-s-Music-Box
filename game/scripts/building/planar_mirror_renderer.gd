@@ -121,6 +121,9 @@ func _choose_mirror() -> Variant:
 		if camera_facing < 0.18 or glass_facing < 0.12 \
 				or not _main_camera.is_position_in_frustum(center):
 			continue
+		if cabinet.has_method("mirror_occluded_from") \
+				and cabinet.mirror_occluded_from(_main_camera.global_position, _main_camera.cull_mask):
+			continue
 		var score := camera_facing * 2.0 + glass_facing - distance_m * 0.16
 		if score > best_score:
 			best_score = score

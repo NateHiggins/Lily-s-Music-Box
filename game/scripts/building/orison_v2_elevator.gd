@@ -32,7 +32,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	_refine_cab_joinery(lift)
 	_refine_cab_lamp(lift)
 	var mirror := preload("res://scripts/building/orison_v2_lift_mirror.gd").new()
-	mirror.mount(lift)
+	mirror.mount(lift, adapter)
 	var indicator := preload("res://scripts/building/orison_v2_lift_indicator.gd").new()
 	indicator.mount(lift)
 	var cab_controls := preload("res://scripts/building/orison_v2_cab_controls.gd").new()
