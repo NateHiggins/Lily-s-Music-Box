@@ -1,3 +1,26 @@
+# Fire hose nozzle idle processing, November 24
+
+Evidence class: **INERT**.
+
+PR #554 takes the nozzle coupling change from PR #551. The coupling
+publishes the seated body and lever shapes after an ancestor moves, then
+idles. Kitchen tools have a separate inventory migration.
+
+The installed nozzle bench passed 120 assertions, including 98 ancestor
+publication checks. A first-person click picked up the loose nozzle. The
+player walked 1.5 m with the nozzle aligned to the hand, and release
+returned it to its authored rest without repairing it. The earlier
+walking failures are preserved. A trace showed ambient forward input
+steering the player into the cabinet. The scoped bench now clears native
+movement bindings before using the normal right-move action.
+
+The composed V2 route passed 369 checks and 176 walking waypoints,
+including radiator repair and disk reconstruction. The technical surface
+review passed 818 checks and compared 23 rendered views. The mail-bank
+and watch-station labels remain dim. Owner play remains open.
+
+[Nozzle qualification and earlier failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/nozzle_final_2e7450252/STATUS.md).
+
 # Counter teaching slip, November 24
 
 Evidence class: **INERT**.

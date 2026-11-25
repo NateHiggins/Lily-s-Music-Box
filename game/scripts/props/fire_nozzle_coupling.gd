@@ -208,10 +208,19 @@ func _snap_release() -> void:
 	clocking=0.;sync()
 func _release_body() -> void:
 	_snap_release();actor._release()
+func _ready() -> void:
+	# Idle until an ancestor actually moves: the engine reports the move, and the
+	# picking refresh runs on the next physics tick instead of polling every tick.
+	set_notify_transform(true)
+
+func _notification(what: int) -> void:
+	if what==NOTIFICATION_TRANSFORM_CHANGED:set_physics_process(true)
+
 func _physics_process(_delta: float) -> void:
 	# Refresh native picking after an ancestor moves; no idle part simulation.
 	if actor!=null and actor.global_transform!=_actor_pose:
 		sync();_actor_pose=actor.global_transform
+	if actor!=null:set_physics_process(false)
 
 func _on_pilot() -> bool:
 	var local: Vector3=receiver.affine_inverse()*body.position
