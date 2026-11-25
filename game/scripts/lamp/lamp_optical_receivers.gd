@@ -19,7 +19,7 @@ var surface_materials: Dictionary = {}
 const DREAM_SURFACES := ["res://shaders/dream_fauna.gdshader", "res://shaders/dream_lineage_gold.gdshader", "res://shaders/dream_klimt.gdshader", "res://shaders/dream_tessellate_translucent.gdshader", "res://shaders/tardigrade_interior.gdshader", "res://shaders/tardigrade_membrane.gdshader", "res://shaders/tardigrade_vacuole.gdshader"]
 var disposed := false
 var isolate_depth_lights := false
-var depth_geometry_clear := true
+var depth_exclusion_mask := DEPTH_CAMERA_EXCLUSIONS
 
 func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted, depth_light_isolation := false) -> void:
 	root = owner_root
@@ -52,9 +52,9 @@ func _consider_weak(reference: WeakRef) -> void:
 func _consider(node: Node) -> void:
 	if disposed or not is_instance_valid(node) or not is_instance_valid(root): return
 	if node != root and not root.is_ancestor_of(node): return
-	if isolate_depth_lights and node is GeometryInstance3D and node.layers & DEPTH_CAMERA_EXCLUSIONS:
-		# Conservative fallback if a future physical surface uses a light layer.
-		depth_geometry_clear = false
+	if isolate_depth_lights and node is GeometryInstance3D:
+		# A draw on one reserved bit only brings that bit back into the depth view.
+		depth_exclusion_mask &= ~node.layers
 	if node is Light3D:
 		var id := node.get_instance_id()
 		if not lights.has(id):

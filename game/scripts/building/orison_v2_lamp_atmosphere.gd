@@ -112,8 +112,7 @@ func _update_volume(delta: float) -> void:
 			and presentation_camera.cull_mask & 1 \
 			and not presentation_camera.cull_mask & ReceiverBinding.DEPTH_LIGHT_LAYER:
 		receivers.restore_depth_light_layers()
-	scene_shadow.excluded_light_layers = ReceiverBinding.DEPTH_CAMERA_EXCLUSIONS \
-			if receivers.isolate_depth_lights and receivers.depth_geometry_clear else 0
+	scene_shadow.excluded_light_layers = receivers.depth_exclusion_mask if receivers.isolate_depth_lights else 0
 	receivers.select_lamp(source)
 	scene_shadow.lamp = source
 	if field.ready:

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/v2_lamp_depth_isolation_test.gd" id="1"]
+
+[node name="V2LampDepthIsolationTest" type="Node"]
+script = ExtResource("1")

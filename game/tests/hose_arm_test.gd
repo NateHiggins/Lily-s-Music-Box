@@ -111,10 +111,8 @@ func _route() -> void:
 	_require(not arm.visible and arm.reach == 0.0, "put away, the arm stows itself again")
 
 
-## The lamp's depth camera skips ordinary lights only while no drawn geometry uses
-## its excluded bits (the receivers' depth_geometry_clear). The arm must never be
-## such geometry. If isolation is off for some other reason, the test names the
-## offending nodes rather than blaming the arm.
+## The depth view excludes only reserved bits no scene geometry needs.
+## The arm must leave both bits available to the existing isolation owner.
 func _arm_keeps_depth_isolation(arm: Node3D, when: String) -> bool:
 	var air: Node = world.get_node_or_null("LampAtmosphere")
 	if air == null:
@@ -125,15 +123,19 @@ func _arm_keeps_depth_isolation(arm: Node3D, when: String) -> bool:
 		return false
 	var offenders: Array[String] = []
 	var arm_offends := false
+	var occupied_layers := 0
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
-		if (node as GeometryInstance3D).layers & Receivers.DEPTH_CAMERA_EXCLUSIONS:
+		var reserved_layers := (node as GeometryInstance3D).layers & Receivers.DEPTH_CAMERA_EXCLUSIONS
+		if reserved_layers:
+			occupied_layers |= reserved_layers
 			arm_offends = arm_offends or arm.is_ancestor_of(node)
 			if offenders.size() < 8:
 				offenders.append("%s layers=%d" % [world.get_path_to(node), (node as GeometryInstance3D).layers])
-	var clear := bool(receivers.get("depth_geometry_clear"))
-	print("HOSE ARM DEPTH ISOLATION (%s): isolate=%s clear=%s excluded=%d offenders=%s" % [when, receivers.get("isolate_depth_lights"), clear, int(shadow.get("excluded_light_layers")), offenders])
-	# The arm never offends; and isolation is on unless something else offends.
-	return bool(receivers.get("isolate_depth_lights")) and not arm_offends and (clear or not offenders.is_empty())
+	var exclusion_mask: int = receivers.get("depth_exclusion_mask")
+	var effective: int = shadow.get("excluded_light_layers")
+	print("HOSE ARM DEPTH ISOLATION (%s): occupied=%d eligible=%d excluded=%d geometry=%s" % [when, occupied_layers, exclusion_mask, effective, offenders])
+	return bool(receivers.get("isolate_depth_lights")) and not arm_offends \
+			and (effective & occupied_layers) == 0 and effective == exclusion_mask
 
 
 ## Turns the view back and forth about one camera axis while holding (out and back,
