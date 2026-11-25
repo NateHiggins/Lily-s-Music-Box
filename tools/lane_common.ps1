@@ -32,8 +32,28 @@ function Get-OrisonLaneStateDir {
 # first come, first served. A record is live only if its process exists and was
 # already running when the record was stamped, so a dead broker or a reused pid
 # can never block the queue. Ties within a second go to the lower pid.
+#
+# Hosts (order w8286ec452a9d). This PC's lane keeps exactly the paths above. A remote host the lane sends recipe
+# runs to (tools/lane_hosts.json) has its own queue and holder record under <state>/hosts/<name>, so each host is
+# one job at a time, first come first served, and a remote batch never waits behind this PC's GPU queue.
+function Get-OrisonLaneHostDir {
+    param([string]$LaneHost = "")
+    $dir = Get-OrisonLaneStateDir
+    if (-not $LaneHost -or $LaneHost -eq "this-pc") { return $dir }
+    if ($LaneHost -notmatch '^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$') { throw "bad lane host name: $LaneHost" }
+    $hostDir = Join-Path (Join-Path $dir "hosts") $LaneHost
+    if (-not (Test-Path -LiteralPath $hostDir)) { New-Item -ItemType Directory -Force -Path $hostDir | Out-Null }
+    return $hostDir
+}
+
+function Get-OrisonLaneWaitDir {
+    param([string]$LaneHost = "")
+    return (Join-Path (Get-OrisonLaneHostDir -LaneHost $LaneHost) "waiters")
+}
+
 function Get-OrisonLaneQueue {
-    $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
+    param([string]$LaneHost = "")
+    $waitDir = Get-OrisonLaneWaitDir -LaneHost $LaneHost
     if (-not (Test-Path -LiteralPath $waitDir)) { return @() }
     $live = foreach ($file in Get-ChildItem -LiteralPath $waitDir -Filter "*.json" -ErrorAction SilentlyContinue) {
         try {
@@ -60,20 +80,22 @@ function Test-OrisonLaneQueueAhead {
 }
 
 function Get-OrisonLaneHolderPath {
-    return (Join-Path (Get-OrisonLaneStateDir) "lane_holder.json")
+    param([string]$LaneHost = "")
+    return (Join-Path (Get-OrisonLaneHostDir -LaneHost $LaneHost) "lane_holder.json")
 }
 
 function Write-OrisonLaneHolder {
-    param([string]$Runner, [string]$Scene, [string]$Worktree)
+    param([string]$Runner, [string]$Scene, [string]$Worktree, [string]$LaneHost = "")
     try {
         $record = [ordered]@{
             pid = $PID
             runner = $Runner
             scene = $Scene
             worktree = $Worktree
+            host = $(if ($LaneHost) { $LaneHost } else { "this-pc" })
             started_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
         }
-        $record | ConvertTo-Json | Set-Content -LiteralPath (Get-OrisonLaneHolderPath) -Encoding utf8
+        $record | ConvertTo-Json | Set-Content -LiteralPath (Get-OrisonLaneHolderPath -LaneHost $LaneHost) -Encoding utf8
     }
     catch {
         Write-Warning "lane holder record not written: $_"
@@ -83,8 +105,9 @@ function Write-OrisonLaneHolder {
 function Clear-OrisonLaneHolder {
     # Only the process that wrote the record removes it; a nested runner
     # inside tools/lane.ps1 shares the pid and simply rewrites it.
+    param([string]$LaneHost = "")
     try {
-        $path = Get-OrisonLaneHolderPath
+        $path = Get-OrisonLaneHolderPath -LaneHost $LaneHost
         if (Test-Path -LiteralPath $path) {
             $record = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
             if ($record.pid -eq $PID) {
