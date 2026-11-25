@@ -20,8 +20,11 @@ extends Node3D
 const MODEL := preload("res://assets/characters/player_hose_arm/hose_arm.glb")
 const CEL := preload("res://shaders/hose_arm_cel.gdshader")
 const OUTLINE := preload("res://shaders/hose_arm_outline.gdshader")
-## Own render layer: the first-person camera draws it, and mirrors leave it out.
-const LAYER := 1 << 16
+## Own render layer (14 in the editor): the first-person camera draws it, and mirrors
+## leave it out. Bits 15-20 are taken: 16 avatar, 17 and 19 the lamp's depth-isolated
+## lights and exclusions, 18 lamp receivers, 20 mirrors. A first-person draw on a
+## lamp exclusion bit would turn off the lamp's depth isolation.
+const LAYER := 1 << 13
 const ARM_BONES := 8
 const FINGERS := ["Index", "Middle", "Ring"]
 ## Camera-local shoulder, below and left of the frame; the set is held at the right.

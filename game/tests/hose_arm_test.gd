@@ -4,6 +4,7 @@ extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 ## release, drawn only by the first-person camera (never in mirrors), with captures.
 const Hands := preload("res://tests/v2_fire_maintenance_hand_bench.gd")
 const Arm := preload("res://scripts/player/first_person_hose_arm.gd")
+const Receivers := preload("res://scripts/lamp/lamp_optical_receivers.gd")
 var _hand: Node
 
 func _init() -> void:
@@ -19,12 +20,21 @@ func _route() -> void:
 			"the arm draws on its own layer and casts no shadow")
 	_require(player.camera.cull_mask & Arm.LAYER != 0, "the first-person camera draws the arm layer")
 	var mirrors := world.find_children("*", "Node", true, false).filter(func(n): return n.get_script() == preload("res://scripts/building/planar_mirror_renderer.gd"))
+	var mirror_cameras := 0
 	var mirror_ok := true
+	var lights_kept := true
 	for mirror: Node in mirrors:
 		var camera: Camera3D = mirror.get("_camera")
 		if camera != null:
+			mirror_cameras += 1
 			mirror_ok = mirror_ok and camera.cull_mask & Arm.LAYER == 0
-	_require(mirror_ok, "no mirror camera draws the arm (%d mirrors)" % mirrors.size())
+			# Ordinary lights sit on the depth-light bit while the lamp isolates depth;
+			# a mirror must still draw them whenever the eye does.
+			lights_kept = lights_kept and camera.cull_mask & Receivers.DEPTH_LIGHT_LAYER == player.camera.cull_mask & Receivers.DEPTH_LIGHT_LAYER
+	_require(mirror_cameras > 0 and mirror_ok, "no mirror camera draws the arm (%d of %d mirrors have cameras)" % [mirror_cameras, mirrors.size()])
+	_require(player.camera.cull_mask & Receivers.DEPTH_LIGHT_LAYER != 0 and lights_kept, "mirrors keep the ordinary depth-light bit the eye draws")
+	_require(Arm.LAYER & (Receivers.DEPTH_CAMERA_EXCLUSIONS | Receivers.LAYER) == 0, "the arm layer is none of the lamp's reserved layers")
+	_require(_depth_isolation_intact(), "with the arm mounted, the lamp's depth isolation holds")
 	_require(not arm.visible, "at rest the arm is out of view")
 	_hand = Hands.new()
 	_hand.set_meta("shared_world_validation", true)
@@ -48,6 +58,7 @@ func _route() -> void:
 	var gap: float = arm.palm_position().distance_to(grip)
 	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95, "holding, the arm has reached in and the glove is closed (reach %.2f, curl %.2f)" % [arm.reach, arm.curl])
 	_require(gap < 0.06, "the drawn palm is on the grip (%.3f m)" % gap)
+	_require(_depth_isolation_intact(), "with the arm drawn, the lamp's depth isolation still holds")
 	await _capture_interaction("hose_arm_holding")
 	# Move the picker while holding: the glove follows it.
 	var motion := InputEventMouseMotion.new()
@@ -63,3 +74,16 @@ func _route() -> void:
 	await get_tree().create_timer(0.5).timeout
 	_require(not arm.visible and arm.reach == 0.0, "after release the arm stows itself out of view")
 	await _capture_interaction("hose_arm_after")
+
+
+## The lamp's depth camera skips ordinary lights only while no drawn geometry uses
+## its excluded bits; a first-person draw on one of them would switch that off.
+func _depth_isolation_intact() -> bool:
+	var air: Node = world.get_node_or_null("LampAtmosphere")
+	if air == null:
+		return false
+	var receivers: RefCounted = air.get("receivers")
+	var shadow: Node = air.get("scene_shadow")
+	if receivers == null or shadow == null:
+		return false
+	return bool(receivers.get("isolate_depth_lights")) and bool(receivers.get("depth_geometry_clear")) and int(shadow.get("excluded_light_layers")) == Receivers.DEPTH_CAMERA_EXCLUSIONS
