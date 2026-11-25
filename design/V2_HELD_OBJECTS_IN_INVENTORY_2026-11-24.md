@@ -56,12 +56,14 @@ operated where they stand.
 Answered 2026-11-25: **held_put_down_20261124** (it stays in the inventory until used
 somewhere) and **held_scope_20261124** (all of them, kitchen tools first, then books, the
 plug, the pen, the fire maintenance stock and the closet part). The first-person answer
-came through as "i answered", so it was filed again as **held_view_first_person_20261125**.
-Until it is answered, the held part is drawn on the avatar's hand (seen in mirrors) and
-not in the first-person view. If it is to show in first person, it shares the
-first-person render bit of the hose arm (PR 553, 1<<13), taken from
-**first_person_hose_arm.gd** **LAYER** rather than written as a literal; bits 1<<16 and
-up belong to the lamp's depth isolation.
+came through as "i answered", so it was filed again as **held_view_first_person_20261125**,
+answered 2026-11-25: the rubber-hose arm is the first-person hand ("let erryone know the
+rubber arm is the solution"). In first person a held object shows in the arm's glove
+(PR 553), on the arm's render bit (1<<13), taken from **first_person_hose_arm.gd**
+**LAYER** rather than written as a literal; bits 1<<16 and up belong to the lamp's depth
+isolation. The avatar's hand slot (1<<15) stays the mirror view and does not come into
+first person. The arm's owner adds a **GloveSocket** on its Hand bone; this order then
+wears the held part there as a follow-up once both changes are on main.
 
 Originally filed, recommended option first:
 

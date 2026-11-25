@@ -169,8 +169,8 @@ func _clear_feet(at: Vector3) -> bool:
 	return world.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty()
 
 
-func _stand_at(station: Node3D) -> bool:
-	for distance: float in [.95, 1.1, .8, 1.25]:
+func _stand_at(station: Node3D, distances: Array = [.95, 1.1, .8, 1.25]) -> bool:
+	for distance: float in distances:
 		for x: float in [0., -.2, .2]:
 			var feet: Vector3 = station.to_global(Vector3(x, .025, -distance))
 			if _clear_feet(feet + Vector3.UP * .02):
@@ -268,7 +268,9 @@ func _route() -> void:
 			and CarriedCase.place_of(board_item).is_empty() and CarriedCase.hand().is_empty() \
 			and board.transform.is_equal_approx(station.rests.Breadboard), "a click on the worktable puts the board back at its rest")
 
-	# The case's push-out puts the pin back at its own station.
+	# The case's push-out puts the pin back at its own station: stand within reach first
+	# (the reload can leave the body up to a step further back than the take did).
+	_require(await _stand_at(station, [.75, .85, .95]), "a near stance at the 2A table for the case's put-back")
 	await _key(KEY_TAB)
 	await get_tree().create_timer(0.65).timeout
 	var place := CarriedCase.place_of(pin_item)
@@ -276,6 +278,11 @@ func _route() -> void:
 		return
 	var size := CarriedCase.form_size(str(place.form), bool(place.turned))
 	await _press(_screen(view, float(place.x) + size.x * 0.5, float(place.y) + size.y * 0.5))
+	var rest_at: Vector3 = station.global_transform * station.rests.RollingPin.origin
+	print("KITCHEN PUT BACK: verb=", view._verb_tag(pin_item), " held=", view.held_item,
+		" across=", Vector2(player.global_position.x - rest_at.x, player.global_position.z - rest_at.z).length(),
+		" height=", player.global_position.y + 1.0 - rest_at.y, " rest_clear=", station.rest_clear("RollingPin"),
+		" board_stowed=", station.stowed.has("Breadboard"), " player=", player.global_position)
 	_require(view.held_item == pin_item and view._verb_tag(pin_item) == "PUT BACK", "at its table the pin offers PUT BACK")
 	await _press(_screen(view, float(place.x) + size.x * 0.5, float(CarriedCase.grid().y) + 2.5))
 	await get_tree().create_timer(0.6).timeout
