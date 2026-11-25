@@ -63,7 +63,7 @@ const MOMENTUM_DRAG := 0.09    # metres the hose bows back against the motion
 const MOMENTUM_HURRY := 0.9    # extra waves per second at full effect
 const MOMENTUM_SETTLE := 0.12  # seconds for momentum to follow the glove (time constant)
 ## The hose is drawn one width on screen; no part is thinned below this much.
-const FLAT_MIN := 0.35
+const FLAT_MIN := 0.12
 ## A cartoon glove is drawn big: it has to read at arm's length.
 const GLOVE_SCALE := 1.6
 
@@ -284,11 +284,13 @@ func _pose() -> void:
 	var wild := 1.0 + RECOIL_WRITHE * _recoil
 	var scale_to_reach := minf(1.0, length / 0.4)
 	# Drawn flat (Lily, 2026-11-25): the hose keeps one width on screen from the
-	# shoulder to the cuff instead of thinning with distance, so it meets the
-	# glove at full width. Each bone is thinned by its distance from the eye
-	# against the wrist's; the wrist keeps the modelled width that fits the cuff.
+	# shoulder to the cuff instead of thinning with distance, so it meets the glove at
+	# full width. Drawn width goes as radius over view depth, so each bone is thinned
+	# by its depth along the view against the wrist's (the shoulder end sits almost
+	# level with the eye); the wrist keeps the modelled width that fits the cuff.
 	var eye: Vector3 = space * camera.global_position
-	var wrist_distance := maxf(wrist.distance_to(eye), 0.05)
+	var look: Vector3 = (space.basis * -camera.global_basis.z).normalized()
+	var wrist_depth := maxf((wrist - eye).dot(look), 0.05)
 	var points: Array[Vector3] = []
 	for i in ARM_BONES + 1:
 		var t := float(i) / ARM_BONES
@@ -303,7 +305,7 @@ func _pose() -> void:
 		var segment := points[i + 1] - points[i]
 		var turn := Basis(Quaternion(rest.basis.y.normalized(), segment.normalized()))
 		var stretch := segment.length() / maxf(_rest_length / ARM_BONES, 0.0001)
-		var flat := clampf(((points[i] + points[i + 1]) * 0.5).distance_to(eye) / wrist_distance, FLAT_MIN, 1.0)
+		var flat := clampf((((points[i] + points[i + 1]) * 0.5) - eye).dot(look) / wrist_depth, FLAT_MIN, 1.0)
 		var frame := (turn * rest.basis).scaled_local(Vector3(flat, stretch, flat))
 		skeleton.set_bone_global_pose(_arm_bones[i], Transform3D(frame, points[i]))
 	var hand_rest: Transform3D = _rest[_hand]
