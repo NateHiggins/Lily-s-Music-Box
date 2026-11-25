@@ -229,6 +229,8 @@ func release_library_hand(part: Node3D, changed: bool) -> void:
 
 func library_stock_changed(_part: Node3D) -> void:
 	if _restoring_library or not is_inside_tree() or is_queued_for_deletion(): return
+	# A copy out for reading from the glove is not shelf stock; the order waits for it.
+	if _books.values().any(func(book: Node3D): return book.hand_reading): return
 	var order:=_physical_reading_order()
 	if order!=sorter.order: sorter.moves+=1;sorter.order=order
 	order_changed.emit()
@@ -276,7 +278,36 @@ func _case_grip() -> Dictionary:
 		"owns":func(): return _hand_node==_fixed and _hand_tag=="case",
 		"end":func(): release_library_hand(_fixed,false)}
 
-func manipulation_target(_hit: Dictionary) -> Dictionary: return _case_grip()
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	var hand:=hand_target(null)
+	return hand if not hand.is_empty() else _case_grip()
+
+func _household() -> Node:
+	return get_tree().get_first_node_in_group("v2_household_state") if is_inside_tree() else null
+
+## Ruling held_books_reading_20261125. With a book of this shelf in the hand, a click on
+## the shelf or its stock puts it back in the next free place; otherwise a click on a
+## closed copy takes it into the case and the hand. The click never starts a carry.
+func hand_target(copy: Node3D) -> Dictionary:
+	var state:=_household()
+	if state==null or not state.has_method("take_book"): return {}
+	var held: Node3D=state.packed_book(CarriedCase.hand())
+	if held!=null and held.shelf==self and not held.hand_reading:
+		return {"owner":self,"part":copy if copy!=null else _fixed,"frame":self,"kind":"free","pickup":false,"put_back":held.stock_id,
+			"read":func():return Vector3.ZERO,"write":func(_value: Vector3):pass,
+			"begin":func():state.shelve_book(self);return false,
+			"owns":func():return false,"end":func():pass}
+	if copy==null or not state.can_take_book(copy): return {}
+	return {"owner":self,"part":copy,"frame":self,"kind":"free","pickup":false,"take":copy.stock_id,
+		"read":func():return copy.position,"write":func(_value: Vector3):pass,
+		"begin":func():state.take_book(copy);return false,
+		"owns":func():return false,"end":func():pass}
+
+## The first slot, in shelf order, that is free and that this closed copy clears.
+func next_free_slot(copy: Node3D) -> int:
+	for index in book_slots.size():
+		if book_slot_is_free(index,copy) and copy._clear_pose(_books_at.global_transform*book_slots[index]): return index
+	return -1
 
 func inspection_view_for(part: Node3D) -> Dictionary:
 	_pending_inspection_stock=null
@@ -313,12 +344,13 @@ func inspection_started() -> void:
 ## A placed or read binding releases the borrowed FPS hand. A closed
 ## inspection can still return the same loose copy to that hand.
 func inspection_pickup_return_allowed(part: Node3D) -> bool:
+	if part is Book and part.hand_reading: return false
 	if part is Book and part.shelf==self and _books.get(part.stock_id)==part:
 		return part.shelf_slot<0 and not part.should_return_after_reading()
 	return true
 
 func finish_reading() -> void:
-	if is_instance_valid(_inspection_stock) and _inspection_stock is Book:
+	if is_instance_valid(_inspection_stock) and _inspection_stock is Book and not _inspection_stock.hand_reading:
 		_inspection_stock.return_after_reading()
 
 func inspection_ended() -> void:
@@ -326,6 +358,8 @@ func inspection_ended() -> void:
 		if _inspection_stock is Book: _inspection_stock.end_floating_view()
 		var parked: bool=_inspection_stock is Book and _inspection_stock.shelf_slot>=0
 		_inspection_stock.freeze=parked;_inspection_stock.sleeping=parked
+		# A copy read from the glove goes back into the case and the hand.
+		if _inspection_stock is Book and _inspection_stock.hand_reading: _inspection_stock.finish_hand_reading()
 	_inspection_stock=null;_pending_inspection_stock=null
 
 func inspected_readable_stock() -> PhysicsBody3D:

@@ -106,6 +106,9 @@ func refresh_hand() -> void:
 		glove_slot.get_meta("arm").set_holding(not glove_slot.worn.is_empty())
 
 func _held_part(state: Node,item: String) -> Node3D:
+	if item.begins_with(CarriedCase.BOOK_PREFIX) and state!=null and state.has_method("packed_book"):
+		var copy: Node=state.packed_book(item)
+		return copy.hand_visual() if is_instance_valid(copy) and copy.has_method("hand_visual") else null
 	if item.is_empty() or state==null or not state.has_method("packed_kitchen_tool"):return null
 	var packed: Dictionary=state.packed_kitchen_tool(item)
 	return null if packed.is_empty() else packed.station.tool_visual(packed.assembly)
@@ -123,7 +126,9 @@ func _bind_glove_slot() -> void:
 	glove_slot.palm=arm.palm_offset()
 	# A glove working a world grab is busy: the held item waits out of sight.
 	var grab: Object=holder.get("_grab")
-	glove_slot.busy=func() -> bool: return grab!=null and bool(grab.call("active"))
+	# So is one reading: a book read from the glove is out in the reading view.
+	var reader:=holder
+	glove_slot.busy=func() -> bool: return (grab!=null and bool(grab.call("active"))) or reader.inspecting()
 	glove_slot.bone_name=socket.bone_name;glove_slot.set_meta("arm",arm)
 	socket.get_parent().add_child(glove_slot)
 
