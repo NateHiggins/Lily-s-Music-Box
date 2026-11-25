@@ -5,9 +5,13 @@ extends Node3D
 ## inventory and save authority. The arm reads the active grab and draws a hand on it.
 ##
 ## How it moves, in the manner of a 1930s rubber-hose cartoon:
-##  - It is drawn on twos: the pose changes 12 times a second, never in between.
-##  - No elbow: an eight-bone chain bent along one drooping curve from an off-screen
-##    shoulder to the glove, stretching rather than locking straight.
+##  - It moves smoothly and unhurried (Lily, 2026-11-25: the first pass, drawn on
+##    twos at a quicker tempo, read as too fast and jerky). The pose is redrawn
+##    every frame, up to DRAWINGS_PER_SECOND.
+##  - No elbow: a 24-bone chain bent along one smooth drooping curve from an
+##    off-screen shoulder to the glove, stretching rather than locking straight;
+##    the writhe fades in and out at both ends so the curve meets the shoulder and
+##    the glove without a corner.
 ##  - It writhes like a snake: a wave runs down the hose in two crossed planes,
 ##    pinned at the shoulder and the wrist so the glove stays on what it holds.
 ##    Momentum shapes it: moving sideways throws horizontal waves, moving up or
@@ -27,7 +31,7 @@ const OUTLINE := preload("res://shaders/hose_arm_outline.gdshader")
 ## lights and exclusions, 18 lamp receivers, 20 mirrors. A first-person draw on a
 ## lamp exclusion bit would turn off the lamp's depth isolation.
 const LAYER := 1 << 13
-const ARM_BONES := 8
+const ARM_BONES := 24
 const FINGERS := ["Index", "Middle", "Ring"]
 ## Camera-local shoulder, below and left of the frame; the set is held at the right.
 const SHOULDER := Vector3(-0.30, -0.38, 0.06)
@@ -37,14 +41,14 @@ const STOWED := Vector3(-0.22, -0.46, -0.20)
 ## left of the view, close enough to read the item, clear of the reticle.
 const CARRY := Vector3(-0.17, -0.20, -0.42)
 const PALM_FROM_WRIST := 0.052
-const DRAWINGS_PER_SECOND := 12.0
-const REACH_SECONDS := 0.20
-const RETRACT_SECONDS := 0.22
-const CURL_RATE := 8.0
+const DRAWINGS_PER_SECOND := 60.0
+const REACH_SECONDS := 0.36
+const RETRACT_SECONDS := 0.38
+const CURL_RATE := 4.5
 ## The beat the limb keeps, and the writhe that runs down it.
-const BEATS_PER_MINUTE := 104.0
+const BEATS_PER_MINUTE := 66.0
 const WRITHE_WAVES := 1.35     # wavelengths along the hose
-const WRITHE_SPEED := 1.6      # waves per second running toward the glove, at rest
+const WRITHE_SPEED := 0.65     # waves per second running toward the glove, at rest
 const WRITHE_SIDE := 0.065     # metres, side to side, at rest
 const WRITHE_LIFT := 0.045     # metres, up and down, a quarter-wave behind, at rest
 const RECOIL_WRITHE := 1.6     # how much wilder the hose whips on the way out
@@ -56,8 +60,8 @@ const DROOP_BREATH := 0.75     # how far the droop swells on the beat
 const MOMENTUM_FULL := 0.9     # metres per second across the hose for full effect
 const MOMENTUM_WAVE := 0.11    # metres of wave in the direction of motion at full effect
 const MOMENTUM_DRAG := 0.09    # metres the hose bows back against the motion
-const MOMENTUM_HURRY := 2.2    # extra waves per second at full effect
-const MOMENTUM_EASE := 0.45    # how quickly momentum follows the glove, per drawing
+const MOMENTUM_HURRY := 0.9    # extra waves per second at full effect
+const MOMENTUM_SETTLE := 0.16  # seconds for momentum to follow the glove (time constant)
 ## A cartoon glove is drawn big: it has to read at arm's length.
 const GLOVE_SCALE := 1.6
 
@@ -65,7 +69,7 @@ var player: Node
 var skeleton: Skeleton3D
 var reach := 0.0          # 0 stowed .. 1 at the grip
 var curl := 0.0           # 0 open .. 1 closed
-var clock := 0.0          # drawing time, advancing in steps of a twelfth
+var clock := 0.0          # drawing time, advancing once per drawing
 var _since_drawing := 0.0
 var _rest_length := 0.55
 var _arm_bones: Array[int] = []
@@ -193,7 +197,7 @@ func _process(delta: float) -> void:
 	elif _holding:
 		_holding = false
 		_recoil = 1.0
-	# Drawn on twos: advance and redraw only when the next drawing is due.
+	# Advance and redraw only when the next drawing is due (every frame at 60 fps).
 	_since_drawing += delta
 	var step := 1.0 / DRAWINGS_PER_SECOND
 	if _since_drawing < step:
@@ -205,7 +209,7 @@ func _process(delta: float) -> void:
 	var aim := 1.0 if _holding else 0.0
 	reach = move_toward(reach, aim, elapsed / (REACH_SECONDS if _holding else RETRACT_SECONDS))
 	curl = move_toward(curl, aim, elapsed * CURL_RATE)
-	_recoil = move_toward(_recoil, 0.0, elapsed * 3.0)
+	_recoil = move_toward(_recoil, 0.0, elapsed * 1.8)
 	visible = reach > 0.0
 	_drawing_seconds = maxf(elapsed, 0.001)
 	if visible:
@@ -219,14 +223,14 @@ static func _ease(t: float) -> float:
 	if t < 0.18:
 		return -0.12 * sin(t / 0.18 * PI)
 	var u := (t - 0.18) / 0.82 - 1.0
-	var s := 2.2
+	var s := 1.4
 	return 1.0 + u * u * ((s + 1.0) * u + s)
 
 
-## The beat, as a bounce that is 1 on the beat and falls away between.
+## The beat, as a soft swell that is 1 on the beat and 0 between, with no jump.
 func beat() -> float:
-	var phase := fmod(clock * BEATS_PER_MINUTE / 60.0, 1.0)
-	return pow(1.0 - phase, 2.0)
+	var swell := 0.5 + 0.5 * cos(TAU * clock * BEATS_PER_MINUTE / 60.0)
+	return swell * swell
 
 
 func _pose() -> void:
@@ -257,7 +261,7 @@ func _pose() -> void:
 		_last_palm = palm_local
 		_momentum = Vector3.ZERO
 		_fresh = false
-	_momentum = _momentum.lerp((palm_local - _last_palm) / _drawing_seconds, MOMENTUM_EASE)
+	_momentum = _momentum.lerp((palm_local - _last_palm) / _drawing_seconds, 1.0 - exp(-_drawing_seconds / MOMENTUM_SETTLE))
 	_last_palm = palm_local
 	var side := forward.cross(down).normalized()
 	var lift := side.cross(forward).normalized()
@@ -281,7 +285,9 @@ func _pose() -> void:
 	for i in ARM_BONES + 1:
 		var t := float(i) / ARM_BONES
 		var phase := TAU * (WRITHE_WAVES * t - _wave_phase)
-		var pinned := sin(PI * t)
+		# Pinned at both ends with a flat start and finish, so the waves leave the
+		# shoulder and meet the glove along the curve's own tangent.
+		var pinned := sin(PI * t) * sin(PI * t)
 		var wave := side * sin(phase) * side_amp + lift * sin(phase - PI * 0.5) * lift_amp
 		points.append(_bezier(shoulder, c1, c2, wrist, t) + (wave * wild + bow) * pinned * scale_to_reach)
 	for i in ARM_BONES:

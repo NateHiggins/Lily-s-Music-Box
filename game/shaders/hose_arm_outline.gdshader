@@ -6,7 +6,7 @@ shader_type spatial;
 render_mode unshaded, cull_front, depth_draw_opaque;
 
 uniform float width_px : hint_range(0.0, 8.0) = 3.4;
-uniform float boil : hint_range(0.0, 1.0) = 0.3;
+uniform float boil : hint_range(0.0, 1.0) = 0.12;  // gentle: a steady line reads smoother
 uniform float frame_rate = 12.0;
 uniform float depth_squeeze = 0.01;  // matches hose_arm_cel: drawn over the set
 

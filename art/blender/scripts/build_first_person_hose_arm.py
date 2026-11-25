@@ -2,8 +2,9 @@
 
 A black-and-white cartoon arm shown in first person while the player interacts:
 a jointless black "hose" arm and a puffy white glove (cuff, palm, three fingers
-and a thumb, three ink stitches on the back). The arm is an eight-bone chain so
-the runtime can bend it as one smooth curve; each finger has two bones so the
+and a thumb, three ink stitches on the back). The arm is a 24-bone chain so
+the runtime can bend it as one smooth curve (Lily, 2026-11-25: eight bones
+showed corners); each finger has two bones so the
 runtime can curl the hand around what it holds.
 
 Run:  blender -b -P art/blender/scripts/build_first_person_hose_arm.py -- [--review DIR]
@@ -26,9 +27,9 @@ OUT = ROOT / "game/assets/characters/player_hose_arm/hose_arm.glb"
 
 ARM_LENGTH = 0.55
 ARM_RADIUS = 0.024
-ARM_BONES = 8
+ARM_BONES = 24
 SIDES = 18
-RINGS_PER_BONE = 4
+RINGS_PER_BONE = 3
 INK = (0.02, 0.02, 0.02, 1.0)
 GLOVE = (0.96, 0.96, 0.94, 1.0)
 
@@ -252,7 +253,7 @@ def grip_pose(rig, curl):
     for i in range(ARM_BONES):
         bone = rig.pose.bones["Arm_%02d" % i]
         bone.rotation_mode = "XYZ"
-        bone.rotation_euler = (0.09 * curl, 0, -0.05 * curl)
+        bone.rotation_euler = (0.09 * 8 / ARM_BONES * curl, 0, -0.05 * 8 / ARM_BONES * curl)
     bpy.ops.object.mode_set(mode="OBJECT")
 
 
