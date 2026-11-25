@@ -19,7 +19,7 @@ including radiator repair and disk reconstruction. The technical surface
 review passed 818 checks and compared 23 rendered views. The mail-bank
 and watch-station labels remain dim. Owner play remains open.
 
-[Nozzle qualification and earlier failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/nozzle_frozen_03f5312ad/STATUS.md).
+[Nozzle qualification and earlier failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/nozzle_final_2e7450252/STATUS.md).
 
 # Counter teaching slip, November 24
 
