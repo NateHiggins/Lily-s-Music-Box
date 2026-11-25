@@ -8,8 +8,11 @@ extends "res://tests/carried_case_route_test.gd"
 ##   case; the case's push-out puts it back at its station; a click on the worktable
 ##   with the board in hand puts the board back; a disk reload keeps a stowed tool
 ##   stowed and packed; a save naming a stowed tool without its case item is refused.
+##   In first person the held item is worn in the rubber-hose glove at its palm (ruling
+##   held_view_first_person_20261125); working a world part hides it until release.
 
 const STATION := "KitchenPrep_2A"  # an Oak120 table with a rolling pin laid on its board
+const HoseArm := preload("res://scripts/player/first_person_hose_arm.gd")
 var executed_checks: Array[Dictionary] = []
 var owned_nodes: Array[WeakRef] = []
 var owned_shapes: Array[WeakRef] = []
@@ -122,7 +125,7 @@ func _capture_held(label: String) -> void:
 	if avatar != null and avatar.has_method("set_reflection_active"):
 		avatar.set_reflection_active(true)
 	var look := Camera3D.new()
-	look.cull_mask = 0xFFFFF
+	look.cull_mask = 0xFFFFF & ~HoseArm.LAYER  # as the mirror: the first-person arm is left out
 	look.fov = 50.0
 	world.add_child(look)
 	# Side-on and a little ahead, wherever the room leaves a clear sight line to the hand.
@@ -152,6 +155,80 @@ func _capture_held(label: String) -> void:
 	look.queue_free()
 	if avatar != null and avatar.has_method("set_reflection_active"):
 		avatar.set_reflection_active(false)
+
+
+## First person (ruling held_view_first_person_20261125): the held item is worn in the
+## rubber-hose glove at its palm, at world size, on the arm's layer; the mirror hand
+## keeps its own copy. A real grab of a world part busies the glove and hides the item.
+func _glove_holds(item: String, avatar: Node) -> void:
+	var arm: Node3D = player.camera.get_node_or_null("FirstPersonHoseArm")
+	var glove: Node = avatar.get("glove_slot") if avatar != null else null
+	if not _require(arm != null and is_instance_valid(glove), "the hose arm's glove has a held slot"):
+		return
+	var part: Node3D = glove.part()
+	var layered := part != null
+	if part != null:
+		for draw: Node in part.find_children("*", "GeometryInstance3D", true, false) + [part]:
+			if draw is GeometryInstance3D:
+				layered = layered and (draw as GeometryInstance3D).layers == HoseArm.LAYER \
+					and (draw as GeometryInstance3D).cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_require(glove.worn == item and layered and arm.holding(),
+		"the glove wears the held item on the arm's layer, unshadowed, and the arm carries it")
+	_require(avatar.hand_slot.worn == item and avatar.hand_slot.layers == 1 << 15 and avatar.hand_slot.part() != null,
+		"the mirror hand keeps its own copy on the avatar layer")
+	# The arm draws on twos and reaches in over a fifth of a second.
+	await get_tree().create_timer(.7).timeout
+	if part != null:
+		var scale_now := part.global_basis.get_scale()
+		var bounds := AABB()
+		var first := true
+		for draw: MeshInstance3D in part.find_children("*", "MeshInstance3D", true, false):
+			var box: AABB = draw.global_transform * draw.get_aabb()
+			bounds = box if first else bounds.merge(box)
+			first = false
+		var gap := bounds.get_center().distance_to(arm.palm_position())
+		print("KITCHEN GLOVE: scale=", scale_now, " palm_gap=", gap, " visible=", arm.visible)
+		_require(arm.visible and part.is_visible_in_tree() and absf(scale_now.x - 1.) < .01 and absf(scale_now.y - 1.) < .01 \
+				and absf(scale_now.z - 1.) < .01 and gap < .01, "the item sits centred in the drawn palm at world size")
+	await _capture_first_person("held_rolling_pin_first_person")
+	# A real world grab while holding: find a constrained part in reach and click it.
+	var grip: Dictionary = {}
+	var station: Node3D = world.adapter.resolve(STATION)
+	for y: float in [.9, .7, .5, 1.1, .3, 1.4]:
+		for x: float in [0., .3, -.3, .6, -.6, .9, -.9]:
+			await _aim(station.to_global(Vector3(x, y, 0)))
+			var seen: Dictionary = player._grab.find_target()
+			if not seen.is_empty() and not seen.get("blocked", false) and not seen.has("take") and not seen.has("put_back") \
+					and seen.get("kind") != "free":
+				grip = seen
+				break
+		if not grip.is_empty():
+			break
+	if not _require(not grip.is_empty(), "a constrained world part is in reach of the 2A stance"):
+		return
+	await _click_world()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	print("KITCHEN GLOVE GRAB: kind=", grip.get("kind"), " owner=", grip.get("owner"), " active=", player._grab.active(),
+		" hand=", CarriedCase.hand(), " part_visible=", part.visible if part != null else null)
+	_require(player._grab.active() and CarriedCase.hand() == item and part != null and not part.visible,
+		"working a world part busies the glove: the item stays in hand, out of sight")
+	await _click_world()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_require(not player._grab.active() and CarriedCase.hand() == item and part != null and part.visible,
+		"releasing the part brings the held item back into the glove")
+
+
+func _capture_first_person(label: String) -> void:
+	var directory := OS.get_environment("SHOT_DIR")
+	if directory.is_empty() or DisplayServer.get_name() == "headless":
+		return
+	player.camera.make_current()
+	for frame in 8:
+		await RenderingServer.frame_post_draw
+	DirAccess.make_dir_recursive_absolute(directory)
+	get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
 
 
 func _clear_feet(at: Vector3) -> bool:
@@ -238,6 +315,7 @@ func _route() -> void:
 			"the avatar's hand slot wears the pin")
 		_track_world()
 		await _capture_held("held_rolling_pin")
+	await _glove_holds(pin_item, avatar)
 
 	# Put it down: a click on nothing usable empties the hand; it stays in the case.
 	player.camera.look_at(player.camera.global_position + Vector3.UP * 3.0 + Vector3.RIGHT * .01)
@@ -245,6 +323,9 @@ func _route() -> void:
 	await _click_world()
 	_require(CarriedCase.hand().is_empty() and station.stowed.has("RollingPin") \
 			and not CarriedCase.place_of(pin_item).is_empty(), "putting the pin down keeps it in the case")
+	if avatar != null and is_instance_valid(avatar.get("glove_slot")):
+		_require(avatar.glove_slot.worn.is_empty() and avatar.glove_slot.part() == null \
+				and not player.camera.get_node("FirstPersonHoseArm").holding(), "putting it down empties the glove and frees the arm")
 
 	# Reload from disk: still stowed and packed, nothing in hand, no second copy.
 	RealityState.flush_background_saves()

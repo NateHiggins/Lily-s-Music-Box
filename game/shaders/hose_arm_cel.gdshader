@@ -28,6 +28,8 @@ void vertex() {
 
 void fragment() {
 	float drawing = floor(TIME * frame_rate);
-	float value = tone + (hash(floor(FRAGCOORD.xy * 0.5) + drawing * 7.13) - 0.5) * grain;
+	// The grain lives in the paper only: scaled by the tone, so ink stays solid black
+	// (a grain added to near-black ink read as grey noise once the scene's exposure lifted it).
+	float value = tone * (1.0 + (hash(floor(FRAGCOORD.xy * 0.5) + drawing * 7.13) - 0.5) * grain);
 	ALBEDO = vec3(clamp(value, 0.0, 1.0));
 }

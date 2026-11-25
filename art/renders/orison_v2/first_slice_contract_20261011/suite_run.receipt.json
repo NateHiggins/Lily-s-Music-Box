@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 669.64,
+  "elapsed_s": 648.38,
   "exit_code": 0,
-  "finished_utc": "2026-11-25T11:56:44Z",
-  "started_utc": "2026-11-25T11:45:34Z",
+  "finished_utc": "2026-11-25T18:45:48Z",
+  "started_utc": "2026-11-25T18:34:59Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "D:/ov_reports/frame_rate_20261125/venus_removal_45c8f6c69/first_slice.log.stderr",
-  "stderr_sha256": "d78768d10d73091ea3594c47939842c1b3d22eaa15c3fede842532e6d40de05c",
-  "stdout": "D:/ov_reports/frame_rate_20261125/venus_removal_45c8f6c69/first_slice.log",
-  "stdout_sha256": "6e9fe6101b3c8813570084f92d77ce63d6c7e8d0b18c82a8fa7d5a11fb601856"
+  "stderr": "D:/ov_reports/nov25_sacha_bedroom_sweep/release/first_slice.log.stderr",
+  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
+  "stdout": "D:/ov_reports/nov25_sacha_bedroom_sweep/release/first_slice.log",
+  "stdout_sha256": "919d51ca81e457a8cafef995a8935d45e4d9aa03a7ddcbca583ee32c343bde51"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "D:/ov_reports/frame_rate_20261125/venus_removal_45c8f6c69/packet",
+ "shot_dir": "D:/ov_reports/nov25_sacha_bedroom_sweep/release/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "45c8f6c6972bd770a4d03af60f38d170303443d7",
-  "repository_tree": "5609480a2332a95e4c5cd30e7fe4cf21ac302f26",
-  "runtime_inputs_sha256": "63ad44f3651f56b14b59ba87172ddc900f574d6a948e674cbc336a4794fb67d9",
+  "repository_head": "526c0a56c64dbed459f7af06a8a49b2e6c21061c",
+  "repository_tree": "25af1a08e997ce9cebf5193391075e165aee2169",
+  "runtime_inputs_sha256": "1cbdbae97b90c56ee413178099f60d4ceb164f9aa9e560c3ebf4c4088d24fac9",
   "test_path": null,
   "test_sha256": null
  },
