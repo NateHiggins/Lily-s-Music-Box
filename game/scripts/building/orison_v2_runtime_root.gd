@@ -749,6 +749,7 @@ func _compose_authorities() -> void:
 	hose_arm.name="FirstPersonHoseArm";player.camera.add_child(hose_arm)
 	if not hose_arm.bind(player):
 		startup_failed=true;push_error("ORISON V2 RUNTIME: first-person hose arm refused");return
+	player_avatar.refresh_hand()
 	if not _compose_exterior():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
