@@ -84,6 +84,9 @@ class CampaignWeatherTests(unittest.TestCase):
         path=ROOT/'tools/build_weather_calendar.py'
         spec=importlib.util.spec_from_file_location('calendar_generator',path)
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        for ear in ("Gray and quiet. High 41.", "Grey and quiet. High 41."):
+            with self.subTest(ear=ear):
+                self.assertEqual(module.weather_kind(ear, 41), "grey")
         import tempfile
         with tempfile.TemporaryDirectory() as target:
             module.OUT=Path(target)/'calendar.json';module.generate()

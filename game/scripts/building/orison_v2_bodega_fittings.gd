@@ -106,4 +106,8 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 	# Night lighting culled for cost and mood; the authored lights stay retained.
 	if not preload("res://scripts/building/orison_v2_bodega_lighting.gd").apply(shop):
 		push_error("Bodega fittings: night lighting cull refused")
+	# The morning's delivery on the back-alcove handcart (cam_restock_run_20261124).
+	var delivery: Node3D=preload("res://scripts/building/orison_v2_bodega_delivery.gd").new()
+	delivery.name="BodegaDeliveryLoad"
+	shop.add_child(delivery)
 	return owner

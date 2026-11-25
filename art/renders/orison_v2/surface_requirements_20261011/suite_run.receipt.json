@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 265.89,
+  "elapsed_s": 239.06,
   "exit_code": 0,
-  "finished_utc": "2026-11-24T22:11:52Z",
-  "started_utc": "2026-11-24T22:07:26Z",
+  "finished_utc": "2026-11-24T23:56:09Z",
+  "started_utc": "2026-11-24T23:52:10Z",
   "timed_out": false
  },
  "log": {
@@ -19,23 +19,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/surface/surface.log.stderr",
+  "stderr": "D:/ov_reports/orison_npc_gait_face_intake_20261124/paper_and_cam_edc25127/surface/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/surface/surface.log",
-  "stdout_sha256": "d9ebea93682b90660380985de027907c9d7a4092c6433466d4adfa0eac88ed9d"
+  "stdout": "D:/ov_reports/orison_npc_gait_face_intake_20261124/paper_and_cam_edc25127/surface/surface.log",
+  "stdout_sha256": "083cc23e4eac95e9a4d6a3ca1bce7e1d5c0e50fbd5e4e5e8c8b5197ff55d47e5"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/surface/shots",
+ "shot_dir": "D:/ov_reports/orison_npc_gait_face_intake_20261124/paper_and_cam_edc25127/surface/shots",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "020ea12e066bfc2226ff43772027485276744c7d",
-  "repository_tree": "344cfc48755bcdb1ea58a5becce70ed78ba5fe4d",
-  "runtime_inputs_sha256": "408d3e70a5170c5071a57296ac696cbac8aa78702b10402adc7dac7a127f0981",
+  "repository_head": "edc25127eb344935f30978e8d2f5ea300ef5f2f3",
+  "repository_tree": "0b82627f968fc91c3574ba9e7526acd886c6b0b1",
+  "runtime_inputs_sha256": "11e7b7d2149a1d0beb0a270c3c0b068685151020cd45f310de3fc0b218dbf2d3",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },

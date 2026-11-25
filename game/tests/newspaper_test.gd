@@ -129,6 +129,7 @@ func _run() -> void:
 
 	await _input_ownership(catalog)
 	await _pictures(catalog)
+	await _renamed_advertisers(catalog)
 
 
 ## The new pages: pictures are optional, and turning reaches a Sunday's third side.
@@ -278,6 +279,48 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 	catalog.issues["1928-11-10"].speaker.erase("back")
 	catalog._cartoons.erase("1928-11-10")
 	await get_tree().process_frame
+
+
+func _renamed_advertisers(catalog: NewspaperCatalog) -> void:
+	var remaining := {"Funeral Parlor": "funeral_parlor", "Hearthside Parlor Systems": "hearthside_parlor"}
+	var shots := OS.get_environment("SHOT_DIR")
+	for day: String in catalog.dates:
+		for paper: String in ["record", "speaker"]:
+			for ad: Dictionary in catalog.ads_for(paper, day):
+				var firm := str(ad.get("firm", ""))
+				if not remaining.has(firm):
+					continue
+				var panel := NewspaperPanel.new()
+				add_child(panel)
+				panel.open(null, catalog, paper, day)
+				panel._show(paper, day, "back")
+				await get_tree().process_frame
+				var texts := _texts(panel)
+				_check("%s is typeset on the %s back for %s" % [firm, paper, day],
+						panel.side == "back" and _set_in(texts, firm) and _set_in(texts, str(ad.headline)))
+				if not shots.is_empty() and DisplayServer.get_name() != "headless":
+					var signature: Label
+					for label: Label in panel._page.find_children("*", "Label", true, false):
+						if label.text.strip_edges().nocasecmp_to(firm) == 0:
+							signature = label
+							break
+					_check("%s has a printed signature" % firm, is_instance_valid(signature))
+					if is_instance_valid(signature):
+						panel._scroll.ensure_control_visible(signature)
+						await get_tree().process_frame
+						_check("%s signature is inside the captured viewport" % firm,
+								panel._scroll.get_global_rect().encloses(signature.get_global_rect()))
+					DirAccess.make_dir_recursive_absolute(shots)
+					await RenderingServer.frame_post_draw
+					var frame := get_viewport().get_texture().get_image()
+					_check("%s page capture saves" % firm,
+							frame.save_png(shots.path_join(str(remaining[firm]) + ".png")) == OK)
+				panel.close()
+				await get_tree().process_frame
+				remaining.erase(firm)
+				if remaining.is_empty():
+					return
+	_check("both renamed firms have an authored page", false)
 
 
 func _press(at: Vector2) -> void:

@@ -68,7 +68,7 @@ def weather_kind(ear, high):
         return "fog"
     if high >= 86:
         return "heat"
-    if "cloud" in text or "grey" in text or "overcast" in text:
+    if "cloud" in text or "gray" in text or "grey" in text or "overcast" in text:
         return "grey"
     return "cold" if high < 42 else "fair"
 

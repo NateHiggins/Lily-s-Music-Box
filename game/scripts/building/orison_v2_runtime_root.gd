@@ -1185,6 +1185,10 @@ func _compose_authorities() -> void:
 		return
 	shop_counters.photo_supplies.sold.connect(func(_item: String): photo_supplies.tray.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
+	# The window and aisle produce thins through the day from the real pantry.
+	var daily: Node=exterior_cell.instance_node("SHOP_BODEGA").get_node_or_null("BodegaDeliveryLoad")
+	if daily!=null:
+		daily.bind_display(exterior_cell,shop_stock)
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy
 		# The list is laid on the bodega counter and its sack lifted off it
