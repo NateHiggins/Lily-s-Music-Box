@@ -1,11 +1,12 @@
 shader_type spatial;
-// Ink line for the first-person rubber-hose arm: an inverted hull pushed out in
+// Ink line for the first-person rubber-hose arm, drawn round every part (each
+// finger, the cuff, the palm) so the flat fills read as one inked drawing: an inverted hull pushed out in
 // screen space, so the line keeps one drawn width at any distance. The width
 // "boils" a little at 12 drawings a second, like a hand-inked line redrawn per frame.
 render_mode unshaded, cull_front, depth_draw_opaque;
 
-uniform float width_px : hint_range(0.0, 8.0) = 2.4;
-uniform float boil : hint_range(0.0, 1.0) = 0.35;
+uniform float width_px : hint_range(0.0, 8.0) = 3.4;
+uniform float boil : hint_range(0.0, 1.0) = 0.3;
 uniform float frame_rate = 12.0;
 
 float hash(vec3 p) {

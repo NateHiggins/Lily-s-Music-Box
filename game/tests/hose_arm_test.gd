@@ -42,8 +42,8 @@ func _route() -> void:
 	_hand.click()
 	if not _require(player._grab.active(), "the real hand takes the picker"):
 		return
-	for frame in 30:
-		await get_tree().process_frame
+	# The reach takes a fifth of a second, drawn on twos; wait by time, not frames.
+	await get_tree().create_timer(0.5).timeout
 	var grip: Vector3 = player._grab.target.part.to_global(player._grab.contact)
 	var gap: float = arm.palm_position().distance_to(grip)
 	_require(arm.visible and arm.reach >= 0.999 and arm.curl >= 0.95, "holding, the arm has reached in and the glove is closed (reach %.2f, curl %.2f)" % [arm.reach, arm.curl])
