@@ -1,3 +1,11 @@
+# Current 1440p performance matrix after the lobby and F02 fixes
+
+Evidence class: **INERT**.
+
+The exact main at 6fff23fe8 was sampled at 2560 × 1440 Forward+ over all 44 stationary headings. Four of eleven stations meet the 33.3 ms median budget, compared with three in the preceding matrix. Worst-heading medians moved from 43.85 to 34.82 ms in the lobby, from 39.79 to 34.89 ms on the second floor, and from 34.94 to 31.89 ms on the first stair flight. The third-floor crossing now leads the remaining list at 37.43 ms. Street arrival and the 4B desk follow at 36.56 and 36.09 ms.
+
+The first stair flight still showed individual frames of about 381 and 436 ms. The east-facing lobby reached 249 ms maximum. The captures establish that these hitches occurred and leave their cause open. The full building and owner play remain open. The source-bound comparison and raw receipts are under D:/ov_reports/frame_rate_20261125/post_f02_matrix_6fff23fe8.
+
 # Orison F02 shadow fade, November 25
 
 Evidence class: **INERT**.

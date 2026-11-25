@@ -2,6 +2,33 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## November 25 — Reduce shadow submissions at the owner of the work
+
+The passenger-lift mirror selected an eligible pane behind solid shaft masonry,
+so the lobby rendered a borrowed viewport that no player could see. The
+mirror renderer now asks the lift owner about full-pane occlusion. The lift
+mirror projects all four corners against the actual wall geometry with an inset. Partial
+cover stays live. The installed paired view reached 31.917 ms median
+versus 43.302 and 43.607 ms in its controls. The cabin capture kept its
+live avatar and full shadow atlas. [Mirror renderer](../game/scripts/building/planar_mirror_renderer.gd) · [Lift mirror](../game/scripts/building/orison_v2_lift_mirror.gd) · [PR #562](https://github.com/NateHiggins/Lily-s-Music-Box/pull/562).
+
+The second-floor hot view still drew about 11,200 main shadows with the
+mirror inactive. Room-wall batching saved visible draws and did not
+improve frame time. Cheaper maps by themselves cut around 3,550 shadow
+draws without a dependable median improvement. The qualified room-light
+change combines the cheaper maps with the renderer's distance fade for
+eight measured fixtures. The light emission has its own fade start,
+beyond any installed observer. Nearby lights retain real shadows.
+The installed landing measured 33.278 and 35.549 ms median against
+39.822 ms stock, dropping about 6,500 shadow draws. The near gallery
+capture retained the pools and local contact shadows.
+[PR #563](https://github.com/NateHiggins/Lily-s-Music-Box/pull/563).
+
+Keep fixed-view interventions bracketed by stock and restored arms.
+Record the main and borrowed viewport counters separately. Fewer draws
+are useful attribution, while wall-frame medians, tail behaviour and
+installed views determine whether a rendering change qualifies.
+
 ## November 24 — SceneTree timers can outlive the nodes they address
 
 A house broadcast card-break timer captured a receiver Node. Godot
