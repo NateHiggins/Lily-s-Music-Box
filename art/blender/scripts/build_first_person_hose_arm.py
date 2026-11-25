@@ -152,12 +152,14 @@ def arm_tube(bm):
         for s in range(SIDES):
             a, b = ring_verts[r][s], ring_verts[r][(s + 1) % SIDES]
             c, d = ring_verts[r + 1][(s + 1) % SIDES], ring_verts[r + 1][s]
-            bm.faces.new((a, b, c, d))
+            # Outward-facing (this tube was wound inward until 2026-11-25; the
+            # black fill hid it, the white cuff built the same way did not).
+            bm.faces.new((a, d, c, b))
     # Close the shoulder end (it sits below the frame).
     cap = bm.verts.new((0, 0, 0))
     weights.append({"Arm_00": 1.0})
     for s in range(SIDES):
-        bm.faces.new((cap, ring_verts[0][(s + 1) % SIDES], ring_verts[0][s]))
+        bm.faces.new((cap, ring_verts[0][s], ring_verts[0][(s + 1) % SIDES]))
     return weights
 
 
@@ -210,12 +212,13 @@ def cuff(bm, sides=24):
         rings.append(ring)
     for r in range(len(rings) - 1):
         for s in range(sides):
-            bm.faces.new((rings[r][s], rings[r][(s + 1) % sides], rings[r + 1][(s + 1) % sides], rings[r + 1][s]))
+            # Wound to face outward (a cuff wound the other way drew as a black oval).
+            bm.faces.new((rings[r][s], rings[r + 1][s], rings[r + 1][(s + 1) % sides], rings[r][(s + 1) % sides]))
     throat = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[0][1], 0))
     inner = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[-1][1], 0))
     for s in range(sides):
-        bm.faces.new((throat, rings[0][(s + 1) % sides], rings[0][s]))
-        bm.faces.new((inner, rings[-1][s], rings[-1][(s + 1) % sides]))
+        bm.faces.new((throat, rings[0][s], rings[0][(s + 1) % sides]))
+        bm.faces.new((inner, rings[-1][(s + 1) % sides], rings[-1][s]))
     verts = [v for ring in rings for v in ring] + [throat, inner]
     return verts
 
