@@ -29,7 +29,7 @@ func setup(owner_world: Node3D) -> bool:
 		if light==null:return false
 		sources.append({"id":str(opening.id),"light":light,"connects":opening.connects,"visible":light.visible,
 			"graph_visible":true,"level":"","shaft":true,
-			"adjacent_shadow_paraboloid":bool(opening.get("adjacent_shadow_paraboloid",false))})
+			"adjacent_shadow_paraboloid":bool(light.get_meta("adjacent_shadow_paraboloid",false))})
 	for record: Dictionary in world.layout.doors:
 		if record.get("connects",[]).size()!=2:continue
 		var anchor: Node=world.adapter.root.get_node_or_null(str(record.id))

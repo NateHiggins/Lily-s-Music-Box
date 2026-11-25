@@ -87,6 +87,7 @@ func _run() -> void:
 		anchor.add_child(practical)
 		var light := OmniLight3D.new()
 		light.name = "WarmServiceLight"
+		light.set_meta("adjacent_shadow_paraboloid", bool(opening.get("adjacent_shadow_paraboloid", false)))
 		light.shadow_enabled = true
 		light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 		practical.add_child(light)

@@ -4,7 +4,6 @@ extends RefCounted
 const BEGIN_M:=4.
 const LENGTH_M:=4.
 const END_M:=BEGIN_M+LENGTH_M
-const PAIRED_SHAFT_PRACTICALS := ["F02_SERVICE_HALL_CORE_OPENING", "F04_SERVICE_HALL_CORE_OPENING"]
 var policy: Node
 var world: Node3D
 var enabled:=false
