@@ -1,3 +1,11 @@
+# Orison lift mirror visibility, November 25
+
+Evidence class: **INERT**.
+
+PR #562 skips a passenger-lift reflection when an installed opaque shaft wall covers the entire glass pane. From the 1440p lobby north stance the median dropped from 43.302/43.607 ms in the two control arms to 31.917 ms with the fix. The 95th percentile remained 39.321 ms. Installed captures confirm live avatar reflection and the full shadow atlas inside the cabin. The release passed the installed hose route, rendered surface inventory, and original radiator delivery and disk reconstruction. This is technical verification. Building-wide frame rate and owner acceptance remain open.
+
+The source-bound captures, original compile failure and release receipts are under D:/ov_reports/frame_rate_20261125 in lobby_mirror_wall_1a2fd7866 and lobby_mirror_release_0ce34be65. The underlying mirror, shaft, lift, collision and save authorities are the production owners.
+
 # Current 1440p performance matrix, November 25
 
 Evidence class: **INERT**.
