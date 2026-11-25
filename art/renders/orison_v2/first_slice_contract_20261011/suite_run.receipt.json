@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 635.37,
+  "elapsed_s": 618.99,
   "exit_code": 0,
-  "finished_utc": "2026-11-25T05:44:10Z",
-  "started_utc": "2026-11-25T05:33:34Z",
+  "finished_utc": "2026-11-25T06:59:51Z",
+  "started_utc": "2026-11-25T06:49:32Z",
   "timed_out": false
  },
  "log": {
@@ -13,9 +13,9 @@
   "fail_lines": [],
   "pass_count": 370,
   "pass_lines": [
-   "PASS  service walking (3.65, 3.2, -2.9) actual=(3.668132, 3.200221, -2.828641)",
-   "PASS  service walking (3.65, 3.2, -3.15) actual=(3.652772, 3.200221, -3.077201)",
-   "PASS  service walking (5.9, 3.2, -3.15) actual=(5.825576, 3.200221, -3.147751)",
+   "PASS  service walking (3.65, 3.2, -2.9) actual=(3.668218, 3.200221, -2.828301)",
+   "PASS  service walking (3.65, 3.2, -3.15) actual=(3.652796, 3.200221, -3.077181)",
+   "PASS  service walking (5.9, 3.2, -3.15) actual=(5.825578, 3.200221, -3.147752)",
    "PASS  service walking (8.55, 3.2, -3.25) actual=(8.479312, 3.200221, -3.229135)",
    "PASS  service route has an actual door: F02_B_ENTRY_DOOR",
    "PASS  service walking (10.95, 3.2, -3.25) actual=(10.87722, 3.200319, -3.249682)",
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "D:/ov_reports/frame_rate_20261125/f03_shaft_release_ec629332e/composed/first_slice.log.stderr",
-  "stderr_sha256": "a7b356e7c4ee43eecff6799c481ddda3de2c5b1609c94402a761508173150683",
-  "stdout": "D:/ov_reports/frame_rate_20261125/f03_shaft_release_ec629332e/composed/first_slice.log",
-  "stdout_sha256": "c088915fcde7094b01711e4ecc5e20b4e232b6972f7f59e3b2aa5f05a8655042"
+  "stderr": "D:/ov_reports/frame_rate_20261125/f03_lamp_depth_release_ce49484ee/composed/first_slice.log.stderr",
+  "stderr_sha256": "40683a065485e6c446666388bea71e51c2e7d9a3569cc5618cbe4041945827cd",
+  "stdout": "D:/ov_reports/frame_rate_20261125/f03_lamp_depth_release_ce49484ee/composed/first_slice.log",
+  "stdout_sha256": "d12b2d54c36372680f6b0337cc104dd465637c2053f7f132ca0ab9504a6b7f89"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "D:/ov_reports/frame_rate_20261125/f03_shaft_release_ec629332e/composed/packet",
+ "shot_dir": "D:/ov_reports/frame_rate_20261125/f03_lamp_depth_release_ce49484ee/composed/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "ec629332e65528ea1f3bc3535d8d5808b5f855dd",
-  "repository_tree": "d46ebd1b003728b967a7724aada549467280aec1",
-  "runtime_inputs_sha256": "c44d68d1a61c9015f4af827800b8a5a4051d72cca2f8c1f87316641cb46464fa",
+  "repository_head": "ce49484ee32c8e6b48fdb6fab7aa628ae6ce1d4a",
+  "repository_tree": "0c0a470438966041659a1a0a430be07970f3c2c4",
+  "runtime_inputs_sha256": "5383ad4d56e1f922a6ce50e121e71f2590c0ed8feb9d9b763eb94e2f07d8528d",
   "test_path": null,
   "test_sha256": null
  },

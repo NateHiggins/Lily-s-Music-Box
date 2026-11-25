@@ -6,7 +6,17 @@ extends Node3D
 ## Scene-mesh shadows remain engine-owned; ecological exposure is untouched.
 const FOG_SHADER := preload("res://shaders/lamp_optical_air.gdshader")
 const Field := preload("res://scripts/lamp/lamp_optical_voxel_field.gd")
-const ReceiverBinding := preload("res://scripts/lamp/lamp_optical_receivers.gd")
+
+class ReceiverBinding extends "res://scripts/lamp/lamp_optical_receivers.gd":
+	var depth_exclusion_mask := DEPTH_CAMERA_EXCLUSIONS
+
+	func _consider(node: Node) -> void:
+		super._consider(node)
+		if isolate_depth_lights and not disposed and is_instance_valid(root) \
+				and is_instance_valid(node) and node is GeometryInstance3D and root.is_ancestor_of(node):
+			# Geometry on a reserved bit only brings that bit back into the depth view.
+			depth_exclusion_mask &= ~node.layers
+
 var field: RefCounted
 var observation: Node3D
 var _bound := false
@@ -16,7 +26,7 @@ var volume: FogVolume
 var material: ShaderMaterial
 var particles: GPUParticles3D
 var particle_material: ShaderMaterial
-var receivers: RefCounted
+var receivers: ReceiverBinding
 var scene_shadow: Node3D
 var driver: Node
 var _environment: Environment
@@ -112,8 +122,7 @@ func _update_volume(delta: float) -> void:
 			and presentation_camera.cull_mask & 1 \
 			and not presentation_camera.cull_mask & ReceiverBinding.DEPTH_LIGHT_LAYER:
 		receivers.restore_depth_light_layers()
-	scene_shadow.excluded_light_layers = ReceiverBinding.DEPTH_CAMERA_EXCLUSIONS \
-			if receivers.isolate_depth_lights and receivers.depth_geometry_clear else 0
+	scene_shadow.excluded_light_layers = receivers.depth_exclusion_mask if receivers.isolate_depth_lights else 0
 	receivers.select_lamp(source)
 	scene_shadow.lamp = source
 	if field.ready:

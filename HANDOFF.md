@@ -1,3 +1,15 @@
+# V2 lamp depth lighting, November 25
+
+Evidence class: **INERT**.
+
+The lamp depth view now excludes each reserved light layer independently. The six weather draws retain their transient layer in the depth view, and ordinary fixtures stay out of that view. The prepared shop recipe keeps its original shared binding.
+
+At the fixed F03 night station in 2560 × 1440 Forward+, the installed change saved about 11,421 main shadow draws and 2.61 ms median frame interval. The two stock samples differed by 0.37 ms. It kept the live lamp depth compositor running in every sample. The 23-check hand route verifies the lamp, mirror and arm masks with the glove both stowed and held. The moving grip check samples a new arm drawing and retains its original six-centimetre tolerance.
+
+The composed production route passed 369 checks and 176 walking waypoints, including radiator insert delivery, physical repair and reconstruction from disk. The rendered surfaces passed 818 checks and 23 paired views received technical review. The building-wide 30 fps order, owner play and artistic acceptance remain open.
+
+[Installed and composed qualification](D:/ov_reports/frame_rate_20261125/f03_lamp_depth_release_ce49484ee/STATUS.md).
+
 # Orison shaft lighting, November 25
 
 Evidence class: **INERT**.
