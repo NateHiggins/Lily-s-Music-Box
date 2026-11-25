@@ -82,6 +82,11 @@ var _delivery_feed:=DELIVERY_FEED
 func copy_delivered() -> bool:
 	return not printing and (_paper_motion==null or not _paper_motion.is_running())
 
+## A courtesy copy (a teaching slip) may print only into an idle machine: never
+## over a page still printing or feeding, a keyed copy in hand, or a draft.
+func accepts_low_priority_copy() -> bool:
+	return powered and copy_delivered() and _keyed_owner==null and (_draft_ink==null or not _draft_ink.visible)
+
 func retire_transient_copies(serials:Array[int]) -> void:
 	# A narrative document replacement may invalidate only its own copies.
 	# Preserve unrelated field reports and the monotonic device print count.
