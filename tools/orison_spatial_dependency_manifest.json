@@ -173768,6 +173768,32 @@
    "target_exists": true
   },
   {
+   "key": "aea5bd3f6ed2b5f7",
+   "kind": "id_reference",
+   "token": "ROOF_DECK_WEST",
+   "file": "game/data/orison_v2/roof_garden_planter.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/floor_owner"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "25a81d3700e95c4e",
    "kind": "id_reference",
    "token": "ROOF_PUBLIC_CORE",
@@ -240048,6 +240074,34 @@
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9838e7c9d284653c",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/scripts/characters/orison_v2_resident_route.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    120
+   ],
+   "count": 1,
+   "context": [
+    "var opening: Node = world.adapter.resolve(\"ROOF_PUBLIC_DOOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {

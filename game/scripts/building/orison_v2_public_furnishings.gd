@@ -2,6 +2,7 @@ extends RefCounted
 ## Fixed public furnishings; circulation and door ownership stay with the rooms.
 const LIBRARY := preload("res://assets/props/public_furnishings.glb")
 const GARDEN := preload("res://assets/props/roof_garden_planter.glb")
+const GARDEN_LAYOUT := "res://data/orison_v2/roof_garden_planter.json"
 static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 	var library := LIBRARY.instantiate()
 	for room_id in ["F01_LOBBY","F01_PACKAGE"]:
@@ -64,17 +65,19 @@ static func _add_visual(body: StaticBody3D, library: Node3D, model: String) -> v
 		body.add_child(shape)
 
 static func _mount_roof_planter(adapter: OrisonV2AnchorAdapter) -> void:
-	var deck := adapter.resolve("ROOF_DECK_WEST") as Node3D
+	var placement: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(GARDEN_LAYOUT))
+	var deck := adapter.resolve(str(placement.floor_owner)) as Node3D
 	if deck == null:
 		return
 	var planter := StaticBody3D.new()
 	planter.name = "CommunalHerbBed"
 	deck.add_child(planter)
 	# The four corners of the skids lie on this plane in the fitted membrane.
-	var east := Vector3(1.0, 0.01, 0.0).normalized()
-	var up := Vector3(-0.01, 1.0, 0.007272727).normalized()
+	var east := Vector3(1.0, float(placement.fall_x), 0.0).normalized()
+	var up := Vector3(-float(placement.fall_x), 1.0, -float(placement.fall_z)).normalized()
 	planter.basis = Basis(east, up, east.cross(up).normalized())
-	planter.position = Vector3(-6.2, 19.3205, 2.7)
+	var position: Array = placement.position
+	planter.position = Vector3(position[0], position[1], position[2])
 	var stock := GARDEN.instantiate()
 	planter.add_child(stock)
 	var finishes := {"RoofGarden_Timber":"timber", "RoofGarden_Soil":"soil",
