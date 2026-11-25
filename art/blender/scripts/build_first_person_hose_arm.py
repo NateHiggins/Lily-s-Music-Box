@@ -131,8 +131,9 @@ def arm_tube(bm):
     ring_verts = []
     for r in range(rings):
         y = ARM_LENGTH * r / (rings - 1)
-        # Slightly fuller at the shoulder, narrowing to the wrist: a cartoon hose.
-        radius = ARM_RADIUS * (1.08 - 0.12 * (y / ARM_LENGTH))
+        # One even width all the way into the cuff (Lily, 2026-11-25: a taper
+        # before the glove read as weak).
+        radius = ARM_RADIUS
         verts = []
         for s in range(SIDES):
             a = 2 * math.pi * s / SIDES
@@ -187,6 +188,38 @@ def ellipsoid(bm, centre, radii, rotation=Matrix.Identity(3), segments=16, rings
     return verts
 
 
+GLOVE_SCALE = 1.6  # the runtime draws the glove this much larger (first_person_hose_arm.gd)
+CUFF_THROAT = ARM_RADIUS / GLOVE_SCALE * 1.06
+# (radius, y from the wrist) from the throat, over the bell, round the rolled rim
+# and back in under the palm; glove space.
+CUFF_PROFILE = [
+    (CUFF_THROAT, -0.014), (CUFF_THROAT * 1.02, -0.006), (CUFF_THROAT * 1.12, 0.000),
+    (0.023, 0.006), (0.029, 0.011), (0.034, 0.015), (0.037, 0.019), (0.0375, 0.023),
+    (0.035, 0.026), (0.030, 0.027), (0.024, 0.026),
+]
+
+
+def cuff(bm, sides=24):
+    rings = []
+    for radius, y in CUFF_PROFILE:
+        ring = []
+        for s in range(sides):
+            a = 2 * math.pi * s / sides
+            # A touch flatter through the hand's thickness, like the palm.
+            ring.append(bm.verts.new((radius * math.cos(a), ARM_LENGTH + y, radius * 0.92 * math.sin(a))))
+        rings.append(ring)
+    for r in range(len(rings) - 1):
+        for s in range(sides):
+            bm.faces.new((rings[r][s], rings[r][(s + 1) % sides], rings[r + 1][(s + 1) % sides], rings[r + 1][s]))
+    throat = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[0][1], 0))
+    inner = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[-1][1], 0))
+    for s in range(sides):
+        bm.faces.new((throat, rings[0][(s + 1) % sides], rings[0][s]))
+        bm.faces.new((inner, rings[-1][s], rings[-1][(s + 1) % sides]))
+    verts = [v for ring in rings for v in ring] + [throat, inner]
+    return verts
+
+
 def glove(bm):
     weights = []
 
@@ -194,8 +227,11 @@ def glove(bm):
         for _ in verts:
             weights.append({group: 1.0})
 
-    # Flared cuff at the wrist: a short wide ellipsoid ring stands in for the roll.
-    add(ellipsoid(bm, Vector((0, ARM_LENGTH + 0.004, 0)), (0.042, 0.016, 0.040), segments=20), "Hand")
+    # Flared bell cuff: a sleeve that starts snug round the hose (the glove is
+    # drawn GLOVE_SCALE larger, so CUFF_THROAT is the hose radius in glove space),
+    # swells, and ends in a rolled rim under the palm. The hose runs up inside it,
+    # so the junction reads as one clean collar.
+    add(cuff(bm), "Hand")
     # Puffy palm, flattened through its thickness.
     add(ellipsoid(bm, Vector((0, ARM_LENGTH + 0.048, -0.002)), (0.046, 0.040, 0.026), segments=20, rings=12), "Hand")
     for name, x, lengths, radius in FINGERS:
@@ -272,7 +308,8 @@ def review(directory, objects, rig):
     target = Vector((0, ARM_LENGTH + 0.04, 0))
     for label, curl, eye in (("rest", 0.0, Vector((0.42, ARM_LENGTH - 0.15, 0.30))),
                              ("grip", 1.0, Vector((0.42, ARM_LENGTH - 0.15, 0.30))),
-                             ("rest_hand", 0.0, Vector((0.16, ARM_LENGTH + 0.04, 0.18)))):
+                             ("rest_hand", 0.0, Vector((0.16, ARM_LENGTH + 0.04, 0.18))),
+                             ("junction", 1.0, Vector((0.10, ARM_LENGTH - 0.16, 0.12)))):
         grip_pose(rig, curl)
         cam.location = eye
         cam.rotation_euler = (target - eye).to_track_quat("-Z", "Y").to_euler()
