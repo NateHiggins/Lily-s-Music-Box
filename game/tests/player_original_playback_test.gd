@@ -1,12 +1,12 @@
 extends Node
 ## Run with sibling SHOT_DIR=<case>/shots and APPDATA=<case>/profile. All generated
 ## recordings and campaign writes belong to this fresh profile. No microphone opens.
-const Panel := preload("res://scripts/ui/songbook_panel.gd")
+const RecorderPanel := preload("res://scripts/ui/songbook_panel.gd")
 const Store := preload("res://scripts/songbook/songbook_store.gd")
 const Originals := preload("res://scripts/songbook/player_original_custody.gd")
 const Case := preload("res://scripts/game/carried_case.gd")
 const WORDS := "The last seat on the train."
-var panel: Panel
+var panel: RecorderPanel
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
 var refused := 0
@@ -105,7 +105,7 @@ func _exercise(song: SongResource) -> void:
 	var voice := _wave(780)
 	var stored_ratio := 1.414
 	song.return_ratio = stored_ratio
-	panel = Panel.new()
+	panel = RecorderPanel.new()
 	add_child(panel)
 	panel.open(song, null, null)
 	panel._rendered = {"backing": backing, "guide": backing}
@@ -117,7 +117,7 @@ func _exercise(song: SongResource) -> void:
 	_key(KEY_1)
 	RealityState.storage_operation_override = old_override
 	var attempt := panel._keep_attempt
-	if not _check(refused == 1 and attempt != null and panel.mode == Panel.Mode.REVIEW
+	if not _check(refused == 1 and attempt != null and panel.mode == RecorderPanel.Mode.REVIEW
 			and panel._status.text.contains("try again") and panel._take == voice
 			and Originals.tray_ids().is_empty(), "real campaign save refusal keeps the recorded review and its attempt"):
 		return
@@ -127,13 +127,13 @@ func _exercise(song: SongResource) -> void:
 	var original := FileAccess.get_file_as_bytes(metadata)
 	var voice_bytes := FileAccess.get_file_as_bytes(wave_path)
 	_key(KEY_1)
-	if not _check(panel.mode == Panel.Mode.MENU and Originals.tray_ids() == [id]
+	if not _check(panel.mode == RecorderPanel.Mode.MENU and Originals.tray_ids() == [id]
 			and original.size() > 0 and voice_bytes.size() > 44 and FileAccess.get_file_as_bytes(metadata) == original
 			and FileAccess.get_file_as_bytes(wave_path) == voice_bytes and Store.versions_of(song.id).size() == 1,
 			"retry admits exactly the same immutable edition into the tray"):
 		return
 	_key(KEY_3)
-	_check(panel.mode == Panel.Mode.ORIGINALS and panel._original_rows.is_empty(), "tray ownership alone gives no shelf entry")
+	_check(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._original_rows.is_empty(), "tray ownership alone gives no shelf entry")
 	_key(KEY_ESCAPE)
 	var hidden := Store.save_version(song, {"v1a": "Never admitted"}, null)
 	if not _check(not hidden.is_empty() and Originals.take(id), "unadmitted global file exists alongside the carried sheet"):
@@ -147,7 +147,7 @@ func _exercise(song: SongResource) -> void:
 		if not _choose(id):
 			return
 		var mix := panel._reader.stream as AudioStreamSynchronized if panel._reader != null else null
-		if not _check(panel.mode == Panel.Mode.READING and panel._reader.playing and panel._read_original_id == id
+		if not _check(panel.mode == RecorderPanel.Mode.READING and panel._reader.playing and panel._read_original_id == id
 				and not panel._read_is_trace and not panel._read_from_old and panel._mic == null and mix != null
 				and mix.stream_count == 2 and mix.get_sync_stream(0) == backing
 				and mix.get_sync_stream(1) is AudioStreamWAV and (mix.get_sync_stream(1) as AudioStreamWAV).data == voice.data
@@ -159,7 +159,7 @@ func _exercise(song: SongResource) -> void:
 		else:
 			panel._reader.stop()
 			panel._process(0.0)
-		_check(panel.mode == Panel.Mode.ORIGINALS and not panel._reader.playing and panel._reader.stream == null,
+		_check(panel.mode == RecorderPanel.Mode.ORIGINALS and not panel._reader.playing and panel._reader.stream == null,
 				"lifting or reaching the end returns to the same list and releases the voice")
 	var bound: Dictionary = JSON.parse_string(original.get_string_from_utf8())
 	_check(bound.get("backing_arrangement") == SongSynth.ARRANGEMENT_V1, "KEEP pins the arrangement that was performed")
@@ -168,7 +168,7 @@ func _exercise(song: SongResource) -> void:
 	altered.store_string(JSON.stringify(bound))
 	altered.close()
 	if _choose(id):
-		_check(panel.mode == Panel.Mode.SLEEVE and not panel._reader.playing,
+		_check(panel.mode == RecorderPanel.Mode.SLEEVE and not panel._reader.playing,
 				"an unknown arrangement shows the sleeve instead of playing different music")
 		_key(KEY_ESCAPE)
 	var reset := FileAccess.open(metadata, FileAccess.WRITE)
@@ -185,7 +185,7 @@ func _exercise(song: SongResource) -> void:
 	if not _choose(silent.version_id):
 		return
 	var silent_mix := panel._reader.stream as AudioStreamSynchronized
-	_check(panel.mode == Panel.Mode.READING and silent_mix != null and silent_mix.stream_count == 1
+	_check(panel.mode == RecorderPanel.Mode.READING and silent_mix != null and silent_mix.stream_count == 1
 			and silent_mix.get_sync_stream(0) == backing and panel._saved_phrase.text == "Words stay on this sheet."
 			and is_equal_approx(panel._reader.pitch_scale, 1.8), "words-only playback starts only the backing and its own lyrics")
 	_key(KEY_ESCAPE)
@@ -194,7 +194,7 @@ func _exercise(song: SongResource) -> void:
 	song.id = "unavailable_arrangement"
 	_key(KEY_3)
 	panel._read_original(id)
-	_check(panel.mode == Panel.Mode.ORIGINALS and panel._original_rows.is_empty()
+	_check(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._original_rows.is_empty()
 			and not panel._reader.playing, "an unsupported arrangement cannot substitute the installed backing")
 	song.id = "track_018"
 	_legacy_recovery(song, voice, id)
@@ -207,13 +207,13 @@ func _missing_media(id: String, metadata: String, original: PackedByteArray, wav
 		return false
 	if not _choose(id):
 		return false
-	_check(panel.mode == Panel.Mode.SLEEVE and panel._status.text.contains("sleeve") and panel._reader.stream == null
+	_check(panel.mode == RecorderPanel.Mode.SLEEVE and panel._status.text.contains("sleeve") and panel._reader.stream == null
 			and panel._saved_lyrics.get("v1a") == WORDS and Originals.is_packed(id),
 			"a missing promised vocal leaves words and custody intact without starting a substitute")
 	if not _check(_return_sheet(id), "put the open written sleeve back on its tray"):
 		return false
 	panel._process(0.0)
-	if not _check(panel.mode == Panel.Mode.ORIGINALS and panel._read_original_id.is_empty()
+	if not _check(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._read_original_id.is_empty()
 			and panel._saved_lyrics.is_empty() and panel._original_rows.is_empty() and panel._reader.stream == null,
 			"loss of the selected sleeve removes its private lyrics and clears the stale selection"):
 		return false
@@ -224,7 +224,7 @@ func _missing_media(id: String, metadata: String, original: PackedByteArray, wav
 		return false
 	if not _choose(id):
 		return false
-	_check(panel.mode == Panel.Mode.SLEEVE and panel._reader.stream == null, "malformed voice is also unavailable")
+	_check(panel.mode == RecorderPanel.Mode.SLEEVE and panel._reader.stream == null, "malformed voice is also unavailable")
 	_key(KEY_ESCAPE)
 	if not _check(DirAccess.remove_absolute(wave_path) == OK and DirAccess.rename_absolute(guard, wave_path) == OK,
 			"restore the untouched fixture voice"):
@@ -244,7 +244,7 @@ func _missing_media(id: String, metadata: String, original: PackedByteArray, wav
 	_check(Store.private_playback("../" + id, panel.song.id).is_empty(), "reject path-like selected ID before file lookup")
 	if not _choose(id):
 		return false
-	_check(panel.mode == Panel.Mode.ORIGINALS and panel._original_rows.is_empty() and not panel._reader.playing,
+	_check(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._original_rows.is_empty() and not panel._reader.playing,
 			"recheck metadata on keypress and remove the unreadable row")
 	return _check(Store._write_and_verify(metadata, original), "restore the fixture's exact original metadata")
 
@@ -265,7 +265,7 @@ func _stale_pick(id: String, other: String) -> void:
 	if not _check(_return_sheet(id), "return a displayed original before pressing its key"):
 		return
 	_key((KEY_1 + index) as Key)
-	_check(panel.mode == Panel.Mode.ORIGINALS and panel._original_rows == [other]
+	_check(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._original_rows == [other]
 			and not panel._reader.playing and Originals.top_id() == id, "a stale row never plays the sheet that moved into its number")
 
 ## Write genuine old-style immutable files in our private fixture profile. The
@@ -317,7 +317,7 @@ func _legacy_recovery(song: SongResource, voice: AudioStreamWAV, modern_id: Stri
 	_key(KEY_R)
 	var expected := ids.duplicate()
 	expected.reverse()
-	if not _check(panel.mode == Panel.Mode.RECOVERY and panel._legacy_page == 0 and panel._legacy_ids == expected
+	if not _check(panel.mode == RecorderPanel.Mode.RECOVERY and panel._legacy_page == 0 and panel._legacy_ids == expected
 			and not Store.private_edition(modern_id, song.id).is_empty()
 			and Store.private_playback(modern_id, song.id, true).is_empty()
 			and FileAccess.get_file_as_bytes(RealityState.save_path) == fresh,
@@ -329,17 +329,17 @@ func _legacy_recovery(song: SongResource, voice: AudioStreamWAV, modern_id: Stri
 	RealityState.storage_operation_override = _fail_save
 	_key(KEY_2)
 	RealityState.storage_operation_override = old_override
-	if not _check(panel.mode == Panel.Mode.RECOVERY and panel._legacy_page == 1 and refused == before_refusals + 1
+	if not _check(panel.mode == RecorderPanel.Mode.RECOVERY and panel._legacy_page == 1 and refused == before_refusals + 1
 			and Originals.tray_ids().is_empty() and FileAccess.get_file_as_bytes(RealityState.save_path) == fresh,
 			"refused recovery preserves the selected page, empty tray and save generation"):
 		return
 	_key(KEY_2)
-	if not _check(panel.mode == Panel.Mode.ORIGINALS and Originals.tray_ids() == [ids[0]] and Originals.take(ids[0]),
+	if not _check(panel.mode == RecorderPanel.Mode.ORIGINALS and Originals.tray_ids() == [ids[0]] and Originals.take(ids[0]),
 			"only the explicitly numbered edition on page two reaches the tray and case"):
 		return
 	panel._show_originals()
 	_key(KEY_1)
-	if not _check(panel.mode == Panel.Mode.READING and is_equal_approx(panel._reader.pitch_scale, 1.335)
+	if not _check(panel.mode == RecorderPanel.Mode.READING and is_equal_approx(panel._reader.pitch_scale, 1.335)
 			and panel._saved_phrase.text == "Old line 0." and not Store.private_edition(ids[0], song.id).has("reconstruction_ratio"),
 			"an unmarked early edition retains its words and uses the fixed first reader setting"):
 		return
@@ -348,11 +348,11 @@ func _legacy_recovery(song: SongResource, voice: AudioStreamWAV, modern_id: Stri
 	if not _check(not panel._legacy_ids.has(ids[0]), "a packed legacy edition cannot be recovered twice"):
 		return
 	_key(KEY_2)
-	if not _check(panel.mode == Panel.Mode.RECOVERY_SLEEVE and Originals.tray_ids().is_empty(),
+	if not _check(panel.mode == RecorderPanel.Mode.RECOVERY_SLEEVE and Originals.tray_ids().is_empty(),
 			"a missing promised voice requests separate sleeve recovery"):
 		return
 	_key(KEY_ESCAPE)
-	_check(panel.mode == Panel.Mode.RECOVERY and Originals.tray_ids().is_empty(), "cancel leaves the old sleeve unclaimed")
+	_check(panel.mode == RecorderPanel.Mode.RECOVERY and Originals.tray_ids().is_empty(), "cancel leaves the old sleeve unclaimed")
 	_key(KEY_2)
 	_key(KEY_ENTER)
 	_key(KEY_R)
@@ -372,7 +372,7 @@ func _legacy_recovery(song: SongResource, voice: AudioStreamWAV, modern_id: Stri
 	if not _check(RealityState.start_new_campaign(), "start a different household while the old list is open"):
 		return
 	_key(KEY_1)
-	_check(panel.mode == Panel.Mode.ORIGINALS and Originals.tray_ids().is_empty(),
+	_check(panel.mode == RecorderPanel.Mode.ORIGINALS and Originals.tray_ids().is_empty(),
 			"an open recovery number cannot grant an edition after a campaign switch")
 	_key(KEY_R)
 	_check(panel._legacy_ids == expected and Originals.tray_ids().is_empty(), "another campaign may explicitly recover old media and inherits no admissions")
@@ -396,14 +396,14 @@ func _partial_performances(song: SongResource) -> void:
 		panel._show_menu()
 		_key(KEY_2)
 		_key(KEY_2)
-		if not _check(panel.mode == Panel.Mode.PERFORM and panel._mic == null, "start the bounded no-microphone take"):
+		if not _check(panel.mode == RecorderPanel.Mode.PERFORM and panel._mic == null, "start the bounded no-microphone take"):
 			return
 		var deadline := Time.get_ticks_msec() + 2500
-		while panel.mode == Panel.Mode.PERFORM and panel._backing.get_playback_position() < 0.16 and Time.get_ticks_msec() < deadline:
+		while panel.mode == RecorderPanel.Mode.PERFORM and panel._backing.get_playback_position() < 0.16 and Time.get_ticks_msec() < deadline:
 			await get_tree().process_frame
 		_key(KEY_ESCAPE)
 		var endpoint: float = panel._take_end_seconds
-		if not _check(panel.mode == Panel.Mode.REVIEW and endpoint >= 0.16 and endpoint < backing.get_length(),
+		if not _check(panel.mode == RecorderPanel.Mode.REVIEW and endpoint >= 0.16 and endpoint < backing.get_length(),
 				"manual stop retained the current source cursor before the backing finished"):
 			return
 		if voiced:
@@ -417,7 +417,7 @@ func _partial_performances(song: SongResource) -> void:
 		_key(KEY_1)
 		var id := Originals.top_id()
 		var record := Store.private_edition(id, song.id)
-		if not _check(panel.mode == Panel.Mode.MENU and record.has(Store.PERFORMED_SECONDS)
+		if not _check(panel.mode == RecorderPanel.Mode.MENU and record.has(Store.PERFORMED_SECONDS)
 				and roundi(float(record[Store.PERFORMED_SECONDS]) * backing.mix_rate) == roundi(endpoint * backing.mix_rate)
 				and Originals.take(id),
 				"KEEP persists the original source endpoint in the edition"):
@@ -447,7 +447,7 @@ func _partial_performances(song: SongResource) -> void:
 	panel._show_originals()
 	if not _choose(before_music.version_id):
 		return
-	if not _check(panel.mode == Panel.Mode.SLEEVE and panel._reader.stream == null and panel._saved_lyrics.get("v1a") == WORDS,
+	if not _check(panel.mode == RecorderPanel.Mode.SLEEVE and panel._reader.stream == null and panel._saved_lyrics.get("v1a") == WORDS,
 			"a zero-frame version shows the words and starts no substitute audio"):
 		return
 	_key(KEY_ESCAPE)
@@ -459,15 +459,15 @@ func _partial_performances(song: SongResource) -> void:
 	_key(KEY_2)
 	_key(KEY_2)
 	var finish_by := Time.get_ticks_msec() + 2500
-	while panel.mode == Panel.Mode.PERFORM and Time.get_ticks_msec() < finish_by:
+	while panel.mode == RecorderPanel.Mode.PERFORM and Time.get_ticks_msec() < finish_by:
 		await get_tree().process_frame
-	_check(panel.mode == Panel.Mode.REVIEW and panel._take_end_seconds == short.get_length(),
+	_check(panel.mode == RecorderPanel.Mode.REVIEW and panel._take_end_seconds == short.get_length(),
 			"natural completion retains the full stream rather than a cleared cursor")
 
 
 func _matches_excerpt(backing: AudioStreamWAV, voice: AudioStreamWAV, endpoint: float) -> bool:
 	var mix := panel._reader.stream as AudioStreamSynchronized
-	if mix == null or panel.mode != Panel.Mode.READING or mix.stream_count != (1 if voice == null else 2):
+	if mix == null or panel.mode != RecorderPanel.Mode.READING or mix.stream_count != (1 if voice == null else 2):
 		return false
 	var expected: Array[AudioStreamWAV] = [backing]
 	if voice != null:

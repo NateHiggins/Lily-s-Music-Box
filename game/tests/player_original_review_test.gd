@@ -2,7 +2,7 @@ extends Node
 ## Run in an isolated app profile. The synthetic vocal and consent/cancel test
 ## use no OS input stream. The recording and the verified private JSON remain
 ## in that profile after the test for inspection.
-const Panel := preload("res://scripts/ui/songbook_panel.gd")
+const RecorderPanel := preload("res://scripts/ui/songbook_panel.gd")
 const Store := preload("res://scripts/songbook/songbook_store.gd")
 const Song := preload("res://scripts/songbook/song_resource.gd")
 
@@ -14,7 +14,7 @@ class OfflineRecorder extends MicRecorder:
 	func stop_recording() -> AudioStreamWAV:
 		return null
 
-var panel: Panel
+var panel: RecorderPanel
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
 
@@ -72,7 +72,7 @@ func _run() -> void:
 	var song := Song.load_song("last_train_home")
 	var original_mouse := Input.mouse_mode
 	if _check(song != null, "uses the installed song"):
-		panel = Panel.new()
+		panel = RecorderPanel.new()
 		add_child(panel)
 		panel.open(song, null, null)
 		var vocal := _sine()
@@ -100,18 +100,18 @@ func _cancelled_calibration() -> void:
 	var cancelled := OfflineRecorder.new()
 	panel.add_child(cancelled)
 	panel._mic = cancelled
-	panel.mode = Panel.Mode.CLAP
+	panel.mode = RecorderPanel.Mode.CLAP
 	panel._on_calibrated(23, cancelled)
 	_check(not panel._clap_start.is_stopped(), "calibration schedules the performance")
 	_key(KEY_ESCAPE)
-	_check(panel.mode == Panel.Mode.MENU and panel._clap_start.is_stopped(), "Escape cancels the scheduled performance")
+	_check(panel.mode == RecorderPanel.Mode.MENU and panel._clap_start.is_stopped(), "Escape cancels the scheduled performance")
 	var current := OfflineRecorder.new()
 	panel.add_child(current)
 	panel._mic = current
-	panel.mode = Panel.Mode.CLAP
+	panel.mode = RecorderPanel.Mode.CLAP
 	panel._on_calibrated(30, cancelled)
 	await get_tree().create_timer(1.0).timeout
-	_check(panel.mode == Panel.Mode.CLAP and panel._mic == current and panel._backing == null,
+	_check(panel.mode == RecorderPanel.Mode.CLAP and panel._mic == current and panel._backing == null,
 		"a cancelled recorder cannot start another calibration's performance")
 	_key(KEY_ESCAPE)
 
@@ -130,7 +130,7 @@ func _refusal_and_retry(song: SongResource, vocal: AudioStreamWAV) -> bool:
 	if not _check(DirAccess.make_dir_absolute(pathname) == OK, "only this fresh version's final path is obstructed"):
 		return false
 	_key(KEY_1)
-	var refused := panel.mode == Panel.Mode.REVIEW and not panel._status.text.is_empty() \
+	var refused: bool = panel.mode == RecorderPanel.Mode.REVIEW and not panel._status.text.is_empty() \
 		and panel._status.text.contains("try again") and panel._take == vocal and panel._keep_attempt == attempt \
 		and Store.versions_of(song.id).size() == before and panel.lyrics[song.slots[0].id] == "One porch light left on."
 	var removed := DirAccess.remove_absolute(pathname) == OK
@@ -138,7 +138,7 @@ func _refusal_and_retry(song: SongResource, vocal: AudioStreamWAV) -> bool:
 		return false
 	_key(KEY_1)
 	var record: Variant = JSON.parse_string(FileAccess.get_file_as_string(metadata))
-	if not _check(panel.mode == Panel.Mode.MENU and record is Dictionary and record.get("version_id") == attempt.version_id
+	if not _check(panel.mode == RecorderPanel.Mode.MENU and record is Dictionary and record.get("version_id") == attempt.version_id
 		and record.get("publish") == "PRIVATE" and FileAccess.file_exists(record.get("vocal_stem", "")),
 		"retry keeps the original version id, private metadata and vocal"):
 		return false
@@ -150,17 +150,17 @@ func _silent_retake(song: SongResource) -> void:
 	var first_id: String = panel._keep_attempt.version_id
 	panel._show_review()
 	_key(KEY_2)
-	if not _check(panel.mode == Panel.Mode.MIC_CONSENT and panel._mic == null, "singing again offers a fresh microphone choice"):
+	if not _check(panel.mode == RecorderPanel.Mode.MIC_CONSENT and panel._mic == null, "singing again offers a fresh microphone choice"):
 		return
 	_key(KEY_2)
-	if not _check(panel.mode == Panel.Mode.PERFORM and panel._mic == null and panel._take == null and panel._keep_attempt == null,
+	if not _check(panel.mode == RecorderPanel.Mode.PERFORM and panel._mic == null and panel._take == null and panel._keep_attempt == null,
 		"declining the mic starts a new performance with no previous vocal or attempt id"):
 		return
 	_key(KEY_ESCAPE)
-	if not _check(panel.mode == Panel.Mode.REVIEW and panel._take == null, "the no-mic take remains stemless at review"):
+	if not _check(panel.mode == RecorderPanel.Mode.REVIEW and panel._take == null, "the no-mic take remains stemless at review"):
 		return
 	_key(KEY_1)
-	if not _check(panel.mode == Panel.Mode.MENU and panel._keep_attempt != null and panel._keep_attempt.version_id != first_id,
+	if not _check(panel.mode == RecorderPanel.Mode.MENU and panel._keep_attempt != null and panel._keep_attempt.version_id != first_id,
 		"a different performance gets a new version id"):
 		return
 	var kept := Store.versions_of(song.id).filter(func(row): return row.version_id == panel._keep_attempt.version_id)

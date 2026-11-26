@@ -4,7 +4,7 @@ extends "res://tests/found_trace_route_test.gd"
 ## world. The actual title button / shell transition has a separate witness.
 const Original := preload("res://scripts/songbook/player_original_custody.gd")
 const Store := preload("res://scripts/songbook/songbook_store.gd")
-const Panel := preload("res://scripts/ui/songbook_panel.gd")
+const RecorderPanel := preload("res://scripts/ui/songbook_panel.gd")
 const EquippedAvatar := preload("res://scripts/player/player_avatar_held_items.gd")
 const TEST_WORDS := "low wire"
 
@@ -85,15 +85,15 @@ func _walk_to_output() -> bool:
 			and player.global_position.distance_to(target) < .28, "walks from the reader to the adjacent tray on the WC bypass")
 
 
-func _open_recorder() -> Panel:
+func _open_recorder() -> RecorderPanel:
 	var primary := _recorder.get_node_or_null("PrimaryInteraction") as Area3D
 	var shapes := primary.find_children("*", "CollisionShape3D", false, false) if primary != null else []
 	if not _require(shapes.size() == 1, "recorder retains its original primary input surface"):
 		return null
 	await _aim((shapes[0] as CollisionShape3D).global_position)
 	await _click_world()
-	var panel := _recorder.get("_panel") as Panel
-	if not _require(is_instance_valid(panel) and panel.mode == Panel.Mode.MENU and player.call_locked,
+	var panel := _recorder.get("_panel") as RecorderPanel
+	if not _require(is_instance_valid(panel) and panel.mode == RecorderPanel.Mode.MENU and player.call_locked,
 			"clicking the original recorder opens the normal songbook menu"):
 		return null
 	return panel
@@ -104,7 +104,7 @@ func _author_take() -> bool:
 	if panel == null:
 		return false
 	await _panel_key(panel, KEY_1)
-	if not _require(panel.mode == Panel.Mode.EDIT and panel._edit.has_focus(), "the first written phrase has keyboard focus"):
+	if not _require(panel.mode == RecorderPanel.Mode.EDIT and panel._edit.has_focus(), "the first written phrase has keyboard focus"):
 		return false
 	_lyric_slot = str(panel.song.slots[0].id)
 	for i in TEST_WORDS.length():
@@ -122,33 +122,33 @@ func _author_take() -> bool:
 			"ordinary text input reaches the line editor and the authored phrase"):
 		return false
 	await _panel_key(panel, KEY_ESCAPE)
-	if panel.mode == Panel.Mode.EDIT:
+	if panel.mode == RecorderPanel.Mode.EDIT:
 		# A focused LineEdit can consume the first Escape to finish editing.
 		await _panel_key(panel, KEY_ESCAPE)
-	if not _require(panel.mode == Panel.Mode.MENU, "the lyric editor returns to the recorder menu"):
+	if not _require(panel.mode == RecorderPanel.Mode.MENU, "the lyric editor returns to the recorder menu"):
 		return false
 	await _panel_key(panel, KEY_2)
-	if not _require(panel.mode == Panel.Mode.MIC_CONSENT and panel._mic == null, "the recorder asks before starting a microphone"):
+	if not _require(panel.mode == RecorderPanel.Mode.MIC_CONSENT and panel._mic == null, "the recorder asks before starting a microphone"):
 		return false
 	await _panel_key(panel, KEY_2)
-	if not _require(panel.mode == Panel.Mode.PERFORM and panel._mic == null and panel._take == null
+	if not _require(panel.mode == RecorderPanel.Mode.PERFORM and panel._mic == null and panel._take == null
 			and panel._backing.playing, "words-only performance starts its backing with no microphone"):
 		return false
 	# Perform through the first written phrase. A cut in the instrumental
 	# intro contains no part of that phrase to show in the later audition.
 	var phrase_start := float(panel.song.slots[0].start_time)
 	var deadline := Time.get_ticks_msec() + 25000
-	while panel.mode == Panel.Mode.PERFORM and panel._backing.get_playback_position() < phrase_start + .5 and Time.get_ticks_msec() < deadline:
+	while panel.mode == RecorderPanel.Mode.PERFORM and panel._backing.get_playback_position() < phrase_start + .5 and Time.get_ticks_msec() < deadline:
 		await get_tree().create_timer(.10).timeout
-	if not _require(panel.mode == Panel.Mode.PERFORM and panel._backing.get_playback_position() >= phrase_start,
+	if not _require(panel.mode == RecorderPanel.Mode.PERFORM and panel._backing.get_playback_position() >= phrase_start,
 			"the performed excerpt includes the player's first written phrase"):
 		return false
 	await _panel_key(panel, KEY_ESCAPE)
-	if not _require(panel.mode == Panel.Mode.REVIEW and panel._take == null, "stopping the performance offers its words-only take for review"):
+	if not _require(panel.mode == RecorderPanel.Mode.REVIEW and panel._take == null, "stopping the performance offers its words-only take for review"):
 		return false
 	await _panel_key(panel, KEY_1)
 	_edition = Original.top_id()
-	if not _require(panel.mode == Panel.Mode.MENU and not _edition.is_empty()
+	if not _require(panel.mode == RecorderPanel.Mode.MENU and not _edition.is_empty()
 			and Original.tray_ids() == [_edition] and Original.packed_ids().is_empty(),
 			"private KEEP creates exactly one exposed edition before the case owns it"):
 		return false
@@ -249,13 +249,13 @@ func _hear_own_edition() -> bool:
 	if panel == null:
 		return false
 	await _panel_key(panel, KEY_3)
-	if not _require(panel.mode == Panel.Mode.ORIGINALS and panel._original_rows == [_edition],
+	if not _require(panel.mode == RecorderPanel.Mode.ORIGINALS and panel._original_rows == [_edition],
 			"the normal shelf lists only the carried edition of the installed arrangement"):
 		return false
 	await _panel_key(panel, KEY_1)
 	var stream := panel._reader.stream as AudioStreamSynchronized if panel._reader != null else null
 	var record := Store.private_edition(_edition, panel.song.id)
-	if not _require(panel.mode == Panel.Mode.READING and panel._read_original_id == _edition
+	if not _require(panel.mode == RecorderPanel.Mode.READING and panel._read_original_id == _edition
 			and panel._reader != null and panel._reader.playing and stream != null and stream.stream_count == 1
 			and stream.get_sync_stream(0) != null and panel._saved_lyrics.get(_lyric_slot) == TEST_WORDS
 			and is_equal_approx(panel._reader.pitch_scale, float(record.get("reconstruction_ratio", 0)))
@@ -269,7 +269,7 @@ func _hear_own_edition() -> bool:
 			"records a rendered frame from the private playback screen"):
 		return false
 	await _panel_key(panel, KEY_SPACE)
-	if not _require(panel.mode == Panel.Mode.ORIGINALS and not panel._reader.playing, "lifting the stylus returns to the private shelf"):
+	if not _require(panel.mode == RecorderPanel.Mode.ORIGINALS and not panel._reader.playing, "lifting the stylus returns to the private shelf"):
 		return false
 	await _panel_key(panel, KEY_ESCAPE)
 	await _panel_key(panel, KEY_ESCAPE)
