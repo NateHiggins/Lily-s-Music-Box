@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://film/first_light.gd" id="1"]
+[ext_resource type="Script" path="res://film/cinema_camera_rig.gd" id="2"]
+[ext_resource type="Script" path="res://film/cinema_render_manager.gd" id="3"]
+
+[sub_resource type="Environment" id="Room"]
+background_mode = 1
+background_color = Color(0.029, 0.032, 0.041, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.54, 0.59, 0.63, 1)
+ambient_light_energy = 0.16
+reflected_light_source = 1
+tonemap_mode = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.012
+volumetric_fog_albedo = Color(0.52, 0.59, 0.60, 1)
+volumetric_fog_temporal_reprojection_enabled = false
+
+[sub_resource type="BoxMesh" id="Wall"]
+size = Vector3(12, 4, 0.08)
+
+[node name="FirstLight" type="Node3D"]
+script = ExtResource("1")
+
+[node name="World" type="WorldEnvironment" parent="."]
+environment = SubResource("Room")
+
+[node name="Backing" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.5, -0.61)
+mesh = SubResource("Wall")
+
+[node name="WindowBounce" type="OmniLight3D" parent="."]
+position = Vector3(0.76, 0.63, -0.08)
+light_color = Color(0.23, 0.73, 0.81, 1)
+light_energy = 0.57
+omni_range = 2.9
+
+[node name="TransomSpill" type="SpotLight3D" parent="."]
+position = Vector3(0.87, 1.34, 0.4)
+light_color = Color(0.38, 0.71, 0.78, 1)
+light_energy = 2.1
+spot_range = 3.2
+spot_angle = 30.0
+shadow_enabled = true
+
+[node name="PracticalBounce" type="OmniLight3D" parent="."]
+position = Vector3(-0.69, 0.54, 0.45)
+light_color = Color(1, 0.69, 0.43, 1)
+light_energy = 0.95
+omni_range = 2.2
+shadow_enabled = true
+
+[node name="Observer" type="Camera3D" parent="."]
+position = Vector3(0.56, 0.34, 1.18)
+current = true
+
+[node name="CinemaRig" type="Node3D" parent="."]
+script = ExtResource("2")
+
+[node name="Render" type="Node" parent="."]
+script = ExtResource("3")
+
+[node name="OperatorOverlay" type="CanvasLayer" parent="."]
+
+[node name="Preview" type="Label" parent="OperatorOverlay"]
+text = "Operator view"
