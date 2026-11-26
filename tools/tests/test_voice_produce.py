@@ -34,6 +34,21 @@ class VoiceProduceTests(unittest.TestCase):
         self.backend.write_text("# Source fingerprint fixture; never executed.\n", encoding="utf-8")
         produce.write(self.case / "catalog.json", {"sources": [], "lines": []})
 
+    def test_generation_checks_frozen_profiles_before_requesting_a_take(self):
+        snapshot = self.case/'profiles.json'
+        snapshot.write_bytes(b'{}\r\n')
+        doc = {"source_hash_mode": produce.catalog.SOURCE_HASH_MODE,
+               "source_bindings": {produce.catalog.PROFILE_SOURCE: produce.catalog.source_digest(snapshot)},
+               "profile_snapshot_sha256": produce.intake.fingerprint(snapshot)}
+        produce.write(self.case/'catalog.json', doc)
+        for key, path in [('catalog', self.case/'catalog.json'), ('backend', self.backend)]:
+            (self.case/(key+'.sha256')).write_text(produce.intake.fingerprint(path), encoding='ascii')
+        with patch.object(produce, "BACKEND", self.backend):
+            produce.verify_case(self.case)
+            snapshot.write_bytes(b'{}\n')
+            with self.assertRaisesRegex(ValueError, "Frozen profile snapshot changed"):
+                produce.run(self.root, self.case, self.refs, 1)
+
     def wav(self, path, values=(1000, -2000, 3000, -1000), channels=1, width=2):
         path.parent.mkdir(parents=True, exist_ok=True)
         with wave.open(str(path), "wb") as target:

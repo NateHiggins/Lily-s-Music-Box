@@ -38,9 +38,7 @@ def verify_inputs(root, case, document):
     if intake.fingerprint(case/'catalog.json') != expected:
         raise ValueError('Frozen catalog changed')
     catalog.verify_sources(root, document)
-    profile_hash = document['source_bindings'].get('game/data/voice/voice_profiles.json')
-    if profile_hash and intake.fingerprint(case/'profiles.json') != profile_hash:
-        raise ValueError('Frozen profile snapshot changed')
+    catalog.verify_profile_snapshot(case, document)
 
 
 def wav_info(path):

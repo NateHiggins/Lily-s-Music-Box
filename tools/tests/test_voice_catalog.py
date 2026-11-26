@@ -168,6 +168,43 @@ class VoiceCatalogTests(unittest.TestCase):
                 self.assertEqual(rows[node]["state"], state)
                 self.assertEqual(rows[node]["segments"], [])
 
+    def test_portable_source_both_checkout_directions_and_word_change(self):
+        (self.root / "game/data/temporal").mkdir()
+        source = self.write("temporal/ordinary_performances.json", {"encounters": [{
+            "id": "OY03", "lines": [{"speaker": "cal_dwyer", "text": "Two coffees."}]}]})
+        original = source.read_bytes().replace(b"\r\n", b"\n")
+        for i, ending in enumerate((b"\n", b"\r\n")):
+            with self.subTest(ending=ending):
+                source.write_bytes(original.replace(b"\n", ending))
+                case = self.root / str(i)
+                frozen = catalog.freeze(self.root, case)
+                self.assertEqual(frozen["source_hash_mode"], catalog.SOURCE_HASH_MODE)
+                self.assertEqual(frozen["source_bindings"]["game/data/temporal/ordinary_performances.json"],
+                                 hashlib.sha256(original).hexdigest())
+                other = b"\r\n" if ending == b"\n" else b"\n"
+                source.write_bytes(original.replace(b"\n", other))
+                catalog.verify_sources(self.root, frozen)
+                source.write_bytes(source.read_bytes().replace(b"coffees", b"cups"))
+                with self.assertRaisesRegex(ValueError, "Frozen speech source changed"):
+                    catalog.verify_sources(self.root, frozen)
+
+    def test_legacy_raw_and_unknown_source_modes_fail_closed(self):
+        path = self.root / "bound.json"
+        path.write_bytes(b"{}\r\n")
+        legacy = {"source_bindings": {"bound.json": intake.fingerprint(path)}}
+        catalog.verify_sources(self.root, legacy)
+        path.write_bytes(b"{}\n")
+        with self.assertRaisesRegex(ValueError, "Frozen speech source changed"):
+            catalog.verify_sources(self.root, legacy)
+        with self.assertRaisesRegex(ValueError, "Unsupported voice source hash mode"):
+            catalog.verify_sources(self.root, dict(legacy, source_hash_mode=None))
+        media = self.root / "reference.wav"
+        media.write_bytes(b"RIFF\r\n")
+        self.assertEqual(catalog.source_digest(media), intake.fingerprint(media))
+        digest = catalog.source_digest(media)
+        media.write_bytes(b"RIFF\n")
+        self.assertNotEqual(catalog.source_digest(media), digest)
+
     def test_source_freeze_detects_changed_input_and_refuses_overwrite(self):
         source = self.tree("dialogue", "cal_dwyer", {"open": {"line": "Exact words."}})
         case = self.root / "frozen"

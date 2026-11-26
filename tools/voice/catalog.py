@@ -7,6 +7,18 @@ from pathlib import Path
 import intake
 
 
+# Only authored JSON and GDScript use Git-portable text hashes. Freeze artifacts,
+# audio, reference files and any other binding retain byte-for-byte identity.
+SOURCE_HASH_MODE = 'authored-lf-v1'
+PROFILE_SOURCE = 'game/data/voice/voice_profiles.json'
+
+
+def source_digest(path: Path) -> str:
+    if path.suffix not in {'.json', '.gd'}:
+        return intake.fingerprint(path)
+    return hashlib.sha256(path.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+
+
 def text_hash(text):
     return hashlib.sha256(text.encode('utf-8')).hexdigest()
 
@@ -60,7 +72,8 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance
         if not isinstance(text, str) or not text.strip():
             raise ValueError(f'Empty speech field {source}:{pointer}')
         relative = source.relative_to(root).as_posix()
-        bindings[relative] = intake.fingerprint(source)
+        if relative not in bindings:
+            bindings[relative] = source_digest(source)
         owner_resident_id = profile_id
         if node and 'speaker' in node:
             profile_id = speakers.get(node['speaker'].casefold(), 'unmapped_speaker')
@@ -181,10 +194,10 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance
         sources = row['source_bindings']
         for binding in sources:
             source = root/binding['path']
-            actual = hashlib.sha256(source.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+            actual = source_digest(source)
             if actual != binding['sha256_lf']:
                 raise ValueError(f'Stale supplemental speech source: {source}')
-            bindings[binding['path']] = intake.fingerprint(source)
+            bindings[binding['path']] = actual
         token = text_hash(row['namespace'] + '\0' + row['runtime_node_id'] + '\0' + row['text'])
         identity = intake.line_id('dynamic_' + row['profile_id'], 'entry_' + token)
         add(root/sources[0]['path'], sources[0].get('pointer', 'line:' + str(sources[0].get('line', ''))),
@@ -209,31 +222,53 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance
     identities = [row['line_id'] for row in rows]
     if len(set(identities)) != len(identities):
         raise ValueError('Duplicate production speech identity')
-    return dict(schema_version=1, source_bindings=bindings, lines=rows)
+    return dict(schema_version=1, source_hash_mode=SOURCE_HASH_MODE, source_bindings=bindings, lines=rows)
 
 
 def verify_sources(root: Path, document):
+    fingerprint = intake.fingerprint
+    if 'source_hash_mode' in document:
+        if document['source_hash_mode'] != SOURCE_HASH_MODE:
+            raise ValueError('Unsupported voice source hash mode')
+        fingerprint = source_digest
     for relative, digest in document['source_bindings'].items():
-        if intake.fingerprint(root/relative) != digest:
+        if fingerprint(root/relative) != digest:
             raise ValueError(f'Frozen speech source changed: {relative}')
 
 
+def verify_profile_snapshot(case: Path, document):
+    if 'source_hash_mode' in document:
+        if document['source_hash_mode'] != SOURCE_HASH_MODE:
+            raise ValueError('Unsupported voice source hash mode')
+        expected = document.get('profile_snapshot_sha256')
+        if not expected or PROFILE_SOURCE not in document['source_bindings']:
+            raise ValueError('Missing frozen profile snapshot binding')
+    else:
+        expected = document.get('source_bindings', {}).get(PROFILE_SOURCE)
+    if expected and intake.fingerprint(case/'profiles.json') != expected:
+        raise ValueError('Frozen profile snapshot changed')
+
+
 def freeze(root: Path, case: Path, extra_rows=()):
-    profiles_path = root/'game/data/voice/voice_profiles.json'
+    profiles_path = root/PROFILE_SOURCE
+    profile_bytes = profiles_path.read_bytes()
     registry = intake.load_profiles(profiles_path)
     guest_path = root/'game/data/voice/guest_turns.json'
     guests = intake.read_json(guest_path) if guest_path.exists() else None
     document = build(root, registry, guests, extra_rows)
-    document['source_bindings']['game/data/voice/voice_profiles.json'] = intake.fingerprint(profiles_path)
+    if profiles_path.read_bytes() != profile_bytes:
+        raise ValueError('Voice profiles changed during freeze')
+    document['source_bindings'][PROFILE_SOURCE] = hashlib.sha256(profile_bytes.replace(b'\r\n', b'\n')).hexdigest()
+    document['profile_snapshot_sha256'] = hashlib.sha256(profile_bytes).hexdigest()
     if guests:
-        document['source_bindings']['game/data/voice/guest_turns.json'] = intake.fingerprint(guest_path)
+        document['source_bindings']['game/data/voice/guest_turns.json'] = source_digest(guest_path)
     speech_path = root/'game/data/voice/speech_spans.json'
     if speech_path.exists():
-        document['source_bindings']['game/data/voice/speech_spans.json'] = intake.fingerprint(speech_path)
+        document['source_bindings']['game/data/voice/speech_spans.json'] = source_digest(speech_path)
     case.mkdir(parents=True, exist_ok=True)
     target = case/'catalog.json'
     if target.exists():
         raise ValueError(f'Frozen catalog already exists: {target}')
     target.write_text(json.dumps(document, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    (case/'profiles.json').write_bytes(profiles_path.read_bytes())
+    (case/'profiles.json').write_bytes(profile_bytes)
     return document

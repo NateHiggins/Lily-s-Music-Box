@@ -110,6 +110,26 @@ class VoiceAssemblyTests(unittest.TestCase):
     def records(self):
         return list((self.case/'assembly_state/media').glob('*.record.json'))
 
+    def test_portable_live_profiles_and_byte_exact_archive(self):
+        profile = self.root/catalog.PROFILE_SOURCE
+        profile.parent.mkdir(parents=True)
+        profile.write_bytes(b'{\r\n}\r\n')
+        snapshot = self.case/'profiles.json'
+        snapshot.write_bytes(profile.read_bytes())
+        self.document.update(source_hash_mode=catalog.SOURCE_HASH_MODE,
+                             source_bindings={catalog.PROFILE_SOURCE: catalog.source_digest(profile)},
+                             profile_snapshot_sha256=intake.fingerprint(snapshot))
+        self.freeze()
+        profile.write_bytes(b'{\n}\n')
+        assemble.verify_inputs(self.root, self.case, self.document)
+        snapshot.write_bytes(profile.read_bytes())
+        with self.assertRaisesRegex(ValueError, 'Frozen profile snapshot changed'):
+            assemble.verify_inputs(self.root, self.case, self.document)
+        del self.document['profile_snapshot_sha256']
+        self.freeze()
+        with self.assertRaisesRegex(ValueError, 'Missing frozen profile snapshot binding'):
+            assemble.verify_inputs(self.root, self.case, self.document)
+
     def test_single_part_is_hardlinked_and_original_text_aligns_to_runtime_ogg(self):
         text = 'A café.\nKeep every word.'
         part = self.part('part_a', text, frames=500)

@@ -189,7 +189,9 @@ def generate_batch(root, case, registry, batch, reference_root):
         observation.update(state='paused_before_queue', finished_utc=now())
         write(folder/'receipt.json', observation)
         raise
-    catalog.verify_sources(root, intake.read_json(case/'catalog.json'))
+    document = intake.read_json(case/'catalog.json')
+    catalog.verify_profile_snapshot(case, document)
+    catalog.verify_sources(root, document)
     intake.voice_request(registry, voice, batch[0]['text'], reference_root)
     observation.update(state='queued', queued_utc=now())
     write(folder/'receipt.json', observation)
@@ -271,6 +273,7 @@ def verify_case(case):
         expected = (case/(name + '.sha256')).read_text(encoding='ascii').strip()
         if intake.fingerprint(path) != expected:
             raise ValueError(f'Frozen {name} changed')
+    catalog.verify_profile_snapshot(case, intake.read_json(case/'catalog.json'))
 
 
 def check_unfinished_attempts(case):
@@ -314,6 +317,7 @@ def main():
             sources = {row['source'] for row in document['lines']}
             document['source_bindings'] = {path: digest for path, digest in document['source_bindings'].items()
                                            if path in sources or path.startswith('game/data/voice/')}
+        catalog.verify_profile_snapshot(args.case, document)
         registry = intake.load_profiles(args.case/'profiles.json')
         document['parts'] = make_parts(document, registry)
         for part in document['parts']:
