@@ -1,3 +1,14 @@
+## November 25 ordinary hall exchange
+
+PR #581 places the existing Teresa and Cam exchange in a measured ground-floor hall pocket on Monday evening at 22:00–22:10. The original 22:20 hospital shift, Teresa's witnessable clue and all five dialogue lines retain their existing authority. Cam resumes the original rest timetable and its normal need-based choices.
+
+The installed November 19, 1928 test starts Teresa on the flat-side route and Cam on the street. The public door opens, both actors walk to distinct marks, and the actual interaction reticle reaches Teresa. Normal input opens the exchange, each line goes to its named actor, and case, trust, knowledge, temporal and inventory state stay intact. After the pause Teresa heads out for work. Cam begins the in-flat hygiene route selected by his ordinary agenda.
+
+The [installed receipt](D:/ov_reports/oy02_ordinary_corridor_20261125_candidate_r2/test.log.receipt.json) and [technical frame](D:/ov_reports/oy02_ordinary_corridor_20261125_candidate_r2/shots/Ordinary_corridor.png) cover this setup. Both bodies and the third line are visible. The companion partly covers Teresa in the captured framing. The test isolates other residents and begins outside Teresa's apartment. Full departure trips and artistic acceptance remain open.
+
+The schedule suite and all 678 temporal loop checks passed on the tested revision. The surface suite passed all 818 checks. The technical review compared 23 rendered pairs against main. Larger differences in reflection and exposure were investigated against identical installed mesh and material records.
+The original composed gameplay and save proof passed 369 checks and 176 walking waypoints, including the radiator receipt path. [Original save and service route](D:/ov_reports/oy02_ordinary_corridor_20261125_release/first_slice.log.receipt.json).
+
 ## November 25 ordinary Sunday roof exchange
 
 PR #580 restores the existing ordinary Sunday appointment for Malcolm and Sacha. Their timetable now leads both residents through the public roof stair and door to separate marks beside the communal herb bed. The actor route leaves the fire cabinet and the planter collision in place. It has no new key or case authority.
