@@ -1,6 +1,8 @@
 extends Node3D
 ## Shared presentation for an avatar's mirror hand and the first-person glove.
 
+const PlayerOriginals := preload("res://scripts/songbook/player_original_custody.gd")
+const TraceVisual := preload("res://scripts/songbook/found_trace_visual.gd")
 const HoseArm := preload("res://scripts/player/first_person_hose_arm.gd")
 
 var holder: PlayerController
@@ -43,7 +45,10 @@ func refresh_hand() -> void:
 
 func _held_part(state: Node, item: String) -> Node3D:
 	if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
-		return preload("res://scripts/songbook/found_trace_visual.gd").make(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
+		return TraceVisual.make(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
+	if item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+		var id := PlayerOriginals.id_from_item(item)
+		return TraceVisual.make_player_original(id) if PlayerOriginals.is_packed(id) else null
 	if item.is_empty() or state == null:
 		return null
 	if item.begins_with(CarriedCase.BOOK_PREFIX) and state.has_method("packed_book"):

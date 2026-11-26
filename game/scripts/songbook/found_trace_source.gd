@@ -15,6 +15,7 @@ var _area: Manipulation
 var _height := 0.0
 var _held := false
 var _returning := false
+var _stroke_id := ""
 var _holder: Node
 
 
@@ -89,28 +90,47 @@ func _ready() -> void:
 	contact.shape = shape
 	contact.position.y = shape.size.y * .5
 	_area.add_child(contact)
-	add_to_group("found_trace_sources")
+	if not trace_id.is_empty():
+		add_to_group("found_trace_sources")
 	RealityState.state_changed.connect(_refresh)
 	_refresh()
 
 
+## A fixed find and a recorder output share the same grip. Only the identity
+## exposed on the support and the authority accepting a transfer differ.
+func _top_id() -> String:
+	return "" if Custody.is_packed(trace_id) else trace_id
+
+
+func _return_id() -> String:
+	return trace_id if Custody.is_packed(trace_id) and CarriedCase.hand() == Custody.item_id(trace_id) else ""
+
+
+func _transfer(id: String, returning: bool) -> bool:
+	return Custody.return_to_source(id) if returning else Custody.take(id)
+
+
+func _present_sheet(_id: String) -> bool:
+	return true  # Fixed finds already have their own fitted visual.
+
+
 func _refresh() -> void:
-	var packed := Custody.is_packed(trace_id)
-	var selected := packed and CarriedCase.hand() == Custody.item_id(trace_id)
-	if _held and (_returning != packed or (_returning and not selected)):
+	var top := _top_id()
+	var selected := _return_id()
+	if _held and _stroke_id != (selected if _returning else top):
 		_held = false
+		_stroke_id = ""
+		_holder = null
 	if not _held:
 		_height = 0.0
 	sheet.position.y = _height
-	# An empty patch of shelf can be targeted only with its own item in hand.
-	# Until the return stroke begins, the selected sheet remains in the glove.
-	_area.collision_layer = 1 if not packed or selected else 0
-	_visual.visible = not packed or _held
+	var shown := _stroke_id if _held else top
+	_visual.visible = not shown.is_empty() and _present_sheet(shown)
+	_area.collision_layer = 1 if _visual.visible or not selected.is_empty() else 0
 
 
 func _grip() -> Dictionary:
-	var packed := Custody.is_packed(trace_id)
-	if packed and CarriedCase.hand() != Custody.item_id(trace_id):
+	if _top_id().is_empty() and _return_id().is_empty():
 		return {}
 	# Keep the latched point on the support. The return sheet rises to meet
 	# the glove on begin; following it would drag the hit below the shelf.
@@ -125,8 +145,11 @@ func _grip() -> Dictionary:
 func _begin() -> bool:
 	if _held:
 		return false
-	_returning = Custody.is_packed(trace_id)
-	if _returning and CarriedCase.hand() != Custody.item_id(trace_id):
+	_stroke_id = _return_id()
+	_returning = not _stroke_id.is_empty()
+	if not _returning:
+		_stroke_id = _top_id()
+	if _stroke_id.is_empty() or not _present_sheet(_stroke_id):
 		return false
 	_held = true
 	_height = TRAVEL if _returning else 0.0
@@ -145,15 +168,17 @@ func _finish(primary: bool) -> void:
 		return
 	_held = false
 	var refused := false
+	var id := _stroke_id
+	_stroke_id = ""
 	if primary:
-		if _returning and _height <= TRAVEL - RELEASE_STROKE and CarriedCase.hand() == Custody.item_id(trace_id):
-			refused = not Custody.return_to_source(trace_id)
-		elif not _returning and _height >= RELEASE_STROKE:
-			refused = not Custody.take(trace_id)
+		if _returning and _height <= TRAVEL - RELEASE_STROKE and _return_id() == id:
+			refused = not _transfer(id, true)
+		elif not _returning and _height >= RELEASE_STROKE and _top_id() == id:
+			refused = not _transfer(id, false)
 	# A full case, a cancelled grip, or a rejected save leaves the real owner
 	# intact. Always redraw from custody; never publish an optimistic transfer.
 	_refresh()
 	if refused and is_instance_valid(_holder) and _holder.has_method("present_service_note"):
 		var message := "The paper is still in the valise." if _returning else "The valise would not take the paper. It is still here."
-		_holder.present_service_note(self, {"title": "Found trace", "body": message})
+		_holder.present_service_note(self, {"title": "Found trace" if not trace_id.is_empty() else "Recorded original", "body": message})
 	_holder = null

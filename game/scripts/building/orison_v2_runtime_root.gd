@@ -416,6 +416,15 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: found paper traces are missing their building supports")
 		return
+	const Editions := preload("res://scripts/songbook/player_original_custody.gd")
+	const RecorderTray := preload("res://scripts/songbook/player_original_output.gd")
+	var recorder := bar_region.actors.get_node_or_null("F01_BAR_SONGBOOK") as Node3D
+	var selected_edition := func() -> String: return Editions.id_from_item(CarriedCase.hand())
+	if not RecorderTray.mount(recorder, house_office.dead_letters.stock, Editions.top_id,
+			selected_edition, Editions.take, Editions.return_to_tray):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: the Songbook recorder is missing its output tray")
+		return
 	# The possessed household objects V2 had nothing to carry (V1 retirement
 	# plan, section B item 8). They must stand before the witnesses look for them.
 	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)

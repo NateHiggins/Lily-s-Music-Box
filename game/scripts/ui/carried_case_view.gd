@@ -14,6 +14,8 @@ extends CanvasLayer
 ## newspaper) lets it go, and it slides back into the pocket.
 
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+const PlayerOriginals := preload("res://scripts/songbook/player_original_custody.gd")
+const TraceVisual := preload("res://scripts/songbook/found_trace_visual.gd")
 const TEXTURES := "res://assets/building/textures/"
 const MATERIAL_SETS := "res://data/runtime_material_sets.json"
 const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
@@ -90,6 +92,7 @@ var _angle := 0.0
 var _tag: Label3D
 var _card: Label3D
 var _materials: Dictionary = {}
+var _song_titles: Dictionary = {}
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
 var _pointer := Vector2.ZERO
 var _held_turned := false
@@ -782,7 +785,11 @@ func _lay(item: String, parent: Node3D) -> void:
 	stack.name = item.replace(":", "_")
 	parent.add_child(stack)
 	if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
-		stack.add_child(preload("res://scripts/songbook/found_trace_visual.gd").make(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)))
+		stack.add_child(TraceVisual.make(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)))
+	elif item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+		var id := PlayerOriginals.id_from_item(item)
+		if PlayerOriginals.is_packed(id):
+			stack.add_child(TraceVisual.make_player_original(id))
 	elif item == CarriedCase.MAINTENANCE_WASHER and is_instance_valid(fire_stock):
 		var draw: MeshInstance3D = fire_stock.stock.draw(stack, "Gasket")
 		draw.position.y = -draw.get_aabb().position.y
@@ -873,9 +880,27 @@ func _point(position: Vector2) -> void:
 		_show_tag(item, _stacks[item].position, false)
 
 
+## Only the shipped arrangements supply titles. A personal take's paper keeps its
+## own edition mark, even if the original recording files have gone missing.
+func _original_label(id: String) -> String:
+	var song := PlayerOriginals.song_id(id)
+	if not _song_titles.has(song):
+		_song_titles[song] = song.replace("_", " ").to_upper()
+		for filename: String in SongResource.catalog():
+			var score := SongResource.load_song(filename)
+			if score != null:
+				_song_titles[score.id] = score.title
+	return "%s\nOriginal %s" % [_song_titles[song], id.right(19)]
+
+
 func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
-	var count := PersonInventory.goods_count(PersonInventory.PLAYER, item)
-	var record: Dictionary = PersonInventory.items(PersonInventory.PLAYER).get("goods:" + item, {})
+	var count := 1
+	var record: Dictionary
+	if item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+		record = {"name": _original_label(PlayerOriginals.id_from_item(item))}
+	else:
+		count = PersonInventory.goods_count(PersonInventory.PLAYER, item)
+		record = PersonInventory.items(PersonInventory.PLAYER).get("goods:" + item, {})
 	if item == CarriedCase.MAINTENANCE_WASHER:
 		count = 1
 		record = {"name": "Fire-hose coupling gasket"}
@@ -944,7 +969,8 @@ func _verb_tag(item: String) -> String:
 		return "FIT TO VENT" if destination is RadiatorProp else "RETURN TO RACK"
 	if item.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) and is_instance_valid(household_state):
 		return "PUT BACK" if is_instance_valid(household_state.kitchen_tool_destination(player, item)) else "TAKE IN HAND"
-	if item == CarriedCase.MAINTENANCE_WASHER or item.begins_with(CarriedCase.BOOK_PREFIX) or item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+	if item == CarriedCase.MAINTENANCE_WASHER or item.begins_with(CarriedCase.BOOK_PREFIX) \
+			or item.begins_with(CarriedCase.FOUND_TRACE_PREFIX) or item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
 		return "TAKE IN HAND"
 	if item_use == null:
 		return "NOTHING TO DO WITH IT"
@@ -969,7 +995,8 @@ func _take_out(item: String) -> void:
 		_return_washer = true
 		close_case()
 		return
-	if item.begins_with(CarriedCase.BOOK_PREFIX) or item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+	if item.begins_with(CarriedCase.BOOK_PREFIX) or item.begins_with(CarriedCase.FOUND_TRACE_PREFIX) \
+			or item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
 		_take_in_hand = item
 		close_case()
 		return
