@@ -11,14 +11,15 @@ their own monotonic assignment are reported separately.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
-TOOL_VERSION = 4
+TOOL_VERSION = 5
 DEFAULT_EXCEPTIONS = "tools/data_consumption_exceptions.json"
 DEFAULT_BASELINE = "tools/data_consumption_baseline.json"
 BASELINE_SCHEMA = "orison.data-consumption-baseline.v1"
@@ -873,6 +874,200 @@ def entry_whole_record_paths(root: Path, texts):
         "orison_v2/harukiya_entry.json", "orison_v2/harukiya_entry_retirement.json")}
 
 
+def _expression(source):
+    """Accept only the expression syntax GDScript shares with Python. Never execute it."""
+    try:
+        return ast.parse(source.strip(), mode="eval").body
+    except (SyntaxError, ValueError, RecursionError):
+        return None
+
+
+def _member_projection(node, origins):
+    """Follow a data value through property, subscript and Dictionary.get reads."""
+    if isinstance(node, ast.Name):
+        return origins.get(node.id)
+    if isinstance(node, ast.Attribute):
+        if isinstance(node.value, ast.Name):
+            direct = origins.get(f"{node.value.id}.{node.attr}")
+            if direct:
+                return direct
+        base = _member_projection(node.value, origins)
+        return base + (node.attr,) if base else None
+    if isinstance(node, ast.Subscript) and not isinstance(node.slice, ast.Slice):
+        container, key = node.value, node.slice
+    elif (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+          and node.func.attr == "get" and 1 <= len(node.args) <= 2 and not node.keywords):
+        container, key = node.func.value, node.args[0]
+    else:
+        return None
+    base = _member_projection(container, origins)
+    if base:
+        part = None
+        if isinstance(key, ast.Constant):
+            if isinstance(key.value, str) or (isinstance(node, ast.Subscript) and type(key.value) is int):
+                part = key.value
+            else:
+                return None
+        return base + (part,)
+    return None
+
+
+def _file_identity(argument, constants):
+    value = constants.get(argument, _string_binding(argument))
+    match = PATH_RE.fullmatch(value) if isinstance(value, str) else None
+    return (match.group(1),) if match else None
+
+
+def _simple_member_scopes(text):
+    # The small function scanner handles single-line, named signatures. An
+    # unknown scope can introduce a different binding for any name inside it.
+    return (not re.search(r"\bfunc[ \t]*\(", text)
+            and all(re.search(r"\)[^#]*:\s*(?:#.*)?$", line)
+                    for line in text.splitlines() if re.match(r"^(?:static )?func ", line)))
+
+
+def _changes_collection(text, qualified):
+    # Mutating an exported value breaks the chain even when the reference
+    # itself is stable. A read on the right of an assignment is still valid.
+    target = re.escape(qualified)
+    return re.search(
+        rf"(?m)^[ \t]*(?:self\.)?{target}\b"
+        r"(?:[ \t]*(?:\[[^\n]+?\]|\.\w+))+[ \t]*(?:[+*/%-]?=(?!=))"
+        rf"|\b{target}\.(?:assign|merge|fill|insert|set|append|append_array|push_back|push_front|resize)\s*\(",
+        text)
+
+
+def _exported_data_members(text):
+    """Find single-writer members obtained from a JSON parse or another such member."""
+    members = _member_names(text)
+    constants, _ = source_constants("\n".join(line for line in text.splitlines()
+                                              if not line[:1].isspace()))
+    functions = []
+    member_writes = Counter()
+    for method, (params, body) in _script_functions(text).items():
+        statements = list(logical_statements(body))[1:]
+        locals_ = set(params)
+        locals_.update(re.findall(r"^\s*(?:var|const|for)\s+(\w+)", body, re.MULTILINE))
+        assignments = []
+        for statement in statements:
+            binding = _binding(statement.removeprefix("self."))
+            if not binding:
+                continue
+            name, rhs = binding.group("name", "rhs")
+            writes_member = name in members and (name not in locals_ or statement.startswith("self."))
+            if writes_member:
+                member_writes[name] += 1
+            assignments.append((name, rhs, writes_member))
+        functions.append((method, assignments, locals_))
+
+    known = {}
+    # Pass one traces the file into its loaded collection. Pass two can trace
+    # a dealt card, for example, back through that collection in another method.
+    for _ in range(2):
+        discovered = {}
+        for method, assignments, locals_ in functions:
+            visible_constants = {k: v for k, v in constants.items() if k not in locals_}
+            origins = {k: v for k, v in known.items() if k not in locals_}
+            origins.update({f"self.{k}": v for k, v in known.items()})
+            handles = {}
+            writes = Counter(name for name, _, _ in assignments)
+            for name, rhs, member in assignments:
+                if (writes[name] != 1 or (member and member_writes[name] != 1)
+                        or _changes_collection(text, name)):
+                    continue
+                opened = re.fullmatch(r"FileAccess\.open\(\s*(.+?)\s*,\s*FileAccess\.READ\s*\)", rhs)
+                if opened:
+                    handles[name] = _file_identity(opened[1], visible_constants)
+                    continue
+                parsed = re.fullmatch(r"JSON\.parse_string\(\s*(\w+)\.get_as_text\(\)\s*\)", rhs)
+                direct = re.fullmatch(
+                    r"JSON\.parse_string\(\s*FileAccess\.get_file_as_string\(\s*(.+?)\s*\)\s*\)", rhs)
+                if parsed:
+                    origin = handles.get(parsed[1])
+                elif direct:
+                    origin = _file_identity(direct[1], visible_constants)
+                else:
+                    origin = _member_projection(_expression(rhs), origins)
+                if origin and (parsed or direct):
+                    origin = (frozenset(), *origin)
+                if origin:
+                    if member:
+                        origin = (origin[0] | {method}, *origin[1:])
+                        discovered[name] = origin
+                    origins[name] = origin
+        known.update(discovered)
+    return known
+
+
+def constructed_member_reads(texts):
+    """Prove reads on a specific, directly constructed production class instance."""
+    classes = defaultdict(list)
+    consumers = []
+    ctor = re.compile(r"^var\s+(\w+)(?:\s*:\s*\w+)?\s*:?=\s*(\w+)\.new\(\)\s*(?:#.*)?$", re.MULTILINE)
+    for text in texts.values():
+        # Multiline literals can contain text that looks like top-level code.
+        if '"""' in text or "'''" in text:
+            continue
+        declaration = re.search(r"^class_name\s+(\w+)\b", text, re.MULTILINE)
+        if declaration:
+            classes[declaration[1]].append(text)
+        if instances := ctor.findall(text):
+            consumers.append((text, instances))
+
+    used_types = {kind for _, instances in consumers for _, kind in instances}
+    exports = {kind: _exported_data_members(bodies[0]) for kind, bodies in classes.items()
+               if kind in used_types and len(bodies) == 1 and "JSON.parse_string" in bodies[0]
+               and "res://data/" in bodies[0] and _simple_member_scopes(bodies[0])}
+    reads = defaultdict(set)
+    for text, instances in consumers:
+        for receiver, kind in instances:
+            fields = exports.get(kind)
+            if not fields or re.search(rf"^(?:const|class|var)\s+{kind}\b", text, re.MULTILINE):
+                continue
+            # A reassigned receiver or a shadow has no unique source here.
+            if (re.search(rf"^[ \t]+(?:(?:var|const|for)\s+{receiver}\b|(?:self\.)?{receiver}\s*=(?!=))",
+                          text, re.MULTILINE) or _changes_collection(text, receiver)):
+                continue
+            origins = {f"{receiver}.{key}": path for key, path in fields.items()}
+            calls = {"_init"}
+            candidates = set()
+            # Split at every function, including signatures our scanner cannot
+            # parse. Their statements must not leak into the preceding scope.
+            for body in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)[1:]:
+                if not _simple_member_scopes(body):
+                    continue
+                definition = _script_functions(body)
+                if not definition:
+                    continue
+                parameters, _ = next(iter(definition.values()))
+                if receiver in parameters or f"{receiver}." not in body:
+                    continue
+                for statement in logical_statements(body):
+                    if f"{receiver}." not in statement:
+                        continue
+                    assignment = assignment_match(statement)
+                    rhs = statement[assignment.end():] if assignment else statement.removeprefix("return ")
+                    expression = _expression(rhs)
+                    if expression is None:
+                        continue
+                    nodes = list(ast.walk(expression))
+                    callees = {node.func for node in nodes if isinstance(node, ast.Call)}
+                    calls.update(func.attr for func in callees if isinstance(func, ast.Attribute)
+                                 and isinstance(func.value, ast.Name) and func.value.id == receiver)
+                    for node in nodes:
+                        # The terminal key must be named by the consumer. A
+                        # lookup by variable cannot credit every key in a map.
+                        if node in callees:
+                            continue
+                        path = _member_projection(node, origins)
+                        if path and len(path) > 2 and isinstance(path[-1], str):
+                            candidates.add(path)
+            for required, data_file, *keys in candidates:
+                if required <= calls:
+                    reads[data_file].add(tuple(keys))
+    return reads
+
+
 def scan(root: Path, exception_path: Path):
     exceptions = load_exceptions(exception_path)
     sources = production_sources(root)
@@ -889,6 +1084,7 @@ def scan(root: Path, exception_path: Path):
             token_users.setdefault(match.group("key"), set()).add(rel)
 
     inherited_reads = inherited_parameter_reads(root, texts)
+    member_reads = constructed_member_reads(texts)
     whole_records = entry_whole_record_paths(root, texts)
     records = []
     data_root = root / "game/data"
@@ -915,12 +1111,31 @@ def scan(root: Path, exception_path: Path):
         # existing token-reader rule reports remaining schema leaves per
         # file, retaining their occurrence counts.
         leaves = Counter()
+        conditional = set()
         for field, occurrences in fields.items():
             # Credit only this exact validated subtree before collapsing leaves.
             # An equally named sibling (e.g. metadata.rect) still needs a reader.
             if any(field.startswith(prefix + ".") for prefix in whole_records.get(rel_data, ())):
                 continue
-            leaves[field.replace("[]", "").rsplit(".", 1)[-1]] += occurrences
+            declared = field.replace("[]", ".[]").strip(".").split(".")
+            # A dynamic lookup can select a record from an array or declared
+            # identity map. It does not establish every named dictionary key.
+            leaf = field.replace("[]", "").rsplit(".", 1)[-1]
+            proven = False
+            for access in member_reads.get(rel_data, ()):
+                if len(declared) != len(access) or access[-1] != leaf:
+                    continue
+                pairs = list(zip(declared, access))
+                if all(key == step or (key == "[]" and (step is None or type(step) is int))
+                       for key, step in pairs):
+                    proven = True
+                    break
+                if all(key == step or step is None or (key == "[]" and type(step) is int)
+                       for key, step in pairs):
+                    conditional.add(leaf)
+            if proven:
+                continue
+            leaves[leaf] += occurrences
         for leaf, occurrences in sorted(leaves.items()):
             field = leaf
             # A same-named token in an unrelated subsystem is not a reader.
@@ -937,9 +1152,12 @@ def scan(root: Path, exception_path: Path):
             key = f"{rel_repo}:{field}"
             field_exception = exceptions.get("fields", {}).get(key)
             if not users and not forwarded:
+                detail = ("a consumer reads this field through a dynamic dictionary key; "
+                          "the individual named entries are unproven"
+                          if leaf in conditional else "zero production token readers")
                 records.append({"kind": "FIELD_UNREAD", "file": rel_repo,
                                 "field": field, "occurrences": occurrences,
-                                "detail": field_exception or "zero production token readers",
+                                "detail": field_exception or detail,
                                 "excepted": bool(field_exception)})
 
     state_file = root / "game/scripts/game/reality_game_state.gd"
