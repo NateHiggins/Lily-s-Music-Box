@@ -14,6 +14,9 @@
     },
     "game/data/mystery/rhea_sato.json": {
       "sha256_lf": "e232b4fc59d638b8283c28d409edcc5cd9a9d54852432c1092df18e05d5f65d1"
+    },
+    "game/data/temporal/performances.json": {
+      "sha256_lf": "fc3953d51a8ef533fae41b4ae42f1e0215f76f0bf9b5ec29f6bd834589231c3a"
     }
   },
   "entries": [
@@ -7177,6 +7180,56 @@
         {
           "start": 67,
           "end": 70,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/temporal/performances.json",
+      "pointer": "/profiles/transient_guests/line",
+      "text_sha256": "a208a7fa4bc6114435a10405f8f3a479172693b41f4678b1f3c4dd96ea7a69e4",
+      "length": 42,
+      "turns": [
+        {
+          "start": 0,
+          "end": 21,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 22,
+          "end": 42,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 21,
+          "end": 22,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/temporal/performances.json",
+      "pointer": "/profiles/transient_guests/activities/tv/line",
+      "text_sha256": "ba5bba9b2d435e68a060bbedea26cf9da0b1ab48bdc0d94215833a4d7a727d79",
+      "length": 95,
+      "turns": [
+        {
+          "start": 0,
+          "end": 25,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 95,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 25,
+          "end": 26,
           "kind": "separator_or_pause"
         }
       ]

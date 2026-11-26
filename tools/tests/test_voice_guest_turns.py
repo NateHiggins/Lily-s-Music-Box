@@ -11,6 +11,7 @@ MAP = ROOT / "game/data/voice/guest_turns.json"
 SOURCES = {f"game/data/{scope}/transient_guests.json"
            for scope in ("dialogue", "mystery", "opinions")}
 SOURCES.add("game/data/mystery/rhea_sato.json")
+SOURCES.add("game/data/temporal/performances.json")
 VOICES = {"transient_guest_a", "transient_guest_b"}
 
 
@@ -80,6 +81,15 @@ class GuestTurnMapTests(unittest.TestCase):
                 expected.update((source, "/nodes/" + key.replace("~", "~0").replace("/", "~1") + "/line")
                                 for key, node in document["nodes"].items() if "line" in node
                                 and (source.endswith("/transient_guests.json") or node.get("speaker") == "GUESTS"))
+            elif "anchors" in document:
+                profile = document["profiles"]["transient_guests"]
+                expected.add((source, "/profiles/transient_guests/line"))
+                expected.update((source, f"/profiles/transient_guests/activities/{activity}/line")
+                                for activity in profile.get("activities", {}))
+                for anchor, visit in document["anchors"].items():
+                    expected.update((source, f"/anchors/{anchor}/actors/transient_guests/{i}/line")
+                                    for i, phase in enumerate(visit["actors"].get("transient_guests", []))
+                                    if phase["place"] and phase["line"])
             else:
                 if "hook_line" in document:
                     expected.add((source, "/hook_line"))
