@@ -1,4 +1,4 @@
-extends "res://tests/orison_v2_vertical_route_test.gd"
+extends "res://tests/v2_region_access_driver.gd"
 ## Continue a private copy of a completed-prologue save. The clock driver
 ## supplies accelerated elapsed time. Place the player once on the public
 ## sidewalk; from there only direction and ordinary dialogue controls are used.
@@ -93,6 +93,10 @@ func _visit() -> void:
 	if not _check(not ground.is_empty() and ground.normal.dot(Vector3.UP) > 0.8
 			and player.is_on_floor() and player.global_position.distance_to(sidewalk) < 0.18, "ordinary public sidewalk supports the player after campaign time advances"): return
 	evidence.sidewalk_support = str(ground.collider.get_path())
+	observer = Observer.new()
+	observer.configure(world)
+	add_child(observer)
+	await get_tree().physics_frame
 	var adela: Node3D = cast.performers.adela_voss
 	var lily: Node3D = cast.actors.lily
 	var stacy: Node3D = cast.actors.stacy
@@ -105,7 +109,8 @@ func _visit() -> void:
 	for id: String in waypoints:
 		var point: Vector3 = nav.get_node(id).global_position
 		var arrived := await _walk(world.adapter.root.to_local(point), 0.16)
-		trace.back()["waypoint"] = id
+		if not trace.is_empty():
+			trace.back()["waypoint"] = id
 		if not arrived: return
 		if id == "entrance" and not _check(leaf.open and leaf.is_ready_for_passage(), "ordinary directional entry opened and cleared the real leaf"): return
 	var target: Area3D = adela.get("interaction")
