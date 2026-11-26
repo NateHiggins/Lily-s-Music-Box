@@ -23,6 +23,9 @@ const KITCHEN_TOOL_PREFIX := "kitchen_tool:"
 const KITCHEN_TOOL_FORMS := {"Breadboard": "flat", "SinkBridge": "flat", "RollingPin": "tool", "MixingBowl": "parcel"}
 ## What the hand holds: one packed item or nothing. Optional, so older saves read as empty.
 const HAND := "hand"
+const FOUND_TRACE_PREFIX := "found_trace:"
+const FOUND_TRACE_FORM := "found_phonautogram"
+const TraceForge := preload("res://scripts/songbook/phonautogram_forge.gd")
 
 static var _data: Dictionary = {}
 static var _book_sizes: Dictionary = {}
@@ -145,7 +148,12 @@ static func valid(value: Variant) -> bool:
 				or typeof(place.get("x")) not in [TYPE_INT, TYPE_FLOAT] or typeof(place.get("y")) not in [TYPE_INT, TYPE_FLOAT] \
 				or place.get("turned") is not bool:
 			return false
-		if item.begins_with(BOOK_PREFIX):
+		if item.begins_with(FOUND_TRACE_PREFIX):
+			if not TraceForge.FOUND.has(item.trim_prefix(FOUND_TRACE_PREFIX)) or place.form != FOUND_TRACE_FORM \
+					or not has_form(FOUND_TRACE_FORM) or not is_finite(float(place.x)) or not is_finite(float(place.y)) \
+					or float(place.x) != floorf(float(place.x)) or float(place.y) != floorf(float(place.y)):
+				return false
+		elif item.begins_with(BOOK_PREFIX):
 			var copy: String = place.form.trim_prefix(BOOK_PREFIX)
 			if not place.form.begins_with(BOOK_PREFIX) or place.get("collection") is not String \
 					or place.collection.is_empty() or item != library_item(place.collection, copy) \
@@ -153,7 +161,7 @@ static func valid(value: Variant) -> bool:
 					or float(place.x) != floorf(float(place.x)) or float(place.y) != floorf(float(place.y)) \
 					or _book_size(copy) == Vector2i.ZERO:
 				return false
-		elif not has_form(place.form) or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM) \
+		elif not has_form(place.form) or place.form == FOUND_TRACE_FORM or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM) \
 				or item.begins_with(VENT_INSERT_PREFIX) != (place.form == VENT_INSERT_FORM) \
 				or (item.begins_with(KITCHEN_TOOL_PREFIX) and place.form != kitchen_tool_form(item)):
 			return false
@@ -210,11 +218,12 @@ static func place_of(item: String) -> Dictionary:
 	return book().places.get(item, {})
 
 
-static func fits(item: String, form: String, x: int, y: int, turned: bool) -> bool:
+static func fits(item: String, form: String, x: int, y: int, turned: bool, places: Variant = null) -> bool:
 	var rect := Rect2i(Vector2i(x, y), form_size(form, turned))
 	if not rect.has_area() or not Rect2i(Vector2i.ZERO, grid()).encloses(rect):
 		return false
-	var places: Dictionary = book().places
+	if places == null:
+		places = book().places
 	for other: String in places:
 		if other != item and _rect(places[other]).intersects(rect):
 			return false
@@ -222,12 +231,14 @@ static func fits(item: String, form: String, x: int, y: int, turned: bool) -> bo
 
 
 ## Front-left first, so new goods land where a hand would drop them.
-static func first_fit(item: String, form: String) -> Dictionary:
+static func first_fit(item: String, form: String, places: Variant = null) -> Dictionary:
 	var cells := grid()
+	if places == null:
+		places = book().places
 	for turned: bool in [false, true]:
 		for y in range(cells.y - 1, -1, -1):
 			for x in cells.x:
-				if fits(item, form, x, y, turned):
+				if fits(item, form, x, y, turned, places):
 					return {"x": x, "y": y, "turned": turned, "form": form}
 	return {}
 
@@ -251,7 +262,8 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 	var place := place_of(item)
 	if place.is_empty() or not fits(item, str(place.form), x, y, turned):
 		return false
-	if item.begins_with(BOOK_PREFIX) or item.begins_with(VENT_INSERT_PREFIX) or item.begins_with(KITCHEN_TOOL_PREFIX):
+	if item.begins_with(BOOK_PREFIX) or item.begins_with(VENT_INSERT_PREFIX) or item.begins_with(KITCHEN_TOOL_PREFIX) \
+			or item.begins_with(FOUND_TRACE_PREFIX):
 		var prepare := func(document: Dictionary) -> bool:
 			if place_of(item) != place or not fits(item, str(place.form), x, y, turned):
 				return false

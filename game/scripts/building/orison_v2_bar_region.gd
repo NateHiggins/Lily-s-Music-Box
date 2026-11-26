@@ -147,6 +147,9 @@ func _ready() -> void:
 		_fail("native gallery lost an original picture inspection target")
 		return
 	var floor_copy: Dictionary = source_layout.floors.filter(func(f): return f.id == "F01")[0].duplicate(true)
+	if not preload("res://scripts/songbook/found_trace_source.gd").mount_landing(self, floor_copy.furniture):
+		_fail("the loose trace is missing its newspaper support at the entrance")
+		return
 	# The retained helper predates the pool table's move to the west bay.
 	# Fit its inspection volume to the actual authored body, keeping its text.
 	var pools: Array = floor_copy.furniture.filter(func(f): return f.id == "retail_bar_pool_body")

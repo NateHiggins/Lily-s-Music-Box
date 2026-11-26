@@ -18,6 +18,9 @@ extends CanvasLayer
 ## box from the 80s has a numeric keypad and four buttons, and the whole
 ## interface has to survive being read across a bar.
 
+const TraceCustody := preload("res://scripts/songbook/found_trace_custody.gd")
+const TraceForge := preload("res://scripts/songbook/phonautogram_forge.gd")
+
 const GREEN := Color(0.42, 0.94, 0.58)
 const GREEN_DIM := Color(0.24, 0.52, 0.34)
 const AMBER := Color(0.96, 0.74, 0.28)
@@ -54,6 +57,8 @@ var _read_t := 0.0
 ## a found trace and landing on a review screen for a take you never made is
 ## the machine claiming you sang something you did not.
 var _read_from_old := false
+## Preserve the identity shown on each numbered row until the list is redrawn.
+var _trace_rows: Array[String] = []
 ## TASKS.md G1a: true while READING plays a found trace through the guessing
 ## reader; false while it plays the take's immutable composite reconstruction.
 var _read_is_trace := true
@@ -145,8 +150,8 @@ func _show_menu() -> void:
 	_line("1    WRITE THE WORDS", GREEN)
 	_line("2    SING IT", GREEN if _has_any_words() else GREEN_DIM)
 	_line("3    WHAT OTHERS LEFT   (%d)" % _version_count(), GREEN_DIM)
-	_line("4    WHAT WAS ALREADY ON IT   (%d)"
-			% PhonautogramForge.found_ids().size(), GREEN_DIM)
+	_line("4    TRACES IN THE VALISE   (%d)"
+			% TraceCustody.held_ids().size(), GREEN_DIM)
 	_line("", GREEN)
 	var written := 0
 	for k in lyrics:
@@ -439,11 +444,15 @@ func _show_old() -> void:
 	mode = Mode.OLD
 	_clear()
 	_line("", GREEN)
-	_line("WHAT WAS ALREADY ON IT.", GREEN, 22)
+	_line("TRACES IN THE VALISE.", GREEN, 22)
 	_line("", GREEN, 8)
-	var ids: Array = PhonautogramForge.found_ids()
-	for i in ids.size():
-		_line("%d    %s" % [i + 1, PhonautogramForge.label_of(str(ids[i]))],
+	_trace_rows = TraceCustody.held_ids()
+	if _trace_rows.is_empty():
+		_line("The valise holds no traces.", GREEN_DIM, 15)
+		_status.text = "ESC to go back."
+		return
+	for i in _trace_rows.size():
+		_line("%d    %s" % [i + 1, TraceForge.label_of(_trace_rows[i])],
 				GREEN_DIM, 15)
 	_line("", GREEN, 10)
 	_line("none of these have a name on them.", GREEN_DIM, 14)
@@ -451,7 +460,10 @@ func _show_old() -> void:
 
 
 func _read_found(trace_id: String) -> void:
-	_take = PhonautogramForge.forge(trace_id)
+	if not TraceCustody.is_packed(trace_id):
+		_show_old()
+		return
+	_take = TraceForge.forge(trace_id)
 	_read_back()
 	_read_from_old = true
 	# Overwrite the closing line: reading somebody else's trace is a different
@@ -496,8 +508,8 @@ func _read_back() -> void:
 		claim = "the crank wandered. it is guessing."
 	_line(claim, GREEN_DIM, 15)
 	_line("", GREEN, 10)
-	_line("this is not what you sang.", GREEN_DIM, 15)
-	_line("it is what the line says you sang.", GREEN_DIM, 15)
+	_line("the paper kept the voice.", GREEN_DIM, 15)
+	_line("nobody wrote down the speed.", GREEN_DIM, 15)
 	_status.text = "any key to lift the stylus."
 
 
@@ -587,10 +599,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif key == KEY_4:
 				_show_old()
 		Mode.OLD:
-			var ids: Array = PhonautogramForge.found_ids()
 			var pick := key - KEY_1
-			if pick >= 0 and pick < ids.size():
-				_read_found(str(ids[pick]))
+			if pick >= 0 and pick < _trace_rows.size():
+				_read_found(_trace_rows[pick])
+				get_viewport().set_input_as_handled()
 		Mode.EDIT:
 			if key == KEY_ENTER or key == KEY_KP_ENTER:
 				if cursor >= song.slots.size() - 1:
