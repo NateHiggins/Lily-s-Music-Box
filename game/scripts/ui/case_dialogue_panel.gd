@@ -231,38 +231,10 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 	_line_delivery = delivery
 	if _speaker_framing != null:
 		_speaker_framing.release()
-	for old in _choices.get_children():
-		_choices.remove_child(old)
-		old.queue_free()
 	_speaker.text = speaker_name
 	_speaker.visible = speaker_name.strip_edges() != ""
 	_line.text = words
-	_actions = []
-	_silence_index = -1
-	var number := 0
-	for option in options:
-		var action: Callable = option.action
-		var silent: bool = bool(option.get("silent", false))
-		number += 1
-		_actions.append(action)
-		if silent:
-			_silence_index = _actions.size() - 1
-		var reply := _reply_button(number, str(option.text), silent,
-				bool(option.get("evidence", false)), bool(option.get("infer", false)))
-		reply.pressed.connect(_answer.bind(action))
-		_choices.add_child(reply)
-	var replies := _choices.get_children()
-	for index in replies.size():
-		# Explicit neighbours keep clipped rows in directional and tab navigation.
-		var row := replies[index] as Button
-		var previous := row.get_path_to(replies[posmod(index - 1, replies.size())])
-		var following := row.get_path_to(replies[(index + 1) % replies.size()])
-		row.focus_neighbor_top = previous
-		row.focus_previous = previous
-		row.focus_neighbor_bottom = following
-		row.focus_next = following
-	_reply_scroll.scroll_vertical = 0
-	_fit_replies()
+	_set_replies(options)
 	if not _panel.visible:
 		_previous_mouse = Input.mouse_mode
 	_panel.visible = true
@@ -276,6 +248,37 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 		_input_revision = _player.call_lock_revision
 	if _choices.get_child_count() > 0:
 		(_choices.get_child(0) as Control).grab_focus()
+
+
+func _set_replies(options: Array) -> void:
+	for old in _choices.get_children():
+		_choices.remove_child(old)
+		old.queue_free()
+	_actions = []
+	_silence_index = -1
+	var number := 0
+	for option in options:
+		var silent: bool = bool(option.get("silent", false))
+		number += 1
+		_actions.append(option)
+		if silent:
+			_silence_index = _actions.size() - 1
+		var reply := _reply_button(number, str(option.text), silent,
+				bool(option.get("evidence", false)), bool(option.get("infer", false)))
+		reply.pressed.connect(_answer.bind(option))
+		_choices.add_child(reply)
+	var replies := _choices.get_children()
+	for index in replies.size():
+		# Explicit neighbours keep clipped rows in directional and tab navigation.
+		var row := replies[index] as Button
+		var previous := row.get_path_to(replies[posmod(index - 1, replies.size())])
+		var following := row.get_path_to(replies[(index + 1) % replies.size()])
+		row.focus_neighbor_top = previous
+		row.focus_previous = previous
+		row.focus_neighbor_bottom = following
+		row.focus_next = following
+	_reply_scroll.scroll_vertical = 0
+	_fit_replies()
 
 
 func _reply_button(number: int, text: String, silent: bool, evidence: bool,
@@ -366,6 +369,8 @@ func _unhandled_input(event: InputEvent) -> void:
 ## `context` may carry:
 ##   "available": Callable(choice: Dictionary) -> bool
 ##        a choice it refuses is not offered (requires / evidence)
+##   "transaction_for": Callable(choice: Dictionary) -> Callable
+##        optional sale that must succeed and owns the selected flag
 ##   "on_node_flag": Callable(flag: String)
 ##        a node's own `flag`, granted on arrival; falls back to on_flag(flag, 0)
 func run_tree(tree: Dictionary, entry_id: String, on_flag: Callable,
@@ -400,25 +405,8 @@ func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Calla
 			_on_flag.call(node_flag, 0)
 	var default_speaker := str(_tree.get("meta", {}).get("speaker_default", ""))
 	var speaker := str(node.get("speaker", default_speaker))
-	var available: Callable = _context.get("available", Callable())
-	var options: Array = []
-	for choice in node.get("choices", []):
-		if available.is_valid() and not bool(available.call(choice)):
-			continue
-		options.append({"text": str(choice.label),
-				"evidence": choice.has("evidence"),
-				"infer": bool(choice.get("infer", false)),
-				"action": _advance_action(choice, reply_guard)})
-	if node.has("silence_goto"):
-		var silence := {"goto": node.silence_goto, "flag": node.get("silence_flag", "")}
-		if node.has("silence_trust"):
-			silence["trust"] = node.silence_trust
-		options.append({"text": "Say nothing.", "silent": true,
-				"action": _advance_action(silence, reply_guard)})
-	if options.is_empty():
-		options.append({"text": "...", "silent": true, "action": _end_tree})
 	_line_exchange = exchange
-	_present_line(speaker, str(node.line), options, str(node.get("delivery", "spoken")))
+	_present_line(speaker, str(node.line), _node_options(node, reply_guard), str(node.get("delivery", "spoken")))
 	var actor := str(node.get("actor", ""))
 	# Ordinary, fallback and case trees have one known caller. A different
 	# caption or anonymous voice never borrows that person's face.
@@ -432,18 +420,58 @@ func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Calla
 	node_shown.emit(node_id)
 
 
-func _advance_action(choice: Dictionary, inherited_guard: Callable) -> Callable:
+func _node_options(node: Dictionary, reply_guard: Callable) -> Array:
+	var available: Callable = _context.get("available", Callable())
+	var transaction_for: Callable = _context.get("transaction_for", Callable())
+	var options: Array = []
+	for choice in node.get("choices", []):
+		if available.is_valid() and not bool(available.call(choice)):
+			continue
+		var target: Dictionary = _tree.nodes.get(str(choice.get("goto", "")), {})
+		var guard: Callable = target.get("reply_guard", reply_guard)
+		var transaction := Callable()
+		if transaction_for.is_valid():
+			transaction = transaction_for.call(choice)
+		options.append({"text": str(choice.label),
+				"evidence": choice.has("evidence"),
+				"infer": bool(choice.get("infer", false)),
+				"admit": _admit_reply.bind(choice, guard, transaction, node, reply_guard),
+				"action": _advance_action(choice, guard, transaction.is_valid())})
+	if node.has("silence_goto"):
+		var silence := {"goto": node.silence_goto, "flag": node.get("silence_flag", "")}
+		if node.has("silence_trust"):
+			silence["trust"] = node.silence_trust
+		var target: Dictionary = _tree.nodes.get(str(silence.goto), {})
+		var guard: Callable = target.get("reply_guard", reply_guard)
+		options.append({"text": "Say nothing.", "silent": true, "admit": guard,
+				"action": _advance_action(silence, guard, false)})
+	if options.is_empty():
+		options.append({"text": "...", "silent": true, "action": _end_tree})
+	return options
+
+
+func _admit_reply(choice: Dictionary, guard: Callable, transaction: Callable,
+		node: Dictionary, reply_guard: Callable) -> bool:
+	# An expired scene guard owns its cancellation, including releasing the cast.
+	if guard.is_valid() and not bool(guard.call()):
+		return false
+	var available: Callable = _context.get("available", Callable())
+	if (available.is_valid() and not bool(available.call(choice))) \
+			or (transaction.is_valid() and not bool(transaction.call())):
+		# Redraw just the choices. The current speech, node grants and camera lease persist.
+		_set_replies(_node_options(node, reply_guard))
+		(_choices.get_child(0) as Button).grab_focus()
+		return false
+	return true
+
+
+func _advance_action(choice: Dictionary, guard: Callable, transacted: bool) -> Callable:
 	var goto_id := str(choice.get("goto", ""))
-	var target: Dictionary = _tree.nodes.get(goto_id, {})
-	var guard: Callable = target.get("reply_guard", inherited_guard)
 	return func():
-		# Check the selected topic before any reply effects or destination flags.
-		if guard.is_valid() and not bool(guard.call()):
-			return
 		# A flag implies one trust unless the reply says otherwise; a reply may
 		# also move trust alone, as the inference and comfort replies do.
 		var flag := str(choice.get("flag", ""))
-		if (flag != "" or choice.has("trust")) and _on_flag.is_valid():
+		if not transacted and (flag != "" or choice.has("trust")) and _on_flag.is_valid():
 			_on_flag.call(flag, int(choice.get("trust", 1)))
 		if goto_id != "":
 			# Only an offered reply can create this callback. Its reaction belongs
@@ -476,7 +504,13 @@ func choose_silence() -> void:
 		choose(_silence_index)
 
 
-func _answer(action: Callable) -> void:
+func _answer(option: Dictionary) -> void:
+	if not attention_active() or not _actions.has(option):
+		return
+	var admit: Callable = option.get("admit", Callable())
+	if admit.is_valid() and not bool(admit.call()):
+		return
+	var action: Callable = option.action
 	var previous_tree := _tree
 	var lens := _speaker_framing.reply_lens() if _speaker_framing != null else {}
 	close()

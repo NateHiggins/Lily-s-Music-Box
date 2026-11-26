@@ -60,7 +60,7 @@ const SCHEDULES_PATH := "res://data/resident_schedules.json"
 ## crude on purpose; {unit} is replaced with the apartment number.
 const NOTES_PATH := "res://data/field_notes.json"
 const NOTE_PREFIX := "note:"
-## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
+## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md Â§7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/adela_voss.json",
@@ -297,6 +297,7 @@ func start(resident_id: String, place_context: String = "") -> bool:
 			Callable(),
 			{"framing_resident": resident_id,
 			 "available": func(choice: Dictionary): return _available(resident_id, choice),
+			 "transaction_for": _reply_transaction.bind(resident_id),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, entry_id)
 	return true
@@ -479,6 +480,12 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 	if price.cents > 0 and not can_pay(price.cents):
 		return false
 	return true
+
+
+## A priced selection must complete the ledger sale before the paid scene can open.
+func _reply_transaction(choice: Dictionary, resident_id: String) -> Callable:
+	var flag := str(choice.get("flag", ""))
+	return _pay.bind(resident_id, flag) if flag.begins_with(PAY_PREFIX) else Callable()
 
 
 ## The item and the price a "pay:" flag names, or zero cents when it names none.
@@ -1022,6 +1029,7 @@ func start_mystery(resident_id: String, spoken_only := false, installed_topic :=
 			Callable(),
 			{"framing_resident": resident_id,
 			 "available": func(choice: Dictionary): return _available(resident_id, choice),
+			 "transaction_for": _reply_transaction.bind(resident_id),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, MYSTERY_MENU)
 	return true

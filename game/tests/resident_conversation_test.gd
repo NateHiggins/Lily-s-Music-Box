@@ -124,6 +124,28 @@ func _run() -> void:
 	_check("the evidence reply appears when the player stands in 4A",
 			_has(offered, "[the staging table]"))
 	_check("a fresh conversation starts with its entrance fade", is_zero_approx(panel._panel.modulate.a))
+	var events: Array[String] = []
+	var on_show := func(id: String): events.append(id)
+	var on_end := func(): events.append("ended")
+	panel.node_shown.connect(on_show)
+	panel.tree_ended.connect(on_end)
+	var line := panel.displayed_line()
+	_unit = ""
+	var stale_evidence := panel._choices.get_child(_index(offered, "[the staging table]")) as Button
+	stale_evidence.pressed.emit()
+	_check("leaving Peter's flat rejects the stale button without replaying the node",
+			panel.attention_active() and panel.current_node_id == "pw_open" and panel.displayed_line() == line
+			and events.is_empty() and not _has(panel.offered_labels(), "[the staging table]")
+			and _has(panel.offered_labels(), "Say nothing.") and RealityState.resident_trust("peter_wren") == 0)
+	stale_evidence.pressed.emit()
+	_check("the detached button cannot answer the refreshed menu", events.is_empty())
+	panel.node_shown.disconnect(on_show)
+	panel.tree_ended.disconnect(on_end)
+	panel.close()
+	panel.current_node_id = ""
+	_unit = "4A"
+	director.knock("4A")
+	offered = panel.offered_labels()
 	panel.choose(_index(offered, "[the staging table]"))
 	_check("the table leads to the stations", panel.current_node_id == "pw_table")
 	_check("the evidence reply is readable on its first frame", is_equal_approx(panel._panel.modulate.a, 1.0))

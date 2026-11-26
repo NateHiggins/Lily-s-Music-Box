@@ -185,6 +185,53 @@ func _run() -> void:
 	_check("paying moves no trust", RealityState.resident_trust("lily") == trust_before)
 	conversations._record("lily", str(paid_choice.flag), 1)
 	_check("each choosing pays once more, never twice", int(ledger.book().cash) == 50 and int(ledger.book().sales["lily/lfa_hour"].count) == 2)
+	# Exercise both seasonal offers through the live panel and the ledger writer.
+	for late: bool in [false, true]:
+		var suffix := "b" if late else ""
+		var thread := "lfa_rates_after" if late else "lfa_rates"
+		var item := "lfa_hour_after" if late else "lfa_hour"
+		conversations.playtest_date = "1929-08-01" if late else "1928-12-20"
+		RealityState.data.knowledge_flags.erase("mt:" + thread)
+		RealityState.data.knowledge_flags.erase(item)
+		ledger.book().cash = 450
+		var count := int(ledger.book().sales.get("lily/" + item, {}).get("count", 0))
+		_check("open installed rates " + thread, conversations.start_mystery("lily", false, thread))
+		panel.choose(0)
+		var original := panel.displayed_line()
+		var events: Array[String] = []
+		var on_show := func(id: String): events.append(id)
+		var on_end := func(): events.append("ended")
+		panel.node_shown.connect(on_show)
+		panel.tree_ended.connect(on_end)
+		var key := InputEventKey.new()
+		key.pressed = true
+		key.keycode = KEY_1
+		if late:
+			RealityState.save_write_blocked = true
+		else:
+			ledger.book().cash = 150
+		panel._unhandled_input(key)
+		RealityState.save_write_blocked = false
+		_check("a refused selection keeps Lily's original line and alternatives " + thread,
+				panel.attention_active() and panel.current_node_id == "lfa_r1" + suffix
+				and panel.displayed_line() == original and events.is_empty()
+				and "Not tonight." in _labels(panel) and "Say nothing." in _labels(panel)
+				and ("Two dollars. Here." in _labels(panel)) == late)
+		_check("a refused selection creates no sale, grant or debit " + thread,
+				int(ledger.book().sales.get("lily/" + item, {}).get("count", 0)) == count
+				and not RealityState.has_knowledge(item) and int(ledger.book().cash) == (450 if late else 150))
+		if late:
+			panel._unhandled_input(key)
+			_check("a retry after the ledger unlocks grants exactly one paid aftermath",
+					panel.current_node_id == "lfa_r2b" and events == ["lfa_r2b"]
+					and RealityState.has_knowledge(item) and int(ledger.book().cash) == 250
+					and int(ledger.book().sales.get("lily/" + item, {}).get("count", 0)) == count + 1)
+		else:
+			panel.choose_silence()
+			_check("the surviving silence still declines", panel.current_node_id == "lfa_r3")
+		panel.node_shown.disconnect(on_show)
+		panel.tree_ended.disconnect(on_end)
+		panel.close()
 	_check("a malformed price is no price", ResidentConversations.price_of("pay:lfa_hour").cents == 0 and ResidentConversations.price_of("pay::200").cents == 0)
 	conversations.errands = saved_errands
 	ledger.queue_free()
