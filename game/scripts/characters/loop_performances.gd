@@ -18,6 +18,8 @@ var _ordinary_day := ""
 var ordinary: RefCounted
 var _talk_encounter: Dictionary = {}
 var _heard: Dictionary = {}
+var _phase_ends: Dictionary = {}
+var _work_stations: Dictionary = {}
 var _presenting: Dictionary = {}
 var _gaze: Dictionary = {}
 var _poll := 0.0
@@ -52,6 +54,7 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 			if phases is not Array or phases.is_empty():
 				errors.append("missing phases: " + anchor + "/" + resident)
 				continue
+			var ends := PackedFloat64Array()
 			var previous := 0.0
 			for phase: Variant in phases:
 				if phase is not Dictionary or not (typeof(phase.get("until")) in [TYPE_INT, TYPE_FLOAT]):
@@ -63,6 +66,10 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 				if float(phase.until) <= previous:
 					errors.append("non-increasing phases: " + anchor + "/" + resident)
 				previous = float(phase.until)
+				ends.append(previous)
+			if not _phase_ends.has(anchor):
+				_phase_ends[anchor] = {}
+			_phase_ends[anchor][resident] = ends
 			if not is_equal_approx(previous, float(loop.table.anchors[anchor].minutes)):
 				errors.append("phases do not cover visit: " + anchor + "/" + resident)
 	if not errors.is_empty():
@@ -129,20 +136,22 @@ func _extend_visit(guest: String, host: String, place: String, arrival_node: Str
 func phase_for(resident: String) -> Dictionary:
 	if loop == null or not loop.in_visit():
 		return {}
-	var anchor := str(loop.visit_anchor())
-	var actors: Dictionary = data.anchors.get(anchor, {}).get("actors", {})
-	var phases: Array = actors.get(resident, [])
-	var elapsed := float(loop.loop_minutes())
-	var start := 0.0
-	for i in phases.size():
-		var phase: Dictionary = phases[i]
-		if elapsed >= start and elapsed < float(phase.until):
-			var result := phase.duplicate()
-			result["phase_id"] = "%s:%s:%d" % [anchor, resident, i]
-			result["start"] = start
-			return result
-		start = float(phase.until)
-	return {}
+	return phase_at(str(loop.visit_anchor()), resident, float(loop.loop_minutes()))
+
+
+## Pure sampling for live visits and out-of-order film pickups. The exclusive
+## ends belong to the validated authored phases, including fractional minutes.
+func phase_at(anchor: String, resident: String, minute: float) -> Dictionary:
+	if not is_finite(minute) or minute < 0.0:
+		return {}
+	var ends: PackedFloat64Array = _phase_ends.get(anchor, {}).get(resident, PackedFloat64Array())
+	var i := ends.bsearch(minute, false)
+	if i == ends.size():
+		return {}
+	var phase: Dictionary = data.anchors[anchor].actors[resident][i].duplicate()
+	phase["phase_id"] = "%s:%s:%d" % [anchor, resident, i]
+	phase["start"] = ends[i - 1] if i > 0 else 0.0
+	return phase
 
 
 ## Empty means inherit the current agenda, including sleep and hard work blocks.
@@ -345,6 +354,9 @@ func _process(delta: float) -> void:
 		conversations.cancel_performance()
 	if _identity.is_empty():
 		return
+	var plans := {}
+	var contenders := {}
+	var focuses := {}
 	for resident: String in world.resident_routes:
 		var route: Node = world.resident_routes[resident]
 		var actor: Node = route.actor
@@ -353,7 +365,7 @@ func _process(delta: float) -> void:
 		if talking and _talk_encounter.is_empty() and not _talk_phase.is_empty() and conversations.performance_active() \
 				and _talk_phase != str(phase.get("phase_id", "baseline:" + resident)):
 			conversations.cancel_performance()
-		if actor == null or not actor.has_method("set_loop_activity"):
+		if resident == "mina_vale" or actor == null or not actor.has_method("set_loop_activity"):
 			continue
 		# Bar seats have their own exact posture/route owner. Sleeping, unseen,
 		# obstructed and moving residents keep their existing presentation.
@@ -361,22 +373,51 @@ func _process(delta: float) -> void:
 		var activity := str(block.get("activity", ""))
 		var case_id := RealityCases.case_for_resident(resident)
 		var case_active := not case_id.is_empty() and str(RealityState.case_state(case_id).get("stage", "unseen")) in ["active", "reopened"]
-		if not _arrived(resident) or talking or str(route.destination) == "harukiya_bar" \
+		if not _arrived(resident) or str(route.destination) != str(block.get("place", "")) \
+				or talking or str(route.destination) == "harukiya_bar" \
 				or case_active or activity in ["sleeping", "dressing", "shower"]:
-			_release_activity(resident)
 			continue
-		actor.set_loop_activity(activity)
+		plans[resident] = activity
+		focuses[resident] = phase.get("focus", "")
+		# Two route graphs may name the same work surface differently. Use its
+		# authored world endpoint; watching, listening and resting can be shared.
+		if activity in ["work", "chores"]:
+			var station: Vector3i = Vector3i((route.graph.get_point_position(route.desired_id) * 1000.0).round())
+			if not contenders.has(station):
+				contenders[station] = []
+			contenders[station].append(resident)
+	for resident: String in _presenting.keys():
+		if not plans.has(resident):
+			_release_activity(resident)
+	var next_stations := {}
+	for station: Vector3i in contenders:
+		var candidates: Array = contenders[station]
+		candidates.sort()
+		var winner: String = _work_stations.get(station, candidates.front())
+		if winner not in candidates:
+			winner = candidates.front()
+		next_stations[station] = winner
+		for resident: String in candidates:
+			if resident != winner:
+				plans.erase(resident)
+				_release_activity(resident)
+	_work_stations = next_stations
+	for resident: String in plans:
+		var actor: Node3D = world.resident_routes[resident].actor
+		if _presenting.has(resident) and not is_same(_presenting[resident], actor):
+			_release_activity(resident)
+		actor.set_loop_activity(plans[resident])
 		_presenting[resident] = actor
 		# Optional authored gaze uses the existing attention owner, never IK grips.
 		var attention: Node = actor.get_node_or_null("Attention")
-		var focus := str(phase.get("focus", ""))
+		var focus: String = focuses[resident]
 		if focus.is_empty() or attention == null:
 			_release_gaze(resident)
 			continue
 		var target: Node3D = world.adapter.resolve(focus) as Node3D
 		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
 				and attention.staged_target == _gaze[resident].point
-		if target != null and target.global_position.distance_to(route.actor.global_position) < 3.2 \
+		if target != null and target.global_position.distance_to(actor.global_position) < 3.2 \
 				and (attention.staged_target == null or still_owned):
 			attention.staged_target = target.global_position
 			_gaze[resident] = {"owner": attention, "point": target.global_position}
@@ -401,6 +442,7 @@ func _release_activity(resident: String) -> void:
 
 
 func _clear_activities() -> void:
+	_work_stations.clear()
 	for resident: String in _presenting.keys():
 		_release_activity(resident)
 

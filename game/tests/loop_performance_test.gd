@@ -78,6 +78,7 @@ var player: Node
 var started := Time.get_ticks_msec()
 var phase_count := 0
 var anchor_count := 0
+var seek_timings: Array[Dictionary] = []
 var ordinary_lines := 0
 var ordinary_encounters := 0
 var ordinary_day := 0
@@ -102,6 +103,7 @@ func _run() -> void:
 	RealityState.save_path = test_path
 	RealityState.start_new_campaign()
 	clock = CampaignClock.new()
+	_civil_seek_matrix()
 	check(clock.configure_date(1928, 11, 10, 1380), "fixture calendar configured")
 	var opening := State.request_skip(State.initial())
 	for index in State.PHASES.size() - 1:
@@ -156,6 +158,7 @@ func _run() -> void:
 		_transition_dialogue()
 		_s14_nadia_names_her()
 		_gaze_and_activity()
+		_station_and_seek()
 		_save_reload()
 		_move_yield()
 		_interrupted_guest_wait()
@@ -207,6 +210,62 @@ func _jump(anchor: String) -> void:
 func _advance(minutes: float) -> void:
 	check(clock.advance_to(clock.elapsed_minutes() + minutes), "advance real loop clock %.3f minutes" % minutes)
 	_tick()
+
+## Independent read-only schedule queries on a private civil epoch. The leap
+## probe predates the lived game loop; no skip, weather or witness is awarded.
+func _civil_seek_matrix() -> void:
+	if not clock.configure_date(1928, 1, 1, 0):
+		check(false, "private Gregorian epoch initialized")
+		return
+	var state_before := JSON.stringify(RealityState.data)
+	var epoch := CampaignClock.calendar_minute_of(1928, 1, 1, 0)
+	var dates := [[1928,2,29,720], [1928,11,10,995], [1928,12,31,1439], [1929,1,1,0],
+			[1929,3,13,720], [1929,3,18,1020], [1929,4,6,720], [1929,6,15,1200],
+			[1929,7,19,1262], [1929,7,20,1263], [1929,10,12,1260], [1929,11,9,1439]]
+	for v: Array in dates:
+		var relative := CampaignClock.calendar_minute_of(v[0],v[1],v[2],v[3]) - epoch
+		var day := clock.day_info_at(relative)
+		if not day.get("civil_date_valid", false):
+			check(false, "civil date resolves " + str(v))
+			continue
+		check([day.year,day.month,day.day_of_month,int(day.minute_of_day)] == v, "civil date and minute " + str(v))
+		var schedule := ScheduleDirector.new()
+		var load_start := Time.get_ticks_usec()
+		schedule.setup(null, {})
+		var setup_us := Time.get_ticks_usec() - load_start
+		var roster := schedule.clocked()
+		check(roster.size() == schedule.data.residents.size() + schedule.data.staff.size() and roster.size() > 0,
+				"resident and staff timetable loaded")
+		var cold_start := Time.get_ticks_usec()
+		var cold := _sample_roster(schedule, roster, day)
+		var cold_us := Time.get_ticks_usec() - cold_start
+		var warm_start := Time.get_ticks_usec()
+		var warm := _sample_roster(schedule, roster, day)
+		var warm_us := Time.get_ticks_usec() - warm_start
+		check(cold == warm and cold.size() == roster.size(), "whole-cast second take agrees " + str(v))
+		var unassigned := []
+		var away := []
+		for id: String in roster:
+			if cold[id].is_empty(): unassigned.append(id)
+			elif cold[id].get("place") == "out": away.append(id)
+		seek_timings.append({"civil":v,"roster_count":roster.size(),"no_authored_block":unassigned,"out":away,
+				"director_setup_us":setup_us,"first_whole_cast_us":cold_us,"repeat_whole_cast_us":warm_us,
+				"repeat_under_2ms":warm_us < 2000})
+		if v == [1929,3,13,720]:
+			var weather := CampaignWeather.snapshot({"year":1929,"month":3,"day":13,"hour":12})
+			check(day.day == "wed" and float(weather.get("rain_mm", 0)) > 0.0, "midweek shift sampled in authored rain")
+		if v == [1929,3,18,1020]:
+			check(cold.lily.get("place") == "harukiya_bar" and cold.adela_voss.get("place") == "harukiya_bar", "March rehearsal resolves both actors")
+		schedule.free()
+	check(JSON.stringify(RealityState.data) == state_before, "all civil pickup queries preserve campaign state")
+
+
+func _sample_roster(schedule: ScheduleDirector, roster: Array, day: Dictionary) -> Dictionary:
+	var result := {}
+	for resident: String in roster:
+		result[resident] = schedule.resolve(resident, day.day, day.minute_of_day, day.doy, day.first_sat, day)
+	return result
+
 
 func _boundary_matrix() -> void:
 	for anchor: String in performance.data.anchors:
@@ -364,6 +423,46 @@ func _gaze_and_activity() -> void:
 	phase.focus = old_focus
 	focus.free()
 	_jump("tea")
+
+func _station_and_seek() -> void:
+	var minutes: float = loop.loop_minutes()
+	var last: Dictionary = performance.phase_at("tea", "mae_kessler", 69.0)
+	check(last.get("start") == 55.0, "film pickup samples the final action directly")
+	check(performance.phase_at("tea", "mae_kessler", 10.0).get("start") == 10.0,
+			"backward pickup at an exact cut selects the incoming action")
+	check(performance.phase_at("tea", "mae_kessler", 70.0).is_empty()
+			and performance.phase_at("tea", "mae_kessler", -0.01).is_empty()
+			and performance.phase_at("missing", "mae_kessler", 5.0).is_empty(),
+			"out-of-range pickup creates no action")
+	check(loop.loop_minutes() == minutes and performance.phase_for("mae_kessler").get("start") == 0.0,
+			"sampling a pickup leaves the live visit alone")
+	var first: Route = world.resident_routes.cal_dwyer
+	var second: Route = world.resident_routes.peter_wren
+	var previous := second.graph.get_point_position(0)
+	second.graph.set_point_position(0, first.graph.get_point_position(0))
+	for id: String in ["cal_dwyer", "peter_wren"]:
+		world.forced_blocks[id] = {"place": "unit:main", "activity": "work"}
+		world.resident_routes[id].arrive("unit:main")
+	_tick()
+	check(first.actor.activity == "work" and second.actor.activity.is_empty(),
+			"two simultaneous arrivals grant exactly one work action at the same physical endpoint")
+	first.actor._walking = true
+	_tick()
+	check(first.actor.activity.is_empty() and second.actor.activity == "work",
+			"departing worker yields the action to the waiting resident")
+	first.arrive("unit:main")
+	_tick()
+	check(first.actor.activity.is_empty() and second.actor.activity == "work",
+			"a late arrival cannot displace the current performer")
+	world.forced_blocks.peter_wren.place = "unit:kitchen"
+	_tick()
+	check(first.actor.activity == "work" and second.actor.activity.is_empty(),
+			"a seek to another workplace releases the old station before the next route sample")
+	for id: String in ["cal_dwyer", "peter_wren"]:
+		world.forced_blocks.erase(id)
+	second.graph.set_point_position(0, previous)
+	second.arrive("unit:main")
+
 
 func _transition_dialogue() -> void:
 	var route: Route = world.resident_routes.mae_kessler
@@ -625,7 +724,7 @@ func _write_contract(engine_errors: Array[String]) -> void:
 	if directory.is_empty(): directory = "user://tests/loop_performance"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
 	var sources: Dictionary = {}
-	for path: String in ["res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json"]:
+	for path: String in ["res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
 		sources[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": false,
 		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints; no world navigation, cast fit, input optics or clue-earning qualification",
@@ -633,5 +732,5 @@ func _write_contract(engine_errors: Array[String]) -> void:
 		"source": {"test_path": "game/tests/loop_performance_test.gd", "test_sha256": get_script().source_code.replace("\r\n", "\n").sha256_text(), "inputs": sources},
 		"contracts": {"loop_performance_lifecycle": {"executed": true, "status": "PASS" if failures.is_empty() else "FAIL"}},
 		"checks": checks, "failures": failures, "engine_errors": engine_errors, "anchors": anchor_count, "phases": phase_count,
-		"ordinary_encounters": ordinary_encounters, "ordinary_lines": ordinary_lines}
+		"ordinary_encounters": ordinary_encounters, "ordinary_lines": ordinary_lines, "civil_seek_samples":seek_timings}
 	FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE).store_string(JSON.stringify(result, "\t"))
