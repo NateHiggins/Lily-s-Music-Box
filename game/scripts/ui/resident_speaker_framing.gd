@@ -95,6 +95,23 @@ func _physics_process(delta: float) -> void:
 	_camera.fov = _last_fov
 	_last_fov = _camera.fov
 
+## A synchronous reply can close and reopen this exact shot in one frame.
+## The snapshot belongs to that single callback; no stale lens is retained.
+func reply_lens() -> Dictionary:
+	if not is_instance_valid(_camera) or not is_instance_valid(_body) or not is_equal_approx(_camera.fov, _last_fov):
+		return {}
+	return {"eye": _camera.get_instance_id(), "body": _body.get_instance_id(), "entry": _entry_fov, "fov": _last_fov}
+
+func continue_reply(previous: Dictionary) -> void:
+	if not is_instance_valid(_camera) or not is_instance_valid(_body):
+		return
+	if _camera.get_instance_id() != previous.eye or _body.get_instance_id() != previous.body:
+		return
+	if not is_equal_approx(_entry_fov, previous.entry) or not is_equal_approx(_camera.fov, _last_fov):
+		return
+	_last_fov = float(previous.fov)
+	_camera.fov = _last_fov
+
 func release() -> void:
 	if is_instance_valid(_camera) and is_equal_approx(_camera.fov, _last_fov):
 		_camera.fov = _entry_fov

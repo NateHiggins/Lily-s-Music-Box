@@ -374,7 +374,8 @@ func _check_speaker_framing() -> void:
 	_check("old conversation cancellation leaves replacement input ownership intact", player.call_locked)
 	panel.close()
 	_check("replacement closes to the mouse mode owned before the exchange", Input.mouse_mode == previous_mouse)
-	var lines := [{"speaker": "stacy", "text": "Here."}, {"speaker": "lily", "text": "Across the room."}]
+	var lines := [{"speaker": "stacy", "text": "Here."}, {"speaker": "stacy", "text": "Still here."},
+			{"speaker": "lily", "text": "Across the room."}]
 	_check("loop performance opens on the speaking resident", director.start_performance_sequence("stacy", lines, player))
 	for tick in 12:
 		await get_tree().physics_frame
@@ -383,9 +384,15 @@ func _check_speaker_framing() -> void:
 	_check("framing preserves the player's camera, aim, position and existing dialogue lock",
 			player.camera.is_current() and player.call_locked and player.global_transform == player_pose
 			and player.camera.transform == eye_pose)
+	var held_lens := player.camera.fov
+	panel.choose(0)
+	_check("the next line from the same body keeps the caller's lens between frames",
+			panel.current_node_id == "loop_business_1" and is_equal_approx(player.camera.fov, held_lens))
+	await get_tree().physics_frame
+	_check("the retained shot continues smoothly", player.camera.fov <= held_lens)
 	panel.choose(0)
 	_check("an absent second speaker immediately restores the original shot",
-			panel.current_node_id == "loop_business_1" and is_equal_approx(player.camera.fov, 76.0))
+			panel.current_node_id == "loop_business_2" and is_equal_approx(player.camera.fov, 76.0))
 	director.cancel_for_transition()
 	_check("transition restores ordinary player input", not player.call_locked)
 	var wall := StaticBody3D.new()

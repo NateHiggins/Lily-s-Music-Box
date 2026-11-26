@@ -190,10 +190,7 @@ func present(speaker_name: String, words: String, options: Array) -> void:
 			_silence_action = action
 		var reply := _reply_button(number, str(option.text), silent,
 				bool(option.get("evidence", false)), bool(option.get("infer", false)))
-		reply.pressed.connect(func():
-			close()
-			if action.is_valid():
-				action.call())
+		reply.pressed.connect(_answer.bind(action))
 		_choices.add_child(reply)
 	if not _panel.visible:
 		_previous_mouse = Input.mouse_mode
@@ -372,17 +369,23 @@ func _end_tree() -> void:
 func choose(index: int) -> void:
 	if index < 0 or index >= _actions.size():
 		return
-	var action: Callable = _actions[index]
-	close()
-	if action.is_valid():
-		action.call()
+	_answer(_actions[index])
 
 
 func choose_silence() -> void:
-	var action := _silence_action
+	_answer(_silence_action)
+
+
+func _answer(action: Callable) -> void:
+	var previous_tree := _tree
+	var lens := _speaker_framing.reply_lens() if _speaker_framing != null else {}
 	close()
 	if action.is_valid():
 		action.call()
+	# The original choice callback sees the released panel/input as before.
+	# Rejoin a retained shot before the next frame, only within this same tree.
+	if not lens.is_empty() and attention_active() and is_same(previous_tree, _tree):
+		_speaker_framing.continue_reply(lens)
 
 
 ## The replies currently offered, in order, for tests and drivers.
