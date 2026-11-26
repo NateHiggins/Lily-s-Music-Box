@@ -395,6 +395,19 @@ func _check_speaker_framing() -> void:
 			panel.current_node_id == "loop_business_2" and is_equal_approx(player.camera.fov, 76.0))
 	director.cancel_for_transition()
 	_check("transition restores ordinary player input", not player.call_locked)
+	for scripted: bool in [false, true]:
+		var opened := director.start_performance_sequence("stacy", lines, player) if scripted else director.start("stacy")
+		_check("resident owns the panel before the service prompt", opened)
+		var before := RealityState.data.duplicate(true)
+		var answered := [false]
+		panel.present("SERVICE", "One moment.", [{"text": "Ready.", "action": func(): answered[0] = true}])
+		_check("standalone prompt immediately releases the resident and clears her former node",
+				director._active_resident.is_empty() and not director.performance_active() and panel.current_node_id.is_empty())
+		director.cancel_for_transition()
+		_check("former conversation leaves the service prompt, input and campaign intact",
+				panel.attention_active() and player.call_locked and panel.offered_labels() == ["Ready."] and before == RealityState.data)
+		panel.choose(0)
+		_check("the service prompt receives its own reply and releases input", answered[0] and not player.call_locked)
 	var wall := StaticBody3D.new()
 	var shape := CollisionShape3D.new()
 	shape.shape = BoxShape3D.new()

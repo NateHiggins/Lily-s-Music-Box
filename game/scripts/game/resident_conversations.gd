@@ -180,6 +180,8 @@ func setup(panel: CaseDialoguePanel, player_unit := Callable(),
 	_home_resolver = resident_home
 	if not dialogue.tree_ended.is_connected(_on_tree_ended):
 		dialogue.tree_ended.connect(_on_tree_ended)
+	if not dialogue.tree_replaced.is_connected(_on_tree_replaced):
+		dialogue.tree_replaced.connect(_on_tree_replaced)
 	_load_units()
 	_load_trees()
 	_load_notes()
@@ -528,6 +530,13 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 			RealityCases.record_conversation(case_id, flag, trust)
 			return
 	RealityState.commit()
+
+
+## A new panel has already taken possession. Release the former cast and
+## leave its unfinished reply, knowledge and first-conversation note alone.
+func _on_tree_replaced(previous: Dictionary) -> void:
+	if is_same(previous, _active_tree):
+		cancel_for_transition()
 
 
 func _on_tree_ended() -> void:

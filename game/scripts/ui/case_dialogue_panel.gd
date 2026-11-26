@@ -28,6 +28,7 @@ extends CanvasLayer
 
 signal node_shown(node_id: String)
 signal tree_ended
+signal tree_replaced(previous: Dictionary)
 
 const SERIF: Font = preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
 const SERIF_ITALIC: Font = preload("res://assets/fonts/eb_garamond/EBGaramond-Italic[wght].ttf")
@@ -170,6 +171,23 @@ func attention_active() -> bool:
 ## One hand-built prompt. `options` are dictionaries with `text` and `action`,
 ## optionally `silent`, `evidence` or `infer` for presentation.
 func present(speaker_name: String, words: String, options: Array) -> void:
+	_replace_tree({})
+	_on_flag = Callable()
+	_on_action = Callable()
+	_context = {}
+	_present_line(speaker_name, words, options)
+
+
+func _replace_tree(incoming: Dictionary) -> void:
+	var previous := _tree
+	var interrupted := not current_node_id.is_empty() and not is_same(previous, incoming)
+	_tree = incoming
+	current_node_id = ""
+	if interrupted:
+		tree_replaced.emit(previous)
+
+
+func _present_line(speaker_name: String, words: String, options: Array) -> void:
 	if _speaker_framing != null:
 		_speaker_framing.release()
 	for old in _choices.get_children():
@@ -285,7 +303,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ##        a node's own `flag`, granted on arrival; falls back to on_flag(flag, 0)
 func run_tree(tree: Dictionary, entry_id: String, on_flag: Callable,
 		on_action := Callable(), context := {}) -> void:
-	_tree = tree
+	_replace_tree(tree)
 	_on_flag = on_flag
 	_on_action = on_action
 	_context = context
@@ -332,7 +350,7 @@ func _show_node(node_id: String) -> void:
 				"action": _advance_action(silence)})
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
-	present(speaker, str(node.line), options)
+	_present_line(speaker, str(node.line), options)
 	var actor := str(node.get("actor", ""))
 	# Ordinary, fallback and case trees have one known caller. A different
 	# caption or anonymous voice never borrows that person's face.
