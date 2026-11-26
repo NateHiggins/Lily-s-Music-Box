@@ -403,7 +403,7 @@
         {"start_min": 900, "end_min": 1020, "place": "out", "activity": "errand", "outfit": "street", "days": ["sat"], "detail": "archival-supplies errand"},
         {"start_min": 1020, "end_min": 1050, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
         {"start_min": 465, "end_min": 720, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
-        {"start_min": 720, "end_min": 750, "place": "unit:doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["jonah_price"], "detail": "Jonah brings two coffees; drunk standing, never inside; both relieved when it ends"},
+        {"start_min": 720, "end_min": 750, "place": "unit:doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["jonah_price"], "appointment": true, "detail": "Jonah brings two coffees; drunk standing, never inside; both relieved when it ends"},
         {"start_min": 750, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
         {"start_min": 1020, "end_min": 1140, "place": "unit", "activity": "ritual", "outfit": "late_night", "days": ["sun"], "detail": "the deep round: full white-glove inspection, one room per week on a four-week rota"}
       ],
@@ -603,7 +603,7 @@
         {"start_min": 1290, "end_min": 1440, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "fresh page; a fresh notebook if the page resists"},
         {"start_min": 1260, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "never sings; holds the room between songs, telling the beginning of a story and buying a round when someone asks what happens next"},
         {"start_min": 0, "end_min": 90, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sun"]},
-        {"start_min": 690, "end_min": 750, "place": "visit:4C_doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["noel_price"], "detail": "two coffees; the door opens at noon and the brothers drink them in the doorway, never inside, nothing said past objects"},
+        {"start_min": 690, "end_min": 750, "place": "visit:4C_doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["noel_price"], "appointment": true, "detail": "two coffees; the door opens at noon and the brothers drink them in the doorway, never inside, nothing said past objects"},
         {"start_min": 780, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no column; the nap stretches; the only day the deadline is not holding anything up, and it shows"}
       ],
       "special_days": [
