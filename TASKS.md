@@ -1517,13 +1517,13 @@ accessibility and reload repairs first. Existing authorities stay installed.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
   - **H13-PRESENTATION — LIVE PRESENTATION AUDIT (INSTRUMENT BUILT AND FIRST RUN 2026-08-21; GENERATOR FIXES STILL WAIT).** `res://tests/PresentationAudit.tscn` boots production `BuildingRoot` with WalkTest's discipline and runs seven passes: live cross-class AABBs with an assembly whitelist (25 leads), authored-base support rays (16; every kitchen toaster base 215 mm inside the furniture hull), WalkTest's `[ART]` sweep verbatim, dressing-per-m² census with bottom decile (five zero-record rooms; 2D's bedroom), 1.4 m wall rays (5,783 rays, 0 see-through — lead closed), height-classified ceiling rays with the real `show_all_floors` toggle (the corridor 22% is the atrium light well plus one stray point per floor), and a windowed eight-station OrbitSweep (granted set direction-blind; 0/288 frames dropped a centre-in-view light — the "lights disappear with direction" lead is not gating, churn or culling). The 183-still harness rerun wrote 182 frames. Rows are in `design/walkthrough_punchlist.md` under 2026-08-21; proof, JSON and CSV at `art/renders/presentation_audit_h13/README.md`. The first generator fix landed the same day: `_toaster_marker`'s yaw-rotated offset stood every generated kitchen's toaster on its dishrack; it is in the run frame now, `_validate_kitchen_worktops` guards it, only the ten toaster markers moved (no GLB rebuild), and the re-audit is toaster-clean (support faults 16 → 6). The roof ventilator V-B, which the garden pass had buried in the east bed, now stands on open roof south of it (marker move). 2D/5D's empty rooms are the building's own vacancy rules; the 6A monitor overlaps are the prop's cable mesh through a 50 mm desk top. Remaining leads (bar speakers/songbook mounting, 4B closet/vestibule dressing) are taste calls for the walk, not generator defects.
-- **H22** **Reader-gate loader/consumer split.** The gate credits a field
-  only in a script that also names the data file, so a field read through a
-  loader's returned dictionary counts as unread (darts_panel.gd reads the
-  trivia card's "q" and "blurb"). Of 1,295 unread fields at 1c1c578, 662 are
-  named nowhere in production code and 633 are named only outside the loading
-  script; see `design/REPO_HOUSEKEEPING_2026-09-19.md` §6 for the sampled
-  estimate before changing the gate or the baseline.
+- **H22 — Trace the remaining cross-script data reads.** The audit follows
+  a constructed model's loaded members to its caller. This accounts for the
+  26 darts questions and eight Otis floor names. The darts reveal reads a
+  blurb for a positive bonus. The plain kind scores zero, so its blurb still
+  lacks a reader. The audit reports this conditional access and preserves the
+  named entries for review. Returned dictionaries and arguments passed to a
+  collaborator still need source-specific tracing. [Earlier sample](design/REPO_HOUSEKEEPING_2026-09-19.md)
 - **H23** **Close the voxel-light seam.** Two voxel lights now sit side by
   side by owner ruling: the earlier presenter and Astra's critter binding.
   Three suites fail at their boundary and are accepted by name, not fixed:

@@ -12,6 +12,102 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def test_darts_instance_consumes_only_its_dealt_card_and_kind_blurb(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        for relative in ("game/scripts/minigames/trivia_darts.gd", "game/scripts/ui/darts_panel.gd",
+                         "game/data/trivia_darts.json"):
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((TOOLS.parent / relative).read_bytes())
+        deck_path = root / "game/data/trivia_darts.json"
+        deck = json.loads(deck_path.read_text(encoding="utf-8"))
+        deck["metadata"] = {"q": "unread sibling", "blurb": "unread sibling"}
+        deck["deck"][0]["unread_probe"] = True
+        deck_path.write_text(json.dumps(deck), encoding="utf-8")
+        (root / "game/data/other.json").write_text(json.dumps(deck), encoding="utf-8")
+
+        def findings():
+            return {(r["file"], r["field"]): r["occurrences"]
+                    for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                    if r["kind"] == "FIELD_UNREAD"}
+
+        current = findings()
+        file = "game/data/trivia_darts.json"
+        self.assertEqual(current[file, "q"], 1)
+        # The UI reads a blurb only for bonus-scoring kinds. A dynamic key
+        # cannot vouch for the plain category, which awards zero bonus.
+        self.assertEqual(current[file, "blurb"], len(deck["kinds"]) + 1)
+        blurb = next(r for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                     if r["file"] == file and r.get("field") == "blurb")
+        self.assertIn("dynamic dictionary key", blurb["detail"])
+        self.assertEqual(current[file, "unread_probe"], 1)
+        self.assertEqual(current["game/data/other.json", "q"], len(deck["deck"]) + 1)
+        self.assertEqual(current["game/data/other.json", "blurb"], len(deck["kinds"]) + 1)
+
+        panel = root / "game/scripts/ui/darts_panel.gd"
+        panel.write_text(panel.read_text(encoding="utf-8").replace("var trivia := TriviaDarts.new()",
+                                                                   "var trivia := OtherGame.new()"),
+                         encoding="utf-8")
+        disconnected = findings()
+        self.assertEqual(disconnected[file, "q"], len(deck["deck"]) + 1)
+        self.assertEqual(disconnected[file, "blurb"], len(deck["kinds"]) + 1)
+
+    def test_instance_handoff_requires_unambiguous_file_member_and_receiver(self):
+        owner = ('class_name Deck\nextends RefCounted\nconst DATA := "res://data/cards.json"\n'
+                 'var records := []\nvar dealt := {}\nfunc load_data():\n'
+                 '    var d = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+                 '    records = d.get("cards", [])\nfunc select(i):\n    dealt = records[i]\n')
+        panel = ('extends Control\nvar source := Deck.new()\nfunc open():\n'
+                 '    source.load_data()\n    source.select(0)\nfunc show_card():\n'
+                 '    label.text = source.dealt.get("copy", "")\n')
+
+        def reads(loader, reader):
+            return audit.constructed_member_reads({"loader.gd": loader, "reader.gd": reader})
+
+        expected = ("cards", None, "copy")
+        self.assertIn(expected, reads(owner, panel)["cards.json"])
+        for loader, reader in (
+            (owner.replace('FileAccess.get_file_as_string(DATA)', '"{}"'), panel),
+            (owner.replace('load_data():', 'load_data(DATA := "res://data/other.json"):'), panel),
+            (owner.replace('load_data():', 'load_data():\n    var DATA := "res://data/other.json"'), panel),
+            (owner.replace('dealt = records[i]', 'dealt = other_records[i]'), panel),
+            (owner + 'func replace():\n    dealt = fake()\n', panel),
+            (owner, panel.replace('source.load_data()', 'other.load_data()')),
+            (owner, panel.replace('show_card()', 'show_card(source)')),
+            (owner, panel.replace('show_card()', 'show_card(\n    source: Dictionary\n)')),
+            (owner, panel.replace('    label.text =', '    var cb := func(source):\n        label.text =')),
+            (owner, panel.replace('    label.text', '    source = substitute\n    label.text')),
+            (owner, panel.replace('    label.text', '    source.dealt = other_card\n    label.text')),
+            (owner, panel.replace('Deck.new()', 'Other.new()')),
+            (owner, panel.replace('    label.text = source.dealt.get("copy", "")',
+                                  '    print(\'source.dealt.get("copy", "")\')')),
+        ):
+            with self.subTest(loader=loader, reader=reader):
+                self.assertNotIn(expected, reads(loader, reader).get("cards.json", ()))
+        self.assertNotIn(("cards", None, "get"), reads(owner, panel)["cards.json"])
+
+    def test_literal_star_integer_and_dynamic_keys_do_not_credit_named_siblings(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        data = root / "game/data/map.json"
+        data.write_text('{"rows":{"*":{"leaf":1},"x":{"leaf":2},"y":{"leaf":3}}}', encoding="utf-8")
+        game = root / "game/scripts/game"
+        (game / "table.gd").write_text(
+            'class_name Table\nvar rows := {}\nfunc _init():\n'
+            '    var d = JSON.parse_string(FileAccess.get_file_as_string("res://data/map.json"))\n'
+            '    rows = d.get("rows", {})\n', encoding="utf-8")
+        for key, expected, conditional in [('"*"', 2, False), ('"x"', 2, False),
+                                            ('5', 3, False), ('kind', 3, True)]:
+            with self.subTest(key=key):
+                (game / "view.gd").write_text(
+                    'var table := Table.new()\nfunc show_row(kind):\n'
+                    f'    return table.rows.get({key}, {{}}).get("leaf")\n', encoding="utf-8")
+                records = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                row = next(r for r in records if r["file"] == "game/data/map.json" and r.get("field") == "leaf")
+                self.assertEqual(row["occurrences"], expected)
+                self.assertEqual("dynamic dictionary key" in row["detail"], conditional)
+
     def entry_contract_fixture(self):
         td, root = self.fixture()
         for relative in audit.ENTRY_RECORD_CONSTANTS:
