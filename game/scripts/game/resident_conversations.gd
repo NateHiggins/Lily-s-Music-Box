@@ -1061,6 +1061,8 @@ func _valid_mystery(doc: Dictionary, path: String) -> bool:
 			ok = false
 	for node_id in nodes:
 		var node: Dictionary = nodes[node_id]
+		if not _valid_delivery(node, node_id, path):
+			ok = false
 		if str(node.get("line", "")) == "":
 			errors.append("%s: node %s has no line" % [path, node_id])
 			ok = false
@@ -1185,6 +1187,14 @@ func _load_trees() -> void:
 
 ## The authored contract, checked at load so a broken tree is a startup
 ## message and not a dead door. Every field the writers may use is named here.
+func _valid_delivery(node: Dictionary, node_id: String, path: String) -> bool:
+	var delivery: Variant = node.get("delivery", "spoken")
+	if delivery is String and delivery in ["spoken", "silent"]:
+		return true
+	errors.append("%s: node %s delivery must be spoken or silent" % [path, node_id])
+	return false
+
+
 func _valid_tree(tree: Dictionary, path: String) -> bool:
 	var ok := true
 	var meta: Dictionary = tree.get("meta", {})
@@ -1200,6 +1210,8 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 			ok = false
 	for node_id in nodes:
 		var node: Dictionary = nodes[node_id]
+		if not _valid_delivery(node, node_id, path):
+			ok = false
 		if str(node.get("line", "")) == "":
 			errors.append("%s: node %s has no line" % [path, node_id])
 			ok = false

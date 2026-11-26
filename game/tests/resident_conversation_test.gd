@@ -40,6 +40,28 @@ func _ready() -> void:
 	get_tree().quit(0 if _fails == 0 else 1)
 
 
+func _check_delivery_validation(director: ResidentConversations) -> void:
+	var validator := ResidentConversations.new()
+	for mystery: bool in [false, true]:
+		var book: Dictionary = director.mystery if mystery else director.trees
+		var tree: Dictionary = book["adela_voss"].duplicate(true)
+		var validate := Callable(validator, "_valid_mystery" if mystery else "_valid_tree")
+		var id := "av_o54" if mystery else "ad_int_beat"
+		var node: Dictionary = tree.nodes[id]
+		tree.meta["delivery"] = "ignored metadata"
+		for field: Variant in [null, "spoken", "silent", "silnt", false]:
+			if field == null:
+				node.erase("delivery")
+			else:
+				node["delivery"] = field
+			validator.errors.clear()
+			var accepted := bool(validate.call(tree, "fixture"))
+			var expected := field == null or field in ["spoken", "silent"]
+			_check("node delivery %s in %s" % [str(field), id], accepted == expected
+					and (accepted or validator.errors.has("fixture: node %s delivery must be spoken or silent" % id)))
+	validator.free()
+
+
 func _run() -> void:
 	var panel := CaseDialoguePanel.new()
 	add_child(panel)
@@ -56,6 +78,7 @@ func _run() -> void:
 	if not director.errors.is_empty():
 		for line in director.errors:
 			print("  tree error: ", line)
+	_check_delivery_validation(director)
 	_check("trees are keyed by resident", director.has_tree("peter_wren")
 			and director.has_tree("transient_guests") and not director.has_tree("mina_vale"))
 	_check("doors know their tenants", director.residents_in("4C") == ["cam_ortiz", "noel_price"]
