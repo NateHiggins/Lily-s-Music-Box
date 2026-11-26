@@ -27,17 +27,24 @@ var refused_writes := 0
 ## How quickly attention turns the head, as the time to cover most of the way.
 var gaze_seconds := 0.35
 ## The fastest a head turns, in degrees a second.
-var gaze_degrees_per_second := 240.0
+var gaze_degrees_per_second := rad_to_deg(3.2)
+const HEAD_LAG_SECONDS := 0.14
 var breathe := true
 ## A phase so a room of people does not breathe together.
 var breath_phase := 0.0
+## Set by the existing expression owner; only the ordinary lower-spine breath is altered.
+var breath_arousal := 0.0
+var _breath_extra_time := 0.0
 var _target := Vector3.ZERO
 var _attending := false
+var _head_target := Vector3.ZERO
+var _head_engaged := false
+var _target_times: Array[float] = []
+var _target_points: Array[Vector3] = []
 var _weight := 0.0
 ## The direction being looked in now, in the skeleton's own space, eased.
 var _looking := Vector3.ZERO
 var _clock := 0.0
-var _last_usec := 0
 ## A set frame time, for a test that needs the same motion every run.
 var fixed_delta := 0.0
 ## The engine puts the clip's pose back after the skin is updated, so what the
@@ -54,12 +61,17 @@ var seated_feet: RefCounted
 
 
 ## Fit the pipeline to a skeleton. False when no rig profile fits it.
-func bind(body: Skeleton3D) -> bool:
+func bind(body: Skeleton3D, resident_id := "") -> bool:
 	profile = Profile.for_skeleton(body)
 	if profile == null or not (profile.errors as Array).is_empty():
 		return false
 	_looking = profile.forward
-	breath_phase = fposmod(float(body.get_instance_id() % 997) * 0.618, 1.0) * TAU
+	# Standalone film rigs also get a stable phase from their model resource.
+	var model: Node = body
+	while resident_id.is_empty() and model != null:
+		resident_id = model.scene_file_path
+		model = model.get_parent()
+	breath_phase = TAU * float(hash(resident_id + ":breath") % 65536) / 65536.0
 	return true
 
 
@@ -73,10 +85,18 @@ func attend(world_point: Vector3) -> void:
 ## Stop attending: the head eases back to wherever the clip has it.
 func rest() -> void:
 	_attending = false
+	_head_engaged = false
+	_target_times.clear()
+	_target_points.clear()
 
 
 func attending() -> bool:
 	return _attending
+
+
+## Where the eyes should look immediately; the head follows this same point later.
+func focus_point() -> Vector3:
+	return _target
 
 
 ## How far the head is turned from the clip's own pose, 0 to 1.
@@ -93,13 +113,12 @@ func _write(bone: int, pose: Transform3D, layer: String) -> bool:
 	return true
 
 
-func _process_modification() -> void:
+func _process_modification_with_delta(delta: float) -> void:
 	var body := get_skeleton()
 	if body == null or profile == null:
 		return
 	var now := Time.get_ticks_usec()
-	var delta := clampf(float(now - _last_usec) / 1000000.0, 0.0, 0.1) if _last_usec > 0 else 0.016
-	_last_usec = now
+	# Includes manual Skeleton3D.advance and MovieWriter's fixed simulation step.
 	step(fixed_delta if fixed_delta > 0.0 else delta)
 	frames += 1
 	cost_usec += Time.get_ticks_usec() - now
@@ -113,6 +132,7 @@ func step(delta: float) -> void:
 		return
 	writers.clear()
 	_clock += delta
+	_breath_extra_time += delta * clampf(breath_arousal, 0.0, 1.0) * 0.40
 	_posture(body)
 	_gaze(body, delta)
 	if seated_feet != null:
@@ -140,7 +160,7 @@ func _posture(body: Skeleton3D) -> void:
 		return
 	var bone := int(profile.bones.spine_low)
 	var side: Vector3 = (profile.up as Vector3).cross(profile.forward).normalized()
-	var angle: float = sin(_clock * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
+	var angle: float = sin((_clock + _breath_extra_time) * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
 	_write(bone, _turned(body.get_bone_global_pose(bone), Quaternion(side, angle)), "posture")
 
 
@@ -169,8 +189,21 @@ func _gaze(body: Skeleton3D, delta: float) -> void:
 	for joint: String in ["chest", "neck", "head"]:
 		if not profile.has(joint):
 			return
+	# Sample moving targets as well as the start of a look. Retain at most the
+	# last 140 ms of changed positions. Static targets do not grow the buffer.
+	if _attending and delta > 0.0:
+		var last_point: Vector3 = _head_target if _target_points.is_empty() else _target_points.back()
+		if (not _head_engaged and _target_points.is_empty()) or not _target.is_equal_approx(last_point):
+			_target_times.append(_clock - delta)
+			_target_points.append(_target)
+		while not _target_times.is_empty() and _target_times.front() + HEAD_LAG_SECONDS <= _clock:
+			_target_times.pop_front()
+			_head_target = _target_points.pop_front()
+			_head_engaged = true
+	# Absolute stage poses supply the head direction/weight and call step(0).
+	var head_attending := _attending and (_head_engaged or delta == 0.0)
 	var ease := 1.0 - exp(-delta * 3.0 / maxf(gaze_seconds, 0.01))
-	_weight = move_toward(_weight, 1.0 if _attending else 0.0, delta / maxf(gaze_seconds * 1.4, 0.01))
+	_weight = move_toward(_weight, 1.0 if head_attending else 0.0, delta / maxf(gaze_seconds * 1.4, 0.01))
 	var chest := int(profile.bones.chest)
 	var neck := int(profile.bones.neck)
 	var head := int(profile.bones.head)
@@ -181,12 +214,12 @@ func _gaze(body: Skeleton3D, delta: float) -> void:
 	last_chest_forward = chest_forward
 	var clip_facing := head_facing()
 	var wanted := clip_facing
-	if _attending:
+	if head_attending:
 		var eye := body.get_bone_global_pose(head).origin
-		var aim := body.global_transform.affine_inverse() * _target - eye
+		var aim := body.global_transform.affine_inverse() * (_head_target if delta > 0.0 else _target) - eye
 		if aim.length() > 0.05:
 			wanted = _bounded(aim.normalized(), chest_forward)
-	if _attending:
+	if head_attending:
 		# Eased, never faster than a head turns, and kept inside the neck's
 		# limits on the way: the short way between two allowed directions can
 		# pass over the top.

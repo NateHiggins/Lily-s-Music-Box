@@ -197,8 +197,8 @@ func _ready() -> void:
 		var out_left := _shape(model, "eyeLookOutLeft")
 		low = minf(low, out_left)
 		high = maxf(high, out_left)
-	# 12 degrees is 0.4 of the 30-degree reach; 1.5 degrees of saccade is 0.05.
-	_check(high - low > 0.01 and high - low < 0.12 and low > 0.3, "held on a point, the eyes make small saccades about it (%.3f..%.3f)" % [low, high])
+	# 12 degrees ±3 on a 30-degree yaw range.
+	_check(high - low > 0.01 and high <= 0.501 and low >= 0.299, "held on a point, the eyes make small saccades about it (%.3f..%.3f)" % [low, high])
 	# A spoken turn sometimes begins with a glance away and always ends back on the listener.
 	var averted := 0
 	var returned := 0
@@ -227,6 +227,7 @@ func _ready() -> void:
 	_check(lid_peak > 0.9, "a large shift of gaze carries a blink (%.2f)" % lid_peak)
 	face.look(Vector2.ZERO)
 	_run(face, 0.5)
+	_check_film_gaze(face, model)
 
 	print("NPC FACE: one writer")
 	face.express("surprise", 1.0)
@@ -244,6 +245,48 @@ func _ready() -> void:
 	await _captures()
 	print("NPC FACE CONTROLLER TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)
+
+
+func _check_film_gaze(face: Node, model: Node3D) -> void:
+	var first_take: Array[Vector2] = []
+	var varied := false
+	for tick in 360:
+		face.pose_gaze_for_frame(tick, 24, 17, Vector2(12, 4))
+		var observed := Vector2(_shape(model, "eyeLookOutLeft"), _shape(model, "eyeLookUpLeft"))
+		first_take.append(observed)
+		varied = varied or not observed.is_equal_approx(first_take[0])
+	_check(varied, "15 seconds at 24 fps contain different small eye marks")
+	var matched := true
+	var different_seed := false
+	for tick in range(359, -1, -1):
+		face.pose_gaze_for_frame(tick, 24, 17, Vector2(12, 4))
+		var observed := Vector2(_shape(model, "eyeLookOutLeft"), _shape(model, "eyeLookUpLeft"))
+		matched = matched and observed.is_equal_approx(first_take[tick])
+		face.pose_gaze_for_frame(tick, 24, 18, Vector2(12, 4))
+		different_seed = different_seed or not is_equal_approx(_shape(model, "eyeLookOutLeft"), observed.x)
+	_check(matched and different_seed, "reverse-order pickups reproduce both actual eye shapes; changing the take seed varies them")
+	_check(not face.pose_gaze_for_frame(2, 0, 17, Vector2.ZERO), "invalid frame rate refused")
+	var mark: Dictionary = face._microsaccade(0.0, 17)
+	var bounded := true
+	for i in 80:
+		var next: Dictionary = face._microsaccade(mark.next, 17)
+		var interval: float = float(next.next) - float(mark.next)
+		var offset: Vector2 = next.offset
+		bounded = bounded and interval >= 1.8 and interval <= 3.4 and absf(offset.x) <= 3.0 and absf(offset.y) <= 1.5
+		mark = next
+	_check(bounded, "eighty successive eye marks respect yaw, pitch and fixation duration")
+	face.look(Vector2(-30, 0))
+	_run(face, 0.25)
+	var before: Vector2 = face._eye
+	face.look(Vector2(30, 0))
+	face.step(1.0 / 240.0)
+	_check(is_equal_approx(before.distance_to(face._eye), rad_to_deg(12.0) / 240.0), "a large eye shift advances at the bounded ocular speed")
+	face.look(Vector2.ZERO)
+	face.glance_down_left()
+	_run(face, 0.45)
+	var down_left := _shape(model, "eyeLookOutLeft") > 0.25 and _shape(model, "eyeLookDownLeft") > 0.18
+	_run(face, 0.30)
+	_check(down_left and _shape(model, "eyeLookOutLeft") <= 0.101 and _shape(model, "eyeLookDownLeft") <= 0.076, "an explicitly cued down-left glance releases after 650 ms")
 
 
 ## Optional: a rebuilt body from outside the project, looked at close.

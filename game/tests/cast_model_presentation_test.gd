@@ -79,6 +79,7 @@ func run() -> void:
 	camera.position = Vector3(0, 1.35, 2)
 	camera.look_at(Vector3(0, 1.3, 0))
 	camera.current = true
+	var phases := {}
 	for id: String in ["lily", "stacy"]:
 		var actor := Presentation.new()
 		actor.configure(id, source_path(id), ["work_top", "work_bottom", "work_feet"])
@@ -88,6 +89,8 @@ func run() -> void:
 			actor.queue_free()
 			continue
 		await frames(30)
+		phases[id] = actor.attention.pipeline.breath_phase
+		await check_shared_gaze(actor, camera)
 		check(actor.wardrobe.worn.size() == 3 and actor.wardrobe.mesh_count() >= 3, id + " all three requested slots mounted")
 		check(actor.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, id + " body partitions retained")
 		check(actor.find_children("*", "CollisionObject3D", true, false).is_empty(), id + " no new physics or interaction authority")
@@ -151,6 +154,7 @@ func run() -> void:
 		check(actor.visible and actor.ready_ok and actor.attention.pipeline.frames > modifier_frames, id + " reactivation restores model without reload")
 		actor.queue_free()
 		await frames(2)
+	check(phases.has_all(["lily", "stacy"]) and not is_equal_approx(phases.lily, phases.stacy), "two residents have distinct stable breath phases")
 	# Stacy's investigator looks (owner's ruling stacy_investigator_look_r2_20261113): the street look with coat
 	# and trilby, and the indoor look in shirt and braces, worn on her installed body beside her work parts.
 	for look: Array in [["i_top", "i_bottom", "i_feet", "k_over", "k_head"], ["i_top", "i_bottom", "i_feet"]]:
@@ -160,6 +164,7 @@ func run() -> void:
 		var label := "stacy %s look" % ("street" if look.size() == 5 else "indoor")
 		check(dressed.ready_ok and dressed.errors.is_empty(), label + " binds on her installed body")
 		if dressed.ready_ok:
+			check(phases.has("stacy") and is_equal_approx(phases.stacy, dressed.attention.pipeline.breath_phase), label + " keeps her own breath phase across a separate model instance")
 			await frames(10)
 			check(dressed.wardrobe.worn.size() == look.size() and dressed.wardrobe.mesh_count() >= look.size(), label + " mounts every requested slot")
 			check(dressed.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, label + " keeps the body partitions")
@@ -235,3 +240,43 @@ func run() -> void:
 	await frames(2)
 	print("CAST COMPONENT RESULT: ", checks, " checks / ", failures.size(), " failures")
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+
+func check_shared_gaze(actor: Node3D, camera: Camera3D) -> void:
+	var attention: Node = actor.attention
+	var pipeline: Node = attention.pipeline
+	var prior_delta: float = pipeline.fixed_delta
+	pipeline.fixed_delta = 1.0 / 60.0
+	attention.staged_target = actor.global_position + Vector3.UP * 20.0
+	await frames(60)
+	check(is_zero_approx(pipeline.gaze_weight()), actor.person_id + " released before attention cue")
+	attention.staged_target = null
+	var forward: Vector3 = pipeline.facing_world()
+	var left: Vector3 = Vector3.UP.cross(forward).normalized()
+	var mark: Vector3 = pipeline.eye_world() + forward * 4.0 + left * 3.0
+	attention.ensemble_target = mark
+	attention._process(0.0)
+	actor._look_with_eyes()
+	check(attention.is_looking() and pipeline.focus_point().is_equal_approx(mark) and actor.face._eye_goal.x > 20.0,
+			actor.person_id + " eyes choose the distant performer even with a separate camera")
+	var began: float = pipeline._clock
+	var head_started := -1.0
+	for tick in 35:
+		await frames(1)
+		if head_started < 0.0 and pipeline.gaze_weight() > 0.0001:
+			head_started = float(pipeline._clock) - began
+	check(head_started >= 0.139 and head_started < 0.20, actor.person_id + " head follows the eyes after the 140 ms lead")
+	attention._on_conversation_started(actor.person_id, "test")
+	attention._process(0.0)
+	check(pipeline.focus_point().is_equal_approx(camera.global_position), actor.person_id + " conversation has priority over the distant performer")
+	attention._on_conversation_ended(actor.person_id)
+	attention._process(0.0)
+	check(pipeline.focus_point().is_equal_approx(mark), actor.person_id + " audience cue resumes after conversation")
+	attention.ensemble_target = null
+	actor.express("frustration", 1.0)
+	actor._look_with_eyes()
+	check(pipeline.breath_arousal > 0.5 and pipeline.refused_writes == 0, actor.person_id + " authored mood affects the existing breath writer")
+	actor.express("neutral", 0.0)
+	actor._look_with_eyes()
+	check(is_zero_approx(pipeline.breath_arousal), actor.person_id + " ordinary breath returns with neutral expression")
+	pipeline.fixed_delta = prior_delta
