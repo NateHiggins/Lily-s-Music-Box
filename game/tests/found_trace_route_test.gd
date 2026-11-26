@@ -40,13 +40,17 @@ func _route() -> void:
 		return
 	for trace_id: String in TRACE_IDS:
 		var source: Node3D = deposits[trace_id]
+		# Each room has its own approach. Retain all four observations even
+		# if a previous hand was interrupted or a support was unreachable.
+		if player._grab.active():
+			player._grab.release()
 		if not await _approach_source(source):
-			return
+			continue
 		if not await _stroke(source, true):
-			return
+			continue
 		if trace_id == "trace_room0":
 			if not await _select_in_case(trace_id) or not await _stroke(source, false) or not await _stroke(source, true):
-				return
+				continue
 	var snapshot: Variant = JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
 	if not _require(snapshot is Dictionary and Custody.held_ids().size() == 4 and CarriedCase.valid(snapshot.get(CarriedCase.KEY)),
 		"verified primary contains a valid case after the four source visits"):
@@ -150,8 +154,9 @@ func _stroke(source: Node3D, packing: bool) -> bool:
 		motion.screen_relative = motion.relative
 		get_viewport().push_input(motion, true)
 		await get_tree().physics_frame
-	if not _require(player._grab.active() and absf(float(player._grab.target.read.call()) - before) >= .10 and Custody.is_packed(trace_id) != packing,
-		"the hand moves the original over ten centimetres before release: " + trace_id):
+	var after := float(player._grab.target.read.call()) if player._grab.active() else float(source.sheet.position.y)
+	if not _require(player._grab.active() and absf(after - before) >= .10 and Custody.is_packed(trace_id) != packing,
+		"%s hand stroke on %s before release (%.3f to %.3f m, latched %s)" % ["lift" if packing else "return", trace_id, before, after, player._grab.active()]):
 		return false
 	await _click_world()
 	return _require(not player._grab.active() and Custody.is_packed(trace_id) == packing, "explicit release %s %s" % ["packs" if packing else "returns", trace_id])

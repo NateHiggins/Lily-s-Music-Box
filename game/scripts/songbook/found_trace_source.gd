@@ -112,7 +112,9 @@ func _grip() -> Dictionary:
 	var packed := Custody.is_packed(trace_id)
 	if packed and CarriedCase.hand() != Custody.item_id(trace_id):
 		return {}
-	return {"owner": self, "frame": self, "part": sheet, "kind": "slide", "axis": Vector3.UP,
+	# Keep the latched point on the support. The return sheet rises to meet
+	# the glove on begin; following it would drag the hit below the shelf.
+	return {"owner": self, "frame": self, "part": self, "kind": "slide", "axis": Vector3.UP,
 		"minimum": 0.0, "maximum": TRAVEL, "gesture_travel_px": DRAG_PIXELS,
 		"gesture_screen_axis": Vector2.UP, "read": func(): return _height,
 		"begin": _begin, "owns": func(): return _held, "write": _move_sheet,
