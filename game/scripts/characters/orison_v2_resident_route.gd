@@ -86,6 +86,11 @@ func setup(root: Node3D) -> bool:
 			previous = index
 	var mail: Node3D = world.adapter.resolve("LobbyMailBank")
 	var mail_point: Vector3 = mail.global_position - mail.global_basis.z * .9
+	# The weekday mail-bank overlap has two readers and a player approach
+	# between them. Both residents still walk their own graph to the bank.
+	if resident == "evelyn_marsh" or resident == "peter_wren":
+		var side := -1.0 if resident == "evelyn_marsh" else 1.0
+		mail_point += mail.global_basis.x.slide(Vector3.UP).normalized() * (side * 0.70)
 	mail_point.y = world.adapter.root.to_global(Vector3.ZERO).y
 	graph.connect_points(identities.mail_approach,_point("mail",mail_point))
 	var previous: int = identities.street
