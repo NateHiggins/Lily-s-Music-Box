@@ -436,7 +436,7 @@ func _run() -> void:
 			await get_tree().physics_frame
 			await get_tree().physics_frame
 			var target: Dictionary = world.player._grab.find_target()
-			var reachable := target.get("owner") == actor and target.get("part") == grip
+			var reachable: bool = target.get("owner") == actor and target.get("part") == grip
 			check(reachable,"standing player sees the actual dumbwaiter grip through the opening")
 			if not reachable:
 				print("Dumbwaiter review eye: ",world.player.camera.global_position," hit: ",world.player._grab.last_hit)
