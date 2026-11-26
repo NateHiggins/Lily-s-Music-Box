@@ -73,6 +73,20 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("rhea_sato", lambda d: d["nodes"]["rs_s2"].update(bank="JF027-A01"))
         self.assertIn("excluded bank line", self.failures())
 
+    def test_guests_keep_the_mirror_story_for_the_player_who_asks(self):
+        tree = json.loads((checker.DRAFTS / "transient_guests.json").read_text(encoding="utf8"))
+        nodes = tree["nodes"]
+        rumor = nodes[tree["entries"]["tg_rumor"]]
+        mirror = next(choice for choice in rumor["choices"] if choice["goto"] == "tg_r2")
+        self.assertEqual(mirror["requires"], ["m_mirror_seen"])
+        quiet = rumor["silence_goto"]
+        visited = set()
+        while quiet:
+            self.assertNotIn(quiet, visited)
+            self.assertNotEqual(quiet, mirror["goto"])
+            visited.add(quiet)
+            quiet = nodes[quiet].get("silence_goto")
+
     def test_a_choice_without_silence_fails(self):
         self.edit("cam_ortiz", lambda d: d["nodes"]["co_e1"].pop("silence_goto"))
         self.assertIn("no authored silence", self.failures())
