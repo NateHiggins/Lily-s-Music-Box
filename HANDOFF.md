@@ -1,3 +1,11 @@
+## November 25 Vantry refit
+
+Vantry’s rotor assembly sits lower over the case. The ordinary campaign date is on a fixed front plate beside the visible three-branch capacitor. The authored face fills more of the lower bezel. Received copy wraps into larger, shorter pages above the face. Walking retains the banking and overshoot, and the instrument steadies while printing and later in a visit. The travel display still borrows the prologue’s clock. The companion reads both clocks without writing either.
+
+In the occupied lobby, walking, reading a message and opening the keyboard were exercised through player controls. The closed face stays visible for reading. The keyboard opens when the player requests it. A controller case also holds a direction during deployment and types into the actual native editor. The campaign and prologue checks cover interruption, restoration of drafts and keyboard ownership, the original radiator delivery and save path, and all sixteen borrowed sky-clock samples. The full prologue console passed 146 checks, the cinematic passed 122 and the surface inventory passed 818. The 23 rendered pairs include the refit in occupied rooms.
+
+The [ordinary view comparison](D:/ov_reports/vantry_overhaul_20261125/world_r2/player-views.png) and [motion clip](D:/ov_reports/vantry_overhaul_20261125/motion/Vantry-in-the-lobby.mp4) are technical captures. Body copy remains small while walking. Lily’s visual review and a human playthrough remain open. [Native release evidence](D:/ov_reports/vantry_overhaul_20261125/release).
+
 ## November 25 ordinary hall exchange
 
 PR #581 places the existing Teresa and Cam exchange in a measured ground-floor hall pocket on Monday evening at 22:00–22:10. The original 22:20 hospital shift, Teresa's witnessable clue and all five dialogue lines retain their existing authority. Cam resumes the original rest timetable and its normal need-based choices.

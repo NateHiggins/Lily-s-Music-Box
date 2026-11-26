@@ -127,6 +127,9 @@ func _process(delta: float) -> void:
 		_scripted_seconds = 0.0
 		_edit.text = draft if _scripted.is_empty() else ""
 		_edit.grab_focus()
+		# A held direction can focus a LineEdit without entering edit mode.
+		# Deploying this keyboard is an explicit request to type on it.
+		_edit.edit()
 		_edit.caret_column = draft.length()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		_carrier.motion.hold_for_hand(true)
@@ -297,6 +300,15 @@ func bind_temporal_loop(loop: Node) -> void:
 	if loop != null:
 		loop.slip.connect(_temporal_slip)
 
+
+## Read the existing visit clock. A rerun returns the machine to its eager
+## starting hover without creating a second loop counter or save field.
+func flight_steadiness() -> float:
+	if not is_instance_valid(_bound_temporal_loop) or not _bound_temporal_loop.in_visit():
+		return 1.0
+	var elapsed: float = _bound_temporal_loop.loop_minutes()
+	var remaining: float = _bound_temporal_loop.loop_minutes_left()
+	return lerpf(1.12, .48, smoothstep(0.0, maxf(elapsed + remaining, 1.0), elapsed))
 
 func _temporal_loop() -> Node:
 	if not is_instance_valid(_bound_temporal_loop) and is_inside_tree():

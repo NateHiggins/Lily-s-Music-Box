@@ -143,8 +143,11 @@ func exercise() -> void:
 	if not check(await wait_for(func(): return carrier.motion.steady_for_input() and not carrier.device.teletype.printing), "recall and existing paper finish before input"):
 		finish(); return
 	var reports: int = carrier.device.printed_count
+	Input.action_press("ui_right")
 	await joy(JOY_BUTTON_A)
-	if not check(await wait_for(func(): return carrier.session.typing), "controller recall and accept deploy and settle physical keyboard"):
+	var typing_ready := await wait_for(func(): return carrier.session.typing)
+	Input.action_release("ui_right")
+	if not check(typing_ready and carrier.session._edit.is_editing(), "controller deploys the physical keyboard and enables text while a direction is held"):
 		finish(); return
 	check(player.text_input_owner == carrier.session and player.call_locked and not player.protected_input_active(), "typing acquires a separate movement/input lease")
 	await type_text("who are you")
@@ -190,7 +193,8 @@ func exercise() -> void:
 	check(enter_was_down, "actual submission depresses native Enter key")
 	check(not player._grab.active(), "editor-owned controller submission does not grab the world target behind the console")
 	check(carrier.session.draft.is_empty() and not player.call_locked, "submission clears accepted draft and returns player input")
-	check(carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation")
+	if not check(not carrier.session.dialogue.memory.history.is_empty() and carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation"):
+		finish(); return
 	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
 	if not check(await wait_for(func(): return not carrier.device.teletype.printing), "reply physically finishes printing"):
 		finish(); return

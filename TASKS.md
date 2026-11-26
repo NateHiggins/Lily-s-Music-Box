@@ -1195,6 +1195,8 @@ do not treat this as cancellation of installed ecology or approved future people
   and field construction just because its historical checklist is long.
 - **TL-GAPS — Finish the current autonomous companion, physical paper/keyboard,
   controls, sound, lamp and readable presentation against their actual owners.**
+  November 25, Codex, PR #582. Compact crown, exposed current date and capacitor,
+  and five-line companion text passed the installed walking, reading, typing and prologue checks. Lily’s visual review is open.
   October28 refit: approximately phone-sized, close to the face, contextual right
   third framing; flight-path body language with puttering/weaving and effortful
   upright correction, steady for reading/typing. Recheck native proportions,

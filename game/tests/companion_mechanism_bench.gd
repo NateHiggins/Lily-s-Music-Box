@@ -45,7 +45,7 @@ func _run() -> void:
 	check(absf(pane.mesh.get_aabb().size.x - .137) < .00001, "compact case preserves full original reading window width")
 	check(tray.mesh.get_aabb().size.x < .157, "compact keyboard is approximately display width")
 	check(rig._rotors.size() == 2 and absf(rig._rotors[0].position.x) < .00001 and absf(rig._rotors[1].position.x) < .00001
-		and rig._rotors[0].position.y > rig._rotors[1].position.y + .04, "two native helical rotors share one vertically separated coaxial crown")
+		and absf(rig._rotors[0].position.y - rig._rotors[1].position.y - .02444) < .0001, "two native helical rotors share one vertically separated coaxial crown")
 	rig._advance_mechanism(.016)
 	check(rig._rotors[0].rotation.y * rig._rotors[1].rotation.y < 0.0, "coaxial upper and lower screw assemblies actually counter rotate")
 	var rotor_heights: Array[Vector2] = []
@@ -60,7 +60,7 @@ func _run() -> void:
 					heights.x = minf(heights.x, point.y); heights.y = maxf(heights.y, point.y)
 					swept_radius = maxf(swept_radius, Vector2(point.x, point.z + .012).length())
 		rotor_heights.append(heights)
-	check(rotor_heights[0].x - rotor_heights[1].y > .005 and swept_radius < .0768, "imported coaxial assemblies retain axial separation and radial guard clearance throughout rotation")
+	check(rotor_heights[0].x - rotor_heights[1].y > .0026 and swept_radius > .054 and swept_radius < .0553, "imported coaxial assemblies retain axial separation and radial guard clearance throughout rotation")
 	var aerial := rig.model.find_child("Aerial", true, false) as Node3D
 	var aerial_radius := INF
 	for draw: MeshInstance3D in aerial.find_children("*", "MeshInstance3D", true, false):
@@ -68,7 +68,7 @@ func _run() -> void:
 			var vertices: PackedVector3Array = draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
 			for vertex: Vector3 in vertices:
 				var point: Vector3 = rig.model.to_local(draw.to_global(vertex))
-				if point.y > .139 and point.y < .225:
+				if point.y >= rotor_heights[1].x and point.y <= rotor_heights[0].y:
 					aerial_radius = minf(aerial_radius, Vector2(point.x, point.z + .012).length())
 	check(is_finite(aerial_radius) and aerial_radius > swept_radius + .003, "deployed native aerial clears the complete screw sweep with a positive measured margin")
 	var inspector: Node = preload("res://tests/orison_v2_surface_inventory.gd").new()

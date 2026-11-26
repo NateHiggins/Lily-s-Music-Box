@@ -953,7 +953,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (8.7, -3.2, -0.4) actual=(8.626986, -3.199207, -0.400382)",
+			"label": "service walking (8.7, -3.2, -0.4) actual=(8.639759, -3.199207, -0.40042)",
 			"ok": true
 		},
 		{
@@ -969,11 +969,11 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (10.1, -3.2, -0.4) actual=(10.02709, -3.199207, -0.400141)",
+			"label": "service walking (10.1, -3.2, -0.4) actual=(10.02787, -3.199207, -0.400022)",
 			"ok": true
 		},
 		{
-			"label": "service walking (10.9, -3.2, -0.5) actual=(10.82725, -3.199207, -0.491428)",
+			"label": "service walking (10.9, -3.2, -0.5) actual=(10.8273, -3.199207, -0.491423)",
 			"ok": true
 		},
 		{
@@ -1045,7 +1045,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (10.9, -3.2, -0.4) actual=(10.85514, -3.199207, -0.458891)",
+			"label": "service walking (10.9, -3.2, -0.4) actual=(10.85517, -3.199207, -0.458903)",
 			"ok": true
 		},
 		{
@@ -1053,7 +1053,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (8.7, -3.2, -0.4) actual=(8.771881, -3.199207, -0.400297)",
+			"label": "service walking (8.7, -3.2, -0.4) actual=(8.771884, -3.199207, -0.400297)",
 			"ok": true
 		},
 		{
@@ -1341,11 +1341,11 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (10.95, 3.2, -3.25) actual=(10.87723, 3.200319, -3.249682)",
+			"label": "service walking (10.95, 3.2, -3.25) actual=(10.8772, 3.200319, -3.249682)",
 			"ok": true
 		},
 		{
-			"label": "service walking (10.95, 3.2, -2.5) actual=(10.94355, 3.200319, -2.574536)",
+			"label": "service walking (10.95, 3.2, -2.5) actual=(10.94355, 3.200319, -2.574535)",
 			"ok": true
 		},
 		{
@@ -1511,15 +1511,15 @@
 			"shared_cache_count": 84,
 			"status": "PASS",
 			"tracked_borrowed_shapes": 168,
-			"tracked_nodes": 190613,
-			"tracked_playbacks": 106,
+			"tracked_nodes": 190596,
+			"tracked_playbacks": 109,
 			"tracked_resources": 246
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 589.882,
+		"elapsed_s": 578.415,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -3007,7 +3007,7 @@
 			"target": "(7.2, -3.2, -0.4)"
 		},
 		{
-			"actual": "(8.626986, -3.199207, -0.400382)",
+			"actual": "(8.639759, -3.199207, -0.40042)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
@@ -3022,14 +3022,14 @@
 			"target": "(8.7, -3.2, -0.4)"
 		},
 		{
-			"actual": "(10.02709, -3.199207, -0.400141)",
+			"actual": "(10.02787, -3.199207, -0.400022)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
 			],
-			"from": "(8.626986, -3.199207, -0.400382)",
+			"from": "(8.639759, -3.199207, -0.40042)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3037,14 +3037,14 @@
 			"target": "(10.1, -3.2, -0.4)"
 		},
 		{
-			"actual": "(10.82725, -3.199207, -0.491428)",
+			"actual": "(10.8273, -3.199207, -0.491423)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
 			],
-			"from": "(10.02709, -3.199207, -0.400141)",
+			"from": "(10.02787, -3.199207, -0.400022)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3052,14 +3052,14 @@
 			"target": "(10.9, -3.2, -0.5)"
 		},
 		{
-			"actual": "(10.85514, -3.199207, -0.458891)",
+			"actual": "(10.85517, -3.199207, -0.458903)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
 			],
-			"from": "(10.82725, -3.199207, -0.491428)",
+			"from": "(10.8273, -3.199207, -0.491423)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3067,14 +3067,14 @@
 			"target": "(10.9, -3.2, -0.4)"
 		},
 		{
-			"actual": "(8.771881, -3.199207, -0.400297)",
+			"actual": "(8.771884, -3.199207, -0.400297)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
 			],
-			"from": "(10.85514, -3.199207, -0.458891)",
+			"from": "(10.85517, -3.199207, -0.458903)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3089,7 +3089,7 @@
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
 			],
-			"from": "(8.771881, -3.199207, -0.400297)",
+			"from": "(8.771884, -3.199207, -0.400297)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3953,7 +3953,7 @@
 			"target": "(8.55, 3.2, -3.25)"
 		},
 		{
-			"actual": "(10.87723, 3.200319, -3.249682)",
+			"actual": "(10.8772, 3.200319, -3.249682)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
@@ -3968,14 +3968,14 @@
 			"target": "(10.95, 3.2, -3.25)"
 		},
 		{
-			"actual": "(10.94355, 3.200319, -2.574536)",
+			"actual": "(10.94355, 3.200319, -2.574535)",
 			"cargo": {},
 			"carried": "",
 			"collision_mask": 2097153,
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
 			],
-			"from": "(10.87723, 3.200319, -3.249682)",
+			"from": "(10.8772, 3.200319, -3.249682)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -3990,7 +3990,7 @@
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
 			],
-			"from": "(10.94355, 3.200319, -2.574536)",
+			"from": "(10.94355, 3.200319, -2.574535)",
 			"native_contact_layers": 2097152,
 			"native_contact_owner": true,
 			"noclip": false,
@@ -4030,8 +4030,8 @@
 	],
 	"source": {
 		"physical_inputs_sha256": "71f99bbb2908908a8d6957b9b97c77980be603f65f7b5813dcd4347e535dc338",
-		"repository_head": "7098f5105d309b306f3fec2d3d6a0119c34b5ba3",
-		"runtime_inputs_sha256": "adeec97fa35c58f7699bfd3034e5597f0798b9daa21840c8e895f774e81841af",
+		"repository_head": "2b60b8ba0bfa067c503a6254b203541cabffcfc9",
+		"runtime_inputs_sha256": "1b0fa0a44fedecf6d2069dfc42c1495c25da9e1ad5e784a10437bbe5139b05c6",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_scene_path": "game/tests/orison_v2_first_slice_contract_test.tscn",
 		"test_scene_sha256": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",

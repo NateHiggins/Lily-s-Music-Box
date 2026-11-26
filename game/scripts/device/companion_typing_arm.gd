@@ -197,7 +197,6 @@ func advance(delta:float) -> void:
 
 func _seek(seconds:float) -> void:
 	animator.seek(seconds,true)
-	if rig.temporal_register!=null:rig.temporal_register.follow_door()
 
 func keyboard_case_clear() -> bool:
 	return case_time>=PREOPEN_END
