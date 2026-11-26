@@ -9,6 +9,13 @@ extends Node
 const Conversation = preload("res://scripts/device/companion_conversation.gd")
 const Economy = preload("res://scripts/game/caretaker_economy.gd")
 
+class WitnessFixture extends Node:
+	var nadia_present := true
+
+	func witness_present(resident_id: String) -> bool:
+		return nadia_present and resident_id == "nadia_quell"
+
+
 var _fails := 0
 
 
@@ -30,6 +37,63 @@ func _labels(panel: CaseDialoguePanel) -> Array:
 	return panel.offered_labels()
 
 
+func _check_reply_deadline(owner: ResidentConversations, panel: CaseDialoguePanel) -> void:
+	var saved_date := owner.playtest_date
+	var saved_minute := owner.playtest_minute
+	var topic := "That one's for 6C?"
+	for spoken: bool in [false, true]:
+		for expiry: String in ["menu", "reply", "next_day", "on_time"]:
+			RealityState.reset_campaign_for_tests()
+			owner.playtest_date = "1929-07-19"
+			owner.playtest_minute = 18 * 60 + 10
+			var opened := owner.start_mystery("cam_ortiz", true) if spoken else owner.start("cam_ortiz")
+			var at := _labels(panel).find(topic)
+			var label := "Cam %s / %s" % ["spoken" if spoken else "knock", expiry]
+			_check(label + " offers the topic", opened and at >= 0)
+			if not opened or at < 0:
+				owner.cancel_for_transition()
+				continue
+			if expiry == "menu":
+				owner.playtest_minute += 1
+			panel.choose(at)
+			if expiry != "menu":
+				var take := _labels(panel).find("Leave it with me.")
+				_check(label + " reaches the authored decision", panel.current_node_id == "co_k1" and take >= 0)
+				if expiry == "reply":
+					owner.playtest_minute += 1
+				elif expiry == "next_day":
+					owner.playtest_date = "1929-07-20"
+				if take >= 0:
+					panel.choose(take)
+			_check(label + " records hearing only upon reaching Cam's words", RealityState.has_knowledge("mt:co_keep") == (expiry != "menu"))
+			_check(label + " grants envelope only on time", RealityState.has_knowledge("m_o2_kept_envelope") == (expiry == "on_time"))
+			if expiry == "on_time":
+				_check(label + " displays acceptance", panel.current_node_id == "co_k2")
+			else:
+				_check(label + " releases the expired conversation", not panel.attention_active() and owner._active_resident.is_empty())
+			owner.cancel_for_transition()
+
+	RealityState.reset_campaign_for_tests()
+	owner.playtest_date = "1929-11-09"
+	owner.playtest_minute = 16 * 60
+	RealityState.grant_knowledge("m_receipt_seen")
+	var witness := WitnessFixture.new()
+	add_child(witness)
+	witness.add_to_group("loop_performances")
+	_check("Mae opens with Nadia present", owner.start_mystery("mae_kessler", true, "mk_box"))
+	panel.choose(0)
+	_check("Mae speaks before Nadia leaves", panel.current_node_id == "mk_b1")
+	witness.nadia_present = false
+	panel.choose_silence()
+	_check("a silent reply cannot continue without Nadia", not panel.attention_active() and owner._active_resident.is_empty())
+	_check("Mae's spoken first line stays heard", RealityState.has_knowledge("mt:mk_box"))
+	owner.cancel_for_transition()
+	witness.free()
+	RealityState.reset_campaign_for_tests()
+	owner.playtest_date = saved_date
+	owner.playtest_minute = saved_minute
+
+
 func _run() -> void:
 	var conversations := ResidentConversations.new()
 	var panel := CaseDialoguePanel.new()
@@ -43,6 +107,7 @@ func _run() -> void:
 	_check("playtest panel absent without its variable",
 			not conversations.get_children().any(func(c): return c.get_script() != null and str(c.get_script().resource_path).ends_with("mystery_playtest.gd")))
 
+	_check_reply_deadline(conversations, panel)
 	# Gates.
 	var thread_ids := func(resident: String, date: String, minute: int) -> Array:
 		return conversations.active_threads(resident, date, minute).map(func(t): return t.id)
@@ -154,6 +219,10 @@ func _run() -> void:
 
 	_check_silence_gates(conversations, panel)
 
+	# This panel fixture supplies the authored witness for the all-thread walk.
+	var witness_fixture := WitnessFixture.new()
+	add_child(witness_fixture)
+	witness_fixture.add_to_group("loop_performances")
 	# Every thread is walkable on the panel, first reply each time.
 	conversations.playtest_holds = true
 	for resident_id in conversations.mystery:
@@ -178,6 +247,8 @@ func _run() -> void:
 			else:
 				panel.close()
 	conversations.playtest_holds = false
+
+	witness_fixture.free()
 
 	# Companion.
 	var talk := Conversation.new()

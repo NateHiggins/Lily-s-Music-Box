@@ -327,7 +327,7 @@ func run_tree(tree: Dictionary, entry_id: String, on_flag: Callable,
 	_show_node(entry_id)
 
 
-func _show_node(node_id: String, exchange: Dictionary = {}) -> void:
+func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Callable()) -> void:
 	var nodes: Dictionary = _tree.get("nodes", {})
 	if not nodes.has(node_id):
 		push_warning("case dialogue: missing node '%s'" % node_id)
@@ -358,13 +358,13 @@ func _show_node(node_id: String, exchange: Dictionary = {}) -> void:
 		options.append({"text": str(choice.label),
 				"evidence": choice.has("evidence"),
 				"infer": bool(choice.get("infer", false)),
-				"action": _advance_action(choice)})
+				"action": _advance_action(choice, reply_guard)})
 	if node.has("silence_goto"):
 		var silence := {"goto": node.silence_goto, "flag": node.get("silence_flag", "")}
 		if node.has("silence_trust"):
 			silence["trust"] = node.silence_trust
 		options.append({"text": "Say nothing.", "silent": true,
-				"action": _advance_action(silence)})
+				"action": _advance_action(silence, reply_guard)})
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
 	_line_exchange = exchange
@@ -382,14 +382,19 @@ func _show_node(node_id: String, exchange: Dictionary = {}) -> void:
 	node_shown.emit(node_id)
 
 
-func _advance_action(choice: Dictionary) -> Callable:
+func _advance_action(choice: Dictionary, inherited_guard: Callable) -> Callable:
+	var goto_id := str(choice.get("goto", ""))
+	var target: Dictionary = _tree.nodes.get(goto_id, {})
+	var guard: Callable = target.get("reply_guard", inherited_guard)
 	return func():
+		# Check the selected topic before any reply effects or destination flags.
+		if guard.is_valid() and not bool(guard.call()):
+			return
 		# A flag implies one trust unless the reply says otherwise; a reply may
 		# also move trust alone, as the inference and comfort replies do.
 		var flag := str(choice.get("flag", ""))
 		if (flag != "" or choice.has("trust")) and _on_flag.is_valid():
 			_on_flag.call(flag, int(choice.get("trust", 1)))
-		var goto_id := str(choice.get("goto", ""))
 		if goto_id != "":
 			# Only an offered reply can create this callback. Its reaction belongs
 			# exclusively to the line that answering it puts on screen.
@@ -398,7 +403,7 @@ func _advance_action(choice: Dictionary) -> Callable:
 				exchange["inferred"] = true
 			if choice.has("evidence"):
 				exchange["evidence"] = true
-			_show_node(goto_id, exchange)
+			_show_node(goto_id, exchange, guard)
 		else:
 			_end_tree()
 

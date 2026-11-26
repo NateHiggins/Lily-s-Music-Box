@@ -889,16 +889,11 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 	if date == "":
 		return out
 	for thread in (mystery.get(resident_id, {}).get("threads", []) as Array):
-		if date < str(thread.from) or date > str(thread.until):
+		if not _thread_in_scene(thread, date, minute):
 			continue
 		if thread.has("hold") and not playtest_holds:
 			continue
 		if RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
-			continue
-		if thread.has("hours"):
-			if minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1])):
-				continue
-		if not _witnesses_present(thread):
 			continue
 		var ready := true
 		for flag in thread.get("requires", []):
@@ -910,6 +905,23 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 		if ready:
 			out.append(thread)
 	return out
+
+
+func _thread_in_scene(thread: Dictionary, date: String, minute: int) -> bool:
+	if date < str(thread.from) or date > str(thread.until):
+		return false
+	if thread.has("hours") and (minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1]))):
+		return false
+	return _witnesses_present(thread)
+
+
+## The topic may already be heard. Only its deadline and required cast can
+## expire while its reply is on screen.
+func _continue_thread(thread: Dictionary) -> bool:
+	if _thread_in_scene(thread, today(), minute_now()):
+		return true
+	cancel_for_transition()
+	return false
 
 
 ## A thread may name residents who must be bodily there (`present`). Only the
@@ -952,6 +964,7 @@ func _graft_thread_nodes(resident_id: String, into: Dictionary, active: Array[Di
 		into.nodes[node_id] = (source[node_id] as Dictionary).duplicate(true)
 	for thread in active:
 		var root: Dictionary = into.nodes[str(thread.root)]
+		root["reply_guard"] = _continue_thread.bind(thread)
 		var flags: Array = root.get("flags", [])
 		flags.append(MYSTERY_HEARD_PREFIX + str(thread.id))
 		root["flags"] = flags
