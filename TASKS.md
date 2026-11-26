@@ -1520,13 +1520,12 @@ accessibility and reload repairs first. Existing authorities stay installed.
   lacks a reader. The audit reports this conditional access and preserves the
   named entries for review. Returned dictionaries and arguments passed to a
   collaborator still need source-specific tracing. [Earlier sample](design/REPO_HOUSEKEEPING_2026-09-19.md)
-- **H23** **Close the voxel-light seam.** Two voxel lights now sit side by
-  side by owner ruling: the earlier presenter and Astra's critter binding.
-  Three suites fail at their boundary and are accepted by name, not fixed:
-  DreamZooWarehouseTest (placeholder species), DreamVoxelV1Test (shared
-  field allocation) and DreamCritterVoxelBindingTest (shared sampler
-  channels). Merging the two lights should close all three; see
-  `design/REPO_HOUSEKEEPING_2026-09-19.md` section 9.
+- **H23 — Optional waking-cell voxel-light presenter.** Verify that a lamp
+  reaches the intended cell in an upper-floor apartment when the presenter
+  is explicitly enabled. Preserve the ordinary waking-cell behavior. Use
+  the [developer creature fixture](game/docs/v2_launch.md#creature-testing-in-a-debug-session)
+  for isolated creature experiments. Its exhibits and reserved bays carry
+  no V2 campaign or release requirements. [Original voxel-light failures](design/REPO_HOUSEKEEPING_2026-09-19.md)
 
 - **H26 — V2 golden-shift evidence.** V1 removal retired GoldenLoopTest.
   The V2 repair, recurrence and Dream runs cover separate segments. Full
