@@ -434,7 +434,14 @@ func _answer(action: Callable) -> void:
 		action.call()
 	# The original choice callback sees the released panel/input as before.
 	# Rejoin a retained shot before the next frame, only within this same tree.
-	if not lens.is_empty() and attention_active() and is_same(previous_tree, _tree):
+	if previous_tree.is_empty() or not attention_active() or not is_same(previous_tree, _tree):
+		return
+	# The reader is already inside this exchange. Keep the next line legible
+	# on its first frame, including when the player answers during the fade.
+	if _fade and _fade.is_valid():
+		_fade.kill()
+	_panel.modulate.a = 1.0
+	if not lens.is_empty():
 		_speaker_framing.continue_reply(lens)
 
 

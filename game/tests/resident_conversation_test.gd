@@ -123,8 +123,12 @@ func _run() -> void:
 	offered = panel.offered_labels()
 	_check("the evidence reply appears when the player stands in 4A",
 			_has(offered, "[the staging table]"))
+	_check("a fresh conversation starts with its entrance fade", is_zero_approx(panel._panel.modulate.a))
 	panel.choose(_index(offered, "[the staging table]"))
 	_check("the table leads to the stations", panel.current_node_id == "pw_table")
+	_check("the evidence reply is readable on its first frame", is_equal_approx(panel._panel.modulate.a, 1.0))
+	await get_tree().process_frame
+	_check("the entrance tween cannot dim the reply again", is_equal_approx(panel._panel.modulate.a, 1.0))
 	panel.choose(_index(panel.offered_labels(), "'The other matter.'"))
 	panel.choose(_index(panel.offered_labels(), "What was the filing?"))
 	_check("reaching the appeal grants the node's own flag",
