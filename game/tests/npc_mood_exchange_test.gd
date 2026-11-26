@@ -13,6 +13,7 @@ const HarukiyaCast := preload("res://scripts/characters/harukiya_cast.gd")
 
 var conversations: ResidentConversations
 var panel: CaseDialoguePanel
+var player_unit := ""
 var checks := 0
 var failures: Array[String] = []
 
@@ -43,12 +44,13 @@ func run() -> void:
 	add_child(panel)
 	conversations = ResidentConversations.new()
 	add_child(conversations)
-	conversations.setup(panel, func() -> String: return "", func(_resident: String) -> bool: return true)
+	conversations.setup(panel, func() -> String: return player_unit, func(_resident: String) -> bool: return true)
 	CastBodies.set_for_test(["jonah_price", "mina_vale"])
 	await _resident_standing()
 	await _resident_seated()
 	await _mina()
 	await _staff()
+	await _choice_reactions()
 	CastBodies.set_for_test()
 	print("MOOD EXCHANGE RESULT: %d checks / %d failures" % [checks, failures.size()])
 	get_tree().quit(1 if not failures.is_empty() else 0)
@@ -207,7 +209,82 @@ func _staff() -> void:
 	for bone_name: String in hands:
 		still = still and (hands[bone_name] as Transform3D).origin.distance_to((after[bone_name] as Transform3D).origin) < 0.002
 	check(still, "her hands stay in the show pose")
+	# Stacy's shipped bar tree has no evidence choices. Exercise the same
+	# panel-to-staff path with a small fixture, without changing her dialogue.
+	var probe := {"meta": {"speaker_default": "STACY"}, "nodes": {
+		"open": {"line": "Well.", "choices": [{"label": "Show it.", "evidence": "fixture", "goto": "reply"}]},
+		"reply": {"line": "Well.", "choices": [{"label": "Leave."}]}}}
+	panel.run_tree(probe, "open", Callable())
+	cast.call("_on_started", "stacy", "")
+	panel.node_shown.connect(Callable(cast, "_on_node_shown"))
+	panel.choose(0)
+	var staff_reader: RefCounted = preload("res://scripts/characters/cast_resident_speech.gd").reader()
+	var staff_expected: Dictionary = staff_reader.read("stacy", "Well.", int(RealityState.resident_trust("stacy")), {"evidence": true})
+	for index in 40:
+		face.step(1.0 / 60.0)
+	check(panel.current_node_id == "reply" and face.expression() == str(staff_expected.expression),
+			"the staff face reads the selected evidence on the next line")
+	panel.run_tree(probe, "open", Callable())
+	check(panel.displayed_line().exchange.is_empty(), "restarting even the same tree clears the last selection")
+	panel.choose(0)
+	panel.present("Elsewhere", "Another voice.", [])
+	check(panel.displayed_line().exchange.is_empty(), "standalone takeover clears the selected evidence")
+	panel.run_tree(probe, "open", Callable())
+	panel.choose(0)
+	panel.close()
+	check(panel.displayed_line().exchange.is_empty(), "early close clears evidence before the next owner")
+	panel.node_shown.disconnect(Callable(cast, "_on_node_shown"))
 	await _close()
 	cast.free()
 	actor.queue_free()
 	await frames(2)
+
+func _choice_reactions() -> void:
+	RealityState.reset_campaign_for_tests()
+	var jonah := _resident(false)
+	await frames(4)
+	var speech: Node = jonah.get_node_or_null("CastSpeech")
+	if speech == null:
+		check(false, "Jonah has a speech hook for the authored choice exchange")
+		jonah.queue_free()
+		return
+	var evidence_label := "The bed faces the desk. Last thing you see is the page. [the bed]"
+	check(await _open("jonah_price"), "Jonah opens his first conversation outside the flat")
+	check(not panel.offered_labels().has(evidence_label) and panel.displayed_line().exchange.is_empty(),
+			"unavailable bedroom evidence is never offered or conveyed")
+	panel.close()
+	panel._end_tree()
+	player_unit = conversations.unit_of("jonah_price")
+	check(await _open("jonah_price"), "the same conversation opens inside his flat")
+	var evidence_index := panel.offered_labels().find(evidence_label)
+	check(evidence_index >= 0 and panel.displayed_line().exchange.is_empty(),
+			"offering eligible evidence leaves the opening reaction empty")
+	if evidence_index >= 0:
+		panel.choose(evidence_index)
+		_check_reaction(speech, "jp_bed", {"evidence": true}, 0)
+		var inferred := panel.offered_labels().find("You've arranged the room so you can't be let off.")
+		check(inferred >= 0, "Jonah offers the authored inference")
+		if inferred >= 0:
+			var prior := int(RealityState.resident_trust("jonah_price"))
+			panel.choose(inferred)
+			_check_reaction(speech, "jp_let_off", {"inferred": true}, int(RealityState.resident_trust("jonah_price")) - prior)
+			panel.choose_silence()
+			check(panel.current_node_id == "jp_would_have" and panel.displayed_line().exchange.is_empty(),
+					"silence does not inherit the inference")
+	panel.close()
+	check(panel.displayed_line().exchange.is_empty(), "closing clears visible reaction metadata")
+	panel._end_tree()
+	player_unit = ""
+	jonah.queue_free()
+	await frames(2)
+
+
+func _check_reaction(speech: Node, node_id: String, metadata: Dictionary, delta: int) -> void:
+	var snapshot := panel.displayed_line()
+	check(panel.current_node_id == node_id and snapshot.exchange == metadata,
+			"selected authored reply reaches only " + node_id)
+	var exchange := metadata.duplicate()
+	exchange["trust_delta"] = delta
+	var expected: Dictionary = preload("res://scripts/characters/cast_resident_speech.gd").reader().read(
+			"jonah_price", str(snapshot.text), int(RealityState.resident_trust("jonah_price")), exchange)
+	check(speech.get("last_reading") == expected, "the live walking resident reads the selected reply")

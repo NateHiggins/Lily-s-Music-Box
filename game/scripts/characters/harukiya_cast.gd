@@ -268,7 +268,7 @@ func _on_node_shown(_node: String) -> void:
 	# staged show poses, so no stage gesture here.
 	var mood: RefCounted = preload("res://scripts/characters/cast_resident_speech.gd").reader()
 	if mood != null:
-		var reading: Dictionary = mood.read(_speaker, words, int(RealityState.resident_trust(_speaker)))
+		var reading: Dictionary = mood.read(_speaker, words, int(RealityState.resident_trust(_speaker)), line.get("exchange", {}))
 		actor.express(str(reading.expression), float(reading.intensity))
 
 func shutdown() -> void:

@@ -67,6 +67,7 @@ var _context: Dictionary = {}
 var _actions: Array = []
 var _silence_action: Callable = Callable()
 var _fade: Tween
+var _line_exchange: Dictionary = {}
 var current_node_id := ""
 
 
@@ -180,6 +181,7 @@ func present(speaker_name: String, words: String, options: Array) -> void:
 
 
 func _replace_tree(incoming: Dictionary) -> void:
+	_line_exchange = {}
 	var previous := _tree
 	var interrupted := not current_node_id.is_empty() and not is_same(previous, incoming)
 	_tree = incoming
@@ -276,6 +278,7 @@ func owns_exclusive_input(player: PlayerController) -> bool:
 
 
 func close() -> void:
+	_line_exchange = {}
 	if _speaker_framing != null:
 		_speaker_framing.release()
 	_panel.visible = false
@@ -322,7 +325,7 @@ func run_tree(tree: Dictionary, entry_id: String, on_flag: Callable,
 	_show_node(entry_id)
 
 
-func _show_node(node_id: String) -> void:
+func _show_node(node_id: String, exchange: Dictionary = {}) -> void:
 	var nodes: Dictionary = _tree.get("nodes", {})
 	if not nodes.has(node_id):
 		push_warning("case dialogue: missing node '%s'" % node_id)
@@ -362,6 +365,7 @@ func _show_node(node_id: String) -> void:
 				"action": _advance_action(silence)})
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
+	_line_exchange = exchange
 	_present_line(speaker, str(node.line), options)
 	var actor := str(node.get("actor", ""))
 	# Ordinary, fallback and case trees have one known caller. A different
@@ -385,12 +389,20 @@ func _advance_action(choice: Dictionary) -> Callable:
 			_on_flag.call(flag, int(choice.get("trust", 1)))
 		var goto_id := str(choice.get("goto", ""))
 		if goto_id != "":
-			_show_node(goto_id)
+			# Only an offered reply can create this callback. Its reaction belongs
+			# exclusively to the line that answering it puts on screen.
+			var exchange := {}
+			if bool(choice.get("infer", false)):
+				exchange["inferred"] = true
+			if choice.has("evidence"):
+				exchange["evidence"] = true
+			_show_node(goto_id, exchange)
 		else:
 			_end_tree()
 
 
 func _end_tree() -> void:
+	_line_exchange = {}
 	current_node_id = ""
 	tree_ended.emit()
 
@@ -432,4 +444,4 @@ func offered_labels() -> Array:
 ## Read-only presentation snapshot for an actor face; dialogue remains owned here.
 func displayed_line() -> Dictionary:
 	return {"speaker": _speaker.text if _speaker != null else "",
-		"text": _line.text if _line != null else ""}
+		"text": _line.text if _line != null else "", "exchange": _line_exchange.duplicate()}
