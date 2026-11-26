@@ -142,6 +142,7 @@
         {"start_min": 720, "end_min": 765, "place": "unit", "activity": "eating", "outfit": "street", "detail": "lunch while pinning"},
         {"start_min": 765, "end_min": 840, "place": "corridor", "activity": "socializing", "outfit": "street", "detail": "delivering finished work door to door; lingers at each threshold longer than the handoff needs"},
         {"start_min": 840, "end_min": 1020, "place": "unit:workroom", "activity": "work", "outfit": "street", "detail": "fittings by appointment; neighbours come to her"},
+        {"start_min": 1020, "end_min": 1050, "place": "laundry", "activity": "chores", "outfit": "street", "days": ["sat"], "with": ["omar_bell"], "appointment": true, "detail": "sorting the wash while Omar checks the wringer; catches his loose cuff and puts in a holding stitch"},
         {"start_min": 1020, "end_min": 1080, "place": "laundry", "activity": "chores", "outfit": "street", "detail": "hers plus two other households', because she was going down anyway"},
         {"start_min": 1080, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "cooks too much; plates travel to doors"},
         {"start_min": 1170, "end_min": 1290, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "the mending basket: other people's things taken unasked; her own hems untouched beneath"},
@@ -252,6 +253,7 @@
         {"start_min": 1260, "end_min": 1380, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "apron off and hung; the hanging is the event"},
         {"start_min": 1260, "end_min": 1380, "place": "visit:5B", "activity": "socializing", "outfit": "street", "days": ["tue"], "with": ["cal_dwyer"], "detail": "valve sets and a chassis re-capped in situ; the one dead-air night of 1977 mostly not talked about"},
         {"start_min": 1380, "end_min": 1440, "place": "unit:workbench", "activity": "hobby", "outfit": "late_night"},
+        {"start_min": 1020, "end_min": 1050, "place": "laundry", "activity": "work", "outfit": "street", "days": ["sat"], "with": ["lena_ortiz"], "appointment": true, "detail": "checks the morning's washer repair under load; stands still for Lena to catch his cuff before it snags again"},
         {"start_min": 480, "end_min": 720, "place": "laundry", "activity": "work", "outfit": "street", "days": ["sat"], "detail": "deep-service of the machines plus his own washing, in the room the broadcast came from"},
         {"start_min": 480, "end_min": 600, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no rounds"},
         {"start_min": 600, "end_min": 780, "place": "unit", "activity": "chores", "outfit": "late_night", "days": ["sun"], "detail": "re-shelving and dusting the borrowed-broken archive; compulsion in place of church"}

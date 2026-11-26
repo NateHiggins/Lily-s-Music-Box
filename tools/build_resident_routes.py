@@ -215,7 +215,13 @@ def _route(resident, unit, layout, levels, spaces, links, shared_paths, shared_p
                     else point("%s_stair_clear" % below.lower(), *STAIR_CLEAR, yb))
         paths.append(down)
         floor -= 1
-    paths += [list(path) for path in shared_paths]
+    for shared in shared_paths:
+        path = list(shared)
+        if resident == "omar_bell" and path[-1][0] == "laundry":
+            # Stand on the washer side, with passing room for the central mark.
+            name, x, height, z = path[-1]
+            path[-1] = [name, rnd(x - 0.8), height, z]
+        paths.append(path)
     rooms = {key(sid): sid for sid in flat}
     main_room = next((k for k in ("main", "living", "studio") if k in rooms), key(inside))
     places = {"unit": main_room}

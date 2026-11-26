@@ -73,7 +73,7 @@ func _run() -> void:
 	var per_day := float(Time.get_ticks_msec() - started) / float(SCENARIOS.size() * agenda.order.size())
 	print("  full-day plan: %.1f ms per resident-day" % per_day)
 	_coverage(plans)
-	_hard_blocks(); _envelope_day()
+	_hard_blocks(); _envelope_day(); _washer_repair()
 	_weather(plans)
 	_story()
 	_player()
@@ -82,6 +82,26 @@ func _run() -> void:
 	var kitchen := _kitchens()
 	if OS.get_environment("AGENDA_REPORT") != "":
 		_report(plans, OS.get_environment("AGENDA_REPORT"), kitchen)
+
+
+## Saturday work already carries Omar to these machines; the return visit
+## ends before his bodega errand. Sunday dinner and the observance stay intact.
+func _washer_repair() -> void:
+	var day := 166 # 1929-06-15, Saturday, authored 365-key calendar.
+	var meet := {"omar_bell": "lena_ortiz", "lena_ortiz": "omar_bell"}
+	for slug: String in meet:
+		for m: int in [1020, 1049]:
+			var block := schedule.resolve(slug, "sat", m, day, false)
+			_check(slug + " Saturday washer appointment " + str(m), block.get("place") == "laundry"
+					and ScheduleDirector.has_appointment(block) and meet[slug] in block.get("with", []))
+		# Normal Agenda chooses this block even after six hours of reconstruction.
+		var chosen := agenda.decide(slug, "sat", 1030, day, false)
+		_check(slug + " actually chooses the Saturday appointment", chosen.get("place") == "laundry"
+				and chosen.get("source") == "timetable")
+	_check("Omar's bodega errand still begins at 17:30", schedule.resolve("omar_bell", "sat", 1050, day, false).get("place") == "bodega")
+	_check("Lena's washing continues past the repair", schedule.resolve("lena_ortiz", "sat", 1050, day, false).get("place") == "laundry")
+	_check("Lena sees Cam on Sunday", "cam_ortiz" in schedule.resolve("lena_ortiz", "sun", 1030, day + 1, false).get("with", []))
+	_check("March 25 observance supersedes ordinary work", schedule.resolve("lena_ortiz", "mon", 1030, 84, false).get("activity") == "ritual")
 
 
 ## Every resident's day is covered end to end with legal places and activities.
