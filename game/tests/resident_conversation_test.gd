@@ -321,8 +321,89 @@ func _check_reply_layout() -> void:
 				last_reply.get_global_rect().end.y <= visible.end.y - 34.0)
 		_check("dialogue at %s sits below the centre" % size,
 				panel._column.get_global_rect().position.y > visible.get_center().y)
+	await _check_long_replies(viewport, panel)
 	panel.close()
 	viewport.queue_free()
+
+
+## The same bar line and dated topics seen stacked in the installed Adela proof.
+## Presentation-only fixture: availability remains the conversation owner's job.
+func _check_long_replies(viewport: SubViewport, panel: CaseDialoguePanel) -> void:
+	var book: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/adela_voss.json"))
+	var mystery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/mystery/adela_voss.json"))
+	var line: Dictionary = book.nodes.ad_singing
+	var labels: Array[String] = [str(line.choices[0].label)]
+	for thread: Dictionary in mystery.threads:
+		labels.append(str(thread.topic))
+		if labels.size() == 14: break
+	labels.append("Say nothing.")
+	var chosen: Array[String] = []
+	var options := []
+	for label: String in labels:
+		options.append({"text": label, "action": func(): chosen.append(label), "silent": label == "Say nothing."})
+	for size: Vector2i in [Vector2i(960, 540), Vector2i(640, 360)]:
+		viewport.size = size
+		panel.present("ADELA", str(line.line), options)
+		for frame in 5: await get_tree().process_frame
+		var rect := panel._reply_scroll.get_global_rect()
+		var speaker := panel._speaker.get_global_rect()
+		var words := panel._line.get_global_rect()
+		_check("long replies keep speaker and line visible at %s" % size, speaker.position.y >= size.y * .48
+				and words.end.y <= rect.position.y and words.end.x <= size.x and rect.end.y <= size.y)
+		_check("all authored labels are available at %s" % size, panel.offered_labels() == labels
+				and panel._reply_scroll.get_v_scroll_bar().visible and panel._reply_scroll.scroll_vertical == 0)
+		var move := InputEventMouseMotion.new()
+		move.position = rect.get_center()
+		viewport.push_input(move, true)
+		var wheel := InputEventMouseButton.new()
+		wheel.position = move.position
+		wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN
+		wheel.pressed = true
+		viewport.push_input(wheel, true)
+		await get_tree().process_frame
+		_check("wheel scrolls the replies at %s" % size, panel._reply_scroll.scroll_vertical > 0)
+		var all_reached := true
+		for index in range(1, labels.size()):
+			# Alternate the default keyboard and controller down bindings.
+			var input: InputEvent
+			if index % 2:
+				var key := InputEventKey.new()
+				key.keycode = KEY_DOWN
+				key.pressed = true
+				input = key
+			else:
+				var pad := InputEventJoypadButton.new()
+				pad.button_index = JOY_BUTTON_DPAD_DOWN
+				pad.pressed = true
+				input = pad
+			viewport.push_input(input, true)
+			input.set("pressed", false)
+			viewport.push_input(input, true)
+			await get_tree().process_frame
+			var row := panel._choices.get_child(index) as Button
+			var bounds := row.get_global_rect()
+			all_reached = all_reached and viewport.gui_get_focus_owner() == row \
+					and bounds.position.y >= rect.position.y - 1 and bounds.end.y <= rect.end.y + 1
+		_check("directional focus reveals every row including silence at %s" % size, all_reached
+				and panel._speaker.get_global_rect() == speaker and panel._line.get_global_rect() == words)
+		var accept := InputEventKey.new()
+		accept.keycode = KEY_ENTER
+		accept.pressed = true
+		viewport.push_input(accept, true)
+		accept.pressed = false
+		viewport.push_input(accept, true)
+		_check("focused last reply activates at %s" % size, not chosen.is_empty() and chosen.back() == labels.back()
+				and not panel.attention_active())
+		chosen.clear()
+		for digit: int in [KEY_1, KEY_9, KEY_0]:
+			panel.present("ADELA", str(line.line), options)
+			var shortcut := InputEventKey.new()
+			shortcut.keycode = digit
+			shortcut.pressed = true
+			viewport.push_input(shortcut, true)
+			_check("shortcut %s preserves its authored reply at %s" % [digit, size], not chosen.is_empty()
+					and chosen.back() == labels[-1 if digit == KEY_0 else digit - KEY_1])
+			chosen.clear()
 
 
 static func _has(labels: Array, text: String) -> bool:
@@ -456,6 +537,18 @@ func _check_speaker_framing() -> void:
 	director.cancel_for_transition()
 	wall.free()
 	await get_tree().physics_frame
+	director.start_performance_sequence("stacy", lines, player)
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("speaker lens engaged before protected input changes hands", player.camera.fov < 76.0)
+	player.call_locked = true
+	for tick in 2:
+		await get_tree().physics_frame
+	_check("successor input restores the entry shot while the old panel remains visible",
+			panel.attention_active() and player.call_locked and is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	_check("retiring the speaker leaves the new input owner in control", player.call_locked)
+	player.call_locked = false
 	director.start_performance_sequence("stacy", lines, player)
 	for tick in 4:
 		await get_tree().physics_frame

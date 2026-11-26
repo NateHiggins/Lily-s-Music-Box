@@ -4,6 +4,7 @@ extends Node
 
 const RANGE := 3.5
 const MAX_LENS_CHANGE := 7.0
+var _owns_input: Callable
 var _player: PlayerController
 var _camera: Camera3D
 var _actor: Node3D
@@ -18,9 +19,11 @@ var _sight_elapsed := 0.0
 func _ready() -> void:
 	set_physics_process(false)
 
-func begin(player: PlayerController, resident_id: String) -> void:
+func begin(player: PlayerController, resident_id: String, owns_input: Callable) -> void:
 	release()
 	if not is_instance_valid(player) or player.inspecting() or not is_instance_valid(player.camera):
+		return
+	if not owns_input.is_valid() or not owns_input.call(player):
 		return
 	var camera := player.camera
 	if not camera.is_current() or camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
@@ -47,6 +50,7 @@ func begin(player: PlayerController, resident_id: String) -> void:
 			break
 	if _body == null:
 		return
+	_owns_input = owns_input
 	_player = player
 	_camera = camera
 	_entry_fov = camera.fov
@@ -69,7 +73,7 @@ func _in_shot(camera: Camera3D, eye: Vector3) -> bool:
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(_camera) or not is_instance_valid(_player) or not is_instance_valid(_body) \
 			or not is_instance_valid(_actor) or not _camera.is_current() or not _body.is_visible_in_tree() or _player.inspecting() \
-			or not _player.call_locked or not is_equal_approx(_camera.fov, _last_fov):
+			or not _owns_input.is_valid() or not _owns_input.call(_player) or not is_equal_approx(_camera.fov, _last_fov):
 		release()
 		return
 	var eye := _eye(_body, _head)
@@ -116,6 +120,7 @@ func release() -> void:
 	if is_instance_valid(_camera) and is_equal_approx(_camera.fov, _last_fov):
 		_camera.fov = _entry_fov
 	_camera = null
+	_owns_input = Callable()
 	_player = null
 	_actor = null
 	_body = null

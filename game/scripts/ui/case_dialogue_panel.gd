@@ -54,6 +54,8 @@ var _scrim: TextureRect
 var _column: VBoxContainer
 var _speaker: Label
 var _line: Label
+var _measure: MarginContainer
+var _reply_scroll: ScrollContainer
 var _choices: VBoxContainer
 const SpeakerFraming := preload("res://scripts/ui/resident_speaker_framing.gd")
 var _speaker_framing: SpeakerFraming
@@ -92,16 +94,13 @@ func _ready() -> void:
 	_scrim.offset_bottom = 0.0
 	_panel.add_child(_scrim)
 
-	var margin := MarginContainer.new()
-	margin.name = "Measure"
-	# Give the bottom-aligned column room to grow upward with more replies.
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_theme_constant_override("margin_left", 72)
-	margin.add_theme_constant_override("margin_right", 72)
-	margin.add_theme_constant_override("margin_bottom", 34)
-	margin.add_theme_constant_override("margin_top", 0)
-	_panel.add_child(margin)
+	_measure = MarginContainer.new()
+	_measure.name = "Measure"
+	# The column stays bottom-aligned as the viewport changes.
+	_measure.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_measure.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_measure.add_theme_constant_override("margin_top", 0)
+	_panel.add_child(_measure)
 
 	_column = VBoxContainer.new()
 	_column.name = "Column"
@@ -111,7 +110,7 @@ func _ready() -> void:
 	_column.alignment = BoxContainer.ALIGNMENT_END
 	_column.add_theme_constant_override("separation", 6)
 	_column.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_child(_column)
+	_measure.add_child(_column)
 
 	_speaker = Label.new()
 	_speaker.name = "Speaker"
@@ -143,12 +142,49 @@ func _ready() -> void:
 	rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_column.add_child(rule)
 
+	_reply_scroll = ScrollContainer.new()
+	_reply_scroll.name = "ReplyScroll"
+	_reply_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_reply_scroll.follow_focus = true
+	_column.add_child(_reply_scroll)
 	_choices = VBoxContainer.new()
 	_choices.name = "Replies"
 	_choices.add_theme_constant_override("separation", 2)
-	_column.add_child(_choices)
+	_choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_reply_scroll.add_child(_choices)
+	get_viewport().size_changed.connect(_fit_measure)
+	_line.minimum_size_changed.connect(_fit_replies, CONNECT_DEFERRED)
+	_choices.minimum_size_changed.connect(_fit_replies, CONNECT_DEFERRED)
+	_reply_scroll.resized.connect(_reveal_reply, CONNECT_DEFERRED)
+	_fit_measure()
 	_panel.visible = false
 	_panel.modulate.a = 0.0
+
+
+func _fit_measure() -> void:
+	var view := get_viewport().get_visible_rect().size
+	var side := mini(72, int(view.x * .075))
+	_measure.add_theme_constant_override("margin_left", side)
+	_measure.add_theme_constant_override("margin_right", side)
+	_measure.add_theme_constant_override("margin_bottom", mini(34, int(view.y * .05)))
+	_line.custom_minimum_size.x = minf(COLUMN_WIDTH, maxf(1.0, view.x - 2 * side))
+	_fit_replies()
+
+
+func _fit_replies() -> void:
+	# Reserve space for the visible question before giving the rest to replies.
+	# Use the wrapped controls' measured height so short lists still fit exactly.
+	var name_height := _speaker.get_combined_minimum_size().y if _speaker.visible else 0.0
+	var gaps := _column.get_theme_constant("separation") * (3 if _speaker.visible else 2)
+	var fixed := name_height + _line.get_combined_minimum_size().y + 1 + gaps
+	var available := get_viewport().get_visible_rect().size.y * .49 - fixed - _measure.get_theme_constant("margin_bottom")
+	_reply_scroll.custom_minimum_size.y = minf(_choices.get_combined_minimum_size().y, maxf(32.0, available))
+
+
+func _reveal_reply() -> void:
+	var focus := get_viewport().gui_get_focus_owner()
+	if _panel.visible and focus != null and _choices.is_ancestor_of(focus):
+		_reply_scroll.ensure_control_visible(focus)
 
 
 ## A vertical gradient: nothing at the top edge, a quiet dark at the bottom.
@@ -215,6 +251,18 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 				bool(option.get("evidence", false)), bool(option.get("infer", false)))
 		reply.pressed.connect(_answer.bind(action))
 		_choices.add_child(reply)
+	var replies := _choices.get_children()
+	for index in replies.size():
+		# Explicit neighbours keep clipped rows in directional and tab navigation.
+		var row := replies[index] as Button
+		var previous := row.get_path_to(replies[posmod(index - 1, replies.size())])
+		var following := row.get_path_to(replies[(index + 1) % replies.size()])
+		row.focus_neighbor_top = previous
+		row.focus_previous = previous
+		row.focus_neighbor_bottom = following
+		row.focus_next = following
+	_reply_scroll.scroll_vertical = 0
+	_fit_replies()
 	if not _panel.visible:
 		_previous_mouse = Input.mouse_mode
 	_panel.visible = true
@@ -235,6 +283,7 @@ func _reply_button(number: int, text: String, silent: bool, evidence: bool,
 	var button := Button.new()
 	button.text = "%d   %s" % [0 if silent else number, text]
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.flat = true
 	button.focus_mode = Control.FOCUS_ALL
 	button.custom_minimum_size = Vector2(0, 28)
@@ -378,7 +427,7 @@ func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Calla
 		if _speaker_framing == null:
 			_speaker_framing = SpeakerFraming.new()
 			add_child(_speaker_framing)
-		_speaker_framing.begin(_player, actor)
+		_speaker_framing.begin(_player, actor, owns_exclusive_input)
 	node_shown.emit(node_id)
 
 
