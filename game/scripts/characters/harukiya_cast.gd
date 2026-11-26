@@ -17,7 +17,6 @@ var ready_ok := false
 var _accum := 0.0
 var _speaker := ""
 var _floor_y := 0.0
-var _present: Variant = null
 var _rules := Rules.new()
 var _dressed_for := ""
 var _retired := false
@@ -128,6 +127,12 @@ func _adela_is_here() -> bool:
 	var where: Dictionary=world.call("resident_whereabouts","adela_voss")
 	return str(where.get("place",""))=="harukiya_bar"
 
+func lily_is_here() -> bool:
+	if _retired or not is_instance_valid(world): return false
+	# Counter-only hosts predate the installed resident timetable.
+	if not world.has_method("resident_whereabouts"): return counter.on_shift()
+	return str(world.resident_whereabouts("lily").get("place", "")) == "harukiya_bar"
+
 func _refresh_performer() -> void:
 	if _retired or not ready_ok or not performers.has("adela_voss"):return
 	var actor: CastModel=performers.adela_voss
@@ -214,21 +219,22 @@ func _process(delta: float) -> void:
 func refresh_presence() -> void:
 	if _retired or not ready_ok:return
 	_refresh_performer()
-	# Lily's chosen bar appearance follows this existing attendance window;
-	# this neither creates her a new timetable nor changes Stacy's work hours.
-	var present: bool = counter.on_shift()
+	var stacy_here: bool = counter.on_shift()
+	var lily_here := lily_is_here()
 	# The evening's clothes are chosen as the shift starts and again when the evening changes.
-	if present:
+	if stacy_here or lily_here:
 		# Keyed by the evening and what Lily is doing in it: at six on a Friday she changes for the set.
 		var lily_now := evening_situation("lily", conversations.today(), conversations.minute_now())
 		var evening := str(lily_now.date) + "|" + str(lily_now.activity)
 		if evening != _dressed_for:
 			_dressed_for = evening
 			dress_for_evening(conversations.today(), conversations.minute_now())
-	if _present == present:return
-	_present = present
-	for actor: CastModel in actors.values():actor.set_active(present)
-	if not present and actors.has(_speaker):_speaker = ""
+	for actor: CastModel in actors.values():
+		var present := stacy_here if actor.person_id == "stacy" else lily_here
+		if actor.visible != present:
+			actor.set_active(present)
+		if not present and _speaker == actor.person_id:
+			_speaker = ""
 
 func _on_started(id: String, _entry: String) -> void:
 	var actor:=_actor_for(id)

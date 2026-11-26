@@ -655,6 +655,9 @@
         {"start_min": 1080, "end_min": 1380, "place": "out", "activity": "socializing", "outfit": "street", "days": ["mon"], "detail": "Monday evening with Stacy, off the block; never in the bar"}
       ],
       "special_days": [
+        {"doy": 77, "label": "the extra two bars (Mon 18 Mar 1929)", "blocks": [
+          {"start_min": 1020, "end_min": 1140, "place": "harukiya_bar", "activity": "work", "appointment": true, "outfit": "street", "detail": "rehearsal with Adela before opening"}
+        ]},
         {"doy": 264, "proposed": true, "label": "the Ravenswood wall (Sat 21 Sep 1929)", "note": "tells the bar she has a sick aunt; climbs the Ravenswood stage wall in the silk; the etch starts at 22:40 (MOON:32, 42)", "blocks": [
           {"start_min": 1140, "end_min": 1440, "place": "out", "activity": "ritual", "outfit": "street", "detail": "a sick aunt, she says"}
         ]},

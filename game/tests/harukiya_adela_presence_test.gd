@@ -159,7 +159,8 @@ func _context(month: int, day: int, minute: int, present: bool, place: String) -
 	var staff: Dictionary = cast.get("actors")
 	var staff_here: bool = world.harukiya_counter.call("on_shift")
 	for id: String in staff_ids:
-		_check(staff.has(id) and staff[id].get_instance_id() == int(staff_ids[id]) and staff[id].is_visible_in_tree() == staff_here, "original staff actor/attendance unchanged " + id)
+		var present_here: bool = staff_here if id == "stacy" else str(world.resident_whereabouts(id).get("place", "")) == "harukiya_bar"
+		_check(staff.has(id) and staff[id].get_instance_id() == int(staff_ids[id]) and staff[id].is_visible_in_tree() == present_here, "original actor follows her own attendance " + id)
 	details.contexts.append({"date":[1929,month,day],"minute":minute,"whereabouts":where,"present":present,"column":column,"staff_on_shift":staff_here})
 
 func _ray() -> Dictionary:
