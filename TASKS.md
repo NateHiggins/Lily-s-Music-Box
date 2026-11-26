@@ -1532,20 +1532,12 @@ accessibility and reload repairs first. Existing authorities stay installed.
   channels). Merging the two lights should close all three; see
   `design/REPO_HOUSEKEEPING_2026-09-19.md` section 9.
 
-- **H25** **Capture receipts still conflate lane-busy and timeout.**
-  (Found 2026-09-19, re-verified 2026-10-25.) The serial runner returns 73 for
-  lane busy, 124 for a ceiling kill and 78 for could-not-run, but
-  `tools/run_godot_capture.ps1` maps only 73, to `BUSY_OR_TIMEOUT`; a 124 kill
-  is recorded as `FAIL`, and 73 can no longer mean a timeout. Split the receipt
-  status into BUSY, TIMEOUT and FAIL and retire the combined label. It changes
-  capture-receipt vocabulary, so whoever owns that schema makes the call; the
-  comment in that script now states the real behaviour rather than the old one.
-- **H26** **GoldenLoopTest cannot run under explicit v2.**
-  (Found 2026-09-19, re-verified 2026-10-25.) `game/tests/golden_loop_test.gd`
-  still loads `res://scenes/building/orison_root.tscn` literally instead of
-  asking **BuildingRootSelector**, so the only end-to-end eleven-beat harness
-  is v1-world evidence whatever the selector says. Route it through the
-  selector, or retire it in favour of a schema-2 runtime-contract suite.
+- **H26 — V2 golden-shift evidence.** V1 removal retired GoldenLoopTest.
+  The V2 repair, recurrence and Dream runs cover separate segments. Full
+  eleven-beat coverage remains open. Record the uninterrupted player route
+  under K2 and each save/quit/relaunch under K3. The [K2 timeline](art/renders/orison_v2/m10_golden_shift_v2_01/k2_timeline.json)
+  has no observed beats and the [K3 matrix](art/renders/orison_v2/m10_golden_shift_v2_01/k3_boundary_matrix.json)
+  has 0 of 11 verdicts. Keep the historical failures and scoped runtime contracts.
 
 - **H-CODEBASE-SIZE — Codex, priority cleanup: make the repository manageable by reducing audited excess file count and size.** October30 non-destructive census finds69,554 tracked paths and472,520 files present/205.6GB logical file bytes under canonical,including nested worktrees,Gitobjects and caches; these are not all shipping files. Inventory tracked source,untracked/generated files,Godot caches,review/evidence artifacts and worktree copies separately; report counts/bytes by major directory without traversing reparse targets. Select bounded cleanup/consolidation batches using consumer and regeneration checks; prevent generated clutter returning through ignore/export policy where appropriate. Preserve editable/runtime assets,current acceptance packets,original failure evidence,saves,shared history and unmerged work; archive recoverable originals with indexed provenance before removal where needed. Verify affected imports/build/static consumers and record before/after counts and bytes. PR76–79 already consolidated25,740 plus4,878 source copies and retired734 historical images; do not repeat completed cleanup. No blanket deletion or branch/worktree removal. [Scope and recovery](design/AUDIT_UNUSED_SYSTEMS_REPORT.md#october-28--historical-evidence-storage-cleanup).
 
