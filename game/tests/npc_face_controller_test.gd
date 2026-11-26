@@ -176,6 +176,7 @@ func _ready() -> void:
 	_check(is_equal_approx(before, _shape(model, "jawOpen")) and _shape(model, "viseme_aa") < 0.001, "a written or silent line moves no mouth: nothing speaks unless told to")
 	_check(Face.load_cues("res://data/voice/no_such_line.json").is_empty(), "a line with no timing file has no cues")
 
+	_check_audio_clock(face, model, cues)
 	print("NPC FACE: eyes")
 	face.look(Vector2(18, 0))
 	_run(face, 0.4)
@@ -245,6 +246,40 @@ func _ready() -> void:
 	await _captures()
 	print("NPC FACE CONTROLLER TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)
+
+
+func _check_audio_clock(face: Node, model: Node3D, cues: Array) -> void:
+	face.seek_speech(0.35)
+	_check(not face.is_speaking(), "a playback sample cannot start a silent face")
+	face.speak(cues)
+	face.seek_speech(0.65)
+	_run(face, 1.6)
+	_check(face.is_speaking() and _shape(model, "viseme_PP") > 0.6, "a paused audio clock holds the consonant across render frames")
+	for bad_time: float in [-1.0, NAN, INF]:
+		face.seek_speech(bad_time)
+	_run(face, 0.25)
+	_check(_shape(model, "viseme_PP") > 0.6, "invalid audio positions leave the held cue alone")
+	face.seek_speech(0.35)
+	_run(face, 0.25)
+	_check(_shape(model, "viseme_aa") > 0.6 and _shape(model, "viseme_PP") < 0.02, "seeking backwards changes the mouth to the earlier vowel")
+	face.seek_speech(3.0)
+	_run(face, 0.3)
+	_check(not face.is_speaking() and _shape(model, "viseme_aa") < 0.02, "trailing audio beyond the cues releases the mouth")
+	face.seek_speech(0.95)
+	_run(face, 0.3)
+	_check(face.is_speaking() and _shape(model, "viseme_O") > 0.5, "the same bound recording can rewind from its silent tail")
+	face.stop_speaking()
+	face.seek_speech(0.65)
+	_run(face, 0.3)
+	_check(not face.is_speaking() and _shape(model, "viseme_PP") < 0.02, "late samples cannot restart an interrupted line")
+	face.speak(cues)
+	_run(face, 0.42)
+	_check(_shape(model, "viseme_aa") > 0.6, "a replacement timed line advances on its own until audio takes over")
+	face.seek_speech(0.65)
+	face.speak_untimed(0.25)
+	face.seek_speech(0.1)
+	_run(face, 0.5)
+	_check(not face.is_speaking(), "replacement untimed speech retains its own duration")
 
 
 func _check_film_gaze(face: Node, model: Node3D) -> void:

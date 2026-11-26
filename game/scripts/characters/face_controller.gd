@@ -51,6 +51,7 @@ var _clock := 0.0
 var _cues: Array = []
 var _speech_clock := -1.0
 var _speech_ends := 0.0
+var _audio_drives_speech := false
 var _fallback := false
 var _mouth: Dictionary = {}
 var _talk := 0.0
@@ -181,6 +182,7 @@ func blink() -> void:
 ## Speak a line whose mouth timing is known: rows of start, end and a mouth
 ## shape letter, as the timing tool writes them.
 func speak(cues: Array) -> void:
+	_audio_drives_speech = false
 	_cues = cues
 	_fallback = false
 	_speech_clock = 0.0
@@ -192,6 +194,7 @@ func speak(cues: Array) -> void:
 
 ## Speak a line that is heard but has no timing: a restrained jaw, no shapes.
 func speak_untimed(seconds: float) -> void:
+	_audio_drives_speech = false
 	_cues = []
 	_fallback = true
 	_speech_clock = 0.0
@@ -202,6 +205,7 @@ func speak_untimed(seconds: float) -> void:
 ## A written or silent line moves no mouth; an interrupted one stops here and
 ## the mouth eases shut.
 func stop_speaking() -> void:
+	_audio_drives_speech = false
 	_speech_clock = -1.0
 	_cues = []
 	_fallback = false
@@ -225,8 +229,18 @@ func _begin_turn() -> void:
 	_avert_until = _clock + _gaze_random.randf_range(float(gaze.aversion_least_seconds), float(gaze.aversion_most_seconds))
 
 
+## Absolute seconds in the recorded line. Once playback supplies a position,
+## it owns this timed line until stop or replacement. The ordinary face step
+## still blends the sampled viseme with the eyes and expression in one write.
+func seek_speech(seconds: float) -> void:
+	if not bound or _cues.is_empty() or not is_finite(seconds) or seconds < 0.0:
+		return
+	_audio_drives_speech = true
+	_speech_clock = minf(seconds, _speech_ends)
+
+
 func is_speaking() -> bool:
-	return _speech_clock >= 0.0
+	return _speech_clock >= 0.0 and (not _audio_drives_speech or _speech_clock < _speech_ends)
 
 
 ## The mouth timing for a recorded line, or an empty array.
@@ -334,11 +348,12 @@ func step(delta: float) -> void:
 
 	# 4. Speech.
 	var mouth_goal: Dictionary = {}
-	if _speech_clock >= 0.0:
+	if _speech_clock >= 0.0 and not _audio_drives_speech:
 		_speech_clock += delta
 		if _speech_clock >= _speech_ends:
 			stop_speaking()
-		elif _fallback:
+	if is_speaking():
+		if _fallback:
 			var jaw: Dictionary = _data.fallback_jaw
 			var beat := _speech_clock * float(jaw.syllables_per_second) * TAU
 			# Two rhythms that do not line up, so the jaw does not tick.
@@ -351,7 +366,7 @@ func step(delta: float) -> void:
 				if at >= float(cue.get("start", 0.0)) and at < float(cue.get("end", 0.0)):
 					mouth_goal = (_data.mouth_shapes as Dictionary).get(str(cue.get("value", "X")), {})
 					break
-	_talk = _toward(_talk, 1.0 if _speech_clock >= 0.0 else 0.0, delta, 0.12)
+	_talk = _toward(_talk, 1.0 if is_speaking() else 0.0, delta, 0.12)
 	var mouth_names: Dictionary = {}
 	for shape: String in mouth_goal:
 		mouth_names[shape] = true
