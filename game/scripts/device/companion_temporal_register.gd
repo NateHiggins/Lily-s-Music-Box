@@ -32,6 +32,9 @@ var labels: Dictionary = {}
 var phase := "idle"
 var opening := 0.0
 var _owner: WeakRef
+var civil_plate: Label3D
+var campaign_clock: CampaignClock
+var _poll_remaining := 0.0
 var _carrier: Node
 var _target: Dictionary = {}
 var capacitor: ShaderMaterial
@@ -89,6 +92,19 @@ func configure(mechanism: Node3D, carrier: Node = null) -> bool:
 		if str(name).ends_with("RegisterHingeAction"): clip = name
 	if clip.is_empty():push_error("Temporal animation clip missing");return false
 	animator.play(clip); animator.pause()
+	# Remove the opaque lids from the installed assembly. Keep the glass,
+	# manufactured segments, and protected transition animation tracks.
+	hinge.hide()
+	native.find_child("CapacitorRevealHinge", true, false).hide()
+	var capacitor_mount := Node3D.new()
+	mount.add_child(capacitor_mount)
+	for part_name: String in ["AccessoryChassis__porcelain_fixture", "CapacitorServicePane"]:
+		mount.find_child(part_name, true, false).reparent(capacitor_mount, false)
+	capacitor_mount.rotation.y = PI
+	capacitor_mount.scale = Vector3.ONE * .70
+	capacitor_mount.position = Vector3(-.029, .030, .011)
+	_door_mount.position = Vector3(.011, .037, .028)
+	_set_charge(0)
 	for row: String in ["Departure", "Passing", "Destination"]:
 		var anchor := native.find_child("Readout_" + row, true, false) as Node3D
 		if anchor == null:push_error("Temporal readout anchor missing "+row);return false
@@ -111,22 +127,29 @@ func configure(mechanism: Node3D, carrier: Node = null) -> bool:
 			var status:=label.duplicate() as Label3D
 			status.name="DepartureUnknown";status.text="UNKNOWN";status.position=Vector3(.0031,0,.000074)
 			anchor.add_child(status);labels.Unknown=status
+	# Ordinary date occupies the full window. The temporal trip uses three
+	# independent rows and retains the original segmented readouts.
+	civil_plate = Label3D.new()
+	civil_plate.name = "CivilDate"
+	civil_plate.font = TelegramStyle.BOLD_FONT
+	civil_plate.font_size = 48
+	civil_plate.pixel_size = .000095
+	civil_plate.modulate = Color("ffbe62")
+	civil_plate.outline_size = 0
+	civil_plate.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	civil_plate.layers = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	civil_plate.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	civil_plate.position = Vector3(0, .006, .00125)
+	_door_mount.add_child(civil_plate)
 	_set_opening(0)
 	set_process(false)
 	return mechanism != null
 
 ## Actual exported composed sweep: garage motion plus safe-stow reveal.
 func envelope_in_rig() -> AABB:
-	var low:=Vector3(-.039650001,-.067900008,-.051969846)/.42
-	var high:=Vector3(.067731307,.033900001,.088665153)/.42
+	var low:=Vector3(-.058,-.067900008,-.051969846)/.42
+	var high:=Vector3(.067731307,.055,.088665153)/.42
 	return AABB(low,high-low)
-
-## Keep the animated native hierarchy intact. Arm animation and manual bench
-## seeks call this directly, including while the world is cinematically paused.
-func follow_door() -> void:
-	if _door_mount==null or _mechanism.typing_arm==null:return
-	var hatch:Node3D=_mechanism.typing_arm.native.find_child("Arm_Hatch",true,false)
-	if hatch!=null:_door_mount.global_transform=hatch.global_transform*Transform3D(Basis.IDENTITY,Vector3(.0082,-.0146,.00095))
 
 func safe_to_reveal() -> bool:
 	return not _mechanism.keyboard_requested and _mechanism.keyboard_open<=.001 and (_mechanism.typing_arm==null or (not _mechanism.typing_arm.active() and _mechanism.typing_arm.case_time<=.00001))
@@ -138,9 +161,9 @@ func begin(owner: Node, destination: Dictionary) -> bool:
 	_owner = weakref(owner); _target = State.annual_destination(destination)
 	_set_charge(1)
 	_set_row(0,"") # Never turn a staged death time into an invented date.
-	_set_row(1,"")
+
 	_set_row(2,_date(float(_target.utc_unix_seconds),int(_target.local_bias_minutes)))
-	phase = "opening"; set_process(true)
+	phase = "opening"; _set_opening(opening); set_process(true)
 	return true
 
 func sample_clock(owner: Node, utc_seconds: float) -> void:
@@ -161,7 +184,7 @@ func _set_row(row:int,text:String) -> void:
 
 func _set_charge(value:float) -> void:
 	capacitor.set_shader_parameter("capacitor_charge",value)
-	led.set_shader_parameter("capacitor_charge",value)
+	led.set_shader_parameter("capacitor_charge", value)
 
 func release(owner: Node, immediate := false) -> void:
 	if _owner == null or _owner.get_ref() != owner: return
@@ -194,11 +217,27 @@ func _set_opening(value: float) -> void:
 	# measured absolute mechanical stops remain exact; do not accumulate them.
 	if opening == 0: hinge.basis = Basis.IDENTITY
 	elif opening == 1: hinge.basis = Basis(Vector3.RIGHT, deg_to_rad(-100))
-	follow_door()
-	for label: Label3D in labels.values(): label.visible = opening > .98 and led.get_shader_parameter("capacitor_charge")>0
+	for label: Label3D in labels.values(): label.visible = opening > .98 and _owner != null
+	civil_plate.visible = _owner == null
+	labels.Passing.visible = not civil_plate.visible
 
 func _settle() -> void:
 	_set_opening(0); phase = "idle"; set_process(false)
+	_set_row(2, "")
+	refresh_campaign_date(0, true)
+
+func refresh_campaign_date(delta: float, immediate := false) -> void:
+	if campaign_clock == null or _owner != null: return
+	_poll_remaining -= delta
+	if not immediate and _poll_remaining > 0: return
+	_poll_remaining = .25
+	var date := campaign_clock.local_datetime()
+	if date.is_empty():
+		civil_plate.text = ""
+		_set_row(1, "")
+	else:
+		civil_plate.text = "%02d/%02d/%04d" % [date.month, date.day, date.year]
+		_set_row(1, "%02d/%02d/%04d %02d.%02d" % [date.month, date.day, date.year, date.hour, date.minute])
 
 static func _date(seconds: float, bias: int) -> String:
 	var date := Time.get_datetime_dict_from_unix_time(int(seconds) + bias * 60)

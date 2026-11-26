@@ -298,6 +298,15 @@ func bind_temporal_loop(loop: Node) -> void:
 		loop.slip.connect(_temporal_slip)
 
 
+## Read the existing visit clock. A rerun returns the machine to its eager
+## starting hover without creating a second loop counter or save field.
+func flight_steadiness() -> float:
+	if not is_instance_valid(_bound_temporal_loop) or not _bound_temporal_loop.in_visit():
+		return 1.0
+	var elapsed: float = _bound_temporal_loop.loop_minutes()
+	var remaining: float = _bound_temporal_loop.loop_minutes_left()
+	return lerpf(1.12, .48, smoothstep(0.0, maxf(elapsed + remaining, 1.0), elapsed))
+
 func _temporal_loop() -> Node:
 	if not is_instance_valid(_bound_temporal_loop) and is_inside_tree():
 		bind_temporal_loop(get_tree().get_first_node_in_group("temporal_loop"))

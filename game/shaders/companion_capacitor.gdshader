@@ -36,7 +36,7 @@ void fragment() {
 		}
 		ALBEDO *= off_lens_tint;
 	}
-	EMISSION = s.emission + amber_linear * powered * capacitor_charge * emission_strength;
+	EMISSION = s.emission + amber_linear * powered * (segmented_display ? capacitor_charge : mix(.22, 1.0, capacitor_charge)) * emission_strength;
 	BACKLIGHT = s.backlight;
 	CLEARCOAT = clearcoat;
 	CLEARCOAT_ROUGHNESS = clearcoat_roughness;
