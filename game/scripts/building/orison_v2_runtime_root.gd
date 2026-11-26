@@ -1084,6 +1084,14 @@ func _compose_authorities() -> void:
 		push_warning("ORISON V2 RUNTIME: loop performances refused: %s" % [loop_performances.errors])
 		loop_performances.queue_free()
 		loop_performances = null
+	# Voiced performed lines (doc408 voice pilot): the released takes, none until Lily accepts them, so the
+	# loop stays silent. ORISON_LOOP_VOICE_MANIFEST names a pilot manifest for development evidence only.
+	var loop_voice := LoopVoicePlayback.new()
+	loop_voice.name = "LoopVoicePlayback"
+	add_child(loop_voice)
+	var voice_manifest := OS.get_environment("ORISON_LOOP_VOICE_MANIFEST")
+	if not loop_voice.setup(conversations, temporal_loop, voice_manifest if not voice_manifest.is_empty() else LoopVoiceManifest.RELEASE):
+		loop_voice.queue_free()
 	# The loop in the rooms: the things each lead's steps lift, the evidence
 	# they uncover, and the case wall in 4B. A room it cannot stage is an
 	# error to fix, not a reason to refuse the building.
