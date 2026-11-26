@@ -93,11 +93,13 @@ func _run() -> void:
 			release.pressed = false
 			release.unicode = 0
 			panel.get_viewport().push_input(release, true)
-		_check(panel.lyrics[song.slots[0].id] == phrase,
-				"typed phrase is retained (%s)" % panel.lyrics[song.slots[0].id])
+		_check(panel._edit.text == phrase, "the first phrase accepts every typed character (%s)" % panel._edit.text)
 		_key(KEY_ESCAPE)
 		if panel.mode == RecorderPanel.Mode.EDIT:
 			_key(KEY_ESCAPE)
+		await get_tree().process_frame
+		_check(panel.mode == RecorderPanel.Mode.MENU and panel.lyrics[song.slots[0].id] == phrase,
+				"leaving before the deferred signal retains the whole phrase (%s)" % panel.lyrics[song.slots[0].id])
 		await _cancelled_calibration()
 		if _refusal_and_retry(song, vocal):
 			await _silent_retake(song)

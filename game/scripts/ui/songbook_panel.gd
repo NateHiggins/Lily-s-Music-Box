@@ -47,6 +47,7 @@ var _root: Control
 var _body: VBoxContainer
 var _status: Label
 var _edit: LineEdit
+var _edit_slot := ""
 var _backing: AudioStreamPlayer
 var _guide: AudioStreamPlayer
 var _mic: MicRecorder
@@ -151,9 +152,14 @@ func _build() -> void:
 
 
 func _clear() -> void:
+	if _edit != null:
+		# Native text_changed is deferred. Take the last keystroke with us if
+		# the player turns the page or leaves the editor in the same frame.
+		lyrics[_edit_slot] = _edit.text
+		_edit = null
+		_edit_slot = ""
 	for c in _body.get_children():
 		c.queue_free()
-	_edit = null
 
 
 func _line(text: String, colour: Color, size := 17) -> Label:
@@ -391,12 +397,13 @@ func _show_edit() -> void:
 	_line(SongResource.syllable_map(want), GREEN_DIM, 20)
 	_line("", GREEN, 6)          # the map's descenders, off the box
 	_edit = LineEdit.new()
-	_edit.text = str(lyrics.get(str(slot.id), ""))
+	_edit_slot = str(slot.id)
+	_edit.text = str(lyrics.get(_edit_slot, ""))
 	_edit.placeholder_text = "sing something"
 	_edit.add_theme_color_override("font_color", IVORY)
 	_edit.add_theme_font_size_override("font_size", 20)
 	_edit.custom_minimum_size = Vector2(0, 38)
-	_edit.text_changed.connect(_on_typed)
+	_edit.text_changed.connect(_on_typed.bind(_edit))
 	_body.add_child(_edit)
 	_edit.grab_focus()
 	_edit.edit()
@@ -439,15 +446,13 @@ func _refresh_count(want: int) -> void:
 		l.add_theme_color_override("font_color", AMBER)
 
 
-func _on_typed(_t: String) -> void:
-	var slot: Dictionary = song.slots[cursor]
-	lyrics[str(slot.id)] = _edit.text
-	_refresh_count(int(slot.get("suggested_syllables", 0)))
+func _on_typed(text: String, source: LineEdit) -> void:
+	if source == _edit:
+		lyrics[_edit_slot] = text
+		_refresh_count(int(song.slots[cursor].get("suggested_syllables", 0)))
 
 
 func _move(step: int) -> void:
-	if _edit:
-		lyrics[str(song.slots[cursor].id)] = _edit.text
 	cursor = clampi(cursor + step, 0, song.slots.size() - 1)
 	_show_edit()
 

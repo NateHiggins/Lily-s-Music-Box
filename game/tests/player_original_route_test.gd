@@ -117,7 +117,10 @@ func _author_take() -> bool:
 			event.unicode = TEST_WORDS.unicode_at(i) if pressed else 0
 			event.pressed = pressed
 			panel.get_viewport().push_input(event, true)
-	await get_tree().process_frame
+	for frame in 4:
+		if panel.lyrics.get(_lyric_slot) == TEST_WORDS:
+			break
+		await get_tree().process_frame
 	if not _require(panel._edit.text == TEST_WORDS and panel.lyrics.get(_lyric_slot) == TEST_WORDS,
 			"ordinary text input reaches both the editor (%s) and the authored phrase (%s)" % [panel._edit.text, panel.lyrics.get(_lyric_slot)]):
 		return false
