@@ -105,13 +105,22 @@ func _visit() -> void:
 	var lilies := get_tree().get_nodes_in_group("animated_residents").filter(func(actor): return str(actor.get("resident_id")) == "lily")
 	_check(lilies == [lily] and not world.resident_routes.has("lily"), "exactly one physical Lily is active")
 	if not _check(leaf.leaf_state == "closed" and leaf.passage_allowed() and not leaf.open, "the ordinary closed red door allows entry in the caretaker's current state"): return
-	var waypoints := ["entry_crate_upper","entry_crate_lower","entry_outside","entry_descent_01","entry_descent_02","entry_descent_03","entry_descent_foot","entry_threshold","entrance","backstage_entrance","backstage_public_axis","backstage","stage_e","stage_front"]
+	# Player-sized west aisle from the original exterior and found-trace routes.
+	# The resident crate detour clips the edge of the newspaper pile underfoot.
+	evidence.crate_detour_support = _foot_support(nav.get_node("entry_crate_lower").global_position)
+	var waypoints := ["entry_outside","entry_descent_01","entry_descent_02","entry_descent_03","entry_descent_foot","entry_threshold","entrance","backstage_entrance","backstage_public_axis","backstage","stage_e","stage_front"]
 	for id: String in waypoints:
 		var point: Vector3 = nav.get_node(id).global_position
+		var previous_count := trace.size()
 		var arrived := await _walk(world.adapter.root.to_local(point), 0.16)
-		if not trace.is_empty():
-			trace.back()["waypoint"] = id
-		if not arrived: return
+		if trace.size() <= previous_count: return
+		trace.back()["waypoint"] = id
+		trace.back()["support"] = _foot_support(player.global_position)
+		if not arrived:
+			# The failed endpoint stays in failures. Collect later evidence only
+			# when we actually reached the planar mark, standing within one step.
+			var gap := point - player.global_position
+			if not player.is_on_floor() or Vector2(gap.x, gap.z).length() >= 0.18 or absf(gap.y) > 0.30 or trace.back().support.is_empty(): return
 		if id == "entrance" and not _check(leaf.open and leaf.is_ready_for_passage(), "ordinary directional entry opened and cleared the real leaf"): return
 	var target: Area3D = adela.get("interaction")
 	player.camera.look_at(adela.global_position + Vector3.UP * 1.15)
@@ -148,6 +157,18 @@ func _visit() -> void:
 	if not _check(nodes.size() == 66 and nodes.back() == "av_o66" and not panel.attention_active() and not player.call_locked, "all 66 authored beats end and return player control"): return
 	if not await _civil("1929-03-19T16:10:00"): return
 	_check(world.harukiya_counter.on_shift() and stacy.visible and world.resident_whereabouts("lily").place != "harukiya_bar" and not lily.visible and not adela.visible, "next afternoon opens Stacy's shift while Lily and Adela are elsewhere")
+
+
+func _foot_support(base: Vector3) -> Array[Dictionary]:
+	var supports: Array[Dictionary] = []
+	var radius := player._capsule.radius * 0.92
+	for offset: Vector3 in [Vector3.ZERO, Vector3.RIGHT, Vector3.LEFT, Vector3.FORWARD, Vector3.BACK]:
+		var at := base + offset * radius
+		var query := PhysicsRayQueryParameters3D.create(at + Vector3.UP * 0.31, at + Vector3.DOWN * 0.34, 1, [player.get_rid()])
+		var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
+		if not hit.is_empty() and hit.normal.dot(Vector3.UP) > 0.7:
+			supports.append({"offset": str(offset * radius), "at": str(hit.position), "collider": str(hit.collider.get_path())})
+	return supports
 
 
 func _key(code: Key) -> void:
