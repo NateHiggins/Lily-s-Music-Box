@@ -1,3 +1,11 @@
+## November 26 historical phonautograms
+
+The boiler hearth, house-office desk, B1 laundry and Harukiya newspaper bundle each hold one original. A primary grab, lift and release moves the paper into a 5 × 3 place in the valise. Select the sheet into the glove to return it to its support. The Harukiya recorder reads the carried sheets. Player-made recordings are the open part of G3.
+
+On **23875cf38**, the [installed route](D:/ov_reports/found_traces_20261126/release02/route/shots/runtime_contract.json) passed 64 checks over five final approaches from staged room starts. The test saved and reloaded the boiler original while selected in the glove, returned and took it again, recovered all four identities from the primary, played one original and released the controls. [Six player views](D:/ov_reports/found_traces_20261126/release02/route/interaction_review.jpg). The separate custody test passed 66 checks including failed transfers and a temporal return.
+
+The original radiator and save route passed 369 checks with 176 walking waypoints. The physical surface inventory passed 818 checks. Review of the 23 rendered pairs found variation in the signal-room and kitchen light, a jagged shadow on the staff-closet roll and a brick-obscured dumbwaiter view. These results cover technical behavior and appearance. Human play and artistic acceptance remain open. [Native release case](D:/ov_reports/found_traces_20261126/release02) · [Review observations](D:/ov_reports/found_traces_20261126/release02/surface/observations.json).
+
 ## November 25 Vantry refit
 
 Vantry’s rotor assembly sits lower over the case. The ordinary campaign date is on a fixed front plate beside the visible three-branch capacitor. The authored face fills more of the lower bezel. Received copy wraps into larger, shorter pages above the face. Walking retains the banking and overshoot, and the instrument steadies while printing and later in a visit. The travel display still borrows the prologue’s clock. The companion reads both clocks without writing either.
