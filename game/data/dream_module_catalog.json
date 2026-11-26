@@ -13242,11 +13242,60 @@
    "id": "DAY_omar_bell_sat_06",
    "unlock_slot": 1,
    "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "omar_bell's sat, stop 6: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "weekday": "sat",
+   "day_order": 6,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "schedule_places": [
+    "laundry"
+   ],
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_sat_07",
+   "unlock_slot": 1,
+   "footprint_m": [
     3.5,
     2.8
    ],
    "source": {
-    "derivation": "omar_bell's sat, stop 6: exact F03_B_KITCHEN",
+    "derivation": "omar_bell's sat, stop 7: exact F03_B_KITCHEN",
     "records": [
      {
       "kind": "room",
@@ -13263,7 +13312,7 @@
    },
    "day_of": "omar_bell",
    "weekday": "sat",
-   "day_order": 6,
+   "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
    "schedule_places": [
     "unit:kitchen"
@@ -13288,14 +13337,14 @@
    ]
   },
   {
-   "id": "DAY_omar_bell_sat_07",
+   "id": "DAY_omar_bell_sat_08",
    "unlock_slot": 1,
    "footprint_m": [
     7.6,
     7.7
    ],
    "source": {
-    "derivation": "omar_bell's sat, stop 7: exact F03_LANDING",
+    "derivation": "omar_bell's sat, stop 8: exact F03_LANDING",
     "records": [
      {
       "kind": "room",
@@ -13312,7 +13361,7 @@
    },
    "day_of": "omar_bell",
    "weekday": "sat",
-   "day_order": 7,
+   "day_order": 8,
    "furnish_as": "D01_F04_LONG_HALL",
    "schedule_places": [
     "corridor"
