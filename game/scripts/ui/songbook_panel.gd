@@ -508,8 +508,8 @@ func _read_back() -> void:
 		claim = "the crank wandered. it is guessing."
 	_line(claim, GREEN_DIM, 15)
 	_line("", GREEN, 10)
-	_line("this is not what you sang.", GREEN_DIM, 15)
-	_line("it is what the line says you sang.", GREEN_DIM, 15)
+	_line("the paper kept the voice.", GREEN_DIM, 15)
+	_line("nobody wrote down the speed.", GREEN_DIM, 15)
 	_status.text = "any key to lift the stylus."
 
 

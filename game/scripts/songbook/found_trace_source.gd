@@ -152,6 +152,6 @@ func _finish(primary: bool) -> void:
 	# intact. Always redraw from custody; never publish an optimistic transfer.
 	_refresh()
 	if refused and is_instance_valid(_holder) and _holder.has_method("present_service_note"):
-		var message := "The packet is still in the valise." if _returning else "The valise would not take the paper. It is still here."
+		var message := "The paper is still in the valise." if _returning else "The valise would not take the paper. It is still here."
 		_holder.present_service_note(self, {"title": "Found trace", "body": message})
 	_holder = null

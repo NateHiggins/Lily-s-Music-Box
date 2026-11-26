@@ -229,6 +229,9 @@ REALITY_DATA_WRITE_RE = re.compile(
 CUSTODY_RE = re.compile(
     r"part_custody|player_has|has_item|took_part|tool_custody|"
     r"key_custody|material_consumed|source_depleted|custody")
+SCRIPT_IMPORT_RE = re.compile(
+    r"""\s*const\s+[A-Za-z_]\w*\s*(?::\s*(?:GDScript|Script|Resource)?\s*)?=\s*"""
+    r"""preload\(\s*(["'])(?:res://)[^"'\r\n]+\.gd\1\s*\)\s*;?\s*(?:#.*)?""")
 
 ELAPSED_RE = re.compile(
     r"elapsed|_MINUTES\b|bucket|>=\s*[A-Z_]*(MINUTES|SECONDS|TIMEOUT)|"
@@ -808,6 +811,10 @@ def _scan_physical(ctx, findings, line, scope, line_no):
 
 def _scan_custody(ctx, findings, line, scope, line_no):
     if not CUSTODY_RE.search(line):
+        return
+    # An immutable script reference has no item or holder. Keep evaluating
+    # other assignments, including code that invokes the imported script.
+    if SCRIPT_IMPORT_RE.fullmatch(line):
         return
     if ctx.writer == "inventory_authority":
         return
