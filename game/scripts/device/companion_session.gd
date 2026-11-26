@@ -19,6 +19,24 @@ var _edit: LineEdit
 var _campaign: Dictionary
 var _bound_temporal_loop: Node
 var _delivering := false
+# A coda belongs to the accepted, player-requested copy. Never replay one
+# from history or an interrupted print, even if the same text is on the paper.
+const REPLY_GESTURES := {
+	"sing_request": [&"good_side", &"companion_encore"],
+	"compliment_first": [&"good_side", &""],
+	"joke_request": [&"vaudeville_wink", &""],
+}
+var _gesture_line := ""
+var _gesture_serial := 0
+var _practice_line := ""
+var _echo := ""
+var _echo_until := 0
+var _voice_gap := 0.0
+var _speaking := false
+var lexicon := preload("res://scripts/device/companion_lexicon.gd").new()
+var _gesture_started := false
+var _gesture_source: StringName
+var _english_source: StringName
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
 var _events: Array[Dictionary] = []
 var _cooldown := 0.0
@@ -42,6 +60,8 @@ const OUTBOX_LIMIT := 8
 
 func setup(carrier: Node, player: PlayerController) -> void:
 	_carrier = carrier; _player = player
+	_gesture_source = StringName("companion_output:own_babble:correspondence:%d" % get_instance_id())
+	_english_source = StringName("companion_output:learned_english:%d" % get_instance_id())
 	var previous := get_tree().get_first_node_in_group(OWNER_GROUP)
 	if previous != null and previous != self: previous.retire()
 	add_to_group(OWNER_GROUP)
@@ -65,10 +85,12 @@ func setup(carrier: Node, player: PlayerController) -> void:
 	_restore()
 
 func _exit_tree() -> void:
+	_end_reply_gesture()
 	if is_instance_valid(_player): _player.release_text_input(self)
 	if is_instance_valid(_player) and is_instance_valid(_player.camera): _restore_reading_view()
 
 func retire() -> void:
+	_end_reply_gesture()
 	# Overlapping waking roots share one campaign. Transfer the last draft
 	# before the new session reads it; old save callbacks then become inert.
 	close()
@@ -110,9 +132,11 @@ func begin() -> bool:
 func _process(delta: float) -> void:
 	if retired: return
 	_update_reading_view()
+	if not _gesture_line.is_empty(): _advance_reply_gesture()
 	if (typing or opening) and (not available() or _player.text_input_owner != self):
 		suspend(); return
 	if get_tree().paused: return
+	_advance_speech(delta)
 	if opening:
 		_opening_seconds += delta
 		if _opening_seconds > 8.0:
@@ -240,6 +264,8 @@ func submit(value: String) -> void:
 	var scripted := not _scripted.is_empty()
 	var before := dialogue.memory.snapshot()
 	var context: Dictionary = context_provider.call() if context_provider.is_valid() else {}
+	context = context.duplicate()
+	context["has_spoken_words"] = not lexicon.practice().is_empty()
 	var calendar: Dictionary = calendar_provider.call() if calendar_provider.is_valid() else {}
 	# The temporal loop's typed commands (leads, jump, again, home, bank) are
 	# answered on the same paper; anything else is ordinary correspondence.
@@ -254,7 +280,13 @@ func submit(value: String) -> void:
 		dialogue.memory.restore(before)
 		if not scripted: draft = value.left(512)
 	else:
-		if not scripted: draft = ""
+		if not scripted:
+			draft = ""
+			var line_id := str(reply.get("line_id", ""))
+			if REPLY_GESTURES.has(line_id) or line_id in ["speech_practice", "speech_babble"]:
+				_gesture_line = line_id
+				_gesture_serial = _carrier.device.teletype._serial
+				_practice_line = lexicon.practice() if line_id == "speech_practice" else ""
 		var printed: Variant = reply.get("on_printed")
 		if printed is Callable and (printed as Callable).is_valid(): (printed as Callable).call()
 		if str(reply.get("intent", "")) in ["silence", "leave"]:
@@ -380,16 +412,95 @@ func _print(reply: Dictionary) -> bool:
 	return accepted
 
 func _paper_requested(_card: Dictionary, _serial: int) -> void:
+	_end_reply_gesture()
 	if not _delivering:
 		suspend()
 		_cooldown = 45.0 # Field copies and calls have priority over idle remarks.
 
 func _power_changed(powered: bool) -> void:
-	if not powered: suspend()
+	if not powered:
+		_end_reply_gesture()
+		suspend()
+
+func _advance_reply_gesture() -> void:
+	if not _carrier.reading or typing or opening or not available() or _carrier.story_pose_active() or _carrier.is_story_absent() or _carrier.device.teletype._reviewing or _carrier.device.teletype._serial != _gesture_serial:
+		_end_reply_gesture()
+		return
+	var gesture: Array = REPLY_GESTURES.get(_gesture_line, [&"", &""])
+	var rig: Node = _carrier.rig
+	if _gesture_started:
+		if (gesture[0] == &"" or rig.reaction_player.current != gesture[0]) and AudioPolicy.active_voice(_gesture_source) == null and not _speaking:
+			_end_reply_gesture()
+		return
+	if not _carrier.device.teletype.copy_delivered() or rig.keyboard_open > .05: return
+	# An already-playing face or a denied sound gets no late encore.
+	_gesture_started = true
+	if gesture[0] != &"": rig.play_reaction(gesture[0])
+	if _gesture_line == "speech_practice":
+		_say(_practice_line)
+	elif _gesture_line == "speech_babble":
+		AudioPolicy.present_3d(&"companion_babble_acknowledgement", _carrier.motion.global_position, 1.0, _gesture_source)
+	elif gesture[1] != &"":
+		AudioPolicy.present_3d(gesture[1], _carrier.motion.global_position, 1.0, _gesture_source)
+
+func _end_reply_gesture() -> void:
+	if _gesture_started:
+		if is_instance_valid(_carrier) and is_instance_valid(_carrier.rig) and is_instance_valid(_carrier.rig.reaction_player):
+			var face: Node = _carrier.rig.reaction_player
+			if REPLY_GESTURES.has(_gesture_line) and face.current == REPLY_GESTURES[_gesture_line][0]: face.cancel()
+		AudioPolicy.release_source(_gesture_source)
+	_gesture_line = ""
+	_practice_line = ""
+	_gesture_started = false
+	_stop_english()
+
+func hears_resident(panel: CaseDialoguePanel) -> bool:
+	return not retired and is_same(_campaign, RealityState.data) and is_instance_valid(_player) \
+		and panel._player == _player and panel.attention_active() and _player.camera.is_current() \
+		and _carrier.world_ready and _carrier.device.radio_powered and not _carrier.is_capture_hidden() \
+		and not _carrier.is_story_absent() and not _carrier.story_pose_active() and _carrier._sleep_onset <= .8 \
+		and not get_tree().paused and _player.camera.global_position.distance_to(_carrier.motion.global_position) <= 4.0
+
+func hear_resident_word(word: String, source: String, panel: CaseDialoguePanel) -> void:
+	if not hears_resident(panel) or not lexicon.learn(word, source): return
+	_snapshot()
+	if chatter_enabled and word in ["hello", "help", "here", "again", "okay", "oh", "yes", "no"] and lexicon.can_say(word):
+		_echo = word
+		_echo_until = Time.get_ticks_msec() + 24000
+
+func _say(line: String) -> void:
+	if not lexicon.can_say(line): return
+	_speaking = AudioPolicy.present_3d(StringName("companion_say_" + line), _carrier.motion.global_position, 1.0, _english_source)
+	if _speaking: _voice_gap = 45.0
+
+func _stop_english() -> void:
+	if _speaking: AudioPolicy.release_source(_english_source)
+	_speaking = false
+	_echo = ""
+
+func _advance_speech(delta: float) -> void:
+	_voice_gap = maxf(0.0, _voice_gap - delta)
+	if _echo.is_empty() and not _speaking: return
+	var observing := false
+	for panel: Node in get_tree().get_nodes_in_group("attention_people"):
+		if panel.attention_active():
+			observing = true
+			break
+	var free: bool = available() and not observing and not _carrier.is_story_absent() and not _carrier.story_pose_active()
+	if _speaking:
+		if not free:
+			_stop_english()
+		elif AudioPolicy.active_voice(_english_source) == null: _speaking = false
+	if Time.get_ticks_msec() > _echo_until or not chatter_enabled: _echo = ""
+	if not free or typing or opening or _gesture_line != "" or _voice_gap > 0 or _echo.is_empty(): return
+	if _carrier.device.teletype.printing or _carrier.arm_busy(): return
+	var word := _echo
+	_echo = ""
+	_say(word)
 
 func _snapshot() -> void:
 	if retired or not is_same(_campaign, RealityState.data): return
-	RealityState.data[Campaign.KEY] = {"version":1, "memory":dialogue.memory.snapshot(),
+	RealityState.data[Campaign.KEY] = {"version":2, "heard":lexicon.heard.duplicate(), "memory":dialogue.memory.snapshot(),
 		"draft":draft, "visited":visited.duplicate()}
 
 func _state_changed() -> void:
@@ -397,11 +508,15 @@ func _state_changed() -> void:
 	if not is_same(_campaign, RealityState.data): _restore()
 
 func _restore() -> void:
+	_end_reply_gesture()
 	close()
 	_campaign = RealityState.data
 	var value: Dictionary = _campaign.get(Campaign.KEY, Campaign.fresh())
 	dialogue = Conversation.new()
+	lexicon.heard.clear()
+	_voice_gap = 0.0
 	if Campaign.valid(value):
+		lexicon.heard = value.get("heard", {}).duplicate()
 		dialogue.memory.restore(value.memory)
 		draft = value.draft
 		visited.assign(value.visited)

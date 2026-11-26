@@ -64,10 +64,13 @@ var _actions: Array = []
 var _silence_action: Callable = Callable()
 var _fade: Tween
 var current_node_id := ""
+var _spoken := preload("res://scripts/audio/resident_heard_speech.gd").new()
 
 
 func _ready() -> void:
 	add_to_group("attention_people")
+	add_child(_spoken)
+	_spoken.setup(self)
 	layer = 11
 	_panel = Control.new()
 	_panel.name = "Conversation"
@@ -168,6 +171,7 @@ func attention_active() -> bool:
 ## One hand-built prompt. `options` are dictionaries with `text` and `action`,
 ## optionally `silent`, `evidence` or `infer` for presentation.
 func present(speaker_name: String, words: String, options: Array) -> void:
+	_spoken.cancel()
 	for old in _choices.get_children():
 		_choices.remove_child(old)
 		old.queue_free()
@@ -246,6 +250,7 @@ func _fade_to(alpha: float) -> void:
 
 
 func close() -> void:
+	_spoken.cancel()
 	_panel.visible = false
 	_panel.modulate.a = 0.0
 	if _fade and _fade.is_valid():
@@ -329,6 +334,7 @@ func _show_node(node_id: String) -> void:
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
 	present(speaker, str(node.line), options)
+	_spoken.begin(node_id, speaker, str(node.line))
 	node_shown.emit(node_id)
 
 

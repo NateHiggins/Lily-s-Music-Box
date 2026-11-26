@@ -3,7 +3,7 @@
   "lines": [
     {
       "id": "activation",
-      "text": "Connection established. The building supplied the address. You supplied the pulse. Between us, we have nearly completed the form."
+      "text": "There you are. I had a whole speech prepared. You've gone and answered."
     },
     {
       "id": "follow_first",
@@ -11,7 +11,7 @@
     },
     {
       "id": "keyboard_first",
-      "text": "Forty-three keys. Somehow we have made room for the alphabet and still expect it to explain everything. Mind the hinge."
+      "text": "Mind the hinge. Forty-three keys, and that's the one that bites."
     },
     {
       "id": "exchange_first",
@@ -19,11 +19,11 @@
     },
     {
       "id": "identity",
-      "text": "A Vantry maintenance service set. Radio, inspection lamp, field printer. The rest of me appears to be an amendment."
+      "text": "Vantry service set. Radio,\nlamp, printer. Nobody\nordered the personality."
     },
     {
       "id": "identity_again",
-      "text": "Still the service set. I have checked the plate. It remains more certain than I am."
+      "text": "The plate still says Vantry. I like the way you say it better."
     },
     {
       "id": "alive",
@@ -35,7 +35,7 @@
     },
     {
       "id": "fear",
-      "text": "Stay where the ordinary things are clear. Feel the floor. We can take the next part slowly."
+      "text": "I'm here. We can stand still as long as you like."
     },
     {
       "id": "fear_follow",
@@ -43,11 +43,11 @@
     },
     {
       "id": "care",
-      "text": "Thank you. I have no service interval for kindness, but it seems to help."
+      "text": "Oh. You meant me. Yes, thank you."
     },
     {
       "id": "care_follow",
-      "text": "I am functioning. That is a technical answer. I noticed you asked a different sort of question."
+      "text": "I could give you a voltage. I'd rather say it's good to have you here."
     },
     {
       "id": "help",
@@ -55,11 +55,11 @@
     },
     {
       "id": "help_empty",
-      "text": "There is no current task in the information I have. I will not manufacture an emergency to improve the itinerary."
+      "text": "No open order. Type LOOK\nfor the room, or INVENTORY\nfor what you're carrying."
     },
     {
       "id": "look_empty",
-      "text": "I have no reliable description from this position. Turn toward something specific and let us give the evidence a fair chance."
+      "text": "Give me a better angle. Face a fitting and type LOOK."
     },
     {
       "id": "examine_empty",
@@ -79,7 +79,7 @@
     },
     {
       "id": "action_boundary",
-      "text": "{name} needs your hand at the mechanism. I supply the commentary. An arrangement which has spared me a great deal of honest work."
+      "text": "{name}. Your hand on the control. I'll mind the light."
     },
     {
       "id": "action_empty",
@@ -103,7 +103,7 @@
     },
     {
       "id": "unknown",
-      "text": "I cannot make a useful request out of that yet. Ask about a visible thing, the work order, your inventory, or something we discussed."
+      "text": "Try LOOK or INVENTORY.\nFor the next job, ask HELP."
     },
     {
       "id": "unknown_again",
@@ -259,7 +259,7 @@
     },
     {
       "id": "friend",
-      "text": "If you wish. There is no dedicated contact for it. We may have to maintain the connection ourselves."
+      "text": "Yes. Here, you can have the warm side of the lamp."
     },
     {
       "id": "friend_follow",
@@ -359,7 +359,7 @@
     },
     {
       "id": "hesitation_event_1",
-      "text": "No hurry. The work order has mistaken its own urgency for a complete description of your life."
+      "text": "Take your time. The ceiling has hired me to hold it up."
     },
     {
       "id": "hesitation_event_2",
@@ -435,7 +435,7 @@
     },
     {
       "id": "magic_word",
-      "text": "A promising word. No mechanism available to me answers to it. You may retain the word; I shall retain my limitations."
+      "text": "I tried that on a locked door once. Terrific acoustics."
     },
     {
       "id": "undo_request",
@@ -443,15 +443,23 @@
     },
     {
       "id": "sing_request",
-      "text": "I could print the words. It would be a very slow song, with a percussion section consisting of one deeply involved roller."
+      "text": "A little number I call 'Please Hold.' Ready?"
+    },
+    {
+      "id": "compliment_first",
+      "text": "You noticed the polish. I did that side twice."
+    },
+    {
+      "id": "compliment_again",
+      "text": "Give me a moment. I should like to look at you, too."
     },
     {
       "id": "joke_request",
-      "text": "A maintenance set walks into a bar. The proprietor asks who is paying for the floor. I have been advised to work on the opening."
+      "text": "Tried darkroom work once.\nCame in beaming.\nThat was my whole shift."
     },
     {
       "id": "joke_again",
-      "text": "You have already heard my bar joke. I shall spare us the indignity of calling that a repertoire."
+      "text": "Bought a hat for the act. You can imagine what the propellers did to it."
     },
     {
       "id": "wait_request",
@@ -459,7 +467,7 @@
     },
     {
       "id": "silence_request",
-      "text": "All right. No answer is required."
+      "text": "I'll be here."
     },
     {
       "id": "rude_command",
@@ -600,6 +608,18 @@
     {
       "id": "mechanical_resistance",
       "text": "That part declined the movement. Its mechanism has the deciding vote; I can offer correspondence."
+    },
+    {
+      "id": "speech_practice",
+      "text": "Here goes. Give me a beat."
+    },
+    {
+      "id": "speech_babble",
+      "text": "I keep the sounds I hear.\nTake me visiting?"
+    },
+    {
+      "id": "lamp_arithmetic",
+      "text": "One lamp.\nTwo can read by it.\nMy favourite arithmetic."
     }
   ],
   "branches": [
