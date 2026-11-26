@@ -752,11 +752,13 @@ func _ordinary_clock(minute := 600) -> void:
 ## The routes are synthetic supported endpoints. Both the graph and visible
 ## body agree, so a distance/sight failure is not accidentally an arrival miss.
 func _arrange_encounter(item: Dictionary) -> void:
+	world.forced_blocks.clear()
 	for value: Variant in world.resident_routes.values():
 		(value as Route).outside = true
 	for i in item.actors.size():
 		var route: Route = world.resident_routes[str(item.actors[i])]
 		var place := str(item.places[0])
+		world.forced_blocks[str(item.actors[i])] = {"place": place, "activity": "rest"}
 		route.places[place] = "main"
 		route.graph.set_point_position(0, Vector3(1000, 0, i * 1.1))
 		route.arrive(place)
@@ -827,7 +829,7 @@ func _ordinary_exchanges() -> void:
 	check(not performance.ordinary.for_resident(first, "", performance._heard).is_empty(), "validated reload rebuilds transient ordinary heard state")
 	RealityState.flush_background_saves()
 	RealityState.persistence_enabled = false
-	for bad: String in ["outside", "hidden", "moving", "unarrived", "wrong_floor", "overlap", "far", "unsupported", "sleeping", "transit"]:
+	for bad: String in ["outside", "hidden", "moving", "unarrived", "wrong_floor", "overlap", "far", "unsupported", "next_appointment", "sleeping", "transit"]:
 		_ordinary_clock()
 		_arrange_encounter(pair)
 		check(performance.try_conversation(first, player), "pair live before " + bad)
@@ -841,6 +843,7 @@ func _ordinary_exchanges() -> void:
 			"overlap": _move_endpoint(other, Vector3(0, 0, -0.8))
 			"far": _move_endpoint(other, Vector3(0, 0, 2.0))
 			"unsupported": other.destination = "out"
+			"next_appointment": world.forced_blocks[str(pair.actors[1])] = {"place": "unit:desk", "activity": "work"}
 			"sleeping", "transit": world.forced_blocks[str(pair.actors[1])] = {"place": str(pair.places[0]), "activity": bad}
 		check(not performance.ordinary.eligible(pair, ""), "pair eligibility rejects " + bad)
 		_tick()
@@ -885,6 +888,7 @@ func _ordinary_exchanges() -> void:
 			check(performance.ordinary.eligible(item, ""), str(item.id) + " admits opening minute")
 			_ordinary_clock(int(item.hours[1]))
 			check(not performance.ordinary.eligible(item, ""), str(item.id) + " closes at exclusive end minute")
+	world.forced_blocks.clear()
 
 func _write_contract(engine_errors: Array[String]) -> void:
 	var directory := OS.get_environment("SHOT_DIR")

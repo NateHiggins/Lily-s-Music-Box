@@ -60,6 +60,10 @@ func eligible(item: Dictionary, anchor: String) -> bool:
 		if route == null or not bool(arrived.call(identity)) or str(route.destination) not in item.places:
 			return false
 		var block: Dictionary = world.resident_whereabouts(identity)
+		# The schedule can move on before the route next samples it. A body
+		# still at yesterday's mark cannot start another beat there.
+		if block.get("place", "") != route.destination:
+			return false
 		if str(block.get("activity", "")) in ["sleeping", "dressing", "shower", "transit"]:
 			return false
 		var case_id := RealityCases.case_for_resident(identity)
