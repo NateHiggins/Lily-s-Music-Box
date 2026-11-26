@@ -56,7 +56,7 @@ func _check_delivery_validation(director: ResidentConversations) -> void:
 				node["delivery"] = field
 			validator.errors.clear()
 			var accepted := bool(validate.call(tree, "fixture"))
-			var expected := field == null or field in ["spoken", "silent"]
+			var expected: bool = field == null or field in ["spoken", "silent"]
 			_check("node delivery %s in %s" % [str(field), id], accepted == expected
 					and (accepted or validator.errors.has("fixture: node %s delivery must be spoken or silent" % id)))
 	validator.free()
