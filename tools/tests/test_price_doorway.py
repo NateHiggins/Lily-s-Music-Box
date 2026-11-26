@@ -72,11 +72,14 @@ class PriceDoorwayTests(unittest.TestCase):
         blocks = []
         for resident, place in (("noel_price", "unit:doorway"), ("jonah_price", "visit:4C_doorway")):
             record = schedules[resident]
-            rows = next(v for v in record.values() if isinstance(v,list) and any(isinstance(row,dict) and row.get("place")==place for row in v))
-            block = next(row for row in rows if row.get("place")==place)
+            block = next(row for row in record["blocks"] if row.get("place") == place)
             self.assertEqual(block["days"], ["sun"])
             self.assertIn(place, encounter["places"])
             blocks.append(block)
         self.assertEqual(max(b["start_min"] for b in blocks),720)
         self.assertEqual(min(b["end_min"] for b in blocks),750)
         self.assertIn("notebook",encounter["excluded_anchors"])
+
+
+if __name__ == "__main__":
+    unittest.main()
