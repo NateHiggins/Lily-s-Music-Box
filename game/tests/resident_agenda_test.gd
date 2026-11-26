@@ -73,7 +73,7 @@ func _run() -> void:
 	var per_day := float(Time.get_ticks_msec() - started) / float(SCENARIOS.size() * agenda.order.size())
 	print("  full-day plan: %.1f ms per resident-day" % per_day)
 	_coverage(plans)
-	_hard_blocks(); _envelope_day(); _washer_repair()
+	_hard_blocks(); _envelope_day(); _washer_repair(); _mail_appointment()
 	_weather(plans)
 	_story()
 	_player()
@@ -102,6 +102,44 @@ func _washer_repair() -> void:
 	_check("Lena's washing continues past the repair", schedule.resolve("lena_ortiz", "sat", 1050, day, false).get("place") == "laundry")
 	_check("Lena sees Cam on Sunday", "cam_ortiz" in schedule.resolve("lena_ortiz", "sun", 1030, day + 1, false).get("with", []))
 	_check("March 25 observance supersedes ordinary work", schedule.resolve("lena_ortiz", "mon", 1030, 84, false).get("activity") == "ritual")
+
+
+## Real Friday shortage and held shopping compete with the authored encounter.
+func _mail_appointment() -> void:
+	var day := 165 # Friday, 1929-06-14, on the game's 365-key calendar.
+	var kitchen := KitchenLarder.new()
+	if not kitchen.load_data(agenda.homes()):
+		_check("mail control loads the real kitchen", false)
+		return
+	kitchen.bind({})
+	var pair := {"peter_wren": "evelyn_marsh", "evelyn_marsh": "peter_wren"}
+	for slug: String in pair:
+		var unit := kitchen.unit_of(slug)
+		kitchen.state.units[unit].stock.clear()
+		kitchen.state.units[unit].portions = 0
+		_check(slug + " actually needs a shopping trip", not kitchen.shopping_stop_for(kitchen.missing(slug), 1080).is_empty())
+		for m: int in [1080, 1085, 1094]:
+			var block := schedule.resolve(slug, "fri", m, day, false)
+			_check(slug + " weekday overlap " + str(m), block.get("place") == "mail_bank"
+					and ScheduleDirector.has_appointment(block) and pair[slug] in block.get("with", []))
+		for m: int in [465, 1079, 1095, 1099, 1100]:
+			_check(slug + " outside overlap " + str(m), not ScheduleDirector.has_appointment(schedule.resolve(slug, "fri", m, day, false)))
+		for weekend: String in ["sat", "sun"]:
+			_check(slug + " weekend has no standing mail meeting", not ScheduleDirector.has_appointment(schedule.resolve(slug, weekend, 1085, day + (1 if weekend == "sat" else 2), false)))
+	agenda.larder = kitchen
+	var saved_pantry := kitchen.state.duplicate(true)
+	for m: int in [1080, 1090]:
+		for slug: String in pair:
+			var chosen := agenda.decide(slug, "fri", m, day, false)
+			_check(slug + " comes to mail with an empty pantry at " + str(m), chosen.get("place") == "mail_bank"
+					and chosen.get("source") == "timetable" and pair[slug] in chosen.get("with", []))
+	_check("reconstructing mail does not stock or spend the household pantry", kitchen.state == saved_pantry)
+	agenda.larder = null
+	_check("Peter takes his meal after the mail", schedule.resolve("peter_wren", "fri", 1095, day, false).get("place") == "unit:kitchen")
+	_check("Evelyn finishes her own mail", schedule.resolve("evelyn_marsh", "fri", 1095, day, false).get("place") == "mail_bank")
+	_check("Peter's passed filing deadline retains its envelope ritual", schedule.resolve("peter_wren", "tue", 1085, 120, false).get("activity") == "ritual")
+	_check("Evelyn stays home at the start of term", schedule.resolve("evelyn_marsh", "mon", 1085, 244, false).get("place") == "unit")
+	_check("Peter's term-day check is unaccompanied", not ScheduleDirector.has_appointment(schedule.resolve("peter_wren", "mon", 1085, 244, false)))
 
 
 ## Every resident's day is covered end to end with legal places and activities.

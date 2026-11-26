@@ -240,7 +240,15 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 	candidates.append({"key": "timetable|%s|%s" % [block.get("place", "unit"), duty],
 			"place": str(block.get("place", "unit")), "activity": duty, "source": "timetable",
 			"why": str(block.get("detail", "keeps to the timetable")), "minutes": step,
-			"needs": {}, "hard": duty in motives.hard_activities or ScheduleDirector.has_appointment(block)})
+			"needs": {}, "hard": duty in motives.hard_activities})
+	if ScheduleDirector.has_appointment(block):
+		var appointed := candidates[0]
+		# An authored meeting is binding only at a reachable, permitted place.
+		# An unavailable route keeps the ordinary selection and its fallback.
+		if _place_open(slug, appointed):
+			appointed.block = block
+			appointed.motive = _motive(slug, state, appointed, weather)
+			return appointed
 	for option: Dictionary in motives.options:
 		candidates.append(_candidate(option, "need", "need|" + str(option.id)))
 	if arc < 2:
@@ -317,6 +325,10 @@ func _open(slug: String, candidate: Dictionary, minute: int, light: bool, traits
 		return false
 	if bool(candidate.get("daylight", false)) and not light and float(traits.night) < 0.8:
 		return false
+	return _place_open(slug, candidate)
+
+
+func _place_open(slug: String, candidate: Dictionary) -> bool:
 	var place := str(candidate.place)
 	var spec: Dictionary = motives.residents[slug]
 	if spec.avoid_places.has(place) and str(candidate.source) != "growth":
