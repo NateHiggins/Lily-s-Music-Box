@@ -321,9 +321,11 @@ between headings silently.
   the deliverable, but the owner's own bar applies: layered, meaningful
   accumulation implying use, neglect, improvisation, hidden labor or former
   glamour — never "messy as a substitute for design."
-- **B3** Decompress the couch and jukebox pocket. Measure the failing gaps
-  before moving anything; the jukebox should read as a local shrine, framed
-  and approachable, not jammed.
+- **B3** The lounge jukebox faces the public aisle. The player can select any
+  of the three original records, read the lit title and stop the motor with the
+  coin return. All 1,543 Harukiya destination checks passed, including onward
+  travel to all 24 seats. Lily’s review of the setting is open in Omni.
+  **D:/ov_reports/harukiya_jukebox_20261125/room03/**
 - **B4** Room expansion, sub-zones, bar/backbar presence, back-of-house,
   ceiling architecture, materials, lighting, traces of use, unease — the
   remaining commission, sequenced after B1–B3.

@@ -323,7 +323,10 @@ func _native_surfaces() -> void:
 	var before := _begin_contract("destination_native_uv_pbr_mips")
 	var inventory := SurfaceInventory.new()
 	var rows: Array = []
-	for draw: MeshInstance3D in destination.find_children("*", "MeshInstance3D", true, false):
+	var draws := destination.find_children("*", "MeshInstance3D", true, false)
+	var cabinet := bar.actors.get_node("Service_retail_bar_jukebox")
+	draws.append_array(cabinet.find_children("*", "MeshInstance3D", true, false))
+	for draw: MeshInstance3D in draws:
 		if draw.mesh == null or not draw.is_visible_in_tree(): continue
 		var mesh_row: Dictionary = inventory._mesh(draw.mesh)
 		for index in draw.mesh.get_surface_count():
@@ -662,8 +665,54 @@ func _walk(local: Vector3, label: String) -> bool:
 	var passed: bool = await motor._walk_service_player(player, bar, local)
 	return _check(passed, "actual production motor reaches " + label)
 
+func _jukebox_service() -> bool:
+	var before := _begin_contract("destination_jukebox")
+	if not await _go("jukebox_approach"): return false
+	var machine := bar.actors.get_node_or_null("Service_retail_bar_jukebox") as BakedFurnitureInteraction
+	if not _check(machine != null and machine.furniture_kind == "jukebox", "the authored jukebox is present in the public lounge"): return false
+	var boxes := get_tree().get_nodes_in_group("baked_furniture_interactions").filter(func(n): return bar.is_ancestor_of(n) and n.furniture_kind == "jukebox")
+	_check(boxes.size() == 1, "the lounge has a single local record owner")
+	_check(not machine._jukebox_player.playing, "the jukebox enters the room silent")
+	var legend := machine.find_child("RecordTitle", true, false) as Label3D
+	if not _check(legend != null and legend.is_visible_in_tree(), "the milk glass carries a visible record title"): return false
+	var records: Array = []
+	for group: String in ["Selector", "Selector", "Selector", "CoinReturn"]:
+		var part := machine.find_child(group, true, false) as MeshInstance3D
+		if not _check(part != null, "the cabinet has its native " + group): return false
+		player.camera.look_at(part.to_global(part.get_aabb().get_center()))
+		await get_tree().physics_frame
+		var grip: Dictionary = player._grab.find_target()
+		if not _check(grip.get("part") == part, "the player's ray can reach " + group + " from the public aisle"): return false
+		var previous := machine._jukebox_player.stream
+		await keyboard._click()
+		if not _check(player._grab.active() and machine._jukebox_player.stream == previous, "taking hold alone leaves the record alone"): return false
+		await keyboard._drag(36.0 if group == "CoinReturn" else -36.0)
+		_check(part.position.length() > .01, "the native control moved with the hand")
+		if group == "Selector":
+			var stream := machine._jukebox_player.stream
+			if not _check(stream != null and machine._jukebox_player.playing and machine._jukebox_sign_material.emission_enabled, "one stroke starts a local record and lights the glass"): return false
+			records.append(stream.resource_path)
+			var track_id: String = BakedFurnitureInteraction.JUKEBOX_TRACKS[records.size() - 1]
+			_check(legend.text == str(machine._jukebox_catalog[track_id].title).to_upper(), "the glass names the record on the pickup")
+		else:
+			_check(not machine._jukebox_player.playing and not machine._jukebox_sign_material.emission_enabled and machine._jukebox_coin_state == "RETURNED", "pulling the return stops the pickup and releases the coin")
+		await keyboard._click()
+		_check(not player._grab.active() and part.position.is_zero_approx(), "releasing the part returns it to its stop")
+		if group == "Selector" and records.size() == 1:
+			await _capture("jukebox_playing", [spec.jukebox.at[0], spec.jukebox.at[1], float(spec.jukebox.at[2]) + .94])
+	var expected: Array = []
+	for id: String in BakedFurnitureInteraction.JUKEBOX_TRACKS:
+		expected.append(machine._jukebox_catalog[id].path)
+	_check(records == expected and machine._jukebox_player.bus == &"Diegetic", "the original three records play in order through the local speaker")
+	await _capture("jukebox", [spec.jukebox.at[0], spec.jukebox.at[1], float(spec.jukebox.at[2]) + .94])
+	if not await _go("lounge_deck"): return false
+	_check(current_node == "lounge_deck", "the player can leave the cabinet for the lounge seats")
+	_end_contract("destination_jukebox", before)
+	return failures.size() == before
+
 func _route() -> void:
 	var before := _begin_contract("destination_nearby_motor_routes")
+	if not await _jukebox_service(): return
 	if not await _go("backstage"): return
 	await _capture("backstage", [1.6, -36.9, -1.55])
 	if not await _go("stage_front"): return
@@ -876,13 +925,16 @@ func _finish() -> void:
 	_check(str(final_inputs.runtime).length() == 64 and str(final_inputs.physical).length() == 64, "complete provenance signatures")
 	var root := ProjectSettings.globalize_path("res://..").simplify_path(); var head: Array = []
 	_check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance")
-	var expected := ["destination_native_uv_pbr_mips", "destination_retired_stock", "destination_twenty_four_supported_seats", "destination_kit_stage_backstage_balcony", "destination_nearby_motor_routes", "destination_blocked_stair_negative_control", "destination_seat_input_and_reservation", "destination_original_games_cancel_reopen"]
+	var expected := ["destination_jukebox", "destination_native_uv_pbr_mips", "destination_retired_stock", "destination_twenty_four_supported_seats", "destination_kit_stage_backstage_balcony", "destination_nearby_motor_routes", "destination_blocked_stair_negative_control", "destination_seat_input_and_reservation", "destination_original_games_cancel_reopen"]
 	if games_only: expected = ["destination_original_games_cancel_reopen"]
 	if stance_only: expected = ["destination_attendance_obstruction_stance", "destination_attendance_withdrawal", "destination_seat_torso_trajectory", "destination_twenty_four_supported_seats", "destination_occupied_seat_policy", "destination_supported_step_policy", "destination_entry_resident_clearance"]
 	for name: String in expected:
 		if not contracts.has(name): contracts[name] = {"executed": false, "status": "FAIL"}
 		_check(bool(contracts[name].executed) and contracts[name].status == "PASS", "required contract " + name)
-	if not games_only and not stance_only: _check(captures.size() == 5, "five actual player views captured")
+	if not games_only and not stance_only:
+		var captured := captures.map(func(view): return view.label)
+		for view in ["front", "jukebox_playing", "jukebox", "backstage", "stage", "balcony", "playarea"]:
+			_check(view in captured, "actual player view captured: " + view)
 	var passed := failures.is_empty()
 	var receipt := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": true,
 		"scope": "Nearby production OrisonV2BarRegion and real PlayerController: destination UV/PBR/mips, independent source-face retirement scan, 24 supported markers, actual grip/motion/release seating and reservation denial, motor stage/backstage/balcony round trip and blocked stair, original game cancel/reopen. Declared initial entrance placement, isolated nonpersistent context, production LightRig with neutral ambient. No street-to-bar, full-world/crowd/performance, save reconstruction, native-art or artistic acceptance claim.",

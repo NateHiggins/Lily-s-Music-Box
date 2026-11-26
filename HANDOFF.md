@@ -258,6 +258,18 @@ and door state. Foot-slide refinement, play and artistic review remain open.
 
 [Resident qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/STATUS.md).
 
+# Harukiya lounge jukebox
+
+Evidence class: **INERT**.
+
+The cabinet now faces the lounge aisle. Its previous controls faced concrete
+at 16 cm. On source **7d3f9e66e**, the installed player walked to the selector,
+played the three records, operated the coin return and continued to the seating.
+The destination passed 1,543 checks. The release packet includes the 23-view
+surface comparison and 369 original work-order, save and reconstruction checks.
+Lily’s lounge-setting review is open. The destination and live set retain their
+earlier acceptance. Evidence is in **D:/ov_reports/harukiya_jukebox_20261125/**.
+
 # Closed venue, sound and bodega orders
 
 Evidence class: **INERT**.

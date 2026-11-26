@@ -330,11 +330,12 @@ class ProductionSmokeTests(unittest.TestCase):
         # Adela's measured Harukiya performer also offers the existing
         # resident-conversation entry; it is a ray target, not a blocker.
         # Original3C bass can be put away into inventory, without a carrying body.
-        self.assertEqual(summary["discovered"], 97)
+        # The native jukebox disables the inherited whole-cabinet prompt.
+        self.assertEqual(summary["discovered"], 98)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 24, "interact_prompt": 73})
+                         {"control_prompt": 24, "interact_prompt": 74})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 1, "production": 95})
+                         {"adapter": 1, "debug-only": 1, "production": 96})
         named = {(i["file"], i["method"]): i for i in self.report["implementors"]}
         for kind in ("cookbook_prop", "door_prop", "news_rack_prop"):
             rel = "props/" + kind + ".gd"
