@@ -393,13 +393,16 @@ func _commit_case_and_household(prepare: Callable, publish: Callable) -> bool:
 	var baseline := data.duplicate(true)
 	var candidate := baseline.duplicate(true)
 	if not prepare.call(candidate) or not _handoff_context_is_current(live_document, live_path) \
-			or data != baseline or (not publish.is_null() and not publish.is_valid()):
+			or data != baseline or not candidate.has(CarriedCase.KEY) \
+			or (baseline.has(HOUSEHOLD_KEY) and not candidate.has(HOUSEHOLD_KEY)) \
+			or (not publish.is_null() and (not publish.is_valid() or not candidate.has(HOUSEHOLD_KEY))):
 		return false
 	var result := _write_synchronous_snapshot(candidate)
 	if not result.ok:
 		return _finish_save(result)
 	data[CarriedCase.KEY] = candidate[CarriedCase.KEY]
-	data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
+	if candidate.has(HOUSEHOLD_KEY):
+		data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
 	if publish.is_valid():
 		publish.call(candidate[HOUSEHOLD_KEY])
 	_finish_save(result)
