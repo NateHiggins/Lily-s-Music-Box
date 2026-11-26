@@ -1,5 +1,5 @@
 {
-  "status": "PROPOSED. Things the world gives the player. m_c_n16, m_c_gloved_lady and m_c_boxes are read from the newspaper panel, m_notebook_spine, m_glove_scrap and m_register are drawn by hand, m_backup_ledger comes only from the register line in photo_window.json, m_aviation_card and m_nadia_card are read at the window; nothing else on this list is built yet. Each entry says what grants the flag. Dates come from section 3.1 of the treatment.",
+  "status": "PROPOSED. Things the world gives the player. m_c_n16, m_c_gloved_lady and m_c_boxes are read from the newspaper panel, m_notebook_spine, m_glove_scrap and m_register are drawn by hand, m_backup_ledger comes only from the register line in photo_window.json, m_aviation_card and m_nadia_card are read at the window; the 4B mirror question reads the saved return-look observation. Other carriers require individual verification. Each entry says what grants the flag. Dates come from section 3.1 of the treatment.",
   "carriers": {
     "m_window_log": "the Photo Supplies window log, first entry: Sat. 10 Nov. 1928. Mrs. Owen.",
     "m_july_roof_date": "the earlier roof entry in the key book on the 4B desk: 11 July 1929, A.V., roof.",
@@ -17,7 +17,7 @@
     "m_receipt_seen": "the August 1929 rent receipt in Mae's ledger box. Access stays with the existing owners",
     "m_nadia_card": "Nadia's unfinished Armistice card, Photo Supplies, 9 Nov.",
     "m_aviation_card": "the card PLEASE SEND AN AVIATION EDITOR, up from 19 Aug. to the Crosson card",
-    "m_mirror_seen": "a verified mirror anomaly on the fourth floor, from an existing owner",
+    "m_mirror_seen": "the 4B prologue records visitor_seen_again when the player looks behind the reflected visitor and finds it in the mirror again",
     "m_rescue_seen": "the player has visited 03:02 after any O2 attempt",
     "m_c_n16": "the player has opened the Record of 21 July 1929, back column 2",
     "m_c_m3": "any of the received copies M3, M4 or M5 has printed",
