@@ -16,6 +16,7 @@ var bar_region: OrisonV2BarRegion
 var ready_ok := false
 var _accum := 0.0
 var _speaker := ""
+var _line_actor: CastModel
 var _floor_y := 0.0
 var _rules := Rules.new()
 var _dressed_for := ""
@@ -139,6 +140,7 @@ func _refresh_performer() -> void:
 	var present:=_adela_is_here()
 	if actor.visible!=present:actor.set_active(present)
 	if not present and _speaker=="adela_voss":
+		_stop_line()
 		actor.stop_speaking()
 		_speaker=""
 
@@ -213,8 +215,7 @@ func _process(delta: float) -> void:
 		# conversation authority. Hidden text must never keep a mouth moving;
 		# retain the speaker so a following authored node can speak normally.
 		if _speaker != "" and conversations.dialogue != null and not conversations.dialogue.attention_active():
-			var actor:=_actor_for(_speaker)
-			if actor!=null:actor.stop_speaking()
+			_stop_line()
 
 func refresh_presence() -> void:
 	if _retired or not ready_ok:return
@@ -233,10 +234,13 @@ func refresh_presence() -> void:
 		var present := stacy_here if actor.person_id == "stacy" else lily_here
 		if actor.visible != present:
 			actor.set_active(present)
+		if not present and (_line_actor == actor or _speaker == actor.person_id):
+			_stop_line()
 		if not present and _speaker == actor.person_id:
 			_speaker = ""
 
 func _on_started(id: String, _entry: String) -> void:
+	_stop_line()
 	var actor:=_actor_for(id)
 	_speaker = id if actor!=null and actor.is_visible_in_tree() else ""
 	if _speaker != "":
@@ -248,7 +252,14 @@ func _on_ended(id: String) -> void:
 	if actor!=null:
 		actor.stop_speaking()
 		actor.express("neutral",0.0)
-	if _speaker == id:_speaker = ""
+	if _speaker == id:
+		_stop_line()
+		_speaker = ""
+
+func _stop_line() -> void:
+	if is_instance_valid(_line_actor):
+		_line_actor.stop_speaking()
+	_line_actor = null
 
 func _on_node_shown(_node: String) -> void:
 	var actor:=_actor_for(_speaker)
@@ -257,10 +268,23 @@ func _on_node_shown(_node: String) -> void:
 	var words := str(line.get("text",""))
 	var voice := str(line.get("speaker","")).strip_edges().to_lower()
 	var letters := words.strip_edges().replace(".","").replace("â€¦","").replace("â€”","").strip_edges()
-	var own_voice := voice in ["adela", "adela voss"] if _speaker == "adela_voss" else voice == _speaker
+	var id := _speaker
+	# In The Extra Two Bars the player addresses Adela and witnesses a duet.
+	var beat := str(conversations.dialogue.current_node_id)
+	if id == "adela_voss" and voice == "lily" and beat.begins_with("av_o") and beat.trim_prefix("av_o").is_valid_int():
+		id = "lily"
+		actor = _actor_for(id)
+	if _line_actor != actor:
+		_stop_line()
+	if not is_instance_valid(actor) or not actor.is_visible_in_tree():
+		_stop_line()
+		return
+	var own_voice := voice in ["adela", "adela voss"] if id == "adela_voss" else voice == id
 	if line.get("delivery", "spoken") == "silent" or not own_voice or letters.is_empty():
 		actor.stop_speaking()
+		_line_actor = null
 		return
+	_line_actor = actor
 	# Authored text has a restrained jaw fallback until a qualified voice line
 	# supplies exact cues through CastModel.speak_cues; no sound/text is generated.
 	actor.speak_untimed(clampf(float(words.length())/18.0,1.0,12.0))
@@ -268,10 +292,11 @@ func _on_node_shown(_node: String) -> void:
 	# staged show poses, so no stage gesture here.
 	var mood: RefCounted = preload("res://scripts/characters/cast_resident_speech.gd").reader()
 	if mood != null:
-		var reading: Dictionary = mood.read(_speaker, words, int(RealityState.resident_trust(_speaker)), line.get("exchange", {}))
+		var reading: Dictionary = mood.read(id, words, int(RealityState.resident_trust(id)), line.get("exchange", {}))
 		actor.express(str(reading.expression), float(reading.intensity))
 
 func shutdown() -> void:
+	_stop_line()
 	_retired=true
 	if is_instance_valid(stage_show):
 		stage_show.shutdown()

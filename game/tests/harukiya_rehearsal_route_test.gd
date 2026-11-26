@@ -156,6 +156,15 @@ func _visit() -> void:
 	evidence.heard_nodes = nodes
 	while panel.attention_active() and nodes.size() < 80:
 		nodes.append(panel.current_node_id)
+		var line := panel.displayed_line()
+		var spoken: bool = line.get("delivery", "spoken") == "spoken"
+		var lily_turn: bool = str(line.speaker).to_upper() == "LILY"
+		var lily_face: Node = lily.get("face")
+		var adela_face: Node = adela.get("face")
+		if not _check(is_instance_valid(lily_face) and is_instance_valid(adela_face)
+				and bool(lily_face.call("is_speaking")) == (spoken and lily_turn)
+				and bool(adela_face.call("is_speaking")) == (spoken and not lily_turn),
+				"only the speaking performer moves her mouth on " + panel.current_node_id): return
 		if not _check(panel.offered_labels().size() == 1, "only the authored silence on " + panel.current_node_id): return
 		await _key(KEY_0)
 	if not _check(nodes.size() == 66 and nodes.back() == "av_o66" and not panel.attention_active() and not player.call_locked, "all 66 authored beats end and return player control"): return
