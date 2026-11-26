@@ -127,6 +127,9 @@ func _process(delta: float) -> void:
 		_scripted_seconds = 0.0
 		_edit.text = draft if _scripted.is_empty() else ""
 		_edit.grab_focus()
+		# A held direction can focus a LineEdit without entering edit mode.
+		# Deploying this keyboard is an explicit request to type on it.
+		_edit.edit()
 		_edit.caret_column = draft.length()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		_carrier.motion.hold_for_hand(true)
