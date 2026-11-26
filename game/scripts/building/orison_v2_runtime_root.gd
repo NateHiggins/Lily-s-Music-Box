@@ -25,6 +25,8 @@ const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
 const Wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd")
+const PlayerEditions := preload("res://scripts/songbook/player_original_custody.gd")
+const RecorderTray := preload("res://scripts/songbook/player_original_output.gd")
 
 var layout: Dictionary = {}
 var acoustic_topology
@@ -415,6 +417,13 @@ func _ready() -> void:
 	if not preload("res://scripts/songbook/found_trace_source.gd").mount_building(adapter, house_office.get("dead_letters")):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: found paper traces are missing their building supports")
+		return
+	var recorder := bar_region.actors.get_node_or_null("F01_BAR_SONGBOOK") as Node3D
+	var selected_edition := func() -> String: return PlayerEditions.id_from_item(CarriedCase.hand())
+	if not RecorderTray.mount(recorder, house_office.dead_letters.stock, PlayerEditions.top_id,
+			selected_edition, PlayerEditions.take, PlayerEditions.return_to_tray):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: the Songbook recorder is missing its output tray")
 		return
 	# The possessed household objects V2 had nothing to carry (V1 retirement
 	# plan, section B item 8). They must stand before the witnesses look for them.

@@ -7,6 +7,7 @@ const GASKET_COUNTER := "FireMaintenanceCounter"
 const GASKET_ITEM := "fire_hose_spare_gasket"
 const Book := preload("res://scripts/props/v2_readable_book.gd")
 const TraceCustody := preload("res://scripts/songbook/found_trace_custody.gd")
+const PlayerOriginals := preload("res://scripts/songbook/player_original_custody.gd")
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -455,6 +456,9 @@ func set_hand(item: String) -> bool:
 		if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
 			if not TraceCustody.is_packed(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)):
 				return false
+		elif item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+			if not PlayerOriginals.is_packed(PlayerOriginals.id_from_item(item)):
+				return false
 		elif packed_kitchen_tool(item).is_empty() and packed_book(item) == null:
 			return false
 	var prepare := func(document: Dictionary) -> bool:
@@ -498,6 +502,8 @@ func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
 	var held: String = case_book.get(CarriedCase.HAND, "") if case_book is Dictionary else ""
 	if held.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
 		return TraceCustody.case_contains(case_book, held.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
+	if held.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+		return PlayerOriginals.case_contains(case_book, PlayerOriginals.id_from_item(held))
 	return held.is_empty() or (places.has(held) and (held.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) \
 		or held.begins_with(CarriedCase.BOOK_PREFIX)))
 
