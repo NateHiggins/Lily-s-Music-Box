@@ -881,7 +881,8 @@ func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
 		record = {"name": "Fire-hose coupling gasket"}
 	elif item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
 		count = 1
-		record = {"name": PhonautogramForge.label_of(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))}
+		var trace: Dictionary = PhonautogramForge.FOUND.get(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX), {})
+		record = {"name": trace.get("case_label", "Trace")}
 	elif item.begins_with(CarriedCase.BOOK_PREFIX) and is_instance_valid(household_state):
 		var copy: Node3D = household_state.packed_book(item)
 		if is_instance_valid(copy):

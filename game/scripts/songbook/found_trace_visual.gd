@@ -5,8 +5,10 @@ const Forge := preload("res://scripts/songbook/phonautogram_forge.gd")
 const Office := preload("res://assets/props/house_office.glb")
 const Chart := preload("res://scripts/building/v2_metre_box_uv.gd")
 const SIZE := Vector3(.23, .0018, .13)
+const CLEAN_EDGE := .012
 static var _envelope: Mesh
 static var _sheet: Mesh
+static var _margin: Mesh
 static var _lines := {}
 
 static func make(id: String) -> Node3D:
@@ -43,11 +45,20 @@ static func make(id: String) -> Node3D:
 	else:
 		if _sheet == null:
 			var cut := BoxMesh.new()
-			cut.size = SIZE
+			cut.size = Vector3(SIZE.x - CLEAN_EDGE, SIZE.y, SIZE.z)
 			cut.material = _paper(Color(.20, .175, .15), true)
-			_sheet = Chart.chart(cut)
+			_sheet = Chart.chart(cut, Vector3.LEFT * CLEAN_EDGE * .5)
+			# The end held while smoking the paper retains the colour of the stock.
+			var edge := BoxMesh.new()
+			edge.size = Vector3(CLEAN_EDGE, SIZE.y, SIZE.z)
+			edge.material = _paper(Color(.85, .72, .52), true)
+			_margin = Chart.chart(edge, Vector3.RIGHT * cut.size.x * .5)
 		stock.mesh = _sheet
-		stock.position.y = SIZE.y * .5
+		stock.position = Vector3(-CLEAN_EDGE * .5, SIZE.y * .5, 0)
+		var margin := MeshInstance3D.new()
+		margin.mesh = _margin
+		margin.position = Vector3((SIZE.x - CLEAN_EDGE) * .5, SIZE.y * .5, 0)
+		root.add_child(margin)
 		var line := MeshInstance3D.new()
 		if not _lines.has(id):
 			_lines[id] = _scratch(id)
