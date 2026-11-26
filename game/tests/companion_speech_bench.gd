@@ -3,6 +3,7 @@ extends "res://tests/companion_session_bench.gd"
 const Lexicon = preload("res://scripts/device/companion_lexicon.gd")
 var cues: Array[String] = []
 var panel: CaseDialoguePanel
+var echo_at_msec := -1
 
 func exercise() -> void:
 	diagnostic_scope = "Native recorded resident speech, heard-word save and companion playback"
@@ -25,7 +26,9 @@ func exercise() -> void:
 	var conversations := ResidentConversations.new()
 	add_child(conversations)
 	conversations.setup(panel)
-	AudioPolicy.cue_presented.connect(func(id: StringName, _snapshot: Dictionary): cues.append(str(id)))
+	AudioPolicy.cue_presented.connect(func(id: StringName, _snapshot: Dictionary):
+		cues.append(str(id))
+		if id == &"companion_say_no": echo_at_msec = Time.get_ticks_msec())
 	await wait_for(func(): return not carrier.device.teletype.printing)
 	var recorder := AudioEffectRecord.new()
 	var bus := AudioServer.get_bus_index("Dialogue")
@@ -40,7 +43,13 @@ func exercise() -> void:
 	panel.close()
 	panel._end_tree()
 	var n: int = session.lexicon.heard.size()
+	carrier.reading = true
+	await get_tree().create_timer(.65).timeout
+	check(echo_at_msec < 0, "Vantry gives the player silence while they read")
+	carrier.reading = false
+	var reading_ended := Time.get_ticks_msec()
 	check(await wait_for(func(): return cues.has("companion_say_no"), 5.0), "in the first quiet moment Vantry tries Cal's no in his own spatial voice")
+	check(echo_at_msec - reading_ended >= 480, "the echo waits for a continuous quiet beat after reading ends")
 	await get_tree().create_timer(1.0).timeout
 	recorder.set_recording_active(false)
 	var waveform := recorder.get_recording()

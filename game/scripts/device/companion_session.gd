@@ -4,6 +4,7 @@ extends Node
 const Conversation = preload("res://scripts/device/companion_conversation.gd")
 const Campaign = preload("res://scripts/device/companion_campaign_state.gd")
 const OWNER_GROUP := "companion_correspondence_owner"
+const ECHO_QUIET_MSEC := 480
 var retired := false
 var dialogue := Conversation.new()
 var draft := ""
@@ -31,6 +32,7 @@ var _gesture_serial := 0
 var _practice_line := ""
 var _echo := ""
 var _echo_until := 0
+var _echo_quiet_since := -1
 var _voice_gap := 0.0
 var _speaking := false
 var lexicon := preload("res://scripts/device/companion_lexicon.gd").new()
@@ -467,6 +469,7 @@ func hear_resident_word(word: String, source: String, panel: CaseDialoguePanel) 
 	if chatter_enabled and word in ["hello", "help", "here", "again", "okay", "oh", "yes", "no"] and lexicon.can_say(word):
 		_echo = word
 		_echo_until = Time.get_ticks_msec() + 24000
+		_echo_quiet_since = -1
 
 func _say(line: String) -> void:
 	if not lexicon.can_say(line): return
@@ -477,6 +480,7 @@ func _stop_english() -> void:
 	if _speaking: AudioPolicy.release_source(_english_source)
 	_speaking = false
 	_echo = ""
+	_echo_quiet_since = -1
 
 func _advance_speech(delta: float) -> void:
 	_voice_gap = maxf(0.0, _voice_gap - delta)
@@ -491,9 +495,14 @@ func _advance_speech(delta: float) -> void:
 		if not free:
 			_stop_english()
 		elif AudioPolicy.active_voice(_english_source) == null: _speaking = false
-	if Time.get_ticks_msec() > _echo_until or not chatter_enabled: _echo = ""
-	if not free or typing or opening or _gesture_line != "" or _voice_gap > 0 or _echo.is_empty(): return
-	if _carrier.device.teletype.printing or _carrier.arm_busy(): return
+	var now := Time.get_ticks_msec()
+	if now > _echo_until or not chatter_enabled: _echo = ""
+	if _echo.is_empty(): return
+	if not free or typing or opening or _gesture_line != "" or _voice_gap > 0 or _carrier.reading or _carrier.device.teletype.printing:
+		_echo_quiet_since = -1
+		return
+	if _echo_quiet_since < 0: _echo_quiet_since = now
+	if now - _echo_quiet_since < ECHO_QUIET_MSEC: return
 	var word := _echo
 	_echo = ""
 	_say(word)
