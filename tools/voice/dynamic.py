@@ -31,8 +31,10 @@ import intake
 # the list slip and the gift and parcel joins are unchanged.
 # Renewed 2026-11-24 (save boundary): lay() and deliver() commit atomically; list_words,
 # LIST_LIMIT, SHOP and every spoken template are unchanged.
+# 2026-11-26: normal and mystery trees pass the resident ID to camera framing.
+# The two call sites retain the same dialogue trees, flags and provider joins.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': '292cb6757085d487c2e8ed158517da4dbcbb823b226a3a3f8b42f58e99c73e05',
+    'game/scripts/game/resident_conversations.gd': 'a4fdd48627f97f849af1507b83ff70423d566fae46a95ca9dc06cd110d59595f',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
