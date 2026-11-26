@@ -186,7 +186,17 @@ func _select_in_case(trace_id: String) -> bool:
 	await _capture_interaction("selected_trace_in_valise")
 	await _press(_screen(view, centre.x, CarriedCase.grid().y + 2.5))
 	await get_tree().create_timer(.7).timeout
-	return _require(not view.opened and not player.call_locked and CarriedCase.hand() == item and Custody.is_packed(trace_id), "bringing the selected trace out leaves its identity in the glove and case")
+	if not _require(not view.opened and not player.call_locked and CarriedCase.hand() == item and Custody.is_packed(trace_id),
+		"bringing the selected trace out leaves its identity in the glove and case"):
+		return false
+	RealityState.flush_background_saves()
+	RealityState.load_game()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var household := world.household_state
+	return _require(RealityState.can_continue() and not household._blocked and household.errors.is_empty()
+		and CarriedCase.hand() == item and Custody.is_packed(trace_id),
+		"Continue restores the selected original and keeps installed household controls writable")
 
 
 func _reader() -> bool:

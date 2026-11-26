@@ -6,6 +6,7 @@ const KEY := "v2_household_controls"
 const GASKET_COUNTER := "FireMaintenanceCounter"
 const GASKET_ITEM := "fire_hose_spare_gasket"
 const Book := preload("res://scripts/props/v2_readable_book.gd")
+const TraceCustody := preload("res://scripts/songbook/found_trace_custody.gd")
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -452,7 +453,7 @@ func set_hand(item: String) -> bool:
 		return false
 	if not item.is_empty():
 		if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
-			if not preload("res://scripts/songbook/found_trace_custody.gd").is_packed(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)):
+			if not TraceCustody.is_packed(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)):
 				return false
 		elif packed_kitchen_tool(item).is_empty() and packed_book(item) == null:
 			return false
@@ -473,7 +474,7 @@ func _commit_kitchen(prepare: Callable, station: Node, identity: String) -> bool
 
 
 ## A stowed tool and its case item exist together or not at all; the hand names a packed
-## kitchen tool or library book.
+## kitchen tool, library book or original trace.
 func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
 	var places: Dictionary = case_book.get("places", {}) if case_book is Dictionary else {}
 	for item: String in places:
@@ -495,6 +496,8 @@ func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
 					and not places.has(CarriedCase.kitchen_tool_item(identity, str(assembly))):
 				return false
 	var held: String = case_book.get(CarriedCase.HAND, "") if case_book is Dictionary else ""
+	if held.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+		return TraceCustody.case_contains(case_book, held.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
 	return held.is_empty() or (places.has(held) and (held.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) \
 		or held.begins_with(CarriedCase.BOOK_PREFIX)))
 

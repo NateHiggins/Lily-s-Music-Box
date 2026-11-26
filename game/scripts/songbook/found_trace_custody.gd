@@ -11,8 +11,11 @@ static func item_id(trace_id: String) -> String:
 
 
 static func is_packed(trace_id: String) -> bool:
+	return case_contains(RealityState.data.get(CaseGrid.KEY), trace_id)
+
+
+static func case_contains(grid: Variant, trace_id: String) -> bool:
 	var item := item_id(trace_id)
-	var grid: Variant = RealityState.data.get(CaseGrid.KEY)
 	if item.is_empty() or grid is not Dictionary or grid.get("places") is not Dictionary:
 		return false
 	var place: Variant = grid.places.get(item)

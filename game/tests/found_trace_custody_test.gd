@@ -8,6 +8,7 @@ const Opening := preload("res://scripts/game/prologue_state.gd")
 const Loop := preload("res://scripts/game/temporal_loop.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const Terminal := preload("res://scripts/props/songbook_terminal_prop.gd")
+const Household := preload("res://scripts/building/orison_v2_household_state.gd")
 const IDS := ["trace_room0", "trace_1610", "trace_two_voices", "trace_unlabelled"]
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
@@ -79,8 +80,15 @@ func _exercise() -> void:
 			"four originals fill every square of an otherwise empty case")
 	var corrupt := CarriedCase.book().duplicate(true)
 	var key := Trace.item_id(IDS[0])
+	var household := Household.new()
+	corrupt[CarriedCase.HAND] = key
+	_check(household.valid_kitchen_custody(corrupt, {}), "an original selected in the saved case can restore the household")
 	corrupt.places[key].form = "tin"
 	_check(not CarriedCase.valid(corrupt), "a trace cannot shrink into a forged one-square save record")
+	_check(not household.valid_kitchen_custody(corrupt, {}), "the saved glove cannot restore a forged trace form")
+	corrupt.places.erase(key)
+	_check(not household.valid_kitchen_custody(corrupt, {}), "household checks the saved case even while the live case has the trace")
+	household.free()
 	corrupt = CarriedCase.book().duplicate(true)
 	corrupt.places["found_trace:unknown"] = corrupt.places[key]
 	corrupt.places.erase(key)
