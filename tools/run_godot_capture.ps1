@@ -93,8 +93,7 @@ foreach ($gateName in $captureGateNames) {
 # There is deliberately no retry loop. Retrying in a shell hides contention
 # and can starve the other owner for minutes. The serial runner's codes are
 # 73 lane busy (nothing started), 124 killed at the ceiling, 78 could not run.
-# Only 73 is mapped below; a 124 ceiling kill currently lands in FAIL, and the
-# BUSY_OR_TIMEOUT label predates the split (tracked in TASKS.md, H section).
+# A busy refusal can be queued again; a timeout preserves any partial frames.
 $runnerArgs = @{
     Scene = $Scene
     ProjectPath = $ProjectPath
@@ -131,7 +130,15 @@ $files = @($pngs | ForEach-Object {
 })
 $zeroByte = @($pngs | Where-Object { $_.Length -eq 0 }).Count
 $pass = $engineExit -eq 0 -and $pngs.Count -eq $ExpectedFrames -and $zeroByte -eq 0
-$status = if ($engineExit -eq 73) { "BUSY_OR_TIMEOUT" } elseif ($pass) { "PASS" } else { "FAIL" }
+$status = if ($engineExit -eq 73) {
+    "BUSY"
+} elseif ($engineExit -eq 124) {
+    "TIMEOUT"
+} elseif ($pass) {
+    "PASS"
+} else {
+    "FAIL"
+}
 $receipt = [ordered]@{
     schema_version = 2
     status = $status

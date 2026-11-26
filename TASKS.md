@@ -1539,14 +1539,6 @@ accessibility and reload repairs first. Existing authorities stay installed.
   channels). Merging the two lights should close all three; see
   `design/REPO_HOUSEKEEPING_2026-09-19.md` section 9.
 
-- **H25** **Capture receipts still conflate lane-busy and timeout.**
-  (Found 2026-09-19, re-verified 2026-10-25.) The serial runner returns 73 for
-  lane busy, 124 for a ceiling kill and 78 for could-not-run, but
-  `tools/run_godot_capture.ps1` maps only 73, to `BUSY_OR_TIMEOUT`; a 124 kill
-  is recorded as `FAIL`, and 73 can no longer mean a timeout. Split the receipt
-  status into BUSY, TIMEOUT and FAIL and retire the combined label. It changes
-  capture-receipt vocabulary, so whoever owns that schema makes the call; the
-  comment in that script now states the real behaviour rather than the old one.
 - **H26** **GoldenLoopTest cannot run under explicit v2.**
   (Found 2026-09-19, re-verified 2026-10-25.) `game/tests/golden_loop_test.gd`
   still loads `res://scenes/building/orison_root.tscn` literally instead of
