@@ -128,6 +128,11 @@ func _process(delta: float) -> void:
 		routines.set_schedule(str(slug), directive)
 
 
+## An explicit authored appointment keeps an ordinary meeting on the timetable.
+static func has_appointment(block: Dictionary) -> bool:
+	return block.get("appointment", false) == true
+
+
 ## ---- clock ----------------------------------------------------------
 
 static func minute_now() -> float:

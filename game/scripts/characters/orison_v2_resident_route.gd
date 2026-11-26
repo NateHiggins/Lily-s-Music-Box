@@ -114,6 +114,14 @@ func setup(root: Node3D) -> bool:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != str(source.unit): return false
 		_doors.append(door)
+	# Roof access is a public connection. Apartment doors above still
+	# require the route owner to match the private unit.
+	if places.has("roof"):
+		var opening: Node = world.adapter.resolve("ROOF_PUBLIC_DOOR")
+		if opening == null: return false
+		var roof_door := opening.get_node_or_null(str(opening.name) + "_Leaf") as DoorProp
+		if roof_door == null: return false
+		_doors.append(roof_door)
 	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
 	if not _bar_route.attach(self): return false
 	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()

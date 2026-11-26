@@ -218,7 +218,7 @@
         {"start_min": 1260, "end_min": 1290, "place": "unit", "activity": "wind_down", "outfit": "late_night", "detail": "washing up, bed"},
         {"start_min": 1290, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
         {"start_min": 480, "end_min": 720, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "rebuilding beds, handing out rooted cuttings; everyone gets a descendant of something except the one plant that has none"},
-        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["sacha_reed"], "detail": "Sacha photographs the plants and Malcolm names each one; the one particular cutting is never brought up"},
+        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["sacha_reed"], "appointment": true, "detail": "Sacha photographs the plants and Malcolm names each one; the one particular cutting is never brought up"},
         {"start_min": 840, "end_min": 880, "place": "out", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "walks to the old neighbourhood and does not turn down the street"},
         {"start_min": 880, "end_min": 930, "place": "news_cigars", "activity": "errand", "outfit": "street", "days": ["sun"], "detail": "the form guide, bought like it is a newspaper"},
         {"start_min": 930, "end_min": 1020, "place": "out", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "walks to the old neighbourhood and does not turn down the street"}
@@ -559,7 +559,7 @@
         {"start_min": 690, "end_min": 1110, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
         {"start_min": 1380, "end_min": 1440, "place": "out", "activity": "hobby", "outfit": "street", "days": ["sat"], "detail": "street photography: the weekend nights belong to their own work, not clients'"},
         {"start_min": 0, "end_min": 120, "place": "out", "activity": "hobby", "outfit": "street", "days": ["sun"], "detail": "street photography, run long"},
-        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["malcolm_reed"], "detail": "photographs the plants and Malcolm names each one; has photographed every plant the man owns except it, and has noticed"},
+        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["malcolm_reed"], "appointment": true, "detail": "photographs the plants and Malcolm names each one; has photographed every plant the man owns except it, and has noticed"},
         {"start_min": 660, "end_min": 900, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
         {"start_min": 900, "end_min": 1020, "place": "visit:5C", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["iris_bell"], "detail": "photographing Iris's canvases, the only lens she permits"},
         {"start_min": 1020, "end_min": 1110, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]}
