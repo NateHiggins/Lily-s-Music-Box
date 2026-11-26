@@ -26,6 +26,7 @@ var _flash := 0.0
 func _ready() -> void:
 	_folder = OS.get_environment("ORISON_DEV_NOTES").replace("\\", "/")
 	if _folder.is_empty() or DisplayServer.get_name() == "headless":
+		process_mode = Node.PROCESS_MODE_DISABLED
 		queue_free()
 		return
 	_build = OS.get_environment("ORISON_DEV_BUILD")

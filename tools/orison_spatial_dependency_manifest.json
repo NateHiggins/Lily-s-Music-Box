@@ -299988,6 +299988,131 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "7a6205d800f072c3",
+   "kind": "id_reference",
+   "token": "F01_BAR_SONGBOOK",
+   "file": "game/tests/found_trace_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_reader"
+   ],
+   "lines": [
+    181
+   ],
+   "count": 1,
+   "context": [
+    "var terminal: Node3D = bar.actors.get_node_or_null(\"F01_BAR_SONGBOOK\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "48538fa80f37969b",
+   "kind": "node_path",
+   "token": "F01_BAR_SONGBOOK",
+   "file": "game/tests/found_trace_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_reader"
+   ],
+   "lines": [
+    181
+   ],
+   "count": 1,
+   "context": [
+    "var terminal: Node3D = bar.actors.get_node_or_null(\"F01_BAR_SONGBOOK\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker",
+   "target_exists": null
+  },
+  {
+   "key": "afdea39bb0f0fd87",
+   "kind": "plan_coordinate",
+   "token": "_reader",
+   "file": "game/tests/found_trace_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_reader"
+   ],
+   "lines": [
+    184,
+    184
+   ],
+   "count": 2,
+   "context": [
+    "if not await _walk_up(bar.to_global(GameBoot.b2g([-10.5,-34.15,-2.8])), bar.to_global(GameBoot.b2g([-10.5,-35.15,-2.8])), \"Songbook\"):"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "717dc06f049fa002",
+   "kind": "vector3_coordinate",
+   "token": "_source_marks",
+   "file": "game/tests/found_trace_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_source_marks"
+   ],
+   "lines": [
+    72,
+    72
+   ],
+   "count": 2,
+   "context": [
+    "return [frame.to_global(Vector3(12.75, -3.2, 2.25)), frame.to_global(Vector3(12.75, -3.2, 1.32))]"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
