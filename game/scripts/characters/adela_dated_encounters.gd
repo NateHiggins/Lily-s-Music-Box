@@ -124,7 +124,8 @@ func _mount_resident(encounter: Dictionary) -> void:
 		resident.queue_free()
 		_refuse(thread, "the existing rebuilt resident body did not load")
 		return
-	resident.look_at(Vector3(placement.facing.x, resident.global_position.y, placement.facing.z))
+	# The rebuilt resident faces model +Z, the same front she turns toward a caller.
+	resident.look_at(Vector3(placement.facing.x, resident.global_position.y, placement.facing.z), Vector3.UP, true)
 	actor = resident
 	_current_thread = thread
 

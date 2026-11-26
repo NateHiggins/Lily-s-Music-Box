@@ -208,7 +208,15 @@ func _case(spec: Dictionary, locked: bool) -> bool:
 			case_label + " real pair arrives by ordinary route", 90.0)
 		if reached:
 			_check(not performance.conversation_prompt(str(spec.guest)).is_empty(), case_label + " arrived guest has authored optional line")
-			_check(_speak(str(spec.guest)), case_label + " arrived guest line uses actual dialogue owner")
+			if str(spec.anchor) == "tea":
+				# Arrival is established. Freeze these two finished routes before
+				# introducing the player's capsule to sample their conversation.
+				watching = false
+				host.set_physics_process(false)
+				guest.set_physics_process(false)
+				_check(await _first_person_guest(str(spec.guest)), case_label + " first-person guest exchange")
+			else:
+				_check(_speak(str(spec.guest)), case_label + " arrived guest line uses actual dialogue owner")
 	if reached:
 		_check(not performance.conversation_prompt(str(spec.host)).is_empty(), case_label + " host work remains speakable")
 		_check(_speak(str(spec.host)), case_label + " host optional line leaves case and knowledge intact")
@@ -251,6 +259,95 @@ func _speak(identity: String) -> bool:
 	var shown := panel.attention_active() and world.conversations.performance_active()
 	panel.choose(0)
 	return shown and not panel.attention_active() and before == _consequence_snapshot()
+
+
+## Floor, full standing capsule, both residents and eye-level sight line must all clear.
+func _observer_mark(actor: Node3D, eyes: Vector3, forward: Vector3) -> Variant:
+	var space := world.get_world_3d().direct_space_state
+	var excluded: Array[RID] = [player.get_rid()]
+	var capsule := PhysicsShapeQueryParameters3D.new()
+	capsule.shape = player._shape.shape
+	capsule.collision_mask = 1
+	capsule.exclude = excluded
+	for metres: float in [1.9, 1.55, 2.25, 1.3]:
+		for degrees: float in [0.0, 25.0, -25.0, 50.0, -50.0, 70.0, -70.0]:
+			var foot := actor.global_position + forward.rotated(Vector3.UP, deg_to_rad(degrees)) * metres
+			var ground := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+					foot + Vector3.UP * 0.30, foot - Vector3.UP * 0.30, 1, excluded))
+			if ground.is_empty() or (ground.normal as Vector3).y < 0.85:
+				continue
+			foot = (ground.position as Vector3) + Vector3.UP * 0.025
+			capsule.transform = Transform3D(Basis.IDENTITY, foot) * player._shape.transform
+			if not space.intersect_shape(capsule, 1).is_empty():
+				continue
+			var clear_of_people := true
+			for route: Node3D in routes.values():
+				if route.actor.global_position.distance_to(foot) < 0.80:
+					clear_of_people = false
+			if not clear_of_people:
+				continue
+			var sight := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+					foot + Vector3.UP * player.camera.position.y, eyes, 1, excluded))
+			var obstacle := sight.get("collider") as Node
+			if sight.is_empty() or (obstacle != null and (obstacle == actor or actor.is_ancestor_of(obstacle))):
+				return foot
+	return null
+
+func _write_caller_frame(label: String) -> bool:
+	for frame in 2: await RenderingServer.frame_post_draw
+	return get_viewport().get_texture().get_image().save_png(directory.path_join(case_label + "_caller_" + label + ".png")) == OK
+
+func _first_person_guest(identity: String) -> bool:
+	var actor := routes[identity].actor as AnimatedResident
+	if not _check(actor != null and actor.cast_body != null, "guest has its live cast body"):
+		return false
+	var rig: Skeleton3D = actor.cast_body.skeleton
+	var head := rig.find_bone("Head")
+	if not _check(head >= 0, "guest has a head landmark"): return false
+	var eyes := rig.to_global(rig.get_bone_global_pose(head).origin + Vector3.UP * 0.08)
+	var forward := actor.global_basis.z
+	if actor.attention != null and actor.attention.pipeline != null:
+		forward = rig.global_basis * (actor.attention.pipeline.head_facing() as Vector3)
+	forward.y = 0.0
+	if forward.length_squared() < 0.001: return false
+	await get_tree().physics_frame
+	var foot: Variant = _observer_mark(actor, eyes, forward.normalized())
+	if not _check(foot is Vector3, "supported, unoccupied first-person mark with sight of guest"): return false
+	var saved_pose := player.global_transform
+	var saved_eye := player.camera.transform
+	var baseline := player.camera.fov
+	var mouse := Input.mouse_mode
+	var before := _consequence_snapshot()
+	var panel: CaseDialoguePanel = world.conversations.dialogue
+	if not _check(not panel.attention_active() and not player.call_locked, "player owns input before speaking"): return false
+	player.global_position = foot
+	player.face_world_point(eyes)
+	player.camera.make_current()
+	var caller_pose := player.global_transform
+	var caller_eye := player.camera.transform
+	var ok := await _write_caller_frame("before")
+	var opened: bool = performance.try_conversation(identity, player)
+	if opened:
+		for tick in 20: await get_tree().physics_frame
+	var replies := panel.offered_labels()
+	var pushed := player.camera.fov
+	var optical := player.camera.is_current() and pushed < baseline - 0.1 and pushed >= baseline - 7.01
+	var held := panel.attention_active() and player.call_locked and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
+	_check(opened and optical and held and not replies.is_empty(), "player camera frames speaking guest above usable replies")
+	ok = (await _write_caller_frame("speaking")) and ok
+	if opened and not replies.is_empty():
+		panel.choose(replies.size()-1) # Leave via the authored final option.
+	var released := not player.call_locked and not panel.attention_active() and Input.mouse_mode == mouse
+	var recovered := player.camera.is_current() and is_equal_approx(player.camera.fov, baseline) and player.global_transform.is_equal_approx(caller_pose) and player.camera.transform.is_equal_approx(caller_eye)
+	ok = (await _write_caller_frame("released")) and ok
+	details["first_person_guest"] = {"resident": identity, "standing_mark": foot, "eyes": eyes, "baseline_fov": baseline, "speaking_fov": pushed, "released_fov": player.camera.fov, "replies": replies, "input_restored": released, "pose_restored": recovered}
+	# Restore the review fixture even when a dialogue assertion fails.
+	if opened and panel.attention_active(): world.conversations.cancel_for_transition()
+	camera.make_current()
+	player.global_transform = saved_pose
+	player.camera.transform = saved_eye
+	player.camera.fov = baseline
+	return ok and opened and optical and held and released and recovered and before == _consequence_snapshot()
 
 func _consequence_snapshot() -> Dictionary:
 	var result := {}

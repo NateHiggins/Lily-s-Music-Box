@@ -3,7 +3,7 @@ extends Node3D
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const NativeChecks := preload("res://tests/harukiya_staff_occupancy_test.gd")
 const Standing := preload("res://scripts/characters/standing_occupancy.gd")
-const REQUIRED := ["adela_civil_presence", "adela_native_column", "adela_real_conversation", "adela_retained_shutdown", "adela_custody_cleanup"]
+const REQUIRED := ["adela_dated_subjects", "adela_civil_presence", "adela_native_column", "adela_real_conversation", "adela_retained_shutdown", "adela_custody_cleanup"]
 var world: OrisonV2RuntimeRoot
 var cast: Node3D
 var actor: Node3D
@@ -98,6 +98,9 @@ func _run() -> void:
 	world.conversations.conversation_ended.connect(_on_ended)
 	world.conversations.dialogue.node_shown.connect(_on_line)
 	var before: int = failures.size()
+	await _dated_subjects()
+	_contract("adela_dated_subjects", before)
+	before = failures.size()
 	# Empty schedule gaps are genuine resolver results, never invented shop/out blocks.
 	for row: Array in [[6,14,1139,false,""], [6,14,1140,true,"harukiya_bar"], [6,15,0,true,"harukiya_bar"], [6,15,45,false,"out"], [6,18,1140,true,"harukiya_bar"], [6,18,1259,true,"harukiya_bar"], [6,18,1260,false,""], [7,19,1262,false,"roof"], [7,19,1263,false,"out"], [7,20,1200,false,"out"]]:
 		await _context(int(row[0]), int(row[1]), int(row[2]), bool(row[3]), str(row[4]))
@@ -142,6 +145,24 @@ func _run() -> void:
 	await _capture("adela_actual_stage")
 	await _retained_shutdown()
 	await _finish()
+
+
+## Sample the rebuilt skeleton's measured rest front before anyone calls to her.
+func _dated_subjects() -> void:
+	var owner := world.get_node_or_null("AdelaDatedEncounters")
+	if not _check(owner != null, "installed dated Adela owner"): return
+	for row: Array in [[1928,11,10,550,"photo_supplies","av_window"], [1929,7,11,1090,"roof","av_key11"], [1929,7,19,1086,"lobby","av_nineteen"]]:
+		if not _check(world.campaign_clock.configure_date(row[0], row[1], row[2], row[3]) and world.campaign_clock.bind_state(), "dated mark clock " + str(row[5])): continue
+		await get_tree().create_timer(.35).timeout
+		await get_tree().physics_frame
+		var resident := owner.get("actor") as AnimatedResident
+		if not _check(is_instance_valid(resident) and resident.installed_topic == str(row[5]), "dated body present " + str(row[5])): continue
+		var mark: Dictionary = owner.call("_stance", str(row[4]))
+		var wanted: Vector3 = mark.facing - resident.global_position
+		var body := resident.cast_body
+		var facing: Vector3 = body.skeleton.global_basis * body.attention.pipeline.profile.forward
+		var alignment := Vector2(wanted.x, wanted.z).normalized().dot(Vector2(facing.x, facing.z).normalized())
+		_check(alignment > .99, "%s faces its authored subject (%.4f)" % [str(row[5]), alignment])
 
 func _context(month: int, day: int, minute: int, present: bool, place: String) -> void:
 	_check(world.campaign_clock.configure_date(1929, month, day, minute), "civil fixture date accepted")

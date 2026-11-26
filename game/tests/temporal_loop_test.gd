@@ -125,6 +125,57 @@ func _check_box_clock() -> void:
 	loop.pace = previous
 
 
+## Exercise the real correspondence receiver and its saved eight-slot queue.
+## The test releases one occupied slot per pass; physical printing is covered
+## by the companion suite. The final morning remains on its civil deadline.
+func _check_last_night_custody() -> void:
+	var arc: Dictionary = loop.ledger().arc
+	for key: String in ["ending", "told", "asked", "choice"]:
+		arc.erase(key)
+	var old_outbox: Array = loop.ledger().get("outbox", []).duplicate()
+	loop.ledger().erase("outbox")
+	var paper := preload("res://scripts/device/companion_session.gd").new()
+	paper._restore()
+	loop._receive_slip = paper.accept_temporal_slip
+	for i in paper.OUTBOX_LIMIT:
+		check(paper.accept_temporal_slip(loop.ledger(), "Waiting slip %d" % i), "fill the actual outbox slot %d" % i)
+	var full: Array = paper._loop_slips.duplicate()
+	var end_time := CampaignClock.calendar_minute_of(1929, 11, 9, 1439.0)
+	loop.here = "4B"
+	check(loop.go_last_night().ok and clock.rebase_calendar(end_time - 1.0) and not loop._attend_last_night(), "no last-night encounter while away from the roof")
+	loop.here = "roof"
+	check(clock.rebase_calendar(end_time) and not loop._attend_last_night() and not arc.has("told") and loop.ending() == "" and not arc.has("last_night_paper"), "first reaching the roof at the close earns no ending or paper")
+	check(loop.go_last_night().ok and clock.rebase_calendar(end_time - 1.0), "the missed roof can be visited again at 23:58")
+	var night: Dictionary = loop.table.arc.last_night
+	var expected := [Loop.received_copy(int(night.message_number), str(night.message)), night.answer, night.unfinished, night.epilogues.left]
+	check(loop._attend_last_night() and loop._attend_last_night() and loop.awaiting_choice(), "late eligible roof arrival still offers the authored choice with a full printer")
+	check(paper._loop_slips == full and arc.get("last_night_paper") == expected.slice(0, 3), "all three refused lines wait in authored order")
+	check(clock.rebase_calendar(end_time) and loop._attend_last_night() and loop.ending() == "left" and not loop.awaiting_choice(), "leaving the line at the close commits its ending despite a full printer")
+	check(arc.get("last_night_paper") == expected and RealityState.save_game(), "all four pending texts save with the ending")
+	RealityState.load_game()
+	check(clock.bind_state() and loop.ending() == "left", "Continue retains the recorded ending")
+	paper._restore()
+	check(paper._loop_slips == full and loop.ledger().arc.get("last_night_paper") == expected, "Continue restores both sides of paper custody")
+	for i in expected.size():
+		paper._loop_slips.pop_front()
+		paper._keep_slips()
+		loop._attend_last_night()
+		loop._attend_last_night()
+		check(paper._loop_slips.size() == full.size() and paper._loop_slips.slice(full.size() - i - 1) == expected.slice(0, i + 1), "one freed slot admits exactly the next ending slip %d" % i)
+	check(not loop.ledger().arc.has("last_night_paper") and RealityState.save_game(), "completed transfer leaves no pending source")
+	RealityState.load_game()
+	check(clock.bind_state(), "Continue after transfer rebinds the civil clock")
+	paper._restore()
+	paper._loop_slips.pop_front()
+	paper._keep_slips()
+	loop._attend_last_night()
+	check(paper._loop_slips.size() == full.size() - 1 and paper._loop_slips.slice(-4) == expected, "Continue does not replay accepted ending text")
+	loop._receive_slip = _accept_arc_slip
+	if old_outbox.is_empty(): loop.ledger().erase("outbox")
+	else: loop.ledger().outbox = old_outbox
+	paper.free()
+
+
 func _ready() -> void:
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
@@ -772,6 +823,7 @@ func _ready() -> void:
 			and loop._attend_last_night() and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0))
 			and loop._attend_last_night() and loop.ending() == "left" and str(slips.back()).contains("BOX 4B IS EMPTY"),
 			"left unfinished, the bridge closes on the empty box")
+	_check_last_night_custody()
 	loop.here = ""
 	# The Tenant's received copies: presence, not the calendar, delivers them.
 	var phase_before: String = str(RealityState.data.prologue.phase)

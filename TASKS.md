@@ -200,6 +200,8 @@ Paper-task execution follows AGENTS.md/DOCS.md and Bible precedence: branch from
 - **K-VOICE-PRODUCTION — Codex source, Fable runtime integration.** Approved cast profiles and safe recording/cue intake are offline authoring tools; original partial resident_static_02 is not a live completed production. Audit receipts before resuming frozen generation, resolve uncast roles and Lily's own reference, renew source-bound dynamic inventory after dialogue changes and add authored loop/ordinary sequence coverage (not scanned by the existing catalog), publish a complete validated manifest, wire interruption-safe playback/cues through the existing actor owner, and obtain played listening/facial review. Preserve authored text, original failures and separate partial manifests. [Scope and custody](design/VOICE_LINE_INTAKE_2026-11-11.md).
 - **K-CAST-SWAP-REMAINDER — Claude, Omni w9189b10b24ac:** all eighteen residents wear rebuilt bodies, change clothes by the wardrobe rules, sit at measured stool heights (PR330) and are borrowed by the dream (PR331). Left: the second transient guest beside the first (needs route, door and occupancy integration, not a trailing body), and retiring the old bodies once Lily accepts the rebuilt cast in play; old bodies stay the fallback until then.
 
+- **K-LOOP-ENSEMBLE (Codex)** Qualify resident work, listener reactions, dialogue and first-person framing on all authored visits and ordinary exchanges, including blocked arrival, interruption, return, rescue choices and both endings. Keep acted, runtime-tested and played results distinct. [Scene directions](design/LOOP_SCENE_DIRECTION_2026-11-26.md).
+
 ## D — Unresolved decisions and integration
 
 **D1–D4** travel with the deferred studio brief below. **D5** was answered by the
