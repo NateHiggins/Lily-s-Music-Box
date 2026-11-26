@@ -244,15 +244,6 @@ existing playback/trace rules remain in Bible §III.2 and the Songbook reference
 archiving a completed local-contract note does not change those rules.
 Network distribution, phrase duels and the House Rig audition are deferred below.
 
-- **G3 — Codex.** The four historical originals have physical locations and
-  occupy the valise. The installed route verified pickup, return, selected-hand
-  Continue and playback through the Harukiya reader. The custody test also
-  covered failed writes and return from a temporal visit. [PR 587](https://github.com/NateHiggins/Lily-s-Music-Box/pull/587).
-  Player-recorded editions have a recorder output tray, valise custody and
-  private playback in the follow-up candidate. Qualify a normal words-only
-  recording from KEEP through pickup, Continue, playback and return. The
-  private storage, voiced fixture, legacy recovery and backing also need native checks.
-
 - **G4b** The sleeves are the hook and they are deliberately thin: "for M." with
   four residents whose name starts with M, a WORS sleeve with the date rubbed
   out, one found behind the pipes, one with no sleeve at all. **Nothing in the
