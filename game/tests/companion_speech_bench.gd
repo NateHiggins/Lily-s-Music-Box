@@ -110,7 +110,11 @@ func finish() -> void:
 	var inputs := {}
 	for path: String in ["res://scripts/audio/resident_heard_speech.gd", "res://scripts/device/companion_lexicon.gd",
 			"res://scripts/device/companion_session.gd", "res://scripts/device/companion_campaign_state.gd",
-			"res://scripts/ui/case_dialogue_panel.gd", "res://data/device/companion_speech.json", "res://tests/companion_speech_bench.gd"]:
+			"res://scripts/ui/case_dialogue_panel.gd", "res://data/device/companion_speech.json", "res://tests/companion_speech_bench.gd",
+			get_script().resource_path, scene_file_path, "res://scripts/device/companion_conversation.gd",
+			"res://scripts/device/companion_intent.gd", "res://data/dialogue/companion.json", "res://data/audio_cues.json",
+			"res://assets/audio/companion/speech/cal_dwyer__cd_open.ogg", "res://assets/audio/companion/speech/listen_cal.ogg",
+			"res://assets/audio/companion/speech/listen.ogg", "res://scripts/audio/prop_audio.gd"]:
 		inputs[path] = FileAccess.get_sha256(path)
 	var receipt := {"schema_version":2, "evidence_kind":"runtime_contract", "production_runtime":false, "selector":"v2",
 		"scope":diagnostic_scope, "execution":{"completed":true, "exit_code":0 if failures.is_empty() else 1, "timed_out":false, "elapsed_s":(Time.get_ticks_msec()-started_at)/1000.0},

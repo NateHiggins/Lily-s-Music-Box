@@ -10,6 +10,8 @@ const RECORDED := {
 	"companion_babble_confusion": "res://assets/audio/companion/confusion.wav",
 	"companion_say_oh": "res://assets/audio/companion/speech/oh.ogg",
 	"companion_say_no": "res://assets/audio/companion/speech/no.ogg",
+	"companion_say_listen": "res://assets/audio/companion/speech/listen.ogg",
+	"companion_echo_cal_listen": "res://assets/audio/companion/speech/listen_cal.ogg",
 	"companion_say_hello": "res://assets/audio/companion/speech/hello.ogg",
 	"companion_say_yes": "res://assets/audio/companion/speech/yes.ogg",
 	"companion_say_i": "res://assets/audio/companion/speech/i.ogg",

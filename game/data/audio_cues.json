@@ -582,6 +582,32 @@
       "caption": "Vantry: no",
       "graph_transmitted": false
     },
+    "companion_say_listen": {
+      "stream_key": "companion_say_listen",
+      "purpose": "dialogue",
+      "bus": "Dialogue",
+      "priority": 35,
+      "volume_db": -4.0,
+      "unit_size": 1.0,
+      "max_distance": 6.0,
+      "cooldown": 1.5,
+      "max_instances": 1,
+      "caption": "Vantry: listen",
+      "graph_transmitted": false
+    },
+    "companion_echo_cal_listen": {
+      "stream_key": "companion_echo_cal_listen",
+      "purpose": "dialogue",
+      "bus": "Dialogue",
+      "priority": 35,
+      "volume_db": -4.0,
+      "unit_size": 1.0,
+      "max_distance": 6.0,
+      "cooldown": 1.5,
+      "max_instances": 1,
+      "caption": "Vantry: listen",
+      "graph_transmitted": false
+    },
     "companion_say_hello": {
       "stream_key": "companion_say_hello",
       "purpose": "dialogue",

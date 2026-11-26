@@ -27,6 +27,8 @@ static func parse(raw: String) -> Dictionary:
 		"encore":"sing", "play me a tune":"sing", "work order":"help", "what s my work order":"help",
 		"what s in my valise":"inventory", "where do i start":"help",
 		"what is love":"lamp_arithmetic", "what does love mean to you":"lamp_arithmetic",
+		"what do i say when someone is hurting":"keep_company", "what can i do when i can t help":"keep_company",
+		"what do i say when words fail":"keep_company",
 		"say something":"practice", "say it back":"practice", "what can you say":"practice",
 		"try a word":"practice", "talk to me":"practice", "tell me a joke":"joke", "another joke":"joke", "wait":"wait", "wait here":"wait",
 		"can we be quiet":"silence", "do we have to talk":"silence",

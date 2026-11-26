@@ -24,6 +24,7 @@ var _delivering := false
 # from history or an interrupted print, even if the same text is on the paper.
 const REPLY_GESTURES := {
 	"sing_request": [&"good_side", &"companion_encore"],
+	"keep_company": [&"", &""],
 	"compliment_first": [&"good_side", &""],
 	"joke_request": [&"vaudeville_wink", &""],
 }
@@ -440,6 +441,8 @@ func _advance_reply_gesture() -> void:
 	if gesture[0] != &"": rig.play_reaction(gesture[0])
 	if _gesture_line == "speech_practice":
 		_say(_practice_line)
+	elif _gesture_line == "keep_company":
+		_say("listen")
 	elif _gesture_line == "speech_babble":
 		AudioPolicy.present_3d(&"companion_babble_acknowledgement", _carrier.motion.global_position, 1.0, _gesture_source)
 	elif gesture[1] != &"":
@@ -466,14 +469,18 @@ func hears_resident(panel: CaseDialoguePanel) -> bool:
 func hear_resident_word(word: String, source: String, panel: CaseDialoguePanel) -> void:
 	if not hears_resident(panel) or not lexicon.learn(word, source): return
 	_snapshot()
-	if chatter_enabled and word in ["hello", "help", "here", "again", "okay", "oh", "yes", "no"] and lexicon.can_say(word):
+	var borrowed := word == "listen" and source == "cd_open"
+	if chatter_enabled and (borrowed or word in ["hello", "help", "here", "again", "okay", "oh", "yes", "no"]) and lexicon.can_say(word):
 		_echo = word
 		_echo_until = Time.get_ticks_msec() + 24000
 		_echo_quiet_since = -1
 
-func _say(line: String) -> void:
+func _say(line: String, echo := false) -> void:
 	if not lexicon.can_say(line): return
-	_speaking = AudioPolicy.present_3d(StringName("companion_say_" + line), _carrier.motion.global_position, 1.0, _english_source)
+	var cue := StringName("companion_say_" + line)
+	if echo and line == "listen" and lexicon.heard.get(line) == "cd_open":
+		cue = &"companion_echo_cal_listen"
+	_speaking = AudioPolicy.present_3d(cue, _carrier.motion.global_position, 1.0, _english_source)
 	if _speaking: _voice_gap = 45.0
 
 func _stop_english() -> void:
@@ -505,7 +512,7 @@ func _advance_speech(delta: float) -> void:
 	if now - _echo_quiet_since < ECHO_QUIET_MSEC: return
 	var word := _echo
 	_echo = ""
-	_say(word)
+	_say(word, true)
 
 func _snapshot() -> void:
 	if retired or not is_same(_campaign, RealityState.data): return

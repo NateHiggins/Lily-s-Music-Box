@@ -1215,6 +1215,10 @@ do not treat this as cancellation of installed ecology or approved future people
   A nearby powered set remembers each completed word and its source. Thirteen
   pronunciations and six authored phrases use the original voice. “Say something”
   invites practice. A newly heard word can also slip out after a conversation.
+  The draft adds a fourteenth word, “listen.” Cal teaches it at his radio.
+  His rhythm returns in the first echo. Vantry gives the word a different
+  reading when asked what to say to someone who is hurting. Audition and
+  native checks are under **D:/ov_reports/vantry_voice_workshop_20261125/borrowed_word/**.
   The articulate printer, protected prologue and quiet ending keep their owners.
   The remaining cast takes need transcript and timing review before they can teach.
   Lily's listening judgment is open. Historical recorded reactions still need

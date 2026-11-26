@@ -236,6 +236,7 @@ func respond(raw: String, context: Dictionary) -> Dictionary:
 			"undo": id = "undo_request"
 			"sing": id = "sing_request"
 			"lamp_arithmetic": id = "lamp_arithmetic"
+			"keep_company": id = "keep_company"
 			"practice": id = "speech_practice" if context.get("has_spoken_words", false) else "speech_babble"
 			"wait": id = "wait_request"
 			"silence": id = "silence_request"
