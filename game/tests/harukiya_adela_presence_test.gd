@@ -204,11 +204,21 @@ func _conversation() -> void:
 	var hit: Dictionary = _ray()
 	if not _check(not hit.is_empty() and hit.collider == interaction, "actual ordinary2.1m player ray reaches Adela interaction area"): return
 	_check(not world.player.call_locked and not actor.call("interact_prompt").is_empty(), "actual player and authored target available")
+	var camera := world.player.camera
+	var entry_fov := camera.fov
+	var entry_basis := camera.global_basis
 	if not await _mapped_interact(): return
 	await get_tree().create_timer(.4).timeout
 	var panel: CaseDialoguePanel = world.conversations.dialogue
 	_check(started_speakers.has("adela_voss") and str(world.conversations.get("_active_resident")) == "adela_voss" and panel.attention_active(), "ordinary mapped input starts authored Adela conversation")
 	_check(str(cast.get("_speaker")) == "adela_voss", "same performer receives actual speaker callback")
+	var framing := panel._speaker_framing
+	var rig := actor.get("skeleton") as Skeleton3D
+	var engaged_fov := camera.fov
+	_check(framing != null and rig != null and framing._actor == actor and framing._body == rig, "player's existing shot resolves the installed Adela body and skeleton")
+	_check(camera.is_current() and camera.global_basis.is_equal_approx(entry_basis), "framing preserves the player's camera and aim")
+	_check(engaged_fov < entry_fov - 0.1 and engaged_fov >= entry_fov - 7.01, "visible Adela gets the bounded lens adjustment")
+	details.stage_lens = {"entry_fov": entry_fov, "engaged_fov": engaged_fov}
 	var line: Dictionary = panel.displayed_line()
 	_check(not str(line.get("text", "")).strip_edges().is_empty(), "existing authored line displayed")
 	_check(panel.current_node_id=="ad_singing", "actual bar interaction opens authored social entry rather than studio services")
@@ -220,6 +230,8 @@ func _conversation() -> void:
 	await _capture("adela_authored_conversation")
 	world.conversations.cancel_for_transition()
 	await get_tree().process_frame
+	details.stage_lens.restored_fov = camera.fov
+	_check(is_equal_approx(camera.fov, entry_fov) and camera.is_current() and camera.global_basis.is_equal_approx(entry_basis), "cancel releases Adela's framing and restores the player's lens and aim")
 	_check(ended_speakers.has("adela_voss") and str(cast.get("_speaker")).is_empty() and not panel.attention_active() and not world.player.call_locked, "existing transition authority closes panel and speaker/input lease")
 
 func _mapped_interact() -> bool:
@@ -317,7 +329,7 @@ func _finish() -> void:
 	for id: String in REQUIRED:
 		_check(bool(contracts[id].executed) and str(contracts[id].status) == "PASS", "required focused contract " + id)
 	var passed: bool = failures.is_empty()
-	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":true,"selector":"v2","suite":"HarukiyaAdelaPresenceTest","status":"PASS" if passed else "FAIL","scope":"Actual RuntimeRoot Adela stage attendance via civil resolver, same actor and original two staff, measured native column/support/upper-obstruction/counter-negative, ordinary mapped player interaction and authored conversation callbacks, retained-world ghost-free shutdown. One declared initial nearby player stance. No natural all21 arrival, walking/seated fit, performance qualification, seven-stop/NPC lift or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":initial_inputs,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":engine_errors,"details":details}
+	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":true,"selector":"v2","suite":"HarukiyaAdelaPresenceTest","status":"PASS" if passed else "FAIL","scope":"Actual RuntimeRoot Adela stage attendance via civil resolver, same actor and original two staff, measured native column/support/upper-obstruction/counter-negative, ordinary mapped player interaction and authored conversation callbacks, visible stage speaker lens acquisition and release, retained-world ghost-free shutdown. One declared initial nearby player stance. No natural all21 arrival, walking/seated fit, performance qualification, seven-stop/NPC lift or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":initial_inputs,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":engine_errors,"details":details}
 	result.source.test_path = "game/" + get_script().resource_path.trim_prefix("res://")
 	result.source.test_sha256 = FileAccess.get_sha256(get_script().resource_path)
 	result.source.test_scene_path = "game/" + scene_file_path.trim_prefix("res://")
