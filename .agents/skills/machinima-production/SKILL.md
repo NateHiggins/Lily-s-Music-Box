@@ -117,6 +117,11 @@ image and both cut boundaries in the final encoded film.
 Read [capture and delivery](references/capture-and-delivery.md) when implementing
 timing, native recording, encoding or final QA.
 
+For an ensemble take or a pickup that must match live gameplay, read
+[First Light and ensemble acting](references/ensemble-acting.md). It covers
+the installed camera and stem recorder, actor ownership, interrupted blocking
+and comparing two takes at the same frame.
+
 1. Run a short voiced native proof through the patched engine and FIFO lane on
    the hidden desktop. Inspect frames, audio as capabilities allow, receipts and
    storage cost. Preserve Lily's mouse; recover process identity/custody after a
