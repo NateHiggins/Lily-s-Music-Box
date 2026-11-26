@@ -341,7 +341,7 @@ func _dialogue_lifecycle() -> void:
 	var target := BodyTarget.new()
 	target.resident_id = "mae_kessler"
 	add_child(target)
-	var topic := performance.conversation_prompt("mae_kessler")
+	var topic: String = performance.conversation_prompt("mae_kessler")
 	check(not topic.is_empty() and target.interact_prompt() == topic and target.interact_prompt() == topic, "hover retains the available performance")
 	target.interact(player)
 	check(conversations.performance_active(), "normal body interaction starts the offered performance")
