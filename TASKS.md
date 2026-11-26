@@ -254,6 +254,8 @@ Network distribution, phrase duels and the House Rig audition are deferred below
   is say something about a trace the bar cannot - a cleaner read, a second
   voice, a date - and that is the errand.
 
+- **G-FILM-FIRST-LIGHT — Codex.** Screen the continuous Vantry bench study, then stage one resident listening, test one reset with retained evidence, and assemble the pilot. [Four milestones and acceptance checks](design/CINEMA_DUAL_PIPELINE_PLAN_2026-11-26.md).
+
 ## B — The Harukiya rebuild (owner commission 2026-08-16)
 
 
