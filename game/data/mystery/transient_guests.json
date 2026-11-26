@@ -11,7 +11,8 @@
   "tg_lodger": "tg_l1",
   "tg_stairs": "tg_s1",
   "tg_rumor": "tg_r1",
-  "tg_party": "tg_q1"
+  "tg_party": "tg_q1",
+  "tg_mirror": "tg_r2"
  },
  "threads": [
   {
@@ -44,6 +45,17 @@
    "topic": "Anything new in the house?",
    "source": "Comedy. Bank lines. Ordinary appointment and a verified mirror only.",
    "root": "tg_r1"
+  },
+  {
+   "id": "tg_mirror",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "What about the mirror on four?",
+   "requires": [
+    "m_mirror_seen"
+   ],
+   "source": "The Guests answer a player who saw the mirror, including on a return visit after the doctor joke.",
+   "root": "tg_r2"
   },
   {
    "id": "tg_party",
@@ -106,6 +118,9 @@
      "goto": "tg_r2",
      "requires": [
       "m_mirror_seen"
+     ],
+     "unless": [
+      "mt:tg_mirror"
      ]
     }
    ]

@@ -79,6 +79,10 @@ class MysteryDialogueTests(unittest.TestCase):
         rumor = nodes[tree["entries"]["tg_rumor"]]
         mirror = next(choice for choice in rumor["choices"] if choice["goto"] == "tg_r2")
         self.assertEqual(mirror["requires"], ["m_mirror_seen"])
+        followup = next(thread for thread in tree["threads"] if thread["root"] == mirror["goto"])
+        self.assertEqual(tree["entries"][followup["id"]], mirror["goto"])
+        self.assertEqual(followup["requires"], ["m_mirror_seen"])
+        self.assertEqual(mirror["unless"], ["mt:" + followup["id"]])
         quiet = rumor["silence_goto"]
         visited = set()
         while quiet:
@@ -86,6 +90,10 @@ class MysteryDialogueTests(unittest.TestCase):
             self.assertNotEqual(quiet, mirror["goto"])
             visited.add(quiet)
             quiet = nodes[quiet].get("silence_goto")
+
+    def test_unless_requires_a_list_of_flag_names(self):
+        self.edit("transient_guests", lambda tree: tree["nodes"]["tg_r1"]["choices"][0].update(unless="mt:tg_mirror"))
+        self.assertIn("unless needs a nonempty list of flag names", self.failures())
 
     def test_a_choice_without_silence_fails(self):
         self.edit("cam_ortiz", lambda d: d["nodes"]["co_e1"].pop("silence_goto"))
