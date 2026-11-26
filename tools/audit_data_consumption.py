@@ -1105,6 +1105,120 @@ def _autoload_map_getters(owner):
     return getters
 
 
+def _loop_statements(lines, index):
+    """Statements in this loop only, stopping at an unconditional direct exit."""
+    indent = len(lines[index]) - len(lines[index].lstrip())
+    children = []
+    body_indent = None
+    for child in lines[index + 1:]:
+        if not child.strip() or child.lstrip().startswith("#"):
+            continue
+        child_indent = len(child) - len(child.lstrip())
+        if child_indent <= indent:
+            break
+        if body_indent is None:
+            body_indent = child_indent
+        children.append(child)
+        if child_indent == body_indent and re.match(r"(?:break|continue|return)\b", child.lstrip()):
+            break
+    return "\n".join(children)
+
+
+def _configured_row_fields(root, texts, child, method):
+    """An explicit one-argument super forward reaches the actual literal base."""
+    receiver = texts.get(root / "game" / child, "")
+    parent = re.search(r'^extends\s+["\x27]res://(scripts/[\w./-]+\.gd)["\x27]$', receiver, re.MULTILINE)
+    if not parent:
+        return ()
+    base = texts.get(root / "game" / parent[1], "")
+    if any('"""' in text or "'''" in text for text in (receiver, base)):
+        return ()
+    for is_forwarder, text in ((True, receiver), (False, base)):
+        # Split even at unsupported headers, so another function's statements
+        # cannot accidentally become evidence for this method.
+        bodies = [b for b in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)
+                  if re.match(rf"func {method}\(", b)]
+        if len(bodies) != 1 or not _simple_member_scopes(bodies[0]):
+            return ()
+        lines = bodies[0].expandtabs(4).splitlines()
+        body = _loop_statements(lines, 0)
+        statements = list(logical_statements(lines[0] + "\n" + body))
+        signature = re.fullmatch(rf"func {method}\((\w+)\s*:\s*Dictionary\)\s*->\s*void:", statements[0])
+        if not signature:
+            return ()
+        arg = signature[1]
+        if re.search(rf"(?m)^\s*(?:(?:var|for|const)\s+{arg}\b|{arg}\s*=(?!=))", body) or _changes_collection(body, arg):
+            return ()
+        if is_forwarder and (len(statements) < 2 or statements[1] != f"super.{method}({arg})"):
+            return ()
+    return {path[0] for path in _parameter_reads(body, arg, ())
+            if len(path) == 1 and path[0].isidentifier()}
+
+
+def collaborator_parameter_reads(root, texts):
+    """Find potential field reads of a source array row passed to a fresh local collaborator."""
+    reads = defaultdict(lambda: defaultdict(set))
+    for text in texts.values():
+        if ("JSON.parse_string" not in text or '.new()' not in text
+                or '"""' in text or "'''" in text):
+            continue
+        preloads = dict(re.findall(
+            r'^const (\w+)\s*:?=\s*preload\("res://(scripts/[\w./-]+\.gd)"\)\s*$', text, re.MULTILINE))
+        if not preloads:
+            continue
+        constants, _ = source_constants("\n".join(s for s in text.splitlines() if not s[:1].isspace()))
+        for body in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)[1:]:
+            if 'JSON.parse_string' not in body or not _simple_member_scopes(body):
+                continue
+            function = _script_functions(body)
+            if not function:
+                continue
+            locals_ = set(next(iter(function.values()))[0])
+            locals_.update(re.findall(r"^\s*(?:var|const|for)\s+(\w+)", body, re.MULTILINE))
+            visible = {k: v for k, v in constants.items() if k not in locals_}
+            lines = _loop_statements(body.expandtabs(4).splitlines(), 0).splitlines()
+            if not lines:
+                continue
+            function_indent = len(lines[0]) - len(lines[0].lstrip())
+            origins = {}
+            for i, line in enumerate(lines):
+                statement = line.partition("#")[0].strip()
+                binding = _binding(statement)
+                if binding:
+                    name, rhs = binding.group("name", "rhs")
+                    source = re.fullmatch(r"JSON\.parse_string\(FileAccess\.get_file_as_string\(([^()]+)\)\)", rhs)
+                    if (source and len(line) - len(line.lstrip()) == function_indent
+                            and statement.startswith("var ") and not _changes_collection(body, name)
+                            and len(re.findall(rf"(?m)^\s*(?:var\s+)?{name}(?:\s*:\s*\w+)?\s*:?=(?!=)", body)) == 1):
+                        origins[name] = _file_identity(source[1], visible)
+                loop = re.fullmatch(r"for (\w+)\s*:\s*Dictionary in (\w+)(?:\.(\w+)|\.get\(\"(\w+)\",\s*\[\]\)):", statement)
+                if not loop or not origins.get(loop[2]):
+                    continue
+                row, container = loop[1], loop[3] or loop[4]
+                block = _loop_statements(lines, i)
+                if (re.search(rf"(?m)^\s*(?:(?:var|const|for)\s+{row}\b|{row}\s*=(?!=))", block)
+                        or _changes_collection(block, row) or re.search(rf"\b{row}\.(?:erase|clear|get_or_add)\(", block)):
+                    continue
+                if not block:
+                    continue
+                indent = len(block) - len(block.lstrip())
+                for ctor in re.finditer(rf"(?m)^ {{{indent}}}var (\w+)\s*:?=\s*(\w+)\.new\(\)[ \t]*$", block):
+                    local, kind = ctor.groups()
+                    if kind not in preloads or kind in locals_:
+                        continue
+                    if len(re.findall(rf"(?m)^\s*(?:(?:var|const|for)\s+{local}\b|{local}\s*=(?!=))", block)) != 1:
+                        continue
+                    call_pattern = re.compile(rf"(?m)^[ \t]*{local}\.(\w+)\({row}\)[ \t]*$")
+                    for call in call_pattern.finditer(block, ctor.end()):
+                        # A bare row escaping earlier could be replaced or
+                        # mutated by an unknown collaborator.
+                        if re.search(rf"\b{row}\b(?!\s*(?:\.|\[))", block[:call.start()]):
+                            continue
+                        for field in _configured_row_fields(root, texts, preloads[kind], call[1]):
+                            reads[origins[loop[2]][0]][(container, None, field)].add(f"{kind}.{call[1]}")
+    return reads
+
+
 def _getter_loop_fields(text, receiver, method, member):
     """The current key of the getter's own map identifies a real source entry."""
     if (f"{receiver}.{method}(" not in text or '"""' in text or "'''" in text
@@ -1123,21 +1237,7 @@ def _getter_loop_fields(text, receiver, method, member):
             if not match:
                 continue
             key = match[1]
-            indent = len(line) - len(line.lstrip())
-            block = []
-            body_indent = None
-            for child in lines[i + 1:]:
-                if not child.strip() or child.lstrip().startswith("#"):
-                    continue
-                child_indent = len(child) - len(child.lstrip())
-                if child_indent <= indent:
-                    break
-                if body_indent is None:
-                    body_indent = child_indent
-                block.append(child)
-                if child_indent == body_indent and re.match(r"(?:break|continue|return)\b", child.lstrip()):
-                    break
-            block = "\n".join(block)
+            block = _loop_statements(lines, i)
             if re.search(rf"(?m)^\s*(?:(?:var|const|for)\s+{key}\b|{key}\s*[-+*/%:]?=(?!=))", block):
                 continue
             for statement in logical_statements(block):
@@ -1204,6 +1304,7 @@ def scan(root: Path, exception_path: Path):
     inherited_reads = inherited_parameter_reads(root, texts)
     member_reads = constructed_member_reads(texts)
     getter_reads = autoload_getter_reads(root, texts)
+    collaborator_reads = collaborator_parameter_reads(root, texts)
     whole_records = entry_whole_record_paths(root, texts)
     records = []
     data_root = root / "game/data"
@@ -1232,6 +1333,8 @@ def scan(root: Path, exception_path: Path):
         leaves = Counter()
         conditional = set()
         potential_getters = defaultdict(set)
+        potential_collaborators = defaultdict(set)
+        possible_row_occurrences = Counter()
         for field, occurrences in fields.items():
             # Credit only this exact validated subtree before collapsing leaves.
             # An equally named sibling (e.g. metadata.rect) still needs a reader.
@@ -1243,6 +1346,9 @@ def scan(root: Path, exception_path: Path):
             leaf = field.replace("[]", "").rsplit(".", 1)[-1]
             getter_path = tuple(None if segment == "[]" else segment for segment in declared)
             potential_getters[leaf].update(getter_reads.get(rel_data, {}).get(getter_path, ()))
+            if callees := collaborator_reads.get(rel_data, {}).get(getter_path):
+                potential_collaborators[leaf].update(callees)
+                possible_row_occurrences[leaf] += occurrences
             proven = False
             for access in member_reads.get(rel_data, ()):
                 if len(declared) != len(access) or access[-1] != leaf:
@@ -1281,6 +1387,12 @@ def scan(root: Path, exception_path: Path):
                     methods = ", ".join(sorted(potential_getters[leaf]))
                     detail = (f"potential read through JSON-backed getter {methods}; "
                               "runtime reachability and individual entry coverage are unproven")
+                if potential_collaborators.get(leaf):
+                    methods = ", ".join(sorted(potential_collaborators[leaf]))
+                    count = possible_row_occurrences[leaf]
+                    note = (f"potential source-row parameter read through {methods} "
+                            f"({count} source-row occurrences); per-entry runtime coverage is unproven")
+                    detail = detail + "; " + note if potential_getters.get(leaf) or leaf in conditional else note
                 records.append({"kind": "FIELD_UNREAD", "file": rel_repo,
                                 "field": field, "occurrences": occurrences,
                                 "detail": field_exception or detail,
