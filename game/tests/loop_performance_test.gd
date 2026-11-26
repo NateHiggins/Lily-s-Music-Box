@@ -172,6 +172,7 @@ func _run() -> void:
 		_save_reload()
 		_move_yield()
 		_interrupted_guest_wait()
+		_host_line_across_guest_phase()
 		_historical_listener()
 		_strict_fault()
 		_baseline_activity_contexts()
@@ -624,6 +625,48 @@ func _interrupted_guest_wait() -> void:
 	performance._process(15.0)
 	check(str(performance.whereabouts("mae_kessler").place) == "unit:main", "blocked visitor fallback uses movement time")
 	guest.actor._walking = false
+
+
+## PR 596 review finding 3: in the box visit Mrs. Kessler's card-cabinet phase
+## runs 45-60 while Nadia's approach starts at 48. A line opened at 47 must not
+## be cut at 48 by the host yield (she has not moved); a genuine diversion still
+## closes it, and once the line ends the host makes room as before.
+func _host_line_across_guest_phase() -> void:
+	for diverted: bool in [false, true]:
+		var label := "box host line (%s)" % ("then diverted" if diverted else "held across 48")
+		_jump("box")
+		_advance(Loop.BOX_NADIA_APPROACH_MINUTE - 1.0)
+		var host: Route = world.resident_routes.mae_kessler
+		var guest: Route = world.resident_routes.nadia_quell
+		var phase: Dictionary = performance.phase_for("mae_kessler")
+		host.arrive(str(phase.place))
+		guest.arrive("unit:main")
+		check(performance.try_conversation("mae_kessler", player), label + ": the card-cabinet line opens before Nadia sets out")
+		var node := panel.current_node_id
+		var clock_before := clock.elapsed_minutes()
+		_advance(1.5)
+		# The clock advance itself writes the campaign clock: compare effects from here on.
+		var before: Dictionary = RealityState.data.duplicate(true)
+		check(clock.elapsed_minutes() >= clock_before + 1.5, label + ": positive control, the loop clock really advanced 1.5 minutes")
+		check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C"
+				and performance.phase_for("mae_kessler").get("phase_id") == phase.phase_id,
+				label + ": at 48.5 Nadia's approach has begun and Mrs. Kessler's own phase has not changed")
+		if diverted:
+			world.forced_blocks.mae_kessler = {"place": "unit:kitchen", "activity": "chores"}
+			_tick()
+			check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before,
+					label + ": a genuine diversion still closes the line without campaign effects")
+			world.forced_blocks.erase("mae_kessler")
+			continue
+		check(panel.attention_active() and conversations.performance_active() and panel.current_node_id == node,
+				label + ": the open line survives the guest's phase start")
+		check(str(performance.whereabouts("mae_kessler").place) == str(phase.place),
+				label + ": while she speaks the host keeps her place")
+		panel.choose(0)
+		check(not conversations.performance_active() and not panel.attention_active(), label + ": the reply releases the panel")
+		check(str(performance.whereabouts("mae_kessler").place) == "unit:kitchen",
+				label + ": after the line the host makes room for the arriving guest")
+		check(RealityState.data == before, label + ": no campaign effects")
 
 func _historical_listener() -> void:
 	_jump("drama")

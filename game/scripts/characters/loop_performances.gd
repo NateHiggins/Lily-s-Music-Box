@@ -187,7 +187,12 @@ func whereabouts(resident: String) -> Dictionary:
 	# The guest yields to the real body, so a slow/blocked host never gets walked
 	# through. Once the guest reaches the off-travel endpoint, normal work resumes.
 	var guest := "nadia_quell" if resident == "mae_kessler" else "juno_kells" if resident == "cal_dwyer" else ""
-	if not guest.is_empty():
+	# A host in the middle of her own dedicated line stays put: her route is
+	# halted for the reply, so yielding now would only read as a departure and
+	# cut a sentence she has not moved away from. She makes room once it ends.
+	var host_speaking := conversations != null and conversations.performance_active() \
+			and conversations._active_resident == resident
+	if not guest.is_empty() and not host_speaking:
 		var visitor := phase_for(guest)
 		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not witness_present(guest):
 			var key := str(visitor.phase_id)
