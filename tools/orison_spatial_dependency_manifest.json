@@ -299808,6 +299808,186 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "156fadad28b224d3",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/scripts/songbook/found_trace_source.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "mount_building"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [
+    "var boiler := adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "03e25165f9c57c29",
+   "kind": "id_reference",
+   "token": "B1_WASHER_01",
+   "file": "game/scripts/songbook/found_trace_source.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "mount_building"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "var first := adapter.resolve(\"B1_WASHER_01\") as WasherProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3f20575b0781fa94",
+   "kind": "id_reference",
+   "token": "B1_WASHER_02",
+   "file": "game/scripts/songbook/found_trace_source.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "mount_building"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "var second := adapter.resolve(\"B1_WASHER_02\") as WasherProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dbab333be9b9a68d",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_news1",
+   "file": "game/scripts/songbook/found_trace_source.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "mount_landing"
+   ],
+   "lines": [
+    41
+   ],
+   "count": 1,
+   "context": [
+    "var stack: Array = furniture.filter(func(row): return row.id == \"retail_bar_acc_news1\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8b9c8dc5bd9c95a7",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_news_twine",
+   "file": "game/scripts/songbook/found_trace_source.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "mount_landing"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "var binding: Array = furniture.filter(func(row): return row.id == \"retail_bar_acc_news_twine\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "15d0493dfca54941",
+   "kind": "node_path",
+   "token": "sorting_desk__Letter_ON_paper",
+   "file": "game/scripts/songbook/found_trace_visual.gd",
+   "tier": "production",
+   "subsystem": "songbook",
+   "symbols": [
+    "make"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "var letter := desk.find_child(\"sorting_desk__Letter_ON_paper\", true, false) as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

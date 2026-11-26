@@ -244,8 +244,12 @@ existing playback/trace rules remain in Bible §III.2 and the Songbook reference
 archiving a completed local-contract note does not change those rules.
 Network distribution, phrase duels and the House Rig audition are deferred below.
 
-- **G3** A trace is an OBJECT, like a reel: findable, carryable, losable. Some
-  are already in the building and the player did not make them.
+- **G3 — Codex.** A trace is a physical original the player can find, carry
+  or leave behind. [PR 587](https://github.com/NateHiggins/Lily-s-Music-Box/pull/587)
+  places the four historical traces and ties the bar reader to valise custody.
+  Pickup, return, time-loop and disk recovery, and installed player access
+  require native qualification. Player-made takes keep their stored recordings
+  and reconstruction speed. Physical custody for those takes remains open.
 
 - **G4b** The sleeves are the hook and they are deliberately thin: "for M." with
   four residents whose name starts with M, a WORS sleeve with the date rubbed
