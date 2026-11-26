@@ -133,8 +133,15 @@ func additional_checks() -> void:
 	RealityState.data.prologue=Opening.initial()
 	if check(RealityState.save_game(),"validated storage records an earlier prologue boundary during pending stow"):
 		RealityState.load_game();stow_owner._restore()
-		carrier.rig.request_keyboard(true)
-		check(await wait_for(func():return carrier.rig.typing_ready(),4.0),"backward reload releases stale stow ownership and permits actual keyboard travel")
+		check(carrier.rig._closed_keyboard_hold == null and not carrier.rig.keyboard_requested,
+			"backward reload releases the live director's hold and leaves the face forward")
+		if not carrier.reading: await key(KEY_E)
+		await wait_for(func():return carrier.session.available() and not paper.printing)
+		await key(KEY_ENTER)
+		check(await wait_for(func():return carrier.session.typing and carrier.rig.typing_ready(), 8.0)
+			and player.text_input_owner == carrier.session,
+			"deliberate player input opens the physical keyboard after backward reload")
+		await key(KEY_ESCAPE)
 	stow_owner.shutdown();stow_owner.queue_free()
 	RealityState.save_path=stow_path_before;RealityState.persistence_enabled=stow_enabled_before
 	FileAccess.open(directory.path_join("temporal_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify({"destination":destination,"contacts":contact_keys,"accepted":accepted_count},"\t"))
