@@ -663,7 +663,7 @@ func _set_outside(value: bool) -> void:
 ## Places as the wardrobe rules know them: the flat is home, the bar the bar, the building's halls the lobby,
 ## the roof the roof, and anywhere off the block the street (outdoors).
 const WARDROBE_PLACE := {"unit": "home", "harukiya_bar": "bar", "lobby": "lobby", "mail_bank": "lobby",
-	"corridor": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
+	"corridor": "lobby", "corridor_pause": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
 
 ## A resident on a rebuilt body changes clothes by the wardrobe rules for where it is and what it is doing,
 ## only while nobody can see it (Lily 2026-11-12, ruling cast_swap_clothes).
