@@ -34,7 +34,7 @@ func _run() -> void:
 	var old_persistence: bool = RealityState.persistence_enabled
 	var old_mouse := Input.mouse_mode
 	RealityState.flush_background_saves()
-	path = "user://found_trace_%d_%d.save" % [OS.get_process_id(), Time.get_ticks_usec()]
+	path = "user://found_trace_%s.save" % Crypto.new().generate_random_bytes(12).hex_encode()
 	RealityState.save_path = path
 	RealityState.persistence_enabled = true
 	if _check(RealityState.start_new_campaign(), "new isolated campaign wrote its first generation"):

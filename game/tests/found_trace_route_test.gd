@@ -66,7 +66,7 @@ func _approach_source(source: Node3D) -> bool:
 
 
 func _source_marks(id: String) -> Array[Vector3]:
-	var frame := world.adapter.root
+	var frame: Node3D = world.adapter.root
 	match id:
 		"trace_room0":
 			return [frame.to_global(Vector3(12.75, -3.2, 2.25)), frame.to_global(Vector3(12.75, -3.2, 1.32))]
