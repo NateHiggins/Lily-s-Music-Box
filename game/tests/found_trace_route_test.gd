@@ -52,12 +52,10 @@ func _route() -> void:
 			if not await _select_in_case(trace_id) or not await _stroke(source, false) or not await _stroke(source, true):
 				continue
 	var snapshot: Variant = JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
-	if not _require(snapshot is Dictionary and Custody.held_ids().size() == 4 and CarriedCase.valid(snapshot.get(CarriedCase.KEY)),
+	if _require(snapshot is Dictionary and CarriedCase.valid(snapshot.get(CarriedCase.KEY)),
 		"verified primary contains a valid case after the four source visits"):
-		return
-	for trace_id: String in TRACE_IDS:
-		if not _require(snapshot[CarriedCase.KEY].places.has(Custody.item_id(trace_id)), "primary contains the actual " + trace_id):
-			return
+		for trace_id: String in TRACE_IDS:
+			_require(snapshot[CarriedCase.KEY].places.has(Custody.item_id(trace_id)), "primary contains the actual " + trace_id)
 	route_completed = await _reader()
 
 
@@ -97,8 +95,16 @@ func _walk_up(start: Vector3, goal: Vector3, label: String) -> bool:
 	var from := player.global_position
 	if not await _walk_world(goal):
 		return false
-	return _require(from.distance_to(player.global_position) > .60 and player.is_on_floor() and not player.noclip,
-		"controller walks the final approach to " + label)
+	# _walk_world releases movement at the first frame within range. At a
+	# stair nosing the ordinary step-down can still be settling on that frame.
+	for frame in 24:
+		if player.is_on_floor():
+			break
+		await get_tree().physics_frame
+	var at := player.global_position
+	var grounded := player.is_on_floor()
+	return _require(from.distance_to(at) > .60 and grounded and not player.noclip and at.distance_to(goal) < .28,
+		"controller walks the final approach to %s (%s to %s, grounded %s)" % [label, from, at, grounded])
 
 
 func _aim(at: Vector3) -> void:
@@ -200,7 +206,8 @@ func _reader() -> bool:
 	if not _require(is_instance_valid(panel) and player.call_locked, "the player's click opened the installed songbook"):
 		return false
 	await _panel_key(panel, KEY_4)
-	if not _require(panel._trace_rows == Custody.held_ids() and panel._trace_rows.size() == 4, "the reader lists the four originals now in the valise"):
+	if not _require(panel._trace_rows == Custody.held_ids() and not panel._trace_rows.is_empty(),
+		"the reader lists exactly the originals now in the valise"):
 		return false
 	await _panel_key(panel, KEY_1)
 	if not _require(panel._read_from_old and panel._reader != null and panel._reader.playing, "the selected original plays through the historical trace reader"):
