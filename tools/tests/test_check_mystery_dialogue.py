@@ -33,6 +33,10 @@ class MysteryDialogueTests(unittest.TestCase):
     def test_the_drafts_pass(self):
         self.assertEqual(checker.run()[0], [])
 
+    def test_unknown_delivery_is_rejected(self):
+        self.edit("nadia_quell", lambda doc: doc["nodes"]["nq_c5"].update(delivery="silnet"))
+        self.assertIn("nadia_quell: node nq_c5 has unsupported line delivery", self.failures())
+
     def test_a_resident_may_not_call_the_player_sir(self):
         self.edit("cam_ortiz", lambda d: d["nodes"]["co_e2"].update(line="Yes, sir."))
         self.assertIn("misaddresses the player", self.failures())
