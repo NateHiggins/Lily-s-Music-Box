@@ -489,16 +489,20 @@ Knowing which kind you are reading tells you how much to trust it.
 | | |
 |---|---|
 | `C:\PleaseRemainOnTheLine` | this one. The game, the art pipeline, the design canon. Git-backed. |
-| `C:\FPSengine01` | the **Semantic World Compiler**, which builds the machines in the bar. |
+| `C:\FPSengine01` | Local Git repository for the **Semantic World Compiler** and its signal-parlour source packages. |
 
-The compiler is a separate project that produces a build output consumed here
-(`game/assets/arcade/`). It shares a *format* with this repo, not code. Its own
-map is its `README.md`, and its cross-project contract is
-`docs/orison-arcade.md`.
+The compiler's source, providers, schemas, runtime and authored worlds live in
+its own repository. The game retains historical exports in `game/assets/arcade/`.
+The V2 bar retired its old cabinets under Q02. [Compiler build guide](C:/FPSengine01/README.md) · [Signal-parlour package format](C:/FPSengine01/docs/orison-arcade.md) · [V2 decision](design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md)
 
-> **`C:\FPSengine01` is not a git repository.** Everything in it is unversioned
-> files on disk. This is tracked as **H2** in `TASKS.md` and is the largest
-> single risk on that list.
+The initial source commit is **465b681**. At **75d0996**, stale cleanup keeps
+the newest verified package and can retry an interrupted cleanup. Run
+`worldc clean --stale` to preview the affected packages. The private recovery
+bundle restores the complete history through that commit. A fresh clone
+passed all 87 compiler tests. [Recovery bundle](D:/ov_reports/housekeeping_20261126/H3/semantic-world-compiler.bundle) · [Restore verification and SHA-256](D:/ov_reports/housekeeping_20261126/H3/RECOVERY_VERIFIED.json)
+
+To recover into a new directory, run
+`git clone -b main D:/ov_reports/housekeeping_20261126/H3/semantic-world-compiler.bundle SemanticWorldCompiler`.
 
 ## Two names for the same thing
 
