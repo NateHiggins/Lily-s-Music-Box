@@ -16,6 +16,7 @@ func _check(ok: bool, label: String) -> bool:
 	checks.append({"label": label, "ok": ok})
 	if not ok:
 		failures.append(label)
+		checks.back()["observed"] = _snapshot()
 		push_error(label)
 	return ok
 
@@ -63,13 +64,15 @@ func _run() -> void:
 
 func _civil(target: String) -> bool:
 	var clock := world.campaign_clock
-	var remaining := Time.get_unix_time_from_datetime_string(target) - Time.get_unix_time_from_datetime_string(clock.datetime_string())
+	var initial := clock.datetime_string()
+	var remaining := Time.get_unix_time_from_datetime_string(target) - Time.get_unix_time_from_datetime_string(initial)
 	if remaining < 0:
 		remaining += LIFE.LOOP_SECONDS
 	if not _check(remaining >= 0 and remaining < LIFE.LOOP_SECONDS, "target is in the ordinary annual cycle " + target): return false
 	CampaignTime._process(float(remaining))
 	await get_tree().physics_frame
 	await get_tree().create_timer(0.45).timeout
+	evidence[target] = {"initial": initial, "elapsed_seconds": remaining, "observed": clock.datetime_string(), "player": str(player.global_position)}
 	return _check(clock.datetime_string().left(16) == target.left(16) and not world.temporal_loop.in_visit(), "elapsed present time reaches " + target)
 
 
@@ -84,15 +87,10 @@ func _visit() -> void:
 	evidence.continue_position = str(player.global_position)
 	if not await _civil(START): return
 	var sidewalk: Vector3 = nav.get_node("entry_sidewalk").global_position
+	evidence.sidewalk_target = str(sidewalk)
 	player.global_position = sidewalk + Vector3.UP * 0.04
 	player.velocity = Vector3.ZERO
-	for frame in 12:
-		await get_tree().physics_frame
-	var ground_ray := PhysicsRayQueryParameters3D.create(sidewalk + Vector3.UP * 0.3, sidewalk + Vector3.DOWN * 0.3, 1, [player.get_rid()])
-	var ground := player.get_world_3d().direct_space_state.intersect_ray(ground_ray)
-	if not _check(not ground.is_empty() and ground.normal.dot(Vector3.UP) > 0.8
-			and player.is_on_floor() and player.global_position.distance_to(sidewalk) < 0.18, "ordinary public sidewalk supports the player after campaign time advances"): return
-	evidence.sidewalk_support = str(ground.collider.get_path())
+	if not await _settle_start(sidewalk): return
 	observer = Observer.new()
 	observer.configure(world)
 	add_child(observer)
@@ -116,7 +114,9 @@ func _visit() -> void:
 		if trace.size() <= previous_count: return
 		trace.back()["waypoint"] = id
 		trace.back()["support"] = _foot_support(player.global_position)
+		trace.back()["leaf"] = {"open": leaf.open, "cleared": leaf.is_ready_for_passage(), "angle": leaf._body.rotation.y}
 		if not arrived:
+			trace.back()["observed"] = _snapshot()
 			# The failed endpoint stays in failures. Collect later evidence only
 			# when we actually reached the planar mark, standing within one step.
 			var gap := point - player.global_position
@@ -128,7 +128,10 @@ func _visit() -> void:
 	var start := player.camera.global_position
 	var ray := PhysicsRayQueryParameters3D.create(start, start - player.camera.global_basis.z * 2.1, 1, [player.get_rid()])
 	ray.collide_with_areas = true
-	if not _check(player.get_world_3d().direct_space_state.intersect_ray(ray).get("collider") == target, "player's 2.1 m interaction ray meets the actual Adela"): return
+	var hit := player.get_world_3d().direct_space_state.intersect_ray(ray)
+	evidence.touch = {"from": str(start), "to": str(ray.to), "desired": str(target.get_path()), "adela": str(adela.global_position),
+			"point": str(hit.get("position")), "hit": str(hit.collider.get_path()) if not hit.is_empty() else ""}
+	if not _check(hit.get("collider") == target, "player's 2.1 m interaction ray meets the actual Adela"): return
 	for source: InputEvent in InputMap.action_get_events("interact"):
 		if source is InputEventJoypadButton:
 			for pressed: bool in [true, false]:
@@ -140,6 +143,7 @@ func _visit() -> void:
 			break
 	await get_tree().create_timer(0.3).timeout
 	var topic := "Don't mind me. I'm here for the radiator."
+	evidence.offered = panel.offered_labels()
 	if not _check(panel.attention_active() and panel.offered_labels().has(topic), "normal speech with Adela offers the authored radiator topic"): return
 	var index := panel.offered_labels().find(topic)
 	var button := panel._choices.get_child(index) as Button
@@ -149,14 +153,72 @@ func _visit() -> void:
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(shots.path_join("rehearsal.png"))
 	var nodes: Array[String] = []
+	evidence.heard_nodes = nodes
 	while panel.attention_active() and nodes.size() < 80:
 		nodes.append(panel.current_node_id)
 		if not _check(panel.offered_labels().size() == 1, "only the authored silence on " + panel.current_node_id): return
 		await _key(KEY_0)
-	evidence.heard_nodes = nodes
 	if not _check(nodes.size() == 66 and nodes.back() == "av_o66" and not panel.attention_active() and not player.call_locked, "all 66 authored beats end and return player control"): return
 	if not await _civil("1929-03-19T16:10:00"): return
 	_check(world.harukiya_counter.on_shift() and stacy.visible and world.resident_whereabouts("lily").place != "harukiya_bar" and not lily.visible and not adela.visible, "next afternoon opens Stacy's shift while Lily and Adela are elsewhere")
+
+
+func _settle_start(target: Vector3) -> bool:
+	var deadline := Time.get_ticks_msec() + 30000
+	var stable := 0
+	var samples: Array[Dictionary] = []
+	evidence.start_samples = samples
+	var ray := PhysicsRayQueryParameters3D.create(target + Vector3.UP * 0.3, target + Vector3.DOWN * 0.3, 1, [player.get_rid()])
+	for frame in 150:
+		await get_tree().physics_frame
+		var ground := player.get_world_3d().direct_space_state.intersect_ray(ray)
+		var support := str(ground.collider.get_path()) if not ground.is_empty() else ""
+		var slope := float(ground.normal.dot(Vector3.UP)) if not ground.is_empty() else 0.0
+		var distance := player.global_position.distance_to(target)
+		var ok := slope > 0.8 and player.is_on_floor() and distance < 0.18
+		stable = stable + 1 if ok else 0
+		if frame < 5 or frame % 15 == 0 or stable == 4 or Time.get_ticks_msec() >= deadline:
+			samples.append({"physics_frame": Engine.get_physics_frames(), "position": str(player.global_position),
+					"on_floor": player.is_on_floor(), "distance": distance, "support": support, "normal_y": slope, "velocity": str(player.velocity)})
+		if stable == 4:
+			evidence.sidewalk_support = support
+			break
+		if Time.get_ticks_msec() >= deadline: break
+	return _check(stable == 4, "ordinary public sidewalk supports the player after campaign time advances")
+
+
+func _snapshot() -> Dictionary:
+	var result := {"scene": str(get_tree().current_scene), "can_continue": RealityState.can_continue(),
+			"prologue": RealityState.data.get("prologue", {}).get("phase"), "launch_mode": GameBoot.launch_mode}
+	if not is_instance_valid(world) or not is_instance_valid(player): return result
+	result.civil_time = world.campaign_clock.datetime_string()
+	result.visit = world.temporal_loop.in_visit()
+	result.playtest_date = world.conversations.playtest_date
+	result.unit = world.player_unit()
+	result.position = str(player.global_position)
+	result.velocity = str(player.velocity)
+	result.on_floor = player.is_on_floor()
+	result.opening_placed = world._opening_placed
+	result.opening_retry_live = is_instance_valid(world._opening_retry) and not world._opening_retry.is_stopped()
+	result.mouse_released = player.mouse_released
+	result.call_locked = player.call_locked
+	result.physics = player.is_physics_processing()
+	result.collision_mask = player.collision_mask
+	result.heard = RealityState.has_knowledge(HEARD)
+	result.letter = RealityState.has_knowledge("m_concern_letter")
+	var panel := world.conversations.dialogue
+	result.dialogue = {"active": panel.attention_active(), "node": panel.current_node_id, "labels": panel.offered_labels()}
+	var leaf: DoorProp = world.bar_region.doors.F01_BAR_RED_DOOR
+	result.leaf = {"path": str(leaf.get_path()), "allowed": leaf.passage_allowed(), "open": leaf.open, "ready": leaf.is_ready_for_passage(), "state": leaf.leaf_state}
+	var cast: Node3D = world.harukiya_counter.cast
+	var actors: Dictionary = cast.actors.duplicate()
+	actors.merge(cast.performers)
+	result.actors = {}
+	for id: String in actors:
+		result.actors[id] = {"place": world.resident_whereabouts(id).get("place", ""), "path": str(actors[id].get_path()),
+				"position": str(actors[id].global_position), "visible": actors[id].is_visible_in_tree()}
+	result.counter = world.harukiya_counter.on_shift()
+	return result
 
 
 func _foot_support(base: Vector3) -> Array[Dictionary]:
