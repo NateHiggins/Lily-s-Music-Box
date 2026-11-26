@@ -22,7 +22,10 @@ listening decision updates the current registry.
 ## Production batches
 
 `tools/voice/catalog.py` inventories authored base, mystery, opinion and Mina
-case nodes, including explicit speaker overrides. `guest_turns.json` attributes
+case nodes, plus visit phases, activity replies and ordinary exchanges.
+Loop exchanges retain each turn’s speaker and runtime panel node. Distinct
+authored beats that reuse a panel node have separate recording IDs.
+`guest_turns.json` attributes
 exact Unicode character spans to the two approved guest voices without changing
 the source text. Silent material, missing references and uncast speakers remain
 explicit exclusions. Supplemental dynamic providers use exact source bindings.
@@ -31,6 +34,10 @@ explicit exclusions. Supplemental dynamic providers use exact source bindings.
 python tools/voice/produce.py plan --case C:/ov/reports/voice/new_case --reference-root C:/ov/voice-references/20261111_cast_round01
 python tools/voice/produce.py run --case C:/ov/reports/voice/new_case --reference-root C:/ov/voice-references/20261111_cast_round01
 ```
+
+For a loop-only recording session, add `--loops` to the plan command. To
+audition one resident first, add `--max-batches 1` to the run command.
+Resume that case to generate its remaining parts.
 
 Planning refuses to replace an existing freeze. The producer uses Omni's
 installed clone backend, checks source and reference hashes, and queues bounded
