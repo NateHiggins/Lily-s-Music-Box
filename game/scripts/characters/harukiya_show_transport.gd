@@ -38,7 +38,17 @@ func start() -> bool:
 	_running = true
 	_movie = not Engine.get_write_movie_path().is_empty()
 	_frame = 0
-	_fps = 0
+	if _movie:
+		# The capture launcher sets this alongside --fixed-fps. MovieWriter
+		# advances one frame per iteration even when the process delta clamps.
+		_fps = int(OS.get_environment("ORISON_FILM_FPS"))
+		if _fps <= 0:
+			var args := OS.get_cmdline_args()
+			var index := args.find("--fixed-fps")
+			_fps = int(args[index + 1]) if index >= 0 and index + 1 < args.size() else int(ProjectSettings.get_setting("editor/movie_writer/fps", 60))
+		if _fps <= 0:
+			_running = false
+			return false
 	_seconds = 0.0
 	_latency = 0.0 if _movie else AudioServer.get_output_latency()
 	_player.play()
@@ -61,16 +71,10 @@ func _stream_finished() -> void:
 		stop()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not _running:
 		return
 	if _movie:
-		# MovieWriter supplies a fixed simulation step even when encoding a frame
-		# takes seconds. Recover its integer fps, including command-line overrides.
-		if _fps == 0:
-			if delta <= 0.0 or Engine.time_scale <= 0.0:
-				return
-			_fps = maxi(1, roundi(Engine.time_scale / delta))
 		_seconds = Timing.frame_seconds(_frame, _fps, score.duration)
 		_frame += 1
 		played_at.emit(_seconds)
