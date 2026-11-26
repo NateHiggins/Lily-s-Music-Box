@@ -103,6 +103,12 @@ func _run() -> void:
 			and FileAccess.get_file_as_bytes(unrelated) == fixture
 			and not FileAccess.file_exists(Store.DIR.path_join(blocked.version_id + ".json")),
 			"a vocal collision leaves the earlier bytes intact and publishes no metadata")
+	var abandoned_dir := Store.PENDING.path_join(blocked.version_id)
+	_require(Store._write_and_verify(abandoned_dir.path_join("metadata.part"), fixture),
+			"an interrupted private review still owns its scratch file")
+	blocked = null
+	_require(not DirAccess.dir_exists_absolute(abandoned_dir) and FileAccess.get_file_as_bytes(unrelated) == fixture,
+			"dropping the last review handle releases its ID and keeps the unrelated vocal")
 	_legacy(song)
 	_race(song)
 

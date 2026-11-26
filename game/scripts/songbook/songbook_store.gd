@@ -41,13 +41,18 @@ class KeepAttempt extends RefCounted:
 	var _unpublished_voice := ""
 
 	func _clean_files() -> bool:
-		if _dir.is_empty():
+		if not _remove_staged_files(_dir, _unpublished_voice):
+			return false
+		_unpublished_voice = ""
+		return true
+
+	static func _remove_staged_files(directory: String, unpublished_voice: String) -> bool:
+		if directory.is_empty():
 			return true
-		for path in [_dir.path_join("voice.wav"), _dir.path_join("metadata.part"), _unpublished_voice]:
+		for path in [directory.path_join("voice.wav"), directory.path_join("metadata.part"), unpublished_voice]:
 			if not str(path).is_empty() and FileAccess.file_exists(path):
 				if DirAccess.remove_absolute(path) != OK:
 					return false
-		_unpublished_voice = ""
 		return true
 
 	func _release() -> void:
@@ -55,8 +60,11 @@ class KeepAttempt extends RefCounted:
 			_dir = ""
 
 	func _notification(what: int) -> void:
-		if what == NOTIFICATION_PREDELETE:
-			_release()
+		# At refcount zero the script can read its fields but cannot call another
+		# method on itself. Pass the owned paths to the static cleanup directly.
+		if what == NOTIFICATION_PREDELETE and not _dir.is_empty():
+			if KeepAttempt._remove_staged_files(_dir, _unpublished_voice):
+				DirAccess.remove_absolute(_dir)
 
 
 ## Preserve the original stem and JSON filename format. Exclusive directory
