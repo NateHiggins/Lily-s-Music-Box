@@ -25,6 +25,7 @@ var _work_stations: Dictionary = {}
 var _presenting: Dictionary = {}
 var _gaze: Dictionary = {}
 var _poll := 0.0
+var _price_guest_received := false
 var _talk_phase := ""
 var _guest_waits: Dictionary = {}
 
@@ -252,6 +253,7 @@ func _sync_visit() -> void:
 	_ordinary_day = day
 	_identity = current
 	_heard.clear()
+	_price_guest_received = false
 	_guest_waits.clear()
 	_talk_phase = ""
 	_talk_encounter = {}
@@ -415,6 +417,27 @@ func _update_listener() -> void:
 	owner.ensemble_target = _listener_point
 
 
+## On Sunday the host opens his own door when both brothers reach their marks.
+## Parked visitors acquire neither the apartment's door nor its private graph.
+func _receive_price_guest() -> void:
+	if _price_guest_received or conversations == null:
+		return
+	var host: Node = world.resident_routes.get("noel_price")
+	var guest: Node = world.resident_routes.get("jonah_price")
+	if host == null or guest == null or host.destination != "unit:doorway" or guest.destination != "visit:4C_doorway":
+		return
+	if not _arrived("noel_price") or not _arrived("jonah_price"):
+		return
+	# The schedule may already have changed in the interval between motor ticks.
+	if world.resident_whereabouts("noel_price").get("place") != host.destination \
+			or world.resident_whereabouts("jonah_price").get("place") != guest.destination:
+		return
+	for door: DoorProp in host._doors:
+		if is_instance_valid(door) and door.name == &"F04_C_ENTRY_DOOR_Leaf":
+			_price_guest_received = door.request_passage(host.actor, "noel_price")
+			return
+
+
 func _process(delta: float) -> void:
 	if data.is_empty() or not is_instance_valid(world) or not is_instance_valid(loop):
 		return
@@ -424,6 +447,7 @@ func _process(delta: float) -> void:
 	var elapsed := _poll
 	_poll = 0.0
 	_sync_visit()
+	_receive_price_guest()
 	# Route motors stop during conversation. A player taking time to read must
 	# not consume the host's opportunity to clear the approach. Process time also
 	# naturally stops with the scene tree, unlike a wall-clock deadline.

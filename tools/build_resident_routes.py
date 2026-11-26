@@ -74,9 +74,27 @@ def main():
             continue
         unit = str(record["unit"])
         route = _route(resident, unit, layout, levels, spaces, links, shared_paths, shared_points)
+        if resident == "jonah_price":
+            host_path = OUT / "noel_price_routine.json"
+            host = (json.loads(host_path.read_text(encoding="utf-8")) if host_path.exists()
+                    else _route("noel_price", "4C", layout, levels, spaces, links, shared_paths, shared_points))
+            _price_doorway(route, host)
         path.write_text(_format(route), encoding="utf-8", newline="\n")
         written.append(path.relative_to(ROOT).as_posix())
     print("\n".join(written) if written else "nothing to write")
+
+
+def _price_doorway(route, host):
+    """Extend Jonah's walk using only the host's public stair-to-landing chain."""
+    chain = next(path for path in host["paths"]
+                 if path[0][0] == "entry_out" and path[-1][0] == "f04_stair_clear")
+    guest = []
+    for name, x, y, z in reversed(chain):
+        guest.append([name if name == "f04_stair_clear" else "price_4c_" + name, x, y, z])
+    # Keep the observer outside, away from the through lane and the inward leaf.
+    guest.append(["price_4c_visitor", -0.64, chain[0][2], 2.55])
+    route["paths"].append(guest)
+    route["places"]["visit:4C_doorway"] = guest[-1][0]
 
 
 def _shared(mina):
@@ -211,6 +229,8 @@ def _route(resident, unit, layout, levels, spaces, links, shared_paths, shared_p
                 break
     places.update({"corridor": "entry_out", "lobby": "lobby", "mail_bank": "mail", "laundry": "laundry",
                    "bodega": "bodega", "out": "street"})
+    if resident == "noel_price":
+        places["unit:doorway"] = "vestibule"
     away = "stair_bottom" if level == "F01" else ("stair_top" if level == "F02" else "%s_stair_top" % level.lower())
     return {"schema_version": 1, "resident": resident, "name": NAMES.get(resident, resident.replace("_", " ").title()),
             "unit": unit, "frame": "orison_v2_blockout", "doors": sorted(set(doors)), "away": away,
