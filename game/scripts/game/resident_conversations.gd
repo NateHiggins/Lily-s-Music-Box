@@ -366,7 +366,7 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 		if i + 1 < lines.size():
 			choices.append({"label": str(row.get("choice", "Listen.")), "goto": "loop_business_%d" % (i + 1)})
 		choices.append({"label": "I'll let you get on."})
-		nodes[key] = {"line": str(row.text), "actor": actor,
+		nodes[key] = {"line": str(row.text), "actor": actor, "silence_goto": "",
 				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}
 	var tree := {"meta": {}, "nodes": nodes}
 	_active_resident = str(lines[0].speaker)

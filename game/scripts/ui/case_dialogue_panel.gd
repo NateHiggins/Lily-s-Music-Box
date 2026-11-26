@@ -233,7 +233,7 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 func _reply_button(number: int, text: String, silent: bool, evidence: bool,
 		infer: bool) -> Button:
 	var button := Button.new()
-	button.text = "%d   %s" % [number, text]
+	button.text = "%d   %s" % [0 if silent else number, text]
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.flat = true
 	button.focus_mode = Control.FOCUS_ALL
@@ -417,7 +417,8 @@ func choose(index: int) -> void:
 
 
 func choose_silence() -> void:
-	_answer(_silence_action)
+	if attention_active() and _silence_action.is_valid():
+		_answer(_silence_action)
 
 
 func _answer(action: Callable) -> void:

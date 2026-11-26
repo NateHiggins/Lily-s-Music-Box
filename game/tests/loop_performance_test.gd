@@ -809,7 +809,7 @@ func _ordinary_exchanges() -> void:
 			check(conversations._active_resident == str(line.speaker) and not speaker_events.is_empty() \
 					and speaker_events.back() == str(line.speaker), "%s line%d speaker owns conversation signals" % [item.id, i])
 			var offered: Array = panel.offered_labels()
-			check(not offered.is_empty() and str(offered.back()) == "I'll let you get on.", "%s line%d allows departure" % [item.id, i])
+			check(offered.has("I'll let you get on.") and offered.has("Say nothing."), "%s line%d allows departure" % [item.id, i])
 			if i + 1 < item.lines.size():
 				check(str(offered[0]) == str(line.get("choice", "Listen.")), "%s line%d retains its authored reply" % [item.id, i])
 			panel.choose(0)
@@ -828,7 +828,7 @@ func _ordinary_exchanges() -> void:
 	var foreign_target := Vector3(999.0, 2.0, 3.0)
 	listener.ensemble_target = foreign_target
 	_tick()
-	panel.choose(panel.offered_labels().size() - 1)
+	panel.choose(panel.offered_labels().find("I'll let you get on."))
 	check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before, "early departure releases speakers without granting anything")
 	check(listener.ensemble_target == foreign_target, "a successor's eyeline survives polling and early departure")
 	listener.ensemble_target = null
@@ -836,7 +836,16 @@ func _ordinary_exchanges() -> void:
 	_ordinary_clock()
 	check(not performance.ordinary.for_resident(first, "", performance._heard).is_empty(), "next civil day renews ordinary exchange")
 	check(performance.try_conversation(first, player), "renewed exchange starts")
-	panel.choose(panel.offered_labels().size() - 1)
+	var exit_labels := panel.offered_labels()
+	var silent_index := exit_labels.find("Say nothing.")
+	check(silent_index >= 0 and panel._choices.get_child(silent_index).text.begins_with("0   "), "the quiet exit shows its actual shortcut")
+	var before_silence: Dictionary = RealityState.data.duplicate(true)
+	var quiet_key := InputEventKey.new()
+	quiet_key.keycode = KEY_0
+	quiet_key.pressed = true
+	panel._unhandled_input(quiet_key)
+	check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before_silence,
+			"zero quietly releases the encounter without a reply or story effect")
 	RealityState.persistence_enabled = true
 	check(RealityState.save_game(), "ordinary-day campaign saves through validated owner")
 	RealityState.load_game()
