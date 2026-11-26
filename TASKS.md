@@ -1517,7 +1517,7 @@ accessibility and reload repairs first. Existing authorities stay installed.
   source of all 26 darts questions and eight Otis floor names. Conditional
   reads still need review for individual entries. These include the darts
   blurb, the case-definition enabled flag and five fields handed to the
-  witness-clock constructor and configuration method. Getter aliases and
+  witness clock during configuration. Getter aliases and
   other collaborator arguments remain open. [Earlier sample](design/REPO_HOUSEKEEPING_2026-09-19.md)
 - **H23 — Optional waking-cell voxel-light presenter.** Verify that a lamp
   reaches the intended cell in an upper-floor apartment when the presenter
