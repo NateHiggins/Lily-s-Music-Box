@@ -155,7 +155,20 @@ def main() -> int:
         if isinstance(raw_node.get("silence_goto"), str):
             silence_nodes.append(node_id)
 
-    reached = reachable([str(value) for value in entries.values()], nodes)
+    # ResidentConversations also opens date-gated mystery threads at their
+    # own roots. Those roots need not be ordinary dialogue entries.
+    starts = [str(value) for value in entries.values()]
+    threads = tree.get("threads", [])
+    if not isinstance(threads, list):
+        failures.append("threads must be an array")
+    else:
+        for thread in threads:
+            root = thread.get("root") if isinstance(thread, dict) else None
+            if not isinstance(root, str) or root not in nodes:
+                failures.append(f"mystery thread points to missing or invalid root {root!r}")
+            else:
+                starts.append(root)
+    reached = reachable(starts, nodes)
     for node_id in sorted(set(nodes) - reached):
         failures.append(f"node {node_id!r} is unreachable from every entry")
 
