@@ -64,7 +64,7 @@ func _ready() -> void:
 			return
 		# Native standing-column pilot: keep Stacy at the open service end,
 		# clear of backbar shelving, and Lily clear of the raised lounge/seats.
-		var station: Vector3 = counter.across() + Vector3(.70,0,0) if id == "stacy" else Vector3(.75,0,.70)
+		var station: Vector3 = counter.across() + Vector3(.70,0,0) + bar_region.global_basis.z * .88 if id == "stacy" else Vector3(.75,0,.70)
 		actor.global_position = counter.global_position + station
 		actor.global_position.y = _floor_y
 		actor.rotation.y = 0.0 if id == "stacy" else deg_to_rad(-20.0)
