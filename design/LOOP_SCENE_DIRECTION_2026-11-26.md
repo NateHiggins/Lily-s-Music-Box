@@ -56,6 +56,20 @@ Start on the pavement. Find Adela by following the small adjustments she makes w
 
 Give the player a view of Adela already occupied on the roof. Frame work, parapet and approach together; approach from the open side so a turn toward the caller has a reason. Hold on her listening before she answers. Use the existing July date and window lead for entry and the authored conversation for the key-loan witness. Do not stage the later storm or death here. End on her returning to the work the investigator interrupted. Silence, early departure and replay preserve the existing conversation and knowledge rules.
 
+## Incidental encounters that can run alongside a visit
+
+The [ordinary encounter table](../game/data/temporal/ordinary_performances.json) owns eligibility, exclusions, speakers and words. Stage these only when its participants are present. On a cutaway, preserve who heard the last line. If a participant departs, yield to the encounter owner. Each exchange has its own piece of business.
+
+| Encounter | Blocking and delivery |
+| --- | --- |
+| OY01 · The margin | Evelyn traces the space a corrected word would need. Peter measures the remaining space with his eyes. Give his offer of more room a beat to sound perfectly practical; finish on Evelyn, who has already finished the word. Keep the lobby or mail-bank passage clear. |
+| OY02 · One minute | In the corridor Teresa clocks Cam's loaded shoulder before speaking. He eases that shoulder on her instruction. After his question about her own hours, she holds his eye through “You first.” Let them resume their separate routes. |
+| OY03 · The temporary repair | Omar stands still long enough for Lena to judge her work. Cut to the difference between her quick assessment and his expectation of a long repair. Where the actual wardrobe has no repairable part, play it in their eyes and stance; keep the inventory with its owner. |
+| OY04 · Keep listening | Juno catches the beginning of Cal's reach. Hold the hand suspended while he says he was considering. Let the chair noise interrupt the shared silence. Keep the apparent sound source off the listening axis so both have a reason to turn. |
+| OY05 · Before the picture | On the roof, frame Sacha and the leaf in the same plane. Allow the first adjustment to look like a lighting correction. When Malcolm names the leaf, repeat the original composition with the leaf clear. |
+| OY07 · A clear corner | Frame the cup, draft and available landing space together when the room supplies them. Noel sees the danger before Jonah notices the sentence. In a hallway play the encounter with a glance toward what each actually carries. No pantomime against an invisible desk. |
+| OY10 · A place for the gloves | Mrs. Kessler indicates a small deliberate rectangle of empty space. Let her hand return to rest before the reply about leaving it clear. End on the same empty rectangle. The scene needs neither an invented visitor nor a coat appearing in the room. |
+
 ## Rehearse the cuts and the interruptions
 
 For each visit, seek to just before and just after a listed transition, enter on foot and interrupt a resident during their ordinary work. Compare a linear take with a pickup after the prop or actor changed state. The working hand, physical object position, listener, speaker and next eligible interaction should agree. For the two witness visits, compare hearing the exchange to passing by. For the drain, exercise the route without adding an actor. Track these as separate checks from a director's judgement of framing, timing or clarity.
