@@ -72,7 +72,7 @@ func _can_steer(route: Node3D) -> bool:
 	if not route._door_passages.is_empty(): return false
 	if not _inside(route.actor.global_position) or route._talking(): return false
 	var world: Node3D=_world.get_ref()
-	if world.player.call_locked: return false
+	if world.player.call_locked and not ResidentConversations.permits_background_work(route.actor, world.player): return false
 	if route.actor.mina_animation!=null and route.actor.mina_animation.route_busy: return false
 	if route._bodega_route!=null and route._bodega_route._leg_kind in ["entry","transfer","exit"]: return false
 	if route._bar_route!=null and (not route._bar_route._gate.is_empty() or route._bar_route.owns_local_edge()): return false

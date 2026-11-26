@@ -9,6 +9,12 @@ const State := preload("res://scripts/game/prologue_state.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const ErrorCapture := preload("res://tests/guide_bell_error_capture.gd")
 
+# Exercise the installed interaction methods without loading another cast mesh.
+class BodyTarget extends AnimatedResident:
+	func _ready() -> void:
+		set_process(false)
+
+
 class Attention extends "res://scripts/characters/resident_attention.gd":
 	pass
 
@@ -331,11 +337,21 @@ func _dialogue_lifecycle() -> void:
 	world.forced_blocks.clear()
 	check(not performance.try_conversation("mina_vale", player), "Mina golden-shift owner is excluded")
 	var before: Dictionary = RealityState.data.duplicate(true)
-	check(performance.try_conversation("mae_kessler", player), "actual dedicated conversation starts")
+	var target := BodyTarget.new()
+	target.resident_id = "mae_kessler"
+	add_child(target)
+	var topic := performance.conversation_prompt("mae_kessler")
+	check(not topic.is_empty() and target.interact_prompt() == topic and target.interact_prompt() == topic, "hover retains the available performance")
+	target.interact(player)
+	check(conversations.performance_active(), "normal body interaction starts the offered performance")
 	check(panel.attention_active() and panel.current_node_id == "loop_business", "actual panel shows the performance")
 	panel.choose(0)
 	check(not conversations.performance_active() and not panel.attention_active(), "reply releases panel and performance")
 	check(RealityState.data == before, "performance grants no trust knowledge visits inventory or economy")
+	check(target.interact_prompt().is_empty(), "a spent body has no speak prompt")
+	target.interact(player)
+	check(not panel.attention_active(), "a spent body does not open its door conversation")
+	target.free()
 	check(not performance.try_conversation("mae_kessler", player), "same phase reply does not repeat")
 	check(conversations.start("mae_kessler") and not conversations.performance_active(), "next interaction reaches ordinary conversation")
 	var ordinary := panel.current_node_id

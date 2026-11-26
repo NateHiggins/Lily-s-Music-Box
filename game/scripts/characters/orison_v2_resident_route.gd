@@ -375,7 +375,7 @@ func _route_tick(delta: float) -> void:
 		_sample = .5
 		_select_destination()
 		_dress_unseen()
-	if world.player.call_locked or desired_id < 0:
+	if desired_id < 0 or _player_lock_holds_route():
 		actor._set_walking(false)
 		return
 	if _bar_route != null and _bar_route.update_place(delta):
@@ -633,7 +633,11 @@ func _release_passed_doors() -> void:
 func _talking() -> bool:
 	if actor.mina_animation != null:
 		return actor.mina_animation.conversation_active
-	return world.player.call_locked and actor.global_position.distance_to(world.player.global_position) < 3.0
+	return _player_lock_holds_route() and actor.global_position.distance_squared_to(world.player.global_position) < 9.0
+
+
+func _player_lock_holds_route() -> bool:
+	return world.player.call_locked and not ResidentConversations.permits_background_work(actor, world.player)
 
 func _face_door(door: DoorProp) -> void:
 	var toward := door.to_global(Vector3(door.width * .75, 0, 0)) - actor.global_position
@@ -733,7 +737,10 @@ func _characters_clear(next: Vector3) -> bool:
 		var step := next-actor.global_position
 		step.y = 0
 		if (offset-step).length() < separation and (offset-step).length() <= offset.length()+.00001:
-			if _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
+			if world.player.call_locked and (peer == world.player or not ResidentConversations.permits_background_work(peer, world.player)):
+				# The locked caller/listeners cannot step aside; keep their space.
+				clear = false
+			elif _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
 				clear = false
 			elif not squeeze.permits(actor, peer): clear = false
 	return clear

@@ -58,6 +58,7 @@ var _choices: VBoxContainer
 const SpeakerFraming := preload("res://scripts/ui/resident_speaker_framing.gd")
 var _speaker_framing: SpeakerFraming
 var _player: PlayerController
+var _input_revision := -1
 var _previous_mouse := Input.MOUSE_MODE_CAPTURED
 var _tree: Dictionary = {}
 var _on_flag: Callable = Callable()
@@ -217,8 +218,10 @@ func _present_line(speaker_name: String, words: String, options: Array) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_player = get_tree().get_first_node_in_group(
 			"player_controller") as PlayerController
-	if _player:
+	if _player and not _player.protected_input_active():
+		# A text lease can coexist with this panel but blocks background work.
 		_player.call_locked = true
+		_input_revision = _player.call_lock_revision
 	if _choices.get_child_count() > 0:
 		(_choices.get_child(0) as Control).grab_focus()
 
@@ -265,6 +268,13 @@ func _fade_to(alpha: float) -> void:
 	_fade.tween_property(_panel, "modulate:a", alpha, FADE_SECONDS)
 
 
+func owns_exclusive_input(player: PlayerController) -> bool:
+	return player == _player and is_instance_valid(player) and attention_active() \
+			and _input_revision == player.call_lock_revision and player.protected_input_active() \
+			and not is_instance_valid(player.text_input_owner) and not is_instance_valid(player.seated_interaction) \
+			and not player.mouse_released and not player.inspecting()
+
+
 func close() -> void:
 	if _speaker_framing != null:
 		_speaker_framing.release()
@@ -272,9 +282,11 @@ func close() -> void:
 	_panel.modulate.a = 0.0
 	if _fade and _fade.is_valid():
 		_fade.kill()
-	if _player:
+	if is_instance_valid(_player) and _input_revision == _player.call_lock_revision:
 		_player.call_locked = false
-	Input.mouse_mode = _previous_mouse
+	_input_revision = -1
+	if not is_instance_valid(_player) or not _player.call_locked:
+		Input.mouse_mode = _previous_mouse
 
 
 ## Number keys answer; the reply with no words answers to 0.
