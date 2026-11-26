@@ -60,7 +60,7 @@ const SCHEDULES_PATH := "res://data/resident_schedules.json"
 ## crude on purpose; {unit} is replaced with the apartment number.
 const NOTES_PATH := "res://data/field_notes.json"
 const NOTE_PREFIX := "note:"
-## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md Â§7): what a resident
+## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/adela_voss.json",
