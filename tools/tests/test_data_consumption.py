@@ -12,6 +12,88 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def test_installed_clock_collaborator_reports_fields_without_clearing_skipped_profiles(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        source = "game/data/domestic_witness_clocks.json"
+        base = "game/scripts/props/domestic_witness_clock.gd"
+        for filename in (source, base, "game/scripts/building/orison_v2_witness_clocks.gd",
+                         "game/scripts/building/orison_v2_witness_clock.gd"):
+            path = root / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((TOOLS.parent / filename).read_bytes())
+        data = json.loads((root / source).read_text())
+        profiles = data["profiles"]
+        profiles.append({"case_id": "missing_placement", "style": "uninstalled",
+                         "new_probe": True, "metadata": {"accent": "unread"}})
+        data["metadata"] = {"style": "unrelated"}
+        (root / source).write_text(json.dumps(data))
+        (root / "game/data/unrelated.json").write_text(json.dumps(data))
+
+        def findings():
+            return {(r["file"], r["field"]): r for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                    if r["kind"] == "FIELD_UNREAD"}
+
+        result = findings()
+        for field in ("resident", "style", "tell", "time", "accent"):
+            row = result[source, field]
+            self.assertIn("potential source-row parameter read through WitnessClock.configure", row["detail"])
+            self.assertEqual(row["occurrences"], {"style": 20, "accent": 19}.get(field, 18))
+            self.assertIn(f"{19 if field == 'style' else 18} source-row occurrences", row["detail"])
+            self.assertEqual(result["game/data/unrelated.json", field]["detail"], "zero production token readers")
+        for field in ("version", "new_probe"):
+            self.assertEqual(result[source, field]["detail"], "zero production token readers")
+        for profile in profiles:
+            profile.pop("style", None)
+        (root / source).write_text(json.dumps(data))
+        self.assertEqual(findings()[source, "style"]["detail"], "zero production token readers")
+
+    def test_collaborator_requires_literal_constructed_type_original_row_and_explicit_super(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        parent = ('extends Node\nfunc configure(row: Dictionary) -> void:\n'
+                  '    shade = str(row.colour)\n')
+        child = ('extends "res://scripts/parent.gd"\nfunc configure(spec: Dictionary) -> void:\n'
+                 '    super.configure(spec)\n')
+        sender = ('extends Node\nconst DATA := "res://data/bundle.json"\n'
+                  'const Child := preload("res://scripts/child.gd")\nfunc mount():\n'
+                  '    var data = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+                  '    for entry: Dictionary in data.rows:\n'
+                  '        var model := Child.new()\n        model.configure(entry)\n')
+
+        def observed(s=sender, c=child, b=parent):
+            texts = {root / "game/scripts" / fname: text for fname, text in (
+                ("sender.gd", s), ("child.gd", c), ("parent.gd", b))}
+            return audit.collaborator_parameter_reads(root, texts)
+
+        self.assertEqual(observed(), {"bundle.json": {("rows", None, "colour"): {"Child.configure"}}})
+        for s, c, b in (
+            (sender.replace("var data = JSON.parse_string(FileAccess.get_file_as_string(DATA))", "var data = fake"), child, parent),
+            (sender.replace("const DATA", "const OTHER"), child, parent),
+            (sender.replace("func mount()", "func mount(DATA)"), child, parent),
+            (sender.replace("    var data =", "    if other:\n        var data ="), child, parent),
+            (sender.replace("data.rows", "fake.rows"), child, parent),
+            (sender.replace("Child.new()", "Unknown.new()"), child, parent),
+            (sender.replace("func mount()", "func mount(Child)"), child, parent),
+            (sender.replace("        var model := Child.new()\n        model.configure(entry)",
+                            "        model.configure(entry)\n        var model := Child.new()"), child, parent),
+            (sender.replace("        model.configure", "        model = other\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        entry = other\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        entry.clear()\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        mutate(entry)\n        model.configure"), child, parent),
+            (sender.replace("model.configure(entry)", "model.configure(other)"), child, parent),
+            (sender.replace("        model.configure", "    model.configure"), child, parent),
+            (sender.replace("        model.configure", "        continue\n        model.configure"), child, parent),
+            (sender, child.replace("parent.gd", "unrelated.gd"), parent),
+            (sender, child.replace("super.configure(spec)", "super.configure({})"), parent),
+            (sender, child.replace("super.configure(spec)", "if allowed:\n        super.configure(spec)"), parent),
+            (sender, child, parent.replace("shade = ", "row = other\n    shade = ")),
+            (sender, child, parent.replace("shade = ", "return\n    shade = ")),
+            (sender, child, parent.replace("str(row.colour)", '"row.colour"')),
+        ):
+            with self.subTest(sender=s, child=c, parent=b):
+                self.assertEqual(observed(s, c, b), {})
+
     def test_installed_case_getter_records_potential_read_and_keeps_all_unproven_cases(self):
         td, root = self.fixture()
         self.addCleanup(td.cleanup)
