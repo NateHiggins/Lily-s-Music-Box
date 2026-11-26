@@ -35,6 +35,7 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	await _run()
 	await _check_reply_layout()
+	await _check_speaker_framing()
 	print("RESIDENT CONVERSATION TEST: %d failures" % _fails)
 	get_tree().quit(0 if _fails == 0 else 1)
 
@@ -318,3 +319,96 @@ static func _index(labels: Array, text: String) -> int:
 		if str(labels[i]).contains(text):
 			return i
 	return -1
+
+class LensPlayer extends PlayerController:
+	func _ready() -> void:
+		camera = Camera3D.new()
+		add_child(camera)
+		camera.make_current()
+		add_to_group("player_controller")
+		set_physics_process(false)
+		set_process(false)
+		set_process_input(false)
+		set_process_unhandled_input(false)
+
+
+class LensResident extends Node3D:
+	var resident_id := "stacy"
+
+	func _ready() -> void:
+		add_to_group("animated_residents")
+		var skeleton := Skeleton3D.new()
+		skeleton.add_bone("Head")
+		add_child(skeleton)
+
+
+func _check_speaker_framing() -> void:
+	var previous_mouse := Input.mouse_mode
+	var player := LensPlayer.new()
+	add_child(player)
+	player.camera.fov = 76.0
+	var player_pose := player.global_transform
+	var eye_pose := player.camera.transform
+	var actor := LensResident.new()
+	actor.position = Vector3(0.0, 0.0, -2.1)
+	add_child(actor)
+	var panel := CaseDialoguePanel.new()
+	add_child(panel)
+	var director := ResidentConversations.new()
+	add_child(director)
+	director.setup(panel)
+	_check("ordinary Stacy dialogue opens", director.start("stacy"))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("the ordinary authored speaker uses the same bounded lens", player.camera.fov < 76.0)
+	# A replacement panel can take ownership before the former conversation
+	# ends. An anonymous intercom announcement carries no physical face.
+	panel.run_tree({"meta": {"speaker_default": "STACY"}, "nodes": {
+		"announcement": {"speaker": "INTERCOM", "line": "Stand by."}
+	}}, "announcement", Callable(), Callable(), {"framing_resident": "stacy"})
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("another voice restores the lens without stealing the replacement panel",
+			is_equal_approx(player.camera.fov, 76.0) and panel.attention_active() and player.call_locked)
+	director.cancel_for_transition()
+	_check("old conversation cancellation leaves replacement input ownership intact", player.call_locked)
+	panel.close()
+	var lines := [{"speaker": "stacy", "text": "Here."}, {"speaker": "lily", "text": "Across the room."}]
+	_check("loop performance opens on the speaking resident", director.start_performance_sequence("stacy", lines, player))
+	for tick in 12:
+		await get_tree().physics_frame
+	_check("a visible speaker gets a bounded push from the caller's original lens",
+			player.camera.fov >= 69.0 and player.camera.fov < 76.0)
+	_check("framing preserves the player's camera, aim, position and existing dialogue lock",
+			player.camera.is_current() and player.call_locked and player.global_transform == player_pose
+			and player.camera.transform == eye_pose)
+	panel.choose(0)
+	_check("an absent second speaker immediately restores the original shot",
+			panel.current_node_id == "loop_business_1" and is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	_check("transition restores ordinary player input", not player.call_locked)
+	var wall := StaticBody3D.new()
+	var shape := CollisionShape3D.new()
+	shape.shape = BoxShape3D.new()
+	wall.add_child(shape)
+	wall.position.z = -1.0
+	add_child(wall)
+	await get_tree().physics_frame
+	_check("occluded exchange still opens", director.start_performance_sequence("stacy", lines, player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("a wall between player and eyes keeps the original lens", is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	wall.free()
+	await get_tree().physics_frame
+	director.start_performance_sequence("stacy", lines, player)
+	for tick in 4:
+		await get_tree().physics_frame
+	player.camera.fov = 52.0
+	director.cancel_for_transition()
+	_check("a succeeding lens owner keeps its own setting", is_equal_approx(player.camera.fov, 52.0))
+	director.free()
+	panel.free()
+	actor.free()
+	player.free()
+	Input.mouse_mode = previous_mouse

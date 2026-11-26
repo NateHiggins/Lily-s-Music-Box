@@ -17,6 +17,8 @@ var _campaign: Dictionary = {}
 var _ordinary_day := ""
 var ordinary: RefCounted
 var _talk_encounter: Dictionary = {}
+var _listener_attention: Node
+var _listener_point := Vector3.ZERO
 var _heard: Dictionary = {}
 var _phase_ends: Dictionary = {}
 var _work_stations: Dictionary = {}
@@ -87,6 +89,9 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 	_extend_visit("juno_kells", "cal_dwyer", "visit:5B:listening", "listening_guest")
 	add_to_group("loop_performances")
 	loop.changed.connect(_sync_visit)
+	if conversations != null:
+		conversations.conversation_started.connect(_on_speaker_started)
+		conversations.conversation_ended.connect(_on_speaker_ended)
 	_sync_visit()
 	return true
 
@@ -173,7 +178,7 @@ func whereabouts(resident: String) -> Dictionary:
 	var guest := "nadia_quell" if resident == "mae_kessler" else "juno_kells" if resident == "cal_dwyer" else ""
 	if not guest.is_empty():
 		var visitor := phase_for(guest)
-		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not _arrived(guest):
+		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not witness_present(guest):
 			var key := str(visitor.phase_id)
 			if not _guest_waits.has(key):
 				_guest_waits[key] = 0.0
@@ -240,6 +245,7 @@ func _sync_visit() -> void:
 	_guest_waits.clear()
 	_talk_phase = ""
 	_talk_encounter = {}
+	_release_listener()
 	if conversations != null:
 		conversations.cancel_for_transition()
 	_clear_activities()
@@ -283,7 +289,7 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 	var phase := phase_for(resident)
 	if not phase.is_empty():
 		# Inherited travel/arrival phases deliberately have no replacement line.
-		if str(phase.place).is_empty():
+		if str(phase.place).is_empty() or block.get("place", "") != phase.place:
 			return {}
 		var route: Node = world.resident_routes.get(resident)
 		if route == null or route.destination != str(phase.place):
@@ -330,7 +336,64 @@ func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	_talk_phase = str(line.phase_id)
 	_talk_encounter = line.get("encounter", {})
 	_heard[_talk_phase] = true # Presentation only; never a knowledge/visit grant.
+	_update_listener()
 	return true
+
+
+func _on_speaker_started(_resident: String, _entry: String) -> void:
+	if not _talk_phase.is_empty():
+		_update_listener()
+
+
+func _on_speaker_ended(_resident: String) -> void:
+	_release_listener()
+	if not conversations.performance_active():
+		_talk_phase = ""
+		_talk_encounter = {}
+
+
+func _release_listener() -> void:
+	if is_instance_valid(_listener_attention) and _listener_attention.ensemble_target == _listener_point:
+		_listener_attention.ensemble_target = null
+	_listener_attention = null
+
+
+func _update_listener() -> void:
+	if _talk_phase.is_empty() or not conversations.performance_active():
+		_release_listener()
+		return
+	var speaker: String = conversations._active_resident
+	var pair: Array = _talk_encounter.get("actors", [])
+	if not _talk_encounter.is_empty():
+		if not ordinary.eligible(_talk_encounter, str(loop.visit_anchor()) if loop.in_visit() else ""):
+			conversations.cancel_performance()
+			return
+	elif not _talk_phase.begins_with("baseline:"):
+		pair = VISIT_PAIRS.get(str(loop.visit_anchor()), [])
+		if speaker in pair and witness_present(str(pair[0])) and witness_present(str(pair[1])):
+			# The same body, proximity, case and sight checks as a street exchange.
+			var places := [phase_for(str(pair[0])).place, phase_for(str(pair[1])).place]
+			if not ordinary.eligible({"actors": pair, "places": places, "excluded_anchors": []}, str(loop.visit_anchor())):
+				pair = []
+		else:
+			pair = []
+	if pair.size() != 2 or speaker not in pair:
+		_release_listener()
+		return
+	var listener := str(pair[1] if pair[0] == speaker else pair[0])
+	var owner: Node = world.resident_routes[listener].actor.get_node_or_null("Attention")
+	var source: Node = world.resident_routes[speaker].actor.get_node_or_null("Attention")
+	if owner != _listener_attention:
+		_release_listener()
+	if owner == null or source == null or not is_instance_valid(source.pipeline) or source.pipeline.frames == 0:
+		_release_listener()
+		return
+	if owner.ensemble_target != null and (owner != _listener_attention or owner.ensemble_target != _listener_point):
+		_release_listener()
+		return
+	_listener_attention = owner
+	_listener_point = source.pipeline.eye_world()
+	owner.ensemble_target = _listener_point
 
 
 func _process(delta: float) -> void:
@@ -349,11 +412,19 @@ func _process(delta: float) -> void:
 	if player == null or not bool(player.get("call_locked")):
 		for key: String in _guest_waits:
 			_guest_waits[key] = minf(30.0, float(_guest_waits[key]) + elapsed)
-	if conversations != null and conversations.performance_active() and not _talk_encounter.is_empty() \
-			and not ordinary.eligible(_talk_encounter, str(loop.visit_anchor()) if loop.in_visit() else ""):
-		conversations.cancel_performance()
+	if not _talk_phase.is_empty():
+		_update_listener()
 	if _identity.is_empty():
 		return
+	# Dedicated historical lines need their original speaker at the staged
+	# place for the lifetime of the reply, even if the route has been removed.
+	if conversations != null and not _talk_phase.is_empty() and conversations.performance_active() and _talk_encounter.is_empty() \
+			and not _talk_phase.begins_with("baseline:"):
+		var speaker: String = conversations._active_resident
+		var live_phase := phase_for(speaker)
+		if _talk_phase != live_phase.get("phase_id", "") or not witness_present(speaker) \
+				or world.resident_whereabouts(speaker).get("place", "") != live_phase.place:
+			conversations.cancel_performance()
 	var plans := {}
 	var contenders := {}
 	var focuses := {}
@@ -362,8 +433,7 @@ func _process(delta: float) -> void:
 		var actor: Node = route.actor
 		var phase := phase_for(resident)
 		var talking := conversations != null and conversations._active_resident == resident
-		if talking and _talk_encounter.is_empty() and not _talk_phase.is_empty() and conversations.performance_active() \
-				and _talk_phase != str(phase.get("phase_id", "baseline:" + resident)):
+		if talking and _talk_phase.begins_with("baseline:") and conversations.performance_active() and not phase.is_empty():
 			conversations.cancel_performance()
 		if resident == "mina_vale" or actor == null or not actor.has_method("set_loop_activity"):
 			continue
@@ -378,7 +448,9 @@ func _process(delta: float) -> void:
 				or case_active or activity in ["sleeping", "dressing", "shower"]:
 			continue
 		plans[resident] = activity
-		focuses[resident] = phase.get("focus", "")
+		# A host clearing the approach may be doing chores in the kitchen
+		# while her authored work surface is still in the front room.
+		focuses[resident] = phase.get("focus", "") if route.destination == phase.get("place", "") else ""
 		# Two route graphs may name the same work surface differently. Use its
 		# authored world endpoint; watching, listening and resting can be shared.
 		if activity in ["work", "chores"]:
@@ -417,7 +489,7 @@ func _process(delta: float) -> void:
 		var target: Node3D = world.adapter.resolve(focus) as Node3D
 		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
 				and attention.staged_target == _gaze[resident].point
-		if target != null and target.global_position.distance_to(actor.global_position) < 3.2 \
+		if target != null and target.is_visible_in_tree() and target.global_position.distance_to(actor.global_position) < 3.2 \
 				and (attention.staged_target == null or still_owned):
 			attention.staged_target = target.global_position
 			_gaze[resident] = {"owner": attention, "point": target.global_position}
@@ -448,6 +520,7 @@ func _clear_activities() -> void:
 
 
 func _exit_tree() -> void:
+	_release_listener()
 	_clear_activities()
 	if is_instance_valid(conversations):
 		conversations.cancel_performance()

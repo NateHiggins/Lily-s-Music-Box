@@ -54,6 +54,8 @@ var _column: VBoxContainer
 var _speaker: Label
 var _line: Label
 var _choices: VBoxContainer
+const SpeakerFraming := preload("res://scripts/ui/resident_speaker_framing.gd")
+var _speaker_framing: SpeakerFraming
 var _player: PlayerController
 var _previous_mouse := Input.MOUSE_MODE_CAPTURED
 var _tree: Dictionary = {}
@@ -168,6 +170,8 @@ func attention_active() -> bool:
 ## One hand-built prompt. `options` are dictionaries with `text` and `action`,
 ## optionally `silent`, `evidence` or `infer` for presentation.
 func present(speaker_name: String, words: String, options: Array) -> void:
+	if _speaker_framing != null:
+		_speaker_framing.release()
 	for old in _choices.get_children():
 		_choices.remove_child(old)
 		old.queue_free()
@@ -246,6 +250,8 @@ func _fade_to(alpha: float) -> void:
 
 
 func close() -> void:
+	if _speaker_framing != null:
+		_speaker_framing.release()
 	_panel.visible = false
 	_panel.modulate.a = 0.0
 	if _fade and _fade.is_valid():
@@ -309,8 +315,8 @@ func _show_node(node_id: String) -> void:
 			on_node_flag.call(node_flag)
 		elif _on_flag.is_valid():
 			_on_flag.call(node_flag, 0)
-	var speaker := str(node.get("speaker",
-			_tree.get("meta", {}).get("speaker_default", "")))
+	var default_speaker := str(_tree.get("meta", {}).get("speaker_default", ""))
+	var speaker := str(node.get("speaker", default_speaker))
 	var available: Callable = _context.get("available", Callable())
 	var options: Array = []
 	for choice in node.get("choices", []):
@@ -329,6 +335,16 @@ func _show_node(node_id: String) -> void:
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
 	present(speaker, str(node.line), options)
+	var actor := str(node.get("actor", ""))
+	# Ordinary, fallback and case trees have one known caller. A different
+	# caption or anonymous voice never borrows that person's face.
+	if not node.has("actor") and not speaker.is_empty() and speaker == default_speaker:
+		actor = str(_context.get("framing_resident", ""))
+	if _player != null and not actor.is_empty():
+		if _speaker_framing == null:
+			_speaker_framing = SpeakerFraming.new()
+			add_child(_speaker_framing)
+		_speaker_framing.begin(_player, actor)
 	node_shown.emit(node_id)
 
 

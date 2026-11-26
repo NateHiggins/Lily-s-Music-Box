@@ -292,7 +292,8 @@ func start(resident_id: String, place_context: String = "") -> bool:
 	dialogue.run_tree(tree, node_id,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),
-			{"available": func(choice: Dictionary): return _available(resident_id, choice),
+			{"framing_resident": resident_id,
+			 "available": func(choice: Dictionary): return _available(resident_id, choice),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, entry_id)
 	return true
@@ -960,7 +961,8 @@ func start_mystery(resident_id: String, spoken_only := false, installed_topic :=
 	dialogue.run_tree(tree, MYSTERY_MENU,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),
-			{"available": func(choice: Dictionary): return _available(resident_id, choice),
+			{"framing_resident": resident_id,
+			 "available": func(choice: Dictionary): return _available(resident_id, choice),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, MYSTERY_MENU)
 	return true
