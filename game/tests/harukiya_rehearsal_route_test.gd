@@ -50,6 +50,13 @@ func _run() -> void:
 		_finish()
 		return
 	player = world.player
+	var shell := get_tree().current_scene as CampaignShell
+	while shell != null and shell.owns_opening_veil(world) and Time.get_ticks_msec() - started < 360000:
+		await get_tree().process_frame
+	if not _check(shell != null and shell.active_world == world and not shell.owns_opening_veil(world)
+			and world.prologue_director != null and world.player_unit() == "4B" and not player.protected_input_active(), "Continue released the waking player at the real bedside"):
+		_finish()
+		return
 	await _visit()
 	_finish()
 
@@ -75,9 +82,17 @@ func _visit() -> void:
 			and not world.temporal_loop.in_visit() and world.conversations.playtest_date.is_empty(), "fresh narrative knowledge in an unmodified present"):
 		return
 	evidence.continue_position = str(player.global_position)
-	player.global_position = nav.get_node("entry_sidewalk").global_position + Vector3.UP * 0.04
-	player.velocity = Vector3.ZERO
 	if not await _civil(START): return
+	var sidewalk: Vector3 = nav.get_node("entry_sidewalk").global_position
+	player.global_position = sidewalk + Vector3.UP * 0.04
+	player.velocity = Vector3.ZERO
+	for frame in 12:
+		await get_tree().physics_frame
+	var ground_ray := PhysicsRayQueryParameters3D.create(sidewalk + Vector3.UP * 0.3, sidewalk + Vector3.DOWN * 0.3, 1, [player.get_rid()])
+	var ground := player.get_world_3d().direct_space_state.intersect_ray(ground_ray)
+	if not _check(not ground.is_empty() and ground.normal.dot(Vector3.UP) > 0.8
+			and player.is_on_floor() and player.global_position.distance_to(sidewalk) < 0.18, "ordinary public sidewalk supports the player after campaign time advances"): return
+	evidence.sidewalk_support = str(ground.collider.get_path())
 	var adela: Node3D = cast.performers.adela_voss
 	var lily: Node3D = cast.actors.lily
 	var stacy: Node3D = cast.actors.stacy
@@ -89,7 +104,9 @@ func _visit() -> void:
 	var waypoints := ["entry_crate_upper","entry_crate_lower","entry_outside","entry_descent_01","entry_descent_02","entry_descent_03","entry_descent_foot","entry_threshold","entrance","backstage_entrance","backstage_public_axis","backstage","stage_e","stage_front"]
 	for id: String in waypoints:
 		var point: Vector3 = nav.get_node(id).global_position
-		if not await _walk(world.adapter.root.to_local(point), 0.16): return
+		var arrived := await _walk(world.adapter.root.to_local(point), 0.16)
+		trace.back()["waypoint"] = id
+		if not arrived: return
 		if id == "entrance" and not _check(leaf.open and leaf.is_ready_for_passage(), "ordinary directional entry opened and cleared the real leaf"): return
 	var target: Area3D = adela.get("interaction")
 	player.camera.look_at(adela.global_position + Vector3.UP * 1.15)
