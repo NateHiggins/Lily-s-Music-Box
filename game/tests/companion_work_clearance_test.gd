@@ -234,6 +234,7 @@ func _ownership_probes() -> void:
 			check(part.global_transform.is_equal_approx(before), "held own instrument does not move during shoulder return")
 			check(carrier.screen_frame._shoulder_center == center and carrier.screen_frame._shoulder_turn == turn, "own hand freezes finite shoulder transition")
 			player._grab.release()
+	await _resident_sightline_probe()
 	_seed_return()
 	player.call_locked = true
 	var camera_before := player.camera.global_transform
@@ -267,6 +268,42 @@ func _ownership_probes() -> void:
 		check(carrier.session.opening and player.text_input_owner == carrier.session and player.camera.global_transform == camera_before and Input.mouse_mode == mode_before, "typing successor retains opening, camera and input lease")
 		carrier.session.close()
 
+func _resident_sightline_probe() -> void:
+	# Open floor and authored actors isolate the optical response from rooftop
+	# collision and camera placement, which the installed OY05 scene covers.
+	var origin := player.global_transform
+	player.global_position = Vector3(-2.0, 0.01, -1.0)
+	var director := ResidentConversations.new()
+	var panel := CaseDialoguePanel.new()
+	director.add_child(panel)
+	add_child(director)
+	director.setup(panel)
+	var lines := [{"speaker":"malcolm_reed","text":"A little to your left."},
+			{"speaker":"sacha_reed","text":"For the light?"}]
+	if check(director.start_performance_sequence("malcolm_reed", lines, player), "resident panel opens with its own input lease"):
+		var camera_before := player.camera.global_transform
+		for frame in 100:
+			await get_tree().physics_frame
+			await RenderingServer.frame_post_draw
+			var center: Vector3 = carrier.screen_frame._shoulder_center
+			if center.is_finite() and player.camera.to_local(center).z > 0.04:
+				break
+		var center: Vector3 = carrier.screen_frame._shoulder_center
+		check(center.is_finite() and player.camera.to_local(center).z > 0.04, "real instrument reaches the shoulder behind the camera plane")
+		panel.choose(0)
+		carrier.screen_frame.advance(0.0, false)
+		check(director.owns_dialogue_input(player) and carrier.screen_frame._shoulder_center.is_finite(), "Vantry stays aside on the second resident's line")
+		check(camera_before.is_equal_approx(player.camera.global_transform), "Vantry yields without moving the player's camera")
+		player.call_locked = true
+		carrier.screen_frame.advance(0.0, false)
+		check(not director.owns_dialogue_input(player) and not carrier.screen_frame._shoulder_center.is_finite(), "foreign lock superseding the resident panel cancels its shoulder path")
+		director.cancel_for_transition()
+		check(player.call_locked, "retiring the old conversation leaves the successor in control")
+		player.call_locked = false
+	director.free()
+	player.global_transform = origin
+
+
 func _sources() -> Dictionary:
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var digest: Array = []
@@ -274,7 +311,7 @@ func _sources() -> Dictionary:
 	check(OS.execute("python", [root.path_join("tools/run_receipt.py"), "digest", "--root", root], digest) == 0 and not digest.is_empty(), "runtime digest available")
 	check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance available")
 	var sources := {}
-	for path: String in [get_script().resource_path, scene_file_path, "res://tests/guide_bell_error_capture.gd", "res://tests/orison_v2_4b_door_route_test.gd", "res://scripts/device/companion_screen_frame.gd", "res://scripts/device/companion_world_carrier.gd", "res://scripts/device/service_set_hand.gd", "res://scripts/device/companion_session.gd", "res://scripts/player/player_controller.gd", "res://scripts/player/constrained_grab.gd", "res://scripts/props/clawfoot_bath_prop.gd"]:
+	for path: String in [get_script().resource_path, scene_file_path, "res://tests/guide_bell_error_capture.gd", "res://tests/orison_v2_4b_door_route_test.gd", "res://scripts/device/companion_screen_frame.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://scripts/device/companion_world_carrier.gd", "res://scripts/device/service_set_hand.gd", "res://scripts/device/companion_session.gd", "res://scripts/player/player_controller.gd", "res://scripts/player/constrained_grab.gd", "res://scripts/props/clawfoot_bath_prop.gd"]:
 		check(FileAccess.file_exists(path), "source binding exists: " + path)
 		sources["game/" + path.trim_prefix("res://")] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	return {"runtime_inputs_sha256": str(digest[0]).strip_edges() if not digest.is_empty() else "", "repository_head": str(head[0]).strip_edges() if not head.is_empty() else "", "dependencies_lf_sha256": sources}

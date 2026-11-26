@@ -392,6 +392,12 @@ func _performance_node_shown(node_id: String) -> void:
 	conversation_started.emit(actor, "loop_business")
 
 
+## A resident currently owns this player's attention through this exact tree.
+func owns_dialogue_input(player: PlayerController) -> bool:
+	return not _active_resident.is_empty() and is_instance_valid(dialogue) \
+			and dialogue.owns_exclusive_input(player) and is_same(_active_tree, dialogue._tree)
+
+
 ## Only this resident panel's exclusive lock leaves unrelated bodies at work.
 ## A foreign prompt, telephone, editor, seat or replacement tree stays protected.
 static func permits_background_work(body: Node3D, caller: Node) -> bool:
@@ -400,9 +406,7 @@ static func permits_background_work(body: Node3D, caller: Node) -> bool:
 	if player == null or resident == null or not resident.is_inside_tree() or resident.get_tree().paused or resident.resident_id in ["", "mina_vale"]:
 		return false
 	var owner := resident.get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
-	if owner == null or owner._active_resident.is_empty() or owner._active_resident == resident.resident_id \
-			or not is_instance_valid(owner.dialogue) or not owner.dialogue.owns_exclusive_input(player) \
-			or not is_same(owner._active_tree, owner.dialogue._tree):
+	if owner == null or owner._active_resident == resident.resident_id or not owner.owns_dialogue_input(player):
 		return false
 	if owner._performance_active and owner._performance_cast.has(resident.resident_id):
 		return false
