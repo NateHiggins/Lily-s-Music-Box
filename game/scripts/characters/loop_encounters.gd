@@ -77,6 +77,9 @@ func eligible(item: Dictionary, anchor: String) -> bool:
 			# Matching logical room names do not prove sight through a closed door.
 			var ray := PhysicsRayQueryParameters3D.create(body.global_position + Vector3.UP * 1.35,
 					other.global_position + Vector3.UP * 1.35, 1)
+			var observer := world.get("player") as CollisionObject3D
+			if is_instance_valid(observer):
+				ray.exclude = [observer.get_rid()]
 			if not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():
 				return false
 		bodies.append(body)

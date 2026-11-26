@@ -19,7 +19,7 @@ class TestPose extends Node:
 	func attend(point: Vector3) -> void: aim = point
 	func rest() -> void: aim = null
 
-class TestPlayer extends Node:
+class TestPlayer extends CharacterBody3D:
 	var call_locked := false
 
 class Actor extends Node3D:
@@ -853,7 +853,19 @@ func _ordinary_exchanges() -> void:
 	# negative control for the line-of-sight query and live cancellation.
 	_ordinary_clock()
 	_arrange_encounter(pair)
-	check(performance.try_conversation(first, player), "unobscured pair starts before blocker")
+	# Put the player in the actual ray before inserting the wall. The observer
+	# can listen between the two residents without becoming scenery.
+	var observer := player as CharacterBody3D
+	var capsule := CollisionShape3D.new()
+	capsule.shape = CapsuleShape3D.new()
+	observer.add_child(capsule)
+	observer.global_position = Vector3(1000, 1.35, 0.55)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var sight := PhysicsRayQueryParameters3D.create(Vector3(1000, 1.35, 0), Vector3(1000, 1.35, 1.1), 1)
+	check(world.get_world_3d().direct_space_state.intersect_ray(sight).get("collider") == observer,
+			"control ray meets the player's body between the residents")
+	check(performance.try_conversation(first, player), "the player can listen from between two speakers")
 	var blocker := StaticBody3D.new()
 	blocker.collision_layer = 1
 	var collider := CollisionShape3D.new()
@@ -869,6 +881,7 @@ func _ordinary_exchanges() -> void:
 	_tick()
 	check(not panel.attention_active(), "new real obstruction cancels a live exchange")
 	blocker.free()
+	capsule.free()
 	await get_tree().physics_frame
 	check(performance.ordinary.eligible(pair, ""), "removing the real blocker restores eligibility")
 	for item: Dictionary in performance.ordinary.encounters:
