@@ -20,6 +20,8 @@ extends RefCounted
 ## sound EFFECTS falling back to sine waves nobody authored. This is an
 ## authored arrangement that happens to be computed.
 
+const ARRANGEMENT_V1 := "track_018_synth_v1"
+const V1_PERCUSSION_SEED := 0x19291118
 const RATE := 22050
 const BPM := 84.0
 const BEAT := 60.0 / BPM
@@ -47,7 +49,7 @@ static func _env(t: float, attack: float, decay: float) -> float:
 
 ## One bar of backing for a given chord, at a given density.
 static func _bar(chord: Dictionary, density: float,
-		drums: bool) -> PackedFloat32Array:
+		drums: bool, noise: RandomNumberGenerator) -> PackedFloat32Array:
 	var n := int(BAR * RATE)
 	var out := PackedFloat32Array()
 	out.resize(n)
@@ -76,11 +78,11 @@ static func _bar(chord: Dictionary, density: float,
 			# clap on 2 and 4
 			if beat_i == 1 or beat_i == 3:
 				var ce := _env(b, 0.001, 0.10)
-				v += (randf() * 2.0 - 1.0) * ce * 0.16
+				v += (noise.randf() * 2.0 - 1.0) * ce * 0.16
 			# closed hat on eighths
 			var h := fmod(t, BEAT * 0.5)
 			var he := _env(h, 0.001, 0.035)
-			v += (randf() * 2.0 - 1.0) * he * 0.05
+			v += (noise.randf() * 2.0 - 1.0) * he * 0.05
 		out[i] = clampf(v, -1.0, 1.0)
 	return out
 
@@ -117,16 +119,26 @@ static func _to_wav(frames: PackedFloat32Array) -> AudioStreamWAV:
 	return wav
 
 
-## Returns {backing, guide} — two AudioStreamWAVs of identical length.
-static func render() -> Dictionary:
+## New takes use the current revision. Saved takes name their revision directly.
+static func current_arrangement(song_id: String) -> String:
+	return ARRANGEMENT_V1 if song_id == "track_018" else ""
+
+
+## Keep the V1 recipe and seed when adding a future arrangement. Dispatch new
+## IDs separately so stored editions can still select their original PCM.
+static func render(arrangement_id := ARRANGEMENT_V1) -> Dictionary:
+	if arrangement_id != ARRANGEMENT_V1:
+		return {}
+	var noise := RandomNumberGenerator.new()
+	noise.seed = V1_PERCUSSION_SEED
 	var bars: Array[PackedFloat32Array] = []
 	var guides: Array[PackedFloat32Array] = []
 	for c in PROG:
-		bars.append(_bar(c, 1.0, true))
+		bars.append(_bar(c, 1.0, true, noise))
 		guides.append(_guide_bar(c))
 	var thin: Array[PackedFloat32Array] = []
 	for c in PROG:
-		thin.append(_bar(c, 0.55, false))
+		thin.append(_bar(c, 0.55, false, noise))
 	var back := PackedFloat32Array()
 	var guide := PackedFloat32Array()
 	for b in FORM_BARS:

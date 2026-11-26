@@ -18,6 +18,10 @@ extends CanvasLayer
 ## box from the 80s has a numeric keypad and four buttons, and the whole
 ## interface has to survive being read across a bar.
 
+const OriginalCustody := preload("res://scripts/songbook/player_original_custody.gd")
+## SongSynth renders exactly this arrangement. The catalogue filename is last_train_home.
+const SYNTH_BACKING_ID := "track_018"
+const RECOVERY_PAGE_SIZE := 6
 const TraceCustody := preload("res://scripts/songbook/found_trace_custody.gd")
 const TraceForge := preload("res://scripts/songbook/phonautogram_forge.gd")
 
@@ -27,7 +31,7 @@ const AMBER := Color(0.96, 0.74, 0.28)
 const IVORY := Color(0.90, 0.94, 0.88)
 const BG := Color(0.035, 0.055, 0.042, 0.97)
 
-enum Mode { MENU, EDIT, MIC_CONSENT, CLAP, PERFORM, REVIEW, READING, OLD }
+enum Mode { MENU, EDIT, MIC_CONSENT, CLAP, PERFORM, REVIEW, READING, OLD, ORIGINALS, SLEEVE, RECOVERY, RECOVERY_SLEEVE }
 
 var song: SongResource
 var mode: int = Mode.MENU
@@ -43,10 +47,16 @@ var _root: Control
 var _body: VBoxContainer
 var _status: Label
 var _edit: LineEdit
+var _edit_slot := ""
 var _backing: AudioStreamPlayer
 var _guide: AudioStreamPlayer
 var _mic: MicRecorder
+var _clap_start: Timer
+var _keep_attempt: SongbookStore.KeepAttempt
 var _take: AudioStreamWAV
+## End of this performance in native backing seconds, before the house varispeed.
+var _take_end_seconds := -1.0
+var _saved_end_seconds := -1.0
 var _reader: AudioStreamPlayer
 ## The speed this reading committed to. Drawn fresh every time, which is why
 ## the same trace can come back as a different person - see
@@ -59,10 +69,20 @@ var _read_t := 0.0
 var _read_from_old := false
 ## Preserve the identity shown on each numbered row until the list is redrawn.
 var _trace_rows: Array[String] = []
+var _original_rows: Array[String] = []
+var _legacy_ids: Array[String] = []
+var _legacy_page := 0
+var _legacy_campaign: Dictionary = {}
+var _legacy_path := ""
+var _legacy_missing_id := ""
+var _read_original_id := ""
+var _saved_lyrics: Dictionary = {}
+var _saved_phrase: Label
 ## TASKS.md G1a: true while READING plays a found trace through the guessing
 ## reader; false while it plays the take's immutable composite reconstruction.
 var _read_is_trace := true
 var _rendered: Dictionary = {}
+var _rendered_arrangement := SongSynth.ARRANGEMENT_V1
 
 
 func open(s: SongResource, player: Node, terminal: Node) -> void:
@@ -81,6 +101,10 @@ func open(s: SongResource, player: Node, terminal: Node) -> void:
 
 
 func _build() -> void:
+	_clap_start = Timer.new()
+	_clap_start.one_shot = true
+	_clap_start.timeout.connect(_clap_finished)
+	add_child(_clap_start)
 	_root = Control.new()
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -128,9 +152,14 @@ func _build() -> void:
 
 
 func _clear() -> void:
+	if _edit != null:
+		# Native text_changed is deferred. Take the last keystroke with us if
+		# the player turns the page or leaves the editor in the same frame.
+		lyrics[_edit_slot] = _edit.text
+		_edit = null
+		_edit_slot = ""
 	for c in _body.get_children():
 		c.queue_free()
-	_edit = null
 
 
 func _line(text: String, colour: Color, size := 17) -> Label:
@@ -149,7 +178,7 @@ func _show_menu() -> void:
 	_line("", GREEN)
 	_line("1    WRITE THE WORDS", GREEN)
 	_line("2    SING IT", GREEN if _has_any_words() else GREEN_DIM)
-	_line("3    WHAT OTHERS LEFT   (%d)" % _version_count(), GREEN_DIM)
+	_line("3    YOUR ORIGINALS IN THE VALISE   (%d)" % _carried_editions().size(), GREEN_DIM)
 	_line("4    TRACES IN THE VALISE   (%d)"
 			% TraceCustody.held_ids().size(), GREEN_DIM)
 	_line("", GREEN)
@@ -169,8 +198,183 @@ func _has_any_words() -> bool:
 	return false
 
 
-func _version_count() -> int:
-	return SongbookStore.versions_of(song.id).size()
+## Only campaign-held originals for this installed backing are reachable. Keep
+## the version ID behind each displayed row so a moved sheet cannot change a pick.
+func _carried_editions() -> Dictionary:
+	var editions := {}
+	if song.id != SYNTH_BACKING_ID:
+		return editions
+	for id in OriginalCustody.packed_ids():
+		if OriginalCustody.song_id(id) != song.id or not OriginalCustody.is_packed(id):
+			continue
+		var row := SongbookStore.private_edition(id, song.id)
+		if not row.is_empty():
+			editions[id] = row
+	return editions
+
+
+func _show_originals() -> void:
+	mode = Mode.ORIGINALS
+	_clear()
+	_read_original_id = ""
+	_saved_lyrics = {}
+	_saved_end_seconds = -1.0
+	_saved_phrase = null
+	_legacy_ids.clear()
+	_legacy_campaign = {}
+	_legacy_path = ""
+	_legacy_missing_id = ""
+	_line("YOUR ORIGINALS IN THE VALISE.", GREEN, 22)
+	var editions := _carried_editions()
+	_original_rows.assign(editions.keys())
+	_original_rows.sort()
+	if _original_rows.is_empty():
+		_line("No private originals for this backing in the valise.", GREEN_DIM, 15)
+	for i in _original_rows.size():
+		var id := _original_rows[i]
+		_line("%d    %s" % [i + 1, _edition_label(id, editions[id])], GREEN, 16)
+	if song.id == SYNTH_BACKING_ID:
+		_line("R    LOOK FOR OLDER PRIVATE RECORDINGS", GREEN_DIM, 15)
+	_status.text = "Press a number to play.   ESC for the menu."
+
+
+func _edition_label(id: String, row: Dictionary) -> String:
+	var opening := ""
+	for slot: Dictionary in song.slots:
+		opening = str(row.lyrics.get(slot.id, "")).strip_edges()
+		if not opening.is_empty():
+			break
+	return "%s    %s" % [id.trim_prefix(song.id + "_"), opening.left(48)]
+
+
+func _open_recovery(page := 0) -> void:
+	if song.id != SYNTH_BACKING_ID:
+		_show_originals()
+		return
+	_legacy_ids.clear()
+	_legacy_campaign = RealityState.data
+	_legacy_path = RealityState.save_path
+	for id in SongbookStore.legacy_ids(song.id):
+		if OriginalCustody.song_id(id).is_empty():
+			_legacy_ids.append(id)
+	_draw_recovery(page)
+
+
+func _draw_recovery(page: int) -> void:
+	if not _same_recovery_campaign():
+		_show_originals()
+		return
+	mode = Mode.RECOVERY
+	_clear()
+	_legacy_missing_id = ""
+	var pages := maxi(1, ceili(float(_legacy_ids.size()) / RECOVERY_PAGE_SIZE))
+	_legacy_page = clampi(page, 0, pages - 1)
+	_line("PRIVATE RECORDINGS FROM BEFORE THE TRAY.", GREEN, 20)
+	if _legacy_ids.is_empty():
+		_line("No older originals are waiting here.", GREEN_DIM, 15)
+	else:
+		_line("Page %d of %d" % [_legacy_page + 1, pages], GREEN_DIM, 15)
+	var start := _legacy_page * RECOVERY_PAGE_SIZE
+	for i in range(start, mini(start + RECOVERY_PAGE_SIZE, _legacy_ids.size())):
+		var id := _legacy_ids[i]
+		var row := SongbookStore.private_edition(id, song.id)
+		var label := "Unavailable"
+		if not row.is_empty() and not row.has(SongbookStore.PHYSICAL_EDITION_KEY):
+			label = _edition_label(id, row)
+		_line("%d    %s" % [i - start + 1, label], GREEN, 16)
+	_status.text = "Number puts one original in the tray.   LEFT / RIGHT turns the page.   ESC returns."
+
+
+func _same_recovery_campaign() -> bool:
+	return song.id == SYNTH_BACKING_ID and is_same(RealityState.data, _legacy_campaign) and RealityState.save_path == _legacy_path
+
+
+func _retrieve_legacy(id: String) -> void:
+	if not _same_recovery_campaign():
+		_show_originals()
+		_status.text = "Reopen the older recordings for this campaign."
+		return
+	if not _legacy_ids.has(id) or not OriginalCustody.song_id(id).is_empty():
+		_open_recovery(_legacy_page)
+		_status.text = "This sheet is no longer waiting here."
+		return
+	var row := SongbookStore.private_playback(id, song.id, true)
+	if row.is_empty():
+		_open_recovery(_legacy_page)
+		_status.text = "This older recording is unavailable."
+		return
+	if not row.vocal_stem.is_empty() and row.vocal == null and _legacy_missing_id != id:
+		mode = Mode.RECOVERY_SLEEVE
+		_legacy_missing_id = id
+		_clear()
+		_line("THE VOCAL IS UNAVAILABLE.", AMBER, 22)
+		_line(_edition_label(id, row), GREEN_DIM, 16)
+		_status.text = "ENTER to recover the written sleeve alone.   ESC returns."
+		return
+	if not OriginalCustody.admit(row):
+		_status.text = "The tray is jammed. Try this sheet again."
+		return
+	_show_originals()
+	_status.text = "Your original is in the output tray."
+
+
+func _read_original(id: String) -> void:
+	if song.id != SYNTH_BACKING_ID or OriginalCustody.song_id(id) != song.id or not OriginalCustody.is_packed(id):
+		_show_originals()
+		_status.text = "That sheet is no longer in the valise."
+		return
+	var record := SongbookStore.private_playback(id, song.id)
+	if record.is_empty():
+		_show_originals()
+		_status.text = "This original cannot be read."
+		return
+	_clear()
+	_read_original_id = id
+	_saved_lyrics = record.lyrics
+	_saved_end_seconds = record.get(SongbookStore.PERFORMED_SECONDS, -1.0)
+	var arrangement: Variant = record.get("backing_arrangement", SongSynth.ARRANGEMENT_V1)
+	var sleeve_reason := ""
+	if _saved_end_seconds == 0.0:
+		sleeve_reason = "THE MUSIC HADN'T STARTED."
+	elif not record.vocal_stem.is_empty() and record.vocal == null:
+		sleeve_reason = "THE VOCAL IS UNAVAILABLE."
+	elif arrangement is not String or not _load_arrangement(arrangement):
+		sleeve_reason = "THE BACKING IS UNAVAILABLE."
+	if not sleeve_reason.is_empty():
+		mode = Mode.SLEEVE
+		_line(sleeve_reason, AMBER, 22)
+		var sleeve := RichTextLabel.new()
+		sleeve.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		sleeve.focus_mode = Control.FOCUS_ALL
+		sleeve.add_theme_color_override("default_color", IVORY)
+		var phrases := PackedStringArray()
+		for slot: Dictionary in song.slots:
+			var words := str(_saved_lyrics.get(slot.id, "")).strip_edges()
+			if not words.is_empty():
+				phrases.append(words)
+		sleeve.text = "\n\n".join(phrases)
+		_body.add_child(sleeve)
+		sleeve.grab_focus()
+		_status.text = "The words are on the sleeve.   ESC to return."
+		return
+	_play_composite(record.vocal, record.playback_ratio, _saved_end_seconds)
+	_line("THE RECONSTRUCTION.", GREEN, 22)
+	if not record.has("reconstruction_ratio"):
+		_line("Speed unmarked. Using the first fixed setting (%.3f times)." % record.playback_ratio, GREEN_DIM, 15)
+	_line("Words and backing." if record.vocal == null else "Voice and backing.", GREEN_DIM, 15)
+	_saved_phrase = _line("", IVORY, 22)
+	_saved_phrase.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_update_saved_phrase(0.0)
+	_status.text = "Any key to lift the stylus."
+
+
+func _update_saved_phrase(source_time: float) -> void:
+	var slot := song.slot_at(source_time)
+	if slot.is_empty():
+		slot = song.next_slot_after(source_time)
+		if _saved_end_seconds >= 0.0 and float(slot.get("start_time", 0.0)) >= _saved_end_seconds:
+			slot = {}
+	_saved_phrase.text = str(_saved_lyrics.get(slot.get("id", ""), ""))
 
 
 # ---------------------------------------------------------------- EDIT
@@ -193,14 +397,16 @@ func _show_edit() -> void:
 	_line(SongResource.syllable_map(want), GREEN_DIM, 20)
 	_line("", GREEN, 6)          # the map's descenders, off the box
 	_edit = LineEdit.new()
-	_edit.text = str(lyrics.get(str(slot.id), ""))
+	_edit_slot = str(slot.id)
+	_edit.text = str(lyrics.get(_edit_slot, ""))
 	_edit.placeholder_text = "sing something"
 	_edit.add_theme_color_override("font_color", IVORY)
 	_edit.add_theme_font_size_override("font_size", 20)
 	_edit.custom_minimum_size = Vector2(0, 38)
-	_edit.text_changed.connect(_on_typed)
+	_edit.text_changed.connect(_on_typed.bind(_edit))
 	_body.add_child(_edit)
 	_edit.grab_focus()
+	_edit.edit()
 	_edit.caret_column = _edit.text.length()
 	_line("", GREEN, 8)
 	_count_line(want)
@@ -240,15 +446,13 @@ func _refresh_count(want: int) -> void:
 		l.add_theme_color_override("font_color", AMBER)
 
 
-func _on_typed(_t: String) -> void:
-	var slot: Dictionary = song.slots[cursor]
-	lyrics[str(slot.id)] = _edit.text
-	_refresh_count(int(slot.get("suggested_syllables", 0)))
+func _on_typed(text: String, source: LineEdit) -> void:
+	if source == _edit:
+		lyrics[_edit_slot] = text
+		_refresh_count(int(song.slots[cursor].get("suggested_syllables", 0)))
 
 
 func _move(step: int) -> void:
-	if _edit:
-		lyrics[str(song.slots[cursor].id)] = _edit.text
 	cursor = clampi(cursor + step, 0, song.slots.size() - 1)
 	_show_edit()
 
@@ -267,7 +471,10 @@ func _show_mic_consent() -> void:
 
 
 func _discard_microphone() -> void:
+	if is_instance_valid(_clap_start):
+		_clap_start.stop()
 	if is_instance_valid(_mic):
+		_mic.set_process(false)
 		_mic.stop_recording()
 		_mic.stop_input()
 		_mic.queue_free()
@@ -300,42 +507,57 @@ func _show_clap() -> void:
 	_status.text = "Listening for one clap. ESC cancels microphone setup."
 	_mic = MicRecorder.new()
 	add_child(_mic)
-	_mic.calibrated.connect(_on_calibrated)
+	_mic.calibrated.connect(_on_calibrated.bind(_mic), CONNECT_ONE_SHOT)
 	if not _mic.begin_clap_check():
 		# No microphone: the brief still wants the song singable, so the
 		# take is simply silent and the words are what survive.
 		_line("", GREEN, 8)
 		_line("no microphone. you can still sing it to yourself.",
 				AMBER, 15)
-		await get_tree().create_timer(1.6).timeout
-		_start_perform()
+		_clap_start.start(1.6)
 
 
-func _on_calibrated(offset_ms: float) -> void:
-	if mode != Mode.CLAP:
+func _on_calibrated(offset_ms: float, recorder: MicRecorder) -> void:
+	if mode != Mode.CLAP or recorder != _mic or not is_instance_valid(recorder):
 		return
 	_status.text = "Microphone latency measured: %d ms. Timing compensation is active." % int(offset_ms)
-	await get_tree().create_timer(0.9).timeout
-	_start_perform()
+	_clap_start.start(0.9)
+
+
+func _clap_finished() -> void:
+	if mode == Mode.CLAP and not is_queued_for_deletion():
+		_start_perform()
 
 
 # ------------------------------------------------------------- PERFORM
 func _start_perform() -> void:
+	if mode != Mode.MIC_CONSENT and mode != Mode.CLAP:
+		return
+	_take = null
+	_take_end_seconds = -1.0
+	_keep_attempt = null
 	mode = Mode.PERFORM
 	play_time = 0.0
 	_clear()
-	if _rendered.is_empty():
-		_rendered = SongSynth.render()
+	if not _load_arrangement(SongSynth.current_arrangement(song.id)):
+		_discard_microphone()
+		_show_menu()
+		_status.text = "This arrangement is unavailable."
+		return
 	BarPA.ensure_bus()
-	_backing = AudioStreamPlayer.new()
+	if _backing == null:
+		_backing = AudioStreamPlayer.new()
+		_backing.finished.connect(_stop_perform.bind(true))
+		add_child(_backing)
 	_backing.stream = _rendered["backing"]
+	_backing.pitch_scale = 1.0
 	_backing.bus = BarPA.BUS
-	add_child(_backing)
-	_guide = AudioStreamPlayer.new()
+	if _guide == null:
+		_guide = AudioStreamPlayer.new()
+		add_child(_guide)
 	_guide.stream = _rendered["guide"]
 	_guide.bus = BarPA.BUS
 	_guide.volume_db = -14.0
-	add_child(_guide)
 	_backing.play()
 	_guide.play()
 	if _mic:
@@ -389,13 +611,24 @@ func _words_or_blank(slot: Dictionary) -> String:
 			int(slot.get("suggested_syllables", 4)))
 
 
-func _stop_perform() -> void:
+func _stop_perform(completed := false) -> void:
+	if mode != Mode.PERFORM:
+		return
 	if _backing:
+		var base := _backing.stream as AudioStreamWAV
+		if base != null:
+			# finished fires after the playback cursor has been released. On
+			# manual release, capture the cursor before stop() clears it.
+			var length := base.get_length()
+			var seconds := length if completed else _backing.get_playback_position()
+			var frames := roundi(clampf(seconds, 0.0, length) * base.mix_rate)
+			_take_end_seconds = float(frames) / base.mix_rate
 		_backing.stop()
 	if _guide:
 		_guide.stop()
 	if _mic:
 		_take = _mic.stop_recording()
+		_discard_microphone()
 	_show_review()
 
 
@@ -418,20 +651,31 @@ func _show_review() -> void:
 	_line("1    KEEP IT", GREEN)
 	_line("2    SING IT AGAIN", GREEN)
 	_line("3    THROW IT AWAY", GREEN_DIM)
-	if _take != null:
+	if _take != null or _take_end_seconds > 0.0:
 		_line("4    READ IT BACK", GREEN_DIM)
 	_status.text = "Nothing is saved unless you choose KEEP IT. Nothing is uploaded."
 
 
 func _keep() -> void:
-	var rec := SongbookStore.save_version(song, lyrics, _take)
+	if mode != Mode.REVIEW:
+		return
+	if _keep_attempt == null:
+		_keep_attempt = SongbookStore.begin_keep_attempt(song)
+	var rec: Dictionary = {}
+	if _keep_attempt != null:
+		rec = SongbookStore.save_version(song, lyrics, _take, "PRIVATE", "", "you", false, _keep_attempt, _take_end_seconds)
+	if rec.is_empty():
+		_status.text = "Could not keep this take. Press 1 to try again."
+		return
+	if not OriginalCustody.admit(rec):
+		_status.text = "Your take is on file. The tray is jammed. Press 1 to try again."
+		return
 	_clear()
 	_line("", GREEN)
 	_line("KEPT.", GREEN, 22)
 	_line("", GREEN, 8)
-	_line("filed as %s." % str(rec.get("version_id", "?")), GREEN_DIM, 15)
-	_line("the next person to stand here can sing over it.",
-			GREEN_DIM, 15)
+	_line("filed as %s." % str(rec.version_id), GREEN_DIM, 15)
+	_line("Pick up your original from the output tray.", GREEN_DIM, 15)
 	_status.text = "ESC to step away."
 	mode = Mode.MENU
 
@@ -520,31 +764,67 @@ func _read_back() -> void:
 ## entire difference between a published version and a found trace. The dry
 ## mic stem stays local (it is assembly material, never the shared artifact),
 ## and per G1c the review is non-positional at the machine.
-func _read_back_take() -> void:
+func _play_composite(vocal: AudioStreamWAV, ratio: float, end_seconds := -1.0) -> void:
 	mode = Mode.READING
 	_read_t = 0.0
 	_read_from_old = false
 	_read_is_trace = false
-	if _rendered.is_empty():
-		_rendered = SongSynth.render()
+	var backing := _performed_prefix(_rendered.backing, end_seconds)
+	var voice := _performed_prefix(vocal, end_seconds)
 	BarPA.ensure_bus()
 	if _reader == null:
 		_reader = AudioStreamPlayer.new()
 		add_child(_reader)
-	if _backing == null:
-		_backing = AudioStreamPlayer.new()
-		add_child(_backing)
-	var ratio := song.return_ratio
-	_read_speed = ratio
-	_backing.stream = _rendered["backing"]
-	_backing.bus = BarPA.BUS
-	_backing.pitch_scale = ratio
-	_reader.stream = _take
+	if backing == null:
+		_reader.stop()
+		_reader.stream = null
+		return
+	var mix := AudioStreamSynchronized.new()
+	mix.stream_count = 1 if voice == null else 2
+	mix.set_sync_stream(0, backing)
+	if voice != null:
+		mix.set_sync_stream(1, voice)
+	_reader.stream = mix
 	_reader.bus = BarPA.BUS
 	_reader.volume_db = 0.0
+	_read_speed = ratio
 	_reader.pitch_scale = ratio
-	_backing.play()
 	_reader.play()
+
+
+## Both sources supply unlooped 8/16-bit PCM. Each playback copy ends on the
+## nearest frame at its own native rate; the stored master retains every sample.
+func _performed_prefix(wave: AudioStreamWAV, end_seconds: float) -> AudioStreamWAV:
+	if wave == null or end_seconds < 0.0 or end_seconds >= wave.get_length():
+		return wave
+	var frames := roundi(end_seconds * wave.mix_rate)
+	if frames <= 0:
+		return null
+	var stride := (2 if wave.format == AudioStreamWAV.FORMAT_16_BITS else 1) * (2 if wave.stereo else 1)
+	var excerpt := AudioStreamWAV.new()
+	excerpt.format = wave.format
+	excerpt.mix_rate = wave.mix_rate
+	excerpt.stereo = wave.stereo
+	excerpt.data = wave.data.slice(0, frames * stride)
+	return excerpt
+
+
+func _load_arrangement(arrangement: String) -> bool:
+	if not _rendered.is_empty() and _rendered_arrangement == arrangement:
+		return true
+	var streams := SongSynth.render(arrangement)
+	if streams.is_empty():
+		return false
+	_rendered = streams
+	_rendered_arrangement = arrangement
+	return true
+
+
+func _read_back_take() -> void:
+	if not _load_arrangement(SongSynth.current_arrangement(song.id)):
+		_status.text = "This arrangement is unavailable."
+		return
+	_play_composite(_take, song.return_ratio, _take_end_seconds)
 
 	_clear()
 	_line("", GREEN)
@@ -562,16 +842,12 @@ func _stop_reading() -> void:
 		_reader.stop()
 		_reader.pitch_scale = 1.0
 		_reader.volume_db = 0.0
-	if _backing and not _read_is_trace:
-		_backing.stop()
-		_backing.pitch_scale = 1.0
-	if _read_from_old:
+		_reader.stream = null
+	if not _read_original_id.is_empty():
+		_show_originals()
+	elif _read_from_old:
 		_take = null      # it was never yours; do not offer to keep it
 		_show_old()
-	elif mode == Mode.READING:
-		# Lifting the stylus on your own take returns you to its review -
-		# the reading used to strand the panel in READING with no way back.
-		_show_review()
 	else:
 		_show_review()
 
@@ -585,7 +861,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		match mode:
 			Mode.PERFORM: _stop_perform()
 			Mode.CLAP: _cancel_microphone_to_menu()
-			Mode.EDIT, Mode.MIC_CONSENT, Mode.REVIEW, Mode.OLD: _show_menu()
+			Mode.READING: _stop_reading()
+			Mode.SLEEVE, Mode.RECOVERY: _show_originals()
+			Mode.RECOVERY_SLEEVE: _draw_recovery(_legacy_page)
+			Mode.EDIT, Mode.MIC_CONSENT, Mode.REVIEW, Mode.OLD, Mode.ORIGINALS: _show_menu()
 			_: close()
 		get_viewport().set_input_as_handled()
 		return
@@ -596,8 +875,33 @@ func _unhandled_input(event: InputEvent) -> void:
 				_show_edit()
 			elif key == KEY_2 and _has_any_words():
 				_show_mic_consent()
+			elif key == KEY_3:
+				_show_originals()
+				get_viewport().set_input_as_handled()
 			elif key == KEY_4:
 				_show_old()
+		Mode.RECOVERY:
+			var pick := key - KEY_1
+			var index := _legacy_page * RECOVERY_PAGE_SIZE + pick
+			if key == KEY_LEFT or key == KEY_RIGHT:
+				_draw_recovery(_legacy_page + (1 if key == KEY_RIGHT else -1))
+				get_viewport().set_input_as_handled()
+			elif pick >= 0 and pick < RECOVERY_PAGE_SIZE and index < _legacy_ids.size():
+				_retrieve_legacy(_legacy_ids[index])
+				get_viewport().set_input_as_handled()
+		Mode.RECOVERY_SLEEVE:
+			if key == KEY_ENTER or key == KEY_KP_ENTER:
+				_retrieve_legacy(_legacy_missing_id)
+				get_viewport().set_input_as_handled()
+		Mode.ORIGINALS:
+			if key == KEY_R:
+				_open_recovery()
+				get_viewport().set_input_as_handled()
+				return
+			var pick := key - KEY_1
+			if pick >= 0 and pick < _original_rows.size():
+				_read_original(_original_rows[pick])
+				get_viewport().set_input_as_handled()
 		Mode.OLD:
 			var pick := key - KEY_1
 			if pick >= 0 and pick < _trace_rows.size():
@@ -623,7 +927,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_show_mic_consent()
 			elif key == KEY_3:
 				_show_menu()
-			elif key == KEY_4 and _take != null:
+			elif key == KEY_4 and (_take != null or _take_end_seconds > 0.0):
 				_read_back_take()
 		Mode.MIC_CONSENT:
 			if key == KEY_1:
@@ -635,6 +939,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	if mode in [Mode.READING, Mode.SLEEVE] and not _read_original_id.is_empty() \
+			and not OriginalCustody.is_packed(_read_original_id):
+		_stop_reading()
+		return
 	if mode == Mode.READING:
 		_read_t += delta
 		if _read_is_trace:
@@ -645,20 +953,15 @@ func _process(delta: float) -> void:
 				_reader.volume_db = -60.0 if PhonautogramReader.skipped(_read_t) else 0.0
 			elif _reader and not _reader.playing:
 				_stop_reading()
-		else:
-			# The composite reconstruction is stable by contract (G1a): no
-			# wow, no skips, no per-frame interference at all. Just wait for
-			# both halves of the take to run out.
-			if _reader and not _reader.playing \
-					and _backing and not _backing.playing:
-				_stop_reading()
+		elif not _reader.playing:
+			_stop_reading()
+		elif not _read_original_id.is_empty():
+			_update_saved_phrase(_reader.get_playback_position())
 		return
 	if mode != Mode.PERFORM:
 		return
-	play_time += delta
+	play_time = _backing.get_playback_position()
 	_draw_perform()
-	if play_time >= song.duration or (_backing and not _backing.playing):
-		_stop_perform()
 
 
 func close() -> void:
