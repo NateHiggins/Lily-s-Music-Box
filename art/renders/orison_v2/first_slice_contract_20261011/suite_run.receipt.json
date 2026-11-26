@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 607.31,
+  "elapsed_s": 628.51,
   "exit_code": 0,
-  "finished_utc": "2026-11-26T02:32:50Z",
-  "started_utc": "2026-11-26T02:22:43Z",
+  "finished_utc": "2026-11-26T04:55:07Z",
+  "started_utc": "2026-11-26T04:44:38Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "D:/ov_reports/vantry_overhaul_20261125/release/first_slice.log.stderr",
-  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "D:/ov_reports/vantry_overhaul_20261125/release/first_slice.log",
-  "stdout_sha256": "410c1f461bbc363bb2473fcbee5df82aea8cded56f3c7f34861e57f9b700bc91"
+  "stderr": "D:/ov_reports/harukiya_jukebox_20261125/release/first_slice.log.stderr",
+  "stderr_sha256": "1cd6b938c9f6f1be247eecb6ae22eb44f1ae29954e0ad7d4a696851e3e7ec312",
+  "stdout": "D:/ov_reports/harukiya_jukebox_20261125/release/first_slice.log",
+  "stdout_sha256": "2a0a5d76c37bff0a125b476428b655c73e653f8efc85a344b38ccf01999b645c"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "D:/ov_reports/vantry_overhaul_20261125/release/first_slice/packet",
+ "shot_dir": "D:/ov_reports/harukiya_jukebox_20261125/release/first_slice/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "2b60b8ba0bfa067c503a6254b203541cabffcfc9",
-  "repository_tree": "05f597d3e5cddba002b3db21ce2d1b0bebf71ef6",
-  "runtime_inputs_sha256": "1b0fa0a44fedecf6d2069dfc42c1495c25da9e1ad5e784a10437bbe5139b05c6",
+  "repository_head": "7d3f9e66e04fcc96833c4e61a8977ceb0855be44",
+  "repository_tree": "4d6f08dab7409e8839193ff57d322d35f0c6505f",
+  "runtime_inputs_sha256": "caf25f55e0f8afa7082a8ddc009d7834565cbfa918a271beff6e822491099da7",
   "test_path": null,
   "test_sha256": null
  },
