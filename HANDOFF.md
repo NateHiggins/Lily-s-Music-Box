@@ -1,3 +1,15 @@
+## November 25 ordinary Sunday roof exchange
+
+PR #580 restores the existing ordinary Sunday appointment for Malcolm and Sacha. Their timetable now leads both residents through the public roof stair and door to separate marks beside the communal herb bed. The actor route leaves the fire cabinet and the planter collision in place. It has no new key or case authority.
+
+The native Vulkan check ran the normal campaign on Sunday, November 18, 1928 at 09:30. Both resident motors ascended from the upper circulation and crossed the door after it began closed. The player opened the dialogue with normal primary interaction and advanced through the five original turns in order. The case, knowledge, trust, temporal and inventory snapshot stayed identical. All eight planter footprint samples met the roof within 4 mm. All four materials loaded the expected texture maps with mipmaps.
+
+The [native route evidence](D:/ov_reports/oy05_sunday_roof_20261125_candidate_r4/test.log.receipt.json) binds the walk and exchange to the tested revision. The [reviewed frame](D:/ov_reports/oy05_sunday_roof_20261125_candidate_r4/shots/Sunday_garden_dialogue.png) shows Malcolm, the open door, the planter and the third line. The route trace establishes Sacha's arrival beyond the frame. The check began at the upper stairs. Complete routes from both apartments, the return trip, and artistic acceptance remain open.
+
+
+Schedule and temporal loop suites passed on the same revision, including 678 loop checks. The installed surface suite passed 818 checks. Technical review compared all 23 rendered pairs with main. The planter also has its own fitted contact and mipmap checks from the native encounter.
+The original composed gameplay and save proof passed 369 checks and 176 walking waypoints, including the radiator receipt path. [Original save and service route](D:/ov_reports/oy05_sunday_roof_20261125_release/first_slice.log.receipt.json).
+
 ## Cal and Juno’s Saturday radio exchange, November 25
 
 Evidence class: **INERT**.
