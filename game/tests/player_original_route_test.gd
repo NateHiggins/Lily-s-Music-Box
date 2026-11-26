@@ -104,7 +104,7 @@ func _author_take() -> bool:
 	if panel == null:
 		return false
 	await _panel_key(panel, KEY_1)
-	if not _require(panel.mode == RecorderPanel.Mode.EDIT and panel._edit.has_focus(), "the first written phrase has keyboard focus"):
+	if not _require(panel.mode == RecorderPanel.Mode.EDIT and panel._edit.has_focus() and panel._edit.is_editing(), "the first written phrase accepts keyboard input"):
 		return false
 	_lyric_slot = str(panel.song.slots[0].id)
 	for i in TEST_WORDS.length():
@@ -119,7 +119,7 @@ func _author_take() -> bool:
 			panel.get_viewport().push_input(event, true)
 	await get_tree().process_frame
 	if not _require(panel._edit.text == TEST_WORDS and panel.lyrics.get(_lyric_slot) == TEST_WORDS,
-			"ordinary text input reaches the line editor and the authored phrase"):
+			"ordinary text input reaches both the editor (%s) and the authored phrase (%s)" % [panel._edit.text, panel.lyrics.get(_lyric_slot)]):
 		return false
 	await _panel_key(panel, KEY_ESCAPE)
 	if panel.mode == RecorderPanel.Mode.EDIT:

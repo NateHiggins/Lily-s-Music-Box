@@ -77,7 +77,27 @@ func _run() -> void:
 		panel.open(song, null, null)
 		var vocal := _sine()
 		panel._rendered = {"backing": vocal, "guide": vocal}
-		panel.lyrics[song.slots[0].id] = "One porch light left on."
+		var phrase := "One porch light left on."
+		Input.action_press("ui_up")
+		_key(KEY_1)
+		Input.action_release("ui_up")
+		_check(panel._edit != null and panel._edit.has_focus() and panel._edit.is_editing(),
+				"selecting the lyric editor while moving immediately accepts text")
+		for letter in phrase:
+			var keypress := InputEventKey.new()
+			keypress.keycode = letter.to_upper().unicode_at(0)
+			keypress.unicode = letter.unicode_at(0)
+			keypress.pressed = true
+			panel.get_viewport().push_input(keypress, true)
+			var release := keypress.duplicate() as InputEventKey
+			release.pressed = false
+			release.unicode = 0
+			panel.get_viewport().push_input(release, true)
+		_check(panel.lyrics[song.slots[0].id] == phrase,
+				"typed phrase is retained (%s)" % panel.lyrics[song.slots[0].id])
+		_key(KEY_ESCAPE)
+		if panel.mode == RecorderPanel.Mode.EDIT:
+			_key(KEY_ESCAPE)
 		await _cancelled_calibration()
 		if _refusal_and_retry(song, vocal):
 			await _silent_retake(song)

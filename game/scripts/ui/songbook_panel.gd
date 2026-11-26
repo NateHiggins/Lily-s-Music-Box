@@ -399,6 +399,7 @@ func _show_edit() -> void:
 	_edit.text_changed.connect(_on_typed)
 	_body.add_child(_edit)
 	_edit.grab_focus()
+	_edit.edit()
 	_edit.caret_column = _edit.text.length()
 	_line("", GREEN, 8)
 	_count_line(want)
