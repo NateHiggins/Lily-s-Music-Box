@@ -114,7 +114,7 @@ func clear_loop_activity() -> void:
 func _loop_talking() -> bool:
 	if is_instance_valid(attention) and bool(attention.get("conversing")): return true
 	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
-	return player != null and player.call_locked
+	return player != null and player.call_locked and not ResidentConversations.permits_background_work(self, player)
 
 func _loop_seated() -> bool:
 	var clip := str(_animation_player.current_animation) if _animation_player != null else ""

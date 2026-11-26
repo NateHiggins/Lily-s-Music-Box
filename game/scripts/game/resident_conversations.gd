@@ -167,6 +167,7 @@ var _home_resolver: Callable = Callable()
 var _active_resident := ""
 var _performance_active := false
 var _performance_tree: Dictionary = {}
+var _performance_cast: Dictionary = {}
 var _active_tree: Dictionary = {}
 
 
@@ -352,11 +353,14 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 			or not trees.has(resident_id) or lines.is_empty() or player == null:
 		return false
 	var nodes := {}
+	var cast := {}
+	cast[resident_id] = true
 	for i in lines.size():
 		var row: Variant = lines[i]
 		if row is not Dictionary or not trees.has(str(row.get("speaker", ""))) or str(row.get("text", "")).is_empty():
 			return false
 		var actor := str(row.speaker)
+		cast[actor] = true
 		var key := "loop_business" if i == 0 else "loop_business_%d" % i
 		var choices: Array = []
 		if i + 1 < lines.size():
@@ -368,6 +372,7 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 	_active_resident = str(lines[0].speaker)
 	_performance_active = true
 	_performance_tree = tree
+	_performance_cast = cast
 	_active_tree = tree
 	if not dialogue.node_shown.is_connected(_performance_node_shown):
 		dialogue.node_shown.connect(_performance_node_shown)
@@ -385,6 +390,24 @@ func _performance_node_shown(node_id: String) -> void:
 	conversation_ended.emit(_active_resident)
 	_active_resident = actor
 	conversation_started.emit(actor, "loop_business")
+
+
+## Only this resident panel's exclusive lock leaves unrelated bodies at work.
+## A foreign prompt, telephone, editor, seat or replacement tree stays protected.
+static func permits_background_work(body: Node3D, caller: Node) -> bool:
+	var player := caller as PlayerController
+	var resident := body as AnimatedResident
+	if player == null or resident == null or not resident.is_inside_tree() or resident.get_tree().paused or resident.resident_id in ["", "mina_vale"]:
+		return false
+	var owner := resident.get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
+	if owner == null or owner._active_resident.is_empty() or owner._active_resident == resident.resident_id \
+			or not is_instance_valid(owner.dialogue) or not owner.dialogue.owns_exclusive_input(player) \
+			or not is_same(owner._active_tree, owner.dialogue._tree):
+		return false
+	if owner._performance_active and owner._performance_cast.has(resident.resident_id):
+		return false
+	# Historical paired hosts can listen without speaking a line in the tree.
+	return not is_instance_valid(resident.attention) or (not resident.attention.conversing and resident.attention.ensemble_target == null)
 
 
 func performance_active() -> bool:

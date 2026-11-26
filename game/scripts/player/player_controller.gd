@@ -98,10 +98,14 @@ var _mantle_to := Vector3.ZERO
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
 var _protected_call_locked := false
+## A newer protected writer owns its own release, even when both wrote true.
+var call_lock_revision := 0
 var text_input_owner: Node
 var call_locked: bool:
 	get: return _protected_call_locked or is_instance_valid(text_input_owner)
-	set(value): _protected_call_locked = value
+	set(value):
+		call_lock_revision += 1
+		_protected_call_locked = value
 
 ## A text surface owns only its lease. Releasing it cannot unlock a resident,
 ## telephone, newspaper or seated interaction that has since taken over.
