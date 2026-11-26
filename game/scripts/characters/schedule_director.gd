@@ -354,8 +354,10 @@ func _place_directive(slug: String, block: Dictionary) -> Dictionary:
 			return {"mode": "home", "activity": activity, "key": place}
 		return {"mode": "place", "activity": activity, "key": place,
 				"point": point}
-	if ANCHORS.has(place):
-		var anchor: Dictionary = ANCHORS[place]
+	# V2 resident routes own distinct marks along the entrance passage.
+	var venue := "lobby" if place == "corridor_pause" else place
+	if ANCHORS.has(venue):
+		var anchor: Dictionary = ANCHORS[venue]
 		var point := _passage_point(place) if anchor.get("passage", false) \
 				else _world_point(str(anchor.floor), anchor.at)
 		return {"mode": "exterior" if anchor.get("exterior", false)
