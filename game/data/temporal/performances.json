@@ -3,11 +3,23 @@
   "profiles": {
     "evelyn_marsh": {
       "topic": "A clear margin.",
-      "line": "I found another correction. I haven't decided whether it needs me."
+      "line": "I found another correction. I haven't decided whether it needs me.",
+      "activities": {
+        "rounds": {
+          "topic": "The notices.",
+          "line": "Someone put a comma after 'Tenants'. I've taken it out. They can have it back if they miss it."
+        }
+      }
     },
     "teresa_vale": {
       "topic": "Room to pass.",
-      "line": "You can stand there. Just leave me the way through."
+      "line": "You can stand there. Just leave me the way through.",
+      "activities": {
+        "patrol": {
+          "topic": "The rounds.",
+          "line": "Walk with me. If I stop to talk, I start to feel how long I've been on my feet."
+        }
+      }
     },
     "mina_vale": {
       "topic": "",
@@ -15,67 +27,163 @@
     },
     "lena_ortiz": {
       "topic": "Busy hands.",
-      "line": "I'm finishing one thing before I offer to mend you. It's an experiment."
+      "line": "I'm finishing one thing before I offer to mend you. It's an experiment.",
+      "activities": {
+        "work": {
+          "topic": "The hem.",
+          "line": "Hold still a second. Everybody stands up straight for a fitting and then goes home to live in an entirely different shape."
+        }
+      }
     },
     "juno_kells": {
       "topic": "Keep listening.",
-      "line": "I'm listening. You needn't make a sound for me."
+      "line": "I'm listening. You needn't make a sound for me.",
+      "activities": {
+        "work": {
+          "topic": "The quiet between takes.",
+          "line": "Hear that little breath before the first note? I cut it once. Sounded like the music came from an empty coat."
+        }
+      }
     },
     "malcolm_reed": {
       "topic": "A little space.",
-      "line": "Leave room for the pot. It has to live here too."
+      "line": "Leave room for the pot. It has to live here too.",
+      "activities": {
+        "hobby": {
+          "topic": "The cuttings.",
+          "line": "She looks thirsty, doesn't she? Put a finger in the dirt. Wet as Sunday. Good thing one of us asked."
+        }
+      }
     },
     "omar_bell": {
       "topic": "A temporary repair.",
-      "line": "Temporary. Mine usually outlive the tags."
+      "line": "Temporary. Mine usually outlive the tags.",
+      "activities": {
+        "patrol": {
+          "topic": "The panel.",
+          "line": "I'm listening for a change. If it sounds the way it did yesterday, I get to leave everything screwed on."
+        }
+      }
     },
     "rhea_sato": {
       "topic": "A moment's rest.",
-      "line": "I'm not rehearsing just now. It's a difficult distinction from across a room."
+      "line": "I'm not rehearsing just now. It's a difficult distinction from across a room.",
+      "activities": {
+        "ritual": {
+          "topic": "The warm-up.",
+          "line": "I can hit the note cold. The trick is to have something left to say when I get there."
+        }
+      }
     },
     "peter_wren": {
       "topic": "A clear place.",
-      "line": "There's room beside it. I haven't assigned the space a purpose yet."
+      "line": "There's room beside it. I haven't assigned the space a purpose yet.",
+      "activities": {
+        "ritual": {
+          "topic": "Checking the copies.",
+          "line": "That's the copy. I keep the fold in the original. My fingers can tell them apart before I start worrying."
+        }
+      }
     },
     "cam_ortiz": {
       "topic": "A minute off.",
-      "line": "I've got two shoulders. One's always complaining."
+      "line": "I've got two shoulders. One's always complaining.",
+      "activities": {
+        "hobby": {
+          "topic": "The wheel.",
+          "line": "Give it a spin. See the rim kiss the brake once round? That's the part of the bridge I brought home."
+        }
+      }
     },
     "noel_price": {
       "topic": "A clear corner.",
-      "line": "You may use the corner. I cleared it, and now I'm trying to leave it cleared."
+      "line": "You may use the corner. I cleared it, and now I'm trying to leave it cleared.",
+      "activities": {
+        "hobby": {
+          "topic": "The catalogue.",
+          "line": "I used to write 'miscellaneous'. Took me three afternoons to find out what I meant."
+        }
+      }
     },
     "transient_guests": {
       "topic": "Room to pass.",
-      "line": "We can move the case. We haven't unpacked."
+      "line": "We can move the case. We haven't unpacked.",
+      "activities": {
+        "tv": {
+          "topic": "The programme.",
+          "line": "Leave it there, will you? If we pick a programme, next thing we'll have a regular night for it."
+        }
+      }
     },
     "nadia_quell": {
       "topic": "The passage.",
-      "line": "There's room beside the door. I'd like to keep the doorway."
+      "line": "There's room beside the door. I'd like to keep the doorway.",
+      "activities": {
+        "work": {
+          "topic": "The repair list.",
+          "line": "Tell me which floor first. I've written 'the door' three times today, and I believe all three of you."
+        }
+      }
     },
     "cal_dwyer": {
       "topic": "A quiet moment.",
-      "line": "You can listen. You don't have to know what you're listening for."
+      "line": "You can listen. You don't have to know what you're listening for.",
+      "activities": {
+        "work": {
+          "topic": "Listening to a set.",
+          "line": "I let a set warm up before I open it. You'd be surprised how many faults are just a fellow in a hurry."
+        }
+      }
     },
     "iris_bell": {
       "topic": "The light here.",
-      "line": "The light's changed. Give me a moment before I decide whether I meant that."
+      "line": "The light's changed. Give me a moment before I decide whether I meant that.",
+      "activities": {
+        "work": {
+          "topic": "The canvas.",
+          "line": "Stand where you were. There. The bit I spent all morning painting disappears behind your shoulder, and I like it better."
+        }
+      }
     },
     "sacha_reed": {
       "topic": "A moment's attention.",
-      "line": "I can look at you without the camera. Give me a moment."
+      "line": "I can look at you without the camera. Give me a moment.",
+      "activities": {
+        "work": {
+          "topic": "The caption.",
+          "line": "I can tell you the light to half a stop. Ask me which Tuesday it was and I have to start turning things over."
+        }
+      }
     },
     "jonah_price": {
       "topic": "An unfinished sentence.",
-      "line": "There was a sentence here. I'm leaving it somewhere to come back to."
+      "line": "There was a sentence here. I'm leaving it somewhere to come back to.",
+      "activities": {
+        "work": {
+          "topic": "Reading it aloud.",
+          "line": "I read him out loud and he sounds like me. Which is unfortunate. He's supposed to be the sensible brother."
+        }
+      }
     },
     "mae_kessler": {
       "topic": "A place for your coat.",
-      "line": "You may leave it on. I wasn't offering to appraise it."
+      "line": "You may leave it on. I wasn't offering to appraise it.",
+      "activities": {
+        "errand": {
+          "topic": "An errand of her own.",
+          "line": "I went out without my gloves once. Every person I met felt bound to tell me. Quite a saving on conversation."
+        }
+      }
     },
     "stacy": {
       "topic": "A break at the bar.",
-      "line": "Nobody eats standing up unless they're on wages. Sit down."
+      "line": "Nobody eats standing up unless they're on wages. Sit down.",
+      "activities": {
+        "work": {
+          "topic": "Keeping the bar.",
+          "line": "You can tell who's waiting for somebody. They turn the spare chair round before they touch the glass."
+        }
+      }
     }
   },
   "anchors": {

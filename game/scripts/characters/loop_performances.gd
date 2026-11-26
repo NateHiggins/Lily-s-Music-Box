@@ -46,6 +46,16 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 		var profile: Variant = data.profiles[resident]
 		if profile is not Dictionary or profile.get("topic") is not String or profile.get("line") is not String:
 			errors.append("invalid profile: " + resident)
+			continue
+		var activities: Variant = profile.get("activities", {})
+		if activities is not Dictionary:
+			errors.append("invalid profile activities: " + resident)
+			continue
+		for activity: String in activities:
+			var reply: Variant = activities[activity]
+			if activity.is_empty() or reply is not Dictionary or not (reply.get("topic") is String) \
+					or not (reply.get("line") is String) or reply.topic.strip_edges().is_empty() or reply.line.strip_edges().is_empty():
+				errors.append("invalid activity reply: " + resident + "/" + activity)
 	for anchor: String in loop.table.anchors:
 		var spec: Variant = data.anchors.get(anchor)
 		if spec is not Dictionary or spec.get("actors") is not Dictionary:
@@ -284,7 +294,8 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 	if not _arrived(resident) and not (entry_admitted and not world.resident_routes.has(resident)):
 		return {}
 	var block: Dictionary = world.resident_whereabouts(resident)
-	if str(block.get("activity", "")) in ["sleeping", "dressing", "shower"]:
+	var activity := str(block.get("activity", ""))
+	if block.get("place", "") == "out" or activity in ["sleeping", "dressing", "shower"]:
 		return {}
 	var phase := phase_for(resident)
 	if not phase.is_empty():
@@ -298,7 +309,15 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", _heard)
 		if not encounter.is_empty():
 			return encounter
-		phase = (data.profiles.get(resident, {}) as Dictionary).duplicate()
+		var profile: Dictionary = data.profiles.get(resident, {})
+		var body_route: Node = world.resident_routes.get(resident)
+		var replies: Dictionary = profile.get("activities", {})
+		# During a timetable change the old endpoint can still be settled.
+		# Use its ordinary greeting until the actor reaches the new work.
+		if body_route != null and body_route.destination != block.get("place", ""):
+			phase = profile.duplicate()
+		else:
+			phase = (replies.get(activity, profile) as Dictionary).duplicate()
 		phase["phase_id"] = "baseline:" + resident
 	var key := str(phase.get("phase_id", ""))
 	if _heard.has(key) or str(phase.get("line", "")).is_empty() or str(phase.get("topic", "")).is_empty():

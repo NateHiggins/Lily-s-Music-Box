@@ -195,9 +195,10 @@ func present(speaker_name: String, words: String, options: Array) -> void:
 			if action.is_valid():
 				action.call())
 		_choices.add_child(reply)
+	if not _panel.visible:
+		_previous_mouse = Input.mouse_mode
 	_panel.visible = true
 	_fade_to(1.0)
-	_previous_mouse = Input.mouse_mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_player = get_tree().get_first_node_in_group(
 			"player_controller") as PlayerController

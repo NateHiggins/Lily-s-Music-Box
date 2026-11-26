@@ -174,6 +174,7 @@ func _run() -> void:
 		_interrupted_guest_wait()
 		_historical_listener()
 		_strict_fault()
+		_baseline_activity_contexts()
 		await _ordinary_exchanges()
 	if loop.in_visit(): loop.go_home()
 	world.free()
@@ -672,6 +673,75 @@ func _strict_fault() -> void:
 	var elapsed := clock.elapsed_minutes()
 	check(bool(loop.reset_loop().ok) and is_equal_approx(clock.elapsed_minutes(), elapsed), "real same-minute rerun leaves elapsed time unchanged")
 	check(not performance.conversation_prompt("cal_dwyer").is_empty(), "rerun identity permits a fresh performance")
+
+## Check the actual timetable can select each authored context. The route
+## body or previously admitted door/counter remains a synthetic endpoint.
+func _baseline_activity_contexts() -> void:
+	_ordinary_clock()
+	var schedule := ScheduleDirector.new()
+	schedule.setup(null, {})
+	for entry: Route in world.resident_routes.values():
+		entry.outside = true
+	var cast_count := 0
+	for resident: String in performance.data.profiles:
+		var profile: Dictionary = performance.data.profiles[resident]
+		if resident == "mina_vale":
+			check(not profile.has("activities") and not performance.try_entry(resident, player),
+					"Mina keeps the golden-shift conversation")
+			continue
+		var contexts: Dictionary = profile.get("activities", {})
+		check(not contexts.is_empty(), resident + " has authored daily business")
+		for activity: String in contexts:
+			var sample := _find_context_block(schedule, resident, activity)
+			if sample.is_empty():
+				check(false, resident + " is scheduled for " + activity)
+				continue
+			var block: Dictionary = sample.block
+			check(clock.rebase_calendar(sample.calendar), resident + " reaches the scheduled civil minute")
+			_tick()
+			var route: Route = world.resident_routes.get(resident)
+			var admitted := route == null
+			if not admitted:
+				route.arrive(str(block.place))
+			world.forced_blocks[resident] = {"place": block.place, "activity": "unlisted"}
+			var plain: Dictionary = performance._line_for(resident, admitted)
+			check(plain.get("line", "") == profile.line, resident + " retains the fallback line")
+			world.forced_blocks[resident] = {"place": block.place, "activity": "sleeping"}
+			check(performance._line_for(resident, admitted).is_empty(), resident + " sleeping declines a line")
+			world.forced_blocks[resident] = {"place": "out", "activity": activity}
+			check(performance._line_for(resident, admitted).is_empty(), resident + " away declines even a matching activity")
+			world.forced_blocks[resident] = block
+			var matched: Dictionary = performance._line_for(resident, admitted)
+			var reply: Dictionary = contexts[activity]
+			check(matched.get("phase_id") == plain.get("phase_id") and matched.get("topic") == reply.topic,
+					resident + " uses one hearing for the ordinary and contextual reply")
+			var before := RealityState.data.duplicate(true)
+			var accepted: bool = performance.try_entry(resident, player) if admitted else performance.try_conversation(resident, player)
+			check(accepted and panel._line.text == reply.line, resident + " delivers the scheduled " + activity + " line")
+			if accepted:
+				panel.choose(0)
+			world.forced_blocks[resident] = {"place": block.place, "activity": "unlisted"}
+			check(performance._line_for(resident, admitted).is_empty() and RealityState.data == before,
+					resident + " cannot repeat by changing activity; dialogue has no campaign effects")
+			world.forced_blocks.erase(resident)
+			if route != null:
+				route.outside = true
+		cast_count += 1
+	check(cast_count == 18, "all eighteen eligible baseline profiles were considered")
+	schedule.free()
+
+
+func _find_context_block(schedule: ScheduleDirector, resident: String, activity: String) -> Dictionary:
+	# May 6, 1929 was Monday. Staff include weekly closed days and overnight work.
+	var days := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+	for index in days.size():
+		for minute in range(0, 1440, 10):
+			var block := schedule.resolve(resident, days[index], minute, 126 + index, false,
+					{"civil_date_valid":true, "year":1929, "month":5, "day_of_month":6 + index})
+			if block.get("activity") == activity and block.get("place", "out") != "out":
+				return {"block":block, "calendar":CampaignClock.calendar_minute_of(1929, 5, 6 + index, minute)}
+	return {}
+
 
 func _ordinary_clock(minute := 600) -> void:
 	if loop.in_visit(): check(bool(loop.go_home().ok), "ordinary fixture returns home")

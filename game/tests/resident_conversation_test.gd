@@ -373,6 +373,7 @@ func _check_speaker_framing() -> void:
 	director.cancel_for_transition()
 	_check("old conversation cancellation leaves replacement input ownership intact", player.call_locked)
 	panel.close()
+	_check("replacement closes to the mouse mode owned before the exchange", Input.mouse_mode == previous_mouse)
 	var lines := [{"speaker": "stacy", "text": "Here."}, {"speaker": "lily", "text": "Across the room."}]
 	_check("loop performance opens on the speaking resident", director.start_performance_sequence("stacy", lines, player))
 	for tick in 12:
