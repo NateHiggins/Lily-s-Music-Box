@@ -1518,7 +1518,7 @@ accessibility and reload repairs first. Existing authorities stay installed.
   26 darts questions and eight Otis floor names. The darts reveal reads a
   blurb for a positive bonus. The plain kind scores zero, so its blurb still
   lacks a reader. The audit reports this conditional access and preserves the
-  named entries for review. Returned dictionaries and arguments passed to a
+  named entries for review. The case-definition getter now records a potential read of enabled. All 19 cases retain their review status. Getter aliases and arguments passed to a
   collaborator still need source-specific tracing. [Earlier sample](design/REPO_HOUSEKEEPING_2026-09-19.md)
 - **H23 — Optional waking-cell voxel-light presenter.** Verify that a lamp
   reaches the intended cell in an upper-floor apartment when the presenter
