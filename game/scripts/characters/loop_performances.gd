@@ -27,6 +27,7 @@ var _gaze: Dictionary = {}
 var _poll := 0.0
 var _price_guest_received := false
 var _talk_phase := ""
+var _baseline_body_id := 0
 var _guest_waits: Dictionary = {}
 
 
@@ -288,11 +289,15 @@ func witness_present(resident: String) -> bool:
 
 func _arrived(resident: String) -> bool:
 	var route: Node = world.resident_routes.get(resident)
-	if route == null or route.actor == null or not route.actor.is_visible_in_tree() \
+	if not is_instance_valid(route) or not is_instance_valid(route.actor) or not route.actor.is_visible_in_tree() \
 			or route.outside or route.desired_id < 0 or route.current_id != route.desired_id \
 			or not route.path.is_empty() or route.actor._walking or route.force_destination != "":
 		return false
 	return route.actor.global_position.distance_to(route.graph.get_point_position(route.desired_id)) < 0.15
+
+
+func _can_address(block: Dictionary) -> bool:
+	return str(block.get("place", "")) not in ["", "out"] and block.get("activity", "") not in ["sleeping", "dressing", "shower"]
 
 
 func _line_for(resident: String, entry_admitted := false) -> Dictionary:
@@ -306,7 +311,7 @@ func _line_with_history(resident: String, heard: Dictionary, entry_admitted := f
 		return {}
 	var block: Dictionary = world.resident_whereabouts(resident)
 	var activity := str(block.get("activity", ""))
-	if block.get("place", "") == "out" or activity in ["sleeping", "dressing", "shower"]:
+	if not _can_address(block):
 		return {}
 	var phase := phase_for(resident)
 	if not phase.is_empty():
@@ -370,6 +375,11 @@ func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	if not accepted:
 		return false
 	_talk_phase = str(line.phase_id)
+	_baseline_body_id = 0
+	if _talk_phase.begins_with("baseline:"):
+		var route: Node = world.resident_routes.get(resident)
+		if is_instance_valid(route) and is_instance_valid(route.actor):
+			_baseline_body_id = route.actor.get_instance_id()
 	_talk_encounter = line.get("encounter", {})
 	_heard[_talk_phase] = true # Presentation only; never a knowledge/visit grant.
 	_update_listener()
@@ -470,6 +480,14 @@ func _process(delta: float) -> void:
 	if player == null or not bool(player.get("call_locked")):
 		for key: String in _guest_waits:
 			_guest_waits[key] = minf(30.0, float(_guest_waits[key]) + elapsed)
+	if _talk_phase.begins_with("baseline:") and conversations.performance_active():
+		var speaker: String = conversations._active_resident
+		var route: Node = world.resident_routes.get(speaker)
+		# Door/counter greetings can be admitted without a route. A greeting
+		# opened face to face belongs to the original physical speaker.
+		var departed := _baseline_body_id != 0 and (not _arrived(speaker) or route.actor.get_instance_id() != _baseline_body_id)
+		if departed or not _can_address(world.resident_whereabouts(speaker)) or not phase_for(speaker).is_empty():
+			conversations.cancel_performance()
 	if not _talk_phase.is_empty():
 		_update_listener()
 	if _identity.is_empty():
@@ -491,8 +509,6 @@ func _process(delta: float) -> void:
 		var actor: Node = route.actor
 		var phase := phase_for(resident)
 		var talking := conversations != null and conversations._active_resident == resident
-		if talking and _talk_phase.begins_with("baseline:") and conversations.performance_active() and not phase.is_empty():
-			conversations.cancel_performance()
 		if resident == "mina_vale" or actor == null or not actor.has_method("set_loop_activity"):
 			continue
 		# Bar seats have their own exact posture/route owner. Sleeping, unseen,

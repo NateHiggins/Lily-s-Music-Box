@@ -182,6 +182,7 @@ func _run() -> void:
 		_historical_listener()
 		_strict_fault()
 		_baseline_activity_contexts()
+		_baseline_departure()
 		await _ordinary_exchanges()
 	if loop.in_visit(): loop.go_home()
 	world.free()
@@ -800,6 +801,36 @@ func _find_context_block(schedule: ScheduleDirector, resident: String, activity:
 			if block.get("activity") == activity and block.get("place", "out") != "out":
 				return {"block":block, "calendar":CampaignClock.calendar_minute_of(1929, 5, 6 + index, minute)}
 	return {}
+
+
+func _baseline_departure() -> void:
+	var resident := "peter_wren"
+	var route: Route = world.resident_routes[resident]
+	for change: String in ["hidden", "removed", "sleeping", "dressing", "shower", "out"]:
+		_ordinary_clock()
+		world.forced_blocks[resident] = {"place": "unit:main", "activity": "rest"}
+		route.arrive("unit:main")
+		check(performance.try_conversation(resident, player), "ordinary greeting opens before " + change)
+		_tick()
+		check(panel.attention_active(), "present resident keeps the greeting before " + change)
+		var before := RealityState.data.duplicate(true)
+		match change:
+			"hidden": route.actor.hide()
+			"removed": world.resident_routes.erase(resident)
+			"out": world.forced_blocks[resident].place = "out"
+			_: world.forced_blocks[resident].activity = change
+		_tick()
+		check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before,
+				"ordinary greeting releases without campaign effects on " + change)
+		world.resident_routes[resident] = route
+		world.forced_blocks.erase(resident)
+		route.actor.show()
+	route.outside = true
+	_ordinary_clock()
+	check(performance.try_entry("stacy", player), "a counter greeting can open without a route")
+	_tick()
+	check(panel.attention_active(), "the admitted counter speaker keeps her greeting")
+	conversations.cancel_performance()
 
 
 func _ordinary_clock(minute := 600) -> void:
