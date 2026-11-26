@@ -130,7 +130,14 @@ class SpeechSpanTests(unittest.TestCase):
                       if row['state'] == 'ready' and any(char in row['text'] for char in markers)}
         mapped = {(entry['source'], entry['pointer']) for entry in self.map['entries']
                   if any(char in self.text(entry) for char in markers)}
-        self.assertEqual(candidates, mapped | KEPT_MARKED,
+        # An action explicitly silenced at its source still has a valid earlier
+        # editorial review. A mapped spoken turn must continue to be ready.
+        silent_actions = {
+            (entry['source'], entry['pointer']) for entry in self.map['entries']
+            if not entry['turns'] and resolve(self.sources[entry['source']],
+                entry['pointer'].rsplit('/', 1)[0]).get('delivery') == 'silent'
+        }
+        self.assertEqual(candidates, (mapped - silent_actions) | KEPT_MARKED,
                          'Review new marked speech: spoken asides must be kept, not blanket-stripped.')
 
     def test_real_spoken_recounting_and_short_beats_stay_spoken(self):
