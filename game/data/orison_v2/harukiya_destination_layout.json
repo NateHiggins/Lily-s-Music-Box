@@ -116,7 +116,8 @@
     "retail_bar_palm2",
     "retail_bar_pastack0",
     "retail_bar_pastack1",
-    "retail_bar_pipe1"
+    "retail_bar_pipe1",
+    "retail_bar_jukebox"
   ],
   "source_records": [
     {
@@ -1805,6 +1806,17 @@
         -0.34
       ],
       "r": 0.055
+    },
+    {
+      "id": "retail_bar_jukebox",
+      "asm": "jukebox",
+      "at": [
+        2.85,
+        -37.3
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.6199999999999997
     }
   ],
   "retirement_notes": [
@@ -3160,6 +3172,14 @@
           -28.9,
           0.02
         ]
+      },
+      {
+        "id": "jukebox_approach",
+        "at": [
+          1.84,
+          -30.38,
+          -2.8
+        ]
       }
     ],
     "edges": [
@@ -3510,6 +3530,10 @@
       [
         "entry_crate_upper",
         "entry_sidewalk"
+      ],
+      [
+        "mina_stand",
+        "jukebox_approach"
       ]
     ],
     "status": "proposed motor route datums; not navigation or collision proof",
@@ -5398,5 +5422,14 @@
         0.7
       ]
     }
-  ]
+  ],
+  "jukebox": {
+    "source_id": "retail_bar_jukebox",
+    "at": [
+      1.84,
+      -29.3,
+      -2.8
+    ],
+    "yaw_deg": 0
+  }
 }

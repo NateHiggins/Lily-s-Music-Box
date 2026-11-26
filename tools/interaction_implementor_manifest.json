@@ -692,6 +692,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "props/harukiya_jukebox.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/harukiya_jukebox.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/harukiya_jukebox.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "The cabinet disables its inherited whole-object prompt and action. The selector and coin return accept direct manipulation on their moving parts.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "props/harukiya_signage_prop.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
