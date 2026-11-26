@@ -158,12 +158,8 @@ func _process(_delta: float) -> void:
 ## Keeps the mouth on the audio: the face's speech clock is set to the line's playback position each frame.
 func _seek_face(body: Node, at: float) -> void:
 	var face: Object = body.get("face")
-	if face == null:
-		return
-	if face.has_method("seek_speech"):
+	if face != null and face.has_method("seek_speech"):
 		face.call("seek_speech", at)
-	else:
-		face.set("_speech_clock", at)
 
 
 func _clock() -> float:

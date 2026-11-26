@@ -9,10 +9,13 @@ extends Node
 ## SHOT_DIR. No in-world body, render, or artistic or audio-quality acceptance.
 
 const REQUIRED := ["quiet_fallback", "exact_binding", "audio_clock_face", "same_speaker_next", "speaker_switch",
-		"foreign_replacement", "immediate_exit", "state_loaded", "continue_exit", "bus_stable"]
+		"foreign_replacement", "silent_delivery", "immediate_exit", "state_loaded", "continue_exit", "bus_stable"]
 
 class StubFace extends RefCounted:
 	var _speech_clock := -1.0
+	func seek_speech(seconds: float) -> void:
+		if _speech_clock >= 0.0:
+			_speech_clock = seconds
 
 class StubBody extends Node3D:
 	var face := StubFace.new()
@@ -190,6 +193,20 @@ func _run() -> void:
 	director.cancel_for_transition()
 	await _frames()
 	_contract("foreign_replacement", before)
+
+	# 6b. A line that turns silent (the panel's authored silent delivery) stops the take at once.
+	before = failures.size()
+	_reset(voice)
+	await _perform(["loop_profile_evelyn_marsh__loop_business"])
+	var was_playing := _plays(voice) == 1
+	panel._line_delivery = "silent"
+	await _frames()
+	_check(was_playing and not voice.playing() and _last_stop(voice) == "silent" and str(panel.displayed_line().get("delivery")) == "silent",
+			"silent delivery stops a playing take (%s)" % _last_stop(voice))
+	panel._line_delivery = "spoken"
+	panel.choose(panel.offered_labels().size() - 1)
+	await _frames()
+	_contract("silent_delivery", before)
 
 	# 7. Immediate exit.
 	before = failures.size()
