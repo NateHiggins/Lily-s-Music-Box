@@ -35,6 +35,11 @@ delivery settings for estimates. For AVI, pass the same-resolution trial to
 
 ## Block the actors in the installed world
 
+For a historical visit, start with the corresponding entry in the
+[loop scene direction book](../../../../design/LOOP_SCENE_DIRECTION_2026-11-26.md).
+It covers the thirteen destinations and the seven incidental exchanges. Read
+the actual anchor steps and dated cast phases before changing the blocking.
+
 Record the civil date, loop visit, current knowledge, available props, audience
 position, actor ownership and wardrobe alongside the camera and audio inputs.
 For the Harukiya, Adela sings lead at the piano, Lily plays bass and sings

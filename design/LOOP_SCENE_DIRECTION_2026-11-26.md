@@ -73,3 +73,14 @@ The [ordinary encounter table](../game/data/temporal/ordinary_performances.json)
 ## Rehearse the cuts and the interruptions
 
 For each visit, seek to just before and just after a listed transition, enter on foot and interrupt a resident during their ordinary work. Compare a linear take with a pickup after the prop or actor changed state. The working hand, physical object position, listener, speaker and next eligible interaction should agree. For the two witness visits, compare hearing the exchange to passing by. For the drain, exercise the route without adding an actor. Track these as separate checks from a director's judgement of framing, timing or clarity.
+
+## Translating DOC-408 to the game
+
+| Production need | Implementation and artistic boundary |
+| --- | --- |
+| Scrub historical time | CampaignClock supplies the Gregorian date, including leap day. ScheduleDirector resolves authored attendance. LoopPerformances samples the chosen visit phase by elapsed visit minute. Actual arrival admits an action. A blank timetable entry retains its existing meaning. |
+| Interrupt a performance | Existing dialogue, active cases, route changes and departure can withdraw a work pose. Arrived actors competing for one work point yield to its incumbent. Bar seats, bass custody and the paid visit retain their own owners. A player's interruption can change the delivery without changing the plot. |
+| Show emotion | Read trust, temperament, exchange and words through MoodReading. The shared body and face writers control posture, breath, gaze and mouth. Direct a withheld look as an acting choice; guilt cannot be inferred from the direction someone looks. Preserve recorded line and subtitle timing. |
+| Coordinate an ensemble | Let authored phase boundaries, a conversational turn or an actual recorded attack motivate the cue. The existing trio can follow its song transport. In 5B the cue is listening for a sound; on the roof it is a reply. A room with no scheduled witness uses the player and the mechanism. |
+| Preserve mystery knowledge | Authored object, witness and dialogue owners decide when the investigator learns something. A reaction can draw attention to the work. It cannot grant an inference, broadcast a rumor or unlock a door. |
+| Compare a pickup | Use a fixed frame and take seed for eyes, a stable resident breath phase, and the same audio sample position. Log input, expected writer, performer and the first mismatch. Compare actor mattes as well as an ordinary graded take when diagnosing temporal rendering differences. |
