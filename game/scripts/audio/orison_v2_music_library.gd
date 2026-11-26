@@ -326,7 +326,7 @@ func _refresh_library() -> void:
 		var track: Dictionary = tracks[track_id]
 		var button := Button.new()
 		button.name = "Record_" + str(track_id)
-		button.text = "%s\n%s Â· %s" % [
+		button.text = "%s\n%s · %s" % [
 				str(track.title), str(track.artist), str(track.year)]
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.pressed.connect(_select_library_track.bind(str(track_id)))
@@ -356,7 +356,7 @@ func _refresh_now_playing() -> void:
 		_lore.text = ""
 		return
 	var heard := not Broadcast.listeners().is_empty()
-	_now_playing.text = "%s\n%s â€” %s" % [
+	_now_playing.text = "%s\n%s — %s" % [
 			"ON THE AIR" if heard else "ON THE AIR. SWITCH ON A WIRELESS TO HEAR IT.",
 			str(now.title), str(now.performers)]
 	var track: Dictionary = catalog.get("tracks", {}).get(_shown_record, {})

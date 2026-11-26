@@ -229,7 +229,7 @@ func _glow_material(material: Material) -> void:
 	# Meshy hero exports omit metallicFactor, and glTF defaults it to 1.0:
 	# a fully metallic body reflects the room's one warm light away from
 	# the eye and renders as a black cutout inside a visibly lit room (the
-	# 2026-08-15 walkthrough's black-resident family â€” same physics as the
+	# 2026-08-15 walkthrough's black-resident family — same physics as the
 	# kitchen flat-metal lesson). People are cloth and skin: dielectric.
 	if standard.metallic > 0.5:
 		standard.metallic = 0.0
@@ -541,4 +541,4 @@ func _refresh_nameplate() -> void:
 		suffix = "\n[%s]" % stage.replace("_", " ").to_upper()
 	elif stage == "resolved":
 		suffix = "\n[STABLE]"
-	_nameplate.text = "%s Â· %s%s" % [display_name, unit, suffix]
+	_nameplate.text = "%s · %s%s" % [display_name, unit, suffix]
