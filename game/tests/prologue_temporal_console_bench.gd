@@ -1,6 +1,5 @@
 extends "res://tests/companion_session_ownership_bench.gd"
 ## Late-phase diagnostic, not proof that preceding prologue scenes were played.
-const Opening:=preload("res://scripts/game/prologue_state.gd")
 const Director:=preload("res://scripts/game/prologue_director.gd")
 const Console:=preload("res://scripts/game/prologue_temporal_console.gd")
 var accepted_count:=0
@@ -45,7 +44,7 @@ func additional_checks() -> void:
 	check(not console.returned and accepted_count==0 and "destination_accepted" not in director.state.events,"partial command cannot accept the date")
 	check(paper.pages[0].contains(console.text.substr(0,8)) and paper.printing,"physical paper consumes actual contact characters")
 	var register:Node=carrier.rig.temporal_register
-	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary command typing keeps temporal visor and capacitor dark")
+	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary typing preserves idle register and leaves travel charge off")
 	var visible_rows:=true
 	var frame:Node=carrier.screen_frame
 	var aperture:=Rect2(Vector2.ZERO,Vector2(frame.view.size)).grow(-1)
