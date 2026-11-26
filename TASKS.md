@@ -188,7 +188,7 @@ Paper-task execution follows AGENTS.md/DOCS.md and Bible precedence: branch from
   - PR415 qualifies the fixed electrical enclosures and feed, including 23 mounted spans, both retained cover sets and sixteen saddle bearings. Passed 159 loaded, 444 installed and 818 composed checks with 23 paired views reviewed. Six orphan screw draws were removed. The original fuse probe failures are retained. [Electrical evidence](C:/ov/reports/electrical_fabric_intake_20261119/REPORT.md).
   - PR416 resolves the fuse qualification failure by delivering cursor events through the test viewport. Passed 62 nearby checks and 50 installed checks, including the physical 15-amp repair and a fresh world restoring the saved protection. Continuous basement access and owner acceptance remain open. [Fuse evidence](C:/ov/reports/fuse_inspection_qualification_20261119/REPORT.md).
   - PR417 refits the night register's five ruled-page charts. Import and the first shift ritual passed, along with 46 installed checks and 818 composed checks across 23 reviewed views. The installed diagnostic covered mouse signing and disk reconstruction. The existing 1.93 mm held pen contact gap and owner acceptance remain open. [Register evidence](C:/ov/reports/night_register_rule_intake_20261119/REPORT.md).
-- **K-V2-LOBBY-FLOATING-SCULPTURE — Installed and technically verified.** Five native draws, four primitive colliders and all 101,674 source triangles. The 13-waypoint player walk, door clearance and Mina’s mail route passed. Human play and art review remain open. The stone reads subdued under the existing lobby lights. [Placement, provenance and retained evidence](design/V2_FRONT_ENTRANCE_REMODEL_2026-10-27.md#floating-sculpture).
+- **K-V2-LOBBY-FLOATING-SCULPTURE — Retired at Lily’s request.** PR 566 removed the Venus installation from the lobby. The earlier placement and route checks are historical. [Removal and qualification](https://github.com/NateHiggins/Lily-s-Music-Box/pull/566)
 
 
 - **K-V2-LIFT-CONTROL-INTAKE — Installed and technically verified.** The three native assemblies retain their mount frames and the live lift controls use a 3 mm physical press. The 117-check live cycle and disk reconstruction passed, as did the composed surface review. Human play and art review remain open. [Fit, gesture and evidence](design/ORISON_V2_HOMES_AND_LIFT_PROGRESS_2026-09-25.md#native-call-plates-cab-controls-and-dial).
@@ -258,83 +258,34 @@ Network distribution, phrase duels and the House Rig audition are deferred below
 
 ## B — The Harukiya rebuild (owner commission 2026-08-16)
 
+Lily accepted the venue look and the all-evening stage layout, then played and
+accepted the live set on November 18. [Venue acceptance](D:/ov_reports/harukiya_overhaul_20261112/closeout_20261118/FINAL_ACCEPTANCE.md)
 
-
-
-- **B-PERFORMANCE — Erica-inspired Adela and Harukiya performance stage — owner direction 2026-11-01; writing/design owners unclaimed.** The plot and first-draft threads are [written](design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md), with November 1 questionnaire rulings recorded in its section 5; writers’ room options for Lily’s own lines still need her review. [Packet](design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md) integrates Erica-inspired Adela's regular piano/singing and Lily alternating drums/bass. Next writers' room pass: whole-person portrait, original appearance/costume variants and three found-family scenes; stage integrator must survey current bar and capture swept motion before a measured layout, preserving resident places, circulation, existing bar systems and campaign/save/audio authorities. Actual remodel, character/performance assets, recording, runtime contacts, date/knowledge boundaries and full-audience frame-time qualification remain unbuilt/unverified by this packet. Preserve murder canon and transness never as twist/clue/motive; no deadline. Older immutable small-stage assumptions yield to this new commission; retired arcade cabinets stay retired.
-
-
-Commission: do for the bar what the arcade got — substantially larger and
-taller, a generous stair procession, a dense Akira-style detritus diorama on
-the stair and landing, a decompressed couch/jukebox pocket, real social
-sub-zones, back-of-house logic, ceiling architecture, layered light, traces
-of use, and subtle Orison unease. A superb 1928 metropolitan bar-lounge.
-
-**THE CANON THIS SITS ON.** `docs/harukiya_reference_notes.md` is a formal
-evidence ledger with four headings — CANONICAL (visible in the Akira film or
-surviving production art), INFERRED, NYC ADAPTATION, GAMEPLAY NECESSITY. The
-bar IS Otomo's Harukiya, transplanted. **The owner's requested detritus is
-therefore a restoration, not an invention:** littered treads, teal walls and
-a soiled red rug are CANONICAL, from the stairwell frame. Every move this
-rebuild makes gets filed under one of those four headings, and nothing moves
-between headings silently.
-
-- **B1 OWNER RULING 2026-08-16 — THE STAIR WIDENS MODESTLY, AND THE
-  COMPRESSION STAYS.** The ledger records canonical circulation as "minimum
-  ~850 mm, generally 950–1200 mm. **Never generous.**" The film's bar is
-  cramped on purpose, so a fully generous procession would erase character
-  the ledger protects. Three options were put to the owner; the ruling is the
-  middle one: **widen the 1.15 m stair to roughly 1.6 m** — enough that two
-  people pass, which reads generous *relative to the film* — and keep the
-  descent tight and dense so that arrival is still compression, with release
-  happening when the room opens. File as NYC ADAPTATION, with precedent: the
-  2026-08-07 rebuild already took the room 6.8 → 9.2 m deep under that same
-  heading ("what a New York operator did with a bigger cellar").
-- **B1a AUDIT COMPLETE 2026-08-16 — AND THE FOOTPRINT CANNOT GROW.** A
-  ten-agent audit surveyed the room, stair, social pocket, gameplay
-  wiring, envelope and identity ledger, produced a fourteen-phase plan,
-  and attacked it from three sides. **Two lenses returned UNSOUND, 18
-  blockers.** Findings and the gating decisions:
-  `design/HARUKIYA_RECONSTRUCTION_BRIEF.md`.
-  **The headline:** the canon mass (`nbr_s2`, x −12.0..6.4,
-  y −38.2..−28.32) is fixed and total plan gain is **+3.88 m², +2.7%** —
-  the first objective cannot be met in plan. It CAN be met in section:
-  the 3.55 m of generated brick above the room is the bar's own fabric
-  and can stop being generated, giving three heights (2.65 m canonical
-  low over counter/lounge/stage, 3.90 m middle, **5.17 m well** over the
-  table floor) for **+47% volume, 556 m³ against 377.9**. Hard stops:
-  `site_nbr_s2_soffit` z 3.33 (structural, not ours) and the whole-AABB
-  strict-inequality street gate at z 2.80.
-  **Do not cut geometry until the §5 rulings land** — one of them
-  (identity dilution) changes what gets built, and the identity reviewer's
-  verdict was that the plan named that risk and then committed it in every
-  phase.
-- **B1b THE RED DOOR WAS NOT RED — FIXED 2026-08-16.** Canon says
-  "battered painted red steel" and names Otomo's teal-offset-by-red as the
-  staircase composition, but `DoorProp._build_service()` painted every
-  `exterior_service` leaf galvanized grey and ignored `finish_variant`
-  entirely. The warmest note at the foot of the teal descent had been
-  missing since the descent was built, and no test caught it because no
-  test asserts a colour. `SERVICE_FINISHES` now carries variant 1 (oxblood
-  enamel gone chalky, never pillarbox) and the marker selects it. WalkTest
-  FULL and ShopEntryTest pass. **This needed no ruling: canon was explicit
-  and the code disagreed with it.**
-- **B2** The detritus diorama on the widened stair and landing. Density is
-  the deliverable, but the owner's own bar applies: layered, meaningful
-  accumulation implying use, neglect, improvisation, hidden labor or former
-  glamour — never "messy as a substitute for design."
-- **B3** The lounge jukebox faces the public aisle. The player can select any
-  of the three original records, read the lit title and stop the motor with the
-  coin return. All 1,543 Harukiya destination checks passed, including onward
-  travel to all 24 seats. Lily’s review of the setting is open in Omni.
-  **D:/ov_reports/harukiya_jukebox_20261125/room03/**
-- **B4** Room expansion, sub-zones, bar/backbar presence, back-of-house,
-  ceiling architecture, materials, lighting, traces of use, unease — the
-  remaining commission, sequenced after B1–B3.
-- **B5** Preserve absolutely: the teal descent, the red steel door, the two
-  arcade cabinets immediately left of the entrance, the deep canopy over the
-  counter, the barrels and crowded pictures behind the backbar, the violet
-  felt, and light that only ever comes from something you can point at.
+- **B1, B1a, B1b — Stair and red door delivered.** The 15 treads span a 1.60 m shaft.
+  The rail and stored goods leave about 0.90 m at the pinch point. Opposing traffic
+  takes turns there. The reinforced oxblood door opens onto the room. The central
+  well measures 5.32 m clear. [Entrance and passage checks](design/HARUKIYA_ENTRANCE_REFURB_2026-11-14.md) · [Measured section](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md)
+- **B2 — Landing dressing delivered.** Loose paper and metal scraps mark the treads.
+  Bundled newspapers, crates, a rolled rug and cleaning gear give the service side
+  a purpose. Lily reviewed the entrance as part of the venue. [Entrance and room views](D:/ov_reports/harukiya_overhaul_20261112/closeout_20261118/Harukiya_review_1.jpg)
+- **B3 — Lounge jukebox installed. Lily’s review of its setting is open.**
+  From the public aisle the player can select three original records, read the
+  lit title, stop the motor at the coin return and continue to any of the 24 seats.
+  The installed destination run passed 1,543 checks. [Destination receipt](D:/ov_reports/harukiya_jukebox_20261125/room03/shots/runtime_contract.json)
+- **B4 — Venue construction delivered.** The stage and backstage, balcony, pool
+  table, darts, counter and seating are in service. The destination receipt
+  covers physical access and use. The venue review covers the room’s appearance.
+  [Balcony, practicals and red-door views](D:/ov_reports/harukiya_overhaul_20261112/closeout_20261118/Harukiya_review_2.jpg)
+- **B5 — Preserve the bar’s identity in future edits.** Keep the teal descent,
+  red steel door, deep counter canopy, barrel stock and crowded backbar pictures,
+  violet felt and lighting from visible fixtures. Lily retired the two arcade
+  cabinets in Q02. [Identity ledger and amendments](docs/harukiya_reference_notes.md) · [Owner decisions](design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md)
+- **B-PERFORMANCE — Live trio accepted.** Adela leads at the piano, Lily plays
+  bass and sings harmony, and Stacy plays drums. The remaining writing covers
+  the whole-person portrait, costume and found-family scenes, Lily’s own lines
+  and the story’s date and knowledge boundaries. Preserve the murder canon and
+  the ruling that transness can never be the twist, a clue or a motive.
+  [Story and writing decisions](design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md) · [Performance and found-family brief](design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md)
 
 - **B-PULL-UP-A-CHAIR-MV — performance recapture delivered November12:** full1080p24 song,23shots under **C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/**. Adela lead+piano; Lily drums+selective harmony. Native singing/contact proofs,4372-frame reach sweep, pickup repeat, encoded motion proof, exact final frames/full decode and allshot/seam/ending samples pass. Original audio preserved. Music-video workflow added to canonical machinima skill. Derived timing/harmony/fingering and inherited mesh limitations in **performance_v2/DELIVERY.md**; continuous audiovisual review and artistic acceptance remain open. All jobs terminal; no upload or gameplay qualification claim.
 
