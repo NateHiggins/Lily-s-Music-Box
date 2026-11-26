@@ -291,6 +291,10 @@ func _arrived(resident: String) -> bool:
 
 
 func _line_for(resident: String, entry_admitted := false) -> Dictionary:
+	return _line_with_history(resident, _heard, entry_admitted)
+
+
+func _line_with_history(resident: String, heard: Dictionary, entry_admitted := false) -> Dictionary:
 	if resident == "mina_vale":
 		return {}
 	if not _arrived(resident) and not (entry_admitted and not world.resident_routes.has(resident)):
@@ -308,7 +312,7 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 		if route == null or route.destination != str(phase.place):
 			return {}
 	else:
-		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", _heard)
+		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", heard)
 		if not encounter.is_empty():
 			return encounter
 		var profile: Dictionary = data.profiles.get(resident, {})
@@ -322,14 +326,20 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 			phase = (replies.get(activity, profile) as Dictionary).duplicate()
 		phase["phase_id"] = "baseline:" + resident
 	var key := str(phase.get("phase_id", ""))
-	if _heard.has(key) or str(phase.get("line", "")).is_empty() or str(phase.get("topic", "")).is_empty():
+	if heard.has(key) or str(phase.get("line", "")).is_empty() or str(phase.get("topic", "")).is_empty():
 		return {}
 	return phase
 
 
 func conversation_prompt(resident: String) -> String:
-	_sync_visit()
-	return str(_line_for(resident).get("topic", ""))
+	if world == null or loop == null or ordinary == null or conversations == null \
+			or conversations.dialogue == null or conversations.dialogue.attention_active() or not conversations.has_tree(resident):
+		return ""
+	# A hover may arrive before the next visit tick. Sample its new history
+	# without consuming a line, clearing activities, or cancelling dialogue.
+	var same_visit := _visit_identity() == _identity and is_same(_campaign, RealityState.data) and conversations.today() == _ordinary_day
+	var history: Dictionary = _heard if same_visit else {}
+	return str(_line_with_history(resident, history).get("topic", ""))
 
 
 func try_entry(resident: String, player: Node) -> bool:

@@ -14,7 +14,7 @@ const RollingHoop := preload("res://scripts/player/rolling_hoop.gd")
 ## that answers `interact` -- a door opened, a switch thrown, a fault put
 ## right -- without each of them having to know anybody is listening. The
 ## Dream ecology uses it to decide the world is worth its whole attention
-## (ecology architecture §13).
+## (ecology architecture Â§13).
 signal world_modified(where: Vector3, what: String)
 ## Authoritative physical contact, independent of whatever sound is played.
 signal mechanical_stimulus(where: Vector3, carrier: StringName, strength: float,
@@ -206,7 +206,7 @@ const LAMP_INRUSH := 0.26
 const LAMP_POP_FLARE := 0.70
 const LAMP_POP_FLARE_FRACTION := 0.34
 ## Below this gap between toggles the transient is skipped entirely. The
-## switch is never gated — see set_lamp_enabled() for why the two are
+## switch is never gated â€” see set_lamp_enabled() for why the two are
 ## different currencies.
 const LAMP_TRANSIENT_MIN_GAP := 0.55
 ## Cold tungsten is red before it is white, both on the way up and on the way
@@ -281,7 +281,7 @@ func _ready() -> void:
 	add_child(camera)
 	add_child(preload("res://scripts/visuals/cel_style_presentation.gd").new())
 	# The service set carries an ordinary tungsten inspection lamp low in the
-	# off hand. Warm, weak, wide, and it drags a beat behind the eye —
+	# off hand. Warm, weak, wide, and it drags a beat behind the eye â€”
 	# the hand pivot is a sibling of the camera and chases it in
 	# _process, so a fast look sweeps the beam late like a carried thing.
 	_hand = Node3D.new()
@@ -309,7 +309,7 @@ func _ready() -> void:
 	_hand.add_child(flashlight)
 	_lamp_base_energy = flashlight.light_energy
 	# Non-positional: this is a lever under the player's own thumb, not a
-	# sound in the room. The Tenant hears nothing of it either way — pursuit
+	# sound in the room. The Tenant hears nothing of it either way â€” pursuit
 	# reads the lamp's STATE through lamp_is_enabled(), never its noise.
 	_lamp_audio = AudioStreamPlayer.new()
 	_lamp_audio.name = "LampSwitch"
@@ -431,7 +431,9 @@ func _update_prompt() -> void:
 				var key_words := str(node.call("key_prompt"))
 				if not key_words.is_empty():
 					var carrier := "[K]" if _current_prompt_family()==&"keyboard" else "[D-PAD UP]" if _current_prompt_family()==&"controller" else "[KEY]"
-					_prompt.text += "\n"+carrier+"  "+key_words
+					if not _prompt.text.is_empty():
+						_prompt.text += "\n"
+					_prompt.text += carrier + "  " + key_words
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
@@ -503,7 +505,7 @@ func _process(_delta: float) -> void:
 		return
 	# POLLED, not event-driven. An on-screen button presses an action
 	# through Input.action_press(), which sets the action's state but never
-	# manufactures an InputEvent — so anything handled in _unhandled_input
+	# manufactures an InputEvent â€” so anything handled in _unhandled_input
 	# is unreachable from a touchscreen. Interact, the carried lamp and
 	# crouch were all in that dead zone: the HUD button lit up and the
 	# game ignored it. Polling is the one path both a key and a thumb
@@ -597,7 +599,7 @@ func _input(event: InputEvent) -> void:
 ## The service set chases the eye instead of being bolted to it. Every frame
 ## the hand pivot slerps toward the camera's aim from just below-right
 ## of it, so a fast turn drags the beam behind the view and lets it
-## catch up — plus a low breathing sway (bigger while walking) that the
+## catch up â€” plus a low breathing sway (bigger while walking) that the
 ## screen mask mirrors at a few pixels' amplitude.
 func _carry_service_light(delta: float) -> void:
 	if _hand == null:
@@ -657,7 +659,7 @@ func _update_throw(delta: float) -> void:
 
 
 ## HOW FAR THE BEAM IS THROWING. One ray, down the light's own axis, at
-## the bake rate rather than per frame — the beam's softness has no
+## the bake rate rather than per frame â€” the beam's softness has no
 ## business being a 60 Hz quantity and this is a physics query.
 ##
 ## Nothing found means nothing to land on, which is the corridor case:
@@ -680,7 +682,7 @@ func _measure_throw() -> void:
 	# Eased, not assigned. Sweeping the beam off a near wall and down a
 	# corridor is a real thing a player does constantly, and a blur that
 	# tracked it exactly would pop on every doorway. A third per bake is
-	# about a third of a second to settle — slow enough to read as the
+	# about a third of a second to settle â€” slow enough to read as the
 	# eye adjusting, fast enough that it has finished by the time you
 	# have finished turning.
 	_throw = lerpf(_throw, found, 0.34)
@@ -822,7 +824,7 @@ func set_lamp_enabled(on: bool) -> void:
 	if not changed:
 		# A NO-OP MUST BE A NO-OP. This used to zero `_lamp_phase` and force
 		# `visible`, so any caller re-asserting the state the lamp was already
-		# in — and several do, on entry and on device sync — cancelled a
+		# in â€” and several do, on entry and on device sync â€” cancelled a
 		# transient mid-flight. The pop was dying two frames in, which read as
 		# the curve being wrong rather than as something else stepping on it.
 		if _lamp_phase <= 0.0:
@@ -856,7 +858,7 @@ func set_lamp_enabled(on: bool) -> void:
 ## The tungsten cycle, and it is not a fade.
 ##
 ## A cold filament is a low resistance, so switching on draws an inrush and the
-## lamp overshoots before it settles — the characteristic bloom. It comes up
+## lamp overshoots before it settles â€” the characteristic bloom. It comes up
 ## through the colour as well as the brightness: cold tungsten glows red, then
 ## amber, then reaches its working warm white, and the whole run takes about
 ## half a second in a small hand lamp.
@@ -1075,8 +1077,8 @@ func set_world_lift_floor(_value: float) -> void: pass
 ## (`street_traffic.gd`, `song_synth.gd`) and a lamp switch is a far smaller
 ## piece of sound than either.
 ##
-## ON is two events that overlap: the physical switch — a hard, dry contact
-## click, because this is a lever on a service set and not a soft button — and
+## ON is two events that overlap: the physical switch â€” a hard, dry contact
+## click, because this is a lever on a service set and not a soft button â€” and
 ## then the filament finding its note, a low hum that swells in over the same
 ## half second the light takes to warm.
 ##

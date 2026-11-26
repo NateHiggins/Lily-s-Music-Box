@@ -186,14 +186,18 @@ func conversation_topic(resident_id: String) -> Dictionary:
 
 ## The same anecdote for a resident met in person with no tree of their own:
 ## AnimatedResident asks this before it opens a case conversation.
-func try_music_conversation(resident_id: String) -> bool:
+func body_music_anecdote(resident_id: String) -> Dictionary:
 	if dialogue == null or dialogue.attention_active():
-		return false
+		return {}
 	var conversations := get_tree().get_first_node_in_group("resident_conversations")
 	if conversations != null and conversations.has_method("has_tree") \
 			and conversations.has_tree(resident_id):
-		return false  # their own tree carries the topic
-	var heard := anecdote(resident_id)
+		return {}  # their own tree carries the topic
+	return anecdote(resident_id)
+
+
+func try_music_conversation(resident_id: String) -> bool:
+	var heard := body_music_anecdote(resident_id)
 	if heard.is_empty():
 		return false
 	note_heard(resident_id, str(heard.track))
@@ -322,7 +326,7 @@ func _refresh_library() -> void:
 		var track: Dictionary = tracks[track_id]
 		var button := Button.new()
 		button.name = "Record_" + str(track_id)
-		button.text = "%s\n%s · %s" % [
+		button.text = "%s\n%s Â· %s" % [
 				str(track.title), str(track.artist), str(track.year)]
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.pressed.connect(_select_library_track.bind(str(track_id)))
@@ -352,7 +356,7 @@ func _refresh_now_playing() -> void:
 		_lore.text = ""
 		return
 	var heard := not Broadcast.listeners().is_empty()
-	_now_playing.text = "%s\n%s — %s" % [
+	_now_playing.text = "%s\n%s â€” %s" % [
 			"ON THE AIR" if heard else "ON THE AIR. SWITCH ON A WIRELESS TO HEAR IT.",
 			str(now.title), str(now.performers)]
 	var track: Dictionary = catalog.get("tracks", {}).get(_shown_record, {})

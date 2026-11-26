@@ -60,7 +60,7 @@ const SCHEDULES_PATH := "res://data/resident_schedules.json"
 ## crude on purpose; {unit} is replaced with the apartment number.
 const NOTES_PATH := "res://data/field_notes.json"
 const NOTE_PREFIX := "note:"
-## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
+## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md Â§7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/adela_voss.json",
@@ -942,12 +942,7 @@ func has_spoken_thread(resident_id: String) -> bool:
 	return false
 
 
-## Open a person's threads with no door tree behind them, from a menu of their
-## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
-## patrolman have no door in the world yet, so this is how they are read.
-func start_mystery(resident_id: String, spoken_only := false, installed_topic := "") -> bool:
-	if dialogue == null or dialogue.attention_active():
-		return false
+func _body_mystery_threads(resident_id: String, spoken_only: bool, installed_topic: String) -> Array[Dictionary]:
 	var active := active_threads(resident_id, today(), minute_now())
 	if not installed_topic.is_empty():
 		active = active.filter(func(thread: Dictionary) -> bool: return thread.id == installed_topic)
@@ -957,6 +952,21 @@ func start_mystery(resident_id: String, spoken_only := false, installed_topic :=
 			if bool(thread.get("spoken", false)):
 				spoken.append(thread)
 		active = spoken
+	return active
+
+
+func can_offer_body_mystery(resident_id: String, spoken_only: bool, installed_topic := "") -> bool:
+	return dialogue != null and not dialogue.attention_active() \
+			and not _body_mystery_threads(resident_id, spoken_only, installed_topic).is_empty()
+
+
+## Open a person's threads with no door tree behind them, from a menu of their
+## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
+## patrolman have no door in the world yet, so this is how they are read.
+func start_mystery(resident_id: String, spoken_only := false, installed_topic := "") -> bool:
+	if dialogue == null or dialogue.attention_active():
+		return false
+	var active := _body_mystery_threads(resident_id, spoken_only, installed_topic)
 	if active.is_empty():
 		return false
 	var tree := {"meta": (mystery[resident_id].meta as Dictionary).duplicate(), "nodes": {}}
