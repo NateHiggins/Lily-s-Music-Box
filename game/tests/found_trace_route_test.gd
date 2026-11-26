@@ -83,7 +83,9 @@ func _source_marks(id: String) -> Array[Vector3]:
 			return [desk.to_global(Vector3(.10, 0, 2.25)), desk.to_global(Vector3(.10, 0, 1.28))]
 		"trace_unlabelled":
 			var bar := world.bar_region
-			return [bar.to_global(Vector3(5.03, .02, 28.30)), bar.to_global(Vector3(5.03, .02, 29.29))]
+			# Follow the west approach used by the street-to-bar walk, clear of
+			# the umbrella stand. The bundle is within reach to the right.
+			return [Vector3(4.8, 0, 18), bar.to_global(Vector3(4.8, .02, 29.99))]
 	return []
 
 
