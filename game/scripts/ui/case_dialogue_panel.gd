@@ -281,7 +281,8 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 func _reply_button(number: int, text: String, silent: bool, evidence: bool,
 		infer: bool) -> Button:
 	var button := Button.new()
-	button.text = "%d   %s" % [0 if silent else number, text]
+	var shortcut := "0" if silent else str(number) if number <= 9 else ""
+	button.text = "%s   %s" % [shortcut, text]
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.flat = true
@@ -499,7 +500,7 @@ func offered_labels() -> Array:
 	var labels: Array = []
 	for child in _choices.get_children():
 		if child is Button:
-			# The number grows beyond one digit; preserve the exact authored label.
+			# The shortcut column is empty on rows reached by scrolling.
 			var numbered: PackedStringArray = str(child.text).split("   ",true,1)
 			labels.append(numbered[1] if numbered.size()==2 else str(child.text))
 	return labels

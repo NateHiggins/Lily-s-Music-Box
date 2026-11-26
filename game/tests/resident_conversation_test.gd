@@ -352,6 +352,10 @@ func _check_long_replies(viewport: SubViewport, panel: CaseDialoguePanel) -> voi
 				and words.end.y <= rect.position.y and words.end.x <= size.x and rect.end.y <= size.y)
 		_check("all authored labels are available at %s" % size, panel.offered_labels() == labels
 				and panel._reply_scroll.get_v_scroll_bar().visible and panel._reply_scroll.scroll_vertical == 0)
+		_check("shortcut labels match the available number keys at %s" % size,
+				panel._choices.get_child(8).text.begins_with("9   ")
+				and panel._choices.get_child(9).text == "   " + labels[9]
+				and panel._choices.get_child(-1).text == "0   " + labels.back())
 		var move := InputEventMouseMotion.new()
 		move.position = rect.get_center()
 		viewport.push_input(move, true)
