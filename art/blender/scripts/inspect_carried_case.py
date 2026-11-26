@@ -100,7 +100,9 @@ def inspect(draws=None,sources=None,data=None,write=True):
     assert data['schema_version']==1 and data['asset']=='res://assets/props/carried_case.glb'
     assert data['cell']==.05 and data['grid']==[10,6]
     assert np.allclose(data['hinge'],[0,0,-.155],atol=1e-8)
-    assert {k:v['size'] for k,v in data['forms'].items()}==EXPECTED
+    external = {'maintenance_washer': [1, 1], 'radiator_vent_insert': [1, 1],
+                'found_phonautogram': [5, 3]}
+    assert {k:v['size'] for k,v in data['forms'].items()} == EXPECTED | external
     assert all(set(r)=={'name','assembly','key','tile'} for r in data['parts'])
     assert {o.name for o in draws}=={r['name'] for r in data['parts']}
     material_sets=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text(encoding='utf-8'))['materials']

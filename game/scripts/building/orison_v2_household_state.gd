@@ -448,9 +448,14 @@ func deliver_kitchen_tool(holder: PlayerController, item: String) -> bool:
 
 ## Change only what the hand shows: an item already in the case, or nothing.
 func set_hand(item: String) -> bool:
-	if not _kitchen_ready() or (not item.is_empty() and packed_kitchen_tool(item).is_empty() and packed_book(item) == null) \
-			or CarriedCase.hand() == item:
+	if not _kitchen_ready() or CarriedCase.hand() == item:
 		return false
+	if not item.is_empty():
+		if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+			if not preload("res://scripts/songbook/found_trace_custody.gd").is_packed(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)):
+				return false
+		elif packed_kitchen_tool(item).is_empty() and packed_book(item) == null:
+			return false
 	var prepare := func(document: Dictionary) -> bool:
 		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
 		grid[CarriedCase.HAND] = item

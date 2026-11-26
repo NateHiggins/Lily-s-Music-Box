@@ -412,6 +412,10 @@ func _ready() -> void:
 	house_office = preload("res://scripts/building/orison_v2_house_office.gd").mount(self, _blockout, layout, adapter)
 	if not (house_office.get("errors", []) as Array).is_empty():
 		push_error("ORISON V2 RUNTIME: house office incomplete: %s" % [house_office.errors])
+	if not preload("res://scripts/songbook/found_trace_source.gd").mount_building(adapter, house_office.get("dead_letters")):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: found paper traces are missing their building supports")
+		return
 	# The possessed household objects V2 had nothing to carry (V1 retirement
 	# plan, section B item 8). They must stand before the witnesses look for them.
 	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)

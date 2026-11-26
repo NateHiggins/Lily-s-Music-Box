@@ -42,6 +42,8 @@ func refresh_hand() -> void:
 
 
 func _held_part(state: Node, item: String) -> Node3D:
+	if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+		return preload("res://scripts/songbook/found_trace_visual.gd").make(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
 	if item.is_empty() or state == null:
 		return null
 	if item.begins_with(CarriedCase.BOOK_PREFIX) and state.has_method("packed_book"):
