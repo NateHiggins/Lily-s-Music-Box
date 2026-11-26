@@ -68,6 +68,9 @@ func _on_node_shown(_node: String) -> void:
 	if dialogue == null:
 		return
 	var line: Dictionary = dialogue.displayed_line()
+	if line.get("delivery", "spoken") == "silent":
+		body.stop_speaking()
+		return
 	var words := str(line.get("text", "")).strip_edges()
 	var voice := str(line.get("speaker", "")).strip_edges().to_upper()
 	if words.replace(".", "").strip_edges().is_empty() or _speaker_label.is_empty() or not voice.begins_with(_speaker_label):

@@ -70,6 +70,11 @@ func run() -> void:
 	talk.call("CAL DWYER", "Shut the door, you're letting the room in.")
 	await frames(2)
 	check(face.is_speaking(), "his own line moves his mouth")
+	conversations.dialogue.line = {"speaker": "CAL DWYER", "text": "He lowers the glass.", "delivery": "silent"}
+	conversations.dialogue.node_shown.emit("silent_beat")
+	check(not face.is_speaking(), "the visible action immediately stops the walking resident's active jaw")
+	talk.call("CAL DWYER", "(He sets it down.) Good evening.")
+	check(face.is_speaking(), "mixed speech and direction resume his jaw without explicit silent delivery")
 	talk.call("MINA VALE", "Good evening.")
 	await frames(2)
 	check(not face.is_speaking(), "another speaker's line stops it")

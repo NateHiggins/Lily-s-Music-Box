@@ -233,6 +233,23 @@ func _staff() -> void:
 	panel.choose(0)
 	panel.close()
 	check(panel.displayed_line().exchange.is_empty(), "early close clears evidence before the next owner")
+	# Reuse the loaded staff face to check Adela's two real caption owners.
+	cast.set("performers", {"adela_voss": actor})
+	var shop: Dictionary = conversations.trees["adela_voss"]
+	panel.run_tree(shop, "ad_int_open", Callable())
+	cast.call("_on_started", "adela_voss", "")
+	check(face.is_speaking(), "Adela's short caption voices her mixed opening in the shop")
+	panel.choose(0)
+	check(not face.is_speaking() and panel.displayed_line().text == shop.nodes.ad_int_beat.line
+			and panel.displayed_line().delivery == "silent", "the lamp action stays visible and stops her active jaw")
+	panel.choose(0)
+	check(face.is_speaking(), "Adela speaks again after the silent action")
+	var dated: Dictionary = conversations.mystery["adela_voss"]
+	panel.run_tree(dated, "av_f5", Callable())
+	check(face.is_speaking() and panel.displayed_line().speaker == "ADELA VOSS",
+			"her full mystery caption speaks the words following a stage direction")
+	panel.choose_silence()
+	check(panel.displayed_line().speaker == "LILY" and not face.is_speaking(), "Adela never mouths Lily's reply")
 	panel.node_shown.disconnect(Callable(cast, "_on_node_shown"))
 	await _close()
 	cast.free()

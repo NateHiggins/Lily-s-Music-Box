@@ -257,8 +257,8 @@ func _on_node_shown(_node: String) -> void:
 	var words := str(line.get("text",""))
 	var voice := str(line.get("speaker","")).strip_edges().to_lower()
 	var letters := words.strip_edges().replace(".","").replace("â€¦","").replace("â€”","").strip_edges()
-	var speaker_label: String="adela" if _speaker=="adela_voss" else _speaker
-	if voice != speaker_label or letters.is_empty():
+	var own_voice := voice in ["adela", "adela voss"] if _speaker == "adela_voss" else voice == _speaker
+	if line.get("delivery", "spoken") == "silent" or not own_voice or letters.is_empty():
 		actor.stop_speaking()
 		return
 	# Authored text has a restrained jaw fallback until a qualified voice line

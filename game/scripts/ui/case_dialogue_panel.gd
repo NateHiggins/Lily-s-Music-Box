@@ -68,6 +68,7 @@ var _actions: Array = []
 var _silence_action: Callable = Callable()
 var _fade: Tween
 var _line_exchange: Dictionary = {}
+var _line_delivery := "spoken"
 var current_node_id := ""
 
 
@@ -190,7 +191,8 @@ func _replace_tree(incoming: Dictionary) -> void:
 		tree_replaced.emit(previous)
 
 
-func _present_line(speaker_name: String, words: String, options: Array) -> void:
+func _present_line(speaker_name: String, words: String, options: Array, delivery := "spoken") -> void:
+	_line_delivery = delivery
 	if _speaker_framing != null:
 		_speaker_framing.release()
 	for old in _choices.get_children():
@@ -366,7 +368,7 @@ func _show_node(node_id: String, exchange: Dictionary = {}) -> void:
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
 	_line_exchange = exchange
-	_present_line(speaker, str(node.line), options)
+	_present_line(speaker, str(node.line), options, str(node.get("delivery", "spoken")))
 	var actor := str(node.get("actor", ""))
 	# Ordinary, fallback and case trees have one known caller. A different
 	# caption or anonymous voice never borrows that person's face.
@@ -444,4 +446,5 @@ func offered_labels() -> Array:
 ## Read-only presentation snapshot for an actor face; dialogue remains owned here.
 func displayed_line() -> Dictionary:
 	return {"speaker": _speaker.text if _speaker != null else "",
-		"text": _line.text if _line != null else "", "exchange": _line_exchange.duplicate()}
+		"text": _line.text if _line != null else "", "exchange": _line_exchange.duplicate(),
+		"delivery": _line_delivery}
