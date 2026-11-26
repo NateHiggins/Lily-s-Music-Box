@@ -326,7 +326,8 @@ func _first_person_guest(identity: String) -> bool:
 	var caller_pose := player.global_transform
 	var caller_eye := player.camera.transform
 	var ok := await _write_caller_frame("before")
-	var opened: bool = performance.try_conversation(identity, player)
+	player.use_primary_interaction()
+	var opened := world.conversations.performance_active() and world.conversations._active_resident == identity
 	if opened:
 		for tick in 20: await get_tree().physics_frame
 	var replies := panel.offered_labels()
