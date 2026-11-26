@@ -33,13 +33,16 @@ import intake
 # LIST_LIMIT, SHOP and every spoken template are unchanged.
 # 2026-11-26: normal and mystery trees pass the resident ID to camera framing.
 # The two call sites retain the same dialogue trees, flags and provider joins.
+# 2026-11-26: panel handoff, background cast, silent exits and dated reply guards
+# change availability and presentation; resident trees also validate their delivery field. with_errand, with_parcel and with_gifts are unchanged.
+# Music body availability now queries the existing anecdote; its text and gift join are unchanged.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': 'a4fdd48627f97f849af1507b83ff70423d566fae46a95ca9dc06cd110d59595f',
+    'game/scripts/game/resident_conversations.gd': '486fba64296d287a4c9abf3a564caeed56c914fddd2af0b77f13b2b7ede81612',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
     'game/scripts/game/kitchen_larder.gd': 'acb3db1b323c86e48352f6aa91749c9da6e1ad3ed1383b0ba7118c13054ecc89',
-    'game/scripts/audio/orison_v2_music_library.gd': '53d2c208f2e953f15b1425e2399991f0357aae194d3754d4d44645e2d981bd88',
+    'game/scripts/audio/orison_v2_music_library.gd': '1cc9808cc5e611f04136b520d3b4a8bad817e1bcb57f222c4006de9c7049b66d',
     'game/scripts/game/service_round_director.gd': 'cc5fa8a86903f683f6323054592ff67aac2214e9ceae462384b6dee06c9e2ff3',
     'game/scripts/game/resident_gifts.gd': '35c95adb75a584c4d8655d6e44b8b80898994bb138959cdd880bdf81ff866698',
     'game/scripts/game/shop_catalogue.gd': 'f9416c1e3121f1fd17b16bde4f1fae8da46c788c36b8ad2060c3f17f1312aed6',
