@@ -71,6 +71,8 @@ func _ready() -> void:
 			RealityState.data.prologue={}
 			RealityState.load_game()
 			check(not RealityState.save_write_blocked and State.restore(RealityState.data.prologue)==record,"validated restore retains exact stage/effects/target "+phase)
+			check(RealityState.has_knowledge("m_mirror_seen") == ("visitor_seen_again" in record.events),
+					"disk Continue retains only witnessed mirror knowledge "+phase)
 			if phase=="temporal_command":
 				check(State.with_target(RealityState.data.prologue,target)==record,"same destination accepted idempotently after JSON numeric conversion")
 		var next := State.advance(record,State.PHASES[index+1])
@@ -91,6 +93,8 @@ func _ready() -> void:
 			skipped=State.applied(skipped,"clock_applied")
 		skipped=State.advance(skipped,State.PHASES[index+1])
 	check(State.valid(skipped) and skipped.phase=="prologue_complete" and skipped.events.is_empty(),"skip completes without invented observations")
+	RealityState.data.prologue=skipped
+	check(not RealityState.has_knowledge("m_mirror_seen"),"skipping the unseen mirror keeps its question closed")
 	var invalid: Dictionary=record.duplicate(true);invalid.phase="dream"
 	check(not State.valid(invalid),"corrupt phase rollback with later effects refused")
 	for bad: Variant in [null,[],{"schema_version":2},invalid]:
