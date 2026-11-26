@@ -147,6 +147,36 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance
             for j, choice in enumerate(opinion.get('choices', [])):
                 add(source, base + '/choices/' + str(j) + '/reply', namespace,
                     runtime + ':r' + str(j), profile, choice['reply'])
+    # ResidentConversations builds temporary loop_business nodes. Different
+    # visits reuse the same panel IDs, so keep the authored beat in the clip ID.
+    source = root/'game/data/temporal/performances.json'
+    if source.exists():
+        performances = intake.read_json(source)
+        for resident, profile in performances['profiles'].items():
+            base = '/profiles/' + pointer_token(resident)
+            namespace = 'loop_profile_' + resident
+            if profile['line']:
+                add(source, base + '/line', namespace, 'loop_business', resident, profile['line'])
+            for activity, reply in profile.get('activities', {}).items():
+                add(source, base + '/activities/' + pointer_token(activity) + '/line',
+                    namespace, 'loop_business', resident, reply['line'],
+                    identity=intake.line_id(namespace, 'activity_' + safe_node(activity)))
+        for anchor, visit in performances['anchors'].items():
+            for resident, phases in visit['actors'].items():
+                namespace = 'loop_visit_' + anchor + '_' + resident
+                for i, phase in enumerate(phases):
+                    if phase['place'] and phase['line']:
+                        pointer = f'/anchors/{pointer_token(anchor)}/actors/{pointer_token(resident)}/{i}/line'
+                        add(source, pointer, namespace, 'loop_business', resident, phase['line'],
+                            identity=intake.line_id(namespace, f'phase_{i}'))
+    source = root/'game/data/temporal/ordinary_performances.json'
+    if source.exists():
+        for i, encounter in enumerate(intake.read_json(source)['encounters']):
+            namespace = 'loop_exchange_' + safe_node(encounter['id'].lower())
+            for j, turn in enumerate(encounter['lines']):
+                runtime = 'loop_business' if j == 0 else f'loop_business_{j}'
+                add(source, f'/encounters/{i}/lines/{j}/text', namespace,
+                    runtime, turn['speaker'], turn['text'])
     for row in extra_rows:
         sources = row['source_bindings']
         for binding in sources:

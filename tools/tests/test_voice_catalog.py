@@ -52,6 +52,26 @@ class VoiceCatalogTests(unittest.TestCase):
                            {"start": text.index("Coffee"), "end": len(text), "profile_id": "transient_guest_b"}]}
         return text, {"entries": [entry]}
 
+    def test_loop_cast_shares_panel_ids_but_keeps_distinct_recordings(self):
+        (self.root / "game/data/temporal").mkdir()
+        self.write("temporal/performances.json", {
+            "profiles": {"cal_dwyer": {"line": "Evening.", "activities": {
+                "work": {"line": "Listen to the motor."}}}},
+            "anchors": {"drama": {"actors": {"cal_dwyer": [
+                {"place": "", "line": ""}, {"place": "unit", "line": "That was the chair."}]}}}})
+        self.write("temporal/ordinary_performances.json", {"encounters": [{
+            "id": "OY04", "lines": [
+                {"speaker": "juno_kells", "text": "Listen.", "choice": "To what?"},
+                {"speaker": "cal_dwyer", "text": "The chair."}]}]})
+        rows = [r for r in self.lines() if r["namespace"].startswith("loop_")]
+        self.assertEqual(len({r["line_id"] for r in rows}), 5)
+        self.assertEqual([r["runtime_node_id"] for r in rows].count("loop_business"), 4)
+        self.assertEqual({(r["runtime_node_id"], r["profile_id"], r["text"]) for r in rows
+                          if r["namespace"] == "loop_exchange_oy04"},
+                         {("loop_business", "juno_kells", "Listen."),
+                          ("loop_business_1", "cal_dwyer", "The chair.")})
+        self.assertTrue(all(r["state"] == "ready" for r in rows))
+
     def test_exact_text_pointer_and_explicit_speaker_overrides(self):
         text, guests = self.guest_fixture()
         path = self.root / "game/data/dialogue/cal_dwyer.json"
