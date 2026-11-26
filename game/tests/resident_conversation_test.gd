@@ -255,12 +255,19 @@ func _run() -> void:
 			{"text": "Two", "action": Callable(), "silent": true}])
 	await get_tree().process_frame
 	_check("replies are numbered plain lines, silence set apart",
-			panel.offered_labels() == ["One", "Two"] and panel._choices.get_child(1).text.begins_with("2"))
+			panel.offered_labels() == ["One", "Two"] and panel._choices.get_child(1).text.begins_with("0   "))
 	_check("the panel lowers the scrim, never a box over the view",
 			panel._scrim.anchor_top > 0.5 and panel._line.autowrap_mode == TextServer.AUTOWRAP_WORD_SMART
 			and panel._line.get_theme_font_size("font_size") >= 20)
+	var quiet_key := InputEventKey.new()
+	quiet_key.keycode = KEY_0
+	quiet_key.pressed = true
+	panel._unhandled_input(quiet_key)
+	_check("zero closes a silent leave option even when it has no callback", not panel.attention_active())
+	panel.present("TEST", "A spoken choice only.", [{"text": "Reply.", "action": Callable()}])
+	panel.choose_silence()
+	_check("an unavailable silent reply leaves the current prompt open", panel.attention_active())
 	panel.close()
-	_check("closing hands the pointer back", not panel.attention_active())
 
 
 func _check_reply_layout() -> void:

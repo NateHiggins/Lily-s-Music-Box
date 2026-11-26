@@ -65,7 +65,7 @@ var _on_flag: Callable = Callable()
 var _on_action: Callable = Callable()
 var _context: Dictionary = {}
 var _actions: Array = []
-var _silence_action: Callable = Callable()
+var _silence_index := -1
 var _fade: Tween
 var _line_exchange: Dictionary = {}
 var _line_delivery := "spoken"
@@ -202,7 +202,7 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 	_speaker.visible = speaker_name.strip_edges() != ""
 	_line.text = words
 	_actions = []
-	_silence_action = Callable()
+	_silence_index = -1
 	var number := 0
 	for option in options:
 		var action: Callable = option.action
@@ -210,7 +210,7 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 		number += 1
 		_actions.append(action)
 		if silent:
-			_silence_action = action
+			_silence_index = _actions.size() - 1
 		var reply := _reply_button(number, str(option.text), silent,
 				bool(option.get("evidence", false)), bool(option.get("infer", false)))
 		reply.pressed.connect(_answer.bind(action))
@@ -306,7 +306,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if index < _actions.size():
 			get_viewport().set_input_as_handled()
 			choose(index)
-	elif key.keycode == KEY_0 and _silence_action.is_valid():
+	elif key.keycode == KEY_0 and _silence_index >= 0:
 		get_viewport().set_input_as_handled()
 		choose_silence()
 
@@ -417,8 +417,8 @@ func choose(index: int) -> void:
 
 
 func choose_silence() -> void:
-	if attention_active() and _silence_action.is_valid():
-		_answer(_silence_action)
+	if attention_active():
+		choose(_silence_index)
 
 
 func _answer(action: Callable) -> void:
