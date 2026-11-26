@@ -321,9 +321,11 @@ between headings silently.
   the deliverable, but the owner's own bar applies: layered, meaningful
   accumulation implying use, neglect, improvisation, hidden labor or former
   glamour — never "messy as a substitute for design."
-- **B3** Decompress the couch and jukebox pocket. Measure the failing gaps
-  before moving anything; the jukebox should read as a local shrine, framed
-  and approachable, not jammed.
+- **B3** The old jukebox faced a wall 16 cm away. The relocated cabinet faces
+  the public lounge aisle. Its selector plays the three original records and
+  the coin return releases the pickup. The player reached and operated it in
+  the room02 native run. Full candidate qualification and Lily’s review of the
+  setting remain open. **D:/ov_reports/harukiya_jukebox_20261125/**
 - **B4** Room expansion, sub-zones, bar/backbar presence, back-of-house,
   ceiling architecture, materials, lighting, traces of use, unease — the
   remaining commission, sequenced after B1–B3.

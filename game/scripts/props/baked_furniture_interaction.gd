@@ -367,6 +367,10 @@ func _build_jukebox_control() -> void:
 	sign.material_override = _jukebox_sign_material
 	add_child(sign)
 
+	_build_jukebox_audio()
+
+
+func _build_jukebox_audio() -> void:
 	_control_click = AudioStreamPlayer3D.new()
 	_control_click.bus = "Interaction"
 	_control_click.name = "SelectorMechanism"
@@ -567,7 +571,7 @@ func interact_control(control_id: String, _player: Node = null) -> Dictionary:
 	return {}
 
 
-func _press_jukebox_selection() -> Dictionary:
+func _start_jukebox_record() -> bool:
 	if _jukebox_player.playing:
 		_jukebox_selection = (_jukebox_selection + 1) % JUKEBOX_TRACKS.size()
 		_refresh_jukebox_title()
@@ -576,13 +580,18 @@ func _press_jukebox_selection() -> Dictionary:
 	var stream := load(str(track.get("path", ""))) as AudioStream
 	if stream == null:
 		push_warning("Jukebox selection missing: %s" % track_id)
-		return service_wire_card()
+		return false
 	_jukebox_player.stream = stream
 	_jukebox_player.play()
 	_jukebox_coin_state = "HELD"
 	_jukebox_sign_material.emission_enabled = true
 	_control_click.pitch_scale = 1.08
 	_control_click.play()
+	return true
+
+
+func _press_jukebox_selection() -> Dictionary:
+	if not _start_jukebox_record(): return service_wire_card()
 	if _jukebox_selector_tween and _jukebox_selector_tween.is_valid():
 		_jukebox_selector_tween.kill()
 	_jukebox_selector.position.z = 0.337
@@ -595,7 +604,7 @@ func _press_jukebox_selection() -> Dictionary:
 	return service_wire_card()
 
 
-func _pull_jukebox_coin_return() -> Dictionary:
+func _return_jukebox_coin() -> void:
 	var had_coin := _jukebox_coin_state == "HELD"
 	if had_coin:
 		_jukebox_player.stop()
@@ -603,6 +612,10 @@ func _pull_jukebox_coin_return() -> Dictionary:
 		_jukebox_sign_material.emission_enabled = false
 	_control_click.pitch_scale = 0.88 if had_coin else 0.76
 	_control_click.play()
+
+
+func _pull_jukebox_coin_return() -> Dictionary:
+	_return_jukebox_coin()
 	if _jukebox_coin_tween and _jukebox_coin_tween.is_valid():
 		_jukebox_coin_tween.kill()
 	_jukebox_coin_return.position.z = 0.337
