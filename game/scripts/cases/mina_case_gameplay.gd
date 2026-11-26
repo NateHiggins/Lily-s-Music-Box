@@ -349,7 +349,7 @@ func _on_resident_interaction(case_id: String, resident_id: String) -> void:
 		return
 	var state := RealityState.case_state(CASE_ID)
 	dialogue.run_tree(dialogue_tree, _entry_for(state), _apply_flag,
-			_apply_dialogue_action, {"available": choice_available})
+			_apply_dialogue_action, {"available": choice_available, "framing_resident": resident_id})
 
 
 ## A reply that `requires` knowledge flags is offered only once the player

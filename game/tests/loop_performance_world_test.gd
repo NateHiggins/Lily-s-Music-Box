@@ -7,8 +7,9 @@ const State := preload("res://scripts/game/prologue_state.gd")
 const ErrorCapture := preload("res://tests/guide_bell_error_capture.gd")
 const PAIRS := [
 	{"anchor": "tea", "host": "mae_kessler", "guest": "nadia_quell", "place": "visit:6C", "entry": "F06_DOOR_06_Leaf", "minute": 10.0},
-	{"anchor": "drama", "host": "cal_dwyer", "guest": "juno_kells", "place": "visit:5B", "entry": "F05_DOOR_03_Leaf", "minute": 0.0}]
-const REQUIRED := ["tea_arrival", "tea_locked", "drama_arrival", "drama_locked", "native_continuity", "arrival_dialogue_gate", "campaign_restoration"]
+	{"anchor": "drama", "host": "cal_dwyer", "guest": "juno_kells", "place": "visit:5B", "entry": "F05_DOOR_03_Leaf", "minute": 0.0},
+	{"anchor": "box", "host": "mae_kessler", "guest": "nadia_quell", "place": "visit:6C", "entry": "F06_DOOR_06_Leaf", "minute": 48.0}]
+const REQUIRED := ["tea_arrival", "tea_locked", "drama_arrival", "drama_locked", "box_arrival", "box_locked", "native_continuity", "arrival_dialogue_gate", "campaign_restoration"]
 
 var world: OrisonV2RuntimeRoot
 var loop: Node
@@ -100,8 +101,13 @@ func _run() -> void:
 	if not _check(world.campaign_clock.apply_prologue_destination(), "authored historical year adopted"):
 		await _finish(); return
 	# This fixture qualifies route/acting integration, not clue earning or fares.
-	# The declared pinned notebook page admits the existing drama anchor.
+	# Declare the case-wall prerequisites before the door and arrival checks.
 	loop.ledger().items["jonah_page"] = {"pinned": true, "anchor": "notebook", "run": 1}
+	for need: String in loop.table.anchors.box.needs:
+		if loop.table.clue_anchor.has(need):
+			loop.ledger().items[need] = {"pinned": true, "anchor": loop.table.clue_anchor[need], "run": 1}
+		elif not loop.ledger().deductions.has(need):
+			loop.ledger().deductions.append(need)
 	loop.ledger().bank_cents = 5000
 	loop.aide().quiet = true
 	_freeze_routes()

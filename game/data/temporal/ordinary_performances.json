@@ -9,9 +9,9 @@
       "places": ["lobby", "mail_bank"],
       "lines": [
         {"speaker": "evelyn_marsh", "text": "I'm correcting a spelling. You needn't survey the property."},
-        {"speaker": "peter_wren", "text": "The correction ought to fit inside the space provided."},
-        {"speaker": "evelyn_marsh", "text": "It doesn't."},
-        {"speaker": "peter_wren", "text": "Then we should provide more space.", "choice": "Is it finished?"},
+        {"speaker": "peter_wren", "text": "If it crosses that margin, where do I file the excess?"},
+        {"speaker": "evelyn_marsh", "text": "On the back."},
+        {"speaker": "peter_wren", "text": "Then I'll need the back of it too.", "choice": "Is it finished?"},
         {"speaker": "evelyn_marsh", "text": "The word is."}
       ]
     },
@@ -24,9 +24,9 @@
       "places": ["corridor_pause"],
       "lines": [
         {"speaker": "teresa_vale", "text": "Other shoulder."},
-        {"speaker": "cam_ortiz", "text": "I've got two. One's always complaining."},
-        {"speaker": "teresa_vale", "text": "Then give the first one a minute."},
-        {"speaker": "cam_ortiz", "text": "How long have you been up?"},
+        {"speaker": "cam_ortiz", "text": "The left one's just come off its shift."},
+        {"speaker": "teresa_vale", "text": "How about you give both a minute?"},
+        {"speaker": "cam_ortiz", "text": "When do you come off duty?"},
         {"speaker": "teresa_vale", "text": "You first."}
       ]
     },
@@ -39,7 +39,7 @@
       "lines": [
         {"speaker": "lena_ortiz", "text": "Hold still. It's temporary."},
         {"speaker": "omar_bell", "text": "How temporary?"},
-        {"speaker": "lena_ortiz", "text": "Until you let me do it properly."},
+        {"speaker": "lena_ortiz", "text": "Till it earns one of those tags."},
         {"speaker": "omar_bell", "text": "Mine usually outlive the tags."}
       ]
     },
@@ -56,7 +56,7 @@
         {"speaker": "cal_dwyer", "text": "I was considering."},
         {"speaker": "juno_kells", "text": "There."},
         {"speaker": "cal_dwyer", "text": "That was the chair."},
-        {"speaker": "juno_kells", "text": "I know."}
+        {"speaker": "juno_kells", "text": "Let it finish."}
       ]
     },
     {
@@ -70,7 +70,7 @@
         {"speaker": "malcolm_reed", "text": "A little to your left."},
         {"speaker": "sacha_reed", "text": "For the light?"},
         {"speaker": "malcolm_reed", "text": "For the leaf."},
-        {"speaker": "sacha_reed", "text": "There?"},
+        {"speaker": "sacha_reed", "text": "I see. Like this?"},
         {"speaker": "malcolm_reed", "text": "Now it can stand up."}
       ]
     },
@@ -81,11 +81,11 @@
       "excluded_anchors": ["notebook"],
       "places": ["unit", "unit:main", "unit:doorway", "corridor", "lobby"],
       "lines": [
-        {"speaker": "noel_price", "text": "Not on that."},
+        {"speaker": "noel_price", "text": "Not on the paper."},
         {"speaker": "jonah_price", "text": "It's only a draft."},
         {"speaker": "noel_price", "text": "The cup doesn't know that."},
-        {"speaker": "jonah_price", "text": "There was a sentence here."},
-        {"speaker": "noel_price", "text": "Put the cup down. Leave it somewhere to come back to."}
+        {"speaker": "jonah_price", "text": "That was my best sentence."},
+        {"speaker": "noel_price", "text": "Cup here. Leave your finger where that sentence goes."}
       ]
     },
     {
@@ -96,7 +96,7 @@
       "places": ["unit", "unit:main", "unit:front_room"],
       "lines": [
         {"speaker": "mae_kessler", "text": "The clear space is for your coat.", "choice": "I can keep it on."},
-        {"speaker": "mae_kessler", "text": "Then the clear space may remain clear."}
+        {"speaker": "mae_kessler", "text": "Very well. I wasn't going to price it."}
       ]
     }
   ]
