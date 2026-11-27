@@ -6,6 +6,8 @@ var _local_loops: Dictionary = {}
 var _loop_activity := ""
 var _loop_activity_clip := ""
 var _loop_sewing := false
+const SewingHands := preload("res://scripts/characters/sewing_hand_contact.gd")
+var _sewing_hands: RefCounted
 
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
@@ -75,7 +77,7 @@ func _local_loop(clip: String) -> bool:
 ## An arrived resident may wait attentively between their ordinary tasks.
 ## Sewing is a bounded owner request at Lena's arrived historical work mark;
 ## the existing handwork clip claims no needle grip, prop movement or sitting.
-func set_loop_activity(activity: String, sewing: bool = false) -> void:
+func set_loop_activity(activity: String, sewing: bool = false, work_surface: Node3D = null) -> void:
 	if resident_id == "mina_vale" or mina_animation != null: return
 	if activity.is_empty():
 		clear_loop_activity()
@@ -94,6 +96,7 @@ func set_loop_activity(activity: String, sewing: bool = false) -> void:
 		clip = preferred_idle if preferred_idle in ["clip_01", "clip_02", "clip_03", "clip_04", "clip_05"] else "clip_01"
 	if _loop_activity == activity and _loop_activity_clip == clip \
 			and str(_animation_player.current_animation) == clip and _animation_player.is_playing():
+		if handwork: _bind_sewing_hands(work_surface)
 		return
 	if not _local_loop(clip):
 		clear_loop_activity()
@@ -101,12 +104,15 @@ func set_loop_activity(activity: String, sewing: bool = false) -> void:
 	_loop_activity = activity
 	_loop_activity_clip = clip
 	_loop_sewing = handwork
+	if handwork: _bind_sewing_hands(work_surface)
+	else: _release_sewing_hands()
 	# Different authored tasks may share the same attentive attitude; do
 	# not restart its motion just because the schedule's wording changed.
 	if str(_animation_player.current_animation) != clip or not _animation_player.is_playing():
 		_animation_player.play(clip, .22)
 
 func clear_loop_activity() -> void:
+	_release_sewing_hands()
 	var owned_clip := _loop_activity_clip
 	var was_sewing := _loop_sewing
 	_loop_activity = ""
@@ -123,6 +129,27 @@ func clear_loop_activity() -> void:
 			_animation_player.play("clip_03", .22)
 		else:
 			_play_named("idle")
+
+func _bind_sewing_hands(work_surface: Node3D) -> void:
+	if not is_instance_valid(work_surface) or cast_body == null or attention == null:
+		_release_sewing_hands()
+		return
+	if _sewing_hands != null and _sewing_hands.surface == work_surface: return
+	_release_sewing_hands()
+	var contact := SewingHands.new()
+	if contact.bind(cast_body.skeleton, work_surface, _sewing_contact_allowed):
+		_sewing_hands = contact
+		attention.pipeline.work_hands = contact
+
+func _release_sewing_hands() -> void:
+	if _sewing_hands != null and is_instance_valid(attention) and attention.pipeline.work_hands == _sewing_hands:
+		attention.pipeline.work_hands = null
+	_sewing_hands = null
+
+func _sewing_contact_allowed() -> bool:
+	return _loop_sewing and not _walking and is_visible_in_tree() and not _loop_talking() \
+			and not _loop_seated() and _animation_player != null \
+			and str(_animation_player.current_animation) == _loop_activity_clip
 
 func _loop_talking() -> bool:
 	if is_instance_valid(attention) and bool(attention.get("conversing")): return true

@@ -6,7 +6,7 @@ extends SkeletonModifier3D
 ##   1. base        the clip, already applied; never rewritten here
 ##   2. posture     breath in the lower spine
 ##   3. gaze        chest, neck and head toward what the actor attends to
-##   4. contact     optional owner-supplied seated foot contacts
+##   4. contact     optional owner-supplied seated feet or stationary work hands
 ##   5. secondary   settle and overshoot (not yet built)
 ##
 ## Each layer owns its own bones and no two layers share one, so every bone
@@ -58,6 +58,8 @@ var frames := 0
 var cost_usec := 0
 ## Empty for standing/walking actors. The seating owner installs and clears it.
 var seated_feet: RefCounted
+## Optional stationary task owner. Null outside its explicit work lease.
+var work_hands: RefCounted
 
 
 ## Fit the pipeline to a skeleton. False when no rig profile fits it.
@@ -137,6 +139,8 @@ func step(delta: float) -> void:
 	_gaze(body, delta)
 	if seated_feet != null:
 		seated_feet.apply(body, _write)
+	if work_hands != null:
+		work_hands.apply(body, _write)
 	last_facing = head_facing()
 	last_eye = body.get_bone_global_pose(int(profile.bones.head)).origin
 
