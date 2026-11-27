@@ -94,6 +94,7 @@ func _sewing_seat_live() -> bool:
 
 func _sewing_seat_work_allowed() -> bool:
 	return _sewing_seat_live() and _sewing_seat_working and _sewing_seat_blend.amount>=1.0 \
+		and _sewing_seat_feet!=null and _sewing_seat_feet.source_valid() \
 		and not _sewing_seat_recovery_only and is_visible_in_tree() and is_instance_valid(_sewing_seat_machine) and is_instance_valid(_sewing_seat_chair) and not _loop_talking()
 
 func stop_sewing_seat_work() -> void:
