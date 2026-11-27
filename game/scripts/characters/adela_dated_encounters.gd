@@ -27,6 +27,7 @@ const EVENING_END := 1261  # 21:01, the last recorded minute
 const PARAPET := "ROOF_PARAPET_NORTH"
 const PARAPET_STANCE_X := 4.0  # along the north parapet, over the north deck and clear of the tank
 const PARAPET_INSET := .8
+const SHOP := "shop_photo_supplies"
 const ENLARGER := "storm_shop_photo_supplies_enl0"
 const WITNESS_SECONDS := 1.0
 ## Each branch: the intent the lobby choice grants, the attempt flag a witness grants, where and from when.
@@ -47,16 +48,12 @@ var _refused_thread := ""
 var _poll_due := 0.0
 var guests: Array[AnimatedResident] = []
 var _witnessed := 0.0
-var _staged := {}  # the Friday branch the mounted body belongs to; watched every physics tick
 var _stand := {}  # where Adela stands for the staged branch, and the side her guests take
 
 
 func _physics_process(delta: float) -> void:
 	if world.startup_ms <= 0.0:
 		return
-	# Sight is continuous: watched each physics tick with its real delta, and any break starts it again.
-	if is_instance_valid(actor) and not _staged.is_empty():
-		_watch(_staged, delta)
 	_poll_due -= delta
 	if _poll_due > 0.0 and not is_instance_valid(actor):
 		return
@@ -72,6 +69,9 @@ func _physics_process(delta: float) -> void:
 	if is_instance_valid(actor) and encounter.has("attempt"):
 		if guests.size() < encounter.get("guests", []).size():
 			_mount_guests(encounter)
+		# Sight is continuous: a mounted body is resolved every physics tick, after the schedule has retired
+		# anything the clock has closed, and watched with the real delta; any break starts it again.
+		_watch(encounter, delta)
 
 
 func _scheduled_encounter() -> Dictionary:
@@ -100,11 +100,17 @@ func friday_branch() -> Dictionary:
 	return {}
 
 
-## Where a staged branch keeps a resident other than Adela (the runtime's whereabouts hook), or {}. Her routed
-## body then goes out by the ordinary exterior errand, so only the staged body shows her.
+## Where a staged branch keeps Adela or a guest (the runtime's whereabouts hook), or {}. A guest's routed body
+## then goes out by the ordinary exterior errand, so only the staged body shows her.
 func guest_whereabouts(npc: String) -> Dictionary:
 	var branch := friday_branch()
-	if branch.is_empty() or npc not in branch.get("guests", []):
+	if branch.is_empty():
+		return {}
+	if npc == PERSON:
+		if str(branch.place) == "parapet":
+			return {"place": "roof", "activity": "work", "outfit": "street", "detail": "at the parapet, with the night man beside her"}
+		return {"place": "photo_supplies", "activity": "work", "outfit": "street", "detail": "the prints, and the enlarger sulking"}
+	if npc not in branch.get("guests", []):
 		return {}
 	return {"place": "photo_supplies", "activity": "visit", "outfit": "street", "detail": "Adela's prints, three days early"}
 
@@ -164,7 +170,6 @@ func _retire() -> void:
 			guest.queue_free()
 	guests.clear()
 	_stand = {}
-	_staged = {}
 	if not is_instance_valid(actor):
 		return
 	if world.conversations._active_resident == PERSON:
@@ -198,16 +203,17 @@ func _stance(place: String) -> Dictionary:
 			return {"origin": building.to_global(local + Vector3.UP), "room_prefix": "ROOF_DECK_",
 					"facing": building.to_global(Vector3(PARAPET_STANCE_X, ROOF_STANCE.y + 1.0, edge - inward * 2.0))}
 		"enlarger", "prints":
-			var enlarger := building.find_child(ENLARGER, true, false) as Node3D
-			if not is_instance_valid(enlarger):
+			var enlarger: Variant = enlarger_point()
+			if enlarger == null:
 				return {"retry": true}
-			for side: Vector3 in [-enlarger.global_basis.x, enlarger.global_basis.x, -enlarger.global_basis.z, enlarger.global_basis.z]:
-				var origin := enlarger.global_position + side.normalized() * .8
-				origin.y = enlarger.global_position.y + .2
+			var at: Vector3 = enlarger
+			for turn in 8:
+				var side := Vector3.FORWARD.rotated(Vector3.UP, TAU * turn / 8.0)
+				var origin := at + side * .8
 				var floor := _stand_floor(origin)
-				if floor.is_empty() or floor.position.y > enlarger.global_position.y - .5 or not _clear(floor.position):
+				if floor.is_empty() or floor.position.y > at.y - .5 or not _clear(floor.position) 						or not world.passage_region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
 					continue
-				return {"origin": origin, "facing": enlarger.global_position, "beside": side.normalized().cross(Vector3.UP)}
+				return {"origin": origin, "facing": at, "beside": side.cross(Vector3.UP)}
 			return {}
 		"lobby":
 			var clocks := world.witness_clocks.get("node") as Node3D
@@ -248,7 +254,6 @@ func _mount_resident(encounter: Dictionary) -> void:
 	actor = resident
 	_current_thread = thread
 	_stand = {"at": floor.position, "beside": placement.get("beside", Vector3.RIGHT)}
-	_staged = encounter if witnessed else {}
 	_mount_guests(encounter)
 
 
@@ -277,6 +282,20 @@ func routed_visible(id: String) -> bool:
 		if body is Node3D and str(body.get("resident_id")) == id and not guests.has(body) 				and (body as Node3D).is_visible_in_tree():
 			return true
 	return false
+
+
+## The mounted enlarger's own drawn body (its dark casting), once the shop is resident; null until then.
+func enlarger_point() -> Variant:
+	var region: Node = world.get("passage_region")
+	if region == null or str(region.residency.state) != "RESIDENT":
+		return null
+	var fitting := region.shop_fitting(SHOP, "PhotoEnlargers") as Node3D
+	if not is_instance_valid(fitting):
+		return null
+	for draw: MeshInstance3D in fitting.find_children("*", "MeshInstance3D", true, false):
+		if draw.mesh != null and draw.is_visible_in_tree() and str(draw.get_meta("photo_enlargers_part", draw.name)) == ENLARGER + "__dark":
+			return draw.to_global(draw.mesh.get_aabb().get_center())
+	return null
 
 
 func _stand_floor(origin: Vector3) -> Dictionary:
