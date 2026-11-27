@@ -900,7 +900,9 @@ static func _clock_minute(value: String) -> int:
 
 
 ## The threads a person would open now: inside the dates and hours, every
-## `requires` known, not yet heard, and not held for another owner's canon.
+## `requires` known, and not held for another owner's canon. Heard topics stay
+## closed unless an authored retry_until flag leaves an interrupted exchange
+## unfinished; its first-line hearing remains knowledge throughout.
 func active_threads(resident_id: String, date: String, minute: int) -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 	if date == "":
@@ -910,7 +912,10 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 			continue
 		if thread.has("hold") and not playtest_holds:
 			continue
-		if RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
+		var retry_until := str(thread.get("retry_until", ""))
+		if not retry_until.is_empty() and RealityState.has_knowledge(retry_until):
+			continue
+		if retry_until.is_empty() and RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
 			continue
 		var ready := true
 		for flag in thread.get("requires", []):
@@ -1076,6 +1081,9 @@ func _valid_mystery(doc: Dictionary, path: String) -> bool:
 			ok = false
 		if thread.has("hold") and str(thread.hold) == "":
 			errors.append("%s: thread %s hold names nothing" % [path, thread.get("id", "")])
+			ok = false
+		if thread.has("retry_until") and (typeof(thread.retry_until) != TYPE_STRING or str(thread.retry_until).is_empty()):
+			errors.append("%s: thread %s retry_until must name a completion flag" % [path, thread.get("id", "")])
 			ok = false
 	for node_id in nodes:
 		var node: Dictionary = nodes[node_id]

@@ -94,6 +94,59 @@ func _check_reply_deadline(owner: ResidentConversations, panel: CaseDialoguePane
 	owner.playtest_minute = saved_minute
 
 
+
+## A first line remains heard, but leaving before Nadia names Adela must not
+## permanently spend this optional attachment. No other heard topic retries.
+func _check_mae_naming_retry(owner: ResidentConversations, panel: CaseDialoguePanel) -> void:
+	var saved_data: Dictionary=RealityState.data.duplicate(true)
+	var saved_date: String=owner.playtest_date
+	var saved_minute: int=owner.playtest_minute
+	owner.cancel_for_transition()
+	owner.playtest_date="1929-11-09";owner.playtest_minute=16*60
+	# Legacy serialized knowledge from an interrupted earned exchange. Keep
+	# the receipt and first-line witness, never grant the missing naming flag.
+	RealityState.data.knowledge_flags=JSON.parse_string(JSON.stringify(["m_receipt_seen","mt:mk_box"]))
+	var witness: WitnessFixture=WitnessFixture.new()
+	add_child(witness);witness.add_to_group("loop_performances")
+	_check("legacy heard-only Mae exchange offers its optional topic", owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	_check("retry opens through the ordinary topic menu",owner.start_mystery("mae_kessler",true,"mk_box") and panel.current_node_id=="mystery_menu")
+	owner.cancel_for_transition()
+	_check("leaving the retry menu does not name Adela",not RealityState.has_knowledge("m_mae_answered") and RealityState.has_knowledge("mt:mk_box"))
+	witness.nadia_present=false
+	_check("retry still requires actual Nadia witness",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	witness.nadia_present=true
+	RealityState.data.knowledge_flags.erase("m_receipt_seen")
+	_check("retry still requires the earned papers",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	RealityState.grant_knowledge("m_receipt_seen")
+	owner.playtest_minute=21*60+1
+	_check("retry cannot outlive its lawful hours",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	owner.playtest_date="1929-11-10";owner.playtest_minute=16*60
+	_check("retry cannot leak onto the next day",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	owner.playtest_date="1929-11-09"
+	_check("kept heard knowledge does not block the same dated window returning",owner.can_offer_body_mystery("mae_kessler",true,"mk_box") and RealityState.has_knowledge("mt:mk_box"))
+	var opened: bool=owner.start_mystery("mae_kessler",true,"mk_box")
+	_check("heard-only save can enter Mae's real first line again",opened)
+	if opened:
+		panel.choose(0)
+		_check("re-entry preserves first-line hearing without completing naming",panel.current_node_id=="mk_b1" and RealityState.has_knowledge("mt:mk_box") and not RealityState.has_knowledge("m_mae_answered"))
+		witness.nadia_present=false;panel.choose_silence()
+		_check("losing Nadia cancels the retry rather than completing it",not panel.attention_active() and not RealityState.has_knowledge("m_mae_answered"))
+		witness.nadia_present=true
+		opened=owner.start_mystery("mae_kessler",true,"mk_box")
+		_check("a second interruption leaves Mae's unfinished topic reachable",opened)
+		if opened:
+			panel.choose(0)
+			for expected: String in ["mk_b2","mk_b3","mk_b4"]:
+				panel.choose_silence()
+				_check("authored silence reaches "+expected+" without naming",panel.current_node_id==expected and not RealityState.has_knowledge("m_mae_answered"))
+			panel.choose_silence()
+			_check("only Nadia's actual final line completes the naming",panel.current_node_id=="mk_b5" and panel._speaker.text=="NADIA" and RealityState.has_knowledge("m_mae_answered"))
+			panel.choose_silence()
+	_check("completed Mae exchange is not offered again",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box") and RealityState.has_knowledge("mt:mk_box"))
+	owner.cancel_for_transition();witness.free()
+	RealityState.data=saved_data;owner.playtest_date=saved_date;owner.playtest_minute=saved_minute
+
+
 func _run() -> void:
 	var conversations := ResidentConversations.new()
 	var panel := CaseDialoguePanel.new()
@@ -108,6 +161,7 @@ func _run() -> void:
 			not conversations.get_children().any(func(c): return c.get_script() != null and str(c.get_script().resource_path).ends_with("mystery_playtest.gd")))
 
 	_check_reply_deadline(conversations, panel)
+	_check_mae_naming_retry(conversations, panel)
 	# Gates.
 	var thread_ids := func(resident: String, date: String, minute: int) -> Array:
 		return conversations.active_threads(resident, date, minute).map(func(t): return t.id)
