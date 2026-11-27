@@ -427,6 +427,13 @@ func _release_listener() -> void:
 	_listener_attention = null
 
 
+## Rebuilt residents expose their model's attention owner on the routed actor.
+func _resident_attention(actor: Node) -> Node:
+	if actor is AnimatedResident:
+		return (actor as AnimatedResident).attention
+	return actor.get_node_or_null("Attention")
+
+
 func _update_listener() -> void:
 	if _talk_phase.is_empty() or not conversations.performance_active():
 		_release_listener()
@@ -450,8 +457,8 @@ func _update_listener() -> void:
 		_release_listener()
 		return
 	var listener := str(pair[1] if pair[0] == speaker else pair[0])
-	var owner: Node = world.resident_routes[listener].actor.get_node_or_null("Attention")
-	var source: Node = world.resident_routes[speaker].actor.get_node_or_null("Attention")
+	var owner: Node = _resident_attention(world.resident_routes[listener].actor)
+	var source: Node = _resident_attention(world.resident_routes[speaker].actor)
 	if owner != _listener_attention:
 		_release_listener()
 	if owner == null or source == null or not is_instance_valid(source.pipeline) or source.pipeline.frames == 0:
@@ -586,7 +593,7 @@ func _process(delta: float) -> void:
 		actor.set_loop_activity(plans[resident])
 		_presenting[resident] = actor
 		# Optional authored gaze uses the existing attention owner, never IK grips.
-		var attention: Node = actor.get_node_or_null("Attention")
+		var attention: Node = _resident_attention(actor)
 		var focus: String = focuses[resident]
 		if focus.is_empty() or attention == null:
 			_release_gaze(resident)
