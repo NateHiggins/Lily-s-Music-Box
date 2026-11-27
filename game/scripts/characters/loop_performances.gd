@@ -261,7 +261,10 @@ func _sync_visit() -> void:
 	_ordinary_day = day
 	_identity = current
 	_heard.clear()
-	_price_guest_received = false
+	# A restored closed leaf stays closed after the brothers have met.
+	# Each new date or distinct loop visit is a fresh appointment.
+	var reception: Dictionary = _campaign.get("price_reception", {})
+	_price_guest_received = not day.is_empty() and reception.get("day") == day and reception.get("visit") == current
 	_guest_waits.clear()
 	_talk_phase = ""
 	_talk_encounter = {}
@@ -499,6 +502,8 @@ func _receive_price_guest() -> void:
 	for door: DoorProp in host._doors:
 		if is_instance_valid(door) and door.name == &"F04_C_ENTRY_DOOR_Leaf":
 			_price_guest_received = door.request_passage(host.actor, "noel_price")
+			if _price_guest_received and not _ordinary_day.is_empty():
+				_campaign["price_reception"] = {"day": _ordinary_day, "visit": _identity}
 			return
 
 

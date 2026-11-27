@@ -317,7 +317,6 @@ func _first_person_guest(identity: String) -> bool:
 	var saved_eye := player.camera.transform
 	var baseline := player.camera.fov
 	var mouse := Input.mouse_mode
-	var before := _consequence_snapshot()
 	var panel: CaseDialoguePanel = world.conversations.dialogue
 	if not _check(not panel.attention_active() and not player.call_locked, "player owns input before speaking"): return false
 	player.global_position = foot
@@ -326,6 +325,9 @@ func _first_person_guest(identity: String) -> bool:
 	var caller_pose := player.global_transform
 	var caller_eye := player.camera.transform
 	var ok := await _write_caller_frame("before")
+	# Entering the apartment can advance its visit before anyone speaks.
+	# Measure the conversation from the standing mark, keeping every campaign field.
+	var before := _consequence_snapshot()
 	player.use_primary_interaction()
 	var opened := world.conversations.performance_active() and world.conversations._active_resident == identity
 	if opened:
@@ -342,13 +344,14 @@ func _first_person_guest(identity: String) -> bool:
 	var recovered := player.camera.is_current() and is_equal_approx(player.camera.fov, baseline) and player.global_transform.is_equal_approx(caller_pose) and player.camera.transform.is_equal_approx(caller_eye)
 	ok = (await _write_caller_frame("released")) and ok
 	details["first_person_guest"] = {"resident": identity, "standing_mark": foot, "eyes": eyes, "baseline_fov": baseline, "speaking_fov": pushed, "released_fov": player.camera.fov, "replies": replies, "input_restored": released, "pose_restored": recovered}
+	var consequences_preserved := _check(before == _consequence_snapshot(), "guest conversation preserves campaign state at the standing mark")
 	# Restore the review fixture even when a dialogue assertion fails.
 	if opened and panel.attention_active(): world.conversations.cancel_for_transition()
 	camera.make_current()
 	player.global_transform = saved_pose
 	player.camera.transform = saved_eye
 	player.camera.fov = baseline
-	return ok and opened and optical and held and released and recovered and before == _consequence_snapshot()
+	return ok and opened and optical and held and released and recovered and consequences_preserved
 
 func _consequence_snapshot() -> Dictionary:
 	var result := {}
