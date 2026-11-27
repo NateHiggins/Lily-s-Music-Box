@@ -251126,8 +251126,8 @@
     "warehouse_variants"
    ],
    "lines": [
-    87,
-    93
+    88,
+    94
    ],
    "count": 2,
    "context": [
@@ -251158,7 +251158,7 @@
     "warehouse_variants"
    ],
    "lines": [
-    80
+    81
    ],
    "count": 1,
    "context": [
@@ -251188,8 +251188,8 @@
     "warehouse_variants"
    ],
    "lines": [
-    82,
-    90
+    83,
+    91
    ],
    "count": 2,
    "context": [
@@ -289458,6 +289458,131 @@
    "disposition": "REGENERATE_CONSUMER",
    "confidence": "HIGH",
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "da0d81902992c1c5",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/reticle_valve_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    152,
+    153
+   ],
+   "count": 2,
+   "context": [
+    "var bath:=Bath.new();bath.prop_type=\"shower\";bath.fixture=\"shower\";bath.unit=\"4B\";add_child(bath)",
+    "var lavatory:=TapProp.new();lavatory.prop_type=\"sink\";lavatory.fixture=\"bath_sink\";lavatory.unit=\"4B\";lavatory.position=Vector3(4,0,0);add_child(lavatory)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b04e21ad198a3bdb",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/reticle_valve_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    194,
+    194
+   ],
+   "count": 2,
+   "context": [
+    "await stand(Vector3(0,0,-3),Vector3(0,3,-9))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cfd81b5afc16cf2e",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/tests/reticle_world_capture.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    60
+   ],
+   "count": 1,
+   "context": [
+    "var tap:=world.adapter.resolve(\"F04_4B_SHOWER_01\") as TapProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "61fcdb623a2bff0e",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/reticle_world_capture.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    107
+   ],
+   "count": 1,
+   "context": [
+    "for stance: Vector3 in [model.to_global(Vector3(0,.239,0)),model.to_global(Vector3(0,0,-1.05))]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   },

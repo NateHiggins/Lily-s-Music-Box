@@ -296,10 +296,57 @@ func feedback(aimed: Dictionary) -> Dictionary:
 	if active() and constraint is Callable and constraint.is_valid():
 		var observed: Variant=constraint.call()
 		if observed is String and observed in ["grabbed","blocked","limit"]:state=observed
-	return {"state":state,
+	return {"state":state,"guide":guide(descriptor),
 		"transform_axis":transform_axis if active() and player.inspecting() else -1,
 		"transform_rotating":transform_rotating if active() and player.inspecting() else false,
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
+
+## Screen pixels travelled per unit of constraint value at this contact. The
+## hand and the reticle's arrow share this projection, so they cannot disagree.
+func _screen_axis(descriptor: Dictionary,point: Vector3,camera: Camera3D) -> Vector2:
+	var part: Node3D = descriptor.part
+	var frame: Node3D = descriptor.frame
+	var local_axis: Vector3 = descriptor.axis.call() if descriptor.axis is Callable else descriptor.axis
+	var axis: Vector3 = (frame.global_basis * local_axis).normalized()
+	var tangent: Vector3 = axis
+	if descriptor.kind == "hinge":
+		tangent = axis.cross(point-part.global_position)
+		# A click on the centre of a small knob still has a useful lever arm.
+		if tangent.length() < float(descriptor.get("minimum_lever",.025)):
+			tangent = axis.cross(camera.global_basis.x)*.06
+			if tangent.length() < .01: tangent = axis.cross(camera.global_basis.y)*.06
+	var screen_axis: Vector2=(camera.unproject_position(point+tangent*.01)-camera.unproject_position(point))/.01
+	# A closed leaf viewed face-on initially moves into/out of the screen.
+	if screen_axis.length()<24.0 and absf(tangent.dot(camera.global_basis.z))>tangent.length()*.5:
+		screen_axis=Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
+	return screen_axis
+
+## How the aimed or held part is worked, for the reticle and the keyline only.
+## Reads the owner's descriptor; it never writes, scans or decides anything.
+func guide(descriptor: Dictionary) -> Dictionary:
+	var part: Variant=descriptor.get("part")
+	if not part is Node3D or not is_instance_valid(part) or not is_instance_valid(descriptor.get("frame")):return {}
+	var kind:=str(descriptor.get("kind",""))
+	var result:={"archetype":"take" if kind=="free" else "dial" if descriptor.get("control")=="dial" else "slide",
+		"part":part,"label":str(descriptor.get("label","")),"ends":descriptor.get("ends",[]),
+		"tint":descriptor.get("tint",Color(0,0,0,0))}
+	var camera: Camera3D=descriptor.get("view_camera",player.camera)
+	if not is_instance_valid(camera) or not part.is_inside_tree():return result
+	var held:=active() and is_same(descriptor,target)
+	var point: Vector3=part.to_global(contact) if held else descriptor.get("hit_position",part.global_position)
+	if not camera.is_position_behind(point):result["anchor"]=camera.unproject_position(point)
+	if kind=="free":return result
+	var read: Variant=descriptor.get("read")
+	if read is Callable and read.is_valid():
+		var value: Variant=read.call()
+		var span:=float(descriptor.get("maximum",0.))-float(descriptor.get("minimum",0.))
+		if typeof(value) in [TYPE_FLOAT,TYPE_INT] and is_finite(span) and span>0.:
+			result["fraction"]=clampf((float(value)-float(descriptor.minimum))/span,0.,1.)
+	var direction: Vector2=_gesture_axis if held else descriptor.get("gesture_screen_axis",Vector2.ZERO)
+	if (float(descriptor.get("gesture_travel_px",0.))<=0. or direction.is_zero_approx()) and result.has("anchor") and descriptor.has("axis"):
+		direction=_screen_axis(descriptor,point,camera)
+	if direction.is_finite() and not direction.is_zero_approx():result["direction"]=direction.normalized()
+	return result
 
 func _continue_grab() -> bool:
 	# An owner's representation can change while the same primary-click hand
@@ -381,16 +428,7 @@ func move(relative: Vector2) -> void:
 		_expect_motion(before+frame.global_basis.inverse()*displacement)
 		if not before.is_equal_approx(target.read.call()): changed=true
 		return
-	var local_axis: Vector3 = target.axis.call() if target.axis is Callable else target.axis
-	var axis: Vector3 = (frame.global_basis * local_axis).normalized()
 	var point: Vector3 = part.to_global(contact)
-	var tangent: Vector3 = axis
-	if target.kind == "hinge":
-		tangent = axis.cross(point-part.global_position)
-		# A click on the centre of a small knob still has a useful lever arm.
-		if tangent.length() < float(target.get("minimum_lever",.025)):
-			tangent = axis.cross(camera.global_basis.x)*.06
-			if tangent.length() < .01: tangent = axis.cross(camera.global_basis.y)*.06
 	var gesture_pixels: float=float(target.get("gesture_travel_px",0.))
 	var screen_axis := _gesture_axis
 	# Explicit fixed gestures already have a screen direction. A wide door can
@@ -400,10 +438,7 @@ func move(relative: Vector2) -> void:
 		if camera.is_position_behind(point):
 			release()
 			return
-		screen_axis=(camera.unproject_position(point+tangent*.01)-camera.unproject_position(point))/.01
-		# A closed leaf viewed face-on initially moves into/out of the screen.
-		if screen_axis.length()<24.0 and absf(tangent.dot(camera.global_basis.z))>tangent.length()*.5:
-			screen_axis=Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
+		screen_axis=_screen_axis(target,point,camera)
 	if screen_axis.length_squared() < .01: return
 	var step := relative.dot(screen_axis)/screen_axis.length_squared()
 	var gesture_range: float=float(target.maximum)-float(target.minimum)
