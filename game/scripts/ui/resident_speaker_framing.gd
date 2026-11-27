@@ -2,6 +2,7 @@ extends Node
 ## A small lens change on a face already in the caller's shot. The cast owns
 ## the pose; the player keeps the same camera, transform and input throughout.
 
+const PosePipeline := preload("res://scripts/characters/pose_pipeline.gd")
 const RANGE := 3.5
 const MAX_LENS_CHANGE := 7.0
 var _owns_input: Callable
@@ -65,6 +66,11 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable, 
 	set_physics_process(true)
 
 func _eye(body: Skeleton3D, head: int) -> Vector3:
+	# Physics reads the restored clip between skeleton updates. A seated
+	# speaker's composed head can be well below the standing clip.
+	var pose := body.get_node_or_null("PosePipeline") as PosePipeline
+	if pose != null and pose.active and pose.frames > 0:
+		return body.to_global(pose.last_eye + Vector3.UP * 0.08)
 	return body.to_global(body.get_bone_global_pose(head).origin + Vector3.UP * 0.08)
 
 func _partner_at_edge(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
