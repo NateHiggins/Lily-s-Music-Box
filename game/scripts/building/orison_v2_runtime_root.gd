@@ -447,7 +447,8 @@ func _ready() -> void:
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)
 	_record_startup_milestone("waking_organism_ready")
-	caption_preparation.finish_room_captions()
+	if not await caption_preparation.finish_room_captions():
+		push_warning("Optional room caption preparation skipped; retryable on next world")
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)

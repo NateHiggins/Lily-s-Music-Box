@@ -4,15 +4,18 @@ extends RefCounted
 static var _reflection_prepared := false
 
 static var _room_captions_prepared := false
+signal room_caption_shapes_ready
 var _caption_viewport: SubViewport
+var _caption_shapes_ready := false
 
 ## Keep the real shaped glyph surfaces resident through world composition.
-## The companion's existing registration wait flushes Label3D's deferred build.
+## Readiness belongs to this helper, not to an unrelated companion setup path.
 func stage_room_captions(owner: Node) -> void:
-    if _room_captions_prepared or DisplayServer.get_name() == "headless":
+    if is_instance_valid(_caption_viewport) or _room_captions_prepared or DisplayServer.get_name() == "headless":
         return
     if RenderingServer.get_current_rendering_method() != "forward_plus" or RenderingServer.get_rendering_device() == null:
         return
+    _caption_shapes_ready = false
     _caption_viewport = SubViewport.new()
     _caption_viewport.name = "RoomCaptionPreparation"
     _caption_viewport.size = Vector2i(256, 128)
@@ -34,18 +37,49 @@ func stage_room_captions(owner: Node) -> void:
         var label := Intrusions.make_room_caption(index)
         label.position = positions[index]
         _caption_viewport.add_child(label)
+    # Each real Label3D queued its glyph build before this barrier. A framed
+    # companion can initialize synchronously, so its setup supplies no wait.
+    _mark_caption_shapes_ready.call_deferred()
 
-func finish_room_captions() -> void:
+func _mark_caption_shapes_ready() -> void:
+    _caption_shapes_ready = true
+    room_caption_shapes_ready.emit()
+
+func finish_room_captions() -> bool:
     if not is_instance_valid(_caption_viewport):
-        return
-    # The isolated witness submitted both labels on draw one. Later draws
-    # had the same 124 primitives and compiled no additional surfaces.
+        return true # Already prepared or this renderer does not use the path.
+    if not _caption_shapes_ready:
+        await room_caption_shapes_ready
+    if not is_instance_valid(_caption_viewport):
+        return false
+    var labels := 0
+    for child: Node in _caption_viewport.get_children():
+        if child is Label3D:
+            var bounds: AABB = (child as Label3D).get_aabb()
+            if not bounds.position.is_finite() or not bounds.size.is_finite() or bounds.size.length_squared() <= 0.0:
+                _caption_viewport.free()
+                _caption_viewport = null
+                return false
+            labels += 1
+    if labels != 2:
+        _caption_viewport.free()
+        _caption_viewport = null
+        return false
+    # The deferred queue shaped CPU glyph bounds, but no process/physics
+    # turn has delivered their Node3D transforms to the renderer yet.
+    # Flush only this private camera and glyph nodes before the one draw.
+    for private_node: Node in _caption_viewport.get_children():
+        if private_node is Node3D:
+            (private_node as Node3D).force_update_transform()
+    # The draw now sees real glyph geometry. This path yields only to the
+    # deferred queue above, never to a new process/physics frame or input.
     _caption_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
     RenderingServer.force_draw(false)
     RenderingServer.force_sync()
     _caption_viewport.free()
     _caption_viewport = null
     _room_captions_prepared = true
+    return true
 
 func _notification(what: int) -> void:
     if what == NOTIFICATION_PREDELETE and is_instance_valid(_caption_viewport):
