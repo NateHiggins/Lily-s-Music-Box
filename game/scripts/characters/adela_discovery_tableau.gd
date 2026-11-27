@@ -32,7 +32,7 @@ func _interested() -> bool:
 
 func _wanted() -> bool:
 	if not is_instance_valid(world) or not is_instance_valid(loop) or world.startup_ms<=0.0:return false
-	var clock: Node=world.campaign_clock
+	var clock: CampaignClock=world.campaign_clock
 	return clock!=null and eligible(loop.in_visit(),loop.visit_anchor(),clock.day_info(),clock.minute_of_day(),loop.loop_minutes_left())
 
 func _visit_key() -> String:

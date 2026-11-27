@@ -2,7 +2,7 @@ extends Node3D
 ## Real imported Adela/static pose on a synthetic plane; lifecycle/shape only.
 ## Actual yard, nurse contact, native skin sweep and artistic review remain separate.
 const Tableau:=preload("res://scripts/characters/adela_discovery_tableau.gd")
-class Clock extends Node:
+class Clock extends CampaignClock:
 	var minute:=182.0
 	func minute_of_day() -> float:return minute
 	func day_info() -> Dictionary:return {"year":1929,"month":7,"day_of_month":20}
@@ -22,7 +22,7 @@ class Dated extends Node:
 	var actor: Node3D
 class World extends Node3D:
 	var startup_ms:=1.0
-	var campaign_clock: Node
+	var campaign_clock: CampaignClock
 	var adapter:=Adapter.new()
 	var adela_encounters: Node
 	var bar_region: Node
@@ -38,7 +38,7 @@ func _ready() -> void:
 	check(not Tableau.eligible(true,"stairs",{"year":1929,"month":7,"day_of_month":19},182,38),"no body on living date")
 	var world:=World.new();add_child(world)
 	world.adapter.root=Node3D.new();world.add_child(world.adapter.root)
-	var clock:=Clock.new();world.add_child(clock);world.campaign_clock=clock
+	var clock:=Clock.new();world.campaign_clock=clock
 	var visit:=Visit.new();world.add_child(visit)
 	var ground:=StaticBody3D.new();var collider:=CollisionShape3D.new();var shape:=BoxShape3D.new();shape.size=Vector3(8,.10,4);collider.shape=shape;ground.add_child(collider);ground.position=Vector3(-8.5,-.07,12.0);world.add_child(ground)
 	for i in 2:await get_tree().physics_frame
