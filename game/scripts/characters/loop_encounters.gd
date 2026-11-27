@@ -36,6 +36,8 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 					or line.get("text") is not String or str(line.text).is_empty() \
 					or (line.has("choice") and (line.choice is not String or str(line.choice).is_empty())):
 				errors.append("invalid line: " + str(item.id))
+		if item.has("open_stance") and item.open_stance is not bool:
+			errors.append("invalid standing exchange setting: " + str(item.id))
 		if item.has("exclude_dates") and item.exclude_dates is not Array:
 			errors.append("invalid excluded dates: " + str(item.id))
 		if item.has("hours") and (item.hours is not Array or item.hours.size() != 2 \
