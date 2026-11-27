@@ -28,18 +28,22 @@ const RATE := 22050
 ## sleeve in pencil, and the pencil is not evidence of anything.
 const FOUND := {
 	"trace_room0": {
+		"case_label": "Pipe trace",
 		"label": "no sleeve. found behind the pipes.",
 		"seconds": 7.0, "root": 196.0, "breath": 0.30, "air": 0.55,
 	},
 	"trace_1610": {
+		"case_label": "WORS sleeve",
 		"label": "sleeve reads: WORS, and a date that has been rubbed out.",
 		"seconds": 9.0, "root": 233.0, "breath": 0.22, "air": 0.75,
 	},
 	"trace_two_voices": {
+		"case_label": "For M.",
 		"label": "sleeve reads: for M. there is more than one person on it.",
 		"seconds": 8.0, "root": 175.0, "breath": 0.34, "air": 0.40,
 	},
 	"trace_unlabelled": {
+		"case_label": "Bare trace",
 		"label": "no sleeve, no pencil, no date.",
 		"seconds": 6.0, "root": 262.0, "breath": 0.18, "air": 0.85,
 	},

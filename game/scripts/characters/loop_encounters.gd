@@ -31,11 +31,25 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 		for actor: Variant in item.actors:
 			if actor is not String or not conversations.trees.has(actor) or actor == "mina_vale":
 				errors.append("unsupported encounter actor: " + str(actor))
-		for line: Variant in item.lines:
+		var listener_marks := {}
+		for index in item.lines.size():
+			var line: Variant = item.lines[index]
 			if line is not Dictionary or line.get("speaker") not in item.actors \
 					or line.get("text") is not String or str(line.text).is_empty() \
 					or (line.has("choice") and (line.choice is not String or str(line.choice).is_empty())):
 				errors.append("invalid line: " + str(item.id))
+			elif line.has("listener_mark"):
+				var mark: Variant = line.get("listener_mark")
+				if mark not in ["LeftHand", "RightHand"]:
+					errors.append("invalid listener wrist mark: " + str(item.id))
+				else:
+					listener_marks[ResidentConversations.performance_node_id(index)] = mark
+		if not _compile_interjections(item.lines) or not _compile_asides(item):
+			errors.append("invalid interjection in encounter: " + str(item.id))
+		if not listener_marks.is_empty():
+			item["listener_marks"] = listener_marks
+		if item.has("open_stance") and item.open_stance is not bool:
+			errors.append("invalid standing exchange setting: " + str(item.id))
 		if item.has("exclude_dates") and item.exclude_dates is not Array:
 			errors.append("invalid excluded dates: " + str(item.id))
 		if item.has("hours") and (item.hours is not Array or item.hours.size() != 2 \
@@ -44,6 +58,59 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 			errors.append("invalid encounter hours: " + str(item.id))
 		encounters.append(item)
 	return errors.is_empty() and not encounters.is_empty()
+
+## Resolve stable named answers once. An interjection can skip ahead; listening
+## always preserves the authored order and every node retains both exits.
+func _compile_interjections(lines: Array) -> bool:
+	var answers := {}
+	for index in range(lines.size() - 1, -1, -1):
+		var line: Variant = lines[index]
+		if line is not Dictionary or line.has("_interjection"):
+			return false
+		if line.has("interject"):
+			var reply: Variant = line.get("interject")
+			if reply is not Dictionary:
+				return false
+			var label: Variant = reply.get("label")
+			var target: int = answers.get(reply.get("answer"), -1)
+			if label is not String or label.strip_edges().is_empty() or target <= index + 1:
+				return false
+			line["_interjection"] = {"label": label, "goto": ResidentConversations.performance_node_id(target)}
+		if line.has("beat"):
+			var beat: Variant = line.get("beat")
+			if beat is not String or beat.strip_edges().is_empty() or answers.has(beat):
+				return false
+			answers[beat] = index
+	return true
+
+
+## Branch rows follow the straight-through rows so existing node IDs and recordings stay stable.
+func _compile_asides(item: Dictionary) -> bool:
+	if item.has("_sequence"):
+		return false
+	var sequence: Array = item.lines.duplicate(true)
+	for i in item.lines.size():
+		var row: Dictionary = sequence[i]
+		if row.has("_end"):
+			return false
+		if not row.has("aside"):
+			continue
+		var aside: Variant = row.aside
+		if row.has("_interjection") or i == item.lines.size() - 1 or aside is not Dictionary:
+			return false
+		if aside.get("label") is not String or aside.label.strip_edges().is_empty() or aside.get("lines") is not Array or aside.lines.is_empty():
+			return false
+		row["_interjection"] = {"label": aside.label, "goto": ResidentConversations.performance_node_id(sequence.size())}
+		for turn: Variant in aside.lines:
+			if turn is not Dictionary or turn.size() != 2 or turn.get("speaker") not in item.actors or turn.get("text") is not String or turn.text.strip_edges().is_empty():
+				return false
+			sequence.append(turn.duplicate())
+		sequence.back()["_end"] = true
+	if sequence.size() != item.lines.size():
+		sequence[item.lines.size() - 1]["_end"] = true
+		item["_sequence"] = sequence
+	return true
+
 
 func eligible(item: Dictionary, anchor: String) -> bool:
 	if anchor in item.excluded_anchors:
@@ -60,6 +127,10 @@ func eligible(item: Dictionary, anchor: String) -> bool:
 		if route == null or not bool(arrived.call(identity)) or str(route.destination) not in item.places:
 			return false
 		var block: Dictionary = world.resident_whereabouts(identity)
+		# The schedule can move on before the route next samples it. A body
+		# still at yesterday's mark cannot start another beat there.
+		if block.get("place", "") != route.destination:
+			return false
 		if str(block.get("activity", "")) in ["sleeping", "dressing", "shower", "transit"]:
 			return false
 		var case_id := RealityCases.case_for_resident(identity)
@@ -73,6 +144,9 @@ func eligible(item: Dictionary, anchor: String) -> bool:
 			# Matching logical room names do not prove sight through a closed door.
 			var ray := PhysicsRayQueryParameters3D.create(body.global_position + Vector3.UP * 1.35,
 					other.global_position + Vector3.UP * 1.35, 1)
+			var observer := world.get("player") as CollisionObject3D
+			if is_instance_valid(observer):
+				ray.exclude = [observer.get_rid()]
 			if not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():
 				return false
 		bodies.append(body)
@@ -83,5 +157,5 @@ func for_resident(identity: String, anchor: String, heard: Dictionary) -> Dictio
 		var key := "ordinary:" + str(item.id)
 		if identity in item.actors and not heard.has(key) and eligible(item, anchor):
 			return {"phase_id": key, "topic": str(item.topic), "line": str(item.lines[0].text),
-					"sequence": item.lines, "encounter": item}
+					"sequence": item.get("_sequence", item.lines), "encounter": item}
 	return {}

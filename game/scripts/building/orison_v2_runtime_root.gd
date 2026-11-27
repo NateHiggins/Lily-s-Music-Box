@@ -25,6 +25,8 @@ const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
 const Wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd")
+const PlayerEditions := preload("res://scripts/songbook/player_original_custody.gd")
+const RecorderTray := preload("res://scripts/songbook/player_original_output.gd")
 
 var layout: Dictionary = {}
 var acoustic_topology
@@ -103,6 +105,8 @@ var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
 var campaign_clock: CampaignClock
 var temporal_loop: Node
+const AdelaEncounters := preload("res://scripts/characters/adela_dated_encounters.gd")
+var adela_encounters: AdelaEncounters
 var loop_performances: Node
 var loop_stage: Node3D
 var season_fittings: Node
@@ -201,6 +205,9 @@ func _ready() -> void:
 	var started := Time.get_ticks_usec()
 	_startup_started_usec=started
 	startup_milestones.clear()
+	preload("res://scripts/building/v2_entry_render_preparation.gd").prepare_room_reflections()
+	var caption_preparation := preload("res://scripts/building/v2_entry_render_preparation.gd").new()
+	caption_preparation.stage_room_captions(self)
 	var contact_precision := preload("res://scripts/building/orison_v2_contact_precision.gd").new()
 	contact_precision.name="V2ContactPrecision"
 	add_child(contact_precision)
@@ -412,6 +419,17 @@ func _ready() -> void:
 	house_office = preload("res://scripts/building/orison_v2_house_office.gd").mount(self, _blockout, layout, adapter)
 	if not (house_office.get("errors", []) as Array).is_empty():
 		push_error("ORISON V2 RUNTIME: house office incomplete: %s" % [house_office.errors])
+	if not preload("res://scripts/songbook/found_trace_source.gd").mount_building(adapter, house_office.get("dead_letters")):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: found paper traces are missing their building supports")
+		return
+	var recorder := bar_region.actors.get_node_or_null("F01_BAR_SONGBOOK") as Node3D
+	var selected_edition := func() -> String: return PlayerEditions.id_from_item(CarriedCase.hand())
+	if not RecorderTray.mount(recorder, house_office.dead_letters.stock, PlayerEditions.top_id,
+			selected_edition, PlayerEditions.take, PlayerEditions.return_to_tray):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: the Songbook recorder is missing its output tray")
+		return
 	# The possessed household objects V2 had nothing to carry (V1 retirement
 	# plan, section B item 8). They must stand before the witnesses look for them.
 	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)
@@ -429,6 +447,8 @@ func _ready() -> void:
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)
 	_record_startup_milestone("waking_organism_ready")
+	if not await caption_preparation.finish_room_captions():
+		push_warning("Optional room caption preparation skipped; retryable on next world")
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
@@ -1071,6 +1091,16 @@ func _compose_authorities() -> void:
 		push_warning("ORISON V2 RUNTIME: loop performances refused: %s" % [loop_performances.errors])
 		loop_performances.queue_free()
 		loop_performances = null
+	else:
+		loop_performances.install_yard_tableau()
+	# Voiced performed lines (doc408 voice pilot): the released takes, none until Lily accepts them, so the
+	# loop stays silent. ORISON_LOOP_VOICE_MANIFEST names a pilot manifest for development evidence only.
+	var loop_voice := LoopVoicePlayback.new()
+	loop_voice.name = "LoopVoicePlayback"
+	add_child(loop_voice)
+	var voice_manifest := OS.get_environment("ORISON_LOOP_VOICE_MANIFEST")
+	if not loop_voice.setup(conversations, temporal_loop, voice_manifest if not voice_manifest.is_empty() else LoopVoiceManifest.RELEASE):
+		loop_voice.queue_free()
 	# The loop in the rooms: the things each lead's steps lift, the evidence
 	# they uncover, and the case wall in 4B. A room it cannot stage is an
 	# error to fix, not a reason to refuse the building.
@@ -1170,7 +1200,7 @@ func _compose_authorities() -> void:
 	harukiya_counter.name="HarukiyaCounterGlass"
 	if not harukiya_counter.configure(self,bar_region,conversations):
 		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
-	var adela_encounters := preload("res://scripts/characters/adela_dated_encounters.gd").new()
+	adela_encounters = AdelaEncounters.new()
 	adela_encounters.name = "AdelaDatedEncounters"
 	adela_encounters.world = self
 	add_child(adela_encounters)
@@ -1925,6 +1955,11 @@ func resident_whereabouts(npc: String) -> Dictionary:
 	if not bool(info.get("valid", false)):
 		return {}
 	var minute := campaign_clock.minute_of_day()
+	# A staged Friday rescue scene (WR-05) holds its guest there, so her routed body is never seen twice.
+	if adela_encounters != null and adela_encounters.world != null:
+		var staged := adela_encounters.guest_whereabouts(npc)
+		if not staged.is_empty():
+			return staged
 	if loop_performances != null:
 		var performed: Dictionary = loop_performances.whereabouts(npc)
 		if not performed.is_empty():

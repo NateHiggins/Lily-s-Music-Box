@@ -107,7 +107,7 @@ class RegionProofTests(unittest.TestCase):
         self.assertTrue(self.check(data))
 
     def test_exact_bound_curb_step_preserves_floor_transition_and_jump_rejection(self):
-        text=(ROOT/'game/scripts/player/player_controller.gd').read_text()
+        text=(ROOT/'game/scripts/player/player_controller.gd').read_text(encoding='utf-8')
         height=controller_step_height(text)
         self.assertEqual(height,.3)
         first=dict(actual=[0,0,0],physics_frame=10,on_floor=True)

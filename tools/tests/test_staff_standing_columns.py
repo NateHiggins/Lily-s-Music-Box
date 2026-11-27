@@ -1,4 +1,4 @@
-"""Export source seal: isolated temporary copies, never the owner checkout."""
+"""Read the shipped staff bindings and exercise mutations in temporary copies."""
 import copy
 import hashlib
 import json
@@ -9,6 +9,12 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import audit_staff_standing_columns as audit
+
+class ShippedStaffStandingColumnTests(unittest.TestCase):
+    def test_installed_sources_match_the_profiles_used_at_world_startup(self):
+        root = Path(__file__).resolve().parents[2]
+        self.assertEqual(audit.check(root), [])
+
 
 class StaffStandingColumnTests(unittest.TestCase):
     def setUp(self):

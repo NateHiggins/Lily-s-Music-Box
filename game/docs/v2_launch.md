@@ -1,4 +1,4 @@
-# Play V2 and visit the Dream zoo
+# Play V2
 
 The normal title screen uses V2. **Begin the Night**, **New Campaign**, and
 **Continue** share the same session selector. Dream returns rebuild V2 at the
@@ -148,7 +148,14 @@ doors to finish opening and closes doors she opened after people clear their
 swing. Doors already left open remain open. Her bathroom destination uses the
 sink's clear stance rather than standing inside the toilet collision.
 
-## Debug controls and zoo
+## Creature testing in a debug session
+
+The Dream zoo is a developer fixture for inspecting and testing creatures.
+Ordinary campaign starts, Continue and dream returns never mount the exhibit.
+Use the isolated scene `res://scenes/debug/DreamEcologyWarehouseDebug.tscn`
+for creature inspection, or the explicit debug building below to test with
+the walking player and carried lamp. Qualify encounters that players can reach
+in their actual campaign scenes.
 
 To expose **Debug Building** on the title, set the following before the same
 launch command:
@@ -184,8 +191,8 @@ anything unknown, prints a warning and runs V2. The tag
 
 V2 remains an unfinished building. The playable first Mina maintenance/case
 sequence is the supported campaign slice. V1's apartment corruption and
-resident debug shortcuts are not exposed as working V2 controls. The separate
-voxel-light seams recorded under TASKS H23 remain open.
+resident debug shortcuts are not exposed as working V2 controls. TASKS H23
+tracks the optional apartment voxel-light presenter separately.
 
 Mina waits for a clear door swing before requesting movement and closes only
 leaves she opened. If the player operates that leaf again while her close is

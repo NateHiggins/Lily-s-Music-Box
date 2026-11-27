@@ -28,14 +28,18 @@ var _data: Dictionary = {}
 var _random := RandomNumberGenerator.new()
 ## Gaze has its own stream, so it never shifts this actor's blink timing.
 var _gaze_random := RandomNumberGenerator.new()
+var _micro_seed := 0
+var _capture_eye: Variant = null
 var _saccade := Vector2.ZERO
 var _saccade_at := 0.0
 var _avert := Vector2.ZERO
 var _avert_until := -1.0
+var _down_left_until := -1.0
 var _last_gaze := Vector2.ZERO
 var _lean: Dictionary = {}
 var _expression := "neutral"
 var _intensity := 0.0
+var _breath_by_expression := {}
 var _shown: Dictionary = {}
 var _values: Dictionary = {}
 var _eye := Vector2.ZERO
@@ -47,6 +51,9 @@ var _clock := 0.0
 var _cues: Array = []
 var _speech_clock := -1.0
 var _speech_ends := 0.0
+var _audio_drives_speech := false
+var _presentation_clock: Callable
+var _pending_face_delta := 0.0
 var _fallback := false
 var _mouth: Dictionary = {}
 var _talk := 0.0
@@ -59,6 +66,8 @@ func bind(model: Node, seed_text: String) -> bool:
 		return false
 	_data = document
 	# The file keeps rows; the controller works from tables.
+	for row: Dictionary in document.expressions:
+		_breath_by_expression[str(row.name)] = float(row.get("breath_arousal", 0.0))
 	_data["expressions"] = _table(document.get("expressions", []), "name")
 	_data["mouth_shapes"] = _table(document.get("mouth_shapes", []), "letter")
 	_random.seed = hash(seed_text)
@@ -77,7 +86,8 @@ func bind(model: Node, seed_text: String) -> bool:
 		_lean[shape] = _random.randf_range(0.86, 1.0)
 	_blink_at = _random.randf_range(0.6, 3.0)
 	_gaze_random.seed = hash(seed_text + ":gaze")
-	_saccade_at = _gaze_random.randf_range(0.2, 1.0)
+	_micro_seed = hash(seed_text + ":microsaccades")
+	_saccade_at = 0.0
 	return bound
 
 
@@ -111,9 +121,59 @@ func expression() -> String:
 	return _expression
 
 
+## The already-authored expression drives the speed of the ordinary breath.
+func breath_arousal() -> float:
+	return clampf(float(_breath_by_expression.get(_expression, 0.0)) * _intensity, 0.0, 1.0)
+
+
 ## Turn the eyes: x is degrees toward the actor's left (negative, right), y up.
 func look(degrees: Vector2) -> void:
 	_eye_goal = degrees
+
+
+## An explicit acting direction. It supplies no clue, judgement or campaign fact.
+func glance_down_left() -> void:
+	_down_left_until = _clock + 0.65
+
+
+## A jittered event per cell gives a bounded interval and random access at any
+## film frame. The actor and take alone select the marks, without replaying RNG.
+func _microsaccade(seconds: float, take_seed: int) -> Dictionary:
+	var gaze: Dictionary = _data.gaze
+	var shortest := float(gaze.saccade_least_seconds)
+	var period := (shortest + float(gaze.saccade_most_seconds)) * 0.5
+	var cell := floori(seconds / period)
+	var start := _gaze_mark(cell, take_seed, period, shortest)
+	var next := start
+	if seconds < start:
+		cell -= 1
+	else:
+		next = _gaze_mark(cell + 1, take_seed, period, shortest)
+	# A point in an ellipse keeps diagonal movements small, too.
+	var angle := TAU * _fraction(cell, take_seed, 1)
+	var direction := Vector2(cos(angle) * float(gaze.saccade_degrees),
+			sin(angle) * float(gaze.saccade_pitch_degrees))
+	return {"offset": direction * sqrt(_fraction(cell, take_seed, 2)), "next": next}
+
+
+func _gaze_mark(cell: int, take_seed: int, period: float, shortest: float) -> float:
+	return cell * period + (period - shortest) * _fraction(cell, take_seed, 0)
+
+
+func _fraction(cell: int, take_seed: int, channel: int) -> float:
+	return float(hash([_micro_seed, take_seed, cell, channel]) & 65535) / 65536.0
+
+
+## Render the eyes for a fixed film frame. The caller supplies the head-relative
+## target for that frame; speech, the expression, and the lid clock stay owned
+## by this face. No wall time, prior samples or random draws enter the eye pose.
+func pose_gaze_for_frame(frame_number: int, fps: int, take_seed: int, degrees: Vector2) -> bool:
+	if not bound or frame_number < 0 or fps <= 0 or not degrees.is_finite():
+		return false
+	_capture_eye = degrees + Vector2(_microsaccade(float(frame_number) / fps, take_seed).offset)
+	step(0.0)
+	_capture_eye = null
+	return true
 
 
 func blink() -> void:
@@ -124,6 +184,8 @@ func blink() -> void:
 ## Speak a line whose mouth timing is known: rows of start, end and a mouth
 ## shape letter, as the timing tool writes them.
 func speak(cues: Array) -> void:
+	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_cues = cues
 	_fallback = false
 	_speech_clock = 0.0
@@ -135,6 +197,8 @@ func speak(cues: Array) -> void:
 
 ## Speak a line that is heard but has no timing: a restrained jaw, no shapes.
 func speak_untimed(seconds: float) -> void:
+	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_cues = []
 	_fallback = true
 	_speech_clock = 0.0
@@ -145,12 +209,15 @@ func speak_untimed(seconds: float) -> void:
 ## A written or silent line moves no mouth; an interrupted one stops here and
 ## the mouth eases shut.
 func stop_speaking() -> void:
+	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_speech_clock = -1.0
 	_cues = []
 	_fallback = false
 	# The turn is over: the eyes come back to whoever they were on.
 	_avert = Vector2.ZERO
 	_avert_until = -1.0
+	_down_left_until = -1.0
 
 
 ## A speaker often looks away as a turn begins, gathering it, and back to the
@@ -167,8 +234,19 @@ func _begin_turn() -> void:
 	_avert_until = _clock + _gaze_random.randf_range(float(gaze.aversion_least_seconds), float(gaze.aversion_most_seconds))
 
 
+## Absolute seconds in the recorded line. Once playback supplies a position,
+## it owns this timed line until stop or replacement. The ordinary face step
+## still blends the sampled viseme with the eyes and expression in one write.
+func seek_speech(seconds: float, presentation_clock := Callable()) -> void:
+	if not bound or _cues.is_empty() or not is_finite(seconds) or seconds < 0.0:
+		return
+	_audio_drives_speech = true
+	_presentation_clock = presentation_clock
+	_speech_clock = minf(seconds, _speech_ends)
+
+
 func is_speaking() -> bool:
-	return _speech_clock >= 0.0
+	return _speech_clock >= 0.0 and (not _audio_drives_speech or _speech_clock < _speech_ends)
 
 
 ## The mouth timing for a recorded line, or an empty array.
@@ -186,6 +264,27 @@ func value_of(shape: String) -> float:
 
 
 func _process(delta: float) -> void:
+	if _presentation_clock.is_valid() and _audio_drives_speech:
+		var window := get_window()
+		if window != null and window.can_draw():
+			_pending_face_delta += delta
+			if not RenderingServer.frame_pre_draw.is_connected(_compose_for_draw):
+				RenderingServer.frame_pre_draw.connect(_compose_for_draw, CONNECT_ONE_SHOT)
+			return
+	# Flush any time accumulated before the window was hidden or a take ended.
+	if RenderingServer.frame_pre_draw.is_connected(_compose_for_draw):
+		RenderingServer.frame_pre_draw.disconnect(_compose_for_draw)
+	step(delta + _pending_face_delta)
+	_pending_face_delta = 0.0
+
+
+## Sample the mixer after this frame's gameplay work. Compose eyes, expression
+## and the actual mesh mouth once for the picture that is about to be drawn.
+func _compose_for_draw() -> void:
+	if _audio_drives_speech and _presentation_clock.is_valid():
+		_speech_clock = minf(float(_presentation_clock.call()), _speech_ends)
+	var delta := _pending_face_delta
+	_pending_face_delta = 0.0
 	step(delta)
 
 
@@ -223,20 +322,25 @@ func step(delta: float) -> void:
 	var eyes: Dictionary = _data.eyes
 	var gaze: Dictionary = _data.get("gaze", {})
 	var aim := _eye_goal
-	if not gaze.is_empty():
+	if _capture_eye is Vector2:
+		_eye = _capture_eye
+	elif not gaze.is_empty():
 		if _clock >= _saccade_at:
-			_saccade = Vector2.from_angle(_gaze_random.randf() * TAU) * _gaze_random.randf_range(0.0, float(gaze.saccade_degrees))
-			_saccade_at = _clock + _gaze_random.randf_range(float(gaze.saccade_least_seconds), float(gaze.saccade_most_seconds))
+			var mark := _microsaccade(_clock, 0)
+			_saccade = mark.offset
+			_saccade_at = mark.next
 		if _avert_until >= 0.0 and _clock >= _avert_until:
 			_avert = Vector2.ZERO
 			_avert_until = -1.0
-		aim += _saccade + _avert
+		aim += _saccade + (Vector2(12.0, -6.0) if _clock < _down_left_until else _avert)
 		# A large shift of gaze carries a blink with it.
 		if _blink_phase < 0.0 and aim.distance_to(_last_gaze) > float(gaze.blink_with_shift_degrees):
 			_blink_phase = 0.0
 			_blinks_owed = 0
-	_last_gaze = aim
-	_eye = Vector2(_toward(_eye.x, aim.x, delta, 0.07), _toward(_eye.y, aim.y, delta, 0.07))
+		_last_gaze = aim
+	if _capture_eye == null:
+		var limits := Vector2(float(eyes.yaw_degrees), float(eyes.pitch_degrees))
+		_eye = _eye.move_toward(aim.clamp(-limits, limits), rad_to_deg(12.0) * delta)
 	var yaw := clampf(_eye.x / float(eyes.yaw_degrees), -1.0, 1.0)
 	var pitch := clampf(_eye.y / float(eyes.pitch_degrees), -1.0, 1.0)
 	if yaw > 0.0:
@@ -271,11 +375,12 @@ func step(delta: float) -> void:
 
 	# 4. Speech.
 	var mouth_goal: Dictionary = {}
-	if _speech_clock >= 0.0:
+	if _speech_clock >= 0.0 and not _audio_drives_speech:
 		_speech_clock += delta
 		if _speech_clock >= _speech_ends:
 			stop_speaking()
-		elif _fallback:
+	if is_speaking():
+		if _fallback:
 			var jaw: Dictionary = _data.fallback_jaw
 			var beat := _speech_clock * float(jaw.syllables_per_second) * TAU
 			# Two rhythms that do not line up, so the jaw does not tick.
@@ -288,7 +393,7 @@ func step(delta: float) -> void:
 				if at >= float(cue.get("start", 0.0)) and at < float(cue.get("end", 0.0)):
 					mouth_goal = (_data.mouth_shapes as Dictionary).get(str(cue.get("value", "X")), {})
 					break
-	_talk = _toward(_talk, 1.0 if _speech_clock >= 0.0 else 0.0, delta, 0.12)
+	_talk = _toward(_talk, 1.0 if is_speaking() else 0.0, delta, 0.12)
 	var mouth_names: Dictionary = {}
 	for shape: String in mouth_goal:
 		mouth_names[shape] = true

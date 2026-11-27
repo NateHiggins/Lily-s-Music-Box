@@ -1,128 +1,128 @@
 {
   "evidence_class": "Technical rendered surface review",
   "status": "PASS",
-  "reviewer": "Codex",
-  "reviewed_at_utc": "2026-11-26T02:24:09Z",
+  "reviewer": "Claude",
+  "reviewed_at_utc": "2026-11-27T16:11:37Z",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "e64408de6427d255f4a0874e343ab5f4c9ebed6ca704e3a1b81e037f02bcee55",
-  "review_scope": "Compared 23 installed candidate frames with the published main frames. Inspected Vantry\u2019s silhouette in the occupied rooms and checked fixture surfaces, framing and light across the remaining views. Compared installed mesh and material records for the mail bank, watch station, fuse panel and radiator where reflections changed. This is a technical image review.",
+  "surface_inputs_sha256": "597d5221092e7b7a99d18eda6ae19a7878a130aa3102b06331eb039dd3029b6f",
+  "review_scope": "Claude viewed all 23 candidate frames beside main 1b809d371 packet frames (review_01..04.jpg). Technical surface review only: no play, no artistic acceptance.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "ed105cd05501505003a2f7a10caf40b3362a02be006e6043535945692a0b84c6",
-      "observation": "The shorter rotors leave more shelving visible above Vantry. His eyes and grin read at the right edge. The table, pendant and coloured floor patch align across the pair."
+      "sha256": "026cfe802577d7620b9ad1a7950510eacc046da468377d30767eca07811221ef",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.7221); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "520b0918e7c526ca77b186ce65016491a9ee4cd1e3fee1879edeb0b547967340",
-      "observation": "The compact crown and wider expression are visible beside the bath. The lamp spot crosses the same tiles and the curtain keeps its vertical folds."
+      "sha256": "4eb8568401f4f988902f2f80103f2194ef4f71450bf63d05d6ddf706e72ea1db",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.8118); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "ef6ffa7049216107ce85565cad0cb8a920118d726a232efb8bc482abdb3c6d24",
-      "observation": "The resident, table and window keep their relative positions. Vantry\u2019s fixed front plate is visible above the display and his case clears the resident\u2019s face."
+      "sha256": "45e7d78b201c16d14d609ec20889e3e661b4b426981342bd97dffe318786c4d7",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.6889); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "7091061e4b11c4c48188e5f138a412a5497670e3fdc6ec957e70c4ca77692cf5",
-      "observation": "The shortened rotor silhouette stays below the window head in this framing. The shelving, table, window reflection and lit wall retain their shapes."
+      "sha256": "6beba31e9d3f20de3b384a66fe101f6ab1f8167c19069efb9bb46200df544516",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.2503); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "a2d51ab52f05fdaedd2795a0f2d65c2a4846f20cf797c73a29fe2a517c71300b",
-      "observation": "The lower rotor and front face clear the sink silhouette. The lamp pool is softer at the top in the candidate. The cabinet seams, worktop, taps and drain run remain visible."
+      "sha256": "985736ae22f9f2cc3e105484bddb5e48204f4eb17c051ee48d9b2b628259f716",
+      "observation": "Same kitchen framing as main; the blotchy lightmap smear on the wall above the counter in main is gone, leaving a clean lamp pool. Cabinets, kettle, sink and pipes unchanged."
     },
     {
       "file": "boiler.png",
-      "sha256": "55fdd0486cdbc8fcc880950c383bc283630b68d13711ee65cc0ae51d679a96c0",
-      "observation": "The pressure gauge, dark firebox door, vertical piping and floor plate line up. The darker side wall retains its corner."
+      "sha256": "2277c2b589fedef353e2a61756f1137e2c7f6a258104cffcb6c8552f02148379",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.5959); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "bookcase.png",
-      "sha256": "512f7a8e6e163ce9ad3ce2bf078c02cb63bc0defc7e94feb1dfa3c5a812b63f5",
-      "observation": "The chair and bookcase keep their outlines against the closed door. The tabletop catches a broader reflection in the candidate."
+      "sha256": "21ead1b4a6766a4d3fe5e9bd289df23ec35539277f4e7254d029b659701bed38",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.9976); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "c5ba22add9a3e4c5b43e05651f1391288a82b5a952e74a50f95b572bae0ef430",
-      "observation": "Tile joints meet at the same service corner. The bypass, hanger and vertical metal run remain distinct despite a change in reflected light."
+      "sha256": "2fa112e1241ad52f29826491f3c193e655ccc515431ac0567e75be2cb96b5bc6",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.3283); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "595f385f89941a97410c5d8958d2a1998de2aad350b74e952038ac95ac1d2c9a",
-      "observation": "Both views are very dark. Mortar courses and brick relief are visible in the same positions. The view provides little evidence about the mechanism."
+      "sha256": "e273624c1906a8e196818a764bbb0000466ca4e08b16c7bbe6fc8848f884c4a3",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.0513); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "2e4970151392f58a4c3ac903bbf5d00285adb223b38b233c30ab35ab745cb7e4",
-      "observation": "The door and conduit are brighter in the candidate. The switches and instrument faces keep their positions. All 34 installed fuse-panel surface records match main."
+      "sha256": "c279e3b1065ceeb29cb534bceb0f88b40bc25ab9a256025f58a9bddd1a5b2959",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.3405); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "62d0507cd6a8ccd617be69809fe7501411329c3391b41b68ef4f64852fbe19b9",
-      "observation": "The brass rail crosses the same dark booth opening. Foreground supports and floor tiles retain their spacing."
+      "sha256": "e35583b0fe66aeb4ccba0587803bbcb58ed21d23cc54d92be60e3c3e94497ac8",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.2304); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "a2cf9feb30e3fec039d6951596653b64d6b6abd87979c380e3620bb46691c863",
-      "observation": "The orange and white figure, shelf edge and portrait remain legible against the dark green wall."
+      "sha256": "c3336d3405e69b3443276bee144f1ed7365c38de9312259e78fdeec74abdc288",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.116); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "59b631ec6feb4fc57ec652174b7dd92ee4a84648670de84e31bdfc3a73647927",
-      "observation": "The narrow shelf silhouette and framed pictures sit below the same warm ceiling strip. This upward view shows little fine surface detail."
+      "sha256": "0d970066b0a27ae035d08a21f1f81a832d90effd6e6f33d1b1ffef8edea9836a",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1246); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "bdb6af366ead21588bd3416668f4ebb7838b080f99eb5f9c1d20def9d9578137",
-      "observation": "The brass mail fronts are brighter and flatter in this capture. Individual apertures, name cards and bench remain distinct. All 14 installed bank surface records match main."
+      "sha256": "02ec9fb889f95b547e67ae5ba58201589f08845167134c2ee8e02536ed9669bc",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.4072); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "radiator.png",
-      "sha256": "3dd5c155406259e2cbce20421299135d004046231052f1ca9336184007aaab27",
-      "observation": "Radiator fins and the valve sit below the same curtains beside the table. Reflections on the dial are lighter. All 33 installed radiator surface records match main."
+      "sha256": "8ebf648e6803d58047a10a9e80b91646381e8115fcf46a2989305517975eec48",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.5307); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "1bb2954d671634e3c97fef397caaadf2bf4c5f29687bf97246ecf38fd560ad60",
-      "observation": "Railing spacing, landing edges, door and ceiling conduit align. The upper landing remains distinct from the darker opening below."
+      "sha256": "201e87f3c4efb72185338759699f3bc1f242cdca80a9d750981432e16fb13287",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 3.301); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "ebc85fb7cfe8ba145e8f722daea92a21d2102e504f44b0fc88ec30960adbb1f5",
-      "observation": "The tank silhouette, cage, legs and parapet remain distinct against the same roofline and cloud bands."
+      "sha256": "8c485660b4c9b131c9bd1538ddb1593330de034d36c8727a36eb0379544b5f01",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.2543); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "026d333b7bbc4874935370f161d796e634231f4cddfa71a7754c0c33f2f373a9",
-      "observation": "The glass and green lamp remain legible in front of the workbench. The wood floor, board and table shadow keep their orientation."
+      "sha256": "c5343d02dff9033495928bd57231563f918d3ed14d5b1a06f0f6c5f60328dd54",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.0999); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "7f159ef1642dd135dbe410d057348673bc2aaeb89f1f100df6f1c55d5fe0040c",
-      "observation": "The folded fitting, brackets and pipe curve sit against the same tiled corner. The seam along the fitting remains visible."
+      "sha256": "f2bd5b07ef49f73a262c5ff3323e9f30e93603b2a16664c6dd1fb6dfe26a62ec",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.2802); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "5e97604d3e6c1b3f6bd7ec48b1f749336d3a08b4a8b3e13d28d60576031cd598",
-      "observation": "The coloured residue stays under the radiator in the amber lamp pool. Vantry\u2019s casing and compact rotor stay clear of the centre of the effect."
+      "sha256": "3f61f68c6e16db11337b626709f22bef63830b8141c4329c047fe66b1c148221",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.082); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "6e667e9eb9bb83dc3bc9f5804a9f9d7c16733eaa4fbaa271dfeaf70d87fd0757",
-      "observation": "The raised red forms remain individually visible against the radiator. The companion\u2019s open date brow and larger face occupy the right margin."
+      "sha256": "e51de727c32cbc8004e96c2b2d61a404fde7e47bd48b68113478f62390bfdc5f",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.116); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "3915e4ada4a3254eae59b1c2848f92a06bcb07979dbc2bf33690b59943e5b3fd",
-      "observation": "The kettle handle, toaster slots, crumb tray and cups retain their silhouettes. Crumbs remain individually visible on the pale counter."
+      "sha256": "20eb7f6f5e1128b7a6fbf0f1ebf9b776d571862539cc0bd733816005b121b784",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 3.0175); no missing, black, stretched or unmipped surface seen."
     },
     {
       "file": "watch_station.png",
-      "sha256": "65485a01cb0cb12138128e4cbacc451125d3d5106a5b860006a905f1e57d72cc",
-      "observation": "The wall has less reflected light and the right-hand fixture face is brighter in the candidate. The key and station window remain distinct. All 38 installed station surface records match main."
+      "sha256": "3efde22060ee20e5d6f597e91326c04ff9cdf9f7fb5d5862d8e95813296e9d9c",
+      "observation": "Same framing; main shows blotchy light-leak patches on the walls, the candidate is evenly dark. Watch station box, dial and the door edge unchanged."
     }
   ]
 }

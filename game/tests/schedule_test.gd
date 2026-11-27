@@ -28,6 +28,7 @@ func _ready() -> void:
 	var fails := director.self_test()
 	fails += _flavour_days(director)
 	fails += _adela_lives_until(director)
+	fails += _radio_appointment(director)
 	print("[SCHED] RESULT: %s (%d failures)"
 			% ["PASS" if fails == 0 else "FAIL", fails])
 	get_tree().quit(fails)
@@ -77,6 +78,35 @@ func _flavour_days(director: ScheduleDirector) -> int:
 				print("[SCHED] FAIL: %s has a special day inside 19-22 July" % slug)
 				fails += 1
 	print("[SCHED] flavour special days: %d failures" % fails)
+	return fails
+
+
+## Only the existing Saturday tape-trading appointment uses the listening mark.
+## This checks actual schedule resolution, not native movement or clearance.
+func _radio_appointment(director: ScheduleDirector) -> int:
+	var fails := 0
+	var cases := [
+		["sat", 899.0, "unit:workshop"],
+		["sat", 900.0, "unit:radio_listening"],
+		["sat", 1019.0, "unit:radio_listening"],
+		["sat", 1020.0, "unit:workshop"],
+		["fri", 951.0, "unit:workshop"],
+		["tue", 1290.0, "unit:workshop"]]
+	for c: Array in cases:
+		var block := director.resolve("cal_dwyer", str(c[0]), float(c[1]), 166, false)
+		if block.get("place") != c[2]:
+			print("[SCHED] FAIL: Cal radio appointment %s/%s: %s" % [c[0], c[1], block])
+			fails += 1
+	for minute: float in [900.0, 1019.0]:
+		var guest := director.resolve("juno_kells", "sat", minute, 166, false)
+		if guest.get("place") != "visit:5B:listening" or guest.get("with") != ["cal_dwyer"]:
+			print("[SCHED] FAIL: Juno's existing tape-trading visit changed")
+			fails += 1
+	var route: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/cal_dwyer_routine.json"))
+	if route.places.get("unit:radio_listening") != "radio_host" or route.places.get("unit:workshop") != "main":
+		print("[SCHED] FAIL: appointment mark must not replace the workshop")
+		fails += 1
+	print("[SCHED] radio appointment: %d failures" % fails)
 	return fails
 
 

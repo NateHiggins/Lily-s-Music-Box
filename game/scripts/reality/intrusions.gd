@@ -428,6 +428,16 @@ const ROOM_CAPTIONS := [
 	"[WINDOW, FACING THE STREET]", "[SILENCE, CONTINUED]",
 ]
 
+## Shared by the real intrusion and the renderer's private entry preparation.
+static func make_room_caption(index: int) -> Label3D:
+	var label := Label3D.new()
+	label.text = ROOM_CAPTIONS[index % ROOM_CAPTIONS.size()]
+	label.font_size = 20
+	label.pixel_size = 0.0018
+	label.modulate = Color(0.68, 0.86, 0.84, 0.8)
+	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	return label
+
 ## Mina's ladder rungs one to three: the room gets labelled. Accurate,
 ## literal, harmless — which is exactly how it starts for her.
 func _caption_room(count: int) -> bool:
@@ -435,12 +445,7 @@ func _caption_room(count: int) -> bool:
 	for i in props.size():
 		var prop = props[i]
 		_mark(prop)
-		var label := Label3D.new()
-		label.text = ROOM_CAPTIONS[i % ROOM_CAPTIONS.size()]
-		label.font_size = 20
-		label.pixel_size = 0.0018
-		label.modulate = Color(0.68, 0.86, 0.84, 0.8)
-		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		var label := make_room_caption(i)
 		label.position = prop.global_position + Vector3(0, 0.55, 0)
 		world.add_child(label)
 		label.set_meta("expires", Time.get_ticks_msec() / 1000.0 + 6.0)

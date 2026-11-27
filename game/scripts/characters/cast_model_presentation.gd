@@ -494,16 +494,16 @@ func drive_with_clips() -> AnimationPlayer:
 
 
 func _look_with_eyes() -> void:
-	var camera := get_viewport().get_camera_3d()
-	if camera == null or not attention.is_looking() or attention.pipeline.frames == 0:
+	var pipeline: Node = attention.pipeline
+	pipeline.breath_arousal = face.breath_arousal()
+	if not attention.is_looking() or pipeline.frames == 0:
 		face.look(Vector2.ZERO)
 		return
-	var pipeline: Node = attention.pipeline
 	var forward: Vector3 = pipeline.facing_world()
 	var up: Vector3 = skeleton.global_basis.orthonormalized() * pipeline.profile.up
 	up = (up - forward * up.dot(forward)).normalized()
 	var left := up.cross(forward).normalized()
-	var toward: Vector3 = camera.global_position - pipeline.eye_world()
+	var toward: Vector3 = pipeline.focus_point() - pipeline.eye_world()
 	if toward.length_squared() < 0.000001:
 		face.look(Vector2.ZERO)
 		return

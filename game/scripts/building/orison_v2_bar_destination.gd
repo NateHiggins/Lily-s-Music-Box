@@ -195,7 +195,15 @@ func fit_actors(region: OrisonV2BarRegion) -> bool:
 		var old := region.actors.get_node_or_null("BAR_SEAT_%d" % i)
 		if old == null: return false
 		region.actors.remove_child(old); old.free()
-	return true
+	var placement: Dictionary = spec.jukebox
+	var sources: Array = spec.source_records.filter(func(row): return row.id == placement.source_id)
+	if sources.size() != 1 or not retirement_audit.stocks.has(placement.source_id): return false
+	var jukebox := preload("res://scripts/props/harukiya_jukebox.gd").new()
+	jukebox.setup(sources[0])
+	jukebox.position = GameBoot.b2g(placement.at)
+	jukebox.rotation.y = deg_to_rad(float(placement.yaw_deg))
+	region.actors.add_child(jukebox)
+	return jukebox.ready_for_play
 
 func calibrate() -> void:
 	Kit.calibrate(get_node("HarukiyaDrumKit"))

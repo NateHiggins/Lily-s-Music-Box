@@ -214,7 +214,15 @@ func ensure_case(case_id: String, resident_id: String) -> Dictionary:
 ## --- what the player knows -------------------------------------------------
 
 func has_knowledge(flag: String) -> bool:
-	return flag != "" and flag in data.get("knowledge_flags", [])
+	if flag == "":
+		return false
+	if flag in data.get("knowledge_flags", []):
+		return true
+	if flag == "m_mirror_seen":
+		# The 4B prologue records looking behind the visitor and finding it in the glass again.
+		var opening: Dictionary = data.get("prologue", {})
+		return "visitor_seen_again" in opening.get("events", [])
+	return false
 
 
 ## Grants a campaign-wide knowledge flag. Returns true only when it is new,
@@ -393,13 +401,16 @@ func _commit_case_and_household(prepare: Callable, publish: Callable) -> bool:
 	var baseline := data.duplicate(true)
 	var candidate := baseline.duplicate(true)
 	if not prepare.call(candidate) or not _handoff_context_is_current(live_document, live_path) \
-			or data != baseline or (not publish.is_null() and not publish.is_valid()):
+			or data != baseline or not candidate.has(CarriedCase.KEY) \
+			or (baseline.has(HOUSEHOLD_KEY) and not candidate.has(HOUSEHOLD_KEY)) \
+			or (not publish.is_null() and (not publish.is_valid() or not candidate.has(HOUSEHOLD_KEY))):
 		return false
 	var result := _write_synchronous_snapshot(candidate)
 	if not result.ok:
 		return _finish_save(result)
 	data[CarriedCase.KEY] = candidate[CarriedCase.KEY]
-	data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
+	if candidate.has(HOUSEHOLD_KEY):
+		data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
 	if publish.is_valid():
 		publish.call(candidate[HOUSEHOLD_KEY])
 	_finish_save(result)

@@ -27,7 +27,7 @@ func attach(owner: Node3D) -> bool:
 	active = false
 	skeleton.add_child(self)
 	skeleton.move_child(self, 0)
-	ready_ok = stand.load_table() and bind(skeleton)
+	ready_ok = stand.load_table() and bind(skeleton, person_id)
 	return ready_ok
 
 
@@ -79,7 +79,7 @@ func settle(weight: float, state: Dictionary) -> void:
 		skeleton.set_bone_pose(index, _arrival_pose[index].interpolate_with(skeleton.get_bone_pose(index), weight))
 
 
-func _process_modification() -> void:
+func _process_modification_with_delta(_delta: float) -> void:
 	if not _active_sample:
 		return
 	_clock = _sample

@@ -98,10 +98,14 @@ var _mantle_to := Vector3.ZERO
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
 var _protected_call_locked := false
+## A newer protected writer owns its own release, even when both wrote true.
+var call_lock_revision := 0
 var text_input_owner: Node
 var call_locked: bool:
 	get: return _protected_call_locked or is_instance_valid(text_input_owner)
-	set(value): _protected_call_locked = value
+	set(value):
+		call_lock_revision += 1
+		_protected_call_locked = value
 
 ## A text surface owns only its lease. Releasing it cannot unlock a resident,
 ## telephone, newspaper or seated interaction that has since taken over.
@@ -431,7 +435,9 @@ func _update_prompt() -> void:
 				var key_words := str(node.call("key_prompt"))
 				if not key_words.is_empty():
 					var carrier := "[K]" if _current_prompt_family()==&"keyboard" else "[D-PAD UP]" if _current_prompt_family()==&"controller" else "[KEY]"
-					_prompt.text += "\n"+carrier+"  "+key_words
+					if not _prompt.text.is_empty():
+						_prompt.text += "\n"
+					_prompt.text += carrier + "  " + key_words
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()

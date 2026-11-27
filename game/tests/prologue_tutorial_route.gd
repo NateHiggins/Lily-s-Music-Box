@@ -337,10 +337,12 @@ func _review_visitor() -> bool:
 	await _turn_at(visitor)
 	await get_tree().create_timer(.5).timeout
 	if not _require("looked_behind" in director.state.events and not ("visitor_seen_again" in director.state.events) and not carrier.rig.visible,"real mouse turn finds no physical machine and records only the absence investigation"):return false
+	if not _require(not RealityState.has_knowledge("m_mirror_seen"),"the Guests cannot be asked about an unconfirmed reflection"):return false
 	await _shot("reflection_visitor_absent.png")
 	await _turn_at(director.mirror.mirror_center())
 	await get_tree().create_timer(1.2).timeout
 	if not _require("visitor_seen_again" in director.state.events and director.state.phase=="reflection_visitor","mouse return rediscovers the same visitor without immediate crossing"):return false
+	if not _require(RealityState.has_knowledge("m_mirror_seen"),"seeing the visitor again unlocks the Guests' mirror question"):return false
 	await _shot("reflection_visitor_return.png")
 	# Repeat the experiment before permitting the authored crossing gate.
 	await _turn_at(visitor)
@@ -407,8 +409,9 @@ func _review_crossing() -> bool:
 	get_tree().paused=false
 	if not await _crossing_age(4.8):return false
 	var opaque_shadows:=0
+	var arrival_layers: int = carrier.screen_frame.DEVICE_MASK | preload("res://scripts/visuals/cel_style_presentation.gd").DEVICE_NATIVE_LAYER
 	for draw:GeometryInstance3D in carrier.rig.find_children("*","GeometryInstance3D",true,false):
-		_require(draw.layers==carrier.screen_frame.DEVICE_MASK,"arrival preserves native geometry layers: "+str(draw.name))
+		_require(draw.layers == arrival_layers, "arrival preserves the device and native-shading layers: "+str(draw.name))
 		if draw is MeshInstance3D and draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_ON:opaque_shadows+=1
 	_require(clip.world_stage and opaque_shadows>0 and (player.camera.cull_mask&carrier.screen_frame.DEVICE_MASK)!=0 and not carrier.screen_frame.layer.visible and carrier.is_story_absent() and not director.state.effects.companion_materialized,"ordinary world camera and housing shadow carry arrival; foreground, controls and completion remain withheld")
 	await _shot("crossing_emergence.png")

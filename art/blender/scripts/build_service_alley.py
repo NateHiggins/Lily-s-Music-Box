@@ -71,8 +71,21 @@ for index, rect in enumerate(fields):
 walls=[(outer,front,outer+wall,back+wall),
        (apron[0]-wall,back,outer,back+wall),
        (apron[0]-wall,rear,apron[0],back)]
-for index, rect in enumerate(walls):
-    box('BoundaryMasonry',rect,-.30,2.35,'Brick')
+# A person carrying wet washing can pass from the receiving apron to the
+# existing asphalt court. Keep the lamp pier and the stove shaft undisturbed.
+# Both jambs are between original piers. The threshold reuses the buried
+# masonry footprint at the actual court finish elevation.
+court_grade = -.02
+gate_start, gate_end = back-1.91, back-.61
+west_return = walls[-1]
+for rect in walls:
+    if rect == west_return:
+        x0,z0,x1,z1 = rect
+        box('BoundaryMasonry',(x0,z0,x1,gate_start),-.30,2.35,'Brick')
+        box('BoundaryMasonry',(x0,gate_end,x1,z1),-.30,2.35,'Brick')
+        box('BoundaryMasonry',(x0,gate_start,x1,gate_end),-.30,court_grade,'Brick')
+    else:
+        box('BoundaryMasonry',rect,-.30,2.35,'Brick')
     x0,z0,x1,z1=rect
     along_z=(z1-z0)>(x1-x0)
     length=(z1-z0) if along_z else (x1-x0)
@@ -80,7 +93,13 @@ for index, rect in enumerate(walls):
     for n in range(count):
         a=n*length/count; b=(n+1)*length/count
         cap=(x0-.035,z0+a+.002,x1+.035,z0+b-.002) if along_z else (x0+a+.002,z0-.035,x0+b-.002,z1+.035)
-        box('StoneCoping',cap,2.35,2.44,'Coping',.009)
+        if rect == west_return:
+            # Trim the two bordering caps without moving the existing joints.
+            for left,right in [(cap[1],min(cap[3],gate_start)),(max(cap[1],gate_end),cap[3])]:
+                if right-left>.02:
+                    box('StoneCoping',(cap[0],left,cap[2],right),2.35,2.44,'Coping',.009)
+        else:
+            box('StoneCoping',cap,2.35,2.44,'Coping',.009)
     for n in range(math.ceil(length/3.0)+1):
         t=min(length-.12,max(.12,n*3.0))
         pier=(x0-.08,z0+t-.18,x1+.08,z0+t+.18) if along_z else (x0+t-.18,z0-.08,x0+t+.18,z1+.08)

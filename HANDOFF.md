@@ -1,3 +1,21 @@
+## November 26 private recorded editions
+
+A private KEEP leaves a single paper in the tray beside the Harukiya recorder. The player can lift it into the valise, select it into her glove, play the carried edition from the recorder’s shelf, and return the sheet to the tray. The four historical originals use their own reader. This closes the G3 physical-object task. [Historical originals](https://github.com/NateHiggins/Lily-s-Music-Box/pull/587) · [Player-recorded editions](https://github.com/NateHiggins/Lily-s-Music-Box/pull/588).
+
+On **634cd5ed8**, the isolated installed route passed 48 checks across 4 walked final approaches. It entered “low wire” through the ordinary editor, declined the microphone and kept a 13.288-second take. The glove selection survived disk Continue. Shelf playback used the recorded words and backing at the saved 1.335× ratio. After return, the primary placed that edition on the tray with an empty hand. The preceding primary retained the same edition in the glove. [Installed contract](D:/ov_reports/player_originals_pilot06_20261126/installed/shots/runtime_contract.json) · [Three player views](D:/ov_reports/player_originals_pilot06_20261126/installed/review.jpg) · [Primary custody hashes](D:/ov_reports/player_originals_pilot06_20261126/installed/primary_custody.json).
+
+The separate backing test produced distinct backing and guide PCM hashes. The storage, KEEP review, edition custody and playback benches passed 22, 20, 44 and 114 checks respectively. The playback fixture supplies synthetic vocals. Real microphone input, title-screen Continue, human play and artistic acceptance remain open. [Six private proofs](D:/ov_reports/player_originals_20261126/release02/private_receipts.json).
+
+The historical route passed 64 checks across 5 walked approaches. Historical custody passed 65. The original radiator and save route passed 369 checks, including 176 walking waypoints. The valise grid logged 34 successful interaction checks for handling and rearranging carried items. The book and kitchen routes passed 41 and 35 checks. The physical surface run passed 818 checks and all 23 published viewpoints received technical review. All 23 current and published frames were compared for shape, obstruction, material detail and lighting. The sixth-floor kitchen loses metallic highlights under its smoother pool of light. Its mean RGB difference from an earlier PR 587 capture is 0.47 on a 255-point scale. The brighter mail bank and darker watch-station wall also occur in earlier published main frames. The mail nameplates have lower contrast in this take. The brick still obscures the dumbwaiter mechanism. These are technical observations. Human play and artistic acceptance remain open. [Native release case](D:/ov_reports/player_originals_20261126/release02) · [Surface observations](D:/ov_reports/player_originals_20261126/release02/surface/observations.json).
+
+## November 26 historical phonautograms
+
+The boiler hearth, house-office desk, B1 laundry and Harukiya newspaper bundle each hold one original. A primary grab, lift and release moves the paper into a 5 × 3 place in the valise. Select the sheet into the glove to return it to its support. The Harukiya recorder reads the carried sheets. Player-made recordings are the open part of G3.
+
+On **23875cf38**, the [installed route](D:/ov_reports/found_traces_20261126/release02/route/shots/runtime_contract.json) passed 64 checks over five final approaches from staged room starts. The test saved and reloaded the boiler original while selected in the glove, returned and took it again, recovered all four identities from the primary, played one original and released the controls. [Six player views](D:/ov_reports/found_traces_20261126/release02/route/interaction_review.jpg). The separate custody test passed 66 checks including failed transfers and a temporal return.
+
+The original radiator and save route passed 369 checks with 176 walking waypoints. The physical surface inventory passed 818 checks. Review of the 23 rendered pairs found variation in the signal-room and kitchen light, a jagged shadow on the staff-closet roll and a brick-obscured dumbwaiter view. These results cover technical behavior and appearance. Human play and artistic acceptance remain open. [Native release case](D:/ov_reports/found_traces_20261126/release02) · [Review observations](D:/ov_reports/found_traces_20261126/release02/surface/observations.json).
+
 ## November 25 Vantry refit
 
 Vantry’s rotor assembly sits lower over the case. The ordinary campaign date is on a fixed front plate beside the visible three-branch capacitor. The authored face fills more of the lower bezel. Received copy wraps into larger, shorter pages above the face. Walking retains the banking and overshoot, and the instrument steadies while printing and later in a visit. The travel display still borrows the prologue’s clock. The companion reads both clocks without writing either.
@@ -257,6 +275,18 @@ The original failure remains in custody. The stills verify resident presence
 and door state. Foot-slide refinement, play and artistic review remain open.
 
 [Resident qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/STATUS.md).
+
+# Harukiya lounge jukebox
+
+Evidence class: **INERT**.
+
+The cabinet now faces the lounge aisle. Its previous controls faced concrete
+at 16 cm. On source **7d3f9e66e**, the installed player walked to the selector,
+played the three records, operated the coin return and continued to the seating.
+The destination passed 1,543 checks. The release packet includes the 23-view
+surface comparison and 369 original work-order, save and reconstruction checks.
+Lily’s lounge-setting review is open. The destination and live set retain their
+earlier acceptance. Evidence is in **D:/ov_reports/harukiya_jukebox_20261125/**.
 
 # Closed venue, sound and bodega orders
 

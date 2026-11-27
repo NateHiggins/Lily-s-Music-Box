@@ -31,6 +31,7 @@ func _talk(resident_id: String) -> void:
 	actor.externally_driven = true
 	add_child(actor)
 	await get_tree().process_frame
+	check(actor.interact_prompt().is_empty() == (resident_id != WHO_ON), "%s offers body interaction only for an enabled case" % resident_id)
 	actor.interact(null)
 	await get_tree().process_frame
 	actor.queue_free()

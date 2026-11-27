@@ -11,14 +11,15 @@ their own monotonic assignment are reported separately.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
-TOOL_VERSION = 4
+TOOL_VERSION = 5
 DEFAULT_EXCEPTIONS = "tools/data_consumption_exceptions.json"
 DEFAULT_BASELINE = "tools/data_consumption_baseline.json"
 BASELINE_SCHEMA = "orison.data-consumption-baseline.v1"
@@ -164,6 +165,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
         "trust.warm", "trust.cold", "choice.trust_gained", "choice.trust_lost",
         "choice.inferred", "choice.evidence", "emote.clips",
     }),
+    # AdelaDiscoveryTableau checks each imported mesh's surface count by mesh name (mesh_counts[name]).
+    "characters/adela_discovery_pose.json": frozenset({"mesh_counts"}),
     "mystery/teresa_vale.json": frozenset({"entries", "nodes"}),
     "mystery/the_party.json": frozenset({"entries", "nodes"}),
     "mystery/transient_guests.json": frozenset({"entries", "nodes"}),
@@ -177,9 +180,9 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/witness_clocks.json": frozenset({"styles"}),
     # The temporal loop: anchors and deductions keyed by id, read by temporal_loop.gd.
     "temporal/anchors.json": frozenset({"anchors", "deductions"}),
-    # LoopPerformances indexes profiles by resident and phases by anchor/resident.
+    # LoopPerformances indexes profiles by resident, replies by schedule activity and phases by anchor/resident.
     # Only those identity keys are dynamic; every profile/phase field is audited.
-    "temporal/performances.json": frozenset({"profiles", "anchors", "anchors[].actors"}),
+    "temporal/performances.json": frozenset({"profiles", "profiles[].activities", "anchors", "anchors[].actors"}),
     "carried_case.json": frozenset({"forms"}),
     "shops/bodega.json": frozenset({"groups"}),
     "shops/funeral_parlour.json": frozenset({"groups"}),
@@ -873,6 +876,418 @@ def entry_whole_record_paths(root: Path, texts):
         "orison_v2/harukiya_entry.json", "orison_v2/harukiya_entry_retirement.json")}
 
 
+def _expression(source):
+    """Accept only the expression syntax GDScript shares with Python. Never execute it."""
+    try:
+        return ast.parse(source.strip(), mode="eval").body
+    except (SyntaxError, ValueError, RecursionError):
+        return None
+
+
+def _member_projection(node, origins):
+    """Follow a data value through property, subscript and Dictionary.get reads."""
+    if isinstance(node, ast.Name):
+        return origins.get(node.id)
+    if isinstance(node, ast.Attribute):
+        if isinstance(node.value, ast.Name):
+            direct = origins.get(f"{node.value.id}.{node.attr}")
+            if direct:
+                return direct
+        base = _member_projection(node.value, origins)
+        return base + (node.attr,) if base else None
+    if isinstance(node, ast.Subscript) and not isinstance(node.slice, ast.Slice):
+        container, key = node.value, node.slice
+    elif (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+          and node.func.attr == "get" and 1 <= len(node.args) <= 2 and not node.keywords):
+        container, key = node.func.value, node.args[0]
+    else:
+        return None
+    base = _member_projection(container, origins)
+    if base:
+        part = None
+        if isinstance(key, ast.Constant):
+            if isinstance(key.value, str) or (isinstance(node, ast.Subscript) and type(key.value) is int):
+                part = key.value
+            else:
+                return None
+        return base + (part,)
+    return None
+
+
+def _file_identity(argument, constants):
+    value = constants.get(argument, _string_binding(argument))
+    match = PATH_RE.fullmatch(value) if isinstance(value, str) else None
+    return (match.group(1),) if match else None
+
+
+def _simple_member_scopes(text):
+    # The small function scanner handles single-line, named signatures. An
+    # unknown scope can introduce a different binding for any name inside it.
+    return (not re.search(r"\bfunc[ \t]*\(", text)
+            and all(re.search(r"\)[^#]*:\s*(?:#.*)?$", line)
+                    for line in text.splitlines() if re.match(r"^(?:static )?func ", line)))
+
+
+def _changes_collection(text, qualified):
+    # Mutating an exported value breaks the chain even when the reference
+    # itself is stable. A read on the right of an assignment is still valid.
+    target = re.escape(qualified)
+    return re.search(
+        rf"(?m)^[ \t]*(?:self\.)?{target}\b"
+        r"(?:[ \t]*(?:\[[^\n]+?\]|\.\w+))+[ \t]*(?:[+*/%-]?=(?!=))"
+        rf"|\b{target}\.(?:assign|merge|fill|insert|set|append|append_array|push_back|push_front|resize)\s*\(",
+        text)
+
+
+def _exported_data_members(text):
+    """Find single-writer members obtained from a JSON parse or another such member."""
+    members = _member_names(text)
+    constants, _ = source_constants("\n".join(line for line in text.splitlines()
+                                              if not line[:1].isspace()))
+    functions = []
+    member_writes = Counter()
+    for method, (params, body) in _script_functions(text).items():
+        statements = list(logical_statements(body))[1:]
+        locals_ = set(params)
+        locals_.update(re.findall(r"^\s*(?:var|const|for)\s+(\w+)", body, re.MULTILINE))
+        assignments = []
+        for statement in statements:
+            binding = _binding(statement.removeprefix("self."))
+            if not binding:
+                continue
+            name, rhs = binding.group("name", "rhs")
+            writes_member = name in members and (name not in locals_ or statement.startswith("self."))
+            if writes_member:
+                member_writes[name] += 1
+            assignments.append((name, rhs, writes_member))
+        functions.append((method, assignments, locals_))
+
+    known = {}
+    # Pass one traces the file into its loaded collection. Pass two can trace
+    # a dealt card, for example, back through that collection in another method.
+    for _ in range(2):
+        discovered = {}
+        for method, assignments, locals_ in functions:
+            visible_constants = {k: v for k, v in constants.items() if k not in locals_}
+            origins = {k: v for k, v in known.items() if k not in locals_}
+            origins.update({f"self.{k}": v for k, v in known.items()})
+            handles = {}
+            writes = Counter(name for name, _, _ in assignments)
+            for name, rhs, member in assignments:
+                if (writes[name] != 1 or (member and member_writes[name] != 1)
+                        or _changes_collection(text, name)):
+                    continue
+                opened = re.fullmatch(r"FileAccess\.open\(\s*(.+?)\s*,\s*FileAccess\.READ\s*\)", rhs)
+                if opened:
+                    handles[name] = _file_identity(opened[1], visible_constants)
+                    continue
+                parsed = re.fullmatch(r"JSON\.parse_string\(\s*(\w+)\.get_as_text\(\)\s*\)", rhs)
+                direct = re.fullmatch(
+                    r"JSON\.parse_string\(\s*FileAccess\.get_file_as_string\(\s*(.+?)\s*\)\s*\)", rhs)
+                if parsed:
+                    origin = handles.get(parsed[1])
+                elif direct:
+                    origin = _file_identity(direct[1], visible_constants)
+                else:
+                    origin = _member_projection(_expression(rhs), origins)
+                if origin and (parsed or direct):
+                    origin = (frozenset(), *origin)
+                if origin:
+                    if member:
+                        origin = (origin[0] | {method}, *origin[1:])
+                        discovered[name] = origin
+                    origins[name] = origin
+        known.update(discovered)
+    return known
+
+
+def constructed_member_reads(texts):
+    """Prove reads on a specific, directly constructed production class instance."""
+    classes = defaultdict(list)
+    consumers = []
+    ctor = re.compile(r"^var\s+(\w+)(?:\s*:\s*\w+)?\s*:?=\s*(\w+)\.new\(\)\s*(?:#.*)?$", re.MULTILINE)
+    for text in texts.values():
+        # Multiline literals can contain text that looks like top-level code.
+        if '"""' in text or "'''" in text:
+            continue
+        declaration = re.search(r"^class_name\s+(\w+)\b", text, re.MULTILINE)
+        if declaration:
+            classes[declaration[1]].append(text)
+        if instances := ctor.findall(text):
+            consumers.append((text, instances))
+
+    used_types = {kind for _, instances in consumers for _, kind in instances}
+    exports = {kind: _exported_data_members(bodies[0]) for kind, bodies in classes.items()
+               if kind in used_types and len(bodies) == 1 and "JSON.parse_string" in bodies[0]
+               and "res://data/" in bodies[0] and _simple_member_scopes(bodies[0])}
+    reads = defaultdict(set)
+    for text, instances in consumers:
+        for receiver, kind in instances:
+            fields = exports.get(kind)
+            if not fields or re.search(rf"^(?:const|class|var)\s+{kind}\b", text, re.MULTILINE):
+                continue
+            # A reassigned receiver or a shadow has no unique source here.
+            if (re.search(rf"^[ \t]+(?:(?:var|const|for)\s+{receiver}\b|(?:self\.)?{receiver}\s*=(?!=))",
+                          text, re.MULTILINE) or _changes_collection(text, receiver)):
+                continue
+            origins = {f"{receiver}.{key}": path for key, path in fields.items()}
+            calls = {"_init"}
+            candidates = set()
+            # Split at every function, including signatures our scanner cannot
+            # parse. Their statements must not leak into the preceding scope.
+            for body in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)[1:]:
+                if not _simple_member_scopes(body):
+                    continue
+                definition = _script_functions(body)
+                if not definition:
+                    continue
+                parameters, _ = next(iter(definition.values()))
+                if receiver in parameters or f"{receiver}." not in body:
+                    continue
+                for statement in logical_statements(body):
+                    if f"{receiver}." not in statement:
+                        continue
+                    assignment = assignment_match(statement)
+                    rhs = statement[assignment.end():] if assignment else statement.removeprefix("return ")
+                    expression = _expression(rhs)
+                    if expression is None:
+                        continue
+                    nodes = list(ast.walk(expression))
+                    callees = {node.func for node in nodes if isinstance(node, ast.Call)}
+                    calls.update(func.attr for func in callees if isinstance(func, ast.Attribute)
+                                 and isinstance(func.value, ast.Name) and func.value.id == receiver)
+                    for node in nodes:
+                        # The terminal key must be named by the consumer. A
+                        # lookup by variable cannot credit every key in a map.
+                        if node in callees:
+                            continue
+                        path = _member_projection(node, origins)
+                        if path and len(path) > 2 and isinstance(path[-1], str):
+                            candidates.add(path)
+            for required, data_file, *keys in candidates:
+                if required <= calls:
+                    reads[data_file].add(tuple(keys))
+    return reads
+
+
+def _autoload_map_getters(owner):
+    """Resolve a single-key getter for an unchanged, startup-loaded dictionary."""
+    if ("JSON.parse_string" not in owner or '"""' in owner or "'''" in owner
+            or re.search(r"^class\s|\bfunc[ \t]*\(", owner, re.MULTILINE)):
+        return {}
+    methods = re.split(r"(?=^(?:static )?func )", owner, flags=re.MULTILINE)
+    ready = [body for body in methods[1:] if re.match(r"func _ready\(\s*\)", body)]
+    if len(ready) != 1 or not _simple_member_scopes(ready[0]):
+        return {}
+    # Other methods may have multiline headers. Only _ready establishes
+    # origin; check writes across the whole script before using that origin.
+    members = _exported_data_members(methods[0] + ready[0])
+    getters = {}
+    for body in methods[1:]:
+        statements = list(logical_statements(body))
+        if len(statements) != 2:
+            continue
+        header = re.fullmatch(r"func (\w+)\((\w+)(?:\s*:\s*String)?\)\s*->\s*Dictionary:", statements[0])
+        if not header:
+            continue
+        method, argument = header.groups()
+        returned = re.fullmatch(
+            rf"return (?:self\.)?(\w+)\.get\(\s*{argument}\s*,\s*\{{\s*\}}\s*\)", statements[1])
+        if not returned:
+            continue
+        member = returned[1]
+        origin = members.get(member)
+        writes = re.findall(rf"^[ \t]+(?:self\.)?{member}\s*[-+*/%:]?=(?!=)", owner, re.MULTILINE)
+        if (member == argument or not origin or origin[0] != {"_ready"}
+                or len(writes) != 1 or _changes_collection(owner, member)):
+            continue
+        # A nonempty initial member could supply records independently of the JSON.
+        if re.search(rf"^var {member}(?:\s*:\s*Dictionary)?\s*:?=\s*\{{\s*\}}\s*$", owner, re.MULTILINE):
+            getters[method] = (member, origin)
+    return getters
+
+
+def _loop_statements(lines, index):
+    """Statements in this loop only, stopping at an unconditional direct exit."""
+    indent = len(lines[index]) - len(lines[index].lstrip())
+    children = []
+    body_indent = None
+    for child in lines[index + 1:]:
+        if not child.strip() or child.lstrip().startswith("#"):
+            continue
+        child_indent = len(child) - len(child.lstrip())
+        if child_indent <= indent:
+            break
+        if body_indent is None:
+            body_indent = child_indent
+        children.append(child)
+        if child_indent == body_indent and re.match(r"(?:break|continue|return)\b", child.lstrip()):
+            break
+    return "\n".join(children)
+
+
+def _configured_row_fields(root, texts, child, method):
+    """An explicit one-argument super forward reaches the actual literal base."""
+    receiver = texts.get(root / "game" / child, "")
+    parent = re.search(r'^extends\s+["\x27]res://(scripts/[\w./-]+\.gd)["\x27]$', receiver, re.MULTILINE)
+    if not parent:
+        return ()
+    base = texts.get(root / "game" / parent[1], "")
+    if any('"""' in text or "'''" in text for text in (receiver, base)):
+        return ()
+    for is_forwarder, text in ((True, receiver), (False, base)):
+        # Split even at unsupported headers, so another function's statements
+        # cannot accidentally become evidence for this method.
+        bodies = [b for b in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)
+                  if re.match(rf"func {method}\(", b)]
+        if len(bodies) != 1 or not _simple_member_scopes(bodies[0]):
+            return ()
+        lines = bodies[0].expandtabs(4).splitlines()
+        body = _loop_statements(lines, 0)
+        statements = list(logical_statements(lines[0] + "\n" + body))
+        signature = re.fullmatch(rf"func {method}\((\w+)\s*:\s*Dictionary\)\s*->\s*void:", statements[0])
+        if not signature:
+            return ()
+        arg = signature[1]
+        if re.search(rf"(?m)^\s*(?:(?:var|for|const)\s+{arg}\b|{arg}\s*=(?!=))", body) or _changes_collection(body, arg):
+            return ()
+        if is_forwarder and (len(statements) < 2 or statements[1] != f"super.{method}({arg})"):
+            return ()
+    return {path[0] for path in _parameter_reads(body, arg, ())
+            if len(path) == 1 and path[0].isidentifier()}
+
+
+def collaborator_parameter_reads(root, texts):
+    """Find potential field reads of a source array row passed to a fresh local collaborator."""
+    reads = defaultdict(lambda: defaultdict(set))
+    for text in texts.values():
+        if ("JSON.parse_string" not in text or '.new()' not in text
+                or '"""' in text or "'''" in text):
+            continue
+        preloads = dict(re.findall(
+            r'^const (\w+)\s*:?=\s*preload\("res://(scripts/[\w./-]+\.gd)"\)\s*$', text, re.MULTILINE))
+        if not preloads:
+            continue
+        constants, _ = source_constants("\n".join(s for s in text.splitlines() if not s[:1].isspace()))
+        for body in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)[1:]:
+            if 'JSON.parse_string' not in body or not _simple_member_scopes(body):
+                continue
+            function = _script_functions(body)
+            if not function:
+                continue
+            locals_ = set(next(iter(function.values()))[0])
+            locals_.update(re.findall(r"^\s*(?:var|const|for)\s+(\w+)", body, re.MULTILINE))
+            visible = {k: v for k, v in constants.items() if k not in locals_}
+            lines = _loop_statements(body.expandtabs(4).splitlines(), 0).splitlines()
+            if not lines:
+                continue
+            function_indent = len(lines[0]) - len(lines[0].lstrip())
+            origins = {}
+            for i, line in enumerate(lines):
+                statement = line.partition("#")[0].strip()
+                binding = _binding(statement)
+                if binding:
+                    name, rhs = binding.group("name", "rhs")
+                    source = re.fullmatch(r"JSON\.parse_string\(FileAccess\.get_file_as_string\(([^()]+)\)\)", rhs)
+                    if (source and len(line) - len(line.lstrip()) == function_indent
+                            and statement.startswith("var ") and not _changes_collection(body, name)
+                            and len(re.findall(rf"(?m)^\s*(?:var\s+)?{name}(?:\s*:\s*\w+)?\s*:?=(?!=)", body)) == 1):
+                        origins[name] = _file_identity(source[1], visible)
+                loop = re.fullmatch(r"for (\w+)\s*:\s*Dictionary in (\w+)(?:\.(\w+)|\.get\(\"(\w+)\",\s*\[\]\)):", statement)
+                if not loop or not origins.get(loop[2]):
+                    continue
+                row, container = loop[1], loop[3] or loop[4]
+                block = _loop_statements(lines, i)
+                if (re.search(rf"(?m)^\s*(?:(?:var|const|for)\s+{row}\b|{row}\s*=(?!=))", block)
+                        or _changes_collection(block, row) or re.search(rf"\b{row}\.(?:erase|clear|get_or_add)\(", block)):
+                    continue
+                if not block:
+                    continue
+                indent = len(block) - len(block.lstrip())
+                for ctor in re.finditer(rf"(?m)^ {{{indent}}}var (\w+)\s*:?=\s*(\w+)\.new\(\)[ \t]*$", block):
+                    local, kind = ctor.groups()
+                    if kind not in preloads or kind in locals_:
+                        continue
+                    if len(re.findall(rf"(?m)^\s*(?:(?:var|const|for)\s+{local}\b|{local}\s*=(?!=))", block)) != 1:
+                        continue
+                    call_pattern = re.compile(rf"(?m)^[ \t]*{local}\.(\w+)\({row}\)[ \t]*$")
+                    for call in call_pattern.finditer(block, ctor.end()):
+                        # A bare row escaping earlier could be replaced or
+                        # mutated by an unknown collaborator.
+                        if re.search(rf"\b{row}\b(?!\s*(?:\.|\[))", block[:call.start()]):
+                            continue
+                        for field in _configured_row_fields(root, texts, preloads[kind], call[1]):
+                            reads[origins[loop[2]][0]][(container, None, field)].add(f"{kind}.{call[1]}")
+    return reads
+
+
+def _getter_loop_fields(text, receiver, method, member):
+    """The current key of the getter's own map identifies a real source entry."""
+    if (f"{receiver}.{method}(" not in text or '"""' in text or "'''" in text
+            or re.search(rf"\b(?:var|const|for|class_name|class)\s+{receiver}\b", text)):
+        return
+    loop = re.compile(rf"for (\w+)(?:\s*:\s*String)?\s+in\s+{receiver}\.{member}\s*:")
+    for body in re.split(r"(?=^(?:static )?func )", text, flags=re.MULTILINE)[1:]:
+        if f"{receiver}.{method}(" not in body or not _simple_member_scopes(body):
+            continue
+        defs = _script_functions(body)
+        if not defs or receiver in next(iter(defs.values()))[0]:
+            continue
+        lines = body.expandtabs(4).splitlines()
+        for i, line in enumerate(lines):
+            match = loop.fullmatch(line.partition("#")[0].strip())
+            if not match:
+                continue
+            key = match[1]
+            block = _loop_statements(lines, i)
+            if re.search(rf"(?m)^\s*(?:(?:var|const|for)\s+{key}\b|{key}\s*[-+*/%:]?=(?!=))", block):
+                continue
+            for statement in logical_statements(block):
+                if f"{receiver}.{method}(" not in statement:
+                    continue
+                assignment = assignment_match(statement)
+                rhs = statement[assignment.end():] if assignment else statement.removeprefix("return ")
+                if rhs.startswith(("if ", "elif ")) and rhs.endswith(":"):
+                    rhs = rhs.split(" ", 1)[1][:-1]
+                expr = _expression(rhs)
+                if expr is None:
+                    continue
+                for call in ast.walk(expr):
+                    if (isinstance(call, ast.Call) and isinstance(call.func, ast.Attribute)
+                            and call.func.attr == "get" and 1 <= len(call.args) <= 2 and not call.keywords
+                            and isinstance(call.args[0], ast.Constant) and isinstance(call.args[0].value, str)
+                            and ast.unparse(call.func.value) == f"{receiver}.{method}({key})"):
+                        yield call.args[0].value
+
+
+def autoload_getter_reads(root, texts):
+    # A syntactic call may sit behind a diagnostic guard, short circuit or
+    # early exit. Record a potential read; never mark every entry consumed.
+    reads = defaultdict(lambda: defaultdict(set))
+    project = root / "game/project.godot"
+    if not project.is_file():
+        return reads
+    config = project.read_text(encoding="utf-8")
+    section = re.search(r"(?ms)^\[autoload\][ \t]*\n(.*?)(?=^\[|\Z)", config)
+    if not section:
+        return reads
+    for receiver, path in re.findall(r'^(\w+)\s*=\s*"\*res://(scripts/[\w./-]+\.gd)"\s*$', section[1], re.MULTILINE):
+        if len(re.findall(rf"^{receiver}\s*=", section[1], re.MULTILINE)) != 1:
+            continue
+        owner = texts.get(root / "game" / path, "")
+        for method, (member, origin) in _autoload_map_getters(owner).items():
+            qualified = f"{receiver}.{member}"
+            if any(qualified in text and (re.search(rf"\b{re.escape(qualified)}\s*=(?!=)", text)
+                                          or _changes_collection(text, qualified))
+                   for text in texts.values()):
+                continue
+            _, file, *keys = origin
+            for text in texts.values():
+                for field in _getter_loop_fields(text, receiver, method, member):
+                    reads[file][(*keys, None, field)].add(f"{receiver}.{method}")
+    return reads
+
+
 def scan(root: Path, exception_path: Path):
     exceptions = load_exceptions(exception_path)
     sources = production_sources(root)
@@ -889,6 +1304,9 @@ def scan(root: Path, exception_path: Path):
             token_users.setdefault(match.group("key"), set()).add(rel)
 
     inherited_reads = inherited_parameter_reads(root, texts)
+    member_reads = constructed_member_reads(texts)
+    getter_reads = autoload_getter_reads(root, texts)
+    collaborator_reads = collaborator_parameter_reads(root, texts)
     whole_records = entry_whole_record_paths(root, texts)
     records = []
     data_root = root / "game/data"
@@ -915,12 +1333,39 @@ def scan(root: Path, exception_path: Path):
         # existing token-reader rule reports remaining schema leaves per
         # file, retaining their occurrence counts.
         leaves = Counter()
+        conditional = set()
+        potential_getters = defaultdict(set)
+        potential_collaborators = defaultdict(set)
+        possible_row_occurrences = Counter()
         for field, occurrences in fields.items():
             # Credit only this exact validated subtree before collapsing leaves.
             # An equally named sibling (e.g. metadata.rect) still needs a reader.
             if any(field.startswith(prefix + ".") for prefix in whole_records.get(rel_data, ())):
                 continue
-            leaves[field.replace("[]", "").rsplit(".", 1)[-1]] += occurrences
+            declared = field.replace("[]", ".[]").strip(".").split(".")
+            # A dynamic lookup can select a record from an array or declared
+            # identity map. It does not establish every named dictionary key.
+            leaf = field.replace("[]", "").rsplit(".", 1)[-1]
+            getter_path = tuple(None if segment == "[]" else segment for segment in declared)
+            potential_getters[leaf].update(getter_reads.get(rel_data, {}).get(getter_path, ()))
+            if callees := collaborator_reads.get(rel_data, {}).get(getter_path):
+                potential_collaborators[leaf].update(callees)
+                possible_row_occurrences[leaf] += occurrences
+            proven = False
+            for access in member_reads.get(rel_data, ()):
+                if len(declared) != len(access) or access[-1] != leaf:
+                    continue
+                pairs = list(zip(declared, access))
+                if all(key == step or (key == "[]" and (step is None or type(step) is int))
+                       for key, step in pairs):
+                    proven = True
+                    break
+                if all(key == step or step is None or (key == "[]" and type(step) is int)
+                       for key, step in pairs):
+                    conditional.add(leaf)
+            if proven:
+                continue
+            leaves[leaf] += occurrences
         for leaf, occurrences in sorted(leaves.items()):
             field = leaf
             # A same-named token in an unrelated subsystem is not a reader.
@@ -937,9 +1382,22 @@ def scan(root: Path, exception_path: Path):
             key = f"{rel_repo}:{field}"
             field_exception = exceptions.get("fields", {}).get(key)
             if not users and not forwarded:
+                detail = ("a consumer reads this field through a dynamic dictionary key; "
+                          "the individual named entries are unproven"
+                          if leaf in conditional else "zero production token readers")
+                if potential_getters.get(leaf):
+                    methods = ", ".join(sorted(potential_getters[leaf]))
+                    detail = (f"potential read through JSON-backed getter {methods}; "
+                              "runtime reachability and individual entry coverage are unproven")
+                if potential_collaborators.get(leaf):
+                    methods = ", ".join(sorted(potential_collaborators[leaf]))
+                    count = possible_row_occurrences[leaf]
+                    note = (f"potential source-row parameter read through {methods} "
+                            f"({count} source-row occurrences); per-entry runtime coverage is unproven")
+                    detail = detail + "; " + note if potential_getters.get(leaf) or leaf in conditional else note
                 records.append({"kind": "FIELD_UNREAD", "file": rel_repo,
                                 "field": field, "occurrences": occurrences,
-                                "detail": field_exception or "zero production token readers",
+                                "detail": field_exception or detail,
                                 "excepted": bool(field_exception)})
 
     state_file = root / "game/scripts/game/reality_game_state.gd"
