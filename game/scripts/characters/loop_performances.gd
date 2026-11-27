@@ -17,6 +17,8 @@ var _campaign: Dictionary = {}
 var _ordinary_day := ""
 var ordinary: RefCounted
 var _talk_encounter: Dictionary = {}
+var _standing_speaker: AnimatedResident
+var _standing_yaw := 0.0
 var _listener_attention: Node
 var _listener_point := Vector3.ZERO
 var _heard: Dictionary = {}
@@ -386,9 +388,29 @@ func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	return true
 
 
-func _on_speaker_started(_resident: String, _entry: String) -> void:
+func _on_speaker_started(resident: String, _entry: String) -> void:
 	if not _talk_phase.is_empty():
 		_update_listener()
+		if _talk_encounter.get("open_stance", false) and is_instance_valid(_listener_attention):
+			_open_standing_reply(resident)
+
+
+## A routed resident turns when clicked. A second speaker inherits the panel
+## without a click; open her stance to the caller while acknowledging her partner.
+func _open_standing_reply(resident: String) -> void:
+	var body := world.resident_routes[resident].actor as AnimatedResident
+	var caller := world.get("player") as Node3D
+	var partner := _listener_attention.get_parent() as Node3D
+	if body == null or caller == null or partner == null or not body.is_visible_in_tree():
+		return
+	var toward_caller := caller.global_position - body.global_position
+	var toward_partner := partner.global_position - body.global_position
+	if Vector2(toward_caller.x, toward_caller.z).length_squared() < .01 or Vector2(toward_partner.x, toward_partner.z).length_squared() < .01:
+		return
+	var caller_yaw := atan2(toward_caller.x, toward_caller.z)
+	var partner_yaw := atan2(toward_partner.x, toward_partner.z)
+	_standing_yaw = caller_yaw + clampf(angle_difference(caller_yaw, partner_yaw) * .5, -PI / 5.0, PI / 5.0)
+	_standing_speaker = body
 
 
 func _on_speaker_ended(_resident: String) -> void:
@@ -399,6 +421,7 @@ func _on_speaker_ended(_resident: String) -> void:
 
 
 func _release_listener() -> void:
+	_standing_speaker = null
 	if is_instance_valid(_listener_attention) and _listener_attention.ensemble_target == _listener_point:
 		_listener_attention.ensemble_target = null
 	_listener_attention = null
@@ -466,6 +489,14 @@ func _receive_price_guest() -> void:
 func _process(delta: float) -> void:
 	if data.is_empty() or not is_instance_valid(world) or not is_instance_valid(loop):
 		return
+	if is_instance_valid(_standing_speaker):
+		if conversations._active_resident != _standing_speaker.resident_id or not conversations.owns_dialogue_input(world.get("player") as PlayerController):
+			_standing_speaker = null
+		else:
+			_standing_speaker.global_rotation.y = rotate_toward(
+					_standing_speaker.global_rotation.y, _standing_yaw, deg_to_rad(210.0) * delta)
+			if absf(angle_difference(_standing_speaker.global_rotation.y, _standing_yaw)) < .001:
+				_standing_speaker = null
 	_poll += delta
 	if _poll < 0.25:
 		return
