@@ -27,8 +27,11 @@ var loop: Node
 var stream_loader: Callable
 ## Test seam: the playback clock in seconds. Defaults to the player's own position.
 var clock_source: Callable
-## What happened, in order, for tests and evidence: {"event": "play"|"stop"|"face", ...}.
+## Diagnostics are off in the game. A fixture turns them on to read what happened, in order:
+## {"event": "play"|"stop"|"face", ...}, keeping only the last EVENT_LIMIT entries.
+var diagnostics := false
 var events: Array[Dictionary] = []
+const EVENT_LIMIT := 64
 
 var _player: AudioStreamPlayer
 var _panel: Node
@@ -37,6 +40,7 @@ var _bound := {}
 var _faces: Dictionary = {}  # resident id -> {"body": Node, "segment": Dictionary, "on": bool}
 var _campaign: Variant = null
 var _started_ms := 0
+var _bind_pending := false
 
 
 func setup(resident_conversations: Node, temporal_loop: Node, manifest_path := LoopVoiceManifest.RELEASE) -> bool:
@@ -71,12 +75,19 @@ func playing() -> bool:
 func _on_node_shown(_node_id: String) -> void:
 	# The old line ends with its node; faces are left to the conversation's own speech owner, which restarts or
 	# ends them on this same signal. The new node may bind its own take once the speaker swap has finished.
+	# Several advances before the next idle frame queue a single bind, which reads the panel as it then stands:
+	# only the final node can play, and only once.
 	if not _take.is_empty():
 		stop("node_changed", false)
-	_bind.call_deferred()
+	if not _bind_pending:
+		_bind_pending = true
+		_bind.call_deferred()
 
 
 func _bind() -> void:
+	_bind_pending = false
+	if not _take.is_empty():
+		return
 	if manifest == null or manifest.count() == 0 or not bool(conversations.call("performance_active")):
 		return
 	var tree: Dictionary = conversations.get("_performance_tree")
@@ -107,7 +118,7 @@ func _bind() -> void:
 	_player.play()
 	_started_ms = Time.get_ticks_msec()
 	_start_faces(take, actor)
-	events.append({"event": "play", "actor": actor, "node": node_id, "line_id": take.line_id})
+	_note({"event": "play", "actor": actor, "node": node_id, "line_id": take.line_id})
 	played.emit(take)
 
 
@@ -141,11 +152,11 @@ func _process(_delta: float) -> void:
 		if inside and not face_row.on:
 			body.call("speak_cues", face_row.cues)
 			face_row.on = true
-			events.append({"event": "face", "actor": who, "on": true, "at": at})
+			_note({"event": "face", "actor": who, "on": true, "at": at})
 		elif not inside and face_row.on:
 			body.call("stop_speaking")
 			face_row.on = false
-			events.append({"event": "face", "actor": who, "on": false, "at": at})
+			_note({"event": "face", "actor": who, "on": false, "at": at})
 		if face_row.on:
 			_seek_face(body, at)
 	var ended := at >= float(_take.seconds) if float(_take.seconds) > 0.0 else false
@@ -213,11 +224,19 @@ func stop(reason: String, faces := true) -> void:
 			var body: Node = _faces[who].body
 			if _faces[who].on and is_instance_valid(body):
 				body.call("stop_speaking")
-	events.append({"event": "stop", "reason": reason, "actor": str(_bound.get("actor", ""))})
+	_note({"event": "stop", "reason": reason, "actor": str(_bound.get("actor", ""))})
 	_take = {}
 	_bound = {}
 	_faces.clear()
 	stopped.emit(reason)
+
+
+func _note(event: Dictionary) -> void:
+	if not diagnostics:
+		return
+	events.append(event)
+	if events.size() > EVENT_LIMIT:
+		events = events.slice(events.size() - EVENT_LIMIT)
 
 
 func _exit_tree() -> void:

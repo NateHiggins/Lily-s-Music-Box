@@ -1,15 +1,18 @@
 extends Node
 ## Loop voice pilot playback (doc408; Codex's runtime handoff 2026-11-26). The real conversation director and
-## panel with authored trees; the five packed Evelyn takes injected from the external case (LOOP_VOICE_PILOT,
-## a runtime_manifest.json) with the recording catalog (LOOP_VOICE_CATALOG) for the exact lines; a stub cast
+## panel with authored trees; the 27 packed loop takes of Codex's pinned playback manifest injected from the
+## external case (LOOP_VOICE_PILOT, a runtime_manifest.json; LOOP_VOICE_PILOT_SHA256 pins it) with the recording
+## catalog (LOOP_VOICE_CATALOG) for the exact lines; a stub cast
 ## body that records its mouth; an injected clock so the jaw's alignment to the audio is checked without a sound
 ## device. Proves: quiet fallback, exact actor+digest binding, playback and face on the audio clock, and a stop on
-## the same speaker's next line, a speaker switch, a foreign tree, immediate exit, a loaded save and Continue
+## the same speaker's next line, rapid advances (one play, of the final node), a speaker switch, a foreign tree,
+## an authored silent-delivery node shown through the panel, immediate exit, a loaded save and Continue
 ## (the node leaving the tree), with the Dialogue bus left as it was. Writes a schema-2 runtime_contract.json to
 ## SHOT_DIR. No in-world body, render, or artistic or audio-quality acceptance.
 
-const REQUIRED := ["quiet_fallback", "exact_binding", "audio_clock_face", "same_speaker_next", "speaker_switch",
-		"foreign_replacement", "silent_delivery", "immediate_exit", "state_loaded", "continue_exit", "bus_stable"]
+const REQUIRED := ["quiet_fallback", "exact_binding", "audio_clock_face", "same_speaker_next", "rapid_advance",
+		"speaker_switch", "foreign_replacement", "silent_delivery", "authored_silent_node", "diagnostics_bounded",
+		"immediate_exit", "state_loaded", "continue_exit", "bus_stable"]
 
 class StubFace extends RefCounted:
 	var _speech_clock := -1.0
@@ -82,6 +85,10 @@ func _run() -> void:
 	if not _check(FileAccess.file_exists(pilot) and FileAccess.file_exists(catalog_path), "pilot manifest and catalog are given"):
 		await _finish()
 		return
+	var pin := OS.get_environment("LOOP_VOICE_PILOT_SHA256").to_lower()
+	if not _check(pin.is_empty() or FileAccess.get_sha256(pilot) == pin, "the pilot manifest matches its pinned SHA-256"):
+		await _finish()
+		return
 	for row: Dictionary in JSON.parse_string(FileAccess.get_file_as_string(catalog_path)).lines:
 		lines[str(row.line_id)] = str(row.text)
 	lease = RealityState.begin_preview_campaign(self)
@@ -121,8 +128,16 @@ func _run() -> void:
 	_check(not LoopVoiceManifest.load_from(broken).errors.is_empty(), "a malformed manifest is refused whole")
 	_contract("quiet_fallback", before)
 
+	# Diagnostics stay off in the game: a default node records nothing.
+	before = failures.size()
+	var silent_log := LoopVoicePlayback.new()
+	_check(not silent_log.diagnostics and silent_log.events.is_empty(), "diagnostics are off by default")
+	silent_log.free()
+
 	voice = await _voice(pilot)
-	_check(voice.manifest.count() == 5, "the five packed Evelyn takes load (%d)" % voice.manifest.count())
+	var expected := int(OS.get_environment("LOOP_VOICE_EXPECTED")) if not OS.get_environment("LOOP_VOICE_EXPECTED").is_empty() else 27
+	_check(voice.manifest.count() == expected, "the pinned packed takes load (%d of %d)" % [voice.manifest.count(), expected])
+	details["takes_loaded"] = voice.manifest.count()
 
 	# 2. Exact binding: actor and the exact line's digest, nothing else.
 	before = failures.size()
@@ -166,6 +181,29 @@ func _run() -> void:
 	await _frames()
 	_contract("same_speaker_next", before)
 
+	# 4b. Rapid advances: two choices before the next idle frame queue one bind; only the final node plays, once.
+	before = failures.size()
+	_reset(voice)
+	_check(await _perform(["loop_profile_evelyn_marsh__loop_business", "loop_exchange_oy01__loop_business", "loop_profile_evelyn_marsh__activity_rounds"]),
+			"three Evelyn lines in one performance")
+	var plays_before := _plays(voice)
+	panel.choose(0)
+	var mid := str(panel.current_node_id)
+	panel.choose(0)
+	await _frames(3)
+	var last_play: Dictionary = {}
+	for e: Dictionary in voice.events:
+		if e.event == "play":
+			last_play = e
+	_check(mid == "loop_business_1" and str(panel.current_node_id) == "loop_business_2", "both advances happen before a frame (%s, %s)" % [mid, panel.current_node_id])
+	_check(_plays(voice) == plays_before + 1 and str(last_play.get("node", "")) == "loop_business_2"
+			and str(last_play.get("line_id", "")) == "loop_profile_evelyn_marsh__activity_rounds" and voice.playing(),
+			"exactly one play, of the final selection (%d new, %s)" % [_plays(voice) - plays_before, last_play.get("line_id", "")])
+	details["rapid_advance_plays"] = _plays(voice) - plays_before
+	panel.choose(panel.offered_labels().size() - 1)
+	await _frames()
+	_contract("rapid_advance", before)
+
 	# 5. A speaker switch inside an exchange: Evelyn, then Peter (no take: silence), then Evelyn again.
 	before = failures.size()
 	_reset(voice)
@@ -208,6 +246,37 @@ func _run() -> void:
 	await _frames()
 	_contract("silent_delivery", before)
 
+	# 6c. An authored silent-delivery node, shown through the panel's own node path: a line with a take is not
+	# played when its node carries the authored delivery (lily.json lf_int_beat's value), and a take playing on
+	# the node before it stops.
+	before = failures.size()
+	_reset(voice)
+	var authored: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/lily.json"))
+	var delivery := str(authored.get("nodes", {}).get("lf_int_beat", {}).get("delivery", ""))
+	_check(delivery == "silent", "the authored node lf_int_beat carries silent delivery (%s)" % delivery)
+	_check(await _perform(["loop_profile_evelyn_marsh__loop_business", "loop_profile_evelyn_marsh__activity_rounds"]), "two Evelyn lines, the second to be silent")
+	var played_first := _plays(voice) == 1 and voice.playing()
+	director._performance_tree.nodes["loop_business_1"]["delivery"] = delivery
+	_check(not voice.manifest.take_for("evelyn_marsh", lines["loop_profile_evelyn_marsh__activity_rounds"]).is_empty(), "the silent node's words have a take")
+	panel.choose(0)
+	now = 0.5
+	await _frames(3)
+	_check(played_first and str(panel.current_node_id) == "loop_business_1" and str(panel.displayed_line().get("delivery")) == "silent"
+			and str(panel.displayed_line().get("text")) == lines["loop_profile_evelyn_marsh__activity_rounds"],
+			"the panel shows the authored silent node with its words")
+	_check(_plays(voice) == 1 and not voice.playing() and _stops(voice).has("node_changed"), "the silent node plays nothing and the earlier take stopped")
+	panel.choose(panel.offered_labels().size() - 1)
+	await _frames()
+	_contract("authored_silent_node", before)
+
+	# 6d. Diagnostics stay bounded however long the campaign runs.
+	before = failures.size()
+	for i in LoopVoicePlayback.EVENT_LIMIT * 3:
+		voice._note({"event": "face", "actor": "probe", "on": true, "at": float(i)})
+	_check(voice.events.size() == LoopVoicePlayback.EVENT_LIMIT and float(voice.events.back().at) == float(LoopVoicePlayback.EVENT_LIMIT * 3 - 1),
+			"diagnostics keep only the last %d events" % LoopVoicePlayback.EVENT_LIMIT)
+	_contract("diagnostics_bounded", before)
+
 	# 7. Immediate exit.
 	before = failures.size()
 	_reset(voice)
@@ -234,9 +303,8 @@ func _run() -> void:
 	before = failures.size()
 	_reset(voice)
 	await _perform(["loop_profile_evelyn_marsh__loop_business"])
-	var log: Array[Dictionary] = voice.events
 	remove_child(voice)
-	_check(log.back().get("reason") == "exit_tree", "leaving the scene stops the take")
+	_check(_last_stop(voice) == "exit_tree", "leaving the scene stops the take")
 	voice.free()
 	director.cancel_for_transition()
 	await _frames()
@@ -259,6 +327,7 @@ func _cue_count(node: LoopVoicePlayback) -> int:
 func _voice(manifest: String) -> LoopVoicePlayback:
 	var node := LoopVoicePlayback.new()
 	add_child(node)
+	node.diagnostics = true
 	node.clock_source = func() -> float: return now
 	node.setup(director, null, manifest)
 	await _frames(1)
@@ -303,7 +372,7 @@ func _finish() -> void:
 	var passed := failures.is_empty()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "production_runtime": false, "selector": "v2",
 			"suite": "LoopVoicePlaybackTest", "status": "PASS" if passed else "FAIL",
-			"scope": "Real conversation director and panel with authored trees; five packed Evelyn pilot takes injected from the external case; stub cast body and injected clock. No in-world body, render, audible check, or artistic or audio-quality acceptance.",
+			"scope": "Real conversation director and panel with authored trees; Codex's pinned 27-take playback manifest injected from the external case; stub cast body and injected clock. No in-world body, render, audible check, or artistic or audio-quality acceptance.",
 			"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
 			"source": {"test_path": "game/" + get_script().resource_path.trim_prefix("res://"), "test_sha256": FileAccess.get_sha256(get_script().resource_path),
 					"pilot_manifest": OS.get_environment("LOOP_VOICE_PILOT"), "pilot_manifest_sha256": FileAccess.get_sha256(OS.get_environment("LOOP_VOICE_PILOT"))},
