@@ -14,6 +14,7 @@ var seats: Node3D
 var phase := ""
 var amount := 0.0
 var blocked_reason := ""
+var recovery_reason := ""
 var _chair_pose := Transform3D.IDENTITY
 var _machine_pose := Transform3D.IDENTITY
 var _standing := Transform3D.IDENTITY
@@ -72,6 +73,7 @@ func begin(owner: Node3D) -> bool:
 	amount = 0.0
 	_failed = false
 	blocked_reason = ""
+	recovery_reason = ""
 	phase = "align"
 	return true
 
@@ -86,7 +88,8 @@ func tick(delta: float) -> bool:
 	if route._sample <= 0.0:
 		route._sample = .5
 		route._select_destination()
-		route._dress_unseen()
+		# The reserved pose binds the actually worn shoe mesh. Normal wardrobe
+		# changes wait until supported release; destination/time still sample.
 	var wanted: bool = route.world.loop_performances.sewing_phase_requested(RESIDENT)
 	var talking: bool = route._talking() or route._player_lock_holds_route()
 	if not _fixtures_still() or not _lease_live():
@@ -94,7 +97,7 @@ func tick(delta: float) -> bool:
 		return true
 	if phase == "align":
 		if not wanted:
-			close()
+			close(true)
 			return false
 		if talking:
 			body._set_walking(false)
@@ -104,7 +107,7 @@ func tick(delta: float) -> bool:
 			var next := body.global_position.move_toward(alignment, route.route_speed * minf(delta, .05))
 			if not _motion_clear(body.global_position, next, false):
 				_fail("standing sewing alignment obstructed")
-				close()
+				close(true)
 				return false
 			body.global_position = next
 			body.set_route_motion(true, 0.0, route.route_speed)
@@ -116,12 +119,27 @@ func tick(delta: float) -> bool:
 		_standing = body.global_transform
 		if not body.set_sewing_seat_pose(machine, chair, 0.0, false):
 			_fail("standing sewing pose refused")
-			close()
+			close(true)
 			return false
 		_settle_left = .25 # Outgoing walking/work crossfade must finish before pose FK preflight.
 		phase = "settle"
 		return true
 	body._set_walking(false)
+	if phase in ["sit", "seated", "stand"] and not body.can_set_sewing_seat_pose(machine, chair, body.global_transform, amount):
+		_stop_work()
+		if body.has_method("recover_sewing_seat_support") and body.recover_sewing_seat_support():
+			# The pose owner has rebound a real supported shoe for reverse only.
+			# Never resume work or re-enter this same beat after external invalidation.
+			recovery_reason = "external shoe support requalified for physical exit only"
+			_failed = true
+			_refused_context = _context(route)
+			phase = "stand"
+		else:
+			_fail("current sewing pose/support invalid; guarded reverse requalification refused")
+			if is_zero_approx(amount):
+				close(true)
+				return false
+			return true
 	# Talking stops handwork immediately and retains the currently supported pose.
 	if talking:
 		body.set_sewing_seat_pose(machine, chair, amount, false)
@@ -129,7 +147,7 @@ func tick(delta: float) -> bool:
 	if not wanted or _failed:
 		_stop_work()
 		if is_zero_approx(amount):
-			close()
+			close(true)
 			return false
 		phase = "stand"
 	if phase == "settle":
@@ -137,11 +155,11 @@ func tick(delta: float) -> bool:
 		if _settle_left > 0.0: return true
 		if not _motion_clear(_standing.origin, _seated.origin, true):
 			_fail(blocked_reason)
-			close()
+			close(true)
 			return false
 		if not body.can_set_sewing_seat_pose(machine, chair, _seated, 1.0):
 			_fail("complete sewing endpoint pose preflight refused")
-			close()
+			close(true)
 			return false
 		phase = "sit"
 		return true
@@ -170,7 +188,7 @@ func tick(delta: float) -> bool:
 	amount = next_amount
 	if is_equal_approx(amount, 1.0): phase = "seated"
 	elif is_zero_approx(amount):
-		close()
+		close(true)
 		return false
 	return true
 
@@ -273,10 +291,15 @@ func _motion_clear(from: Vector3, to: Vector3, seat_transition: bool) -> bool:
 		if floor_hit.normal.y < .45 or absf(floor_hit.position.y-at.y) > .03: return _refuse("unsupported sewing floor at %v: %s" % [at,floor_hit])
 	return true
 
-func close() -> void:
+func close(resume_route := false) -> void:
 	if is_instance_valid(route) and is_instance_valid(route.actor):
 		if route.actor.has_method("clear_sewing_seat_pose"): route.actor.clear_sewing_seat_pose()
 		if not route.actor.face_interacting_player: route.actor.face_interacting_player = _face_player
 		if is_instance_valid(seats): seats.release(CHAIR, RESIDENT, route.actor)
 	phase = ""
 	amount = 0.0
+	if resume_route and is_instance_valid(route) and is_instance_valid(route.world) and route.is_inside_tree():
+		# Use the existing owner, latest schedule and its ordinary visibility rule.
+		# Teardown never changes attire or reconstructs a body.
+		route._select_destination()
+		route._dress_unseen()
