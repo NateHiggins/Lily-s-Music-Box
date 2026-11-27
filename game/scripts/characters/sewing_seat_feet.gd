@@ -40,7 +40,10 @@ func _smooth(value: float) -> float:
 
 func _frame_low(leg: Dictionary, frame: Transform3D, toe: Transform3D) -> float:
 	var low:=INF
-	for point: Array in leg.points:
+	# The articulated Foot/Toe blend can expose a sole point which is not
+	# extreme in the rest pose. Keep every actual rigid lower-shoe point
+	# for the short transition; rest-direction landmarks are insufficient.
+	for point: Array in leg.support_points:
 		var position:=Vector3.ZERO
 		for part: Array in point:
 			var posed:=frame if int(part[0])==int(leg.ids[2]) else frame*toe
@@ -196,7 +199,9 @@ func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 						var score: float=(candidates[index].rest as Vector3).dot(direction)
 						if score<best:best=score;winner=index
 					if not selected.has(winner):selected.append(winner);points.append(candidates[winner].parts)
-		legs.append({"side":side,"ids":ids,"points":points})
+		var support: Array=[]
+		for candidate: Dictionary in candidates:support.append(candidate.parts)
+		legs.append({"side":side,"ids":ids,"points":points,"support_points":support})
 	return legs.size()==2
 
 func apply(body: Skeleton3D, write: Callable) -> void:
@@ -221,7 +226,9 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 			for part: Array in point:position+=(body.get_bone_global_pose(int(part[0]))*(part[1] as Vector3))*float(part[2])
 			low=minf(low,body.to_global(position).y)
 		var lift:=maxf(_minimum_lift()*amount,floor_y-low)
-		if amount<=0.0:lift=maxf(0.0,floor_y+.001-low)*_smooth(_settle)
+		if amount<=0.0:
+			var actual_low:=_frame_low(leg,body.global_transform*foot,toe_relative)
+			lift=maxf(0.0,floor_y+.001-actual_low)*_smooth(_settle)
 		var target:=body.to_local(body.to_global(foot.origin)+Vector3.UP*lift)
 		var mode:="standing" if amount<=0.0 else "seated"
 		var progress:=0.0;var clearance:=0.0
@@ -261,6 +268,7 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		last_lifts[side_index]=placed.origin.y-base_ankle_world.y
 		if diagnostics:
 			last[leg.side]={"mode":mode,"amount":amount,"swing_progress":progress,"requested_clearance":clearance,
+				"support_points":leg.support_points.size(),"legacy_landmarks":leg.points.size(),
 				"world_foot":placed,"world_toe":body.to_global((settled*toe_relative).origin),
 				"sole_low_world":_frame_low(leg,placed,toe_relative),"target_world":body.to_global(target),
 				"tracking_error":foot.origin.distance_to(target),"observation":"inside post-contact modifier; native whole shoe still required"}
