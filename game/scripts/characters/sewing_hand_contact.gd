@@ -16,6 +16,15 @@ var last: Dictionary = {}
 var last_cost_usec := 0
 var measured_cost_usec := 0
 var measured_frames := 0
+## Calibrated from all 193 native working/resumed frames in lena_contact_rig01/
+## attempt06; independent whole-skin qualification must accompany any update.
+const SEATED_MODEL := "res://assets/characters/cast/lena_ortiz/lena_ortiz.gltf"
+const SEATED_SOURCES := {
+	SEATED_MODEL:"002aad74ff7aee5a790b1ef388c6c3e07af8e3383ac2e6a885c173038fee7c41",
+	"res://assets/characters/cast/lena_ortiz/lena_ortiz.bin":"dd004e2cc8d21f865f0eacc43cb74f78953baecd217947b4bcc00574665dd953",
+	"res://assets/characters/cast/shared/cast_moves.glb":"0ff8d9d63988d1d3f34969ccdd2a0126a2de2110aed59046443e90f857298bf1"}
+const SEATED_REBASE_SHA := "3f9f72afb14f7e198616c8cc42235c05181e691bd9542c8f4d1c5dbf5b382b6b"
+var _clip_player: AnimationPlayer
 
 func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node = null) -> bool:
 	if body == null or not is_instance_valid(work_surface) or not allowed.is_valid(): return false
@@ -36,10 +45,19 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node
 		across = normal.cross(forward).normalized()
 		_arms.append({"side":side,"ids":ids,"hand_frame":Basis(across,normal,forward),
 			"rest_basis":hand.basis,"reference":Vector3.INF,"skin":[]})
+	if not seated: return _arms.size()==2
 	_skin_poses.resize(body.get_bone_count())
 	var source := model if model != null else body.get_parent()
+	if source.scene_file_path!=SEATED_MODEL: return false
+	for path: String in SEATED_SOURCES:
+		if FileAccess.get_sha256(path)!=SEATED_SOURCES[path]: return false
+	if FileAccess.get_file_as_string("res://scripts/characters/resident_moves_library.gd").replace("\r\n","\n").sha256_text()!=SEATED_REBASE_SHA: return false
+	var players := source.find_children("*","AnimationPlayer",true,false)
+	if players.size()!=1: return false
+	_clip_player=players[0] as AnimationPlayer
 	for draw: MeshInstance3D in source.find_children("Skin_hands","MeshInstance3D",true,false):
 		if draw.mesh == null or draw.skin == null: continue
+		if draw.mesh.get_blend_shape_count()!=0: return false
 		var mesh := draw.bake_mesh_from_current_blend_shape_mix()
 		if mesh == null: continue
 		for index in mesh.get_surface_count():
@@ -68,12 +86,33 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node
 				# the wrist/finger subtree when its frame is turned palm-down.
 				if left>.999: _arms[0].skin.append(influences)
 				if right>.999: _arms[1].skin.append(influences)
-	return _arms.size() == 2
+	# Keep only the measured source support point per hand, not 3492 vertices.
+	# Count, original asset/clip/rebase hashes, zero morphs and actual native
+	# rest-point checks reject an incompatible import/shape instead of guessing.
+	var counts := [1749,1743];var indices := [135,134]
+	var rests := [Vector3(.443860382,.919424355,.300042570),Vector3(-.438045233,.917733967,.300315678)]
+	_skin_bones.clear()
+	for side_index in 2:
+		var arm: Dictionary=_arms[side_index]
+		if arm.skin.size()!=counts[side_index]: return false
+		var point: Array=arm.skin[indices[side_index]]
+		var rest := Vector3.ZERO
+		for part: Array in point:
+			rest+=(body.get_bone_global_rest(int(part[0]))*(part[1] as Vector3))*float(part[2])
+			if not _skin_bones.has(int(part[0])):_skin_bones.append(int(part[0]))
+		if rest.distance_to(rests[side_index])>.001: return false
+		arm["calibrated_source_index"]=indices[side_index]
+		arm.skin=[point]
+	return true
+
+func _live() -> bool:
+	return is_instance_valid(surface) and surface.is_inside_tree() and _allowed.is_valid() and _allowed.call() \
+			and (not seated or (is_instance_valid(_clip_player) and str(_clip_player.current_animation)=="clip_06"))
 
 ## Composed once by PosePipeline's existing lower-spine writer, before gaze.
 ## No hips/root/feet translation, no second writer and no work after release.
 func posture_turn(body: Skeleton3D) -> Quaternion:
-	if not seated or not is_instance_valid(surface) or not _allowed.is_valid() or not _allowed.call():
+	if not seated or not _live():
 		return Quaternion.IDENTITY
 	var axis := (body.global_basis.inverse()*surface.global_basis.x).normalized()
 	return Quaternion(axis,deg_to_rad(25.0))
@@ -93,7 +132,7 @@ func _hand_lowest(arm: Dictionary, wrist: Transform3D, orientation: Basis, body:
 
 func apply(body: Skeleton3D, write: Callable) -> void:
 	last.clear()
-	if not is_instance_valid(surface) or not surface.is_inside_tree() or not _allowed.is_valid() or not _allowed.call(): return
+	if not _live(): return
 	var begun := Time.get_ticks_usec() if diagnostics else 0
 	var inverse := body.global_transform.affine_inverse()
 	var up := (inverse.basis * surface.global_basis.y).normalized()
@@ -159,6 +198,7 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 			last[arm.side] = {"reachable":true,"target":body.to_global(target),"wrist":body.to_global(wrist.origin),
 				"asked":asked,"maximum":upper+lower,"reserve":upper+lower-asked,
 				"skin_vertices":arm.skin.size(),"support_index":arm.get("support_index",-1),
+				"calibrated_source_index":arm.get("calibrated_source_index",-1),
 				"tracking_error":wrist.origin.distance_to(target),"table_local":surface.to_local(body.to_global(wrist.origin)),
 				"needle_gap":local_target.distance_to(Vector3(-.175,.808,0)),"observation":"wrist tracking, not skin/fabric contact"}
 	if diagnostics:
