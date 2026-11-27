@@ -52,6 +52,8 @@ var _cues: Array = []
 var _speech_clock := -1.0
 var _speech_ends := 0.0
 var _audio_drives_speech := false
+var _presentation_clock: Callable
+var _pending_face_delta := 0.0
 var _fallback := false
 var _mouth: Dictionary = {}
 var _talk := 0.0
@@ -183,6 +185,7 @@ func blink() -> void:
 ## shape letter, as the timing tool writes them.
 func speak(cues: Array) -> void:
 	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_cues = cues
 	_fallback = false
 	_speech_clock = 0.0
@@ -195,6 +198,7 @@ func speak(cues: Array) -> void:
 ## Speak a line that is heard but has no timing: a restrained jaw, no shapes.
 func speak_untimed(seconds: float) -> void:
 	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_cues = []
 	_fallback = true
 	_speech_clock = 0.0
@@ -206,6 +210,7 @@ func speak_untimed(seconds: float) -> void:
 ## the mouth eases shut.
 func stop_speaking() -> void:
 	_audio_drives_speech = false
+	_presentation_clock = Callable()
 	_speech_clock = -1.0
 	_cues = []
 	_fallback = false
@@ -232,10 +237,11 @@ func _begin_turn() -> void:
 ## Absolute seconds in the recorded line. Once playback supplies a position,
 ## it owns this timed line until stop or replacement. The ordinary face step
 ## still blends the sampled viseme with the eyes and expression in one write.
-func seek_speech(seconds: float) -> void:
+func seek_speech(seconds: float, presentation_clock := Callable()) -> void:
 	if not bound or _cues.is_empty() or not is_finite(seconds) or seconds < 0.0:
 		return
 	_audio_drives_speech = true
+	_presentation_clock = presentation_clock
 	_speech_clock = minf(seconds, _speech_ends)
 
 
@@ -258,6 +264,27 @@ func value_of(shape: String) -> float:
 
 
 func _process(delta: float) -> void:
+	if _presentation_clock.is_valid() and _audio_drives_speech:
+		var window := get_window()
+		if window != null and window.can_draw():
+			_pending_face_delta += delta
+			if not RenderingServer.frame_pre_draw.is_connected(_compose_for_draw):
+				RenderingServer.frame_pre_draw.connect(_compose_for_draw, CONNECT_ONE_SHOT)
+			return
+	# Flush any time accumulated before the window was hidden or a take ended.
+	if RenderingServer.frame_pre_draw.is_connected(_compose_for_draw):
+		RenderingServer.frame_pre_draw.disconnect(_compose_for_draw)
+	step(delta + _pending_face_delta)
+	_pending_face_delta = 0.0
+
+
+## Sample the mixer after this frame's gameplay work. Compose eyes, expression
+## and the actual mesh mouth once for the picture that is about to be drawn.
+func _compose_for_draw() -> void:
+	if _audio_drives_speech and _presentation_clock.is_valid():
+		_speech_clock = minf(float(_presentation_clock.call()), _speech_ends)
+	var delta := _pending_face_delta
+	_pending_face_delta = 0.0
 	step(delta)
 
 
