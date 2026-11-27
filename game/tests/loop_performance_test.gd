@@ -167,6 +167,10 @@ func _run() -> void:
 		var route := Route.new()
 		world.add_child(route)
 		for i in 4: route.graph.add_point(i, Vector3(world.resident_routes.size() * 5.0, 0, i * 0.6))
+		if resident == "lena_ortiz":
+			route.identities["sewing"] = 4
+			route.places["unit:sewing"] = "sewing"
+			route.graph.add_point(4, route.graph.get_point_position(0) + Vector3(1, 0, 1))
 		route.actor = Actor.new()
 		route.add_child(route.actor)
 		if resident == "omar_bell":
@@ -500,18 +504,45 @@ func _gaze_and_activity() -> void:
 	_jump("tea")
 
 func _lena_sewing_activity() -> void:
+	var routine: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/lena_routine.json"))
+	check(routine.places.unit == "chair" and routine.places["unit:sewing"] == "sewing_work", "historical work adds a station without replacing the ordinary chair")
+	var branch: Array = routine.paths.back()
+	check(branch == [["chair",13.4,3.2,-2.2],["sewing_approach",14.29,3.2,-2.80],["sewing_work",14.81,3.2,-2.30]], "dedicated final approach retains the measured station and faces its worktop")
 	_jump("button")
 	var route: Route = world.resident_routes.lena_ortiz
 	route.arrive("unit")
 	var work := Node3D.new()
 	world.add_child(work)
-	work.global_position = route.actor.global_position + Vector3(0, 1, .6)
+	work.rotation.y = PI / 2.0
+	work.global_position = route.graph.get_point_position(4) - work.basis * Vector3(.50, 0, -.52)
 	world.adapter.targets["2B_sewing_machine"] = work
 	_tick()
 	check(not route.actor.sewing, "Lena's initial chores do not borrow the sewing clip")
 	_advance(20.0)
+	check(not route.actor.sewing, "original chair does not masquerade as the sewing station")
+	route.arrive("unit:sewing")
+	route.actor.rotation.y = atan2(work.global_position.x-route.actor.global_position.x, work.global_position.z-route.actor.global_position.z)
+	_tick()
 	check(route.actor.activity == "work" and route.actor.sewing, "arrived Lena requests handwork only at the authored button work phase")
 	var before := route.actor.global_transform
+	route.actor.rotation.y += PI
+	_tick()
+	check(not route.actor.sewing, "arrived but facing away refuses handwork")
+	check(performance.sewing_work_target("lena_ortiz") == work, "arrived work phase permits route-owned return facing")
+	for repeat in 2:
+		route.actor.rotation.y = before.basis.get_euler().y + PI
+		for step in 20: InstalledRoute.face_sewing_station(route.actor, work, .1)
+		_tick()
+		check(route.actor.sewing and route.actor.global_position == before.origin, "route-facing re-entry keeps feet fixed after interruption %d" % repeat)
+	route.actor.global_transform = before
+	route.actor.global_position += Vector3(.15, 0, 0)
+	_tick()
+	check(not route.actor.sewing, "nearby open floor is outside the measured work mark")
+	route.actor.global_transform = before
+	work.position.y += .2
+	_tick()
+	check(not route.actor.sewing, "wrong-floor furnishing refuses the work mark")
+	work.position.y -= .2
 	work.hide()
 	_tick()
 	check(not route.actor.sewing, "hidden work furnishing refuses the handwork request")
@@ -524,13 +555,13 @@ func _lena_sewing_activity() -> void:
 	route.path = PackedInt64Array([route.desired_id])
 	_tick()
 	check(route.actor.activity.is_empty() and not route.actor.sewing, "route in transit cannot request historical handwork")
-	route.arrive("unit")
+	route.arrive("unit:sewing")
 	_tick()
 	check(route.actor.sewing, "actual endpoint arrival restores the same eligible request")
 	var prior_speaker := conversations._active_resident
 	conversations._active_resident = "lena_ortiz" # Declared owner-state seam, not player dialogue proof.
 	_tick()
-	check(route.actor.activity.is_empty() and not route.actor.sewing, "speaking owner withdraws Lena's work request")
+	check(route.actor.activity.is_empty() and not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "speaking owner withdraws Lena's work and return-facing request")
 	conversations._active_resident = prior_speaker
 	_tick()
 	check(route.actor.sewing, "ended conversation permits re-entry at the unchanged work phase")
@@ -540,14 +571,14 @@ func _lena_sewing_activity() -> void:
 	if not case_id.is_empty():
 		RealityState.ensure_case(case_id, "lena_ortiz")["stage"] = "active"
 		_tick()
-		check(not route.actor.sewing, "active original case keeps priority over the sewing request")
+		check(not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "active original case keeps priority over the sewing and return-facing request")
 		RealityState.data.cases = cases
 		_tick()
 		check(route.actor.sewing, "restoring original case facts readmits the same arrived work phase")
 	_advance(24.0)
 	check(route.actor.sewing, "minute44 retains Lena's current work beat")
 	_advance(1.0)
-	check(not route.actor.sewing, "minute45 withdraws handwork before the kitchen departure")
+	check(not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "minute45 withdraws handwork and return-facing before the kitchen departure")
 	check(route.actor.global_transform == before, "work requests never move the resident")
 	world.adapter.targets.erase("2B_sewing_machine")
 	work.free()
@@ -1185,7 +1216,7 @@ func _write_contract(engine_errors: Array[String]) -> void:
 	if directory.is_empty(): directory = "user://tests/loop_performance"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
 	var sources: Dictionary = {}
-	for path: String in ["res://scripts/characters/orison_v2_resident_presentation.gd", "res://scripts/characters/animated_resident.gd", "res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/characters/resident_attention.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
+	for path: String in ["res://scripts/characters/orison_v2_resident_presentation.gd", "res://scripts/characters/animated_resident.gd", "res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_resident_route.gd", "res://scripts/characters/orison_v2_resident_route.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/characters/resident_attention.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/orison_v2/lena_routine.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
 		sources[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": false,
 		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints, plus real presentation/AnimationPlayer release and re-entry with synthetic clips; no loaded cast, world navigation, prop contact, input optics or clue-earning qualification",

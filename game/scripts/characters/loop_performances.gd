@@ -6,6 +6,19 @@ const SOURCE := "res://data/temporal/performances.json"
 const Encounters := preload("res://scripts/characters/loop_encounters.gd")
 const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "box": ["mae_kessler", "nadia_quell"],
 		"drama": ["cal_dwyer", "juno_kells"]}
+# Machine-local floor mark, measured against the actual table/neighbor stock.
+# The route's final edge faces the machine; presentation never moves/turns her.
+const SEWING_FEET := Vector3(.50, 0, -.52)
+const SEWING_REACH_M := .08
+
+static func sewing_position_ready(body: Node3D, machine: Node3D, require_facing := true) -> bool:
+	if not is_instance_valid(body) or not is_instance_valid(machine) or not machine.is_visible_in_tree(): return false
+	var feet := machine.to_local(body.global_position)
+	if absf(feet.y) > .08 or Vector2(feet.x-SEWING_FEET.x, feet.z-SEWING_FEET.z).length() > SEWING_REACH_M: return false
+	if not require_facing: return true
+	var toward := (machine.global_position-body.global_position).slide(Vector3.UP).normalized()
+	var facing := body.global_basis.z.slide(Vector3.UP).normalized()
+	return not toward.is_zero_approx() and facing.dot(toward) >= .98
 
 var world: Node3D
 var loop: Node
@@ -150,6 +163,22 @@ func _extend_visit(guest: String, host: String, place: String, arrival_node: Str
 		if is_instance_valid(door) and not visitor._doors.has(door):
 			visitor._doors.append(door)
 	# npc_set_open still requires real access. This grants no key or invitation.
+
+
+
+## A route may restore this one work-facing pose after dialogue releases it.
+## Returning a target is permission to turn only; feet remain motor-owned.
+func sewing_work_target(resident: String) -> Node3D:
+	if resident != "lena_ortiz" or loop == null or str(loop.visit_anchor()) != "button" or not _arrived(resident): return null
+	var route: Node = world.resident_routes[resident]
+	if route.actor.has_method("_loop_seated") and route.actor._loop_seated(): return null
+	var phase := phase_for(resident)
+	if route.destination != "unit:sewing" or phase.get("place") != "unit:sewing" or phase.get("activity") != "work" or phase.get("focus") != "2B_sewing_machine": return null
+	if conversations != null and conversations._active_resident == resident: return null
+	var case_id := RealityCases.case_for_resident(resident)
+	if not case_id.is_empty() and str(RealityState.case_state(case_id).get("stage", "unseen")) in ["active", "reopened"]: return null
+	var machine: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
+	return machine if sewing_position_ready(route.actor as Node3D, machine, false) else null
 
 
 func phase_for(resident: String) -> Dictionary:
@@ -581,11 +610,9 @@ func _process(delta: float) -> void:
 		# One authored standing handwork beat, not a global replacement of
 		# work/chores with a prop-contact animation. Arrival remains route-owned.
 		if resident == "lena_ortiz" and not phase.is_empty() and str(loop.visit_anchor()) == "button" \
-				and activity == "work" and focuses[resident] == "2B_sewing_machine":
+				and route.destination == "unit:sewing" and activity == "work" and focuses[resident] == "2B_sewing_machine":
 			var work: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
-			var body := actor as Node3D
-			sewing[resident] = is_instance_valid(work) and is_instance_valid(body) and work.is_visible_in_tree() \
-					and work.global_position.distance_to(body.global_position) < 3.2
+			sewing[resident] = sewing_position_ready(actor as Node3D, work)
 		# Two route graphs may name the same work surface differently. Use its
 		# authored world endpoint; watching, listening and resting can be shared.
 		if activity in ["work", "chores"]:
