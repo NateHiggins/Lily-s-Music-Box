@@ -105,6 +105,8 @@ var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
 var campaign_clock: CampaignClock
 var temporal_loop: Node
+const AdelaEncounters := preload("res://scripts/characters/adela_dated_encounters.gd")
+var adela_encounters: AdelaEncounters
 var loop_performances: Node
 var loop_stage: Node3D
 var season_fittings: Node
@@ -1191,7 +1193,7 @@ func _compose_authorities() -> void:
 	harukiya_counter.name="HarukiyaCounterGlass"
 	if not harukiya_counter.configure(self,bar_region,conversations):
 		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
-	var adela_encounters := preload("res://scripts/characters/adela_dated_encounters.gd").new()
+	adela_encounters = AdelaEncounters.new()
 	adela_encounters.name = "AdelaDatedEncounters"
 	adela_encounters.world = self
 	add_child(adela_encounters)
@@ -1946,6 +1948,11 @@ func resident_whereabouts(npc: String) -> Dictionary:
 	if not bool(info.get("valid", false)):
 		return {}
 	var minute := campaign_clock.minute_of_day()
+	# A staged Friday rescue scene (WR-05) holds its guest there, so her routed body is never seen twice.
+	if adela_encounters != null and adela_encounters.world != null:
+		var staged := adela_encounters.guest_whereabouts(npc)
+		if not staged.is_empty():
+			return staged
 	if loop_performances != null:
 		var performed: Dictionary = loop_performances.whereabouts(npc)
 		if not performed.is_empty():
