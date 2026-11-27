@@ -265,10 +265,15 @@ func advance(delta: float, reading: bool) -> void:
 	var valid_hand: bool = grab != null and grab.active() and is_instance_valid(grab.target.get("owner")) and is_instance_valid(grab.target.get("part"))
 	var own_hand: bool = valid_hand and grab.target.owner == carrier
 	var working_hand: bool = valid_hand and not own_hand
-	var shoulder_permitted: bool = not carrier._player.protected_input_active() and not _world_handoff \
+	var protected: bool = carrier._player.protected_input_active()
+	var resident_dialogue := false
+	if protected and not get_tree().paused:
+		var director := get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
+		resident_dialogue = director != null and director.owns_dialogue_input(carrier._player)
+	var shoulder_permitted: bool = (not protected or resident_dialogue) and not _world_handoff \
 		and not carrier.story_pose_active() and not carrier.story_world_active() \
 		and not (carrier.session != null and (carrier.session.typing or carrier.session.opening))
-	var shoulder_reading: bool = shoulder_permitted and (is_instance_valid(carrier.inspected_readable_stock()) or working_hand)
+	var shoulder_reading: bool = shoulder_permitted and (resident_dialogue or is_instance_valid(carrier.inspected_readable_stock()) or working_hand)
 	if not shoulder_permitted:
 		# A successor owns presentation now; never resume a stale shoulder path
 		# over its authored arrival, typing pose or protected conversation.

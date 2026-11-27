@@ -413,7 +413,7 @@ func _run() -> void:
 		["F02_2A_TOASTER_01",Vector3(.25,.35,-.65),Vector3(0,.1,0),"toaster_crumbs"],
 		["F01_STAFF_WC",Vector3(.72,1.28,.04),Vector3(0,.95,.49),"staff_closet_deep_services"],
 		["5A_wc",Vector3(.72,1.28,.04),Vector3(-.08,.95,.39),"closet_vent_bypass_services"],
-		["LobbyServiceDumbwaiter",Vector3(.65,1.,1.7),Vector3(0,1.,0),"dumbwaiter"]]:
+		["LobbyServiceDumbwaiter",Vector3(-1.36,-.60,1.33),Vector3(0,.50,.24),"dumbwaiter"]]:
 		var actor := world.find_child(str(station[0]),true,false) as Node3D
 		check(actor != null,"capture station exists: "+str(station[0]))
 		if actor == null: continue
@@ -424,9 +424,28 @@ func _run() -> void:
 		if actor is ToasterProp:
 			actor.get_parent().restore_open_state(true)
 			actor.set_crumb_tray_open(true,0)
-		world.player.global_position = actor.to_global(Vector3(station[1].x,0,station[1].z))
-		world.player.face_world_point(actor.to_global(station[2]))
-		review_camera.global_position = actor.to_global(station[1])
+		if station[3] == "dumbwaiter":
+			# The service bypass gives the standing player a view through the
+			# shaft opening. Verify the real control before framing the casing.
+			var grip := actor.find_child("HandGripRight",true,false) as MeshInstance3D
+			check(grip != null,"dumbwaiter has its installed right-hand grip")
+			if grip == null: continue
+			world.player.global_position = actor.to_global(station[1])
+			world.player.camera.make_current()
+			world.player.face_world_point(grip.to_global(grip.get_aabb().get_center()))
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			var target: Dictionary = world.player._grab.find_target()
+			var reachable: bool = target.get("owner") == actor and target.get("part") == grip
+			check(reachable,"standing player sees the actual dumbwaiter grip through the opening")
+			if not reachable:
+				print("Dumbwaiter review eye: ",world.player.camera.global_position," hit: ",world.player._grab.last_hit)
+				continue
+			review_camera.global_position = world.player.camera.global_position
+		else:
+			world.player.global_position = actor.to_global(Vector3(station[1].x,0,station[1].z))
+			world.player.face_world_point(actor.to_global(station[2]))
+			review_camera.global_position = actor.to_global(station[1])
 		review_camera.look_at(actor.to_global(station[2]),Vector3.UP)
 		review_camera.make_current()
 		await shot(str(station[3]))

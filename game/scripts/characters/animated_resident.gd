@@ -456,19 +456,31 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
+	if not is_inside_tree():
+		return ""
+	var speak := "[E]  Speak with %s" % display_name
+	var talk := get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
 	if not installed_topic.is_empty():
-		if not _installed_topic_present():
-			return ""
-	elif is_inside_tree():
-		var loop_performances := get_tree().get_first_node_in_group("loop_performances")
-		# An open spoken thread answers the click before the ambient topic.
-		var talk := get_tree().get_first_node_in_group("resident_conversations")
-		if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
-			loop_performances = null
-		if loop_performances != null:
-			var topic := str(loop_performances.conversation_prompt(resident_id))
-			if not topic.is_empty(): return topic
-	return "[E]  Speak with %s" % display_name
+		if _installed_topic_present() and talk != null and talk.can_offer_body_mystery(resident_id, false, installed_topic):
+			return speak
+		return ""
+	if talk != null and talk.can_offer_body_mystery(resident_id, true):
+		return speak
+	var performances := get_tree().get_first_node_in_group("loop_performances")
+	if performances != null:
+		var topic := str(performances.conversation_prompt(resident_id))
+		if not topic.is_empty():
+			return topic
+	var music := get_tree().get_first_node_in_group("music_director")
+	if music != null and not music.body_music_anecdote(resident_id).is_empty():
+		return speak
+	return speak if _has_enabled_case() else ""
+
+
+func _has_enabled_case() -> bool:
+	var case_id := RealityCases.case_for_resident(resident_id)
+	return case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false))
+
 
 
 func key_prompt() -> String:
@@ -509,8 +521,7 @@ func interact(_player: Node) -> void:
 		return
 	# Only an enabled case hears an ordinary interaction (the rule ResidentConversations.start keeps): speaking
 	# to a body must never open a case that is switched off (order w715d783b50d8).
-	var case_id := RealityCases.case_for_resident(resident_id)
-	if case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false)):
+	if _has_enabled_case():
 		RealityCases.interact_with_resident(resident_id)
 
 

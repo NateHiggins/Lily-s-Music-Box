@@ -2,127 +2,127 @@
   "evidence_class": "Technical rendered surface review",
   "status": "PASS",
   "reviewer": "Codex",
-  "reviewed_at_utc": "2026-11-26T08:42:05.880104+00:00",
+  "reviewed_at_utc": "2026-11-27T11:30:13.172031Z",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "e1ad36aacdf2598b205a772b6de92d5b8bfe485b9818c195eb8d72107b02acf6",
-  "review_scope": "All 23 current and published frames were compared for shape, obstruction, material detail and lighting. The sixth-floor kitchen loses metallic highlights under its smoother pool of light. Its mean RGB difference from an earlier PR 587 capture is 0.47 on a 255-point scale. The brighter mail bank and darker watch-station wall also occur in earlier published main frames. The mail nameplates have lower contrast in this take. The brick still obscures the dumbwaiter mechanism. These are technical observations. Human play and artistic acceptance remain open.",
+  "surface_inputs_sha256": "93d0cef9adbb58ae0074191523e1689cd2096292077df35c6eb9c08b00439c74",
+  "review_scope": "Personally inspected all 23 original 1280x720 PNGs and review_01.jpg through review_04.jpg comparing current main versus candidate. Technical review of visible physical surface presence, material separation, obvious UV/stretch/missing texture regressions and framing limitations. No new gross visible physical surface regression identified; dark/occluded views and changed wall mottling are explicitly retained below. Does not imply player testing, artistic acceptance, native-pixel optical acceptance, all-angle visibility, text readability, motion, physics, or gameplay/contact qualification. Automated surface inventory remains separate authority.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "ba933b3a593398fd0acb7c026e49418be81eec175960f36785588dbfcd7a1bdb",
-      "observation": "The hanging lamp, central table legs, rear doorway and right-hand companion display keep their outlines, and the small coloured patch is visible on the floor beneath the table in both frames."
+      "sha256": "216c7d308c4ba46a1384c8395cb850f090a53ab8a15a7293c603a9b7b22ef389",
+      "observation": "Full original inspected: plank floor, wood tables, shelving, radiator, recorder and pendant remain present with coherent lighting and material separation. No visible missing texture or gross UV stretch. Companion/effect animation differs from main; rainbow floor patch is already present in main. Soft depth-of-field limits fine surface judgement."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "db5d83ae36585b7f470cca56267b3df1ffba60e230bdf4406dc37ada3d82c8f2",
-      "observation": "The circular light picks out the same horizontal tile courses between the hanging curtain and the companion, with the foreground seat still cropped at the lower right."
+      "sha256": "c361ae8237d98657b8f59f2f65d5d1776c388dc71700cb5bcfa31acfe6660ded",
+      "observation": "Full original inspected: curtain weave, tile courses/grout, cistern and dark seat remain coherent. Lamp circle is bright but tile relief remains visible; no obvious inverted normal or missing plane. Companion text and reflection optics are not accepted by this still."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "b28092b318faa9b6e5d2cfc17a734d17c771b118e5a9d12818329d424babfd00",
-      "observation": "The apron-clad resident remains distinct against the workbench, with both feet, the object in one hand, the window blinds and the route around the round table visible in both frames."
+      "sha256": "fab81eb3ee65205cac70af767003a4c232264c068a81f09e819bfb8059920fe3",
+      "observation": "Full original inspected: floor grain, window slats, radiator, workbench, chairs and routed resident remain present. Comparable room framing to main, with no apparent structural or surface loss. Resident face is soft at this focus; no character appearance acceptance."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "d1ee50fb8ae11d8a31f7fe4ad3173118ef76fd773053c3277d5a1a56aaa2c185",
-      "observation": "Individual shelf rails, window slats, foreground chair legs and floorboard seams remain visible under the warm light, with matching sightlines through the room."
+      "sha256": "c13ca1a2d2a5a206ae354861baff30e4633bc394a18450349a333f8da775eac6",
+      "observation": "Full original inspected: floorboard joins/grain and shelving/table/chair materials remain continuous. Strong white window highlight and its smaller reflection are also visible in main; this is not proof of correct optical energy or readability. No new missing material seen."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "6b7b8158b9790184026fe55258806d27aef9eda17017144dfec756f94e996645",
-      "observation": "The candidate has a smooth circular light and loses the broad broken wall reflections and bright edges on the cabinet pulls, kettle, faucet and sink trap, making the metalwork harder to distinguish despite matching outlines."
+      "sha256": "0e7e331e0d5a84bcbc62307115f3b7eec5c5ac788695af7a7eb9a0eed0233f6c",
+      "observation": "Full original inspected: cabinets, counter, kettle/toaster, sink bowl/faucet and exposed plumbing retain recognizable surfaces. Wall mottling/patch boundaries differ noticeably from main, particularly beneath cabinets and along the top/right wall; source of variation cannot be established from stills. No vanished geometry or missing texture seen. Lamp hotspot and companion obscure part of wall/sink; no broad reflection or artistic acceptance."
     },
     {
       "file": "boiler.png",
-      "sha256": "a1a345dbae98208abe001cda2e33baf4aff93f39613fac0a1b2ed393ea3829e6",
-      "observation": "The gauge, rectangular firebox door, tall left-side fittings and overhead pipes remain in the same positions, with the lower panel still in deep shadow."
+      "sha256": "fbaaee1114b100164e41136642ebbfc3cc73a8b23e5be4e22e4820beb57a5166",
+      "observation": "Full original inspected: boiler face, gauge, level glass, dark hatch, strap hardware and overhead pipes remain visible and materially distinct. Face is dim/soft, limiting fine marking review. No gross UV deformation or missing assembly relative to main."
     },
     {
       "file": "bookcase.png",
-      "sha256": "728f20892c0bfbe9d8c821a2d58b28ab4c7889f9b3f60aa7e256774905b9ffc4",
-      "observation": "The chair and table have a cooler, greyer finish, while the three shelf compartments, small upright books and clear view of the rear door retain their positions."
+      "sha256": "3df50e010b17490e74c0655a7f0c978e882a5aef70b19da716a358c1891c61e9",
+      "observation": "Full original inspected: framed shelf/cabinet, books, chair, table, umbrella and door remain installed. Glass/dark interior is low contrast and foreground chair obscures lower shelving; no claim of readable book text or complete interior visibility. No new surface disappearance seen."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "0b9c26d11bccae76b94a35474177ee41a99a420e149919048e2d2763c6bd8716",
-      "observation": "The vertical corner pipe, tile joints and edge of the low metal box align in both views, while the box and curved foreground fitting continue below the frame."
+      "sha256": "0ca962775ad37cabf91908f5695abb748c479cf3815ff4012eed98b9585f12f1",
+      "observation": "Full original inspected: tiled corner, trim, vertical service pipe, wall brackets and cistern/seat materials remain continuous. Close perspective shows no gross stretched tiles or missing support. View crops lower fixture; no complete clearance or interaction proof."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "94d1ab9eaafee379e745fa0e39f6ec3f11f7111f685efa9d75ce3a3dc2068621",
-      "observation": "Both views face the same close, dark brick courses, leaving the dumbwaiter opening and its controls outside the visible shot."
+      "sha256": "2cacb444584c1a00c41fb3c7480613711e558ad3e3a800de8d4bcb36c29d23b3",
+      "observation": "Full original inspected: pulleys, cables and timber carriage remain visible in shaft opening; wall mottling and shadow edge persist in main comparison. Right foreground wall occludes part of apparatus. No newly missing or checkerboard material seen; motion cannot be judged."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "8361ffc367bfdaf4bff4a7886477048866a97eb998a220b901b1607eefd1211f",
-      "observation": "The open panel door is greyer and its descending conduit markedly brighter, while the three upper links, four circular positions and three lower fuse caps remain distinguishable."
+      "sha256": "a328051322e703f4b95dd4f83306f15a7ec9c3418f5e735d1c6f5aa20625bc4e",
+      "observation": "Full original inspected: open metal door, dark back case, upper contacts, fuse sockets and conduit remain visible and seated in wall. Low contrast obscures small fuse markings. Wall mottling/light distribution differs from main but panel geometry is intact; no electrical interaction acceptance."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "f6324da2cb0a55b4d4c574482b67c298dce73911bb00cafeb0ef0dfb4e93c63b",
-      "observation": "The mottled brass rail spans the same dark recess between the pale diagonal supports, with the silhouette in the recess difficult to identify in both views."
+      "sha256": "f552f85db3ae89783e12782ba45e7f9a3585569995e4acd06ca25349a5e64012",
+      "observation": "Full original inspected: floor tiles, pale stool legs, brass rail and dark recessed sleeping form remain visible, consistent with main. Subject is very dark and crossed by rail, so this image cannot establish Judge anatomy, facial quality or full surface coverage. No new visible surface regression in unobscured areas."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "943028f961692bc438b53b160b2e2f2b64da459dd894257b4a9d047ef1b86b60",
-      "observation": "The framed portrait and small red-and-cream object on the upper shelf keep their silhouettes against the green wall, with fine surface detail still difficult to read in the low light."
+      "sha256": "c73c2528cb356ab14c93368ff1e6bcf5e36cf97b71f5faf04900ba1bdaeb2a02",
+      "observation": "Full original inspected: orange/cream resting cat silhouette is visible on timber shelf with portrait to left. View is dark; no visible new break relative to main, but fur/face/underside detail cannot be accepted here. This is limited material-presence evidence, not likeness or naturalness acceptance."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "250b216475dbaa101a78e55d311cce8ec20d81ed0297d495dc73f98c4b94f93c",
-      "observation": "The red overhead beam, diagonal bracket, framed picture on the green wall and warm strip above the counter occupy the same positions. Both views leave the foreground dark. No new loss of detail is visible at standing distance."
+      "sha256": "c46777e0ae09b29be95804795e139f5d340382d3949cf8a6efa31aaec9139f06",
+      "observation": "Full original inspected: image is dominated by bar underside and its pink/red rails, with shelves, framed pictures and pale bottles beneath. Lafitte is not visible from this framing; therefore this cannot verify standing-player cat visibility or cat surface quality. Same framing limitation exists in main. No new missing surfaces seen in visible bar structure."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "a32b4d5e989513cf8fec5b9625425f27a8aebdb9e2b59f548854761a049925bc",
-      "observation": "The candidate lifts the brass drawer faces and side box from dark brown toward a flatter ochre. The pale nameplates stand out less against the drawer faces, and the bright outlines along the right-hand drawer edges are less pronounced. The open slots, projecting envelopes, knobs and individual plates are still present. This is a visible contrast loss against this reference frame."
+      "sha256": "5d6d08501b072bcc749612adbe9a70b41c5e1d96e85e226b58b69114319fd986",
+      "observation": "Full original inspected: brass box doors, dark apertures, protruding envelopes, lower slot and nearby bench/wall panel remain present. Image is dark and labels small/soft; no mailbox-label readability approval. No new missing material or gross tiling fault relative to main."
     },
     {
       "file": "radiator.png",
-      "sha256": "1ae4f9aa3f26dc661c8c1bbb3d79e4e92f8dd0d3ed7284d5337290350cada89b",
-      "observation": "The brass fitting at the left end of the radiator and the circular face on the tabletop device are brighter in the candidate. The dark row of radiator fins, valve wheel, curtain folds and blind slats keep their shapes and spacing. No missing fitting or new surface seam is visible."
+      "sha256": "2a6cc6713f6ec8f6c50cb4d43332b03628f0ab6a6ef0e1fdc9cccf57ad9c2adb",
+      "observation": "Full original inspected: radiator columns/valve, blind slats, curtains and sewing-machine/table silhouettes remain intact with distinct dark metal and fabric. Framing crops radiator feet and much of machine. No surface regression apparent; no sewing-contact or support judgement."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "f470383fd0109d1fc6fe9ee3e78355ae4b068d2b67528da10d8d45d45fa9ad6b",
-      "observation": "The candidate is slightly darker across the upper wall and left side of the landing. The ceiling hotspot remains centered near the pipe, and the cage bars, drive wheel, foreground railing and door edge line up. No gap or displaced rail is visible."
+      "sha256": "10e537e21b6d5f6146bd1c62cd20bf1c17341cc7630afd9b75aca9f3c842d096",
+      "observation": "Full original inspected: drive cage, railings, roof door, conduit, lamp and floor remain materially coherent. Numerous narrow bars remain straight; no gross visible texture stretch or missing plane. Still does not prove unwrap topology, motor behavior or clearance."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "d9d8b837d6cec5c1bfb9be5c968c4e639bec8c1bbd35d952dc8adc081e7192fc",
-      "observation": "The green tank cone, ring rail, black supports and pale footings keep the same outline against the rooftops. Cloud shapes, the rooftop vent and the shadow beside the tank look consistent. No new seam or missing part is visible."
+      "sha256": "e3174345a607f0c799d774f5c6c9fc1190497fb9a1f7e734488c82987a944684",
+      "observation": "Full original inspected: tank shell/cone, ladder, black cage/legs, foot pads and rooftop shadows remain coherent; skyline and patterned sky remain in background. Tank shell is visually uniform at this distance, so fine UV quality cannot be established by image alone. No new surface loss seen."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "2b90d430b711914027ac5cdeb3a0bea58da0b1dda547c2cbbc46e6ec4b84eb67",
-      "observation": "The candidate lifts the left wall behind the clock and the parquet leading to the terminal. The green lamp glow, glass frame, red insert, noticeboard and angular shadow on the right remain identifiable in both. No missing terminal component or discernible new loss of readability is visible."
+      "sha256": "05e57d31a4c48aa804c96d5426a0b12326ae129b8905fe30704aee2c704e1f48",
+      "observation": "Full original inspected: glass cage, copper/red internal pieces, dark base, green lamp/panel, desk and wooden floor remain present. Specular/green highlights are localized and comparable to main; board lettering is soft from oblique view. No visible missing material; no optical or text-legibility acceptance."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "c8766712214b65bb29bcf2ce5a95017df6a4f1eddedc325e254f1f406b56f559",
-      "observation": "The roll, two mounting brackets and tiled corner occupy the same positions. The crescent shadow on the roll is smoother in this capture; the narrow dark strip still follows its right edge."
+      "sha256": "eb01b78ef0c43b6b69d274f1a9844dcd003a9a3209b9b245bcf9aaef419d7bd3",
+      "observation": "Full original inspected: bright tile field, trim and corner retain consistent courses; cistern, black wall brackets and wood seat are visible. Lighting is brighter than main and corner shadows vary; no missing tile or gross UV distortion seen. Lower fixture cropped, no full service-route/clearance proof."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "b3c217ee03e5ea233715b4f80e04364c4ff545716057f7b670b910b490769819",
-      "observation": "The red coils and iridescent pool remain visible in the amber light below the radiator. The pool edge, valve and nearby table leg stay separate at the same positions."
+      "sha256": "734356ee6566577e7a64cf18c11e2d69ee92d96e85a78211715db13eccaf73c0",
+      "observation": "Full original inspected: curled glossy red/brown tentacles lie over rainbow-iridescent residue in front of the intact radiator. Residue colors, dark oval patches and lamp pool remain visible, consistent with main composition. Still cannot establish fluid motion, translucency correctness or artistic acceptance."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "17947c97889465a06c7297ee641a22d916f3531c949c6b5cff5f6657ff77ab7c",
-      "observation": "The raised strands still break the radiator silhouette and flare into a dark base on the floor. The upright valve and the lamp-lit gaps between the red strands remain visible."
+      "sha256": "c421cd36912bee2dee233383f09448e134afcdf1c6efde1e460738e8e6a87b35",
+      "observation": "Full original inspected: raised red/orange tentacle bundle, dark sides and glossy highlights remain distinct above pooled base; casts a clear adjacent shadow. Radiator/dress-form/table surfaces remain present. No gross missing material relative to main; temporal deformation/flow not proven."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "97bdf2bd4c307ff078961af63fe6857cdcd54e19e793cf74d3aabbcf84f97f34",
-      "observation": "The open crumb tray, kettle and two canisters keep their shape and placement. The toaster housing and tray are darker in the candidate; several individual crumbs remain visible."
+      "sha256": "bd07b44e136ab745f2a4a3a00cfbf5f95ea7ab387acfb818db08a53731799360",
+      "observation": "Full original inspected: toaster slots and open crumb tray with scattered crumbs, stippled kettle/counter, canisters and wood table grain remain recognizable. No missing texture or severe visible UV stretching. Focus softness limits small labels; still does not prove tray mechanics or cleanup interaction."
     },
     {
       "file": "watch_station.png",
-      "sha256": "2ef8d208e633cf3704054c1207efaa5df7d436e9d639b236169a70d9f9a4ff39",
-      "observation": "The amber reflection on the left wall disappears and the handrail plate at lower right is pale. The gear reads more clearly against its black housing; the small STATION 1 label remains dim. The darker wall and pale plate also occur in the earlier published b0544916c frame (mean full-image RGB difference 0.05/255)."
+      "sha256": "e877a3a21cb9737339ead60c5dbaa3c8492a67d43a3d66b5e98a0547e67090b8",
+      "observation": "Full original inspected: black case, STATION 1 label, visible brass gear and lever remain mounted on mottled wall. Mechanism is very dark and label soft; not a legibility or manipulation approval. Mottling/shading differs from main, without newly absent case/gear surfaces."
     }
   ]
 }

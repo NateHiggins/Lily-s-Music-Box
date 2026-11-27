@@ -68,13 +68,16 @@ func _on_node_shown(_node: String) -> void:
 	if dialogue == null:
 		return
 	var line: Dictionary = dialogue.displayed_line()
+	if line.get("delivery", "spoken") == "silent":
+		body.stop_speaking()
+		return
 	var words := str(line.get("text", "")).strip_edges()
 	var voice := str(line.get("speaker", "")).strip_edges().to_upper()
 	if words.replace(".", "").strip_edges().is_empty() or _speaker_label.is_empty() or not voice.begins_with(_speaker_label):
 		body.stop_speaking()
 		return
 	body.speak_untimed(clampf(float(words.length()) / 18.0, 1.0, 12.0))
-	_perform(words)
+	_perform(words, line.get("exchange", {}))
 
 
 func _trust() -> int:
@@ -90,12 +93,13 @@ static func reader() -> RefCounted:
 	return _reader
 
 
-func _perform(words: String) -> void:
+func _perform(words: String, exchange: Dictionary) -> void:
 	var mood := reader()
 	if mood == null:
 		return
 	var trust := _trust()
-	last_reading = mood.read(resident_id, words, trust, {"trust_delta": trust - _trust_seen})
+	exchange["trust_delta"] = trust - _trust_seen
+	last_reading = mood.read(resident_id, words, trust, exchange)
 	_trust_seen = trust
 	body.express(str(last_reading.expression), float(last_reading.intensity))
 	var emote := str(last_reading.emote)

@@ -9,20 +9,51 @@ const State := preload("res://scripts/game/prologue_state.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const ErrorCapture := preload("res://tests/guide_bell_error_capture.gd")
 
-class Attention extends Node:
-	var staged_target: Variant = null
+# Exercise the installed interaction methods without loading another cast mesh.
+class BodyTarget extends AnimatedResident:
+	func _ready() -> void:
+		set_process(false)
 
-class TestPlayer extends Node:
+
+class Attention extends "res://scripts/characters/resident_attention.gd":
+	pass
+
+class TestPose extends Node:
+	var frames := 1
+	var aim: Variant
+	func eye_world() -> Vector3: return (get_parent() as Node3D).global_position + Vector3.UP * 1.52
+	func attend(point: Vector3) -> void: aim = point
+	func rest() -> void: aim = null
+
+class TestPlayer extends CharacterBody3D:
 	var call_locked := false
 
+class CuffModel extends Node3D:
+	var skeleton := Skeleton3D.new()
+
 class Actor extends Node3D:
+	var cast_body: CuffModel
 	var _walking := false
 	var activity := ""
 	var clears := 0
-	func set_loop_activity(value: String) -> void: activity = value
+	var sewing := false
+	var sewing_surface: Node3D
+	func set_loop_activity(value: String, handwork: bool = false, work_surface: Node3D = null) -> void:
+		activity = value
+		sewing = handwork
+		sewing_surface = work_surface
 	func clear_loop_activity() -> void:
 		activity = ""
+		sewing = false
+		sewing_surface = null
 		clears += 1
+
+# Actual presentation methods and AnimationPlayer ownership with synthetic clip
+# contents. The installed observation separately verifies the real cast/bench.
+class SewingPresentation extends "res://scripts/characters/orison_v2_resident_presentation.gd":
+	var talking := false
+	func _ready() -> void: pass
+	func _loop_talking() -> bool: return talking
 
 class Route extends Node:
 	var actor: Actor
@@ -78,6 +109,7 @@ var player: Node
 var started := Time.get_ticks_msec()
 var phase_count := 0
 var anchor_count := 0
+var seek_timings: Array[Dictionary] = []
 var ordinary_lines := 0
 var ordinary_encounters := 0
 var ordinary_day := 0
@@ -88,11 +120,32 @@ func check(ok: bool, label: String) -> void:
 	if not ok: failures.append(label)
 	print("LOOP PERFORMANCE: ", label, " = ", ok)
 
+func _check_standing_turn_clock() -> void:
+	var owner := Performances.new()
+	var body := BodyTarget.new()
+	add_child(body)
+	body.position = Vector3(2, 0, 3)
+	owner._standing_speaker = body
+	owner._standing_yaw = deg_to_rad(150.0)
+	owner._advance_standing_turn(.1, -1.0)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 21.0), "quiet standing turn follows simulation")
+	owner._advance_standing_turn(.016, .35)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 73.5), "voiced turn catches up once to audible elapsed")
+	owner._advance_standing_turn(.016, .35)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 73.5), "a held audible clock cannot advance the turn")
+	owner._advance_standing_turn(.016, .84)
+	check(owner._standing_speaker == null and absf(angle_difference(body.global_rotation.y, owner._standing_yaw)) < .001 \
+			and body.position == Vector3(2, 0, 3), "standing turn reaches target after delayed frame without moving feet")
+	body.free()
+	owner.free()
+
+
 func _ready() -> void: _run.call_deferred()
 
 func _run() -> void:
 	var logger := ErrorCapture.new()
 	OS.add_logger(logger)
+	_check_standing_turn_clock()
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
 	var old_data: Dictionary = RealityState.data
@@ -102,6 +155,7 @@ func _run() -> void:
 	RealityState.save_path = test_path
 	RealityState.start_new_campaign()
 	clock = CampaignClock.new()
+	_civil_seek_matrix()
 	check(clock.configure_date(1928, 11, 10, 1380), "fixture calendar configured")
 	var opening := State.request_skip(State.initial())
 	for index in State.PHASES.size() - 1:
@@ -137,10 +191,24 @@ func _run() -> void:
 		var route := Route.new()
 		world.add_child(route)
 		for i in 4: route.graph.add_point(i, Vector3(world.resident_routes.size() * 5.0, 0, i * 0.6))
+		if resident == "lena_ortiz":
+			route.identities["sewing"] = 4
+			route.places["unit:sewing"] = "sewing"
+			route.graph.add_point(4, route.graph.get_point_position(0) + Vector3(1, 0, 1))
 		route.actor = Actor.new()
 		route.add_child(route.actor)
+		if resident == "omar_bell":
+			var model := CuffModel.new()
+			route.actor.cast_body = model
+			route.actor.add_child(model)
+			model.add_child(model.skeleton)
+			model.skeleton.add_bone("RightHand")
+			model.skeleton.set_bone_pose_position(0, Vector3(.32, 1.04, .21))
 		var attention := Attention.new()
 		attention.name = "Attention"
+		attention._resident_id = resident
+		attention.pipeline = TestPose.new()
+		route.actor.add_child(attention.pipeline)
 		route.actor.add_child(attention)
 		route.arrive("unit:main")
 		world.resident_routes[resident] = route
@@ -156,10 +224,17 @@ func _run() -> void:
 		_transition_dialogue()
 		_s14_nadia_names_her()
 		_gaze_and_activity()
+		_lena_sewing_activity()
+		_lena_sewing_release()
+		_station_and_seek()
 		_save_reload()
 		_move_yield()
 		_interrupted_guest_wait()
+		_host_line_across_guest_phase()
+		_historical_listener()
 		_strict_fault()
+		_baseline_activity_contexts()
+		_baseline_departure()
 		await _ordinary_exchanges()
 	if loop.in_visit(): loop.go_home()
 	world.free()
@@ -207,6 +282,62 @@ func _jump(anchor: String) -> void:
 func _advance(minutes: float) -> void:
 	check(clock.advance_to(clock.elapsed_minutes() + minutes), "advance real loop clock %.3f minutes" % minutes)
 	_tick()
+
+## Independent read-only schedule queries on a private civil epoch. The leap
+## probe predates the lived game loop; no skip, weather or witness is awarded.
+func _civil_seek_matrix() -> void:
+	if not clock.configure_date(1928, 1, 1, 0):
+		check(false, "private Gregorian epoch initialized")
+		return
+	var state_before := JSON.stringify(RealityState.data)
+	var epoch := CampaignClock.calendar_minute_of(1928, 1, 1, 0)
+	var dates := [[1928,2,29,720], [1928,11,10,995], [1928,12,31,1439], [1929,1,1,0],
+			[1929,3,13,720], [1929,3,18,1020], [1929,4,6,720], [1929,6,15,1200],
+			[1929,7,19,1262], [1929,7,20,1263], [1929,10,12,1260], [1929,11,9,1439]]
+	for v: Array in dates:
+		var relative := CampaignClock.calendar_minute_of(v[0],v[1],v[2],v[3]) - epoch
+		var day := clock.day_info_at(relative)
+		if not day.get("civil_date_valid", false):
+			check(false, "civil date resolves " + str(v))
+			continue
+		check([day.year,day.month,day.day_of_month,int(day.minute_of_day)] == v, "civil date and minute " + str(v))
+		var schedule := ScheduleDirector.new()
+		var load_start := Time.get_ticks_usec()
+		schedule.setup(null, {})
+		var setup_us := Time.get_ticks_usec() - load_start
+		var roster := schedule.clocked()
+		check(roster.size() == schedule.data.residents.size() + schedule.data.staff.size() and roster.size() > 0,
+				"resident and staff timetable loaded")
+		var cold_start := Time.get_ticks_usec()
+		var cold := _sample_roster(schedule, roster, day)
+		var cold_us := Time.get_ticks_usec() - cold_start
+		var warm_start := Time.get_ticks_usec()
+		var warm := _sample_roster(schedule, roster, day)
+		var warm_us := Time.get_ticks_usec() - warm_start
+		check(cold == warm and cold.size() == roster.size(), "whole-cast second take agrees " + str(v))
+		var unassigned := []
+		var away := []
+		for id: String in roster:
+			if cold[id].is_empty(): unassigned.append(id)
+			elif cold[id].get("place") == "out": away.append(id)
+		seek_timings.append({"civil":v,"roster_count":roster.size(),"no_authored_block":unassigned,"out":away,
+				"director_setup_us":setup_us,"first_whole_cast_us":cold_us,"repeat_whole_cast_us":warm_us,
+				"repeat_under_2ms":warm_us < 2000})
+		if v == [1929,3,13,720]:
+			var weather := CampaignWeather.snapshot({"year":1929,"month":3,"day":13,"hour":12})
+			check(day.day == "wed" and float(weather.get("rain_mm", 0)) > 0.0, "midweek shift sampled in authored rain")
+		if v == [1929,3,18,1020]:
+			check(cold.lily.get("place") == "harukiya_bar" and cold.adela_voss.get("place") == "harukiya_bar", "March rehearsal resolves both actors")
+		schedule.free()
+	check(JSON.stringify(RealityState.data) == state_before, "all civil pickup queries preserve campaign state")
+
+
+func _sample_roster(schedule: ScheduleDirector, roster: Array, day: Dictionary) -> Dictionary:
+	var result := {}
+	for resident: String in roster:
+		result[resident] = schedule.resolve(resident, day.day, day.minute_of_day, day.doy, day.first_sat, day)
+	return result
+
 
 func _boundary_matrix() -> void:
 	for anchor: String in performance.data.anchors:
@@ -260,11 +391,21 @@ func _dialogue_lifecycle() -> void:
 	world.forced_blocks.clear()
 	check(not performance.try_conversation("mina_vale", player), "Mina golden-shift owner is excluded")
 	var before: Dictionary = RealityState.data.duplicate(true)
-	check(performance.try_conversation("mae_kessler", player), "actual dedicated conversation starts")
+	var target := BodyTarget.new()
+	target.resident_id = "mae_kessler"
+	add_child(target)
+	var topic: String = performance.conversation_prompt("mae_kessler")
+	check(not topic.is_empty() and target.interact_prompt() == topic and target.interact_prompt() == topic, "hover retains the available performance")
+	target.interact(player)
+	check(conversations.performance_active(), "normal body interaction starts the offered performance")
 	check(panel.attention_active() and panel.current_node_id == "loop_business", "actual panel shows the performance")
 	panel.choose(0)
 	check(not conversations.performance_active() and not panel.attention_active(), "reply releases panel and performance")
 	check(RealityState.data == before, "performance grants no trust knowledge visits inventory or economy")
+	check(target.interact_prompt().is_empty(), "a spent body has no speak prompt")
+	target.interact(player)
+	check(not panel.attention_active(), "a spent body does not open its door conversation")
+	target.free()
 	check(not performance.try_conversation("mae_kessler", player), "same phase reply does not repeat")
 	check(conversations.start("mae_kessler") and not conversations.performance_active(), "next interaction reaches ordinary conversation")
 	var ordinary := panel.current_node_id
@@ -275,6 +416,22 @@ func _dialogue_lifecycle() -> void:
 	check(performance.try_conversation("mae_kessler", player), "new rerun releases the one-shot reply")
 	_advance(10.0)
 	check(not panel.attention_active() and not conversations.performance_active(), "phase boundary cancels old dedicated reply")
+	for interruption: String in ["hidden", "route removed", "diverted"]:
+		check(bool(loop.reset_loop().ok), "fresh opening before speaker is " + interruption)
+		route.arrive("unit:main")
+		check(performance.try_conversation("mae_kessler", player), "historical line starts before speaker is " + interruption)
+		var before_interruption: Dictionary = RealityState.data.duplicate(true)
+		match interruption:
+			"hidden": route.actor.hide()
+			"route removed": world.resident_routes.erase("mae_kessler")
+			"diverted": world.forced_blocks.mae_kessler = {"place": "unit:kitchen", "activity": "chores"}
+		_tick()
+		check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before_interruption,
+				interruption + " closes the same-phase reply without campaign effects")
+		world.resident_routes.mae_kessler = route
+		world.forced_blocks.erase("mae_kessler")
+		route.arrive("unit:main")
+		check(performance.conversation_prompt("mae_kessler").is_empty(), "a returning speaker keeps the heard state for this visit")
 	check(bool(loop.reset_loop().ok), "reset for foreign dialogue ownership")
 	check(performance.try_conversation("mae_kessler", player), "dedicated line precedes foreign takeover")
 	var foreign := {"nodes": {"foreign": {"speaker": "Other", "line": "Another owner.", "choices": [{"label": "Continue."}]}}}
@@ -342,12 +499,17 @@ func _gaze_and_activity() -> void:
 	var focus := Node3D.new()
 	world.add_child(focus)
 	focus.global_position = route.actor.global_position + Vector3(0, 1, 1)
-	world.adapter.targets["test_focus"] = focus
-	var old_focus := str(phase.focus)
-	phase.focus = "test_focus"
+	check(str(phase.focus) == "6C_card_cabinet", "Mae's opening business has an authored furnishing")
+	world.adapter.targets["6C_card_cabinet"] = focus
 	_tick()
 	var attention: Attention = route.actor.get_node("Attention")
 	check(not route.actor.activity.is_empty() and attention.staged_target == focus.global_position, "arrived actor receives activity and authored gaze")
+	focus.hide()
+	_tick()
+	check(attention.staged_target == null, "a furnishing hidden by its own presentation releases the gaze")
+	focus.show()
+	_tick()
+	check(attention.staged_target == focus.global_position, "a visible furnishing can be picked up again")
 	var successor := Vector3(999, 5, 4)
 	attention.staged_target = successor
 	_tick()
@@ -361,9 +523,190 @@ func _gaze_and_activity() -> void:
 	check(attention.staged_target == focus.global_position, "unowned gaze may be acquired again")
 	check(bool(loop.go_home().ok), "home releases authored actor presentation")
 	check(route.actor.activity.is_empty() and attention.staged_target == null, "home clears only the held activity and gaze")
-	phase.focus = old_focus
+	world.adapter.targets.erase("6C_card_cabinet")
 	focus.free()
 	_jump("tea")
+
+func _lena_sewing_activity() -> void:
+	var routine: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/lena_routine.json"))
+	check(routine.places.unit == "chair" and routine.places["unit:sewing"] == "sewing_work", "historical work adds a station without replacing the ordinary chair")
+	var branch: Array = routine.paths.back()
+	check(branch == [["chair",13.4,3.2,-2.2],["sewing_approach",14.29,3.2,-2.80],["sewing_work",14.81,3.2,-2.30]], "dedicated final approach retains the measured station and faces its worktop")
+	_jump("button")
+	var route: Route = world.resident_routes.lena_ortiz
+	route.arrive("unit")
+	var work := Node3D.new()
+	world.add_child(work)
+	work.rotation.y = PI / 2.0
+	work.global_position = route.graph.get_point_position(4) - work.basis * Vector3(.50, 0, -.52)
+	world.adapter.targets["2B_sewing_machine"] = work
+	_tick()
+	check(not route.actor.sewing, "Lena's initial chores do not borrow the sewing clip")
+	_advance(20.0)
+	check(not route.actor.sewing, "original chair does not masquerade as the sewing station")
+	route.arrive("unit:sewing")
+	route.actor.rotation.y = atan2(work.global_position.x-route.actor.global_position.x, work.global_position.z-route.actor.global_position.z)
+	_tick()
+	check(route.actor.activity == "work" and route.actor.sewing and route.actor.sewing_surface == work, "arrived Lena requests handwork only at the authored button work phase")
+	var before := route.actor.global_transform
+	route.actor.rotation.y += PI
+	_tick()
+	check(not route.actor.sewing, "arrived but facing away refuses handwork")
+	check(performance.sewing_work_target("lena_ortiz") == work, "arrived work phase permits route-owned return facing")
+	for repeat in 2:
+		route.actor.rotation.y = before.basis.get_euler().y + PI
+		for step in 20: InstalledRoute.face_sewing_station(route.actor, work, .1)
+		_tick()
+		check(route.actor.sewing and route.actor.global_position == before.origin, "route-facing re-entry keeps feet fixed after interruption %d" % repeat)
+	route.actor.global_transform = before
+	route.actor.global_position += Vector3(.15, 0, 0)
+	_tick()
+	check(not route.actor.sewing, "nearby open floor is outside the measured work mark")
+	route.actor.global_transform = before
+	work.position.y += .2
+	_tick()
+	check(not route.actor.sewing, "wrong-floor furnishing refuses the work mark")
+	work.position.y -= .2
+	work.hide()
+	_tick()
+	check(not route.actor.sewing, "hidden work furnishing refuses the handwork request")
+	work.show()
+	var at := work.global_position
+	work.global_position += Vector3(4, 0, 0)
+	_tick()
+	check(not route.actor.sewing, "unreachable work focus does not play sewing against an absent bench")
+	work.global_position = at
+	route.path = PackedInt64Array([route.desired_id])
+	_tick()
+	check(route.actor.activity.is_empty() and not route.actor.sewing, "route in transit cannot request historical handwork")
+	route.arrive("unit:sewing")
+	_tick()
+	check(route.actor.sewing, "actual endpoint arrival restores the same eligible request")
+	var prior_speaker := conversations._active_resident
+	conversations._active_resident = "lena_ortiz" # Declared owner-state seam, not player dialogue proof.
+	_tick()
+	check(route.actor.activity.is_empty() and not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "speaking owner withdraws Lena's work and return-facing request")
+	conversations._active_resident = prior_speaker
+	_tick()
+	check(route.actor.sewing, "ended conversation permits re-entry at the unchanged work phase")
+	var case_id := RealityCases.case_for_resident("lena_ortiz")
+	var cases: Dictionary = RealityState.data.cases.duplicate(true)
+	check(not case_id.is_empty(), "Lena has an original case authority for the work refusal control")
+	if not case_id.is_empty():
+		RealityState.ensure_case(case_id, "lena_ortiz")["stage"] = "active"
+		_tick()
+		check(not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "active original case keeps priority over the sewing and return-facing request")
+		RealityState.data.cases = cases
+		_tick()
+		check(route.actor.sewing, "restoring original case facts readmits the same arrived work phase")
+	_advance(24.0)
+	check(route.actor.sewing, "minute44 retains Lena's current work beat")
+	_advance(1.0)
+	check(not route.actor.sewing and performance.sewing_work_target("lena_ortiz") == null, "minute45 withdraws handwork and return-facing before the kitchen departure")
+	check(route.actor.global_transform == before, "work requests never move the resident")
+	world.adapter.targets.erase("2B_sewing_machine")
+	work.free()
+	_jump("tea")
+
+
+func _lena_sewing_release() -> void:
+	# Real adapter/AnimationPlayer state transitions, synthetic clips only.
+	# No claim of loaded cast fit, prop contact or installed interaction.
+	var actor := SewingPresentation.new()
+	actor.resident_id = "lena_ortiz"
+	actor.preferred_idle = "clip_07"
+	actor.preferred_walk = "walk"
+	world.add_child(actor)
+	actor.set_process(false)
+	var animation_player := AnimationPlayer.new()
+	actor.add_child(animation_player)
+	actor._animation_player = animation_player
+	var library := AnimationLibrary.new()
+	for clip: String in ["clip_03", "clip_07", "clip_06", "walk", "case_reaction"]:
+		var animation := Animation.new()
+		animation.length = 1.0
+		library.add_animation(clip, animation)
+	animation_player.add_animation_library("", library)
+	animation_player.play("clip_03")
+	var before := actor.transform
+	var work := Node3D.new()
+	actor.add_child(work)
+	actor.set_loop_activity("work", true, work)
+	check(actor._loop_sewing and animation_player.current_animation == "clip_07", "production adapter borrows explicit counter-height handwork")
+	animation_player.advance(.1)
+	var position := animation_player.current_animation_position
+	actor.set_loop_activity("work", true, work)
+	check(is_equal_approx(animation_player.current_animation_position, position), "polling a held handwork clip does not restart it")
+	actor.talking = true
+	actor.set_loop_activity("work", true, work)
+	check(actor._loop_activity.is_empty() and not actor._loop_sewing and animation_player.current_animation == "clip_03", "dialogue releases the actual player to arms-rest instead of preferred work idle")
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "clip_03", "repeated release cannot restart Lena's preferred work idle")
+	actor.talking = false
+	actor.set_loop_activity("work", true, work)
+	check(animation_player.current_animation == "clip_07", "eligible re-entry borrows handwork again after dialogue")
+	actor._set_walking(true)
+	check(actor._loop_activity.is_empty() and animation_player.current_animation == "walk", "ordinary walking takes the clip without a latched handwork owner")
+	actor._set_walking(false)
+	actor.set_loop_activity("work", true, work)
+	check(actor.play_case_role("case_reaction"), "existing case action can take the body")
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "case_reaction", "work release never overwrites the case owner's successor clip")
+	animation_player.play("clip_03")
+	actor.set_loop_activity("work", true, work)
+	animation_player.play("clip_06")
+	actor.set_loop_activity("work", true, work)
+	check(actor._loop_activity.is_empty() and animation_player.current_animation == "clip_06", "existing seated posture refuses handwork and retains its clip")
+	animation_player.play("clip_03")
+	actor.set_loop_activity("work", true, work)
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "clip_03", "cancel or visit retirement leaves owned sewing hands at rest")
+	actor.resident_id = "cam_ortiz"
+	actor.set_loop_activity("work", true, work)
+	check(not actor._loop_sewing and animation_player.current_animation == "clip_03", "a sewing request cannot change another resident's work pose")
+	check(actor.transform == before, "presentation borrow and release never reposition the actor")
+	actor.free()
+
+
+func _station_and_seek() -> void:
+	var minutes: float = loop.loop_minutes()
+	var last: Dictionary = performance.phase_at("tea", "mae_kessler", 69.0)
+	check(last.get("start") == 55.0, "film pickup samples the final action directly")
+	check(performance.phase_at("tea", "mae_kessler", 10.0).get("start") == 10.0,
+			"backward pickup at an exact cut selects the incoming action")
+	check(performance.phase_at("tea", "mae_kessler", 70.0).is_empty()
+			and performance.phase_at("tea", "mae_kessler", -0.01).is_empty()
+			and performance.phase_at("missing", "mae_kessler", 5.0).is_empty(),
+			"out-of-range pickup creates no action")
+	check(loop.loop_minutes() == minutes and performance.phase_for("mae_kessler").get("start") == 0.0,
+			"sampling a pickup leaves the live visit alone")
+	var first: Route = world.resident_routes.cal_dwyer
+	var second: Route = world.resident_routes.peter_wren
+	var previous := second.graph.get_point_position(0)
+	second.graph.set_point_position(0, first.graph.get_point_position(0))
+	for id: String in ["cal_dwyer", "peter_wren"]:
+		world.forced_blocks[id] = {"place": "unit:main", "activity": "work"}
+		world.resident_routes[id].arrive("unit:main")
+	_tick()
+	check(first.actor.activity == "work" and second.actor.activity.is_empty(),
+			"two simultaneous arrivals grant exactly one work action at the same physical endpoint")
+	first.actor._walking = true
+	_tick()
+	check(first.actor.activity.is_empty() and second.actor.activity == "work",
+			"departing worker yields the action to the waiting resident")
+	first.arrive("unit:main")
+	_tick()
+	check(first.actor.activity.is_empty() and second.actor.activity == "work",
+			"a late arrival cannot displace the current performer")
+	world.forced_blocks.peter_wren.place = "unit:kitchen"
+	_tick()
+	check(first.actor.activity == "work" and second.actor.activity.is_empty(),
+			"a seek to another workplace releases the old station before the next route sample")
+	for id: String in ["cal_dwyer", "peter_wren"]:
+		world.forced_blocks.erase(id)
+	second.graph.set_point_position(0, previous)
+	second.arrive("unit:main")
+
 
 func _transition_dialogue() -> void:
 	var route: Route = world.resident_routes.mae_kessler
@@ -461,6 +804,23 @@ func _check_bar_step_exemptions(approach: Vector3) -> void:
 
 
 func _interrupted_guest_wait() -> void:
+	for anchor: String in ["tea", "drama", "box"]:
+		_jump(anchor)
+		var pair: Array = Performances.VISIT_PAIRS[anchor]
+		var host := str(pair[0])
+		var guest_id := str(pair[1])
+		var guest_route: Route = world.resident_routes[guest_id]
+		guest_route.arrive("unit:main")
+		if anchor == "tea":
+			_advance(10.0)
+		elif anchor == "box":
+			_advance(Loop.BOX_NADIA_APPROACH_MINUTE)
+		var phase: Dictionary = performance.phase_for(host)
+		check(phase.place != "unit:kitchen" and performance.whereabouts(host).place == "unit:kitchen",
+				anchor + " host clears the approach even while the guest is still settled at home")
+		guest_route.arrive(str(performance.phase_for(guest_id).place))
+		check(performance.whereabouts(host).place == phase.place,
+				anchor + " host resumes the authored destination after the physical guest arrival")
 	_jump("tea")
 	_advance(10.0)
 	var guest: Route = world.resident_routes.nadia_quell
@@ -475,6 +835,80 @@ func _interrupted_guest_wait() -> void:
 	performance._process(15.0)
 	check(str(performance.whereabouts("mae_kessler").place) == "unit:main", "blocked visitor fallback uses movement time")
 	guest.actor._walking = false
+
+
+## PR 596 review finding 3: in the box visit Mrs. Kessler's card-cabinet phase
+## runs 45-60 while Nadia's approach starts at 48. A line opened at 47 must not
+## be cut at 48 by the host yield (she has not moved); a genuine diversion still
+## closes it, and once the line ends the host makes room as before.
+func _host_line_across_guest_phase() -> void:
+	for diverted: bool in [false, true]:
+		var label := "box host line (%s)" % ("then diverted" if diverted else "held across 48")
+		_jump("box")
+		_advance(Loop.BOX_NADIA_APPROACH_MINUTE - 1.0)
+		var host: Route = world.resident_routes.mae_kessler
+		var guest: Route = world.resident_routes.nadia_quell
+		var phase: Dictionary = performance.phase_for("mae_kessler")
+		host.arrive(str(phase.place))
+		guest.arrive("unit:main")
+		check(performance.try_conversation("mae_kessler", player), label + ": the card-cabinet line opens before Nadia sets out")
+		var node := panel.current_node_id
+		var clock_before := clock.elapsed_minutes()
+		_advance(1.5)
+		# The clock advance itself writes the campaign clock: compare effects from here on.
+		var before: Dictionary = RealityState.data.duplicate(true)
+		check(clock.elapsed_minutes() >= clock_before + 1.5, label + ": positive control, the loop clock really advanced 1.5 minutes")
+		check(str(performance.phase_for("nadia_quell").get("place", "")) == "visit:6C"
+				and performance.phase_for("mae_kessler").get("phase_id") == phase.phase_id,
+				label + ": at 48.5 Nadia's approach has begun and Mrs. Kessler's own phase has not changed")
+		if diverted:
+			world.forced_blocks.mae_kessler = {"place": "unit:kitchen", "activity": "chores"}
+			_tick()
+			check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before,
+					label + ": a genuine diversion still closes the line without campaign effects")
+			world.forced_blocks.erase("mae_kessler")
+			continue
+		check(panel.attention_active() and conversations.performance_active() and panel.current_node_id == node,
+				label + ": the open line survives the guest's phase start")
+		check(str(performance.whereabouts("mae_kessler").place) == str(phase.place),
+				label + ": while she speaks the host keeps her place")
+		panel.choose(0)
+		check(not conversations.performance_active() and not panel.attention_active(), label + ": the reply releases the panel")
+		check(str(performance.whereabouts("mae_kessler").place) == "unit:kitchen",
+				label + ": after the line the host makes room for the arriving guest")
+		check(RealityState.data == before, label + ": no campaign effects")
+
+func _historical_listener() -> void:
+	_jump("drama")
+	var host: Route = world.resident_routes.cal_dwyer
+	var guest: Route = world.resident_routes.juno_kells
+	host.arrive("unit:main")
+	guest.arrive("visit:5B")
+	var previous := guest.actor.global_position
+	_move_endpoint(guest, host.actor.global_position + Vector3.RIGHT * 1.1 - previous)
+	var deck := Node3D.new()
+	world.add_child(deck)
+	deck.global_position = host.actor.global_position + Vector3(0, 1, -0.6)
+	world.adapter.targets["5B_deck"] = deck
+	var listener: Attention = host.actor.get_node("Attention")
+	_tick()
+	check(listener.staged_target == deck.global_position, "Cal looks at his deck before Juno speaks")
+	check(performance.try_conversation("juno_kells", player), "Juno speaks after reaching Cal's alcove")
+	listener._process(0.1)
+	check(listener.pipeline.aim == guest.actor.get_node("Attention").pipeline.eye_world(), "Cal's real attention owner directs his pose to Juno's eyes")
+	host.actor.hide()
+	_tick()
+	check(listener.ensemble_target == null and panel.attention_active(), "an absent listener releases the eyeline while Juno can finish her own line")
+	host.actor.show()
+	_tick()
+	check(listener.ensemble_target != null, "a listener who returns to the same place can attend again")
+	panel.choose(0)
+	check(listener.ensemble_target == null and listener.staged_target == deck.global_position, "departing the exchange returns Cal to his deck")
+	_move_endpoint(guest, previous - guest.actor.global_position)
+	world.adapter.targets.erase("5B_deck")
+	deck.free()
+	_jump("tea")
+
 
 func _strict_fault() -> void:
 	_jump("drama")
@@ -493,6 +927,105 @@ func _strict_fault() -> void:
 	check(bool(loop.reset_loop().ok) and is_equal_approx(clock.elapsed_minutes(), elapsed), "real same-minute rerun leaves elapsed time unchanged")
 	check(not performance.conversation_prompt("cal_dwyer").is_empty(), "rerun identity permits a fresh performance")
 
+## Check the actual timetable can select each authored context. The route
+## body or previously admitted door/counter remains a synthetic endpoint.
+func _baseline_activity_contexts() -> void:
+	_ordinary_clock()
+	var schedule := ScheduleDirector.new()
+	schedule.setup(null, {})
+	for entry: Route in world.resident_routes.values():
+		entry.outside = true
+	var cast_count := 0
+	for resident: String in performance.data.profiles:
+		var profile: Dictionary = performance.data.profiles[resident]
+		if resident == "mina_vale":
+			check(not profile.has("activities") and not performance.try_entry(resident, player),
+					"Mina keeps the golden-shift conversation")
+			continue
+		var contexts: Dictionary = profile.get("activities", {})
+		check(not contexts.is_empty(), resident + " has authored daily business")
+		for activity: String in contexts:
+			var sample := _find_context_block(schedule, resident, activity)
+			if sample.is_empty():
+				check(false, resident + " is scheduled for " + activity)
+				continue
+			var block: Dictionary = sample.block
+			check(clock.rebase_calendar(sample.calendar), resident + " reaches the scheduled civil minute")
+			_tick()
+			var route: Route = world.resident_routes.get(resident)
+			var admitted := route == null
+			if not admitted:
+				route.arrive(str(block.place))
+			world.forced_blocks[resident] = {"place": block.place, "activity": "unlisted"}
+			var plain: Dictionary = performance._line_for(resident, admitted)
+			check(plain.get("line", "") == profile.line, resident + " retains the fallback line")
+			world.forced_blocks[resident] = {"place": block.place, "activity": "sleeping"}
+			check(performance._line_for(resident, admitted).is_empty(), resident + " sleeping declines a line")
+			world.forced_blocks[resident] = {"place": "out", "activity": activity}
+			check(performance._line_for(resident, admitted).is_empty(), resident + " away declines even a matching activity")
+			world.forced_blocks[resident] = block
+			var matched: Dictionary = performance._line_for(resident, admitted)
+			var reply: Dictionary = contexts[activity]
+			check(matched.get("phase_id") == plain.get("phase_id") and matched.get("topic") == reply.topic,
+					resident + " uses one hearing for the ordinary and contextual reply")
+			var before := RealityState.data.duplicate(true)
+			var accepted: bool = performance.try_entry(resident, player) if admitted else performance.try_conversation(resident, player)
+			check(accepted and panel._line.text == reply.line, resident + " delivers the scheduled " + activity + " line")
+			if accepted:
+				panel.choose(0)
+			world.forced_blocks[resident] = {"place": block.place, "activity": "unlisted"}
+			check(performance._line_for(resident, admitted).is_empty() and RealityState.data == before,
+					resident + " cannot repeat by changing activity; dialogue has no campaign effects")
+			world.forced_blocks.erase(resident)
+			if route != null:
+				route.outside = true
+		cast_count += 1
+	check(cast_count == 18, "all eighteen eligible baseline profiles were considered")
+	schedule.free()
+
+
+func _find_context_block(schedule: ScheduleDirector, resident: String, activity: String) -> Dictionary:
+	# May 6, 1929 was Monday. Staff include weekly closed days and overnight work.
+	var days := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+	for index in days.size():
+		for minute in range(0, 1440, 10):
+			var block := schedule.resolve(resident, days[index], minute, 126 + index, false,
+					{"civil_date_valid":true, "year":1929, "month":5, "day_of_month":6 + index})
+			if block.get("activity") == activity and block.get("place", "out") != "out":
+				return {"block":block, "calendar":CampaignClock.calendar_minute_of(1929, 5, 6 + index, minute)}
+	return {}
+
+
+func _baseline_departure() -> void:
+	var resident := "peter_wren"
+	var route: Route = world.resident_routes[resident]
+	for change: String in ["hidden", "removed", "sleeping", "dressing", "shower", "out"]:
+		_ordinary_clock()
+		world.forced_blocks[resident] = {"place": "unit:main", "activity": "rest"}
+		route.arrive("unit:main")
+		check(performance.try_conversation(resident, player), "ordinary greeting opens before " + change)
+		_tick()
+		check(panel.attention_active(), "present resident keeps the greeting before " + change)
+		var before := RealityState.data.duplicate(true)
+		match change:
+			"hidden": route.actor.hide()
+			"removed": world.resident_routes.erase(resident)
+			"out": world.forced_blocks[resident].place = "out"
+			_: world.forced_blocks[resident].activity = change
+		_tick()
+		check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before,
+				"ordinary greeting releases without campaign effects on " + change)
+		world.resident_routes[resident] = route
+		world.forced_blocks.erase(resident)
+		route.actor.show()
+	route.outside = true
+	_ordinary_clock()
+	check(performance.try_entry("stacy", player), "a counter greeting can open without a route")
+	_tick()
+	check(panel.attention_active(), "the admitted counter speaker keeps her greeting")
+	conversations.cancel_performance()
+
+
 func _ordinary_clock(minute := 600) -> void:
 	if loop.in_visit(): check(bool(loop.go_home().ok), "ordinary fixture returns home")
 	ordinary_day += 1
@@ -502,11 +1035,13 @@ func _ordinary_clock(minute := 600) -> void:
 ## The routes are synthetic supported endpoints. Both the graph and visible
 ## body agree, so a distance/sight failure is not accidentally an arrival miss.
 func _arrange_encounter(item: Dictionary) -> void:
+	world.forced_blocks.clear()
 	for value: Variant in world.resident_routes.values():
 		(value as Route).outside = true
 	for i in item.actors.size():
 		var route: Route = world.resident_routes[str(item.actors[i])]
 		var place := str(item.places[0])
+		world.forced_blocks[str(item.actors[i])] = {"place": place, "activity": "rest"}
 		route.places[place] = "main"
 		route.graph.set_point_position(0, Vector3(1000, 0, i * 1.1))
 		route.arrive(place)
@@ -529,30 +1064,97 @@ func _ordinary_exchanges() -> void:
 		for i in item.lines.size():
 			var line: Dictionary = item.lines[i]
 			ordinary_lines += 1
+			for identity: String in item.actors:
+				var attention: Attention = world.resident_routes[identity].actor.get_node("Attention")
+				if identity == line.speaker:
+					check(attention.ensemble_target == null, str(item.id) + " speaker retains caller attention")
+				else:
+					attention._process(0.1)
+					var speaker: Attention = world.resident_routes[line.speaker].actor.get_node("Attention")
+					var target: Vector3 = speaker.pipeline.eye_world()
+					if item.id == "OY03" and line.text == "How temporary?":
+						var rig: Skeleton3D = world.resident_routes.omar_bell.actor.cast_body.skeleton
+						target = rig.to_global(rig.get_bone_global_pose(0).origin)
+					check(attention.pipeline.aim == target, "%s line%d directs the listener to the speaker's acting mark" % [item.id, i])
 			check(panel.attention_active() and panel._line.text == str(line.text), "%s line%d retains exact authored text" % [item.id, i])
 			check(conversations._active_resident == str(line.speaker) and not speaker_events.is_empty() \
 					and speaker_events.back() == str(line.speaker), "%s line%d speaker owns conversation signals" % [item.id, i])
 			var offered: Array = panel.offered_labels()
-			check(not offered.is_empty() and str(offered.back()) == "I'll let you get on.", "%s line%d allows departure" % [item.id, i])
+			check(offered.has("I'll let you get on.") and offered.has("Say nothing."), "%s line%d allows departure" % [item.id, i])
 			if i + 1 < item.lines.size():
 				check(str(offered[0]) == str(line.get("choice", "Listen.")), "%s line%d retains its authored reply" % [item.id, i])
 			panel.choose(0)
 		check(not panel.attention_active() and not conversations.performance_active(), str(item.id) + " ends and releases its last speaker")
+		for identity: String in item.actors:
+			check(world.resident_routes[identity].actor.get_node("Attention").ensemble_target == null, str(item.id) + " ending releases listener attention")
 		check(RealityState.data == before, str(item.id) + " dialogue has no gameplay/save consequences")
 		check(performance.ordinary.for_resident(first, "", performance._heard).is_empty(), str(item.id) + " cannot repeat in the same day")
+		for i in item.lines.size():
+			if not item.lines[i].has("aside"):
+				continue
+			_ordinary_clock()
+			_arrange_encounter(item)
+			var before_aside := RealityState.data.duplicate(true)
+			check(performance.try_conversation(first, player), str(item.id) + " starts on a new day")
+			for j in i: panel.choose(0)
+			var aside: Dictionary = item.lines[i].aside
+			check(panel.offered_labels().find(aside.label) == 1, str(item.id) + " offers the optional aside on key 2")
+			var ask := InputEventKey.new()
+			ask.keycode = KEY_2
+			ask.pressed = true
+			panel._unhandled_input(ask)
+			for turn: Dictionary in aside.lines:
+				check(panel._line.text == turn.text and conversations._active_resident == turn.speaker,
+						str(item.id) + " hands the aside to " + str(turn.speaker))
+				panel.choose(0)
+			check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before_aside,
+					str(item.id) + " releases the player after the aside with campaign state intact")
+		if item.id == "OY07":
+			_ordinary_clock()
+			_arrange_encounter(item)
+			var prior: Dictionary = RealityState.data.duplicate(true)
+			check(performance.try_conversation(first, player), "the Prices reopen on a new day")
+			panel.choose(0)
+			var question := panel.offered_labels().find("Where can he put the cup without losing his place?")
+			check(question == 1, "listening remains first and the cup intervention is on key 2")
+			if question == 1:
+				var ask := InputEventKey.new()
+				ask.keycode = KEY_2
+				ask.pressed = true
+				panel._unhandled_input(ask)
+				check(panel._line.text == "Cup here. Leave your finger where that sentence goes." and conversations._active_resident == "noel_price",
+						"Noel gives the practical answer directly")
+				panel.choose(0)
+				check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == prior,
+						"the practical answer releases the player without a campaign consequence")
 	var pair: Dictionary = performance.ordinary.encounters[0]
 	var first := str(pair.actors[0])
 	_ordinary_clock()
 	_arrange_encounter(pair)
 	var before: Dictionary = RealityState.data.duplicate(true)
 	check(performance.try_conversation(first, player), "pair starts for early departure")
-	panel.choose(panel.offered_labels().size() - 1)
+	var listener: Attention = world.resident_routes[str(pair.actors[1])].actor.get_node("Attention")
+	var foreign_target := Vector3(999.0, 2.0, 3.0)
+	listener.ensemble_target = foreign_target
+	_tick()
+	panel.choose(panel.offered_labels().find("I'll let you get on."))
 	check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before, "early departure releases speakers without granting anything")
+	check(listener.ensemble_target == foreign_target, "a successor's eyeline survives polling and early departure")
+	listener.ensemble_target = null
 	check(performance.ordinary.for_resident(first, "", performance._heard).is_empty(), "departed exchange remains heard for this day")
 	_ordinary_clock()
 	check(not performance.ordinary.for_resident(first, "", performance._heard).is_empty(), "next civil day renews ordinary exchange")
 	check(performance.try_conversation(first, player), "renewed exchange starts")
-	panel.choose(panel.offered_labels().size() - 1)
+	var exit_labels := panel.offered_labels()
+	var silent_index := exit_labels.find("Say nothing.")
+	check(silent_index >= 0 and panel._choices.get_child(silent_index).text.begins_with("0   "), "the quiet exit shows its actual shortcut")
+	var before_silence: Dictionary = RealityState.data.duplicate(true)
+	var quiet_key := InputEventKey.new()
+	quiet_key.keycode = KEY_0
+	quiet_key.pressed = true
+	panel._unhandled_input(quiet_key)
+	check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before_silence,
+			"zero quietly releases the encounter without a reply or story effect")
 	RealityState.persistence_enabled = true
 	check(RealityState.save_game(), "ordinary-day campaign saves through validated owner")
 	RealityState.load_game()
@@ -561,7 +1163,7 @@ func _ordinary_exchanges() -> void:
 	check(not performance.ordinary.for_resident(first, "", performance._heard).is_empty(), "validated reload rebuilds transient ordinary heard state")
 	RealityState.flush_background_saves()
 	RealityState.persistence_enabled = false
-	for bad: String in ["outside", "hidden", "moving", "unarrived", "wrong_floor", "overlap", "far", "unsupported", "sleeping", "transit"]:
+	for bad: String in ["outside", "hidden", "moving", "unarrived", "wrong_floor", "overlap", "far", "unsupported", "next_appointment", "sleeping", "transit"]:
 		_ordinary_clock()
 		_arrange_encounter(pair)
 		check(performance.try_conversation(first, player), "pair live before " + bad)
@@ -575,6 +1177,7 @@ func _ordinary_exchanges() -> void:
 			"overlap": _move_endpoint(other, Vector3(0, 0, -0.8))
 			"far": _move_endpoint(other, Vector3(0, 0, 2.0))
 			"unsupported": other.destination = "out"
+			"next_appointment": world.forced_blocks[str(pair.actors[1])] = {"place": "unit:desk", "activity": "work"}
 			"sleeping", "transit": world.forced_blocks[str(pair.actors[1])] = {"place": str(pair.places[0]), "activity": bad}
 		check(not performance.ordinary.eligible(pair, ""), "pair eligibility rejects " + bad)
 		_tick()
@@ -584,7 +1187,19 @@ func _ordinary_exchanges() -> void:
 	# negative control for the line-of-sight query and live cancellation.
 	_ordinary_clock()
 	_arrange_encounter(pair)
-	check(performance.try_conversation(first, player), "unobscured pair starts before blocker")
+	# Put the player in the actual ray before inserting the wall. The observer
+	# can listen between the two residents without becoming scenery.
+	var observer := player as CharacterBody3D
+	var capsule := CollisionShape3D.new()
+	capsule.shape = CapsuleShape3D.new()
+	observer.add_child(capsule)
+	observer.global_position = Vector3(1000, 1.35, 0.55)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var sight := PhysicsRayQueryParameters3D.create(Vector3(1000, 1.35, 0), Vector3(1000, 1.35, 1.1), 1)
+	check(world.get_world_3d().direct_space_state.intersect_ray(sight).get("collider") == observer,
+			"control ray meets the player's body between the residents")
+	check(performance.try_conversation(first, player), "the player can listen from between two speakers")
 	var blocker := StaticBody3D.new()
 	blocker.collision_layer = 1
 	var collider := CollisionShape3D.new()
@@ -600,6 +1215,7 @@ func _ordinary_exchanges() -> void:
 	_tick()
 	check(not panel.attention_active(), "new real obstruction cancels a live exchange")
 	blocker.free()
+	capsule.free()
 	await get_tree().physics_frame
 	check(performance.ordinary.eligible(pair, ""), "removing the real blocker restores eligibility")
 	for item: Dictionary in performance.ordinary.encounters:
@@ -619,19 +1235,20 @@ func _ordinary_exchanges() -> void:
 			check(performance.ordinary.eligible(item, ""), str(item.id) + " admits opening minute")
 			_ordinary_clock(int(item.hours[1]))
 			check(not performance.ordinary.eligible(item, ""), str(item.id) + " closes at exclusive end minute")
+	world.forced_blocks.clear()
 
 func _write_contract(engine_errors: Array[String]) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty(): directory = "user://tests/loop_performance"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
 	var sources: Dictionary = {}
-	for path: String in ["res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json"]:
+	for path: String in ["res://scripts/characters/orison_v2_resident_presentation.gd", "res://scripts/characters/animated_resident.gd", "res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_resident_route.gd", "res://scripts/characters/orison_v2_resident_route.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/characters/resident_attention.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/orison_v2/lena_routine.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
 		sources[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": false,
-		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints; no world navigation, cast fit, input optics or clue-earning qualification",
+		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints, plus real presentation/AnimationPlayer release and re-entry with synthetic clips; no loaded cast, world navigation, prop contact, input optics or clue-earning qualification",
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
 		"source": {"test_path": "game/tests/loop_performance_test.gd", "test_sha256": get_script().source_code.replace("\r\n", "\n").sha256_text(), "inputs": sources},
 		"contracts": {"loop_performance_lifecycle": {"executed": true, "status": "PASS" if failures.is_empty() else "FAIL"}},
 		"checks": checks, "failures": failures, "engine_errors": engine_errors, "anchors": anchor_count, "phases": phase_count,
-		"ordinary_encounters": ordinary_encounters, "ordinary_lines": ordinary_lines}
+		"ordinary_encounters": ordinary_encounters, "ordinary_lines": ordinary_lines, "civil_seek_samples":seek_timings}
 	FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE).store_string(JSON.stringify(result, "\t"))
