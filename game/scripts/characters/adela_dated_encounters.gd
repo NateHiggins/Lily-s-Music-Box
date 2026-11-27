@@ -48,6 +48,7 @@ var _refused_thread := ""
 var _poll_due := 0.0
 var guests: Array[AnimatedResident] = []
 var _witnessed := 0.0
+var guest_note := ""  # why a guest is not yet staged, for evidence
 var _stand := {}  # where Adela stands for the staged branch, and the side her guests take
 
 
@@ -262,18 +263,25 @@ func _mount_guests(encounter: Dictionary) -> void:
 	var guest_ids: Array = encounter.get("guests", [])
 	for i in guest_ids.size():
 		var id := str(guest_ids[i])
-		if guests.any(func(g: AnimatedResident) -> bool: return is_instance_valid(g) and g.resident_id == id) or routed_visible(id):
+		if guests.any(func(g: AnimatedResident) -> bool: return is_instance_valid(g) and g.resident_id == id):
+			continue
+		if routed_visible(id):
+			guest_note = id + ": her routed body is still visible"
 			continue
 		var beside: Vector3 = _stand.beside
 		var spot := _stand_floor(_stand.at + beside * (.9 * (i + 1)) + Vector3.UP * .2)
 		if spot.is_empty() or not _clear(spot.position):
 			spot = _stand_floor(_stand.at - beside * (.9 * (i + 1)) + Vector3.UP * .2)
 		if spot.is_empty() or not _clear(spot.position):
+			guest_note = id + ": no clear standing room beside Adela"
 			continue
 		var guest := _present(str(GUEST_NAMES.get(id, id)), id, spot.position, _stand.at, "av_friday_witness",
 				true, func() -> bool: return false)
 		if guest != null:
 			guests.append(guest)
+			guest_note = ""
+		else:
+			guest_note = id + ": her cast body did not load"
 
 
 ## True while any other body of this resident is visible in the world.

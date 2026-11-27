@@ -98,7 +98,8 @@ func _run() -> void:
 	before = failures.size()
 	_reset_flags()
 	await _at(1086)
-	_check(_thread() == "av_nineteen", "an ordinary Friday: the lobby encounter at 18:06 (%s)" % _thread())
+	await _settle(20.0, func() -> bool: return _thread() == "av_nineteen")
+	_check(_thread() == "av_nineteen", "an ordinary Friday: the lobby encounter at 18:06 (%s; %s)" % [_thread(), world.resident_whereabouts("adela_voss")])
 	await _at(1200)
 	_check(_thread().is_empty() and owner_node.call("friday_branch").is_empty(), "an ordinary Friday stages nobody at 20:00 (%s)" % _thread())
 	_check(str(world.resident_whereabouts("nadia_quell").get("activity", "")) != "visit", "Nadia keeps her own evening")
@@ -232,8 +233,13 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 	row.adela_at = adela.global_position
 	_check(_only_attempts([]), "%s: the lobby choice alone writes no attempt" % place)
 	if place == "prints":
-		await _settle(10.0, func() -> bool: return (owner_node.get("guests") as Array).size() == 1)
+		await _settle(120.0, func() -> bool: return (owner_node.get("guests") as Array).size() == 1)
 		var guests: Array = owner_node.get("guests")
+		row.guest_note = str(owner_node.get("guest_note"))
+		row.nadia_bodies = []
+		for body: Node in get_tree().get_nodes_in_group("animated_residents"):
+			if body is Node3D and str(body.get("resident_id")) == "nadia_quell":
+				row.nadia_bodies.append({"path": str(body.get_path()), "at": str((body as Node3D).global_position), "visible": (body as Node3D).is_visible_in_tree()})
 		_check(guests.size() == 1 and str(guests[0].resident_id) == "nadia_quell" and (guests[0] as Node3D).is_visible_in_tree(),
 				"prints: Miss Quell is in the shop with her")
 		_check(_visible_bodies("nadia_quell") == 1, "prints: exactly one Nadia is visible (%d)" % _visible_bodies("nadia_quell"))
@@ -264,8 +270,7 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 	detached.global_position = camera.global_position
 	detached.look_at(head, Vector3.UP)
 	detached.make_current()
-	await get_tree().create_timer(1.6).timeout
-	await get_tree().physics_frame
+	await _hold(1.6)
 	_check(detached.is_position_in_frustum(head) and not RealityState.has_knowledge(attempt), "%s: a detached camera's view grants nothing" % place)
 	detached.queue_free()
 	camera.make_current()
@@ -325,8 +330,7 @@ func _at(minute: int) -> void:
 
 
 func _hold(seconds: float) -> void:
-	var ends := Time.get_ticks_msec() + int(seconds * 1000.0)
-	while Time.get_ticks_msec() < ends:
+	for tick in ceili(seconds * Engine.physics_ticks_per_second):
 		await get_tree().physics_frame
 
 
@@ -383,8 +387,8 @@ func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0, h
 		toward = toward.rotated(right, deg_to_rad(-pitch_down))  # look below: the face rises in the picture
 	var target := camera.global_position + (toward if not away else -toward)
 	camera.look_at(target, Vector3.UP)
-	var ends := Time.get_ticks_msec() + int(hold * 1000.0)
-	while Time.get_ticks_msec() < ends:
+	# Held in simulated time: the owner accumulates physics delta, so the fixture counts physics ticks.
+	for tick in ceili(hold * Engine.physics_ticks_per_second):
 		await get_tree().physics_frame
 
 
