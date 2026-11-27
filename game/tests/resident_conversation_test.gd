@@ -139,12 +139,16 @@ func _run() -> void:
 			and _has(panel.offered_labels(), "Say nothing.") and RealityState.resident_trust("peter_wren") == 0)
 	stale_evidence.pressed.emit()
 	_check("the detached button cannot answer the refreshed menu", events.is_empty())
+	_check("rejecting the stale reply leaves Peter at two visits",
+			RealityState.conversation_visits("peter_wren") == 2)
 	panel.node_shown.disconnect(on_show)
 	panel.tree_ended.disconnect(on_end)
 	panel.close()
 	panel.current_node_id = ""
 	_unit = "4A"
-	director.knock("4A")
+	_check("reopening the flat for the evidence reply records the third visit",
+			director.knock("4A").is_empty() and panel.current_node_id == "pw_open"
+			and RealityState.conversation_visits("peter_wren") == 3)
 	offered = panel.offered_labels()
 	panel.choose(_index(offered, "[the staging table]"))
 	_check("the table leads to the stations", panel.current_node_id == "pw_table")
@@ -209,7 +213,7 @@ func _run() -> void:
 	_check("knowledge, trust and visits are in the saved campaign document",
 			"peter_gap_found" in snapshot.knowledge_flags
 			and int(snapshot.resident_trust.peter_wren) == 6
-			and int(snapshot.conversation_visits.peter_wren) == 3)
+			and int(snapshot.conversation_visits.peter_wren) == 4)
 	_check("the saved shape still validates", RealityState._validate_document(snapshot).ok)
 
 	# --- a soured first contact falls back -------------------------------------------
@@ -430,6 +434,22 @@ func _check_long_replies(viewport: SubViewport, panel: CaseDialoguePanel) -> voi
 			_check("shortcut %s preserves its authored reply at %s" % [digit, size], not chosen.is_empty()
 					and chosen.back() == labels[-1 if digit == KEY_0 else digit - KEY_1])
 			chosen.clear()
+
+
+		# Noel's terminal inventory confession is the longest authored resident line.
+		# The panel must retain the full words for both the reader and the voice owner.
+		var noel: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/noel_price.json"))
+		panel.run_tree(noel, "np_assoc_chair", Callable())
+		for frame in 5: await get_tree().process_frame
+		var caption := panel._line.get_global_rect()
+		var replies := panel._reply_scroll.get_global_rect()
+		_check("Noel's complete confession leaves his face and closing reply visible at %s" % size,
+				panel.displayed_line().text == noel.nodes.np_assoc_chair.line
+				and panel._line.get_theme_font_size("font_size") >= CaseDialoguePanel.REPLY_SIZE
+				and panel._speaker.get_global_rect().position.y >= size.y * .48
+				and caption.end.x <= size.x and caption.end.y <= replies.position.y
+				and replies.end.y <= size.y and panel.offered_labels() == ["..."])
+		panel.close()
 
 
 static func _has(labels: Array, text: String) -> bool:

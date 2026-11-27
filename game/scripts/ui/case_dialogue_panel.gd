@@ -164,11 +164,43 @@ func _ready() -> void:
 func _fit_measure() -> void:
 	var view := get_viewport().get_visible_rect().size
 	var side := mini(72, int(view.x * .075))
+	var bottom := mini(34, int(view.y * .05))
+	var separation := 6
+	if view.y <= 400.0:
+		side = mini(side, 16)
+		bottom = mini(bottom, 8)
+		separation = 2
+	_column.add_theme_constant_override("separation", separation)
 	_measure.add_theme_constant_override("margin_left", side)
 	_measure.add_theme_constant_override("margin_right", side)
-	_measure.add_theme_constant_override("margin_bottom", mini(34, int(view.y * .05)))
+	_measure.add_theme_constant_override("margin_bottom", bottom)
 	_line.custom_minimum_size.x = minf(COLUMN_WIDTH, maxf(1.0, view.x - 2 * side))
+	_fit_spoken_line()
 	_fit_replies()
+
+
+func _fit_spoken_line() -> void:
+	var view := get_viewport().get_visible_rect().size
+	var name_height := _speaker.get_combined_minimum_size().y if _speaker.visible else 0.0
+	var gaps := _column.get_theme_constant("separation") * (3 if _speaker.visible else 2)
+	# Keep one reachable reply and leave the upper half of the shot for the face.
+	var budget := view.y * .51 - name_height - gaps - 35.0 - _measure.get_theme_constant("margin_bottom")
+	var size := LINE_SIZE
+	var spacing := 3
+	while not _line.text.is_empty():
+		var height := SERIF.get_multiline_string_size(_line.text, HORIZONTAL_ALIGNMENT_LEFT,
+				_line.custom_minimum_size.x, size).y
+		var rows := maxi(1, roundi(height / SERIF.get_height(size)))
+		if height + (rows - 1) * spacing <= budget:
+			break
+		if spacing > 0:
+			spacing = 0
+		elif size > REPLY_SIZE:
+			size -= 1
+		else:
+			break
+	_line.add_theme_constant_override("line_spacing", spacing)
+	_line.add_theme_font_size_override("font_size", size)
 
 
 func _fit_replies() -> void:
@@ -234,6 +266,7 @@ func _present_line(speaker_name: String, words: String, options: Array, delivery
 	_speaker.text = speaker_name
 	_speaker.visible = speaker_name.strip_edges() != ""
 	_line.text = words
+	_fit_spoken_line()
 	_set_replies(options)
 	if not _panel.visible:
 		_previous_mouse = Input.mouse_mode
