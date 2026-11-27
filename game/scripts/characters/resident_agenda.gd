@@ -241,11 +241,14 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 			"place": str(block.get("place", "unit")), "activity": duty, "source": "timetable",
 			"why": str(block.get("detail", "keeps to the timetable")), "minutes": step,
 			"needs": {}, "hard": duty in motives.hard_activities})
+	var trust := int(_trust.call(slug)) if _trust.is_valid() else 0
+	var wary := player != "" and trust <= int(motives.player.avoid_trust)
 	if ScheduleDirector.has_appointment(block):
 		var appointed := candidates[0]
-		# An authored meeting is binding only at a reachable, permitted place.
-		# An unavailable route keeps the ordinary selection and its fallback.
-		if _place_open(slug, appointed):
+		# A voluntary visit still goes through motive scoring when the resident
+		# would have to share the room with a player they distrust.
+		var avoids_meeting := wary and not bool(appointed.hard) and _same_place(slug, appointed, player)
+		if not avoids_meeting and _place_open(slug, appointed):
 			appointed.block = block
 			appointed.motive = _motive(slug, state, appointed, weather)
 			return appointed
@@ -267,7 +270,6 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 					"visit:" + unit, "socializing"))
 	if larder != null:
 		_kitchen_candidates(slug, state, minute, traits, candidates, replay_shortages)
-	var trust := int(_trust.call(slug)) if _trust.is_valid() else 0
 	var meet := "corridor" if player == "corridor:F0" + str(_units[slug]).left(1) else player
 	# A trusted night man is worth seeking out where anyone may be: a shared
 	# room, or the corridor of the resident's own floor.
@@ -292,7 +294,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 		if not _open(slug, candidate, minute, light, traits):
 			continue
 		var score := _score(slug, state, candidate, weather, traits, arc, states)
-		if player != "" and trust <= int(motives.player.avoid_trust) and _same_place(slug, candidate, player):
+		if wary and _same_place(slug, candidate, player):
 			score -= 1.2
 		if str(candidate.key) == str(state.key):
 			score += 0.6 if int(state.until) > minute else 0.1
@@ -301,7 +303,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 			best = candidate
 	best = best.duplicate()
 	# Kept out of the timetable's room by the night man being in it.
-	if player != "" and trust <= int(motives.player.avoid_trust) and str(best.source) != "timetable" \
+	if wary and str(best.source) != "timetable" \
 			and _same_place(slug, candidates[0], player):
 		best.source = "player"
 		best.why = str(motives.player.avoid_why)
