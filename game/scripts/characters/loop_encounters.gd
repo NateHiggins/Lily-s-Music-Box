@@ -44,7 +44,7 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 					errors.append("invalid listener wrist mark: " + str(item.id))
 				else:
 					listener_marks[ResidentConversations.performance_node_id(index)] = mark
-		if not _compile_interjections(item.lines):
+		if not _compile_interjections(item.lines) or not _compile_asides(item):
 			errors.append("invalid interjection in encounter: " + str(item.id))
 		if not listener_marks.is_empty():
 			item["listener_marks"] = listener_marks
@@ -81,6 +81,34 @@ func _compile_interjections(lines: Array) -> bool:
 			if beat is not String or beat.strip_edges().is_empty() or answers.has(beat):
 				return false
 			answers[beat] = index
+	return true
+
+
+## Branch rows follow the straight-through rows so existing node IDs and recordings stay stable.
+func _compile_asides(item: Dictionary) -> bool:
+	if item.has("_sequence"):
+		return false
+	var sequence: Array = item.lines.duplicate(true)
+	for i in item.lines.size():
+		var row: Dictionary = sequence[i]
+		if row.has("_end"):
+			return false
+		if not row.has("aside"):
+			continue
+		var aside: Variant = row.aside
+		if row.has("_interjection") or i == item.lines.size() - 1 or aside is not Dictionary:
+			return false
+		if aside.get("label") is not String or aside.label.strip_edges().is_empty() or aside.get("lines") is not Array or aside.lines.is_empty():
+			return false
+		row["_interjection"] = {"label": aside.label, "goto": ResidentConversations.performance_node_id(sequence.size())}
+		for turn: Variant in aside.lines:
+			if turn is not Dictionary or turn.size() != 2 or turn.get("speaker") not in item.actors or turn.get("text") is not String or turn.text.strip_edges().is_empty():
+				return false
+			sequence.append(turn.duplicate())
+		sequence.back()["_end"] = true
+	if sequence.size() != item.lines.size():
+		sequence[item.lines.size() - 1]["_end"] = true
+		item["_sequence"] = sequence
 	return true
 
 
@@ -129,5 +157,5 @@ func for_resident(identity: String, anchor: String, heard: Dictionary) -> Dictio
 		var key := "ordinary:" + str(item.id)
 		if identity in item.actors and not heard.has(key) and eligible(item, anchor):
 			return {"phase_id": key, "topic": str(item.topic), "line": str(item.lines[0].text),
-					"sequence": item.lines, "encounter": item}
+					"sequence": item.get("_sequence", item.lines), "encounter": item}
 	return {}

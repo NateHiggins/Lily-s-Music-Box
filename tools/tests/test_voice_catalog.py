@@ -61,15 +61,17 @@ class VoiceCatalogTests(unittest.TestCase):
                 {"place": "", "line": ""}, {"place": "unit", "line": "That was the chair."}]}}}})
         self.write("temporal/ordinary_performances.json", {"encounters": [{
             "id": "OY04", "lines": [
-                {"speaker": "juno_kells", "text": "Listen.", "choice": "To what?"},
+                {"speaker": "juno_kells", "text": "Listen.", "choice": "To what?",
+                 "aside": {"label": "Did you hear it?", "lines": [{"speaker": "cal_dwyer", "text": "I heard it."}]}},
                 {"speaker": "cal_dwyer", "text": "The chair."}]}]})
         rows = [r for r in self.lines() if r["namespace"].startswith("loop_")]
-        self.assertEqual(len({r["line_id"] for r in rows}), 5)
+        self.assertEqual(len({r["line_id"] for r in rows}), 6)
         self.assertEqual([r["runtime_node_id"] for r in rows].count("loop_business"), 4)
         self.assertEqual({(r["runtime_node_id"], r["profile_id"], r["text"]) for r in rows
                           if r["namespace"] == "loop_exchange_oy04"},
                          {("loop_business", "juno_kells", "Listen."),
-                          ("loop_business_1", "cal_dwyer", "The chair.")})
+                          ("loop_business_1", "cal_dwyer", "The chair."),
+                          ("loop_business_2", "cal_dwyer", "I heard it.")})
         self.assertTrue(all(r["state"] == "ready" for r in rows))
 
     def test_exact_text_pointer_and_explicit_speaker_overrides(self):

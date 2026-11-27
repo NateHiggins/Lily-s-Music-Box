@@ -368,7 +368,7 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 		cast[actor] = true
 		var key := performance_node_id(i)
 		var choices: Array = []
-		if i + 1 < lines.size():
+		if i + 1 < lines.size() and not row.get("_end", false):
 			choices.append({"label": str(row.get("choice", "Listen.")), "goto": performance_node_id(i + 1)})
 		if row.has("_interjection"):
 			choices.append(row._interjection.duplicate())

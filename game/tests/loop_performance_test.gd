@@ -907,6 +907,26 @@ func _ordinary_exchanges() -> void:
 			check(world.resident_routes[identity].actor.get_node("Attention").ensemble_target == null, str(item.id) + " ending releases listener attention")
 		check(RealityState.data == before, str(item.id) + " dialogue has no gameplay/save consequences")
 		check(performance.ordinary.for_resident(first, "", performance._heard).is_empty(), str(item.id) + " cannot repeat in the same day")
+		for i in item.lines.size():
+			if not item.lines[i].has("aside"):
+				continue
+			_ordinary_clock()
+			_arrange_encounter(item)
+			var before_aside := RealityState.data.duplicate(true)
+			check(performance.try_conversation(first, player), str(item.id) + " starts on a new day")
+			for j in i: panel.choose(0)
+			var aside: Dictionary = item.lines[i].aside
+			check(panel.offered_labels().find(aside.label) == 1, str(item.id) + " offers the optional aside on key 2")
+			var ask := InputEventKey.new()
+			ask.keycode = KEY_2
+			ask.pressed = true
+			panel._unhandled_input(ask)
+			for turn: Dictionary in aside.lines:
+				check(panel._line.text == turn.text and conversations._active_resident == turn.speaker,
+						str(item.id) + " hands the aside to " + str(turn.speaker))
+				panel.choose(0)
+			check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == before_aside,
+					str(item.id) + " releases the player after the aside with campaign state intact")
 		if item.id == "OY07":
 			_ordinary_clock()
 			_arrange_encounter(item)
