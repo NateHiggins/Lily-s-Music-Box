@@ -223,6 +223,7 @@ func _run() -> void:
 		_dialogue_lifecycle()
 		_transition_dialogue()
 		_s14_nadia_names_her()
+		_s04_yard_arrival_order()
 		_gaze_and_activity()
 		_lena_sewing_activity()
 		_lena_sewing_release()
@@ -368,6 +369,38 @@ func _boundary_matrix() -> void:
 				_advance(0.0011)
 			check(performance.phase_for(resident).is_empty(), "no phase survives visit endpoint")
 	_jump("tea")
+
+# Uses the stock phase, witness and thread owners with synthetic endpoints.
+# Player movement and both saved choices belong to the installed companion test.
+func _s04_yard_arrival_order() -> void:
+	_jump("stairs")
+	var nurse: Route = world.resident_routes.teresa_vale
+	var electrician: Route = world.resident_routes.omar_bell
+	nurse.places["visit:yard_nurse"] = "studio"
+	electrician.places["visit:yard_electrician"] = "alcove"
+	nurse.arrive("unit:main")
+	electrician.arrive("unit:main")
+	check(performance.whereabouts("teresa_vale").get("place") == "visit:yard_nurse", "03:02 calls Teresa to the yard")
+	check(performance.whereabouts("omar_bell").is_empty(), "Omar has no early yard call")
+	check(not conversations.can_offer_body_mystery("teresa_vale", true, "tv_yard"), "no yard speech from Teresa on her way")
+	_advance(3.01)
+	check(performance.whereabouts("omar_bell").is_empty(), "Omar cannot beat obstructed Teresa to the find")
+	nurse.arrive("visit:yard_nurse")
+	check(conversations.can_offer_body_mystery("teresa_vale", true, "tv_yard"), "arrived Teresa can speak without waiting for Omar")
+	check(performance.whereabouts("omar_bell").get("place") == "visit:yard_electrician", "03:05 calls Omar after Teresa")
+	var attention: Attention = nurse.actor.get_node("Attention")
+	check(performance._focus_point("resident:teresa_vale") == attention.pipeline.eye_world(), "Omar can look at Teresa's posed head once she arrives")
+	check(not performance._focus_point("historical:adela_head").is_finite(), "a missing historical figure supplies no substitute gaze")
+	electrician.arrive("visit:yard_electrician")
+	check(performance.conversation_prompt("omar_bell") == "Do you have to go back?", "Omar offers to stay only after he arrives")
+	check(not RealityState.has_knowledge("mt:tv_yard") and not RealityState.has_knowledge("m_teresa_named_her"), "passing the finder does not name Adela")
+	nurse.arrive("unit:main")
+	check(not conversations.can_offer_body_mystery("teresa_vale", true, "tv_yard"), "departed finder cannot be heard from 1D")
+	check(not performance._focus_point("resident:teresa_vale").is_finite(), "Teresa leaving the scene releases the yard eyeline")
+	nurse.places.erase("visit:yard_nurse")
+	electrician.places.erase("visit:yard_electrician")
+	_jump("tea")
+
 
 func _dialogue_lifecycle() -> void:
 	var route: Route = world.resident_routes.mae_kessler

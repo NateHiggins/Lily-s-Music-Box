@@ -126,6 +126,13 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 	return true
 
 
+## Full V2 composition supplies the cast, calendar and collision world.
+func install_yard_tableau() -> void:
+	var tableau := preload("res://scripts/characters/adela_discovery_tableau.gd").new()
+	tableau.configure(world, loop)
+	add_child(tableau)
+
+
 func _extend_visit(guest: String, host: String, place: String, arrival_node: String) -> void:
 	var visitor: Node = world.resident_routes.get(guest)
 	var resident: Node = world.resident_routes.get(host)
@@ -227,6 +234,10 @@ func whereabouts(resident: String) -> Dictionary:
 	var parts := str(anchor.start).split(":")
 	var minute := int(parts[0]) * 60 + int(parts[1])
 	var destination := str(phase.place)
+	# Teresa finds Adela first. A late or obstructed nurse cannot be overtaken
+	# by Omar just because three clock minutes have passed.
+	if destination == "visit:yard_electrician" and route.destination != destination and not witness_present("teresa_vale"):
+		return {}
 	var activity := str(phase.activity)
 	# Hosts clear the shared approach while a scheduled guest comes through.
 	# The guest yields to the real body, so a slow/blocked host never gets walked
@@ -314,6 +325,8 @@ func _sync_visit() -> void:
 	if conversations != null:
 		conversations.cancel_for_transition()
 	_clear_activities()
+	var tableau: Node=get_node_or_null("AdelaDiscoveryTableau")
+	if tableau!=null:tableau.refresh() # Includes validated same-visit load/data replacement.
 	# Existing bodies walk from their actual positions toward the reconstructed
 	# phase. No visible teleport on jump, home, load or immediate rerun.
 
@@ -687,15 +700,33 @@ func _process(delta: float) -> void:
 		if focus.is_empty() or attention == null:
 			_release_gaze(resident)
 			continue
-		var target: Node3D = world.adapter.resolve(focus) as Node3D
+		var point := _focus_point(focus)
 		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
 				and attention.staged_target == _gaze[resident].point
-		if target != null and target.is_visible_in_tree() and target.global_position.distance_to(actor.global_position) < 3.2 \
+		if point.is_finite() and point.distance_to(actor.global_position) < 3.2 \
 				and (attention.staged_target == null or still_owned):
-			attention.staged_target = target.global_position
-			_gaze[resident] = {"owner": attention, "point": target.global_position}
+			attention.staged_target = point
+			_gaze[resident] = {"owner": attention, "point": point}
 		else:
 			_release_gaze(resident)
+
+
+func _focus_point(focus: String) -> Vector3:
+	if focus == "historical:adela_head":
+		var tableau := get_tree().get_first_node_in_group("adela_discovery_tableau") if is_inside_tree() else null
+		if tableau != null and tableau.has_method("head_world"):
+			var head: Variant = tableau.call("head_world")
+			return head if head is Vector3 else Vector3.INF
+		return Vector3.INF
+	if focus.begins_with("resident:"):
+		var id := focus.trim_prefix("resident:")
+		if witness_present(id):
+			var attention := _resident_attention(world.resident_routes[id].actor)
+			if attention != null and attention.get("pipeline") != null:
+				return attention.pipeline.eye_world()
+		return Vector3.INF
+	var target := world.adapter.resolve(focus) as Node3D
+	return target.global_position if is_instance_valid(target) and target.is_visible_in_tree() else Vector3.INF
 
 
 func _release_gaze(resident: String) -> void:

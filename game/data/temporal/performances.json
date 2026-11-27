@@ -294,35 +294,53 @@
         "teresa_vale": [
           {
             "until": 3,
-            "place": "",
+            "place": "visit:yard_nurse",
             "activity": "work",
-            "focus": "",
+            "focus": "historical:adela_head",
             "topic": "",
             "line": ""
           },
           {
             "until": 15,
-            "place": "",
+            "place": "visit:yard_nurse",
             "activity": "work",
-            "focus": "",
+            "focus": "historical:adela_head",
             "topic": "",
             "line": ""
           },
           {
             "until": 28,
-            "place": "",
+            "place": "visit:yard_nurse",
             "activity": "rest",
+            "focus": "historical:adela_head",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 38,
+            "place": "visit:yard_nurse",
+            "activity": "work",
+            "focus": "historical:adela_head",
+            "topic": "",
+            "line": ""
+          }
+        ],
+        "omar_bell": [
+          {
+            "until": 3,
+            "place": "",
+            "activity": "work",
             "focus": "",
             "topic": "",
             "line": ""
           },
           {
             "until": 38,
-            "place": "",
+            "place": "visit:yard_electrician",
             "activity": "work",
-            "focus": "",
-            "topic": "",
-            "line": ""
+            "focus": "resident:teresa_vale",
+            "topic": "Do you have to go back?",
+            "line": "If that breaker trips again, somebody can come and get me. I'm staying here."
           }
         ]
       }

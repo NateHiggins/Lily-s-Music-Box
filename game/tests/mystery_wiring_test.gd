@@ -11,8 +11,11 @@ const Economy = preload("res://scripts/game/caretaker_economy.gd")
 
 class WitnessFixture extends Node:
 	var nadia_present := true
+	var teresa_present := false
 
 	func witness_present(resident_id: String) -> bool:
+		if resident_id == "teresa_vale":
+			return teresa_present
 		return nadia_present and resident_id == "nadia_quell"
 
 
@@ -336,6 +339,10 @@ func _run() -> void:
 			conversations.playtest_date = str(thread.from)
 			conversations.playtest_minute = conversations._clock_minute(str(thread.hours[0])) \
 					if thread.has("hours") else 720
+			witness_fixture.teresa_present = false
+			if thread.id == "tv_yard":
+				_check("the yard thread waits for Teresa to arrive", not conversations.start_mystery(resident_id))
+				witness_fixture.teresa_present = true
 			var opened: bool = conversations.start_mystery(resident_id)
 			_check("%s opens" % thread.id, opened)
 			if not opened:

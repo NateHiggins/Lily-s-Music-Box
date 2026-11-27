@@ -62,6 +62,8 @@ var seated_feet: RefCounted
 var work_hands: RefCounted
 ## Explicit Lena seating lease; null for every other actor and ordinary gait.
 var sewing_seat: RefCounted
+## Explicit Teresa S04 kneel lease; null for ordinary motion.
+var yard_kneel: RefCounted
 
 
 ## Fit the pipeline to a skeleton. False when no rig profile fits it.
@@ -136,6 +138,7 @@ func step(delta: float) -> void:
 		return
 	writers.clear()
 	if sewing_seat!=null:sewing_seat.apply_base(body,delta)
+	if yard_kneel!=null:yard_kneel.apply_base(body,delta)
 	_clock += delta
 	_breath_extra_time += delta * clampf(breath_arousal, 0.0, 1.0) * 0.40
 	_posture(body)

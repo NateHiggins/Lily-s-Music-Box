@@ -122,6 +122,12 @@ func setup(root: Node3D) -> bool:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != str(source.unit): return false
 		_doors.append(door)
+	# The receiving apron is reached through the actual service leaf. Let the
+	# existing passage owner check the resident's keys and release the door.
+	if places.has("rear_apron"):
+		var rear_leaf := world.find_child("F01_REAR_SERVICE_DOOR_Leaf", true, false) as DoorProp
+		if rear_leaf == null: return false
+		_doors.append(rear_leaf)
 	# Roof access is a public connection. Apartment doors above still
 	# require the route owner to match the private unit.
 	if places.has("roof"):

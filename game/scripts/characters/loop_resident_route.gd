@@ -4,6 +4,7 @@ extends "res://scripts/characters/orison_v2_resident_route.gd"
 ## work in the parent; never move around a person by cutting a new corner.
 
 var _sewing_seat: RefCounted
+var _yard_kneeling := false
 
 var _bar_identities: Dictionary[int, String] = {}
 
@@ -22,6 +23,12 @@ func _is_bar_point(id: int) -> bool:
 
 
 func _route_step_allowed(next: Vector3) -> bool:
+	# A new itinerary can be selected within the parent's tick. Protect the
+	# first step as well as subsequent ticks while the planted knee rises.
+	if _yard_kneeling:
+		actor.call("request_yard_kneel", false)
+		if not bool(actor.call("yard_kneel_released")): return false
+		_yard_kneeling = false
 	if not is_instance_valid(world) or world.get("loop_performances") == null:
 		return true
 	# The independently owned bar route keeps its measured seat/aisle clearance.
@@ -45,12 +52,26 @@ func sewing_seat_arrived() -> bool:
 
 
 func _exit_tree() -> void:
+	if _yard_kneeling and is_instance_valid(actor): actor.call("request_yard_kneel", false)
 	if _sewing_seat != null: _sewing_seat.close()
 	super._exit_tree()
 
 
+func _at_nurse_mark() -> bool:
+	return destination == "visit:yard_nurse" and world.get("loop_performances") != null \
+			and world.loop_performances.witness_present(resident)
+
+
 func _route_tick(delta: float) -> void:
+	if _yard_kneeling and bool(actor.call("yard_kneel_released")):
+		_yard_kneeling = false
+	if _yard_kneeling and not _at_nurse_mark():
+		actor.call("request_yard_kneel", false)
+		if not bool(actor.call("yard_kneel_released")): return
+		_yard_kneeling = false
 	super._route_tick(delta)
+	if resident == "teresa_vale" and not _yard_kneeling and _at_nurse_mark() and actor.has_method("request_yard_kneel"):
+		_yard_kneeling = bool(actor.call("request_yard_kneel", true))
 	# Restore the work-facing stance after a caller releases Lena. The base
 	# motor still owns all movement and refuses dialogue/player locks first.
 	if resident != "lena_ortiz" or destination != "unit:sewing" or actor == null: return

@@ -155,6 +155,59 @@ func clear_sewing_seat_pose() -> void:
 	_sewing_seat_blend=null;_sewing_seat_feet=null;_sewing_seat_contact=null
 	_sewing_seat_machine=null;_sewing_seat_chair=null;_sewing_seat_working=false
 
+const YardKneel := preload("res://scripts/characters/teresa_yard_kneel.gd")
+var _yard_kneel: RefCounted
+var _yard_kneel_previous_idle := ""
+var _yard_kneel_face_player := false
+var yard_kneel_blocked_reason := ""
+
+## The historical visit owner admits only an arrived Teresa. False has no
+## pose/clip/lease side effect; talking does not revoke an acquired kneel.
+func request_yard_kneel(on: bool) -> bool:
+	if not on:
+		if _yard_kneel!=null:_yard_kneel.wanted=false
+		return true
+	if _yard_kneel!=null:
+		if not _yard_kneel.source_valid():_clear_yard_kneel();return false
+		_yard_kneel.wanted=true;return true
+	if resident_id!="teresa_vale" or not is_inside_tree():return false
+	if _loop_talking():yard_kneel_blocked_reason="first acquisition waits for existing conversation/root turn to release";return false
+	if _walking or _sewing_seat_blend!=null or _loop_seated():return false
+	if not is_instance_valid(cast_body) or not is_instance_valid(attention) or attention.pipeline==null or _animation_player==null:return false
+	if attention.pipeline.yard_kneel!=null or attention.pipeline.sewing_seat!=null or attention.pipeline.seated_feet!=null or attention.pipeline.work_hands!=null:return false
+	if walking_feet!=null and float(walking_feet.weight)>=.001:yard_kneel_blocked_reason="waiting for existing walking-feet handoff";return false
+	if not _animation_player.has_animation("clip_03"):return false
+	var lease:=YardKneel.new()
+	if not lease.bind(self,cast_body):yard_kneel_blocked_reason=lease.blocked_reason;return false
+	if not _local_loop("clip_03"):return false
+	clear_loop_activity()
+	_yard_kneel_previous_idle=preferred_idle;preferred_idle="clip_03"
+	_yard_kneel_face_player=face_interacting_player;face_interacting_player=false
+	_yard_kneel=lease;attention.pipeline.yard_kneel=lease
+	yard_kneel_blocked_reason=""
+	_animation_player.play("clip_03",.20)
+	return true
+
+func yard_kneel_released() -> bool:
+	if _yard_kneel==null:return true
+	if not _yard_kneel.source_valid():
+		yard_kneel_blocked_reason="skin invalidated; pose lease retired"
+		_clear_yard_kneel();return true
+	return _yard_kneel.released()
+
+func yard_kneel_status() -> Dictionary:
+	return {"owned":_yard_kneel!=null,"released":yard_kneel_released(),"reason":yard_kneel_blocked_reason,"pose":{"amount":_yard_kneel.amount,"settle":_yard_kneel.settle,"wanted":_yard_kneel.wanted,"measured":_yard_kneel.last.duplicate(true)} if _yard_kneel!=null else {}}
+
+func _clear_yard_kneel() -> void:
+	if _yard_kneel==null:return
+	if is_instance_valid(attention) and attention.pipeline!=null and attention.pipeline.yard_kneel==_yard_kneel:attention.pipeline.yard_kneel=null
+	_yard_kneel=null
+	if not face_interacting_player:face_interacting_player=_yard_kneel_face_player
+	_yard_kneel_face_player=false
+	if preferred_idle=="clip_03":preferred_idle=_yard_kneel_previous_idle
+	_yard_kneel_previous_idle=""
+	if _animation_player!=null and not _walking and str(_animation_player.current_animation)=="clip_03":_play_named("idle")
+
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/resident_animation_profiles.json"))
@@ -224,6 +277,7 @@ func _local_loop(clip: String) -> bool:
 ## Sewing is a bounded owner request at Lena's arrived historical work mark;
 ## the existing handwork clip claims no needle grip, prop movement or sitting.
 func set_loop_activity(activity: String, sewing: bool = false, work_surface: Node3D = null) -> void:
+	if _yard_kneel!=null:return
 	if _sewing_seat_blend!=null:return
 	if resident_id == "mina_vale" or mina_animation != null: return
 	if activity.is_empty():
@@ -309,6 +363,9 @@ func _loop_seated() -> bool:
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	if _yard_kneel!=null:
+		if not _yard_kneel.source_valid() or _yard_kneel.released():_clear_yard_kneel()
+		elif _walking:_yard_kneel.wanted=false # Caller must gate the motor until rise completes.
 	if _sewing_seat_blend!=null and not _sewing_seat_live():clear_sewing_seat_pose()
 	if not _loop_activity.is_empty() and (_walking or _loop_talking() or _loop_seated()):
 		clear_loop_activity()
@@ -319,15 +376,17 @@ func _set_walking(on: bool) -> void:
 	super._set_walking(on)
 
 func play_case_role(fragment: String) -> bool:
+	if _yard_kneel!=null:return false
 	if _sewing_seat_blend!=null:return false
 	if not _loop_activity.is_empty(): clear_loop_activity()
 	return super.play_case_role(fragment)
 
 ## A stage gesture never takes a seated body or a clip a loop activity has borrowed.
 func _emote_allowed() -> bool:
-	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated() and _sewing_seat_blend==null
+	return _yard_kneel==null and super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated() and _sewing_seat_blend==null
 
 func play_seated() -> bool:
+	if _yard_kneel!=null:return false
 	if _sewing_seat_blend!=null:return false
 	# Mina's supplied twenty clips have no seated motion. Her owner retains
 	# its own idle and standing spot; never graft a retired donor pose onto her.
