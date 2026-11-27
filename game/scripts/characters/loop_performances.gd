@@ -388,11 +388,11 @@ func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	return true
 
 
-func _on_speaker_started(_resident: String, _entry: String) -> void:
+func _on_speaker_started(resident: String, _entry: String) -> void:
 	if not _talk_phase.is_empty():
 		_update_listener()
 		if _talk_encounter.get("open_stance", false) and is_instance_valid(_listener_attention):
-			_open_standing_reply(_resident)
+			_open_standing_reply(resident)
 
 
 ## A routed resident turns when clicked. A second speaker inherits the panel
@@ -489,9 +489,12 @@ func _receive_price_guest() -> void:
 func _process(delta: float) -> void:
 	if data.is_empty() or not is_instance_valid(world) or not is_instance_valid(loop):
 		return
-	if is_instance_valid(_standing_speaker) and conversations.performance_active():
-		if is_instance_valid(_standing_speaker):
-			_standing_speaker.global_rotation.y = rotate_toward(_standing_speaker.global_rotation.y, _standing_yaw, deg_to_rad(210.0) * delta)
+	if is_instance_valid(_standing_speaker):
+		if conversations._active_resident != _standing_speaker.resident_id or not conversations.owns_dialogue_input(world.get("player") as PlayerController):
+			_standing_speaker = null
+		else:
+			_standing_speaker.global_rotation.y = rotate_toward(
+					_standing_speaker.global_rotation.y, _standing_yaw, deg_to_rad(210.0) * delta)
 			if absf(angle_difference(_standing_speaker.global_rotation.y, _standing_yaw)) < .001:
 				_standing_speaker = null
 	_poll += delta
