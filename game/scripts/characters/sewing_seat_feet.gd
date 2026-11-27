@@ -9,10 +9,23 @@ var legs: Array[Dictionary] = []
 var valid := true
 var maximum_reach_error := 0.0
 var floor_y := 0.0
+var source_part := ""
+var _cast: Node3D
+var _draws: Array[Dictionary] = []
+
+func source_valid() -> bool:
+	if not is_instance_valid(_cast) or str(_cast.wardrobe.worn.get("feet",""))!=source_part:return false
+	for row: Dictionary in _draws:
+		var draw: MeshInstance3D=row.draw
+		if not is_instance_valid(draw) or draw.mesh!=row.mesh or draw.skin!=row.skin:return false
+		for index in row.morphs.size():
+			if draw.get_blend_shape_value(index)!=row.morphs[index]:return false
+	return not _draws.is_empty()
 
 ## Pure FK boundary used before route commits a proposed actor transform.
 ## It rejects unreachable legs; it does not certify unmeasured skin/footsteps.
 func can_reach(poses: Array[Transform3D], world: Transform3D, weight: float) -> bool:
+	if not source_valid():return false
 	if weight<=0.0:return true
 	if poses.is_empty():return false
 	for leg: Dictionary in legs:
@@ -34,7 +47,18 @@ func can_reach(poses: Array[Transform3D], world: Transform3D, weight: float) -> 
 
 func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 	if not is_instance_valid(machine) or not permitted.is_valid():return false
-	if str(cast.wardrobe.worn.get("feet",""))!="b_feet":return false
+	# Both are Lena's authored shoes. Bind the actually worn mesh; the old
+	# b-only assumption refused her real work outfit at amount0. Each shape
+	# still needs independent native skin qualification, never a wardrobe swap.
+	source_part=str(cast.wardrobe.worn.get("feet",""))
+	if source_part not in ["a_feet","b_feet"]:return false
+	_cast=cast
+	for draw: MeshInstance3D in cast.wardrobe._meshes.get(source_part,[]):
+		if draw.skin==null or draw.mesh==null:return false
+		var morphs: Array[float]=[]
+		for index in draw.mesh.get_blend_shape_count():morphs.append(draw.get_blend_shape_value(index))
+		_draws.append({"draw":draw,"mesh":draw.mesh,"skin":draw.skin,"morphs":morphs})
+	if _draws.is_empty():return false
 	surface=machine;allowed=permitted;floor_y=machine.global_position.y
 	var body: Skeleton3D=cast.skeleton
 	for side: String in ["Left","Right"]:
@@ -43,7 +67,7 @@ func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 		if ids.has(-1):return false
 		if body.get_bone_parent(ids[1])!=ids[0] or body.get_bone_parent(ids[2])!=ids[1] or body.get_bone_parent(ids[3])!=ids[2]:return false
 		var candidates: Array=[]
-		for draw: MeshInstance3D in cast.wardrobe._meshes.get("b_feet",[]):
+		for draw: MeshInstance3D in cast.wardrobe._meshes.get(source_part,[]):
 			if draw.skin==null or draw.mesh==null:return false
 			var mesh:=draw.bake_mesh_from_current_blend_shape_mix()
 			if mesh==null:return false
@@ -91,6 +115,7 @@ func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 
 func apply(body: Skeleton3D, write: Callable) -> void:
 	valid=true;maximum_reach_error=0.0
+	if not source_valid():valid=false;return
 	if amount<=0.0 or not allowed.is_valid() or not allowed.call():return
 	for leg: Dictionary in legs:
 		var ids: Array=leg.ids

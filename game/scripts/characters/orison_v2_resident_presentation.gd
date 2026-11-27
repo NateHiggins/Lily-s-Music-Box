@@ -31,6 +31,7 @@ func can_set_sewing_seat_pose(machine: Node3D, chair: Node3D, candidate: Transfo
 		if candidate.origin.distance_to(end)>.002:return false
 	if _sewing_seat_blend==null:return amount==0.0
 	if machine!=_sewing_seat_machine or chair!=_sewing_seat_chair:return false
+	if not _sewing_seat_feet.source_valid():return false
 	var standing: Animation=_animation_player.get_animation("clip_03")
 	var seconds:=_animation_player.current_animation_position if str(_animation_player.current_animation)=="clip_03" else 0.0
 	var body: Skeleton3D=cast_body.skeleton
