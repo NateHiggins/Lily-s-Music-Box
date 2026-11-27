@@ -166,8 +166,18 @@ func _extend_visit(guest: String, host: String, place: String, arrival_node: Str
 
 
 
-## A route may restore this one work-facing pose after dialogue releases it.
-## Returning a target is permission to turn only; feet remain motor-owned.
+## The phase selects the task; route/seat owners alone admit its physical posture.
+func sewing_phase_requested(resident: String) -> bool:
+	if resident != "lena_ortiz" or loop == null or str(loop.visit_anchor()) != "button": return false
+	var route: Node = world.resident_routes.get(resident)
+	if not is_instance_valid(route) or route.outside or route.force_destination != "" or route.destination != "unit:sewing": return false
+	var phase := phase_for(resident)
+	if phase.get("place") != "unit:sewing" or phase.get("activity") != "work" or phase.get("focus") != "2B_sewing_machine": return false
+	var case_id := RealityCases.case_for_resident(resident)
+	return case_id.is_empty() or str(RealityState.case_state(case_id).get("stage", "unseen")) not in ["active", "reopened"]
+
+
+## Standing approach eligibility, before any chair lease has the body.
 func sewing_work_target(resident: String) -> Node3D:
 	if resident != "lena_ortiz" or loop == null or str(loop.visit_anchor()) != "button" or not _arrived(resident): return null
 	var route: Node = world.resident_routes[resident]
@@ -327,6 +337,7 @@ func _arrived(resident: String) -> bool:
 			or route.outside or route.desired_id < 0 or route.current_id != route.desired_id \
 			or not route.path.is_empty() or route.actor._walking or route.force_destination != "":
 		return false
+	if route.has_method("sewing_seat_arrived") and route.sewing_seat_arrived(): return true
 	return route.actor.global_position.distance_to(route.graph.get_point_position(route.desired_id)) < 0.15
 
 
@@ -603,6 +614,7 @@ func _process(delta: float) -> void:
 				or talking or str(route.destination) == "harukiya_bar" \
 				or case_active or activity in ["sleeping", "dressing", "shower"]:
 			continue
+		if route.has_method("sewing_seat_active") and route.sewing_seat_active(): continue
 		plans[resident] = activity
 		# A host clearing the approach may be doing chores in the kitchen
 		# while her authored work surface is still in the front room.
@@ -610,7 +622,8 @@ func _process(delta: float) -> void:
 		# One authored standing handwork beat, not a global replacement of
 		# work/chores with a prop-contact animation. Arrival remains route-owned.
 		if resident == "lena_ortiz" and not phase.is_empty() and str(loop.visit_anchor()) == "button" \
-				and route.destination == "unit:sewing" and activity == "work" and focuses[resident] == "2B_sewing_machine":
+				and route.destination == "unit:sewing" and activity == "work" and focuses[resident] == "2B_sewing_machine" \
+				and not actor.has_method("set_sewing_seat_pose"):
 			var work: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
 			if sewing_position_ready(actor as Node3D, work):
 				sewing_surfaces[resident] = work
