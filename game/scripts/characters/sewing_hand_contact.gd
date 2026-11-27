@@ -6,11 +6,15 @@ extends RefCounted
 var surface: Node3D
 var _allowed: Callable
 var _arms: Array[Dictionary] = []
+## Only an explicit seated work owner opts in; the standing lease is unchanged.
+var seated := false
+var _skin_bones: Array[int] = []
+var _skin_poses: Array[Transform3D] = []
 ## Explicit proof-only telemetry; ordinary gameplay allocates no per-frame rows.
 var diagnostics := false
 var last: Dictionary = {}
 
-func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable) -> bool:
+func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node = null) -> bool:
 	if body == null or not is_instance_valid(work_surface) or not allowed.is_valid(): return false
 	surface = work_surface
 	_allowed = allowed
@@ -28,14 +32,66 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable) -> bool:
 		if normal.length_squared() < .9: return false
 		across = normal.cross(forward).normalized()
 		_arms.append({"side":side,"ids":ids,"hand_frame":Basis(across,normal,forward),
-			"rest_basis":hand.basis,"reference":Vector3.INF})
+			"rest_basis":hand.basis,"reference":Vector3.INF,"skin":[]})
+	_skin_poses.resize(body.get_bone_count())
+	var source := model if model != null else body.get_parent()
+	for draw: MeshInstance3D in source.find_children("Skin_hands","MeshInstance3D",true,false):
+		if draw.mesh == null or draw.skin == null: continue
+		var mesh := draw.bake_mesh_from_current_blend_shape_mix()
+		if mesh == null: continue
+		for index in mesh.get_surface_count():
+			var arrays := mesh.surface_get_arrays(index)
+			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			var bones: PackedInt32Array = arrays[Mesh.ARRAY_BONES]
+			var weights: PackedFloat32Array = arrays[Mesh.ARRAY_WEIGHTS]
+			if vertices.is_empty() or bones.size()%vertices.size()!=0: continue
+			var stride := int(bones.size()/vertices.size())
+			for vertex in vertices.size():
+				var influences: Array = []
+				var left := 0.0; var right := 0.0
+				for slot in stride:
+					var at := vertex*stride+slot
+					if weights[at]<=0.0: continue
+					var joint := bones[at]
+					var name := draw.skin.get_bind_name(joint)
+					var bone := body.find_bone(name) if not name.is_empty() else draw.skin.get_bind_bone(joint)
+					if bone<0: return false
+					name = str(body.get_bone_name(bone))
+					if name.begins_with("LeftHand"): left+=weights[at]
+					if name.begins_with("RightHand"): right+=weights[at]
+					influences.append([bone,draw.skin.get_bind_pose(joint)*vertices[vertex],weights[at]])
+					if not _skin_bones.has(bone): _skin_bones.append(bone)
+				# Exclude the forearm seam: these vertices must follow only
+				# the wrist/finger subtree when its frame is turned palm-down.
+				if left>.999: _arms[0].skin.append(influences)
+				if right>.999: _arms[1].skin.append(influences)
 	return _arms.size() == 2
+
+## Composed once by PosePipeline's existing lower-spine writer, before gaze.
+## No hips/root/feet translation, no second writer and no work after release.
+func posture_turn(body: Skeleton3D) -> Quaternion:
+	if not seated or not is_instance_valid(surface) or not _allowed.is_valid() or not _allowed.call():
+		return Quaternion.IDENTITY
+	var axis := (body.global_basis.inverse()*surface.global_basis.x).normalized()
+	return Quaternion(axis,deg_to_rad(25.0))
+
+func _hand_lowest(arm: Dictionary, wrist: Transform3D, orientation: Basis, body: Skeleton3D) -> float:
+	var low := INF
+	var inverse := wrist.affine_inverse()
+	var frame := surface.global_basis.inverse()*body.global_basis*orientation
+	for influences: Array in arm.skin:
+		var point := Vector3.ZERO
+		for part: Array in influences: point+=(_skin_poses[int(part[0])]*(part[1] as Vector3))*float(part[2])
+		low=minf(low,(frame*(inverse*point)).y)
+	return low
 
 func apply(body: Skeleton3D, write: Callable) -> void:
 	last.clear()
 	if not is_instance_valid(surface) or not surface.is_inside_tree() or not _allowed.is_valid() or not _allowed.call(): return
 	var inverse := body.global_transform.affine_inverse()
 	var up := (inverse.basis * surface.global_basis.y).normalized()
+	if seated:
+		for bone: int in _skin_bones: _skin_poses[bone]=body.get_bone_global_pose(bone)
 	for arm: Dictionary in _arms:
 		var ids: Array = arm.ids
 		var shoulder := body.get_bone_global_pose(ids[0])
@@ -49,7 +105,18 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		# Both wrists stay at the actor's near +x/-z corner. The fingers aim
 		# inwards over the timber; neither hand reaches across the machine.
 		var anchor := Vector3(.32,.815,-.105) if arm.side == "Left" else Vector3(.23,.815,-.165)
+		if seated: anchor=Vector3(.10,.815,-.195) if arm.side=="Left" else Vector3(-.12,.815,-.195)
 		var local_target := anchor + motion
+		var towards := surface.to_global(Vector3(0,.815,0))-surface.to_global(local_target)
+		var forward := (inverse.basis*towards).normalized()
+		forward = (forward - up*forward.dot(up)).normalized()
+		var normal := -up
+		var across := normal.cross(forward).normalized()
+		var orientation: Basis = Basis(across,normal,forward)*(arm.hand_frame as Basis).inverse()*(arm.rest_basis as Basis)
+		if seated:
+			var low := _hand_lowest(arm,wrist,orientation,body)
+			if not is_finite(low): continue
+			local_target.y=.776-low # Actual deformed source hand, 1mm above real oak.
 		var target := inverse * surface.to_global(local_target)
 		var upper := shoulder.origin.distance_to(elbow.origin)
 		var lower := elbow.origin.distance_to(wrist.origin)
@@ -80,14 +147,9 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		turn = Basis(Quaternion((wrist.origin-elbow.origin).normalized(),(target-elbow.origin).normalized()))
 		if not write.call(ids[1],Transform3D(turn*elbow.basis,elbow.origin),"contact"): continue
 		wrist = body.get_bone_global_pose(ids[2])
-		var towards := surface.to_global(Vector3(0,.815,0))-surface.to_global(local_target)
-		var forward := (inverse.basis*towards).normalized()
-		forward = (forward - up*forward.dot(up)).normalized()
-		var normal := -up # Rest-derived hand normal is palm-out; face it down.
-		var across := normal.cross(forward).normalized()
-		var orientation: Basis = Basis(across,normal,forward)*(arm.hand_frame as Basis).inverse()*(arm.rest_basis as Basis)
 		if not write.call(ids[2],Transform3D(orientation,wrist.origin),"contact"): continue
 		if diagnostics:
 			last[arm.side] = {"reachable":true,"target":body.to_global(target),"wrist":body.to_global(wrist.origin),
+				"asked":asked,"maximum":upper+lower,"reserve":upper+lower-asked,
 				"tracking_error":wrist.origin.distance_to(target),"table_local":surface.to_local(body.to_global(wrist.origin)),
 				"needle_gap":local_target.distance_to(Vector3(-.175,.808,0)),"observation":"wrist tracking, not skin/fabric contact"}

@@ -160,12 +160,17 @@ func _turned(pose: Transform3D, turn: Quaternion) -> Transform3D:
 
 ## Breath: the lower spine tips a little, about the body's side-to-side axis.
 func _posture(body: Skeleton3D) -> void:
-	if not breathe or not profile.has("spine_low") or profile.breath_radians <= 0.0:
+	if not profile.has("spine_low"):
 		return
 	var bone := int(profile.bones.spine_low)
 	var side: Vector3 = (profile.up as Vector3).cross(profile.forward).normalized()
-	var angle: float = sin((_clock + _breath_extra_time) * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
-	_write(bone, _turned(body.get_bone_global_pose(bone), Quaternion(side, angle)), "posture")
+	var angle := 0.0
+	if breathe and profile.breath_radians>0.0:
+		angle=sin((_clock + _breath_extra_time) * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
+	var turn := Quaternion(side,angle)
+	if work_hands!=null: turn=work_hands.posture_turn(body)*turn
+	if angle!=0.0 or work_hands!=null:
+		_write(bone, _turned(body.get_bone_global_pose(bone),turn), "posture")
 
 
 ## The way the head faces now, in skeleton space, from the present pose.

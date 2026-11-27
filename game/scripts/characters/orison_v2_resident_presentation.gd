@@ -137,7 +137,7 @@ func _bind_sewing_hands(work_surface: Node3D) -> void:
 	if _sewing_hands != null and _sewing_hands.surface == work_surface: return
 	_release_sewing_hands()
 	var contact := SewingHands.new()
-	if contact.bind(cast_body.skeleton, work_surface, _sewing_contact_allowed):
+	if contact.bind(cast_body.skeleton, work_surface, _sewing_contact_allowed,cast_body.model):
 		_sewing_hands = contact
 		attention.pipeline.work_hands = contact
 
