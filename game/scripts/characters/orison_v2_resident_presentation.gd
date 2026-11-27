@@ -5,6 +5,7 @@ var _local_libraries: Dictionary = {}
 var _local_loops: Dictionary = {}
 var _loop_activity := ""
 var _loop_activity_clip := ""
+var _loop_sewing := false
 
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
@@ -72,8 +73,9 @@ func _local_loop(clip: String) -> bool:
 	return true
 
 ## An arrived resident may wait attentively between their ordinary tasks.
-## These are standing attitudes, never claims of touching props or sitting.
-func set_loop_activity(activity: String) -> void:
+## Sewing is a bounded owner request at Lena's arrived historical work mark;
+## the existing handwork clip claims no needle grip, prop movement or sitting.
+func set_loop_activity(activity: String, sewing: bool = false) -> void:
 	if resident_id == "mina_vale" or mina_animation != null: return
 	if activity.is_empty():
 		clear_loop_activity()
@@ -83,7 +85,10 @@ func set_loop_activity(activity: String) -> void:
 		clear_loop_activity()
 		return
 	var clip := "clip_03"
-	if activity in ["rest", "idle", "resting"]:
+	var handwork := sewing and resident_id == "lena_ortiz" and activity == "work"
+	if handwork:
+		clip = "clip_07" # Counter-height handwork, NOT her shoulder-height busy/reach role.
+	elif activity in ["rest", "idle", "resting"]:
 		# Some personal idles are working clips. Do not borrow those as a
 		# performed chore when no corresponding contact has been authored.
 		clip = preferred_idle if preferred_idle in ["clip_01", "clip_02", "clip_03", "clip_04", "clip_05"] else "clip_01"
@@ -95,6 +100,7 @@ func set_loop_activity(activity: String) -> void:
 		return
 	_loop_activity = activity
 	_loop_activity_clip = clip
+	_loop_sewing = handwork
 	# Different authored tasks may share the same attentive attitude; do
 	# not restart its motion just because the schedule's wording changed.
 	if str(_animation_player.current_animation) != clip or not _animation_player.is_playing():
@@ -102,14 +108,21 @@ func set_loop_activity(activity: String) -> void:
 
 func clear_loop_activity() -> void:
 	var owned_clip := _loop_activity_clip
+	var was_sewing := _loop_sewing
 	_loop_activity = ""
 	_loop_activity_clip = ""
+	_loop_sewing = false
 	if resident_id == "mina_vale" or mina_animation != null or _animation_player == null: return
 	# Another owner may already have started walking, talking or sitting.
 	# Only release the clip we actually borrowed, leaving their clip alone.
 	if not owned_clip.is_empty() and not _walking \
 			and str(_animation_player.current_animation) == owned_clip:
-		_play_named("idle")
+		# Lena's personal idle is itself clip_07. Restoring it here would put
+		# her hands straight back to work during dialogue or after cancellation.
+		if was_sewing and _local_loop("clip_03"):
+			_animation_player.play("clip_03", .22)
+		else:
+			_play_named("idle")
 
 func _loop_talking() -> bool:
 	if is_instance_valid(attention) and bool(attention.get("conversing")): return true

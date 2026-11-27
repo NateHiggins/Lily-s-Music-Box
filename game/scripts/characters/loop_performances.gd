@@ -556,6 +556,7 @@ func _process(delta: float) -> void:
 	var plans := {}
 	var contenders := {}
 	var focuses := {}
+	var sewing := {}
 	for resident: String in world.resident_routes:
 		var route: Node = world.resident_routes[resident]
 		var actor: Node = route.actor
@@ -577,6 +578,14 @@ func _process(delta: float) -> void:
 		# A host clearing the approach may be doing chores in the kitchen
 		# while her authored work surface is still in the front room.
 		focuses[resident] = phase.get("focus", "") if route.destination == phase.get("place", "") else ""
+		# One authored standing handwork beat, not a global replacement of
+		# work/chores with a prop-contact animation. Arrival remains route-owned.
+		if resident == "lena_ortiz" and not phase.is_empty() and str(loop.visit_anchor()) == "button" \
+				and activity == "work" and focuses[resident] == "2B_sewing_machine":
+			var work: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
+			var body := actor as Node3D
+			sewing[resident] = is_instance_valid(work) and is_instance_valid(body) and work.is_visible_in_tree() \
+					and work.global_position.distance_to(body.global_position) < 3.2
 		# Two route graphs may name the same work surface differently. Use its
 		# authored world endpoint; watching, listening and resting can be shared.
 		if activity in ["work", "chores"]:
@@ -604,7 +613,10 @@ func _process(delta: float) -> void:
 		var actor: Node3D = world.resident_routes[resident].actor
 		if _presenting.has(resident) and not is_same(_presenting[resident], actor):
 			_release_activity(resident)
-		actor.set_loop_activity(plans[resident])
+		if bool(sewing.get(resident, false)):
+			actor.set_loop_activity(plans[resident], true)
+		else:
+			actor.set_loop_activity(plans[resident])
 		_presenting[resident] = actor
 		# Optional authored gaze uses the existing attention owner, never IK grips.
 		var attention: Node = _resident_attention(actor)

@@ -36,10 +36,21 @@ class Actor extends Node3D:
 	var _walking := false
 	var activity := ""
 	var clears := 0
-	func set_loop_activity(value: String) -> void: activity = value
+	var sewing := false
+	func set_loop_activity(value: String, handwork: bool = false) -> void:
+		activity = value
+		sewing = handwork
 	func clear_loop_activity() -> void:
 		activity = ""
+		sewing = false
 		clears += 1
+
+# Actual presentation methods and AnimationPlayer ownership with synthetic clip
+# contents. The installed observation separately verifies the real cast/bench.
+class SewingPresentation extends "res://scripts/characters/orison_v2_resident_presentation.gd":
+	var talking := false
+	func _ready() -> void: pass
+	func _loop_talking() -> bool: return talking
 
 class Route extends Node:
 	var actor: Actor
@@ -185,6 +196,8 @@ func _run() -> void:
 		_transition_dialogue()
 		_s14_nadia_names_her()
 		_gaze_and_activity()
+		_lena_sewing_activity()
+		_lena_sewing_release()
 		_station_and_seek()
 		_save_reload()
 		_move_yield()
@@ -485,6 +498,118 @@ func _gaze_and_activity() -> void:
 	world.adapter.targets.erase("6C_card_cabinet")
 	focus.free()
 	_jump("tea")
+
+func _lena_sewing_activity() -> void:
+	_jump("button")
+	var route: Route = world.resident_routes.lena_ortiz
+	route.arrive("unit")
+	var work := Node3D.new()
+	world.add_child(work)
+	work.global_position = route.actor.global_position + Vector3(0, 1, .6)
+	world.adapter.targets["2B_sewing_machine"] = work
+	_tick()
+	check(not route.actor.sewing, "Lena's initial chores do not borrow the sewing clip")
+	_advance(20.0)
+	check(route.actor.activity == "work" and route.actor.sewing, "arrived Lena requests handwork only at the authored button work phase")
+	var before := route.actor.global_transform
+	work.hide()
+	_tick()
+	check(not route.actor.sewing, "hidden work furnishing refuses the handwork request")
+	work.show()
+	var at := work.global_position
+	work.global_position += Vector3(4, 0, 0)
+	_tick()
+	check(not route.actor.sewing, "unreachable work focus does not play sewing against an absent bench")
+	work.global_position = at
+	route.path = PackedInt64Array([route.desired_id])
+	_tick()
+	check(route.actor.activity.is_empty() and not route.actor.sewing, "route in transit cannot request historical handwork")
+	route.arrive("unit")
+	_tick()
+	check(route.actor.sewing, "actual endpoint arrival restores the same eligible request")
+	var prior_speaker := conversations._active_resident
+	conversations._active_resident = "lena_ortiz" # Declared owner-state seam, not player dialogue proof.
+	_tick()
+	check(route.actor.activity.is_empty() and not route.actor.sewing, "speaking owner withdraws Lena's work request")
+	conversations._active_resident = prior_speaker
+	_tick()
+	check(route.actor.sewing, "ended conversation permits re-entry at the unchanged work phase")
+	var case_id := RealityCases.case_for_resident("lena_ortiz")
+	var cases: Dictionary = RealityState.data.cases.duplicate(true)
+	check(not case_id.is_empty(), "Lena has an original case authority for the work refusal control")
+	if not case_id.is_empty():
+		RealityState.ensure_case(case_id, "lena_ortiz")["stage"] = "active"
+		_tick()
+		check(not route.actor.sewing, "active original case keeps priority over the sewing request")
+		RealityState.data.cases = cases
+		_tick()
+		check(route.actor.sewing, "restoring original case facts readmits the same arrived work phase")
+	_advance(24.0)
+	check(route.actor.sewing, "minute44 retains Lena's current work beat")
+	_advance(1.0)
+	check(not route.actor.sewing, "minute45 withdraws handwork before the kitchen departure")
+	check(route.actor.global_transform == before, "work requests never move the resident")
+	world.adapter.targets.erase("2B_sewing_machine")
+	work.free()
+	_jump("tea")
+
+
+func _lena_sewing_release() -> void:
+	# Real adapter/AnimationPlayer state transitions, synthetic clips only.
+	# No claim of loaded cast fit, prop contact or installed interaction.
+	var actor := SewingPresentation.new()
+	actor.resident_id = "lena_ortiz"
+	actor.preferred_idle = "clip_07"
+	actor.preferred_walk = "walk"
+	world.add_child(actor)
+	actor.set_process(false)
+	var animation_player := AnimationPlayer.new()
+	actor.add_child(animation_player)
+	actor._animation_player = animation_player
+	var library := AnimationLibrary.new()
+	for clip: String in ["clip_03", "clip_07", "clip_06", "walk", "case_reaction"]:
+		var animation := Animation.new()
+		animation.length = 1.0
+		library.add_animation(clip, animation)
+	animation_player.add_animation_library("", library)
+	animation_player.play("clip_03")
+	var before := actor.transform
+	actor.set_loop_activity("work", true)
+	check(actor._loop_sewing and animation_player.current_animation == "clip_07", "production adapter borrows explicit counter-height handwork")
+	animation_player.advance(.1)
+	var position := animation_player.current_animation_position
+	actor.set_loop_activity("work", true)
+	check(is_equal_approx(animation_player.current_animation_position, position), "polling a held handwork clip does not restart it")
+	actor.talking = true
+	actor.set_loop_activity("work", true)
+	check(actor._loop_activity.is_empty() and not actor._loop_sewing and animation_player.current_animation == "clip_03", "dialogue releases the actual player to arms-rest instead of preferred work idle")
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "clip_03", "repeated release cannot restart Lena's preferred work idle")
+	actor.talking = false
+	actor.set_loop_activity("work", true)
+	check(animation_player.current_animation == "clip_07", "eligible re-entry borrows handwork again after dialogue")
+	actor._set_walking(true)
+	check(actor._loop_activity.is_empty() and animation_player.current_animation == "walk", "ordinary walking takes the clip without a latched handwork owner")
+	actor._set_walking(false)
+	actor.set_loop_activity("work", true)
+	check(actor.play_case_role("case_reaction"), "existing case action can take the body")
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "case_reaction", "work release never overwrites the case owner's successor clip")
+	animation_player.play("clip_03")
+	actor.set_loop_activity("work", true)
+	animation_player.play("clip_06")
+	actor.set_loop_activity("work", true)
+	check(actor._loop_activity.is_empty() and animation_player.current_animation == "clip_06", "existing seated posture refuses handwork and retains its clip")
+	animation_player.play("clip_03")
+	actor.set_loop_activity("work", true)
+	actor.clear_loop_activity()
+	check(animation_player.current_animation == "clip_03", "cancel or visit retirement leaves owned sewing hands at rest")
+	actor.resident_id = "cam_ortiz"
+	actor.set_loop_activity("work", true)
+	check(not actor._loop_sewing and animation_player.current_animation == "clip_03", "a sewing request cannot change another resident's work pose")
+	check(actor.transform == before, "presentation borrow and release never reposition the actor")
+	actor.free()
+
 
 func _station_and_seek() -> void:
 	var minutes: float = loop.loop_minutes()
@@ -1060,10 +1185,10 @@ func _write_contract(engine_errors: Array[String]) -> void:
 	if directory.is_empty(): directory = "user://tests/loop_performance"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
 	var sources: Dictionary = {}
-	for path: String in ["res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/characters/resident_attention.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
+	for path: String in ["res://scripts/characters/orison_v2_resident_presentation.gd", "res://scripts/characters/animated_resident.gd", "res://scripts/characters/loop_performances.gd", "res://scripts/characters/loop_encounters.gd", "res://scripts/characters/resident_attention.gd", "res://scripts/game/temporal_loop.gd", "res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://data/temporal/performances.json", "res://data/temporal/ordinary_performances.json", "res://data/temporal/anchors.json", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/campaign_weather.gd", "res://data/resident_schedules.json", "res://data/weather/campaign_weather.json"]:
 		sources[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": false,
-		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints; no world navigation, cast fit, input optics or clue-earning qualification",
+		"scope": "Production authored-visit, clock, conversation and validated-save owners against synthetic route endpoints, plus real presentation/AnimationPlayer release and re-entry with synthetic clips; no loaded cast, world navigation, prop contact, input optics or clue-earning qualification",
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
 		"source": {"test_path": "game/tests/loop_performance_test.gd", "test_sha256": get_script().source_code.replace("\r\n", "\n").sha256_text(), "inputs": sources},
 		"contracts": {"loop_performance_lifecycle": {"executed": true, "status": "PASS" if failures.is_empty() else "FAIL"}},
