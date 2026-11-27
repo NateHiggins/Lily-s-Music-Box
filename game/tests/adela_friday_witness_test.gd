@@ -141,7 +141,7 @@ func _run() -> void:
 			await _look_from(spot, adela, false, 0.0, .85)
 			world.campaign_clock.advance_seconds(60.0)
 			await _hold(.6)
-			_check(_thread().is_empty() and not is_instance_valid(owner_node.get("actor")) and (owner_node.get("guests") as Array).is_empty(),
+			_check(_thread().is_empty() and not is_instance_valid(owner_node.get("actor")),
 					"at 21:01 every staged body is gone (%s %02d:%02d)" % [world.conversations.today(), int(world.campaign_clock.minute_of_day()) / 60, int(world.campaign_clock.minute_of_day()) % 60])
 			_check(not RealityState.has_knowledge("m_o2_stood_roof"), "a look spanning 21:01 grants nothing")
 	_contract("blackout_boundary", before)
@@ -233,19 +233,26 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 	row.adela_at = adela.global_position
 	_check(_only_attempts([]), "%s: the lobby choice alone writes no attempt" % place)
 	if place == "prints":
-		await _settle(120.0, func() -> bool: return (owner_node.get("guests") as Array).size() == 1)
-		var guests: Array = owner_node.get("guests")
-		row.guest_note = str(owner_node.get("guest_note"))
+		# Before Miss Quell's own body has arrived, a sustained look at Adela alone is not the scene.
+		var early_look: Variant = _viewpoint(adela, 1.4, reach - .4, true, false)
+		if owner_node.call("arrived_guests", owner_node.call("friday_branch")).is_empty() and early_look != null:
+			await _look_from(early_look, adela, false, 0.0, 1.25)
+			_check(not RealityState.has_knowledge(attempt), "prints: before Miss Quell arrives, a look at Adela grants nothing")
+		await _settle(300.0, func() -> bool: return owner_node.call("arrived_guests", owner_node.call("friday_branch")).size() == 1)
+		var arrived: Array = owner_node.call("arrived_guests", owner_node.call("friday_branch"))
 		row.nadia_bodies = []
 		for body: Node in get_tree().get_nodes_in_group("animated_residents"):
 			if body is Node3D and str(body.get("resident_id")) == "nadia_quell":
-				row.nadia_bodies.append({"path": str(body.get_path()), "at": str((body as Node3D).global_position), "visible": (body as Node3D).is_visible_in_tree()})
-		_check(guests.size() == 1 and str(guests[0].resident_id) == "nadia_quell" and (guests[0] as Node3D).is_visible_in_tree(),
-				"prints: Miss Quell is in the shop with her")
+				var routine: Node = body.get_parent()
+				row.nadia_bodies.append({"path": str(body.get_path()), "at": str((body as Node3D).global_position),
+						"visible": (body as Node3D).is_visible_in_tree(), "destination": str(routine.get("destination")) if routine != null else "",
+						"blocked": str(routine.get("blocked_reason")) if routine != null else "", "travelled": routine.get("travelled_metres") if routine != null else 0})
+		_check(arrived.size() == 1 and str(arrived[0].get("resident_id")) == "nadia_quell",
+				"prints: Miss Quell's own routed body has walked to the shop beside her")
 		_check(_visible_bodies("nadia_quell") == 1, "prints: exactly one Nadia is visible (%d)" % _visible_bodies("nadia_quell"))
 		var where: Dictionary = world.resident_whereabouts("nadia_quell")
 		_check(str(where.get("place", "")) == "photo_supplies" and str(where.get("activity", "")) == "visit", "prints: her routed whereabouts are the shop")
-		row.nadia_at = (guests[0] as Node3D).global_position if not guests.is_empty() else null
+		row.nadia_at = (arrived[0] as Node3D).global_position if not arrived.is_empty() else null
 	# Out of reach, looking at her.
 	var far: Variant = _viewpoint(adela, reach + .3, reach + 1.5, true, place == "roof")
 	if far != null:
