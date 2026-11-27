@@ -13,6 +13,9 @@ var _skin_poses: Array[Transform3D] = []
 ## Explicit proof-only telemetry; ordinary gameplay allocates no per-frame rows.
 var diagnostics := false
 var last: Dictionary = {}
+var last_cost_usec := 0
+var measured_cost_usec := 0
+var measured_frames := 0
 
 func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node = null) -> bool:
 	if body == null or not is_instance_valid(work_surface) or not allowed.is_valid(): return false
@@ -79,15 +82,19 @@ func _hand_lowest(arm: Dictionary, wrist: Transform3D, orientation: Basis, body:
 	var low := INF
 	var inverse := wrist.affine_inverse()
 	var frame := surface.global_basis.inverse()*body.global_basis*orientation
-	for influences: Array in arm.skin:
+	arm["support_index"]=-1
+	for index in arm.skin.size():
+		var influences: Array=arm.skin[index]
 		var point := Vector3.ZERO
 		for part: Array in influences: point+=(_skin_poses[int(part[0])]*(part[1] as Vector3))*float(part[2])
-		low=minf(low,(frame*(inverse*point)).y)
+		var height: float=(frame*(inverse*point)).y
+		if height<low: low=height;arm.support_index=index
 	return low
 
 func apply(body: Skeleton3D, write: Callable) -> void:
 	last.clear()
 	if not is_instance_valid(surface) or not surface.is_inside_tree() or not _allowed.is_valid() or not _allowed.call(): return
+	var begun := Time.get_ticks_usec() if diagnostics else 0
 	var inverse := body.global_transform.affine_inverse()
 	var up := (inverse.basis * surface.global_basis.y).normalized()
 	if seated:
@@ -151,5 +158,10 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		if diagnostics:
 			last[arm.side] = {"reachable":true,"target":body.to_global(target),"wrist":body.to_global(wrist.origin),
 				"asked":asked,"maximum":upper+lower,"reserve":upper+lower-asked,
+				"skin_vertices":arm.skin.size(),"support_index":arm.get("support_index",-1),
 				"tracking_error":wrist.origin.distance_to(target),"table_local":surface.to_local(body.to_global(wrist.origin)),
 				"needle_gap":local_target.distance_to(Vector3(-.175,.808,0)),"observation":"wrist tracking, not skin/fabric contact"}
+	if diagnostics:
+		last_cost_usec=Time.get_ticks_usec()-begun
+		measured_cost_usec+=last_cost_usec
+		measured_frames+=1
