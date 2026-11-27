@@ -45,12 +45,8 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable, 
 				continue
 			var eye := _eye(skeleton, head)
 			if not is_speaker:
-				# The entry composition already includes this other performer at its edge.
-				if camera.is_position_in_frustum(eye):
-					var view := camera.get_viewport().get_visible_rect()
-					var x := (camera.unproject_position(eye).x - view.position.x) / view.size.x
-					if (x < 0.15 or x > 0.85) and _clear_sight(camera, player, actor, eye):
-						return
+				if _partner_at_edge(camera, player, actor, eye):
+					return
 				break
 			var distance := camera.global_position.distance_squared_to(eye)
 			if distance < nearest and distance > 0.8 * 0.8 and _in_shot(camera, eye):
@@ -70,6 +66,22 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable, 
 
 func _eye(body: Skeleton3D, head: int) -> Vector3:
 	return body.to_global(body.get_bone_global_pose(head).origin + Vector3.UP * 0.08)
+
+func _partner_at_edge(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
+	if camera.is_position_behind(eye):
+		return false
+	var view := camera.get_viewport().get_visible_rect()
+	if not view.has_area():
+		return false
+	var x := (camera.unproject_position(eye).x - view.position.x) / view.size.x
+	if x >= 0.15 and x <= 0.85:
+		return false
+	if camera.is_position_in_frustum(eye) and _clear_sight(camera, player, actor, eye):
+		return true
+	# A cropped face can still have its inward shoulder in the player's shot.
+	var inward := camera.global_basis.x.normalized() * (1.0 if x < 0.5 else -1.0)
+	var shoulder := eye + Vector3.DOWN * 0.18 + inward * 0.23
+	return camera.is_position_in_frustum(shoulder) and _clear_sight(camera, player, actor, shoulder)
 
 func _clear_sight(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
 	var ray := PhysicsRayQueryParameters3D.create(camera.global_position, eye, 1, [player.get_rid()])

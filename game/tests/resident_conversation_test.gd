@@ -573,6 +573,23 @@ func _check_speaker_framing() -> void:
 		await get_tree().physics_frame
 	_check("a bystander at the edge leaves the solo lens available", player.camera.fov < 76.0)
 	director.cancel_for_transition()
+	# Sacha's rooftop entry projects her eyes beyond x=1 while part of her shoulder remains visible.
+	var cropped_eye := player.camera.project_position(view.position + view.size * Vector2(1.07, .38), .75)
+	partner.global_position = cropped_eye - Vector3.UP * .08
+	_check("cropped fixture has only the shoulder inside", not player.camera.is_position_in_frustum(cropped_eye)
+			and player.camera.is_position_in_frustum(cropped_eye - player.camera.global_basis.x * .23 + Vector3.DOWN * .18))
+	_check("exchange opens with a partially visible partner", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a visible shoulder preserves the player's entry shot", is_equal_approx(player.camera.fov, 76.0)
+			and player.camera.transform == eye_pose and player.global_transform == player_pose)
+	director.cancel_for_transition()
+	partner.global_position += player.camera.global_basis.x * 2.0
+	_check("exchange opens with its partner fully offscreen", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a fully offscreen partner leaves the speaker lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
 	partner.position.z = 2.1
 	_check("exchange opens with its partner behind the camera", director.start_performance_sequence("stacy", lines, player))
 	for tick in 8:
