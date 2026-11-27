@@ -300697,6 +300697,242 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "2d666f121f35e791",
+   "kind": "id_reference",
+   "token": "ROOF_PARAPET_NORTH",
+   "file": "game/scripts/characters/adela_dated_encounters.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [
+    "const PARAPET := \"ROOF_PARAPET_NORTH\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "44b250f38d9f68c0",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_enl0",
+   "file": "game/scripts/characters/adela_dated_encounters.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "const ENLARGER := \"storm_shop_photo_supplies_enl0\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "421353ea4fd9dc15",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/scripts/characters/public_foot_traffic.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "propose"
+   ],
+   "lines": [
+    149
+   ],
+   "count": 1,
+   "context": [
+    "if door.get_meta(\"semantic_id\", \"\") != \"F01_DOOR_06\" or not door.is_ready_for_passage(): continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2f50768e9bc7b7a0",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/adela_friday_witness_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3c460ce6c8ad140b",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/tests/adela_friday_witness_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_viewpoint"
+   ],
+   "lines": [
+    369
+   ],
+   "count": 1,
+   "context": [
+    "if roof and not str(world.room_at_world(floor.position + Vector3.UP * .8)).begins_with(\"ROOF_DECK_\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a882002b5dc57b3d",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/adela_friday_witness_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bring_shop"
+   ],
+   "lines": [
+    349
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary = world.layout.spaces.filter(func(row: Dictionary) -> bool: return row.id == \"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "40a7928ea51e0fbf",
+   "kind": "runtime_id",
+   "token": "F04_B_BED",
+   "file": "game/tests/adela_friday_witness_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    82
+   ],
+   "count": 1,
+   "context": [
+    "RealityState.data.core_loop = {\"safe_return_anchor\": \"F04_B_BED\", \"boundary\": \"wake_complete\", \"active_job_id\": \"\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "0bce996bb8843a4d",
+   "kind": "vector3_coordinate",
+   "token": "_resident_sightline_probe",
+   "file": "game/tests/companion_work_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_resident_sightline_probe"
+   ],
+   "lines": [
+    275
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = Vector3(-2.0, 0.01, -1.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
