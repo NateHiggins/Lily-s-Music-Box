@@ -32,6 +32,9 @@ var ordinary: RefCounted
 var _talk_encounter: Dictionary = {}
 var _standing_speaker: AnimatedResident
 var _standing_yaw := 0.0
+var _standing_elapsed := 0.0
+var _standing_node := ""
+var _standing_voice: LoopVoicePlayback
 var _listener_attention: Node
 var _listener_point := Vector3.ZERO
 var _heard: Dictionary = {}
@@ -454,6 +457,21 @@ func _open_standing_reply(resident: String) -> void:
 	var partner_yaw := atan2(toward_partner.x, toward_partner.z)
 	_standing_yaw = caller_yaw + clampf(angle_difference(caller_yaw, partner_yaw) * .5, -PI / 5.0, PI / 5.0)
 	_standing_speaker = body
+	_standing_elapsed = 0.0
+	_standing_node = conversations.dialogue.current_node_id
+	_standing_voice = world.get_node_or_null("LoopVoicePlayback") as LoopVoicePlayback
+
+
+## Before playback, and on quiet lines, the body uses ordinary process time.
+## Once this exact take is audible its timeline includes any frames missed
+## during a slow render. Time already spent turning is counted only once.
+func _advance_standing_turn(delta: float, audible: float) -> void:
+	var elapsed := maxf(_standing_elapsed, audible) if audible >= 0.0 else _standing_elapsed + delta
+	var step := deg_to_rad(210.0) * (elapsed - _standing_elapsed)
+	_standing_elapsed = elapsed
+	_standing_speaker.global_rotation.y = rotate_toward(_standing_speaker.global_rotation.y, _standing_yaw, step)
+	if absf(angle_difference(_standing_speaker.global_rotation.y, _standing_yaw)) < .001:
+		_standing_speaker = null
 
 
 func _on_speaker_ended(_resident: String) -> void:
@@ -554,10 +572,14 @@ func _process(delta: float) -> void:
 		if conversations._active_resident != _standing_speaker.resident_id or not conversations.owns_dialogue_input(world.get("player") as PlayerController):
 			_standing_speaker = null
 		else:
-			_standing_speaker.global_rotation.y = rotate_toward(
-					_standing_speaker.global_rotation.y, _standing_yaw, deg_to_rad(210.0) * delta)
-			if absf(angle_difference(_standing_speaker.global_rotation.y, _standing_yaw)) < .001:
-				_standing_speaker = null
+			var audible := -1.0
+			if is_instance_valid(_standing_voice) and _standing_voice.playing() \
+					and _standing_voice._bound.get("actor") == _standing_speaker.resident_id \
+					and _standing_voice._bound.get("node") == _standing_node:
+				# Playback seeks the speaker's face at priority -100, before this
+				# owner. Read the same audible position without advancing its clock.
+				audible = _standing_voice._last_clock
+			_advance_standing_turn(delta, audible)
 	_poll += delta
 	if _poll < 0.25:
 		return

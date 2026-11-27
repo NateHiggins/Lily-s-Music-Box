@@ -120,11 +120,32 @@ func check(ok: bool, label: String) -> void:
 	if not ok: failures.append(label)
 	print("LOOP PERFORMANCE: ", label, " = ", ok)
 
+func _check_standing_turn_clock() -> void:
+	var owner := Performances.new()
+	var body := BodyTarget.new()
+	add_child(body)
+	body.position = Vector3(2, 0, 3)
+	owner._standing_speaker = body
+	owner._standing_yaw = deg_to_rad(150.0)
+	owner._advance_standing_turn(.1, -1.0)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 21.0), "quiet standing turn follows simulation")
+	owner._advance_standing_turn(.016, .35)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 73.5), "voiced turn catches up once to audible elapsed")
+	owner._advance_standing_turn(.016, .35)
+	check(is_equal_approx(rad_to_deg(body.rotation.y), 73.5), "a held audible clock cannot advance the turn")
+	owner._advance_standing_turn(.016, .84)
+	check(owner._standing_speaker == null and absf(angle_difference(body.global_rotation.y, owner._standing_yaw)) < .001 \
+			and body.position == Vector3(2, 0, 3), "standing turn reaches target after delayed frame without moving feet")
+	body.free()
+	owner.free()
+
+
 func _ready() -> void: _run.call_deferred()
 
 func _run() -> void:
 	var logger := ErrorCapture.new()
 	OS.add_logger(logger)
+	_check_standing_turn_clock()
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
 	var old_data: Dictionary = RealityState.data
