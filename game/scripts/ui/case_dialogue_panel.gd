@@ -168,7 +168,7 @@ func _fit_measure() -> void:
 	var separation := 6
 	if view.y <= 400.0:
 		side = mini(side, 16)
-		bottom = mini(bottom, 8)
+		bottom = mini(bottom, 6)
 		separation = 2
 	_column.add_theme_constant_override("separation", separation)
 	_measure.add_theme_constant_override("margin_left", side)
@@ -197,6 +197,10 @@ func _fit_spoken_line() -> void:
 			spacing = 0
 		elif size > REPLY_SIZE:
 			size -= 1
+		elif spacing > -3:
+			# The 17 px face has a 22.6 px line box. Keep at least 19.6 px
+			# between baselines even for the longest spoken paragraph.
+			spacing -= 1
 		else:
 			break
 	_line.add_theme_constant_override("line_spacing", spacing)
