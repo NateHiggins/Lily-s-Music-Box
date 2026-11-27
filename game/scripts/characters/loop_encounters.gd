@@ -44,6 +44,8 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 					errors.append("invalid listener wrist mark: " + str(item.id))
 				else:
 					listener_marks[ResidentConversations.performance_node_id(index)] = mark
+		if not _compile_interjections(item.lines):
+			errors.append("invalid interjection in encounter: " + str(item.id))
 		if not listener_marks.is_empty():
 			item["listener_marks"] = listener_marks
 		if item.has("open_stance") and item.open_stance is not bool:
@@ -56,6 +58,31 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 			errors.append("invalid encounter hours: " + str(item.id))
 		encounters.append(item)
 	return errors.is_empty() and not encounters.is_empty()
+
+## Resolve stable named answers once. An interjection can skip ahead; listening
+## always preserves the authored order and every node retains both exits.
+func _compile_interjections(lines: Array) -> bool:
+	var answers := {}
+	for index in range(lines.size() - 1, -1, -1):
+		var line: Variant = lines[index]
+		if line is not Dictionary or line.has("_interjection"):
+			return false
+		if line.has("interject"):
+			var reply: Variant = line.get("interject")
+			if reply is not Dictionary:
+				return false
+			var label: Variant = reply.get("label")
+			var target: int = answers.get(reply.get("answer"), -1)
+			if label is not String or label.strip_edges().is_empty() or target <= index + 1:
+				return false
+			line["_interjection"] = {"label": label, "goto": ResidentConversations.performance_node_id(target)}
+		if line.has("beat"):
+			var beat: Variant = line.get("beat")
+			if beat is not String or beat.strip_edges().is_empty() or answers.has(beat):
+				return false
+			answers[beat] = index
+	return true
+
 
 func eligible(item: Dictionary, anchor: String) -> bool:
 	if anchor in item.excluded_anchors:

@@ -86,10 +86,11 @@
       "places": ["unit", "unit:main", "unit:doorway", "visit:4C_doorway", "corridor", "lobby"],
       "lines": [
         {"speaker": "noel_price", "text": "Not on the paper."},
-        {"speaker": "jonah_price", "text": "It's only a draft."},
+        {"speaker": "jonah_price", "text": "It's only a draft.",
+         "interject": {"label": "Where can he put the cup without losing his place?", "answer": "clear_corner"}},
         {"speaker": "noel_price", "text": "The cup doesn't know that."},
         {"speaker": "jonah_price", "text": "That was my best sentence."},
-        {"speaker": "noel_price", "text": "Cup here. Leave your finger where that sentence goes."}
+        {"beat": "clear_corner", "speaker": "noel_price", "text": "Cup here. Leave your finger where that sentence goes."}
       ]
     },
     {

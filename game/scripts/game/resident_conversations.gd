@@ -60,7 +60,7 @@ const SCHEDULES_PATH := "res://data/resident_schedules.json"
 ## crude on purpose; {unit} is replaced with the apartment number.
 const NOTES_PATH := "res://data/field_notes.json"
 const NOTE_PREFIX := "note:"
-## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
+## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md Ã‚Â§7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/adela_voss.json",
@@ -351,7 +351,7 @@ static func performance_node_id(index: int) -> String:
 	return "loop_business" if index == 0 else "loop_business_%d" % index
 
 
-## Linear authored exchanges keep the panel's deliberate choices and departure.
+## A player can hear the exchange through or interject to reach an authored answer.
 ## They carry text/speakers only: no flags, trust, actions or invented props.
 func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
 	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
@@ -370,6 +370,8 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 		var choices: Array = []
 		if i + 1 < lines.size():
 			choices.append({"label": str(row.get("choice", "Listen.")), "goto": performance_node_id(i + 1)})
+		if row.has("_interjection"):
+			choices.append(row._interjection.duplicate())
 		choices.append({"label": "I'll let you get on."})
 		nodes[key] = {"line": str(row.text), "actor": actor, "silence_goto": "",
 				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}

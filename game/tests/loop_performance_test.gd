@@ -907,6 +907,21 @@ func _ordinary_exchanges() -> void:
 			check(world.resident_routes[identity].actor.get_node("Attention").ensemble_target == null, str(item.id) + " ending releases listener attention")
 		check(RealityState.data == before, str(item.id) + " dialogue has no gameplay/save consequences")
 		check(performance.ordinary.for_resident(first, "", performance._heard).is_empty(), str(item.id) + " cannot repeat in the same day")
+		if item.id == "OY07":
+			_ordinary_clock()
+			_arrange_encounter(item)
+			var prior: Dictionary = RealityState.data.duplicate(true)
+			check(performance.try_conversation(first, player), "the Prices reopen on a new day")
+			panel.choose(0)
+			var question := panel.offered_labels().find("Where can he put the cup without losing his place?")
+			check(question >= 0, "the player can offer to settle the cup dispute")
+			if question >= 0:
+				panel.choose(question)
+				check(panel._line.text == "Cup here. Leave your finger where that sentence goes." and conversations._active_resident == "noel_price",
+						"Noel gives the practical answer directly")
+				panel.choose(0)
+				check(not panel.attention_active() and not conversations.performance_active() and RealityState.data == prior,
+						"the practical answer releases the player without a campaign consequence")
 	var pair: Dictionary = performance.ordinary.encounters[0]
 	var first := str(pair.actors[0])
 	_ordinary_clock()
