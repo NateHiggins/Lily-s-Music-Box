@@ -6,6 +6,8 @@ extends RefCounted
 var surface: Node3D
 var _allowed: Callable
 var _arms: Array[Dictionary] = []
+## Explicit proof-only telemetry; ordinary gameplay allocates no per-frame rows.
+var diagnostics := false
 var last: Dictionary = {}
 
 func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable) -> bool:
@@ -56,7 +58,8 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		if upper < .001 or lower < .001 or asked < .001: continue
 		# Never stretch or disguise a missed contact by clamping the endpoint.
 		if asked > upper + lower - .002 or asked < absf(upper-lower) + .002:
-			last[arm.side] = {"reachable":false,"asked":asked,"maximum":upper+lower,"target":body.to_global(target)}
+			if diagnostics:
+				last[arm.side] = {"reachable":false,"asked":asked,"maximum":upper+lower,"target":body.to_global(target)}
 			continue
 		var direction := reach / asked
 		# Reuse the clip's own elbow plane, rather than guessing left/right
@@ -84,6 +87,7 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		var across := normal.cross(forward).normalized()
 		var orientation: Basis = Basis(across,normal,forward)*(arm.hand_frame as Basis).inverse()*(arm.rest_basis as Basis)
 		if not write.call(ids[2],Transform3D(orientation,wrist.origin),"contact"): continue
-		last[arm.side] = {"reachable":true,"target":body.to_global(target),"wrist":body.to_global(wrist.origin),
-			"tracking_error":wrist.origin.distance_to(target),"table_local":surface.to_local(body.to_global(wrist.origin)),
-			"needle_gap":local_target.distance_to(Vector3(-.175,.808,0)),"observation":"wrist tracking, not skin/fabric contact"}
+		if diagnostics:
+			last[arm.side] = {"reachable":true,"target":body.to_global(target),"wrist":body.to_global(wrist.origin),
+				"tracking_error":wrist.origin.distance_to(target),"table_local":surface.to_local(body.to_global(wrist.origin)),
+				"needle_gap":local_target.distance_to(Vector3(-.175,.808,0)),"observation":"wrist tracking, not skin/fabric contact"}
