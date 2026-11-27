@@ -165,6 +165,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
         "trust.warm", "trust.cold", "choice.trust_gained", "choice.trust_lost",
         "choice.inferred", "choice.evidence", "emote.clips",
     }),
+    # AdelaDiscoveryTableau checks each imported mesh's surface count by mesh name (mesh_counts[name]).
+    "characters/adela_discovery_pose.json": frozenset({"mesh_counts"}),
     "mystery/teresa_vale.json": frozenset({"entries", "nodes"}),
     "mystery/the_party.json": frozenset({"entries", "nodes"}),
     "mystery/transient_guests.json": frozenset({"entries", "nodes"}),
