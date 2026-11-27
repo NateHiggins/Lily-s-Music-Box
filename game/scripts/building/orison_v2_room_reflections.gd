@@ -71,8 +71,18 @@ func _physics_process(delta: float) -> void:
 	active_id=identity
 	if identity.is_empty():return
 	_last_used[identity]=Time.get_ticks_msec()
+	# Keep the current cache and pending invalidations while a resident take
+	# owns the foreground. A new cube capture/refresh resumes on the next
+	# ordinary scan after speech, rather than compiling under its first line.
+	if _foreground_recorded_speech():return
 	if not probes.has(identity) and Time.get_ticks_msec()>=int(_retry_after.get(identity,0)):_create(identity)
 	if probes.has(identity) and Time.get_ticks_msec()>=int(_refresh_due.get(identity,0)):_refresh(identity)
+
+func _foreground_recorded_speech() -> bool:
+	var voice := world.get_node_or_null("LoopVoicePlayback") as LoopVoicePlayback
+	if voice==null:return false
+	return voice.has_foreground_take()
+
 
 func _create(identity: String) -> void:
 	var selected: Dictionary={}

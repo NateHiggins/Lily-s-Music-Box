@@ -7,13 +7,16 @@
       "sha256_lf": "be540be41e6e05c3d8226a216ece762bc67f202fade5d9ad37e4e402d7c1d1b2"
     },
     "game/data/mystery/transient_guests.json": {
-      "sha256_lf": "06646c87043539278c9a146b64d1ab0b79819ecb7f72ad57be735f10ad439a1d"
+      "sha256_lf": "e4e37cbb0e1702d38bb1bd1f42ba2b7bd12f0b1ed8ab8d63968abbd928446281"
     },
     "game/data/opinions/transient_guests.json": {
       "sha256_lf": "e768089d60488a7a562b5ed85cc93dab2ecd984fb2c027b9ae7110253f85f20e"
     },
     "game/data/mystery/rhea_sato.json": {
       "sha256_lf": "e232b4fc59d638b8283c28d409edcc5cd9a9d54852432c1092df18e05d5f65d1"
+    },
+    "game/data/temporal/performances.json": {
+      "sha256_lf": "5cdd18edbef58c3f68c0014a7123ced568525452e0eb88be9f8531835fea66bd"
     }
   },
   "entries": [
@@ -7177,6 +7180,56 @@
         {
           "start": 67,
           "end": 70,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/temporal/performances.json",
+      "pointer": "/profiles/transient_guests/line",
+      "text_sha256": "a208a7fa4bc6114435a10405f8f3a479172693b41f4678b1f3c4dd96ea7a69e4",
+      "length": 42,
+      "turns": [
+        {
+          "start": 0,
+          "end": 21,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 22,
+          "end": 42,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 21,
+          "end": 22,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/temporal/performances.json",
+      "pointer": "/profiles/transient_guests/activities/tv/line",
+      "text_sha256": "ba5bba9b2d435e68a060bbedea26cf9da0b1ab48bdc0d94215833a4d7a727d79",
+      "length": 95,
+      "turns": [
+        {
+          "start": 0,
+          "end": 25,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 95,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 25,
+          "end": 26,
           "kind": "separator_or_pause"
         }
       ]

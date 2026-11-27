@@ -49,6 +49,11 @@ var _read_in_inspection := false
 var _reading_light_opening := INF
 var _reading_light_faces: Array[Dictionary] = []
 var valise_packed := false
+## Read from the glove (ruling held_books_reading_20261125): a packed copy comes out
+## only for the reading view. Its saved record stays the packed one meanwhile.
+var hand_reading := false
+var _hand_record: Dictionary = {}
+var _hand_pose := Transform3D.IDENTITY
 
 func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
 
@@ -452,7 +457,7 @@ func _claim(tag: String) -> bool:
 	if valise_packed: return false
 	var outside_inspection: bool=tag=="body" and not shelf.supports_inspected_stock(self)
 	if not super._claim(tag): return false
-	if outside_inspection:
+	if outside_inspection and not hand_reading:
 		_reading_pickup_pose=transform
 		_reading_pickup_exit=get_parent_node_3d().to_local(_pickup_exit)
 		_reading_pickup_opening=opening
@@ -473,14 +478,22 @@ func _release() -> void:
 	var changed:=not is_equal_approx(opening,_before_opening)
 	var refit: bool=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
 	super._release()
-	if shelf_slot<0: shelf.try_place_book(self)
+	if shelf_slot<0 and not hand_reading: shelf.try_place_book(self)
 	if shelf_slot>=0: freeze=true;sleeping=true
 	_contact_mode(freeze)
 	if refit and shelf_slot<0: _queue_reading_fit()
 	if changed: shelf.library_stock_changed(self)
 
+## Off the reading view a click works the case and hand: a closed copy goes into
+## them, or the book in the hand comes back to this shelf (held_books_reading_20261125).
+## A closed copy stays in place if the case cannot take it.
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	if hand_reading or shelf.supports_inspected_stock(self) or not shelf.has_method("hand_target"): return grip()
+	var hand: Dictionary=shelf.hand_target(self)
+	return hand if not hand.is_empty() else grip()
+
 func cover_grip() -> Dictionary:
-	if not shelf.supports_inspected_stock(self):return grip()
+	if not shelf.supports_inspected_stock(self):return manipulation_target({})
 	return {"owner":shelf,"part":left,"frame":self,"kind":"hinge","axis":Vector3.DOWN,
 		"minimum":0.,"maximum":PI,"minimum_lever":.025,
 		"constraint_feedback":func(): return "blocked" if _cover_blocked else "",
@@ -624,7 +637,55 @@ func _reading_return_is_clear(origin: Vector3, orientation: Basis, contacts: Arr
 		if not space.intersect_shape(query,1).is_empty(): return false
 	return true
 
-func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
+func book_snapshot() -> Dictionary:
+	if hand_reading: return _hand_record.duplicate(true)
+	return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
+
+
+## The packed copy comes out at the glove's hold for the reading view.
+func begin_hand_reading(pose: Transform3D) -> void:
+	_hand_record=book_snapshot()
+	_hand_pose=transform
+	set_valise_packed(false)
+	hand_reading=true
+	shelf_slot=-1
+	global_transform=pose
+	_contact_mode(true)
+
+
+## Closed again and back in the case, at the pose its record keeps.
+func finish_hand_reading() -> void:
+	if not hand_reading: return
+	_apply_opening(0.)
+	transform=_hand_pose
+	hand_reading=false
+	_hand_record={}
+	set_valise_packed(true)
+	_contact_mode(true)
+
+
+## A closed copy drawn for a hand: the binding's own draws, spine and cover print in
+## the book's frame. The packed body stays the record; this is only what is seen.
+func hand_visual() -> Node3D:
+	var held := Node3D.new()
+	held.name = "HeldBook_" + stock_id
+	var frame := global_transform.affine_inverse()
+	for original: MeshInstance3D in _native_draws:
+		var draw := original.duplicate(0) as MeshInstance3D
+		held.add_child(draw)
+		draw.transform = frame * original.global_transform
+	if _spine != null:
+		var imprint := _spine.duplicate(0) as Node3D
+		held.add_child(imprint)
+		imprint.transform = frame * _spine.global_transform
+	for original: Label3D in printed_labels:
+		if original.get_parent() != left:
+			continue
+		var label := original.duplicate(0) as Label3D
+		held.add_child(label)
+		label.transform = frame * original.global_transform
+		_matte_letter.call_deferred(label)
+	return held
 
 func set_valise_packed(packed: bool) -> void:
 	valise_packed=packed
@@ -683,6 +744,8 @@ static func valid_book(value: Variant) -> bool:
 		and float(value.opening)>=0. and float(value.opening)<=PI
 
 func restore_book(value: Dictionary) -> void:
+	hand_reading=false
+	_hand_record={}
 	_has_reading_pickup=false
 	_read_in_inspection=false
 	end_floating_view()

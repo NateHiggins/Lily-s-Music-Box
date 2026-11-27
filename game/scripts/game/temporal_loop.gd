@@ -352,6 +352,13 @@ static func valid(value: Variant) -> bool:
 		for slip: Variant in value.outbox:
 			if slip is not String or (slip as String).length() > 4096:
 				return false
+	if value.get("arc") is Dictionary and value.arc.has("last_night_paper"):
+		var paper: Variant = value.arc.last_night_paper
+		if paper is not Array or paper.size() > 4:
+			return false
+		for line: Variant in paper:
+			if line is not String or line.is_empty() or line.length() > 4096 or paper.count(line) != 1:
+				return false
 	var bank: Variant = value.get("bank_cents")
 	if (bank is not int and bank is not float) or float(bank) < 0.0 or float(bank) != floorf(float(bank)):
 		return false
@@ -1445,17 +1452,22 @@ func _attend_rescue() -> void:
 		if snapped or today() != str(table.arc.rescue.date):
 			_close_evening(snapped)
 
-	var pending: Variant = arc.get("rescue_paper")
+	if _deliver_pending_paper(arc, "rescue_paper"):
+		RealityState.commit_background()
+
+
+## The receiver adds each accepted slip to the same campaign's saved outbox.
+## Leave a refused line and everything behind it with its existing author.
+func _deliver_pending_paper(arc: Dictionary, key: String) -> bool:
+	var pending: Variant = arc.get(key)
 	if not _receive_slip.is_valid() or pending is not Array or pending.is_empty():
-		return
-	var accepted := false
+		return false
+	var count: int = pending.size()
 	while not pending.is_empty() and _receive_slip.call(ledger(), str(pending.front())):
 		pending.pop_front()
-		accepted = true
 	if pending.is_empty():
-		arc.erase("rescue_paper")
-	if accepted:
-		RealityState.commit_background()
+		arc.erase(key)
+	return pending.size() < count
 
 
 func _close_evening(snapped: bool) -> void:
@@ -1747,16 +1759,18 @@ func _finished() -> void:
 ## own line, unfinished; at the close the bridge shuts on whatever she did.
 ## Returns whether anything was said.
 func _attend_last_night() -> bool:
+	var arc := _arc_state()
+	if _deliver_pending_paper(arc, "last_night_paper"):
+		RealityState.commit_background()
 	if not last_night_open():
 		return false
 	var night: Dictionary = table.arc.last_night
-	var arc := _arc_state()
 	var minute := _minute_of_day()
 	var tonight := today() == str(night.date)
 	var begun := bool(arc.get("told", false))
 	if begun and (not tonight or minute >= _clock_minutes(str(night.close_at))):
 		arc["ending"] = "finished" if str(arc.get("choice", "")) == "finished" else "left"
-		slip.emit("", str(night.epilogues[arc.ending]))
+		_send_night_paper(arc, [str(night.epilogues[arc.ending])])
 		RealityState.commit()
 		changed.emit()
 		return true
@@ -1766,17 +1780,27 @@ func _attend_last_night() -> bool:
 		if here == str(night.place) and minute >= _clock_minutes(str(night.message_at)) \
 				and minute < _clock_minutes(str(night.close_at)):
 			arc["told"] = true
-			slip.emit("", received_copy(int(night.message_number), str(night.message)))
-			slip.emit("", str(night.answer))
+			_send_night_paper(arc, [received_copy(int(night.message_number), str(night.message)), str(night.answer)])
 			RealityState.commit_background()
 			return true
 		return false
 	if not bool(arc.get("asked", false)) and minute >= _clock_minutes(str(night.ask_at)):
 		arc["asked"] = true
-		slip.emit("", str(night.unfinished))
+		_send_night_paper(arc, [str(night.unfinished)])
 		RealityState.commit_background()
 		return true
 	return false
+
+
+## Up to four distinct slips are due in one ending. Re-entering LAST while
+## a slip is still waiting need not stack another copy of those same words.
+func _send_night_paper(arc: Dictionary, lines: Array[String]) -> void:
+	var pending: Array = arc.get("last_night_paper", [])
+	for line: String in lines:
+		if line not in pending:
+			pending.append(line)
+	arc["last_night_paper"] = pending
+	_deliver_pending_paper(arc, "last_night_paper")
 
 
 func awaiting_introduction() -> bool:

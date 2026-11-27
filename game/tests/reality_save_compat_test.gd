@@ -55,6 +55,7 @@ func _ready() -> void:
 			RealityState.SAVE_VERSION, "explicit new campaign writes current version")
 
 	_check_inventory_roster()
+	_check_price_reception()
 
 	RealityState.save_path = "user://tests"
 	_check(not RealityState.save_game(), "unwritable save target refuses the write")
@@ -71,6 +72,17 @@ func _ready() -> void:
 	print("[SAVE COMPAT] PASS %d/%d" % [passed, passed + failed] if failed == 0
 			else "[SAVE COMPAT] FAIL %d/%d" % [failed, passed + failed])
 	get_tree().quit(0 if failed == 0 else 1)
+
+
+func _check_price_reception() -> void:
+	var document := RealityState.data.duplicate(true)
+	document.erase("price_reception")
+	_check(RealityState._validate_document(document).ok, "saves from before the Price reception remain readable")
+	document.price_reception = {"day": "1929-06-16", "visit": ""}
+	_check(RealityState._validate_document(document).ok, "ordinary Sunday reception is valid")
+	for bad: Variant in [false, {}, {"day": "1929-02-30", "visit": ""}, {"day": "1929-06-16", "visit": 7}]:
+		document.price_reception = bad
+		_check(not RealityState._validate_document(document).ok, "invalid Price reception is protected: %s" % str(bad))
 
 
 func _check_inventory_roster() -> void:

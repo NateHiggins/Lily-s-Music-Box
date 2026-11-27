@@ -155,9 +155,21 @@ func build() -> bool:
 			var part := model.find_child(name, true, false) as Node3D
 			if part == null: return _fail("Keyboard stay missing: " + name)
 			_stays[name] = part
+	# The two fixed crown partitions include the guard, spindle and mounting
+	# feet. Compact the entire assembly about the deck, including both pivots.
+	var crown_scale := Vector3(.72, .52, .72)
+	var foot := Vector3(0, .094, -.012)
+	var fit := Transform3D(Basis.from_scale(crown_scale), foot - foot * crown_scale)
+	var fixed_count := 0
+	for part: MeshInstance3D in model.find_children("CompanionFixed__*", "MeshInstance3D", true, false):
+		if part.get_aabb().position.y > .09:
+			part.transform = fit * part.transform
+			fixed_count += 1
+	if fixed_count != 2: return _fail("Fixed crown mounts missing")
 	for name: String in ["LiftRotorPort", "LiftRotorStarboard"]:
 		var rotor := model.find_child(name, true, false) as Node3D
 		if rotor == null: return _fail("Lift rotor missing: " + name)
+		rotor.transform = fit * rotor.transform
 		_rotors.append(rotor)
 	_latch_sound = _sound("pop", -30.0)
 	_key_sound = _sound("tick", -29.0)

@@ -34,8 +34,8 @@ RESIDENT_FORBIDDEN = re.compile(r"\b(the tenant|signal pro|instrument)\b", re.I)
 PRE_DEATH = re.compile(r"\b(late miss|was killed|her death|funeral|the body|she fell|she died)\b", re.I)
 # The conclusive chain of section 4.5 and the one telling.
 SOLVE = ("m_white_kid", "m_glove_scrap", "m_button_book", "m_route_book", "m_letter_compared", "m_told_nadia", "m_drama_disc")
-TREE_CHOICE_KEYS = {"label", "goto", "requires", "evidence", "infer", "trust", "flag"}
-TREE_NODE_KEYS = {"line", "choices", "silence_goto", "silence_trust", "flag", "flags", "bank", "speaker"}
+TREE_CHOICE_KEYS = {"label", "goto", "requires", "unless", "evidence", "infer", "trust", "flag"}
+TREE_NODE_KEYS = {"line", "choices", "silence_goto", "silence_trust", "flag", "flags", "bank", "speaker", "delivery"}
 
 
 def bank_family(bank: str) -> str:
@@ -91,6 +91,8 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
     for node_id in set(nodes) - reached:
         errors.append(f"{name}: node {node_id} is unreachable")
     for node_id, node in nodes.items():
+        if node.get("delivery", "spoken") not in ("spoken", "silent"):
+            errors.append(f"{name}: node {node_id} has unsupported line delivery")
         unknown = set(node) - TREE_NODE_KEYS
         if unknown:
             errors.append(f"{name}: node {node_id} has unknown fields {sorted(unknown)}")
@@ -126,6 +128,10 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
         for choice in node.get("choices", []):
             if set(choice) - TREE_CHOICE_KEYS:
                 errors.append(f"{name}: node {node_id} has an unknown choice field")
+            if "unless" in choice and (not isinstance(choice["unless"], list)
+                                       or not choice["unless"]
+                                       or not all(isinstance(flag, str) and flag for flag in choice["unless"])):
+                errors.append(f"{name}: node {node_id} unless needs a nonempty list of flag names")
             if MISADDRESS.search(choice.get("label", "")):
                 errors.append(f"{name}: node {node_id} choice misaddresses the player")
             for flag in choice.get("requires", []):
@@ -324,7 +330,7 @@ def main() -> int:
     for error in errors:
         print("FAIL", error)
     print(f"{stats['speakers']} speakers, {stats['threads']} threads, {stats['nodes']} nodes, "
-          f"{stats['words']} spoken words, {stats['banks']} bank lines placed, {len(errors)} failures")
+          f"{stats['words']} displayed words, {stats['banks']} bank lines placed, {len(errors)} failures")
     if args.render:
         args.render.write_text(render(stats["trees"]), encoding="utf8", newline="\n")
     return 1 if errors else 0

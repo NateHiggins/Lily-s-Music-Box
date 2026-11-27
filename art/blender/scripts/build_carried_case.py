@@ -594,6 +594,13 @@ bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=
                           export_lights=False,export_cameras=False)
 runtime={'schema_version':1,'asset':'res://assets/props/carried_case.glb','cell':CELL,'grid':[COLS,ROWS],
          'hinge':[0.0,0.0,-SHELF_HINGE.y],'forms':{k:{'size':v} for k,v in FORMS.items()},'parts':parts}
+# These items bring their own fitted meshes to the case. Only their grid
+# footprints belong in this catalogue, so a case rebuild must carry them over.
+runtime['forms'].update({
+    'maintenance_washer': {'size': [1, 1]},
+    'radiator_vent_insert': {'size': [1, 1]},
+    'found_phonautogram': {'size': [5, 3]},
+})
 (ROOT/'game/data/carried_case.json').write_text(json.dumps(runtime,indent=1)+'\n',encoding='utf-8',newline='\n')
 # The importer may cache JSON; owner refresh/reload remains the other agent's job.
 from inspect_carried_case import inspect

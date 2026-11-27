@@ -3,7 +3,7 @@ extends Node3D
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const NativeChecks := preload("res://tests/harukiya_staff_occupancy_test.gd")
 const Standing := preload("res://scripts/characters/standing_occupancy.gd")
-const REQUIRED := ["adela_civil_presence", "adela_native_column", "adela_real_conversation", "adela_retained_shutdown", "adela_custody_cleanup"]
+const REQUIRED := ["adela_dated_subjects", "adela_civil_presence", "adela_native_column", "adela_real_conversation", "adela_retained_shutdown", "adela_custody_cleanup"]
 var world: OrisonV2RuntimeRoot
 var cast: Node3D
 var actor: Node3D
@@ -98,6 +98,9 @@ func _run() -> void:
 	world.conversations.conversation_ended.connect(_on_ended)
 	world.conversations.dialogue.node_shown.connect(_on_line)
 	var before: int = failures.size()
+	await _dated_subjects()
+	_contract("adela_dated_subjects", before)
+	before = failures.size()
 	# Empty schedule gaps are genuine resolver results, never invented shop/out blocks.
 	for row: Array in [[6,14,1139,false,""], [6,14,1140,true,"harukiya_bar"], [6,15,0,true,"harukiya_bar"], [6,15,45,false,"out"], [6,18,1140,true,"harukiya_bar"], [6,18,1259,true,"harukiya_bar"], [6,18,1260,false,""], [7,19,1262,false,"roof"], [7,19,1263,false,"out"], [7,20,1200,false,"out"]]:
 		await _context(int(row[0]), int(row[1]), int(row[2]), bool(row[3]), str(row[4]))
@@ -143,6 +146,24 @@ func _run() -> void:
 	await _retained_shutdown()
 	await _finish()
 
+
+## Sample the rebuilt skeleton's measured rest front before anyone calls to her.
+func _dated_subjects() -> void:
+	var owner := world.get_node_or_null("AdelaDatedEncounters")
+	if not _check(owner != null, "installed dated Adela owner"): return
+	for row: Array in [[1928,11,10,550,"photo_supplies","av_window"], [1929,7,11,1090,"roof","av_key11"], [1929,7,19,1086,"lobby","av_nineteen"]]:
+		if not _check(world.campaign_clock.configure_date(row[0], row[1], row[2], row[3]) and world.campaign_clock.bind_state(), "dated mark clock " + str(row[5])): continue
+		await get_tree().create_timer(.35).timeout
+		await get_tree().physics_frame
+		var resident := owner.get("actor") as AnimatedResident
+		if not _check(is_instance_valid(resident) and resident.installed_topic == str(row[5]), "dated body present " + str(row[5])): continue
+		var mark: Dictionary = owner.call("_stance", str(row[4]))
+		var wanted: Vector3 = mark.facing - resident.global_position
+		var body := resident.cast_body
+		var facing: Vector3 = body.skeleton.global_basis * body.attention.pipeline.profile.forward
+		var alignment := Vector2(wanted.x, wanted.z).normalized().dot(Vector2(facing.x, facing.z).normalized())
+		_check(alignment > .99, "%s faces its authored subject (%.4f)" % [str(row[5]), alignment])
+
 func _context(month: int, day: int, minute: int, present: bool, place: String) -> void:
 	_check(world.campaign_clock.configure_date(1929, month, day, minute), "civil fixture date accepted")
 	_check(world.campaign_clock.bind_state(), "actual runtime clock rebinds fixture snapshot")
@@ -159,7 +180,8 @@ func _context(month: int, day: int, minute: int, present: bool, place: String) -
 	var staff: Dictionary = cast.get("actors")
 	var staff_here: bool = world.harukiya_counter.call("on_shift")
 	for id: String in staff_ids:
-		_check(staff.has(id) and staff[id].get_instance_id() == int(staff_ids[id]) and staff[id].is_visible_in_tree() == staff_here, "original staff actor/attendance unchanged " + id)
+		var present_here: bool = staff_here if id == "stacy" else str(world.resident_whereabouts(id).get("place", "")) == "harukiya_bar"
+		_check(staff.has(id) and staff[id].get_instance_id() == int(staff_ids[id]) and staff[id].is_visible_in_tree() == present_here, "original actor follows her own attendance " + id)
 	details.contexts.append({"date":[1929,month,day],"minute":minute,"whereabouts":where,"present":present,"column":column,"staff_on_shift":staff_here})
 
 func _ray() -> Dictionary:
@@ -182,11 +204,21 @@ func _conversation() -> void:
 	var hit: Dictionary = _ray()
 	if not _check(not hit.is_empty() and hit.collider == interaction, "actual ordinary2.1m player ray reaches Adela interaction area"): return
 	_check(not world.player.call_locked and not actor.call("interact_prompt").is_empty(), "actual player and authored target available")
+	var camera := world.player.camera
+	var entry_fov := camera.fov
+	var entry_basis := camera.global_basis
 	if not await _mapped_interact(): return
 	await get_tree().create_timer(.4).timeout
 	var panel: CaseDialoguePanel = world.conversations.dialogue
 	_check(started_speakers.has("adela_voss") and str(world.conversations.get("_active_resident")) == "adela_voss" and panel.attention_active(), "ordinary mapped input starts authored Adela conversation")
 	_check(str(cast.get("_speaker")) == "adela_voss", "same performer receives actual speaker callback")
+	var framing := panel._speaker_framing
+	var rig := actor.get("skeleton") as Skeleton3D
+	var engaged_fov := camera.fov
+	_check(framing != null and rig != null and framing._actor == actor and framing._body == rig, "player's existing shot resolves the installed Adela body and skeleton")
+	_check(camera.is_current() and camera.global_basis.is_equal_approx(entry_basis), "framing preserves the player's camera and aim")
+	_check(engaged_fov < entry_fov - 0.1 and engaged_fov >= entry_fov - 7.01, "visible Adela gets the bounded lens adjustment")
+	details.stage_lens = {"entry_fov": entry_fov, "engaged_fov": engaged_fov}
 	var line: Dictionary = panel.displayed_line()
 	_check(not str(line.get("text", "")).strip_edges().is_empty(), "existing authored line displayed")
 	_check(panel.current_node_id=="ad_singing", "actual bar interaction opens authored social entry rather than studio services")
@@ -198,6 +230,8 @@ func _conversation() -> void:
 	await _capture("adela_authored_conversation")
 	world.conversations.cancel_for_transition()
 	await get_tree().process_frame
+	details.stage_lens.restored_fov = camera.fov
+	_check(is_equal_approx(camera.fov, entry_fov) and camera.is_current() and camera.global_basis.is_equal_approx(entry_basis), "cancel releases Adela's framing and restores the player's lens and aim")
 	_check(ended_speakers.has("adela_voss") and str(cast.get("_speaker")).is_empty() and not panel.attention_active() and not world.player.call_locked, "existing transition authority closes panel and speaker/input lease")
 
 func _mapped_interact() -> bool:
@@ -295,7 +329,7 @@ func _finish() -> void:
 	for id: String in REQUIRED:
 		_check(bool(contracts[id].executed) and str(contracts[id].status) == "PASS", "required focused contract " + id)
 	var passed: bool = failures.is_empty()
-	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":true,"selector":"v2","suite":"HarukiyaAdelaPresenceTest","status":"PASS" if passed else "FAIL","scope":"Actual RuntimeRoot Adela stage attendance via civil resolver, same actor and original two staff, measured native column/support/upper-obstruction/counter-negative, ordinary mapped player interaction and authored conversation callbacks, retained-world ghost-free shutdown. One declared initial nearby player stance. No natural all21 arrival, walking/seated fit, performance qualification, seven-stop/NPC lift or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":initial_inputs,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":engine_errors,"details":details}
+	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":true,"selector":"v2","suite":"HarukiyaAdelaPresenceTest","status":"PASS" if passed else "FAIL","scope":"Actual RuntimeRoot Adela stage attendance via civil resolver, same actor and original two staff, measured native column/support/upper-obstruction/counter-negative, ordinary mapped player interaction and authored conversation callbacks, visible stage speaker lens acquisition and release, retained-world ghost-free shutdown. One declared initial nearby player stance. No natural all21 arrival, walking/seated fit, performance qualification, seven-stop/NPC lift or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":initial_inputs,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":engine_errors,"details":details}
 	result.source.test_path = "game/" + get_script().resource_path.trim_prefix("res://")
 	result.source.test_sha256 = FileAccess.get_sha256(get_script().resource_path)
 	result.source.test_scene_path = "game/" + scene_file_path.trim_prefix("res://")

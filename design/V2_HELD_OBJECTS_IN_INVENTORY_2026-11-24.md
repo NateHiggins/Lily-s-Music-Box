@@ -1,7 +1,6 @@
 # Held objects live in the inventory, shown on the hand
 
-Evidence class: **INERT**. Owner direction and a migration plan, dated 2026-11-24. Nothing
-here is built, rendered or accepted.
+Evidence class: **INERT**. Owner direction, migration history and current scope.
 
 Owner direction, 2026-11-24: "in general pick up able objects like kitchen utensils
 shouldnt be carried, put it into their inventory and use the clothing system to put the
@@ -65,6 +64,37 @@ isolation. The avatar's hand slot (1<<15) stays the mirror view and does not com
 first person. The arm's owner adds a **GloveSocket** on its Hand bone; this order then
 wears the held part there as a follow-up once both changes are on main.
 
+The glove follow-up (2026-11-25, after the arm and slice 1 reached main): the avatar
+keeps a second **HeldHandSlot** on the arm's Hand bone, offset to **palm_offset()**, on
+the socket's layer, and calls **set_holding** whenever the case's hand changes, so the
+arm carries the glove in at its carry pose. The item is drawn at world size with no
+shadow. While the glove works a world grab, the item stays in hand but is hidden, and
+it shows again on release. The arm's own file and motion are not touched.
+
+Answered 2026-11-25: **held_tethered_parts_20261125**. The basin plug, register pen,
+union nut, unracked hose, cistern lid and spare gasket stay worked where they stand,
+with no inventory. They are tethered parts, not carried pickups. The order then covers
+the kitchen tools and books. Also answered 2026-11-25: **held_books_reading_20261125**.
+A book goes into the case and the hand. To read it, the player clicks it in the glove,
+and it comes up into the same close reading view. A click on a shelf puts it back in
+that shelf's next free place.
+
+The books slice works as follows. A click on a closed copy, on its shelf or lying loose,
+commits it to the case and the hand at once, with no carry. A primary click with a book
+in the glove and nothing usable under the reticle takes the place of the put-down. The
+copy comes out at the glove's hold. The ordinary reading view takes it there, from the
+camera's own pose, and the cover is opened by hand as before. Closing the view (Space)
+closes the book and packs it again. Its save record stays the packed, closed one
+throughout, so a save while reading keeps it in the case. With a book of that shelf in
+the hand, a click on the shelf or its stock puts the book back. It goes to the first
+slot, in shelf order, that is free and that the closed copy clears. Only its own
+collection takes it back. The case view's "take in hand" now sets the hand, where
+before it unpacked the book into a carry. When the case has no room, a closed copy
+stays where it is until the player frees space. Shelves built without the household state,
+such as the library benches, keep the old carry. To empty the hand of a book without
+shelving it, the player takes another item in hand. A click on nothing reads the book
+rather than putting it down.
+
 Originally filed, recommended option first:
 
 - **held_view_first_person_20261124:** what the player sees in first person while holding
@@ -72,19 +102,20 @@ Originally filed, recommended option first:
 - **held_put_down_20261124:** where a put-down object goes.
 - **held_scope_20261124:** which objects move to the new rule first.
 
-## 4. Migration order
+## 4. Implemented scope
 
-1. Add a hand slot to the clothing system: a held part on a hand bone, worn and taken off
-   like any other part, with a save field for what is in hand.
-2. Kitchen prep tools first, the case Lily named. The 30 tools become inventory goods and
-   their world bodies retire to rest records, removing their physics bodies.
-3. Books, the basin plug, the register pen, then the fire maintenance loose stock and the
-   water-closet part. Each keeps its existing owner, save and maintenance authority.
-4. Retire the free-pickup path in **constrained_grab.gd** once nothing uses it. Its
-   carrier collision and follow-the-hand code goes with it.
-
-Each slice needs real grabbing and release in tests, a schema-2 runtime receipt where it
-changes play, the reader gate at NEW 0, and a render of the held look.
+- PR #571 installs the player glove and mirror hand for packed kitchen tools. The
+  installed 2A route verifies pickup, return and saved custody through the existing
+  household and carried-case authorities.
+- PR #576 installs book pickup into the case and glove, same-copy reading and shelf
+  return. A full case leaves the closed copy in place.
+- PR #577 shares the held-item binding between the two player rigs and qualifies it
+  with the installed Toon Lily avatar.
+- The basin plug, register pen, union nut, unracked hose, cistern lid and spare gasket
+  keep their existing hand-follow motion under **held_tethered_parts_20261125**. The
+  shared grab path remains in service for those tethered interactions.
+- Resident inventory presentation is a separate cast integration task. Installed
+  player proofs cover the kitchen tool and book paths.
 
 ## 5. Not decided here
 

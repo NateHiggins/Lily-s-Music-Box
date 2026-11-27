@@ -6,9 +6,14 @@ shader_type spatial;
 render_mode unshaded, cull_front, depth_draw_opaque;
 
 uniform float width_px : hint_range(0.0, 8.0) = 3.4;
-uniform float boil : hint_range(0.0, 1.0) = 0.3;
+uniform float boil : hint_range(0.0, 1.0) = 0.12;  // gentle: a steady line reads smoother
 uniform float frame_rate = 12.0;
 uniform float depth_squeeze = 0.01;  // matches hose_arm_cel: drawn over the set
+// Line weight shows the light (Lily, 2026-11-25): thin where a fixed cartoon key
+// light from the upper left falls on the form, heavy where the form turns away.
+uniform vec3 key_light = vec3(-0.55, 0.65, 0.52);  // view space
+uniform float lit_weight : hint_range(0.0, 2.0) = 0.35;
+uniform float shade_weight : hint_range(0.0, 3.0) = 1.7;
 
 float hash(vec3 p) {
 	return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453);
@@ -20,6 +25,8 @@ void vertex() {
 	vec2 screen = (PROJECTION_MATRIX * vec4(view_normal, 0.0)).xy;
 	float drawing = floor(TIME * frame_rate);
 	float jitter = 1.0 + boil * (hash(VERTEX * 61.0 + drawing) - 0.5);
+	float lit = clamp(dot(view_normal, normalize(key_light)), 0.0, 1.0);
+	jitter *= mix(shade_weight, lit_weight, lit);
 	if (length(screen) > 0.00001) {
 		clip.xy += normalize(screen) * width_px * jitter * 2.0 / VIEWPORT_SIZE * clip.w;
 	}

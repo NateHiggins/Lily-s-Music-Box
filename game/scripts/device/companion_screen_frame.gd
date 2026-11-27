@@ -33,6 +33,8 @@ var _lean_velocity := Vector3.ZERO
 var _drift := Vector2.ZERO
 var _drift_velocity := Vector2.ZERO
 var _flight_clock := 0.0
+var _visit_sample_left := 0.0
+var _visit_motion := 1.0
 var _travel_error := Vector3.ZERO
 var _travel_speed := Vector3.ZERO
 var _last_player_velocity := Vector3.ZERO
@@ -168,10 +170,19 @@ func advance(delta: float, reading: bool) -> void:
 	if bool(GameBoot.settings.get("reduce_camera_roll", false)): intensity *= .15
 	var held: bool = carrier.motion.stationary_for_hand or (carrier.session != null and (carrier.session.typing or carrier.session.opening))
 	_flight_clock += dt
+	_visit_sample_left -= dt
+	if _visit_sample_left <= 0.0 and carrier.session != null:
+		_visit_sample_left = .5
+		_visit_motion = carrier.session.flight_steadiness()
+	if not reading: intensity *= _visit_motion
 	var station := floorf(_flight_clock / 1.9)
 	var wander := Vector2(sin(station * 2.39996), sin(station * 1.618 + .7))
+	# Ease the instrument onto its reading mark while live type is striking.
+	# Normal travel springs still react to starts and stops.
+	var settling_copy: bool = carrier.device.teletype.printing and carrier.device.radio_powered
 	var target_drift := wander * Vector2(.017, .030) * intensity
 	if reading: target_drift *= .12
+	elif settling_copy: target_drift *= .45
 	if held: target_drift = Vector2.ZERO
 	# Exact critically damped station correction, stable across render rates.
 	var omega := 5.0 if reading else 2.8
@@ -203,6 +214,7 @@ func advance(delta: float, reading: bool) -> void:
 	if travel:
 		desired.x += clampf(-_travel_speed.z * .75, -.19, .19)
 		desired.z += clampf(-_travel_speed.x * 1.35, -.32, .32)
+	if settling_copy: desired *= .50
 	desired += carrier.story_attitude * intensity
 	if held: desired = Vector3.ZERO
 	# Slightly underdamped attitude correction sells effort without jitter.
@@ -253,10 +265,15 @@ func advance(delta: float, reading: bool) -> void:
 	var valid_hand: bool = grab != null and grab.active() and is_instance_valid(grab.target.get("owner")) and is_instance_valid(grab.target.get("part"))
 	var own_hand: bool = valid_hand and grab.target.owner == carrier
 	var working_hand: bool = valid_hand and not own_hand
-	var shoulder_permitted: bool = not carrier._player.protected_input_active() and not _world_handoff \
+	var protected: bool = carrier._player.protected_input_active()
+	var resident_dialogue := false
+	if protected and not get_tree().paused:
+		var director := get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
+		resident_dialogue = director != null and director.owns_dialogue_input(carrier._player)
+	var shoulder_permitted: bool = (not protected or resident_dialogue) and not _world_handoff \
 		and not carrier.story_pose_active() and not carrier.story_world_active() \
 		and not (carrier.session != null and (carrier.session.typing or carrier.session.opening))
-	var shoulder_reading: bool = shoulder_permitted and (is_instance_valid(carrier.inspected_readable_stock()) or working_hand)
+	var shoulder_reading: bool = shoulder_permitted and (resident_dialogue or is_instance_valid(carrier.inspected_readable_stock()) or working_hand)
 	if not shoulder_permitted:
 		# A successor owns presentation now; never resume a stale shoulder path
 		# over its authored arrival, typing pose or protected conversation.

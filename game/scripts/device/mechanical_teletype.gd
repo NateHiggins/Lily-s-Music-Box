@@ -7,12 +7,13 @@ var model_scene: PackedScene = MODEL
 var render_layers := 1
 var stock_applier: Callable = preload("res://scripts/device/service_radiophone_stock.gd").apply
 var phosphor_stock := false
-const PHOSPHOR_GREEN := Color(.36, 1.15, .50, 1.0)
+const PHOSPHOR_GREEN := Color(.52, 1.15, .62, 1.0)
 const PHOSPHOR_STOCK_COLOR := Color(.006, .009, .007)
 const NIGHT_STOCK := preload("res://scripts/device/night_stock.gdshader")
 var model: Node3D
 var model_ready := false
 const COLUMNS := 30
+const COMPANION_COLUMNS := 26
 const ROWS := 10
 const FACE_COPY_ROWS := 5
 const HISTORY_LIMIT := 24
@@ -76,6 +77,8 @@ var _draft_heading := ""
 var _draft_text := ""
 var _reading_lit := false
 const DELIVERY_FEED := .020
+var _columns: int:
+	get: return COMPANION_COLUMNS if phosphor_stock else COLUMNS
 const UPPER_DELIVERY_FEED:=.062 # Short copies above the closed keyboard's face.
 var _delivery_feed:=DELIVERY_FEED
 
@@ -159,7 +162,7 @@ func _ready() -> void:
 	var bottom: float=center.y-float(paper["height"])*.5
 	heading=_label(Vector3(center.x,top-.008,center.z+.0003),.00012)
 	heading.font=TelegramStyle.BOLD_FONT
-	ink=_label(Vector3(center.x-float(paper["width"])*.5+.01168,bottom+.002,center.z+.0004),.000135)
+	ink=_label(Vector3(center.x-float(paper["width"])*.5+.01168,bottom+.002,center.z+.0004),.000155 if phosphor_stock else .000135)
 	ink.horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT
 	# Current line stays beside the impression datum. Completed lines rise
 	# through the copy window when a new line is fed, rather than appearing
@@ -167,7 +170,7 @@ func _ready() -> void:
 	ink.vertical_alignment=VERTICAL_ALIGNMENT_BOTTOM
 	_carriage_left=ink.position.x
 	_character_pitch=ink.font.get_string_size("M",HORIZONTAL_ALIGNMENT_LEFT,-1,ink.font_size).x*ink.pixel_size
-	footer=_label(Vector3(center.x,top-.015,center.z+.0004),.000075)
+	footer=_label(Vector3(center.x,top-.015,center.z+.0004),.000095 if phosphor_stock else .000075)
 	for label in [heading,ink,footer]: label.reparent(_paper,true)
 	_ink_home=ink.position
 	_line_pitch=ink.font.get_height(ink.font_size)*ink.pixel_size
@@ -231,12 +234,13 @@ func _label(at: Vector3, pixel: float) -> Label3D:
 	add_child(label)
 	label.font=TelegramStyle.BODY_FONT; label.font_size=48
 	label.pixel_size=pixel; label.position=at
+	if phosphor_stock: label.font = TelegramStyle.BOLD_FONT
 	label.modulate=PHOSPHOR_GREEN if phosphor_stock else TelegramStyle.CARBON
 	label.outline_size=0
 	label.no_depth_test=false; label.shaded=false
 	return label
 
-func present(card: Dictionary, serial: int, raised_copy := false, rows_per_page := 0) -> void:
+func present(card: Dictionary, serial: int, raised_copy := false, rows_per_page := 0, at_keyboard := false) -> void:
 	# A genuine field copy has priority over an unfinished automatic copy.
 	# Clear ownership before notifying its controller, so cancellation cannot
 	# restore the old page over the incoming report.
@@ -245,6 +249,9 @@ func present(card: Dictionary, serial: int, raised_copy := false, rows_per_page 
 		_keyed_owner=null;_keyed_before.clear()
 		if is_instance_valid(previous):keyed_copy_interrupted.emit(previous)
 	card_presenting.emit(card, serial)
+	if phosphor_stock and not at_keyboard:
+		raised_copy = true
+		if rows_per_page == 0: rows_per_page = FACE_COPY_ROWS
 	_delivery_feed=UPPER_DELIVERY_FEED if raised_copy else DELIVERY_FEED
 	hide_draft()
 	var text := str(card.get("title","FIELD COPY"))+"\n\n"+str(card.get("body",""))
@@ -253,9 +260,9 @@ func present(card: Dictionary, serial: int, raised_copy := false, rows_per_page 
 	var lines: Array[String]=[]
 	for paragraph in text.replace("\r","").split("\n"):
 		var remaining: String=paragraph
-		while remaining.length()>COLUMNS:
-			var cut := remaining.rfind(" ",COLUMNS)
-			if cut<1: cut=COLUMNS
+		while remaining.length()>_columns:
+			var cut := remaining.rfind(" ",_columns)
+			if cut<1: cut=_columns
 			lines.append(remaining.left(cut))
 			remaining=remaining.substr(cut).trim_prefix(" ")
 		lines.append(remaining)
@@ -317,11 +324,11 @@ func show_draft(text: String, caret: int) -> void:
 	if _draft_text == marked: return
 	_draft_text = marked
 	var rows: Array[String] = []
-	for start in range(0, marked.length(), COLUMNS): rows.append(marked.substr(start, COLUMNS))
+	for start in range(0, marked.length(), _columns): rows.append(marked.substr(start, _columns))
 	# Editing uses the settled copy datum even if the previous received page
 	# is still completing its short delivery feed. The typed viewport stays put.
 	_draft_ink.position = _ink_home + Vector3.UP * DELIVERY_FEED + Vector3(0, 0, .0001)
-	var caret_row := clampi(caret, 0, text.length()) / COLUMNS
+	var caret_row := clampi(caret, 0, text.length()) / _columns
 	var first_row := maxi(0, caret_row-ROWS+1)
 	_draft_ink.text = "\n".join(rows.slice(first_row, mini(rows.size(), first_row+ROWS)))
 	footer.text = "CORRESPONDENCE / UNSENT"
@@ -340,18 +347,18 @@ func begin_keyed_copy(owner:Node,title:String,prompt:String) -> bool:
 	if not is_instance_valid(owner) or not powered or printing or _keyed_owner!=null:return false
 	if _draft_ink!=null and _draft_ink.visible:return false
 	var previous:={"pages":pages.duplicate(),"page":page,"serial":_serial,"heading":heading.text,"reviewing":_reviewing,"delivery_feed":_delivery_feed}
-	present({"title":title,"body":prompt},0)
+	present({"title":title,"body":prompt},0,false,0,true)
 	# Keep the live command in the same reading window as a delivered copy.
 	# Character impressions still drive the existing head/carriage mechanism.
 	ink.position=_ink_home+Vector3.UP*DELIVERY_FEED
 	_keyed_before=previous;_keyed_owner=weakref(owner)
-	_keyed_column=prompt.length()%COLUMNS
+	_keyed_column=prompt.length()%_columns
 	return true
 
 func append_keyed_copy(owner:Node,character:String) -> bool:
 	if not owns_keyed_copy(owner) or not powered or character.length()!=1 or pages[0].length()>=512:return false
 	if character!="\n" and (character.unicode_at(0)<32 or character.unicode_at(0)==127):return false
-	if character!="\n" and _keyed_column>=COLUMNS:
+	if character!="\n" and _keyed_column>=_columns:
 		pages[0]+="\n";_keyed_column=0
 	pages[0]+=character
 	_keyed_column=0 if character=="\n" else _keyed_column+1

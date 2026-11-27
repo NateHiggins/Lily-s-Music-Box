@@ -98,10 +98,14 @@ var _mantle_to := Vector3.ZERO
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
 var _protected_call_locked := false
+## A newer protected writer owns its own release, even when both wrote true.
+var call_lock_revision := 0
 var text_input_owner: Node
 var call_locked: bool:
 	get: return _protected_call_locked or is_instance_valid(text_input_owner)
-	set(value): _protected_call_locked = value
+	set(value):
+		call_lock_revision += 1
+		_protected_call_locked = value
 
 ## A text surface owns only its lease. Releasing it cannot unlock a resident,
 ## telephone, newspaper or seated interaction that has since taken over.
@@ -431,7 +435,9 @@ func _update_prompt() -> void:
 				var key_words := str(node.call("key_prompt"))
 				if not key_words.is_empty():
 					var carrier := "[K]" if _current_prompt_family()==&"keyboard" else "[D-PAD UP]" if _current_prompt_family()==&"controller" else "[KEY]"
-					_prompt.text += "\n"+carrier+"  "+key_words
+					if not _prompt.text.is_empty():
+						_prompt.text += "\n"
+					_prompt.text += carrier + "  " + key_words
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
@@ -1711,10 +1717,14 @@ func _try_interact() -> bool:
 
 ## A click on nothing usable puts down what the hand holds. It stays in the case
 ## (ruling held_put_down_20261124: it stays in the inventory until used somewhere).
+## A book in the glove is read instead (ruling held_books_reading_20261125).
 func _put_down_held() -> void:
 	if CarriedCase.hand().is_empty():
 		return
 	var state := get_tree().get_first_node_in_group("v2_household_state")
+	if state != null and CarriedCase.hand().begins_with(CarriedCase.BOOK_PREFIX) and state.has_method("read_held_book"):
+		state.read_held_book(self)
+		return
 	if state != null and state.has_method("set_hand"):
 		state.set_hand("")
 

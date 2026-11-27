@@ -2,8 +2,9 @@
 
 A black-and-white cartoon arm shown in first person while the player interacts:
 a jointless black "hose" arm and a puffy white glove (cuff, palm, three fingers
-and a thumb, three ink stitches on the back). The arm is an eight-bone chain so
-the runtime can bend it as one smooth curve; each finger has two bones so the
+and a thumb, three ink stitches on the back). The arm is a 24-bone chain so
+the runtime can bend it as one smooth curve (Lily, 2026-11-25: eight bones
+showed corners); each finger has two bones so the
 runtime can curl the hand around what it holds.
 
 Run:  blender -b -P art/blender/scripts/build_first_person_hose_arm.py -- [--review DIR]
@@ -25,10 +26,10 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "game/assets/characters/player_hose_arm/hose_arm.glb"
 
 ARM_LENGTH = 0.55
-ARM_RADIUS = 0.024
-ARM_BONES = 8
+ARM_RADIUS = 0.030  # at the wrist; the runtime keeps this width on screen up the hose
+ARM_BONES = 24
 SIDES = 18
-RINGS_PER_BONE = 4
+RINGS_PER_BONE = 3
 INK = (0.02, 0.02, 0.02, 1.0)
 GLOVE = (0.96, 0.96, 0.94, 1.0)
 
@@ -66,21 +67,18 @@ def build_armature():
     bpy.context.view_layer.objects.active = rig
     bpy.ops.object.mode_set(mode="EDIT")
     step = ARM_LENGTH / ARM_BONES
-    parent = None
+    # The arm bones and the hand have no parents: the runtime sets each one's
+    # global pose, stretching the arm bones along their length. A child of a
+    # stretched bone would inherit a shear that a bone pose cannot hold, and its
+    # rotation then breaks (the glove smeared across the view in a 24-bone film).
     for i in range(ARM_BONES):
         bone = data.edit_bones.new("Arm_%02d" % i)
         bone.head = Vector((0, i * step, 0))
         bone.tail = Vector((0, (i + 1) * step, 0))
         bone.roll = 0.0
-        if parent:
-            bone.parent = parent
-            bone.use_connect = True
-        parent = bone
     hand = data.edit_bones.new("Hand")
     hand.head = Vector((0, ARM_LENGTH, 0))
     hand.tail = Vector((0, KNUCKLE_Y, 0))
-    hand.parent = parent
-    hand.use_connect = True
     for name, x, lengths, _radius in FINGERS:
         base = Vector((x, KNUCKLE_Y, 0))
         first = data.edit_bones.new(name + "_1")
@@ -133,8 +131,9 @@ def arm_tube(bm):
     ring_verts = []
     for r in range(rings):
         y = ARM_LENGTH * r / (rings - 1)
-        # Slightly fuller at the shoulder, narrowing to the wrist: a cartoon hose.
-        radius = ARM_RADIUS * (1.08 - 0.12 * (y / ARM_LENGTH))
+        # One even width all the way into the cuff (Lily, 2026-11-25: a taper
+        # before the glove read as weak).
+        radius = ARM_RADIUS
         verts = []
         for s in range(SIDES):
             a = 2 * math.pi * s / SIDES
@@ -153,12 +152,14 @@ def arm_tube(bm):
         for s in range(SIDES):
             a, b = ring_verts[r][s], ring_verts[r][(s + 1) % SIDES]
             c, d = ring_verts[r + 1][(s + 1) % SIDES], ring_verts[r + 1][s]
-            bm.faces.new((a, b, c, d))
+            # Outward-facing (this tube was wound inward until 2026-11-25; the
+            # black fill hid it, the white cuff built the same way did not).
+            bm.faces.new((a, d, c, b))
     # Close the shoulder end (it sits below the frame).
     cap = bm.verts.new((0, 0, 0))
     weights.append({"Arm_00": 1.0})
     for s in range(SIDES):
-        bm.faces.new((cap, ring_verts[0][(s + 1) % SIDES], ring_verts[0][s]))
+        bm.faces.new((cap, ring_verts[0][s], ring_verts[0][(s + 1) % SIDES]))
     return weights
 
 
@@ -189,6 +190,39 @@ def ellipsoid(bm, centre, radii, rotation=Matrix.Identity(3), segments=16, rings
     return verts
 
 
+GLOVE_SCALE = 1.6  # the runtime draws the glove this much larger (first_person_hose_arm.gd)
+CUFF_THROAT = ARM_RADIUS / GLOVE_SCALE * 1.06
+# (radius, y from the wrist) from the throat, over the bell, round the rolled rim
+# and back in under the palm; glove space.
+CUFF_PROFILE = [
+    (CUFF_THROAT, -0.014), (CUFF_THROAT * 1.02, -0.006), (CUFF_THROAT * 1.12, 0.000),
+    (0.023, 0.006), (0.029, 0.011), (0.034, 0.015), (0.037, 0.019), (0.0375, 0.023),
+    (0.035, 0.026), (0.030, 0.027), (0.024, 0.026),
+]
+
+
+def cuff(bm, sides=24):
+    rings = []
+    for radius, y in CUFF_PROFILE:
+        ring = []
+        for s in range(sides):
+            a = 2 * math.pi * s / sides
+            # A touch flatter through the hand's thickness, like the palm.
+            ring.append(bm.verts.new((radius * math.cos(a), ARM_LENGTH + y, radius * 0.92 * math.sin(a))))
+        rings.append(ring)
+    for r in range(len(rings) - 1):
+        for s in range(sides):
+            # Wound to face outward (a cuff wound the other way drew as a black oval).
+            bm.faces.new((rings[r][s], rings[r + 1][s], rings[r + 1][(s + 1) % sides], rings[r][(s + 1) % sides]))
+    throat = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[0][1], 0))
+    inner = bm.verts.new((0, ARM_LENGTH + CUFF_PROFILE[-1][1], 0))
+    for s in range(sides):
+        bm.faces.new((throat, rings[0][s], rings[0][(s + 1) % sides]))
+        bm.faces.new((inner, rings[-1][(s + 1) % sides], rings[-1][s]))
+    verts = [v for ring in rings for v in ring] + [throat, inner]
+    return verts
+
+
 def glove(bm):
     weights = []
 
@@ -196,8 +230,11 @@ def glove(bm):
         for _ in verts:
             weights.append({group: 1.0})
 
-    # Flared cuff at the wrist: a short wide ellipsoid ring stands in for the roll.
-    add(ellipsoid(bm, Vector((0, ARM_LENGTH + 0.004, 0)), (0.042, 0.016, 0.040), segments=20), "Hand")
+    # Flared bell cuff: a sleeve that starts snug round the hose (the glove is
+    # drawn GLOVE_SCALE larger, so CUFF_THROAT is the hose radius in glove space),
+    # swells, and ends in a rolled rim under the palm. The hose runs up inside it,
+    # so the junction reads as one clean collar.
+    add(cuff(bm), "Hand")
     # Puffy palm, flattened through its thickness.
     add(ellipsoid(bm, Vector((0, ARM_LENGTH + 0.048, -0.002)), (0.046, 0.040, 0.026), segments=20, rings=12), "Hand")
     for name, x, lengths, radius in FINGERS:
@@ -249,10 +286,6 @@ def grip_pose(rig, curl):
         rig.pose.bones[name + "_2"].rotation_euler = (-1.25 * curl, 0, 0)
     rig.pose.bones["Thumb_1"].rotation_mode = "XYZ"
     rig.pose.bones["Thumb_1"].rotation_euler = (-0.5 * curl, 0, 0.6 * curl)
-    for i in range(ARM_BONES):
-        bone = rig.pose.bones["Arm_%02d" % i]
-        bone.rotation_mode = "XYZ"
-        bone.rotation_euler = (0.09 * curl, 0, -0.05 * curl)
     bpy.ops.object.mode_set(mode="OBJECT")
 
 
@@ -278,7 +311,8 @@ def review(directory, objects, rig):
     target = Vector((0, ARM_LENGTH + 0.04, 0))
     for label, curl, eye in (("rest", 0.0, Vector((0.42, ARM_LENGTH - 0.15, 0.30))),
                              ("grip", 1.0, Vector((0.42, ARM_LENGTH - 0.15, 0.30))),
-                             ("rest_hand", 0.0, Vector((0.16, ARM_LENGTH + 0.04, 0.18)))):
+                             ("rest_hand", 0.0, Vector((0.16, ARM_LENGTH + 0.04, 0.18))),
+                             ("junction", 1.0, Vector((0.10, ARM_LENGTH - 0.16, 0.12)))):
         grip_pose(rig, curl)
         cam.location = eye
         cam.rotation_euler = (target - eye).to_track_quat("-Z", "Y").to_euler()

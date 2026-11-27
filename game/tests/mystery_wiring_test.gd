@@ -9,6 +9,16 @@ extends Node
 const Conversation = preload("res://scripts/device/companion_conversation.gd")
 const Economy = preload("res://scripts/game/caretaker_economy.gd")
 
+class WitnessFixture extends Node:
+	var nadia_present := true
+	var teresa_present := false
+
+	func witness_present(resident_id: String) -> bool:
+		if resident_id == "teresa_vale":
+			return teresa_present
+		return nadia_present and resident_id == "nadia_quell"
+
+
 var _fails := 0
 
 
@@ -30,6 +40,116 @@ func _labels(panel: CaseDialoguePanel) -> Array:
 	return panel.offered_labels()
 
 
+func _check_reply_deadline(owner: ResidentConversations, panel: CaseDialoguePanel) -> void:
+	var saved_date := owner.playtest_date
+	var saved_minute := owner.playtest_minute
+	var topic := "That one's for 6C?"
+	for spoken: bool in [false, true]:
+		for expiry: String in ["menu", "reply", "next_day", "on_time"]:
+			RealityState.reset_campaign_for_tests()
+			owner.playtest_date = "1929-07-19"
+			owner.playtest_minute = 18 * 60 + 10
+			var opened := owner.start_mystery("cam_ortiz", true) if spoken else owner.start("cam_ortiz")
+			var at := _labels(panel).find(topic)
+			var label := "Cam %s / %s" % ["spoken" if spoken else "knock", expiry]
+			_check(label + " offers the topic", opened and at >= 0)
+			if not opened or at < 0:
+				owner.cancel_for_transition()
+				continue
+			if expiry == "menu":
+				owner.playtest_minute += 1
+			panel.choose(at)
+			if expiry != "menu":
+				var take := _labels(panel).find("Leave it with me.")
+				_check(label + " reaches the authored decision", panel.current_node_id == "co_k1" and take >= 0)
+				if expiry == "reply":
+					owner.playtest_minute += 1
+				elif expiry == "next_day":
+					owner.playtest_date = "1929-07-20"
+				if take >= 0:
+					panel.choose(take)
+			_check(label + " records hearing only upon reaching Cam's words", RealityState.has_knowledge("mt:co_keep") == (expiry != "menu"))
+			_check(label + " grants envelope only on time", RealityState.has_knowledge("m_o2_kept_envelope") == (expiry == "on_time"))
+			if expiry == "on_time":
+				_check(label + " displays acceptance", panel.current_node_id == "co_k2")
+			else:
+				_check(label + " releases the expired conversation", not panel.attention_active() and owner._active_resident.is_empty())
+			owner.cancel_for_transition()
+
+	RealityState.reset_campaign_for_tests()
+	owner.playtest_date = "1929-11-09"
+	owner.playtest_minute = 16 * 60
+	RealityState.grant_knowledge("m_receipt_seen")
+	var witness := WitnessFixture.new()
+	add_child(witness)
+	witness.add_to_group("loop_performances")
+	_check("Mae opens with Nadia present", owner.start_mystery("mae_kessler", true, "mk_box"))
+	panel.choose(0)
+	_check("Mae speaks before Nadia leaves", panel.current_node_id == "mk_b1")
+	witness.nadia_present = false
+	panel.choose_silence()
+	_check("a silent reply cannot continue without Nadia", not panel.attention_active() and owner._active_resident.is_empty())
+	_check("Mae's spoken first line stays heard", RealityState.has_knowledge("mt:mk_box"))
+	owner.cancel_for_transition()
+	witness.free()
+	RealityState.reset_campaign_for_tests()
+	owner.playtest_date = saved_date
+	owner.playtest_minute = saved_minute
+
+
+
+## A first line remains heard, but leaving before Nadia names Adela must not
+## permanently spend this optional attachment. No other heard topic retries.
+func _check_mae_naming_retry(owner: ResidentConversations, panel: CaseDialoguePanel) -> void:
+	var saved_data: Dictionary=RealityState.data.duplicate(true)
+	var saved_date: String=owner.playtest_date
+	var saved_minute: int=owner.playtest_minute
+	owner.cancel_for_transition()
+	owner.playtest_date="1929-11-09";owner.playtest_minute=16*60
+	# Legacy serialized knowledge from an interrupted earned exchange. Keep
+	# the receipt and first-line witness, never grant the missing naming flag.
+	RealityState.data.knowledge_flags=JSON.parse_string(JSON.stringify(["m_receipt_seen","mt:mk_box"]))
+	var witness: WitnessFixture=WitnessFixture.new()
+	add_child(witness);witness.add_to_group("loop_performances")
+	_check("legacy heard-only Mae exchange offers its optional topic", owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	_check("retry opens through the ordinary topic menu",owner.start_mystery("mae_kessler",true,"mk_box") and panel.current_node_id=="mystery_menu")
+	owner.cancel_for_transition()
+	_check("leaving the retry menu does not name Adela",not RealityState.has_knowledge("m_mae_answered") and RealityState.has_knowledge("mt:mk_box"))
+	witness.nadia_present=false
+	_check("retry still requires actual Nadia witness",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	witness.nadia_present=true
+	RealityState.data.knowledge_flags.erase("m_receipt_seen")
+	_check("retry still requires the earned papers",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	RealityState.grant_knowledge("m_receipt_seen")
+	owner.playtest_minute=21*60+1
+	_check("retry cannot outlive its lawful hours",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	owner.playtest_date="1929-11-10";owner.playtest_minute=16*60
+	_check("retry cannot leak onto the next day",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box"))
+	owner.playtest_date="1929-11-09"
+	_check("kept heard knowledge does not block the same dated window returning",owner.can_offer_body_mystery("mae_kessler",true,"mk_box") and RealityState.has_knowledge("mt:mk_box"))
+	var opened: bool=owner.start_mystery("mae_kessler",true,"mk_box")
+	_check("heard-only save can enter Mae's real first line again",opened)
+	if opened:
+		panel.choose(0)
+		_check("re-entry preserves first-line hearing without completing naming",panel.current_node_id=="mk_b1" and RealityState.has_knowledge("mt:mk_box") and not RealityState.has_knowledge("m_mae_answered"))
+		witness.nadia_present=false;panel.choose_silence()
+		_check("losing Nadia cancels the retry rather than completing it",not panel.attention_active() and not RealityState.has_knowledge("m_mae_answered"))
+		witness.nadia_present=true
+		opened=owner.start_mystery("mae_kessler",true,"mk_box")
+		_check("a second interruption leaves Mae's unfinished topic reachable",opened)
+		if opened:
+			panel.choose(0)
+			for expected: String in ["mk_b2","mk_b3","mk_b4"]:
+				panel.choose_silence()
+				_check("authored silence reaches "+expected+" without naming",panel.current_node_id==expected and not RealityState.has_knowledge("m_mae_answered"))
+			panel.choose_silence()
+			_check("only Nadia's actual final line completes the naming",panel.current_node_id=="mk_b5" and panel._speaker.text=="NADIA" and RealityState.has_knowledge("m_mae_answered"))
+			panel.choose_silence()
+	_check("completed Mae exchange is not offered again",not owner.can_offer_body_mystery("mae_kessler",true,"mk_box") and RealityState.has_knowledge("mt:mk_box"))
+	owner.cancel_for_transition();witness.free()
+	RealityState.data=saved_data;owner.playtest_date=saved_date;owner.playtest_minute=saved_minute
+
+
 func _run() -> void:
 	var conversations := ResidentConversations.new()
 	var panel := CaseDialoguePanel.new()
@@ -43,6 +163,8 @@ func _run() -> void:
 	_check("playtest panel absent without its variable",
 			not conversations.get_children().any(func(c): return c.get_script() != null and str(c.get_script().resource_path).ends_with("mystery_playtest.gd")))
 
+	_check_reply_deadline(conversations, panel)
+	_check_mae_naming_retry(conversations, panel)
 	# Gates.
 	var thread_ids := func(resident: String, date: String, minute: int) -> Array:
 		return conversations.active_threads(resident, date, minute).map(func(t): return t.id)
@@ -120,6 +242,53 @@ func _run() -> void:
 	_check("paying moves no trust", RealityState.resident_trust("lily") == trust_before)
 	conversations._record("lily", str(paid_choice.flag), 1)
 	_check("each choosing pays once more, never twice", int(ledger.book().cash) == 50 and int(ledger.book().sales["lily/lfa_hour"].count) == 2)
+	# Exercise both seasonal offers through the live panel and the ledger writer.
+	for late: bool in [false, true]:
+		var suffix := "b" if late else ""
+		var thread := "lfa_rates_after" if late else "lfa_rates"
+		var item := "lfa_hour_after" if late else "lfa_hour"
+		conversations.playtest_date = "1929-08-01" if late else "1928-12-20"
+		RealityState.data.knowledge_flags.erase("mt:" + thread)
+		RealityState.data.knowledge_flags.erase(item)
+		ledger.book().cash = 450
+		var count := int(ledger.book().sales.get("lily/" + item, {}).get("count", 0))
+		_check("open installed rates " + thread, conversations.start_mystery("lily", false, thread))
+		panel.choose(0)
+		var original := panel.displayed_line()
+		var events: Array[String] = []
+		var on_show := func(id: String): events.append(id)
+		var on_end := func(): events.append("ended")
+		panel.node_shown.connect(on_show)
+		panel.tree_ended.connect(on_end)
+		var key := InputEventKey.new()
+		key.pressed = true
+		key.keycode = KEY_1
+		if late:
+			RealityState.save_write_blocked = true
+		else:
+			ledger.book().cash = 150
+		panel._unhandled_input(key)
+		RealityState.save_write_blocked = false
+		_check("a refused selection keeps Lily's original line and alternatives " + thread,
+				panel.attention_active() and panel.current_node_id == "lfa_r1" + suffix
+				and panel.displayed_line() == original and events.is_empty()
+				and "Not tonight." in _labels(panel) and "Say nothing." in _labels(panel)
+				and ("Two dollars. Here." in _labels(panel)) == late)
+		_check("a refused selection creates no sale, grant or debit " + thread,
+				int(ledger.book().sales.get("lily/" + item, {}).get("count", 0)) == count
+				and not RealityState.has_knowledge(item) and int(ledger.book().cash) == (450 if late else 150))
+		if late:
+			panel._unhandled_input(key)
+			_check("a retry after the ledger unlocks grants exactly one paid aftermath",
+					panel.current_node_id == "lfa_r2b" and events == ["lfa_r2b"]
+					and RealityState.has_knowledge(item) and int(ledger.book().cash) == 250
+					and int(ledger.book().sales.get("lily/" + item, {}).get("count", 0)) == count + 1)
+		else:
+			panel.choose_silence()
+			_check("the surviving silence still declines", panel.current_node_id == "lfa_r3")
+		panel.node_shown.disconnect(on_show)
+		panel.tree_ended.disconnect(on_end)
+		panel.close()
 	_check("a malformed price is no price", ResidentConversations.price_of("pay:lfa_hour").cents == 0 and ResidentConversations.price_of("pay::200").cents == 0)
 	conversations.errands = saved_errands
 	ledger.queue_free()
@@ -154,6 +323,10 @@ func _run() -> void:
 
 	_check_silence_gates(conversations, panel)
 
+	# This panel fixture supplies the authored witness for the all-thread walk.
+	var witness_fixture := WitnessFixture.new()
+	add_child(witness_fixture)
+	witness_fixture.add_to_group("loop_performances")
 	# Every thread is walkable on the panel, first reply each time.
 	conversations.playtest_holds = true
 	for resident_id in conversations.mystery:
@@ -166,6 +339,10 @@ func _run() -> void:
 			conversations.playtest_date = str(thread.from)
 			conversations.playtest_minute = conversations._clock_minute(str(thread.hours[0])) \
 					if thread.has("hours") else 720
+			witness_fixture.teresa_present = false
+			if thread.id == "tv_yard":
+				_check("the yard thread waits for Teresa to arrive", not conversations.start_mystery(resident_id))
+				witness_fixture.teresa_present = true
 			var opened: bool = conversations.start_mystery(resident_id)
 			_check("%s opens" % thread.id, opened)
 			if not opened:
@@ -178,6 +355,8 @@ func _run() -> void:
 			else:
 				panel.close()
 	conversations.playtest_holds = false
+
+	witness_fixture.free()
 
 	# Companion.
 	var talk := Conversation.new()

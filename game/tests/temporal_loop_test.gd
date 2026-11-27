@@ -125,6 +125,128 @@ func _check_box_clock() -> void:
 	loop.pace = previous
 
 
+## Exercise the real correspondence receiver and its saved eight-slot queue.
+## The test releases one occupied slot per pass; physical printing is covered
+## by the companion suite. The final morning remains on its civil deadline.
+func _check_last_night_custody() -> void:
+	var arc: Dictionary = loop.ledger().arc
+	for key: String in ["ending", "told", "asked", "choice"]:
+		arc.erase(key)
+	var old_outbox: Array = loop.ledger().get("outbox", []).duplicate()
+	loop.ledger().erase("outbox")
+	var paper := preload("res://scripts/device/companion_session.gd").new()
+	paper._restore()
+	loop._receive_slip = paper.accept_temporal_slip
+	for i in paper.OUTBOX_LIMIT:
+		check(paper.accept_temporal_slip(loop.ledger(), "Waiting slip %d" % i), "fill the actual outbox slot %d" % i)
+	var full: Array = paper._loop_slips.duplicate()
+	var end_time := CampaignClock.calendar_minute_of(1929, 11, 9, 1439.0)
+	loop.here = "4B"
+	check(loop.go_last_night().ok and clock.rebase_calendar(end_time - 1.0) and not loop._attend_last_night(), "no last-night encounter while away from the roof")
+	loop.here = "roof"
+	check(clock.rebase_calendar(end_time) and not loop._attend_last_night() and not arc.has("told") and loop.ending() == "" and not arc.has("last_night_paper"), "first reaching the roof at the close earns no ending or paper")
+	check(loop.go_last_night().ok and clock.rebase_calendar(end_time - 1.0), "the missed roof can be visited again at 23:58")
+	var night: Dictionary = loop.table.arc.last_night
+	var expected := [Loop.received_copy(int(night.message_number), str(night.message)), night.answer, night.unfinished, night.epilogues.left]
+	check(loop._attend_last_night() and loop._attend_last_night() and loop.awaiting_choice(), "late eligible roof arrival still offers the authored choice with a full printer")
+	check(paper._loop_slips == full and arc.get("last_night_paper") == expected.slice(0, 3), "all three refused lines wait in authored order")
+	check(clock.rebase_calendar(end_time) and loop._attend_last_night() and loop.ending() == "left" and not loop.awaiting_choice(), "leaving the line at the close commits its ending despite a full printer")
+	check(arc.get("last_night_paper") == expected and RealityState.save_game(), "all four pending texts save with the ending")
+	RealityState.load_game()
+	check(clock.bind_state() and loop.ending() == "left", "Continue retains the recorded ending")
+	paper._restore()
+	check(paper._loop_slips == full and loop.ledger().arc.get("last_night_paper") == expected, "Continue restores both sides of paper custody")
+	for i in expected.size():
+		paper._loop_slips.pop_front()
+		paper._keep_slips()
+		loop._attend_last_night()
+		loop._attend_last_night()
+		check(paper._loop_slips.size() == full.size() and paper._loop_slips.slice(full.size() - i - 1) == expected.slice(0, i + 1), "one freed slot admits exactly the next ending slip %d" % i)
+	check(not loop.ledger().arc.has("last_night_paper") and RealityState.save_game(), "completed transfer leaves no pending source")
+	RealityState.load_game()
+	check(clock.bind_state(), "Continue after transfer rebinds the civil clock")
+	paper._restore()
+	paper._loop_slips.pop_front()
+	paper._keep_slips()
+	loop._attend_last_night()
+	check(paper._loop_slips.size() == full.size() - 1 and paper._loop_slips.slice(-4) == expected, "Continue does not replay accepted ending text")
+	loop._receive_slip = _accept_arc_slip
+	if old_outbox.is_empty(): loop.ledger().erase("outbox")
+	else: loop.ledger().outbox = old_outbox
+	paper.free()
+
+
+## Rule-level consequence matrix. The real panel earns each lobby agreement.
+## Only the later on-site sighting is supplied as a fact; no world is loaded here.
+func _check_friday_book_consequences() -> void:
+	var before: Dictionary = RealityState.data.duplicate(true)
+	var original_slips := slips.size()
+	var expected_book := str(loop.command("book").text)
+	var panel := CaseDialoguePanel.new()
+	add_child(panel)
+	var director := Conversations.new()
+	add_child(director)
+	director.setup(panel)
+	RealityState.grant_knowledge("m_motive_known")
+	RealityState.grant_knowledge("m_lease_read")
+	var branches := [
+		["Don't go up. Stay in the shop.", "m_o2_shop_agreed", "m_o2_kept_shop",
+			"WARNED A.V. AT THE SHOP. SHE AGREED TO STAY."],
+		["Let me come up with you.", "m_o2_roof_company", "m_o2_stood_roof",
+			"STOOD BY A.V. AT THE PARAPET."],
+		["Bring Miss Quell and Mr. Ewald tonight. Not Monday.", "m_o2_monday_sent", "m_o2_brought_monday",
+			"BROUGHT MISS Q. AND MR. E. TO THE SHOP AT 18:30. THEY READ THE PRINTS."],
+	]
+	for branch: Array in branches:
+		for witnessed: bool in [false, true]:
+			for blackout: bool in [false, true]:
+				var tag := "%s, witnessed=%s, blackout=%s" % [branch[1], witnessed, blackout]
+				check(loop.go_friday().ok, tag + ": start a fresh Friday")
+				for pair: Array in branches:
+					check(not RealityState.has_knowledge(str(pair[1])) and not RealityState.has_knowledge(str(pair[2])),
+						tag + ": Friday clears previous agreement and sighting " + str(pair[1]))
+				check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 18 * 60 + 5))
+					and director.start_mystery("adela_voss", true, "av_nineteen"), tag + ": the lobby topic opens")
+				panel.choose(panel.offered_labels().find("Evening, Miss Voss."))
+				var choice := panel.offered_labels().find(str(branch[0]))
+				check(choice >= 0, tag + ": the authored reply is offered")
+				if choice >= 0:
+					panel.choose(choice)
+				check(RealityState.has_knowledge(str(branch[1])) and not RealityState.has_knowledge(str(branch[2])),
+					tag + ": choosing the reply earns only the agreement")
+				panel.close()
+				if witnessed:
+					RealityState.grant_knowledge(str(branch[2]))
+				var first_slip := slips.size()
+				var expected_slips: Array[String] = []
+				if blackout:
+					check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 21 * 60)), tag + ": reach 21:00")
+					clock.advance_seconds(120.0)
+					check(at(1929, 7, 20, 3, 2), tag + ": the campaign clock crosses the blackout")
+					expected_slips.append("|SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT.")
+				else:
+					check(loop.go_friday().ok, tag + ": replay closes this evening before blackout")
+				if witnessed:
+					var entry := str(branch[3])
+					if blackout:
+						entry += " VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT."
+					expected_book += "\n" + entry
+					expected_slips.append("|THE KEY BOOK, IN GREASE PENCIL:\n" + entry)
+				loop._attend_rescue()
+				loop._attend_rescue()
+				check(slips.slice(first_slip) == expected_slips, tag + ": exact slips, each delivered once")
+				check(str(loop.command("book").text) == expected_book, tag + ": every earlier line remains in order")
+	check(RealityState.save_game(), "Friday branch records save")
+	RealityState.load_game()
+	check(clock.bind_state() and str(loop.command("book").text) == expected_book,
+		"Continue preserves earlier loans, attempts, and the six witnessed entries in order")
+	director.free()
+	panel.free()
+	RealityState.data = before
+	check(clock.bind_state() and RealityState.save_game(), "restore the campaign used by the remaining ending controls")
+	slips.resize(original_slips)
+
+
 func _ready() -> void:
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
@@ -735,6 +857,8 @@ func _ready() -> void:
 	check(slips.size() == rescue_at + 4 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:\nKEPT AN ENVELOPE FOR 6C.",
 			"keeping Cam's envelope for 6C writes its own honest line")
 
+	_check_friday_book_consequences()
+
 	# The end: the correction, the last night on the roof, and the choice.
 	check(loop.case_closed() and loop.last_night_open() and str(loop.leads_text()).contains("LAST takes you to it"),
 			"LEADS offers the last night once the case is closed")
@@ -772,6 +896,7 @@ func _ready() -> void:
 			and loop._attend_last_night() and clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 11, 9, 23.0 * 60.0 + 59.0))
 			and loop._attend_last_night() and loop.ending() == "left" and str(slips.back()).contains("BOX 4B IS EMPTY"),
 			"left unfinished, the bridge closes on the empty box")
+	_check_last_night_custody()
 	loop.here = ""
 	# The Tenant's received copies: presence, not the calendar, delivers them.
 	var phase_before: String = str(RealityState.data.prologue.phase)

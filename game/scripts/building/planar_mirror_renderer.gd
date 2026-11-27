@@ -56,7 +56,7 @@ func setup(main_camera: Camera3D,avatar: Node3D=null) -> void:
 	_camera.far = main_camera.far
 	# The first-person hose arm is drawn for the eye only; the mirror shows the avatar.
 	_camera.cull_mask = (main_camera.cull_mask & ~MIRROR_LAYER & ~preload("res://scripts/player/first_person_hose_arm.gd").LAYER) | (1 << (ServiceSetProp.DEVICE_LAYER-1))
-	if _avatar!=null:_camera.cull_mask|=preload("res://scripts/player/doodle_player_avatar.gd").LAYER
+	if _avatar!=null:_camera.cull_mask|=preload("res://scripts/player/toon_player_avatar.gd").LAYER
 	_camera.current = true
 	_view.add_child(_camera)
 	call_deferred("_bind_texture")

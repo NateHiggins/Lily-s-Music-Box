@@ -1,3 +1,87 @@
+## November 26 private recorded editions
+
+A private KEEP leaves a single paper in the tray beside the Harukiya recorder. The player can lift it into the valise, select it into her glove, play the carried edition from the recorder’s shelf, and return the sheet to the tray. The four historical originals use their own reader. This closes the G3 physical-object task. [Historical originals](https://github.com/NateHiggins/Lily-s-Music-Box/pull/587) · [Player-recorded editions](https://github.com/NateHiggins/Lily-s-Music-Box/pull/588).
+
+On **634cd5ed8**, the isolated installed route passed 48 checks across 4 walked final approaches. It entered “low wire” through the ordinary editor, declined the microphone and kept a 13.288-second take. The glove selection survived disk Continue. Shelf playback used the recorded words and backing at the saved 1.335× ratio. After return, the primary placed that edition on the tray with an empty hand. The preceding primary retained the same edition in the glove. [Installed contract](D:/ov_reports/player_originals_pilot06_20261126/installed/shots/runtime_contract.json) · [Three player views](D:/ov_reports/player_originals_pilot06_20261126/installed/review.jpg) · [Primary custody hashes](D:/ov_reports/player_originals_pilot06_20261126/installed/primary_custody.json).
+
+The separate backing test produced distinct backing and guide PCM hashes. The storage, KEEP review, edition custody and playback benches passed 22, 20, 44 and 114 checks respectively. The playback fixture supplies synthetic vocals. Real microphone input, title-screen Continue, human play and artistic acceptance remain open. [Six private proofs](D:/ov_reports/player_originals_20261126/release02/private_receipts.json).
+
+The historical route passed 64 checks across 5 walked approaches. Historical custody passed 65. The original radiator and save route passed 369 checks, including 176 walking waypoints. The valise grid logged 34 successful interaction checks for handling and rearranging carried items. The book and kitchen routes passed 41 and 35 checks. The physical surface run passed 818 checks and all 23 published viewpoints received technical review. All 23 current and published frames were compared for shape, obstruction, material detail and lighting. The sixth-floor kitchen loses metallic highlights under its smoother pool of light. Its mean RGB difference from an earlier PR 587 capture is 0.47 on a 255-point scale. The brighter mail bank and darker watch-station wall also occur in earlier published main frames. The mail nameplates have lower contrast in this take. The brick still obscures the dumbwaiter mechanism. These are technical observations. Human play and artistic acceptance remain open. [Native release case](D:/ov_reports/player_originals_20261126/release02) · [Surface observations](D:/ov_reports/player_originals_20261126/release02/surface/observations.json).
+
+## November 26 historical phonautograms
+
+The boiler hearth, house-office desk, B1 laundry and Harukiya newspaper bundle each hold one original. A primary grab, lift and release moves the paper into a 5 × 3 place in the valise. Select the sheet into the glove to return it to its support. The Harukiya recorder reads the carried sheets. Player-made recordings are the open part of G3.
+
+On **23875cf38**, the [installed route](D:/ov_reports/found_traces_20261126/release02/route/shots/runtime_contract.json) passed 64 checks over five final approaches from staged room starts. The test saved and reloaded the boiler original while selected in the glove, returned and took it again, recovered all four identities from the primary, played one original and released the controls. [Six player views](D:/ov_reports/found_traces_20261126/release02/route/interaction_review.jpg). The separate custody test passed 66 checks including failed transfers and a temporal return.
+
+The original radiator and save route passed 369 checks with 176 walking waypoints. The physical surface inventory passed 818 checks. Review of the 23 rendered pairs found variation in the signal-room and kitchen light, a jagged shadow on the staff-closet roll and a brick-obscured dumbwaiter view. These results cover technical behavior and appearance. Human play and artistic acceptance remain open. [Native release case](D:/ov_reports/found_traces_20261126/release02) · [Review observations](D:/ov_reports/found_traces_20261126/release02/surface/observations.json).
+
+## November 25 Vantry refit
+
+Vantry’s rotor assembly sits lower over the case. The ordinary campaign date is on a fixed front plate beside the visible three-branch capacitor. The authored face fills more of the lower bezel. Received copy wraps into larger, shorter pages above the face. Walking retains the banking and overshoot, and the instrument steadies while printing and later in a visit. The travel display still borrows the prologue’s clock. The companion reads both clocks without writing either.
+
+In the occupied lobby, walking, reading a message and opening the keyboard were exercised through player controls. The closed face stays visible for reading. The keyboard opens when the player requests it. A controller case also holds a direction during deployment and types into the actual native editor. The campaign and prologue checks cover interruption, restoration of drafts and keyboard ownership, the original radiator delivery and save path, and all sixteen borrowed sky-clock samples. The full prologue console passed 146 checks, the cinematic passed 122 and the surface inventory passed 818. The 23 rendered pairs include the refit in occupied rooms.
+
+The [ordinary view comparison](D:/ov_reports/vantry_overhaul_20261125/world_r2/player-views.png) and [motion clip](D:/ov_reports/vantry_overhaul_20261125/motion/Vantry-in-the-lobby.mp4) are technical captures. Body copy remains small while walking. Lily’s visual review and a human playthrough remain open. [Native release evidence](D:/ov_reports/vantry_overhaul_20261125/release).
+
+## November 25 ordinary hall exchange
+
+PR #581 places the existing Teresa and Cam exchange in a measured ground-floor hall pocket on Monday evening at 22:00–22:10. The original 22:20 hospital shift, Teresa's witnessable clue and all five dialogue lines retain their existing authority. Cam resumes the original rest timetable and its normal need-based choices.
+
+The installed November 19, 1928 test starts Teresa on the flat-side route and Cam on the street. The public door opens, both actors walk to distinct marks, and the actual interaction reticle reaches Teresa. Normal input opens the exchange, each line goes to its named actor, and case, trust, knowledge, temporal and inventory state stay intact. After the pause Teresa heads out for work. Cam begins the in-flat hygiene route selected by his ordinary agenda.
+
+The [installed receipt](D:/ov_reports/oy02_ordinary_corridor_20261125_candidate_r2/test.log.receipt.json) and [technical frame](D:/ov_reports/oy02_ordinary_corridor_20261125_candidate_r2/shots/Ordinary_corridor.png) cover this setup. Both bodies and the third line are visible. The companion partly covers Teresa in the captured framing. The test isolates other residents and begins outside Teresa's apartment. Full departure trips and artistic acceptance remain open.
+
+The schedule suite and all 678 temporal loop checks passed on the tested revision. The surface suite passed all 818 checks. The technical review compared 23 rendered pairs against main. Larger differences in reflection and exposure were investigated against identical installed mesh and material records.
+The original composed gameplay and save proof passed 369 checks and 176 walking waypoints, including the radiator receipt path. [Original save and service route](D:/ov_reports/oy02_ordinary_corridor_20261125_release/first_slice.log.receipt.json).
+
+## November 25 ordinary Sunday roof exchange
+
+PR #580 restores the existing ordinary Sunday appointment for Malcolm and Sacha. Their timetable now leads both residents through the public roof stair and door to separate marks beside the communal herb bed. The actor route leaves the fire cabinet and the planter collision in place. It has no new key or case authority.
+
+The native Vulkan check ran the normal campaign on Sunday, November 18, 1928 at 09:30. Both resident motors ascended from the upper circulation and crossed the door after it began closed. The player opened the dialogue with normal primary interaction and advanced through the five original turns in order. The case, knowledge, trust, temporal and inventory snapshot stayed identical. All eight planter footprint samples met the roof within 4 mm. All four materials loaded the expected texture maps with mipmaps.
+
+The [native route evidence](D:/ov_reports/oy05_sunday_roof_20261125_candidate_r4/test.log.receipt.json) binds the walk and exchange to the tested revision. The [reviewed frame](D:/ov_reports/oy05_sunday_roof_20261125_candidate_r4/shots/Sunday_garden_dialogue.png) shows Malcolm, the open door, the planter and the third line. The route trace establishes Sacha's arrival beyond the frame. The check began at the upper stairs. Complete routes from both apartments, the return trip, and artistic acceptance remain open.
+
+
+Schedule and temporal loop suites passed on the same revision, including 678 loop checks. The installed surface suite passed 818 checks. Technical review compared all 23 rendered pairs with main. The planter also has its own fitted contact and mipmap checks from the native encounter.
+The original composed gameplay and save proof passed 369 checks and 176 walking waypoints, including the radiator receipt path. [Original save and service route](D:/ov_reports/oy05_sunday_roof_20261125_release/first_slice.log.receipt.json).
+
+## Cal and Juno’s Saturday radio exchange, November 25
+
+Evidence class: **INERT**.
+
+PR #579 gives Juno an arrival spot beside the 5B radio for her ordinary Saturday visit. Cal’s workshop uses its existing main-room position. The dated drama still sends Juno to the alcove. Before the fix, both residents reached their destinations, but the wall and a 5.49 m gap kept the paired exchange from playing.
+
+On the installed retest, Juno walked from the 5B threshold and arrived 2.00 m from Cal in clear sight. The normal player interaction opened all seven authored turns. The exchange played once and left case, knowledge, trust, conversation, temporal and inventory records intact. The schedule test and all 678 loop-performance checks passed. The same source passed 818 rendered-surface checks and 369 original radiator and save checks over 176 waypoints. The ordinary route starts at the apartment threshold. Full travel across the building, Lily’s play and artistic review remain open. [Technical evidence and original failure](D:/ov_reports/oy04_saturday_listening_20261125_release/CUSTODY_AND_NEXT.md).
+
+## Toon Lily in reflections, November 25
+
+Evidence class: **INERT**.
+
+PR #577 installs Lily's approved toon avatar in installed mirrors. Both player rigs use the same item presentation, with the packed item shown on the mirror hand and the first-person glove. The new body remains a visual rig, with the existing player, inventory, and save systems retaining authority.
+
+The installed mirror passed 29 checks for the rig, camera layers, idle, look input, and sleep outside the mirror view. The installed book and kitchen routes, composed surface review, and original radiator and disk-reconstruction tests are recorded in [the verified release](D:/ov_reports/toon_lily_held_release_20261125_r2/MERGE_VERIFIED.json).
+
+On merged main **2457f3752**, the full-length mirror walk passed forward, backward, both strafes and return to idle. The production controller and mirror were exercised on a temporary rehearsal floor with a neutral backdrop. Six frames were visually reviewed and all 131 exported frames decoded. An earlier bright take did not complete the backward movement check and is preserved. Lily's gameplay and artistic review remain open. [Walk, receipts and earlier failure](D:/ov_reports/toon_lily_full_length_walk_20261125_r3/REVIEW.json).
+
+## Held books and the valise, November 25
+
+Evidence class: **INERT**.
+
+PR #576 implements Lily's held-book ruling. A closed copy goes into the valise and glove, and a full case leaves it in place. The same copy opens in close reading, stays packed and closed in the save, returns to the glove on Space, and goes back to the next available shelf slot.
+
+The installed book route passed 41 checks. The kitchen inventory regression passed 35 checks. The refreshed release evidence covers 818 rendered-surface checks, 23 paired views reviewed for technical continuity, and 369 original radiator and save-reconstruction checks over 176 waypoints. Source and receipts are under D:/ov_reports/held_book_valise_release_20261125. Lily's play and art review remain open.
+
+# Hose, held items and resident routes, November 25
+
+Evidence class: **INERT**.
+
+PR #571 merged to main at **b291a2dd6** from verified evidence commit **b33717a3d** and tested source **526c0a56c**. It installs the first-person hose and held-item glove, the last six residents' foot placement, the men's stair rate, and the Nadia and Sacha route repairs. Ten script compiles, the hose test, 36 held-item checks, all six lobby and return walks, 818 rendered-surface checks and 369 radiator service and save-reconstruction checks passed. The final comparison found zero new static regressions. The 23 surface and 15 interaction and arrival views received technical review.
+
+[Merge custody and retained failures](D:/ov_reports/nov25_sacha_bedroom_sweep/release/MERGE_VERIFIED.json). The original book failure at **925c2828b** concerned hiding the glove copy and grabbing the cover after disk reconstruction. PR #576 qualified both along the installed route. PR #577 then qualified the shared first-person glove and mirror hand. The NPC back-leg lift remains open.
+
+
 # Current 1440p performance matrix after the lobby and F02 fixes
 
 Evidence class: **INERT**.
@@ -191,6 +275,18 @@ The original failure remains in custody. The stills verify resident presence
 and door state. Foot-slide refinement, play and artistic review remain open.
 
 [Resident qualification and preserved failures](D:/ov_reports/orison_npc_gait_face_intake_20261124/resident_release_020ea12/STATUS.md).
+
+# Harukiya lounge jukebox
+
+Evidence class: **INERT**.
+
+The cabinet now faces the lounge aisle. Its previous controls faced concrete
+at 16 cm. On source **7d3f9e66e**, the installed player walked to the selector,
+played the three records, operated the coin return and continued to the seating.
+The destination passed 1,543 checks. The release packet includes the 23-view
+surface comparison and 369 original work-order, save and reconstruction checks.
+Lily’s lounge-setting review is open. The destination and live set retain their
+earlier acceptance. Evidence is in **D:/ov_reports/harukiya_jukebox_20261125/**.
 
 # Closed venue, sound and bodega orders
 

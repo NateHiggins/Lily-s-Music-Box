@@ -6,6 +6,8 @@ const KEY := "v2_household_controls"
 const GASKET_COUNTER := "FireMaintenanceCounter"
 const GASKET_ITEM := "fire_hose_spare_gasket"
 const Book := preload("res://scripts/props/v2_readable_book.gd")
+const TraceCustody := preload("res://scripts/songbook/found_trace_custody.gd")
+const PlayerOriginals := preload("res://scripts/songbook/player_original_custody.gd")
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -448,9 +450,17 @@ func deliver_kitchen_tool(holder: PlayerController, item: String) -> bool:
 
 ## Change only what the hand shows: an item already in the case, or nothing.
 func set_hand(item: String) -> bool:
-	if not _kitchen_ready() or (not item.is_empty() and packed_kitchen_tool(item).is_empty()) \
-			or CarriedCase.hand() == item:
+	if not _kitchen_ready() or CarriedCase.hand() == item:
 		return false
+	if not item.is_empty():
+		if item.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+			if not TraceCustody.is_packed(item.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX)):
+				return false
+		elif item.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+			if not PlayerOriginals.is_packed(PlayerOriginals.id_from_item(item)):
+				return false
+		elif packed_kitchen_tool(item).is_empty() and packed_book(item) == null:
+			return false
 	var prepare := func(document: Dictionary) -> bool:
 		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
 		grid[CarriedCase.HAND] = item
@@ -467,7 +477,8 @@ func _commit_kitchen(prepare: Callable, station: Node, identity: String) -> bool
 	return RealityState.commit_case_and_household(prepare, publish)
 
 
-## A stowed tool and its case item exist together or not at all; the hand names a packed item.
+## A stowed tool and its case item exist together or not at all; the hand names a packed
+## kitchen tool, library book or original trace.
 func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
 	var places: Dictionary = case_book.get("places", {}) if case_book is Dictionary else {}
 	for item: String in places:
@@ -489,7 +500,12 @@ func valid_kitchen_custody(case_book: Variant, records: Dictionary) -> bool:
 					and not places.has(CarriedCase.kitchen_tool_item(identity, str(assembly))):
 				return false
 	var held: String = case_book.get(CarriedCase.HAND, "") if case_book is Dictionary else ""
-	return held.is_empty() or (places.has(held) and held.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX))
+	if held.begins_with(CarriedCase.FOUND_TRACE_PREFIX):
+		return TraceCustody.case_contains(case_book, held.trim_prefix(CarriedCase.FOUND_TRACE_PREFIX))
+	if held.begins_with(CarriedCase.RECORDED_TRACE_PREFIX):
+		return PlayerOriginals.case_contains(case_book, PlayerOriginals.id_from_item(held))
+	return held.is_empty() or (places.has(held) and (held.begins_with(CarriedCase.KITCHEN_TOOL_PREFIX) \
+		or held.begins_with(CarriedCase.BOOK_PREFIX)))
 
 
 func packed_vent_insert(item: String) -> Dictionary:
@@ -583,6 +599,96 @@ func packed_book(item: String) -> Book:
 	if not is_instance_valid(collection) or not collection.has_method("book_copy"):
 		return null
 	return collection.book_copy(str(place.form).trim_prefix(CarriedCase.BOOK_PREFIX))
+
+
+## Ruling held_books_reading_20261125: a click on a closed copy takes it into the case
+## and the hand at once; nothing is carried loose.
+func can_take_book(copy: Book) -> bool:
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_instance_valid(copy) \
+			or copy.valise_packed or copy.hand_reading or copy._held or copy.opening != 0.0 \
+			or not copy.shelf.library_hand_is_free():
+		return false
+	var collection := str(copy.shelf.name)
+	return _subjects.get(collection) == copy.shelf \
+		and not CarriedCase.library_fit(collection, copy.stock_id).is_empty()
+
+
+func take_book(copy: Book) -> bool:
+	if not can_take_book(copy):
+		return false
+	var collection := str(copy.shelf.name)
+	var item := CarriedCase.library_item(collection, copy.stock_id)
+	var prepare := func(document: Dictionary) -> bool:
+		if not can_take_book(copy):
+			return false
+		var grid: Dictionary = document.get_or_add(CarriedCase.KEY, {"version": 1, "places": {}})
+		grid.places[item] = CarriedCase.library_fit(collection, copy.stock_id)
+		grid[CarriedCase.HAND] = item
+		return CarriedCase.valid(grid) and _stage_book_pose(document, collection, copy, copy.transform)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.shelf_slot = -1
+		copy.set_valise_packed(true)
+		_restoring = false
+	return RealityState.commit_case_and_household(prepare, publish)
+
+
+## The book in the hand goes back to its own shelf's next free place, closed.
+func shelve_book(shelf: Node) -> bool:
+	var item := CarriedCase.hand()
+	var copy := packed_book(item)
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_instance_valid(copy) \
+			or copy.shelf != shelf or copy.hand_reading or not shelf.library_hand_is_free():
+		return false
+	var slot: int = shelf.next_free_slot(copy)
+	if slot < 0:
+		return false
+	var collection := str(shelf.name)
+	var pose: Transform3D = shelf.book_slots[slot]
+	var prepare := func(document: Dictionary) -> bool:
+		var current: Dictionary = document.get(KEY, {})
+		if packed_book(item) != copy or not shelf.book_slot_is_free(slot, copy) \
+				or not current.get("records", {}).has(collection):
+			return false
+		var grid: Dictionary = document[CarriedCase.KEY]
+		grid.places.erase(item)
+		grid[CarriedCase.HAND] = ""
+		var record := copy.valise_snapshot(pose)
+		record.slot = slot
+		current.records[collection].value.books[copy.stock_id] = record
+		return CarriedCase.valid(grid) and _validate(current, _kinds, _last_saved.get("records", {}), document)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.set_valise_packed(false)
+		copy.restore_book(verified.records[collection].value.books[copy.stock_id])
+		_restoring = false
+		shelf.library_stock_changed.call_deferred(copy)
+	return RealityState.commit_case_and_household(prepare, publish)
+
+
+## A click with a book in the glove brings it up into the ordinary reading view, from
+## the glove's own hold. Closing the view packs it again; its record never leaves the case.
+func read_held_book(holder: PlayerController) -> bool:
+	var copy := packed_book(CarriedCase.hand())
+	if not _bound or _restoring or _blocked or not is_instance_valid(copy) or not copy.valise_packed \
+			or holder.call_locked or holder.mouse_released or holder.inspecting() or holder._grab.active() \
+			or not copy.shelf.library_hand_is_free():
+		return false
+	var camera_pose := holder.camera.global_transform
+	var pose := Transform3D(camera_pose.basis, copy._hold_target(camera_pose, false))
+	if not copy.valise_exit_is_clear(pose):
+		return false
+	copy.begin_hand_reading(pose)
+	var grip := copy.grip()
+	grip.hit_position = copy.to_global(copy.pickup_centre())
+	if holder._grab.acquire(grip) and holder.begin_inspection():
+		return true
+	if holder._grab.active():
+		holder._grab.release(false)
+	copy.finish_hand_reading()
+	return false
 
 
 func can_pack_book(holder: PlayerController) -> bool:
