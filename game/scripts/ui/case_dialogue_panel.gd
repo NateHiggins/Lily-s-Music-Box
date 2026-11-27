@@ -187,11 +187,11 @@ func _fit_spoken_line() -> void:
 	var budget := view.y * .51 - name_height - gaps - 35.0 - _measure.get_theme_constant("margin_bottom")
 	var size := LINE_SIZE
 	var spacing := 3
-	while not _line.text.is_empty():
+	while not _line.text.is_empty() and budget >= SERIF.get_height(REPLY_SIZE):
 		var height := SERIF.get_multiline_string_size(_line.text, HORIZONTAL_ALIGNMENT_LEFT,
 				_line.custom_minimum_size.x, size).y
 		var rows := maxi(1, roundi(height / SERIF.get_height(size)))
-		if height + (rows - 1) * spacing <= budget:
+		if rows == 1 or height + (rows - 1) * spacing <= budget:
 			break
 		if spacing > 0:
 			spacing = 0
