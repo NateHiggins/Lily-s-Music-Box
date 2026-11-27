@@ -123,6 +123,10 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 		conversations.conversation_started.connect(_on_speaker_started)
 		conversations.conversation_ended.connect(_on_speaker_ended)
 	_sync_visit()
+	if get_node_or_null("AdelaDiscoveryTableau")==null:
+		var tableau:=preload("res://scripts/characters/adela_discovery_tableau.gd").new()
+		tableau.configure(world,loop)
+		add_child(tableau)
 	return true
 
 
@@ -318,6 +322,8 @@ func _sync_visit() -> void:
 	if conversations != null:
 		conversations.cancel_for_transition()
 	_clear_activities()
+	var tableau: Node=get_node_or_null("AdelaDiscoveryTableau")
+	if tableau!=null:tableau.refresh() # Includes validated same-visit load/data replacement.
 	# Existing bodies walk from their actual positions toward the reconstructed
 	# phase. No visible teleport on jump, home, load or immediate rerun.
 
