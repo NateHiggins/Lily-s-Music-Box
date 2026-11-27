@@ -13,6 +13,12 @@ var source_part := ""
 var _cast: Node3D
 var _draws: Array[Dictionary] = []
 
+func _minimum_lift() -> float:
+	# Native actual-shoe probe attempt14: the work shoe sat 4.106–6.278mm
+	# above floor with the casual shoe's17mm lift. Keep its distinct sole
+	# calibration; the actual geometric floor bound still applies below.
+	return .014 if source_part=="a_feet" else .017
+
 func source_valid() -> bool:
 	if not is_instance_valid(_cast) or str(_cast.wardrobe.worn.get("feet",""))!=source_part:return false
 	for row: Dictionary in _draws:
@@ -38,7 +44,7 @@ func can_reach(poses: Array[Transform3D], world: Transform3D, weight: float) -> 
 			var position:=Vector3.ZERO
 			for part: Array in point:position+=(poses[int(part[0])]*(part[1] as Vector3))*float(part[2])
 			low=minf(low,(world*position).y)
-		var lift:=maxf(.017*weight,floor_y-low)
+		var lift:=maxf(_minimum_lift()*weight,floor_y-low)
 		var target:=world.affine_inverse()*(world*ankle+Vector3.UP*lift)
 		var upper:=hip.distance_to(knee);var lower:=knee.distance_to(ankle)
 		var distance:=hip.distance_to(target)
@@ -129,7 +135,7 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 			var position:=Vector3.ZERO
 			for part: Array in point:position+=(body.get_bone_global_pose(int(part[0]))*(part[1] as Vector3))*float(part[2])
 			low=minf(low,body.to_global(position).y)
-		var lift:=maxf(.017*amount,floor_y-low)
+		var lift:=maxf(_minimum_lift()*amount,floor_y-low)
 		var target:=body.to_local(body.to_global(foot.origin)+Vector3.UP*lift)
 		var upper:=thigh.origin.distance_to(knee.origin)
 		var lower:=knee.origin.distance_to(foot.origin)
