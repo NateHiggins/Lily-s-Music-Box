@@ -205,7 +205,7 @@ func _seat_supported() -> bool:
 func _motion_clear(from: Vector3, to: Vector3, seat_transition: bool) -> bool:
 	if not _fixtures_still() or (seat_transition and not _lease_live()): return false
 	if not route._characters_clear(to) or not route._route_step_allowed(to): return false
-	var space := route.actor.get_world_3d().direct_space_state
+	var space: PhysicsDirectSpaceState3D = route.actor.get_world_3d().direct_space_state
 	var excluded: Array[RID] = _chair_rids if seat_transition else []
 	var shape := PhysicsShapeQueryParameters3D.new()
 	shape.shape = _capsule
