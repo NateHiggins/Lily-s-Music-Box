@@ -32,6 +32,12 @@ var clock_source: Callable
 var diagnostics := false
 var events: Array[Dictionary] = []
 const EVENT_LIMIT := 64
+## With diagnostics on, one row per frame a face was seeked: when the frame was produced (the seek) and the
+## clock then, so a fixture can compare it with the same frame's presentation. Last FRAME_LIMIT rows only.
+var frames: Array[Dictionary] = []
+const FRAME_LIMIT := 512
+## Runs before the faces it seeks, so each face steps on this frame's clock rather than the last one's.
+const PRIORITY := -100
 
 var _player: AudioStreamPlayer
 var _panel: Node
@@ -41,6 +47,11 @@ var _faces: Dictionary = {}  # resident id -> {"body": Node, "segment": Dictiona
 var _campaign: Variant = null
 var _started_ms := 0
 var _bind_pending := false
+var _last_clock := 0.0
+
+
+func _init() -> void:
+	process_priority = PRIORITY
 
 
 func setup(resident_conversations: Node, temporal_loop: Node, manifest_path := LoopVoiceManifest.RELEASE) -> bool:
@@ -117,6 +128,7 @@ func _bind() -> void:
 	_player.stream = stream
 	_player.play()
 	_started_ms = Time.get_ticks_msec()
+	_last_clock = 0.0
 	_start_faces(take, actor)
 	_note({"event": "play", "actor": actor, "node": node_id, "line_id": take.line_id})
 	played.emit(take)
@@ -159,6 +171,8 @@ func _process(_delta: float) -> void:
 			_note({"event": "face", "actor": who, "on": false, "at": at})
 		if face_row.on:
 			_seek_face(body, at)
+			if diagnostics:
+				_frame({"frame": Engine.get_process_frames(), "usec": Time.get_ticks_usec(), "actor": who, "clock": at})
 	var ended := at >= float(_take.seconds) if float(_take.seconds) > 0.0 else false
 	if not clock_source.is_valid() and not _player.playing and Time.get_ticks_msec() - _started_ms > 250:
 		ended = true
@@ -173,12 +187,17 @@ func _seek_face(body: Node, at: float) -> void:
 		face.call("seek_speech", at)
 
 
+## The line's audible position. The mixer advances in whole buffers and the time since the last mix is an
+## estimate, so the raw sum can step back when a buffer lands late; a mouth never replays a shape, so the clock
+## holds instead of running backwards within a take.
 func _clock() -> float:
 	if clock_source.is_valid():
 		return float(clock_source.call())
 	if not _player.playing:
 		return 0.0
-	return maxf(0.0, _player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency())
+	var raw := maxf(0.0, _player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency())
+	_last_clock = maxf(_last_clock, raw)
+	return _last_clock
 
 
 func _check(reason: String) -> void:
@@ -237,6 +256,12 @@ func _note(event: Dictionary) -> void:
 	events.append(event)
 	if events.size() > EVENT_LIMIT:
 		events = events.slice(events.size() - EVENT_LIMIT)
+
+
+func _frame(row: Dictionary) -> void:
+	frames.append(row)
+	if frames.size() > FRAME_LIMIT:
+		frames = frames.slice(frames.size() - FRAME_LIMIT)
 
 
 func _exit_tree() -> void:
