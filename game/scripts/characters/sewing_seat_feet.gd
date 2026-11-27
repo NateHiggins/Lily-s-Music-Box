@@ -12,6 +12,80 @@ var floor_y := 0.0
 var source_part := ""
 var _cast: Node3D
 var _draws: Array[Dictionary] = []
+var pose_owner: RefCounted
+var diagnostics := false
+var last: Dictionary = {}
+var _settle := 0.0
+var last_lifts: Array[float]=[0.0,0.0]
+const STEP_HEIGHT := .065
+const RIGHT_FORWARD_BOW := .10
+var _forward_world := Vector3.BACK
+
+func copy_transition(previous: RefCounted) -> void:
+	_settle=1.0
+	for side in legs.size():
+		for key: String in ["start","start_toe","end","end_toe"]:
+			if previous.legs[side].has(key):legs[side][key]=previous.legs[side][key]
+		for key: String in ["start","end"]:
+			if not legs[side].has(key):continue
+			var frame: Transform3D=legs[side][key]
+			var toe: Transform3D=legs[side][key+"_toe"]
+			frame.origin.y+=maxf(0.0,floor_y+.001-_frame_low(legs[side],frame,toe))
+			legs[side][key]=frame
+
+func _smooth(value: float) -> float:
+	var t:=clampf(value,0.0,1.0)
+	return t*t*(3.0-2.0*t)
+
+func _frame_low(leg: Dictionary, frame: Transform3D, toe: Transform3D) -> float:
+	var low:=INF
+	for point: Array in leg.points:
+		var position:=Vector3.ZERO
+		for part: Array in point:
+			var posed:=frame if int(part[0])==int(leg.ids[2]) else frame*toe
+			position+=(posed*(part[1] as Vector3))*float(part[2])
+		low=minf(low,position.y)
+	return low
+
+## Actual seated destination from the imported clip, not a guessed leg mark.
+## At amount1 the original qualified solver still owns the endpoint.
+func prepare_end(poses: Array[Transform3D], world: Transform3D) -> void:
+	for leg: Dictionary in legs:
+		var foot: Transform3D=poses[leg.ids[2]]
+		var toe:=foot.affine_inverse()*poses[leg.ids[3]]
+		var frame:=world*foot
+		frame.origin.y+=maxf(_minimum_lift(),floor_y-_frame_low(leg,frame,toe))
+		leg["end"]=frame;leg["end_toe"]=toe
+
+## Pure amount-driven path. Reversing or pausing amount retraces/holds exactly.
+## Lift vertically before translating, and finish translating before landing.
+func _step_goal(leg: Dictionary, weight: float) -> Dictionary:
+	if not leg.has("start") or not leg.has("end"):return {}
+	var right: bool=leg.side=="Right"
+	var begin:=.02 if right else .51
+	var finish:=.47 if right else .96
+	var t:=clampf((weight-begin)/(finish-begin),0.0,1.0)
+	var u:=_smooth((t-.15)/.70)
+	var rise:=STEP_HEIGHT*_smooth(t/.15)*_smooth((1.0-t)/.15)
+	var start: Transform3D=leg.start
+	var end: Transform3D=leg.end
+	var relaxed_end:=end
+	# A seated clip may rest one shoe above the floor. It cannot support
+	# the other leg's step there: land it first, then relax it only after
+	# the opposite foot lands. The final authored seated frame is unchanged.
+	var end_low:=_frame_low(leg,end,leg.end_toe)
+	if end_low>floor_y+.006:end.origin.y+=floor_y+.001-end_low
+	if right and weight>.96:
+		var relax:=_smooth((weight-.96)/.04)
+		var relaxed:=end.interpolate_with(relaxed_end,relax)
+		return {"frame":relaxed,"toe":leg.end_toe,"mode":"seated_relax","progress":1.0,"clearance":relaxed.origin.y-end.origin.y}
+	var frame:=start.interpolate_with(end,u)
+	var toe: Transform3D=(leg.start_toe as Transform3D).interpolate_with(leg.end_toe,u)
+	if right:frame.origin+=_forward_world*(RIGHT_FORWARD_BOW*pow(sin(PI*u),2))
+	var low:=lerpf(_frame_low(leg,start,leg.start_toe),_frame_low(leg,end,leg.end_toe),u)+rise
+	frame.origin.y+=low-_frame_low(leg,frame,toe)
+	var mode:="start_plant" if t<=0.0 else ("end_plant" if t>=1.0 else ("lift" if t<.15 else ("land" if t>.85 else "swing")))
+	return {"frame":frame,"toe":toe,"mode":mode,"progress":t,"clearance":rise}
 
 func _minimum_lift() -> float:
 	# Native actual-shoe probe attempt14: the work shoe sat 4.106–6.278mm
@@ -46,6 +120,10 @@ func can_reach(poses: Array[Transform3D], world: Transform3D, weight: float) -> 
 			low=minf(low,(world*position).y)
 		var lift:=maxf(_minimum_lift()*weight,floor_y-low)
 		var target:=world.affine_inverse()*(world*ankle+Vector3.UP*lift)
+		if weight>0.0 and weight<1.0:
+			var goal:=_step_goal(leg,weight)
+			if goal.is_empty():return false
+			target=world.affine_inverse()*(goal.frame as Transform3D).origin
 		var upper:=hip.distance_to(knee);var lower:=knee.distance_to(ankle)
 		var distance:=hip.distance_to(target)
 		if distance>upper+lower-.001 or distance<absf(upper-lower)+.001:return false
@@ -65,7 +143,7 @@ func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 		for index in draw.mesh.get_blend_shape_count():morphs.append(draw.get_blend_shape_value(index))
 		_draws.append({"draw":draw,"mesh":draw.mesh,"skin":draw.skin,"morphs":morphs})
 	if _draws.is_empty():return false
-	surface=machine;allowed=permitted;floor_y=machine.global_position.y
+	surface=machine;allowed=permitted;floor_y=machine.global_position.y;_forward_world=machine.global_basis.z
 	var body: Skeleton3D=cast.skeleton
 	for side: String in ["Left","Right"]:
 		var ids: Array[int]=[]
@@ -116,18 +194,23 @@ func bind(cast: Node3D, machine: Node3D, permitted: Callable) -> bool:
 						var score: float=(candidates[index].rest as Vector3).dot(direction)
 						if score<best:best=score;winner=index
 					if not selected.has(winner):selected.append(winner);points.append(candidates[winner].parts)
-		legs.append({"ids":ids,"points":points})
+		legs.append({"side":side,"ids":ids,"points":points})
 	return legs.size()==2
 
 func apply(body: Skeleton3D, write: Callable) -> void:
 	valid=true;maximum_reach_error=0.0
+	last.clear()
 	if not source_valid():valid=false;return
-	if amount<=0.0 or not allowed.is_valid() or not allowed.call():return
-	for leg: Dictionary in legs:
+	if not allowed.is_valid() or not allowed.call():return
+	var delta: float=pose_owner.last_delta if pose_owner!=null else 1.0/60.0
+	_settle=move_toward(_settle,1.0,delta/.20)
+	for side_index in legs.size():
+		var leg: Dictionary=legs[side_index]
 		var ids: Array=leg.ids
 		var thigh:=body.get_bone_global_pose(ids[0])
 		var knee:=body.get_bone_global_pose(ids[1])
 		var foot:=body.get_bone_global_pose(ids[2])
+		var base_ankle_world:=body.to_global(foot.origin)
 		var toe_relative:=foot.affine_inverse()*body.get_bone_global_pose(ids[3])
 		var original_basis:=foot.basis
 		var low:=INF
@@ -136,7 +219,16 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 			for part: Array in point:position+=(body.get_bone_global_pose(int(part[0]))*(part[1] as Vector3))*float(part[2])
 			low=minf(low,body.to_global(position).y)
 		var lift:=maxf(_minimum_lift()*amount,floor_y-low)
+		if amount<=0.0:lift=maxf(0.0,floor_y+.001-low)*_smooth(_settle)
 		var target:=body.to_local(body.to_global(foot.origin)+Vector3.UP*lift)
+		var mode:="standing" if amount<=0.0 else "seated"
+		var progress:=0.0;var clearance:=0.0
+		if amount>0.0 and amount<1.0:
+			var goal:=_step_goal(leg,amount)
+			if goal.is_empty():valid=false;continue
+			var wanted:=body.global_transform.affine_inverse()*(goal.frame as Transform3D)
+			target=wanted.origin;original_basis=wanted.basis;toe_relative=goal.toe
+			mode=goal.mode;progress=goal.progress;clearance=goal.clearance
 		var upper:=thigh.origin.distance_to(knee.origin)
 		var lower:=knee.origin.distance_to(foot.origin)
 		var reach:=target-thigh.origin
@@ -161,3 +253,12 @@ func apply(body: Skeleton3D, write: Callable) -> void:
 		var settled:=Transform3D(original_basis,foot.origin)
 		if not write.call(ids[2],settled,"contact"):valid=false;continue
 		if not write.call(ids[3],settled*toe_relative,"contact"):valid=false
+		var placed:=body.global_transform*settled
+		if amount<=0.0:leg["start"]=placed;leg["start_toe"]=toe_relative
+		elif amount>=1.0:leg["end"]=placed;leg["end_toe"]=toe_relative
+		last_lifts[side_index]=placed.origin.y-base_ankle_world.y
+		if diagnostics:
+			last[leg.side]={"mode":mode,"amount":amount,"swing_progress":progress,"requested_clearance":clearance,
+				"world_foot":placed,"world_toe":body.to_global((settled*toe_relative).origin),
+				"sole_low_world":_frame_low(leg,placed,toe_relative),"target_world":body.to_global(target),
+				"tracking_error":foot.origin.distance_to(target),"observation":"inside post-contact modifier; native whole shoe still required"}

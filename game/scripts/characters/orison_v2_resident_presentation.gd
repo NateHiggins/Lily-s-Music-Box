@@ -18,6 +18,8 @@ var _sewing_seat_chair: Node3D
 var _sewing_seat_working := false
 var _sewing_seat_previous_idle := ""
 var _sewing_seat_recovery_only := false
+var _sewing_seat_phase_locked := false
+var _sewing_seat_playback_scale := 1.0
 
 ## The route owns the actual chair lease, actor root and collision sweeps.
 ## This pure preflight rejects bad geometry/leg reach without posing a bone.
@@ -65,12 +67,17 @@ func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working
 	if _sewing_seat_blend==null:
 		var blend:=SewingSeatPose.new()
 		var feet:=SewingSeatFeet.new()
+		feet.pose_owner=blend
 		var contact:=SewingHands.new();contact.seated=true
 		contact.seated_pose_allowed=_sewing_seat_live
 		contact.posture_allowed=_sewing_seat_live
 		if not blend.bind(cast_body.skeleton,_animation_player.get_animation("clip_06"),_sewing_seat_live):return false
 		if not feet.bind(cast_body,machine,_sewing_seat_live):return false
 		if not contact.bind(cast_body.skeleton,machine,_sewing_seat_work_allowed,cast_body.model):return false
+		var relative:=global_transform.affine_inverse()*cast_body.skeleton.global_transform
+		var endpoint:=Transform3D(chair.global_basis*Basis(Vector3.UP,PI),chair.global_position-machine.global_basis.y*.0075)
+		var poses: Array[Transform3D]=blend.predicted_globals(cast_body.skeleton,_animation_player.get_animation("clip_03"),0.0,1.0)
+		feet.prepare_end(poses,endpoint*relative)
 		# All fallible resource checks completed before touching the live owner.
 		clear_loop_activity()
 		_local_loop("clip_03")
@@ -82,6 +89,11 @@ func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working
 		attention.pipeline.seated_feet=feet
 		attention.pipeline.work_hands=contact
 		if str(_animation_player.current_animation)!="clip_03":_animation_player.play("clip_03",.22)
+	if amount>0.0 and amount<1.0 and not _sewing_seat_phase_locked:
+		_sewing_seat_playback_scale=_animation_player.speed_scale
+		_animation_player.speed_scale=0.0
+		_sewing_seat_phase_locked=true
+	_sewing_seat_blend.hold_phase=amount>0.0 and amount<1.0
 	_sewing_seat_blend.amount=amount
 	_sewing_seat_feet.amount=amount
 	_sewing_seat_contact.posture_amount=amount
@@ -108,7 +120,9 @@ func recover_sewing_seat_support() -> bool:
 	var amount: float=_sewing_seat_blend.amount
 	if not _sewing_seat_inputs(_sewing_seat_machine,_sewing_seat_chair,amount):return false
 	var feet:=SewingSeatFeet.new()
+	feet.pose_owner=_sewing_seat_blend
 	if not feet.bind(cast_body,_sewing_seat_machine,_sewing_seat_live):return false
+	feet.copy_transition(_sewing_seat_feet)
 	var body: Skeleton3D=cast_body.skeleton
 	var seconds:=_animation_player.current_animation_position
 	var poses: Array[Transform3D]=_sewing_seat_blend.predicted_globals(body,_animation_player.get_animation("clip_03"),seconds,amount)
@@ -123,12 +137,19 @@ func recover_sewing_seat_support() -> bool:
 
 func clear_sewing_seat_pose() -> void:
 	if _sewing_seat_blend==null:return
+	if _sewing_seat_blend.amount<=0.0 and _sewing_seat_feet!=null and _sewing_seat_feet.source_valid() and walking_feet!=null:
+		var planted: Array[Transform3D]=[]
+		for leg: Dictionary in _sewing_seat_feet.legs:
+			if leg.has("start"):planted.append(leg.start)
+		if planted.size()==2:walking_feet.accept_sewing_seat_handoff(self,_sewing_seat_blend,planted)
 	if is_instance_valid(attention):
 		var pipeline=attention.pipeline
 		if pipeline.sewing_seat==_sewing_seat_blend:pipeline.sewing_seat=null
 		if pipeline.seated_feet==_sewing_seat_feet:pipeline.seated_feet=null
 		if pipeline.work_hands==_sewing_seat_contact:pipeline.work_hands=null
 	preferred_idle=_sewing_seat_previous_idle
+	if _sewing_seat_phase_locked and _animation_player!=null:_animation_player.speed_scale=_sewing_seat_playback_scale
+	_sewing_seat_phase_locked=false
 	_sewing_seat_previous_idle=""
 	_sewing_seat_recovery_only=false
 	_sewing_seat_blend=null;_sewing_seat_feet=null;_sewing_seat_contact=null

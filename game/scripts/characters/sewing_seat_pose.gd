@@ -6,6 +6,8 @@ var clock := 0.0
 var clip: Animation
 var allowed: Callable
 var tracks: Array[Dictionary] = []
+var hold_phase := false
+var last_delta := 0.0
 
 func predicted_globals(body: Skeleton3D, standing: Animation, standing_time: float, weight: float) -> Array[Transform3D]:
 	var before:=_sample(body,standing,standing_time)
@@ -46,8 +48,9 @@ func bind(body: Skeleton3D, animation: Animation, permitted: Callable) -> bool:
 	return not tracks.is_empty()
 
 func apply_base(body: Skeleton3D, delta: float) -> void:
+	last_delta=delta
 	if not allowed.is_valid() or not allowed.call() or amount<=0.0:return
-	clock=fposmod(clock+delta,clip.length)
+	if not hold_phase:clock=fposmod(clock+delta,clip.length)
 	for item: Dictionary in tracks:
 		var bone: int=item.bone
 		match int(item.kind):
