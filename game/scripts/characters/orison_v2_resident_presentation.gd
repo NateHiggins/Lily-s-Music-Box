@@ -8,6 +8,104 @@ var _loop_activity_clip := ""
 var _loop_sewing := false
 const SewingHands := preload("res://scripts/characters/sewing_hand_contact.gd")
 var _sewing_hands: RefCounted
+const SewingSeatPose := preload("res://scripts/characters/sewing_seat_pose.gd")
+const SewingSeatFeet := preload("res://scripts/characters/sewing_seat_feet.gd")
+var _sewing_seat_blend: RefCounted
+var _sewing_seat_feet: RefCounted
+var _sewing_seat_contact: RefCounted
+var _sewing_seat_machine: Node3D
+var _sewing_seat_chair: Node3D
+var _sewing_seat_working := false
+var _sewing_seat_previous_idle := ""
+
+## The route owns the actual chair lease, actor root and collision sweeps.
+## This pure preflight rejects bad geometry/leg reach without posing a bone.
+## Initialize the lease at amount0 before querying positive candidate amounts.
+func can_set_sewing_seat_pose(machine: Node3D, chair: Node3D, candidate: Transform3D, amount: float) -> bool:
+	if not _sewing_seat_inputs(machine,chair,amount) or not candidate.is_finite():return false
+	if not candidate.basis.is_finite() or candidate.basis.determinant()<.99 or candidate.basis.determinant()>1.01:return false
+	var local:=machine.to_local(candidate.origin)
+	if local.x<-.1 or local.x>.65 or local.z<-.85 or local.z>-.30 or absf(local.y)>.02:return false
+	if amount>=1.0:
+		var end:=chair.global_position-machine.global_basis.y*.0075
+		if candidate.origin.distance_to(end)>.002:return false
+	if _sewing_seat_blend==null:return amount==0.0
+	if machine!=_sewing_seat_machine or chair!=_sewing_seat_chair:return false
+	var standing: Animation=_animation_player.get_animation("clip_03")
+	var seconds:=_animation_player.current_animation_position if str(_animation_player.current_animation)=="clip_03" else 0.0
+	var body: Skeleton3D=cast_body.skeleton
+	var poses: Array[Transform3D]=_sewing_seat_blend.predicted_globals(body,standing,seconds,amount)
+	var relative:=global_transform.affine_inverse()*body.global_transform
+	return _sewing_seat_feet.can_reach(poses,candidate*relative,amount)
+
+func _sewing_seat_inputs(machine: Node3D, chair: Node3D, amount: float) -> bool:
+	if resident_id!="lena_ortiz" or not is_finite(amount) or amount<0.0 or amount>1.0:return false
+	if not is_instance_valid(machine) or not is_instance_valid(chair) or machine==chair:return false
+	if not machine.is_inside_tree() or not chair.is_inside_tree() or not is_inside_tree():return false
+	if _walking or cast_body==null or attention==null or attention.pipeline==null or _animation_player==null:return false
+	if not _animation_player.has_animation("clip_03") or not _animation_player.has_animation("clip_06"):return false
+	var relative:=machine.global_transform.affine_inverse()*chair.global_transform
+	if relative.origin.distance_to(Vector3(0,0,-.6759))>.02:return false
+	if relative.basis.y.normalized().dot(Vector3.UP)<.999 or relative.basis.z.normalized().dot(Vector3.BACK)>-.999:return false
+	if machine.global_basis.y.normalized().dot(Vector3.UP)<.999:return false
+	var pipeline=attention.pipeline
+	if pipeline.sewing_seat!=null and pipeline.sewing_seat!=_sewing_seat_blend:return false
+	if pipeline.seated_feet!=null and pipeline.seated_feet!=_sewing_seat_feet:return false
+	if pipeline.work_hands!=null and pipeline.work_hands!=_sewing_seat_contact and pipeline.work_hands!=_sewing_hands:return false
+	return true
+
+## Amount is continuous, including exact0/1. This adapter never changes root.
+## False is atomic: no pose, animation, existing lease or helper installation.
+func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working: bool) -> bool:
+	if not can_set_sewing_seat_pose(machine,chair,global_transform,amount):return false
+	if _sewing_seat_blend==null:
+		var blend:=SewingSeatPose.new()
+		var feet:=SewingSeatFeet.new()
+		var contact:=SewingHands.new();contact.seated=true
+		contact.seated_pose_allowed=_sewing_seat_live
+		contact.posture_allowed=_sewing_seat_live
+		if not blend.bind(cast_body.skeleton,_animation_player.get_animation("clip_06"),_sewing_seat_live):return false
+		if not feet.bind(cast_body,machine,_sewing_seat_live):return false
+		if not contact.bind(cast_body.skeleton,machine,_sewing_seat_work_allowed,cast_body.model):return false
+		# All fallible resource checks completed before touching the live owner.
+		clear_loop_activity()
+		_local_loop("clip_03")
+		_sewing_seat_previous_idle=preferred_idle
+		preferred_idle="clip_03"
+		_sewing_seat_machine=machine;_sewing_seat_chair=chair
+		_sewing_seat_blend=blend;_sewing_seat_feet=feet;_sewing_seat_contact=contact
+		attention.pipeline.sewing_seat=blend
+		attention.pipeline.seated_feet=feet
+		attention.pipeline.work_hands=contact
+		if str(_animation_player.current_animation)!="clip_03":_animation_player.play("clip_03",.22)
+	_sewing_seat_blend.amount=amount
+	_sewing_seat_feet.amount=amount
+	_sewing_seat_contact.posture_amount=amount
+	_sewing_seat_working=working
+	return true
+
+func _sewing_seat_live() -> bool:
+	return _sewing_seat_blend!=null and not _walking \
+		and _animation_player!=null and str(_animation_player.current_animation)=="clip_03"
+
+func _sewing_seat_work_allowed() -> bool:
+	return _sewing_seat_live() and _sewing_seat_working and _sewing_seat_blend.amount>=1.0 \
+		and is_visible_in_tree() and is_instance_valid(_sewing_seat_machine) and is_instance_valid(_sewing_seat_chair) and not _loop_talking()
+
+func stop_sewing_seat_work() -> void:
+	_sewing_seat_working=false
+
+func clear_sewing_seat_pose() -> void:
+	if _sewing_seat_blend==null:return
+	if is_instance_valid(attention):
+		var pipeline=attention.pipeline
+		if pipeline.sewing_seat==_sewing_seat_blend:pipeline.sewing_seat=null
+		if pipeline.seated_feet==_sewing_seat_feet:pipeline.seated_feet=null
+		if pipeline.work_hands==_sewing_seat_contact:pipeline.work_hands=null
+	preferred_idle=_sewing_seat_previous_idle
+	_sewing_seat_previous_idle=""
+	_sewing_seat_blend=null;_sewing_seat_feet=null;_sewing_seat_contact=null
+	_sewing_seat_machine=null;_sewing_seat_chair=null;_sewing_seat_working=false
 
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
@@ -78,6 +176,7 @@ func _local_loop(clip: String) -> bool:
 ## Sewing is a bounded owner request at Lena's arrived historical work mark;
 ## the existing handwork clip claims no needle grip, prop movement or sitting.
 func set_loop_activity(activity: String, sewing: bool = false, work_surface: Node3D = null) -> void:
+	if _sewing_seat_blend!=null:return
 	if resident_id == "mina_vale" or mina_animation != null: return
 	if activity.is_empty():
 		clear_loop_activity()
@@ -162,22 +261,26 @@ func _loop_seated() -> bool:
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	if _sewing_seat_blend!=null and not _sewing_seat_live():clear_sewing_seat_pose()
 	if not _loop_activity.is_empty() and (_walking or _loop_talking() or _loop_seated()):
 		clear_loop_activity()
 
 func _set_walking(on: bool) -> void:
+	if on and _sewing_seat_blend!=null:clear_sewing_seat_pose()
 	if on and not _loop_activity.is_empty(): clear_loop_activity()
 	super._set_walking(on)
 
 func play_case_role(fragment: String) -> bool:
+	if _sewing_seat_blend!=null:return false
 	if not _loop_activity.is_empty(): clear_loop_activity()
 	return super.play_case_role(fragment)
 
 ## A stage gesture never takes a seated body or a clip a loop activity has borrowed.
 func _emote_allowed() -> bool:
-	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated()
+	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated() and _sewing_seat_blend==null
 
 func play_seated() -> bool:
+	if _sewing_seat_blend!=null:return false
 	# Mina's supplied twenty clips have no seated motion. Her owner retains
 	# its own idle and standing spot; never graft a retired donor pose onto her.
 	if mina_animation != null or not _local_loop("clip_06"): return false

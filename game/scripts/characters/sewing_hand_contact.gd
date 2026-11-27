@@ -8,6 +8,11 @@ var _allowed: Callable
 var _arms: Array[Dictionary] = []
 ## Only an explicit seated work owner opts in; the standing lease is unchanged.
 var seated := false
+## Optional explicit authored base-blend lease. Empty in existing clip06 proofs.
+var seated_pose_allowed: Callable
+var posture_allowed: Callable
+var posture_amount := 1.0
+var _surface_axis := Vector3.RIGHT
 var _skin_bones: Array[int] = []
 var _skin_poses: Array[Transform3D] = []
 ## Explicit proof-only telemetry; ordinary gameplay allocates no per-frame rows.
@@ -25,6 +30,7 @@ var _seated_clip: Animation
 func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node = null) -> bool:
 	if body == null or not is_instance_valid(work_surface) or not allowed.is_valid(): return false
 	surface = work_surface
+	_surface_axis=work_surface.global_basis.x
 	_allowed = allowed
 	for side: String in ["Left", "Right"]:
 		var ids: Array[int] = []
@@ -110,16 +116,19 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node
 
 func _live() -> bool:
 	return is_instance_valid(surface) and surface.is_inside_tree() and _allowed.is_valid() and _allowed.call() \
-			and (not seated or (is_instance_valid(_clip_player) and str(_clip_player.current_animation)=="clip_06" \
+			and (not seated or (is_instance_valid(_clip_player) and (str(_clip_player.current_animation)=="clip_06" \
+			or (seated_pose_allowed.is_valid() and seated_pose_allowed.call())) \
 			and _clip_player.get_animation("clip_06")==_seated_clip))
 
 ## Composed once by PosePipeline's existing lower-spine writer, before gaze.
 ## No hips/root/feet translation, no second writer and no work after release.
 func posture_turn(body: Skeleton3D) -> Quaternion:
-	if not seated or not _live():
+	var leased: bool=posture_allowed.is_valid() and posture_allowed.call()
+	if not seated or (not leased and not _live()):
 		return Quaternion.IDENTITY
-	var axis := (body.global_basis.inverse()*surface.global_basis.x).normalized()
-	return Quaternion(axis,deg_to_rad(25.0))
+	var world_axis:=_surface_axis if seated_pose_allowed.is_valid() else surface.global_basis.x
+	var axis := (body.global_basis.inverse()*world_axis).normalized()
+	return Quaternion(axis,deg_to_rad(25.0)*clampf(posture_amount,0.0,1.0))
 
 func _hand_lowest(arm: Dictionary, wrist: Transform3D, orientation: Basis, body: Skeleton3D) -> float:
 	var low := INF
