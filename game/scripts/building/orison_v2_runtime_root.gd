@@ -1091,6 +1091,8 @@ func _compose_authorities() -> void:
 		push_warning("ORISON V2 RUNTIME: loop performances refused: %s" % [loop_performances.errors])
 		loop_performances.queue_free()
 		loop_performances = null
+	else:
+		loop_performances.install_yard_tableau()
 	# Voiced performed lines (doc408 voice pilot): the released takes, none until Lily accepts them, so the
 	# loop stays silent. ORISON_LOOP_VOICE_MANIFEST names a pilot manifest for development evidence only.
 	var loop_voice := LoopVoicePlayback.new()

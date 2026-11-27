@@ -123,11 +123,14 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 		conversations.conversation_started.connect(_on_speaker_started)
 		conversations.conversation_ended.connect(_on_speaker_ended)
 	_sync_visit()
-	if get_node_or_null("AdelaDiscoveryTableau")==null:
-		var tableau:=preload("res://scripts/characters/adela_discovery_tableau.gd").new()
-		tableau.configure(world,loop)
-		add_child(tableau)
 	return true
+
+
+## Full V2 composition supplies the cast, calendar and collision world.
+func install_yard_tableau() -> void:
+	var tableau := preload("res://scripts/characters/adela_discovery_tableau.gd").new()
+	tableau.configure(world, loop)
+	add_child(tableau)
 
 
 func _extend_visit(guest: String, host: String, place: String, arrival_node: String) -> void:
