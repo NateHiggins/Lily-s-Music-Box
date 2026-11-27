@@ -17,6 +17,7 @@ var _sewing_seat_machine: Node3D
 var _sewing_seat_chair: Node3D
 var _sewing_seat_working := false
 var _sewing_seat_previous_idle := ""
+var _sewing_seat_recovery_only := false
 
 ## The route owns the actual chair lease, actor root and collision sweeps.
 ## This pure preflight rejects bad geometry/leg reach without posing a bone.
@@ -31,6 +32,7 @@ func can_set_sewing_seat_pose(machine: Node3D, chair: Node3D, candidate: Transfo
 		if candidate.origin.distance_to(end)>.002:return false
 	if _sewing_seat_blend==null:return amount==0.0
 	if machine!=_sewing_seat_machine or chair!=_sewing_seat_chair:return false
+	if _sewing_seat_recovery_only and amount>float(_sewing_seat_blend.amount):return false
 	if not _sewing_seat_feet.source_valid():return false
 	var standing: Animation=_animation_player.get_animation("clip_03")
 	var seconds:=_animation_player.current_animation_position if str(_animation_player.current_animation)=="clip_03" else 0.0
@@ -58,6 +60,7 @@ func _sewing_seat_inputs(machine: Node3D, chair: Node3D, amount: float) -> bool:
 ## Amount is continuous, including exact0/1. This adapter never changes root.
 ## False is atomic: no pose, animation, existing lease or helper installation.
 func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working: bool) -> bool:
+	if _sewing_seat_recovery_only and working:return false
 	if not can_set_sewing_seat_pose(machine,chair,global_transform,amount):return false
 	if _sewing_seat_blend==null:
 		var blend:=SewingSeatPose.new()
@@ -91,10 +94,31 @@ func _sewing_seat_live() -> bool:
 
 func _sewing_seat_work_allowed() -> bool:
 	return _sewing_seat_live() and _sewing_seat_working and _sewing_seat_blend.amount>=1.0 \
-		and is_visible_in_tree() and is_instance_valid(_sewing_seat_machine) and is_instance_valid(_sewing_seat_chair) and not _loop_talking()
+		and not _sewing_seat_recovery_only and is_visible_in_tree() and is_instance_valid(_sewing_seat_machine) and is_instance_valid(_sewing_seat_chair) and not _loop_talking()
 
 func stop_sewing_seat_work() -> void:
 	_sewing_seat_working=false
+
+## Emergency reverse only, for a genuine external outfit/mesh change. Rebind
+## the actual known shoe in temporary storage; never reuse stale landmarks,
+## change clothing, move root, resume work or accept an unreachable leg.
+func recover_sewing_seat_support() -> bool:
+	if _sewing_seat_blend==null or _sewing_seat_feet==null or _sewing_seat_feet.source_valid():return false
+	var amount: float=_sewing_seat_blend.amount
+	if not _sewing_seat_inputs(_sewing_seat_machine,_sewing_seat_chair,amount):return false
+	var feet:=SewingSeatFeet.new()
+	if not feet.bind(cast_body,_sewing_seat_machine,_sewing_seat_live):return false
+	var body: Skeleton3D=cast_body.skeleton
+	var seconds:=_animation_player.current_animation_position
+	var poses: Array[Transform3D]=_sewing_seat_blend.predicted_globals(body,_animation_player.get_animation("clip_03"),seconds,amount)
+	if not feet.can_reach(poses,body.global_transform,amount):return false
+	feet.amount=amount
+	# All fallible validation precedes replacing our own contact slot.
+	_sewing_seat_working=false
+	_sewing_seat_recovery_only=true
+	_sewing_seat_feet=feet
+	attention.pipeline.seated_feet=feet
+	return true
 
 func clear_sewing_seat_pose() -> void:
 	if _sewing_seat_blend==null:return
@@ -105,6 +129,7 @@ func clear_sewing_seat_pose() -> void:
 		if pipeline.work_hands==_sewing_seat_contact:pipeline.work_hands=null
 	preferred_idle=_sewing_seat_previous_idle
 	_sewing_seat_previous_idle=""
+	_sewing_seat_recovery_only=false
 	_sewing_seat_blend=null;_sewing_seat_feet=null;_sewing_seat_contact=null
 	_sewing_seat_machine=null;_sewing_seat_chair=null;_sewing_seat_working=false
 
