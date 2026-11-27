@@ -19,12 +19,8 @@ var measured_frames := 0
 ## Calibrated from all 193 native working/resumed frames in lena_contact_rig01/
 ## attempt06; independent whole-skin qualification must accompany any update.
 const SEATED_MODEL := "res://assets/characters/cast/lena_ortiz/lena_ortiz.gltf"
-const SEATED_SOURCES := {
-	SEATED_MODEL:"002aad74ff7aee5a790b1ef388c6c3e07af8e3383ac2e6a885c173038fee7c41",
-	"res://assets/characters/cast/lena_ortiz/lena_ortiz.bin":"dd004e2cc8d21f865f0eacc43cb74f78953baecd217947b4bcc00574665dd953",
-	"res://assets/characters/cast/shared/cast_moves.glb":"0ff8d9d63988d1d3f34969ccdd2a0126a2de2110aed59046443e90f857298bf1"}
-const SEATED_REBASE_SHA := "3f9f72afb14f7e198616c8cc42235c05181e691bd9542c8f4d1c5dbf5b382b6b"
 var _clip_player: AnimationPlayer
+var _seated_clip: Animation
 
 func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node = null) -> bool:
 	if body == null or not is_instance_valid(work_surface) or not allowed.is_valid(): return false
@@ -49,12 +45,12 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node
 	_skin_poses.resize(body.get_bone_count())
 	var source := model if model != null else body.get_parent()
 	if source.scene_file_path!=SEATED_MODEL: return false
-	for path: String in SEATED_SOURCES:
-		if FileAccess.get_sha256(path)!=SEATED_SOURCES[path]: return false
-	if FileAccess.get_file_as_string("res://scripts/characters/resident_moves_library.gd").replace("\r\n","\n").sha256_text()!=SEATED_REBASE_SHA: return false
 	var players := source.find_children("*","AnimationPlayer",true,false)
 	if players.size()!=1: return false
 	_clip_player=players[0] as AnimationPlayer
+	if not _clip_player.has_animation("clip_06"): return false
+	_seated_clip=_clip_player.get_animation("clip_06")
+	if not is_equal_approx(_seated_clip.length,3.0): return false
 	for draw: MeshInstance3D in source.find_children("Skin_hands","MeshInstance3D",true,false):
 		if draw.mesh == null or draw.skin == null: continue
 		if draw.mesh.get_blend_shape_count()!=0: return false
@@ -87,27 +83,35 @@ func bind(body: Skeleton3D, work_surface: Node3D, allowed: Callable, model: Node
 				if left>.999: _arms[0].skin.append(influences)
 				if right>.999: _arms[1].skin.append(influences)
 	# Keep only the measured source support point per hand, not 3492 vertices.
-	# Count, original asset/clip/rebase hashes, zero morphs and actual native
-	# rest-point checks reject an incompatible import/shape instead of guessing.
+	# Guard the imported shape and native support datum, not raw source files
+	# which need not exist in exported games. Authoring proof pins source hashes.
+	# These are native-import indices (attempt08), not source glTF vertex indices.
 	var counts := [1749,1743];var indices := [135,134]
-	var rests := [Vector3(.443860382,.919424355,.300042570),Vector3(-.438045233,.917733967,.300315678)]
+	var rests := [Vector3(.378969,.923549,.292721),Vector3(-.378969,.923549,.292721)]
+	var binds := [Vector3(.006758,.021891,-.002521),Vector3(-.007131,.021891,-.001088)]
 	_skin_bones.clear()
 	for side_index in 2:
 		var arm: Dictionary=_arms[side_index]
 		if arm.skin.size()!=counts[side_index]: return false
 		var point: Array=arm.skin[indices[side_index]]
+		if point.size()!=1: return false
+		var datum: Array=point[0]
+		if str(body.get_bone_name(int(datum[0])))!=str(arm.side)+"HandThumb3": return false
+		if absf(float(datum[2])-1.0)>.00001: return false
+		if (datum[1] as Vector3).distance_to(binds[side_index])>.00001: return false
 		var rest := Vector3.ZERO
 		for part: Array in point:
 			rest+=(body.get_bone_global_rest(int(part[0]))*(part[1] as Vector3))*float(part[2])
 			if not _skin_bones.has(int(part[0])):_skin_bones.append(int(part[0]))
-		if rest.distance_to(rests[side_index])>.001: return false
+		if rest.distance_to(rests[side_index])>.00001: return false
 		arm["calibrated_source_index"]=indices[side_index]
 		arm.skin=[point]
 	return true
 
 func _live() -> bool:
 	return is_instance_valid(surface) and surface.is_inside_tree() and _allowed.is_valid() and _allowed.call() \
-			and (not seated or (is_instance_valid(_clip_player) and str(_clip_player.current_animation)=="clip_06"))
+			and (not seated or (is_instance_valid(_clip_player) and str(_clip_player.current_animation)=="clip_06" \
+			and _clip_player.get_animation("clip_06")==_seated_clip))
 
 ## Composed once by PosePipeline's existing lower-spine writer, before gaze.
 ## No hips/root/feet translation, no second writer and no work after release.
