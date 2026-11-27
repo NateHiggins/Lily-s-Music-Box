@@ -29,7 +29,6 @@ const PARAPET_STANCE_X := 4.0  # along the north parapet, over the north deck an
 const PARAPET_INSET := .8
 const ENLARGER := "storm_shop_photo_supplies_enl0"
 const WITNESS_SECONDS := 1.0
-const WITNESS_FIELD := .5  # cos 60 degrees: the person must be in front of the player's eyes
 ## Each branch: the intent the lobby choice grants, the attempt flag a witness grants, where and from when.
 const BRANCHES := [
 	{"thread": "av_friday_roof", "intent": "m_o2_roof_company", "attempt": "m_o2_stood_roof", "place": "parapet",
@@ -121,13 +120,14 @@ func _watch(branch: Dictionary, step: float) -> void:
 			RealityState.commit()
 
 
-## True while the player can see the branch's scene from where they stand and look.
+## True while the player can see the branch's scene: through the player's own first-person camera, current, with
+## the face inside its picture.
 func witnessing(branch: Dictionary) -> bool:
 	if not is_instance_valid(actor) or not is_instance_valid(world.player):
 		return false
-	var camera := get_viewport().get_camera_3d()
-	var eye: Vector3 = camera.global_position if camera != null else world.player.global_position + Vector3.UP * 1.6
-	var forward: Vector3 = -camera.global_basis.z if camera != null else -world.player.global_basis.z
+	var camera: Camera3D = world.player.camera
+	if camera == null or not camera.is_inside_tree() or not camera.current:
+		return false
 	if str(branch.place) == "parapet" and not str(world.room_at_world(world.player.global_position + Vector3.UP * .8)).begins_with("ROOF_DECK_"):
 		return false
 	var people: Array = [actor]
@@ -135,15 +135,17 @@ func witnessing(branch: Dictionary) -> bool:
 		people.append_array(guests)
 	var seen := 0
 	for person: Variant in people:
-		if is_instance_valid(person) and _sees(eye, forward, person as Node3D, float(branch.reach)):
+		if is_instance_valid(person) and _sees(camera, person as Node3D, float(branch.reach)):
 			seen += 1
 	return seen >= (2 if str(branch.place) == "prints" else 1)
 
 
-func _sees(eye: Vector3, forward: Vector3, person: Node3D, reach: float) -> bool:
+func _sees(camera: Camera3D, person: Node3D, reach: float) -> bool:
+	if not person.is_visible_in_tree():
+		return false
 	var head := person.global_position + Vector3.UP * 1.55
-	var toward := head - eye
-	if toward.length() > reach or forward.normalized().dot(toward.normalized()) < WITNESS_FIELD:
+	var eye := camera.global_position
+	if eye.distance_to(head) > reach or not camera.is_position_in_frustum(head):
 		return false
 	var exclude: Array[RID] = [world.player.get_rid()]
 	var hit := get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye, head, 1, exclude))

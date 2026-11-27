@@ -181,6 +181,25 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 		return
 	await _look_from(near, adela, true)
 	_check(not RealityState.has_knowledge(attempt), "%s: close but looking away grants nothing" % place)
+	# Close, the face 45 degrees above the picture's centre: inside a 60-degree cone, outside the 72-degree picture.
+	await _look_from(near, adela, false, 45.0)
+	var head := adela.global_position + Vector3.UP * 1.55
+	var camera: Camera3D = world.player.camera
+	_check(not camera.is_position_in_frustum(head) and rad_to_deg((-camera.global_basis.z).angle_to(head - camera.global_position)) < 60.0,
+			"%s: the face is above the top edge yet inside the old cone" % place)
+	_check(not RealityState.has_knowledge(attempt), "%s: a face beyond the top edge grants nothing" % place)
+	# A detached current camera looking right at her is not the player's sight.
+	var detached := Camera3D.new()
+	add_child(detached)
+	detached.global_position = camera.global_position
+	detached.look_at(head, Vector3.UP)
+	detached.make_current()
+	await get_tree().create_timer(1.6).timeout
+	await get_tree().physics_frame
+	_check(detached.is_position_in_frustum(head) and not RealityState.has_knowledge(attempt), "%s: a detached camera's view grants nothing" % place)
+	detached.queue_free()
+	camera.make_current()
+	await get_tree().physics_frame
 	# Close, a wall between.
 	var hidden: Variant = _viewpoint(adela, .9, reach - .2, false, false)
 	if hidden != null:
@@ -266,13 +285,17 @@ func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool
 	return null
 
 
-func _look_from(at: Vector3, person: Node3D, away := false) -> void:
+func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0) -> void:
 	world.player.global_position = at
 	await get_tree().physics_frame
 	var camera: Camera3D = world.player.camera
 	var head := person.global_position + Vector3.UP * 1.55
-	var target := head if not away else camera.global_position * 2.0 - head
-	camera.look_at(Vector3(target.x, target.y, target.z), Vector3.UP)
+	var toward := head - camera.global_position
+	if pitch_down != 0.0:
+		var right := toward.cross(Vector3.UP).normalized()
+		toward = toward.rotated(right, deg_to_rad(-pitch_down))  # look below: the face rises in the picture
+	var target := camera.global_position + (toward if not away else -toward)
+	camera.look_at(target, Vector3.UP)
 	await get_tree().create_timer(1.6).timeout
 	await get_tree().physics_frame
 
