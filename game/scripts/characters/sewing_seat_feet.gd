@@ -19,6 +19,7 @@ var _settle := 0.0
 var last_lifts: Array[float]=[0.0,0.0]
 const STEP_HEIGHT := .065
 const RIGHT_FORWARD_BOW := .10
+const LEFT_REARWARD_BOW := .06
 var _forward_world := Vector3.BACK
 
 func copy_transition(previous: RefCounted) -> void:
@@ -82,6 +83,7 @@ func _step_goal(leg: Dictionary, weight: float) -> Dictionary:
 	var frame:=start.interpolate_with(end,u)
 	var toe: Transform3D=(leg.start_toe as Transform3D).interpolate_with(leg.end_toe,u)
 	if right:frame.origin+=_forward_world*(RIGHT_FORWARD_BOW*pow(sin(PI*u),2))
+	else:frame.origin-=_forward_world*(LEFT_REARWARD_BOW*pow(sin(PI*u),2))
 	var low:=lerpf(_frame_low(leg,start,leg.start_toe),_frame_low(leg,end,leg.end_toe),u)+rise
 	frame.origin.y+=low-_frame_low(leg,frame,toe)
 	var mode:="start_plant" if t<=0.0 else ("end_plant" if t>=1.0 else ("lift" if t<.15 else ("land" if t>.85 else "swing")))
