@@ -691,15 +691,33 @@ func _process(delta: float) -> void:
 		if focus.is_empty() or attention == null:
 			_release_gaze(resident)
 			continue
-		var target: Node3D = world.adapter.resolve(focus) as Node3D
+		var point := _focus_point(focus)
 		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
 				and attention.staged_target == _gaze[resident].point
-		if target != null and target.is_visible_in_tree() and target.global_position.distance_to(actor.global_position) < 3.2 \
+		if point.is_finite() and point.distance_to(actor.global_position) < 3.2 \
 				and (attention.staged_target == null or still_owned):
-			attention.staged_target = target.global_position
-			_gaze[resident] = {"owner": attention, "point": target.global_position}
+			attention.staged_target = point
+			_gaze[resident] = {"owner": attention, "point": point}
 		else:
 			_release_gaze(resident)
+
+
+func _focus_point(focus: String) -> Vector3:
+	if focus == "historical:adela_head":
+		var tableau := get_tree().get_first_node_in_group("adela_discovery_tableau") if is_inside_tree() else null
+		if tableau != null and tableau.has_method("head_world"):
+			var head: Variant = tableau.call("head_world")
+			return head if head is Vector3 else Vector3.INF
+		return Vector3.INF
+	if focus.begins_with("resident:"):
+		var id := focus.trim_prefix("resident:")
+		if witness_present(id):
+			var attention := _resident_attention(world.resident_routes[id].actor)
+			if attention != null and attention.get("pipeline") != null:
+				return attention.pipeline.eye_world()
+		return Vector3.INF
+	var target := world.adapter.resolve(focus) as Node3D
+	return target.global_position if is_instance_valid(target) and target.is_visible_in_tree() else Vector3.INF
 
 
 func _release_gaze(resident: String) -> void:
