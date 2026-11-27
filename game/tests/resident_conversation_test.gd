@@ -436,6 +436,22 @@ func _check_long_replies(viewport: SubViewport, panel: CaseDialoguePanel) -> voi
 			chosen.clear()
 
 
+		# Noel's terminal inventory confession is the longest authored resident line.
+		# The panel must retain the full words for both the reader and the voice owner.
+		var noel: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/noel_price.json"))
+		panel.run_tree(noel, "np_assoc_chair", Callable())
+		for frame in 5: await get_tree().process_frame
+		var caption := panel._line.get_global_rect()
+		var replies := panel._reply_scroll.get_global_rect()
+		_check("Noel's complete confession leaves his face and closing reply visible at %s" % size,
+				panel.displayed_line().text == noel.nodes.np_assoc_chair.line
+				and panel._line.get_theme_font_size("font_size") >= CaseDialoguePanel.REPLY_SIZE
+				and panel._speaker.get_global_rect().position.y >= size.y * .48
+				and caption.end.x <= size.x and caption.end.y <= replies.position.y
+				and replies.end.y <= size.y and panel.offered_labels() == ["..."])
+		panel.close()
+
+
 static func _has(labels: Array, text: String) -> bool:
 	for label in labels:
 		if str(label).contains(text):
