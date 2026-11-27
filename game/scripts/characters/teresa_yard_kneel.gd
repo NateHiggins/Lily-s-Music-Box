@@ -2,7 +2,60 @@ extends RefCounted
 ## Teresa's explicit S04 lower-body lease. Navigation retains the actor root.
 ## Authored raw-source contact fit; imported skin/cloth still needs native proof.
 const Stand := preload("res://scripts/characters/stand_pose.gd")
-const FIT := {"a_feet":{"out":{"Left":{"thigh":5.556426472995442,"shin":5.3910042734508465},"Right":{"thigh":5.556452888418835,"shin":5.391063621203139}},"shin_degrees":-96.57299660146236,"lifts":[0.0070833867847419725,0.007099318153143355,0.007114612514491169,0.007144812423394117,0.007179641404897423,0.007212673365041352,0.007243814477063217,0.007272975929077237,0.007300074148987169,0.0073250310123925706,0.0073477740323611785,0.007369636528799356,0.007404077691108731,0.007434348605358471,0.007460356835390541,0.007482020877238853,0.007499270271803577,0.007512045666691068,0.0075202988225952175,0.007523992558630237,0.007523100629742891,0.007517607527629662,0.007507508194311043,0.007492807634471385,0.007473520408565895,0.007449669983114745,0.007421287906983056,0.007388412771896753,0.007351088900784251,0.007310241147878303,0.007279844940605375,0.00724998693261579,0.007217762634672884]}}
+## Regenerate/check with tools/calibrate_teresa_yard_kneel.py.
+## Angles are degrees, lifts are metres at 33 equally spaced pose samples.
+const THIGH_FORWARD_DEGREES := 20.0
+const LIFT_INTERVALS := 32
+const FIT := {
+	"a_feet": {
+		"out": {
+			"Left": {
+				"thigh": 5.556426,
+				"shin": 5.391004
+			},
+			"Right": {
+				"thigh": 5.556453,
+				"shin": 5.391064
+			}
+		},
+		"shin_degrees": -96.572997,
+		"lifts": [
+			0.0070834,
+			0.0070993,
+			0.0071146,
+			0.0071448,
+			0.0071796,
+			0.0072127,
+			0.0072438,
+			0.007273,
+			0.0073001,
+			0.007325,
+			0.0073478,
+			0.0073696,
+			0.0074041,
+			0.0074343,
+			0.0074604,
+			0.007482,
+			0.0074993,
+			0.007512,
+			0.0075203,
+			0.007524,
+			0.0075231,
+			0.0075176,
+			0.0075075,
+			0.0074928,
+			0.0074735,
+			0.0074497,
+			0.0074213,
+			0.0073884,
+			0.0073511,
+			0.0073102,
+			0.0072798,
+			0.00725,
+			0.0072178
+		]
+	}
+}
 const LOWER: Array[String]=["Hips","LeftUpLeg","LeftLeg","LeftFoot","LeftToeBase","RightUpLeg","RightLeg","RightFoot","RightToeBase"]
 var wanted := true
 var amount := 0.0
@@ -98,7 +151,7 @@ func apply_base(body: Skeleton3D, delta: float) -> void:
 		var row: Dictionary={"hips":{}}
 		for side: String in ["Left","Right"]:
 			var out: Dictionary=_profile.out[side]
-			row[side.to_lower()]={"thigh":[float(out.thigh),20.0*t],"shin":[float(out.shin),float(_profile.shin_degrees)*t],"foot":8.0}
+			row[side.to_lower()]={"thigh":[float(out.thigh),THIGH_FORWARD_DEGREES*t],"shin":[float(out.shin),float(_profile.shin_degrees)*t],"foot":8.0}
 		_stand.poses={"yard_kneel":row}
 		_stand.apply(body,"yard_kneel",false,0.0,0.0)
 		# Keep each pair's mean footprint in the authored source position; only
@@ -111,7 +164,7 @@ func apply_base(body: Skeleton3D, delta: float) -> void:
 		var pelvis:=body.find_bone("Hips")
 		var position:=body.get_bone_pose_position(pelvis)
 		position.x+=target.x-mean.x;position.z+=target.z-mean.z
-		var at:=t*32.0;var index:=mini(int(at),31)
+		var at:=t*float(LIFT_INTERVALS);var index:=mini(int(at),LIFT_INTERVALS-1)
 		var lift:=lerpf(float(_profile.lifts[index]),float(_profile.lifts[index+1]),at-float(index))
 		var floor_offset:=body.to_local(Vector3(body.global_position.x,_floor_y,body.global_position.z)).y
 		position.y+=lift+floor_offset
