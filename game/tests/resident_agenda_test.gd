@@ -333,6 +333,11 @@ func _player() -> void:
 	var timetable := str(schedule.resolve("evelyn_marsh", "wed", 1090.0, 100, false).get("place", ""))
 	print("  Evelyn's timetable at 18:10 says %s" % timetable)
 	_check("Evelyn, who distrusts the night man, skips the mail bank while he is at it", avoided)
+	player = "roof"
+	agenda.live_day = ""
+	agenda.advance("wed", 100, false, 1080)
+	_check("wary Evelyn keeps her appointment when the night man is elsewhere",
+			agenda._live.evelyn_marsh.choice.place == "mail_bank")
 	trust = {}
 	player = ""
 	agenda.live_day = ""
