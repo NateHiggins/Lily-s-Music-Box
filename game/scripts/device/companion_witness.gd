@@ -17,7 +17,7 @@ var _room := ""
 var _candidate_room := ""
 var _room_dwell := 0.0
 var _sample_left := 0.0
-var _target: Object
+var _target_id := 0
 var _hesitation := 0.0
 var _blocked := false
 
@@ -97,9 +97,10 @@ func observe(delta: float) -> void:
 			if not _room.is_empty(): session.queue_event("revisit" if revisit else "exploration")
 			_room = current
 	var hit: Dictionary = player._grab.last_hit
-	var collider: Object = hit.get("collider")
-	if not is_instance_valid(collider) or collider != _target or player.velocity.length() > .15 or player._grab.active():
-		_target = collider; _hesitation = 0.0
+	var collider: Variant = hit.get("collider")
+	var target_id: int = collider.get_instance_id() if is_instance_valid(collider) else 0
+	if target_id == 0 or target_id != _target_id or player.velocity.length() > .15 or player._grab.active():
+		_target_id = target_id; _hesitation = 0.0
 	else:
 		_hesitation += .25
 		if _hesitation >= 20.0:
@@ -114,7 +115,7 @@ func _state_changed() -> void:
 		_campaign = RealityState.data
 		_known = RealityState.data.get("knowledge_flags", []).duplicate()
 		last_read.clear(); _catalog = null
-		_room = ""; _candidate_room = ""; _target = null; _hesitation = 0.0
+		_room = ""; _candidate_room = ""; _target_id = 0; _hesitation = 0.0
 		_room_dwell = 0.0; _sample_left = 0.0; _blocked = false
 		return
 	var current: Array = RealityState.data.get("knowledge_flags", [])
