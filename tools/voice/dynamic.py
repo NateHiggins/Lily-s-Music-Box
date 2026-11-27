@@ -38,8 +38,8 @@ import intake
 # Music body availability now queries the existing anecdote; its text and gift join are unchanged.
 # A shared resident input ownership query changes shoulder presentation only.
 PROVIDERS = {
-    # Branch endings affect the offered choices only. Dynamic provider text and joins are unchanged.
-    'game/scripts/game/resident_conversations.gd': '9fcea264b64379116593c9bf55417915285d71f35a01c3fcddbe4c6ecd665b0c',
+    # Mae's unfinished dated topic can be offered again under its original admission rules.
+    'game/scripts/game/resident_conversations.gd': '6b214798f85a8b27074b42d5f04e3ffe433c07ee228327b93f162e77350b0553',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
