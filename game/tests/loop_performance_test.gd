@@ -914,9 +914,12 @@ func _ordinary_exchanges() -> void:
 			check(performance.try_conversation(first, player), "the Prices reopen on a new day")
 			panel.choose(0)
 			var question := panel.offered_labels().find("Where can he put the cup without losing his place?")
-			check(question >= 0, "the player can offer to settle the cup dispute")
-			if question >= 0:
-				panel.choose(question)
+			check(question == 1, "listening remains first and the cup intervention is on key 2")
+			if question == 1:
+				var ask := InputEventKey.new()
+				ask.keycode = KEY_2
+				ask.pressed = true
+				panel._unhandled_input(ask)
 				check(panel._line.text == "Cup here. Leave your finger where that sentence goes." and conversations._active_resident == "noel_price",
 						"Noel gives the practical answer directly")
 				panel.choose(0)
