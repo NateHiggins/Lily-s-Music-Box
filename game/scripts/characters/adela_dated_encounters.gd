@@ -7,8 +7,10 @@ extends Node3D
 ## then stages it where the player can go and see it: at the enlarger in Photo Supplies, by the roof parapet, or
 ## in the shop with Miss Quell and the prints. The key book's attempt flag is granted only by that witness, on
 ## 19 July before 21:01 (no offscreen act is ever written). The schedule is untouched: these bodies are
-## presentation only and retire at 21:01. Mr. Ewald has no body yet (ruling ewald_body_20261126 is open), so the
-## prints scene is witnessed with Adela and Nadia.
+## presentation only and retire at 21:01. In the prints branch Miss Quell is her own routed body: the
+## whereabouts hook sends her to Photo Supplies, her ordinary route walks her to the shop window, and Adela waits
+## beside that mark; the scene counts only once Nadia has physically arrived there. Mr. Ewald has no body yet
+## (ruling ewald_body_20261126 is open), so the prints scene is witnessed with Adela and Nadia.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
 const PERSON := "adela_voss"
 const LOBBY := "F01_LOBBY"
@@ -39,16 +41,14 @@ const BRANCHES := [
 	{"thread": "av_friday_shop", "intent": "m_o2_shop_agreed", "attempt": "m_o2_kept_shop", "place": "enlarger",
 			"from": 1105, "witness_from": 1255, "reach": 4.0},
 ]
-const GUEST_NAMES := {"nadia_quell": "Nadia Quell"}
+const ARRIVED := 1.8  # a guest stands with Adela when her routed body is this close (horizontal metres)
 
 var world: Node3D
 var actor: AnimatedResident
 var _current_thread := ""
 var _refused_thread := ""
 var _poll_due := 0.0
-var guests: Array[AnimatedResident] = []
 var _witnessed := 0.0
-var guest_note := ""  # why a guest is not yet staged, for evidence
 var _stand := {}  # where Adela stands for the staged branch, and the side her guests take
 
 
@@ -68,8 +68,6 @@ func _physics_process(delta: float) -> void:
 	elif not is_instance_valid(actor) and thread != _refused_thread:
 		_mount_resident(encounter)
 	if is_instance_valid(actor) and encounter.has("attempt"):
-		if guests.size() < encounter.get("guests", []).size():
-			_mount_guests(encounter)
 		# Sight is continuous: a mounted body is resolved every physics tick, after the schedule has retired
 		# anything the clock has closed, and watched with the real delta; any break starts it again.
 		_watch(encounter, delta)
@@ -142,7 +140,7 @@ func witnessing(branch: Dictionary) -> bool:
 		return false
 	var people: Array = [actor]
 	if str(branch.place) == "prints":
-		people.append_array(guests)
+		people.append_array(arrived_guests(branch))
 	var seen := 0
 	for person: Variant in people:
 		if is_instance_valid(person) and _sees(camera, person as Node3D, float(branch.reach)):
@@ -162,14 +160,30 @@ func _sees(camera: Camera3D, person: Node3D, reach: float) -> bool:
 	return hit.is_empty() or (hit.collider is Node and person.is_ancestor_of(hit.collider))
 
 
+## The branch's guests whose own routed bodies have physically arrived beside Adela.
+func arrived_guests(branch: Dictionary) -> Array[Node3D]:
+	var found: Array[Node3D] = []
+	if not is_instance_valid(actor):
+		return found
+	for id: Variant in branch.get("guests", []):
+		var body := routed_body(str(id))
+		if body != null and Vector2(body.global_position.x - actor.global_position.x,
+				body.global_position.z - actor.global_position.z).length() <= ARRIVED:
+			found.append(body)
+	return found
+
+
+## The one visible routed body of a resident, or null.
+func routed_body(id: String) -> Node3D:
+	for body: Node in get_tree().get_nodes_in_group("animated_residents"):
+		if body is Node3D and body != actor and str(body.get("resident_id")) == id and (body as Node3D).is_visible_in_tree():
+			return body as Node3D
+	return null
+
+
 func _retire() -> void:
 	_current_thread = ""
 	_witnessed = 0.0
-	for guest: AnimatedResident in guests:
-		if is_instance_valid(guest):
-			guest.hide()
-			guest.queue_free()
-	guests.clear()
 	_stand = {}
 	if not is_instance_valid(actor):
 		return
@@ -203,7 +217,22 @@ func _stance(place: String) -> Dictionary:
 			var local := Vector3(PARAPET_STANCE_X, ROOF_STANCE.y, edge + inward * PARAPET_INSET)
 			return {"origin": building.to_global(local + Vector3.UP), "room_prefix": "ROOF_DECK_",
 					"facing": building.to_global(Vector3(PARAPET_STANCE_X, ROOF_STANCE.y + 1.0, edge - inward * 2.0))}
-		"enlarger", "prints":
+		"prints":
+			var region: Node = world.get("passage_region")
+			if region == null or str(region.residency.state) != "RESIDENT":
+				return {"retry": true}
+			var window := preload("res://scripts/building/orison_v2_photo_supplies.gd").window_pose(region)
+			var along := window.basis.x.slide(Vector3.UP).normalized()
+			var front := window.basis.z.slide(Vector3.UP).normalized()
+			var mark := window.origin + front * 1.55 + along * .75  # Nadia's routed photo_window stance
+			for offset: float in [-.95, .95, -1.3, 1.3]:
+				var origin := mark + along * offset + Vector3.UP * 1.5
+				var floor := _stand_floor(origin)
+				if floor.is_empty() or not _clear(floor.position) 						or not region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
+					continue
+				return {"origin": origin, "facing": mark}
+			return {}
+		"enlarger":
 			var enlarger: Variant = enlarger_point()
 			if enlarger == null:
 				return {"retry": true}
@@ -254,42 +283,7 @@ func _mount_resident(encounter: Dictionary) -> void:
 		return
 	actor = resident
 	_current_thread = thread
-	_stand = {"at": floor.position, "beside": placement.get("beside", Vector3.RIGHT)}
-	_mount_guests(encounter)
-
-
-## A guest is staged only once her routed body has gone out, so she is never seen in two places.
-func _mount_guests(encounter: Dictionary) -> void:
-	var guest_ids: Array = encounter.get("guests", [])
-	for i in guest_ids.size():
-		var id := str(guest_ids[i])
-		if guests.any(func(g: AnimatedResident) -> bool: return is_instance_valid(g) and g.resident_id == id):
-			continue
-		if routed_visible(id):
-			guest_note = id + ": her routed body is still visible"
-			continue
-		var beside: Vector3 = _stand.beside
-		var spot := _stand_floor(_stand.at + beside * (.9 * (i + 1)) + Vector3.UP * .2)
-		if spot.is_empty() or not _clear(spot.position):
-			spot = _stand_floor(_stand.at - beside * (.9 * (i + 1)) + Vector3.UP * .2)
-		if spot.is_empty() or not _clear(spot.position):
-			guest_note = id + ": no clear standing room beside Adela"
-			continue
-		var guest := _present(str(GUEST_NAMES.get(id, id)), id, spot.position, _stand.at, "av_friday_witness",
-				true, func() -> bool: return false)
-		if guest != null:
-			guests.append(guest)
-			guest_note = ""
-		else:
-			guest_note = id + ": her cast body did not load"
-
-
-## True while any other body of this resident is visible in the world.
-func routed_visible(id: String) -> bool:
-	for body: Node in get_tree().get_nodes_in_group("animated_residents"):
-		if body is Node3D and str(body.get("resident_id")) == id and not guests.has(body) 				and (body as Node3D).is_visible_in_tree():
-			return true
-	return false
+	_stand = {"at": floor.position}
 
 
 ## The mounted enlarger's own drawn body (its dark casting), once the shop is resident; null until then.
