@@ -12,7 +12,7 @@ extends Node
 
 const REQUIRED := ["quiet_fallback", "exact_binding", "audio_clock_face", "same_speaker_next", "rapid_advance",
 		"speaker_switch", "foreign_replacement", "silent_delivery", "authored_silent_node", "diagnostics_bounded",
-		"immediate_exit", "state_loaded", "continue_exit", "bus_stable", "staff_face_handoff"]
+		"immediate_exit", "state_loaded", "continue_exit", "bus_stable", "staff_face_handoff", "foreground_take_ownership"]
 
 class StubFace extends RefCounted:
 	var _speech_clock := -1.0
@@ -95,6 +95,33 @@ func _check_staff_lookup(playback: LoopVoicePlayback) -> void:
 	_contract("staff_face_handoff", before)
 
 
+
+func _check_foreground_take_owner() -> void:
+	var before := failures.size()
+	_reset(voice)
+	now=0.0
+	var rows: Array=[{"speaker":"evelyn_marsh","text":lines["loop_profile_evelyn_marsh__loop_business"]}]
+	var gate_queries: Array[bool]=[]
+	var inspect_gate := func() -> void:
+		if voice._awaiting_draw:gate_queries.append(voice.has_foreground_take())
+	RenderingServer.frame_pre_draw.connect(inspect_gate)
+	var started_line := director.start_performance_sequence("evelyn_marsh",rows,player)
+	_check(started_line and voice._bind_pending and voice.has_foreground_take(),"an exact recorded line reserves foreground before deferred binding")
+	var pending_state := [voice._bind_pending,voice._awaiting_draw,voice._take.size(),voice.events.size()]
+	voice.has_foreground_take()
+	_check(pending_state==[voice._bind_pending,voice._awaiting_draw,voice._take.size(),voice.events.size()],"foreground queries do not bind, start, stop or record an event")
+	await _frames(3)
+	if RenderingServer.frame_pre_draw.is_connected(inspect_gate):RenderingServer.frame_pre_draw.disconnect(inspect_gate)
+	_check(voice.has_foreground_take(),"an actual playing take retains foreground")
+	if DisplayServer.get_name()!="headless":
+		_check(not gate_queries.is_empty() and gate_queries.all(func(value: bool):return value),"a staged exact take owns its first-draw gate")
+	director.cancel_for_transition()
+	_check(not voice.has_foreground_take(),"leaving releases foreground immediately")
+	await _frames()
+	_reset(voice)
+	_contract("foreground_take_ownership",before)
+
+
 func _run() -> void:
 	started = Time.get_ticks_msec()
 	output = OS.get_environment("SHOT_DIR")
@@ -142,8 +169,11 @@ func _run() -> void:
 	file.close()
 	for manifest: String in [LoopVoiceManifest.RELEASE, output.path_join("missing.json"), broken]:
 		var quiet := await _voice(manifest)
-		_check(quiet.manifest.count() == 0, "no takes from " + manifest.get_file())
-		_check(await _perform(["loop_profile_evelyn_marsh__loop_business"]), "performance starts with " + manifest.get_file())
+		_check(quiet.manifest.count() == 0 and not quiet.has_foreground_take(), "no takes or foreground reservation from " + manifest.get_file())
+		var quiet_rows: Array=[{"speaker":"evelyn_marsh","text":lines["loop_profile_evelyn_marsh__loop_business"]}]
+		_check(director.start_performance_sequence("evelyn_marsh",quiet_rows,player), "performance starts with " + manifest.get_file())
+		_check(quiet._bind_pending and not quiet.has_foreground_take(),"an unrecorded pending bind does not reserve foreground")
+		await _frames(3)
 		panel.choose(panel.offered_labels().size() - 1)
 		await _frames()
 		_check(not director.performance_active() and _plays(quiet) == 0, "quiet fallback: nothing plays and the line ends (%s)" % manifest.get_file())
@@ -162,6 +192,7 @@ func _run() -> void:
 	var expected := int(OS.get_environment("LOOP_VOICE_EXPECTED")) if not OS.get_environment("LOOP_VOICE_EXPECTED").is_empty() else 27
 	_check(voice.manifest.count() == expected, "the pinned packed takes load (%d of %d)" % [voice.manifest.count(), expected])
 	details["takes_loaded"] = voice.manifest.count()
+	await _check_foreground_take_owner()
 
 	# 2. Exact binding: actor and the exact line's digest, nothing else.
 	before = failures.size()
@@ -251,6 +282,7 @@ func _run() -> void:
 		_check(not peter_body.calls.is_empty() and peter_body.calls[0].begins_with("cues:"), "Peter's body receives his recording's mouth cues")
 	else:
 		_check(not voice.playing() and _plays(voice) == 1 and peter_body.calls.is_empty(), "Peter waits silently when his take is absent")
+		_check(not voice.has_foreground_take(),"missing Peter take does not defer background work")
 	panel.choose(0)
 	await _frames(3)
 	_check(_plays(voice) == (3 if peter_voiced else 2) and voice._take.get("line_id") == "loop_exchange_oy01__loop_business_2",
@@ -272,6 +304,7 @@ func _run() -> void:
 	panel._end_tree()
 	director.cancel_for_transition()
 	await _frames()
+	_check(not voice.has_foreground_take(),"a foreign replacement has no foreground take")
 	_contract("foreign_replacement", before)
 
 	# 6b. A line that turns silent (the panel's authored silent delivery) stops the take at once.
@@ -286,6 +319,7 @@ func _run() -> void:
 	panel._line_delivery = "spoken"
 	panel.choose(panel.offered_labels().size() - 1)
 	await _frames()
+	_check(not voice.has_foreground_take(),"silent delivery owns no recorded foreground")
 	_contract("silent_delivery", before)
 
 	# 6c. An authored silent-delivery node, shown through the panel's own node path: a line with a take is not
@@ -309,6 +343,7 @@ func _run() -> void:
 	_check(_plays(voice) == 1 and not voice.playing() and _stops(voice).has("node_changed"), "the silent node plays nothing and the earlier take stopped")
 	panel.choose(panel.offered_labels().size() - 1)
 	await _frames()
+	_check(not voice.has_foreground_take(),"authored silent node owns no recorded foreground")
 	_contract("authored_silent_node", before)
 
 	# 6d. Diagnostics stay bounded however long the campaign runs.
@@ -336,6 +371,7 @@ func _run() -> void:
 	RealityState.data = lease_data.duplicate(true)
 	await _frames()
 	_check(not voice.playing() and _last_stop(voice) == "state_loaded", "a loaded save stops the take")
+	_check(not voice.has_foreground_take(),"a loaded campaign leaves no stale foreground reservation")
 	RealityState.data = lease_data
 	director.cancel_for_transition()
 	await _frames()
@@ -346,7 +382,7 @@ func _run() -> void:
 	_reset(voice)
 	await _perform(["loop_profile_evelyn_marsh__loop_business"])
 	remove_child(voice)
-	_check(_last_stop(voice) == "exit_tree", "leaving the scene stops the take")
+	_check(_last_stop(voice) == "exit_tree" and not voice.has_foreground_take(), "leaving the scene stops the take and foreground reservation")
 	voice.free()
 	director.cancel_for_transition()
 	await _frames()

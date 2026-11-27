@@ -84,6 +84,43 @@ func playing() -> bool:
 	return not _take.is_empty() and _player != null and _player.playing
 
 
+## Read-only foreground ownership for background presentation work. Missing or
+## silent takes do not reserve it. No bind/start/stop, clock seek or signal
+## subscription occurs here; replaced trees and loaded campaigns are rejected.
+func has_foreground_take() -> bool:
+	if not _bind_pending and not _awaiting_draw and not playing():return false
+	var context := _recordable_context()
+	if context.is_empty():return false
+	if _take.is_empty():return _bind_pending
+	return (_awaiting_draw or playing()) and is_same(_bound.get("tree"),context.tree) \
+			and str(_bound.get("node",""))==context.node and is_same(_campaign,_reality_data())
+
+
+func _recordable_context() -> Dictionary:
+	if manifest == null or manifest.count() == 0 or not is_instance_valid(conversations) or not is_instance_valid(_panel) \
+			or not bool(conversations.get("_performance_active")) or not bool(_panel.call("attention_active")):
+		return {}
+	var tree: Dictionary = conversations.get("_performance_tree")
+	var node_id := str(_panel.get("current_node_id"))
+	if not is_same(_panel.get("_tree"), tree) or not node_id.begins_with("loop_business"):
+		return {}
+	var node: Dictionary = tree.get("nodes", {}).get(node_id, {})
+	var actor := str(node.get("actor", ""))
+	var line := str(node.get("line", ""))
+	var shown: Dictionary = _panel.call("displayed_line")
+	if actor.is_empty() or str(shown.get("text", "")) != line or str(shown.get("delivery", "")) == "silent" \
+			or line.replace(".", "").strip_edges().is_empty() or _foreign_attention():
+		return {}
+	var take := manifest.take_for(actor, line)
+	if take.is_empty():
+		return {}
+	for segment: Dictionary in take.segments:
+		var span := line.substr(int(segment.get("start_char", 0)), int(segment.get("end_char", 0)) - int(segment.get("start_char", 0)))
+		if span.strip_edges().is_empty():
+			return {} # A segment that covers no words of this line: the take is not for it.
+	return {"tree":tree,"node":node_id,"actor":actor,"text":line,"take":take}
+
+
 func _on_node_shown(_node_id: String) -> void:
 	# The old line ends with its node; faces are left to the conversation's own speech owner, which restarts or
 	# ends them on this same signal. The new node may bind its own take once the speaker swap has finished.
@@ -103,24 +140,13 @@ func _bind() -> void:
 		return
 	if manifest == null or manifest.count() == 0 or not bool(conversations.call("performance_active")):
 		return
-	var tree: Dictionary = conversations.get("_performance_tree")
-	var node_id := str(_panel.get("current_node_id"))
-	if not is_same(_panel.get("_tree"), tree) or not node_id.begins_with("loop_business"):
-		return
-	var node: Dictionary = tree.get("nodes", {}).get(node_id, {})
-	var actor := str(node.get("actor", ""))
-	var line := str(node.get("line", ""))
-	var shown: Dictionary = _panel.call("displayed_line")
-	if actor.is_empty() or str(shown.get("text", "")) != line or str(shown.get("delivery", "")) == "silent" \
-			or line.replace(".", "").strip_edges().is_empty() or _foreign_attention():
-		return
-	var take := manifest.take_for(actor, line)
-	if take.is_empty():
-		return
-	for segment: Dictionary in take.segments:
-		var span := line.substr(int(segment.get("start_char", 0)), int(segment.get("end_char", 0)) - int(segment.get("start_char", 0)))
-		if span.strip_edges().is_empty():
-			return # A segment that covers no words of this line: the take is not for it.
+	var context := _recordable_context()
+	if context.is_empty(): return
+	var tree: Dictionary = context.tree
+	var node_id: String = context.node
+	var actor: String = context.actor
+	var line: String = context.text
+	var take: Dictionary = context.take
 	var stream: AudioStream = _load_stream(str(take.audio))
 	if stream == null:
 		return

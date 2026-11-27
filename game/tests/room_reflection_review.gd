@@ -1,11 +1,61 @@
 extends "res://tests/annunciator_world_review.gd"
 ## INERT paired scene experiment. No extra lights, material calibration,
 ## runtime-contract promotion, or human appearance acceptance.
+class SchedulingVoice extends LoopVoicePlayback:
+	var foreground := false
+	func has_foreground_take() -> bool:return foreground
+
+class SchedulingOwner extends "res://scripts/building/orison_v2_room_reflections.gd":
+	var requested_room := "A"
+	var created := 0
+	var refreshed := 0
+	func _view_position() -> Vector3:return Vector3.ZERO
+	func room_at(_eye: Vector3) -> String:return requested_room
+	func _create(identity: String) -> void:
+		created+=1
+		var probe := ReflectionProbe.new()
+		add_child(probe);probes[identity]=probe
+		_refresh_due[identity]=Time.get_ticks_msec()+30000
+	func _refresh(identity: String) -> void:
+		refreshed+=1;_refresh_due[identity]=Time.get_ticks_msec()+30000
+
+## Small off-tree policy check, callable without composing the review world.
+## Playback's separate real-panel tests own exact-take/pending/silent semantics.
+static func capture_scheduling_checks() -> Array[Dictionary]:
+	var rows: Array[Dictionary]=[]
+	var note := func(ok: bool,label: String) -> void:rows.append({"ok":ok,"label":label})
+	var host := OrisonV2RuntimeRoot.new()
+	host.player=PlayerController.new();host.add_child(host.player)
+	var voice := SchedulingVoice.new();voice.name="LoopVoicePlayback";host.add_child(voice)
+	var manager := SchedulingOwner.new();manager.world=host;manager._available=true
+	voice.foreground=true
+	manager._physics_process(.25)
+	note.call(manager.created==0 and manager.active_id=="A" and manager._last_used.has("A"),"recorded foreground defers new capture while room/LRU tracking continues")
+	voice.foreground=false;manager._physics_process(.25)
+	var cached: ReflectionProbe=manager.probes.get("A")
+	note.call(manager.created==1 and cached!=null,"next normal scan creates the owed room after speech ends")
+	voice.foreground=true;manager._on_room_toggled("A",false);manager._physics_process(.25)
+	note.call(manager.refreshed==0 and manager._refresh_due.get("A")==0 and cached.visible,"dirty cached probe stays visible and pending while speech owns foreground")
+	voice.foreground=false;manager._physics_process(.25)
+	note.call(manager.refreshed==1 and manager.probes.A==cached,"next scan refreshes the same cache after release")
+	voice.foreground=true;manager.requested_room="B";manager._on_room_toggled("A",true);manager._physics_process(.25)
+	note.call(manager.created==1 and manager.active_id=="B" and manager._last_used.has("B") and manager.probes.A==cached and cached.visible,"room changes and invalidations cannot evict or hide existing context during speech")
+	voice.foreground=false;manager._physics_process(.25)
+	note.call(manager.created==2 and manager.probes.has("B") and manager._refresh_due.A==0,"new room resumes without discarding the older dirty room")
+	manager.requested_room="A";manager._physics_process(.25)
+	note.call(manager.refreshed==2,"returning to the older room honors its pending invalidation")
+	voice.foreground=true;manager._on_room_toggled("A",false)
+	host.remove_child(voice);voice.free();manager._physics_process(.25)
+	note.call(manager.refreshed==3,"retired playback owner leaves no stale deferred-capture lock")
+	manager.free();host.free()
+	return rows
+
 var observations: Array[Dictionary]=[]
 func _run() -> void:
 	out=OS.get_environment("SHOT_DIR")
 	if out.is_empty() or DisplayServer.get_name()=="headless":get_tree().quit(1);return
 	DirAccess.make_dir_recursive_absolute(out)
+	for row: Dictionary in capture_scheduling_checks():check(bool(row.ok),str(row.label))
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world := await _world()
