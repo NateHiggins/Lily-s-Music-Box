@@ -298,8 +298,11 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 	if early < minute:
 		await _look_from(near, adela)
 		_check(not RealityState.has_knowledge(attempt), "%s: a real look before %02d:%02d grants nothing" % [place, minute / 60, minute % 60])
+		# Look away before the clock reaches the witness minute, so the glance checks below start from no sight.
+		await _look_from(near, adela, true, 0.0, .1)
 		await _at(minute)
 		await _settle(2.0, func() -> bool: return _thread() == thread)
+		_check(not RealityState.has_knowledge(attempt), "%s: looking away across %02d:%02d grants nothing" % [place, minute / 60, minute % 60])
 		adela = owner_node.get("actor")
 	# Sight is continuous and timed in real physics frames: a glance, or a look broken before a second, is not
 	# enough; a sustained second is.
