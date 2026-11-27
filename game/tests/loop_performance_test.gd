@@ -37,12 +37,15 @@ class Actor extends Node3D:
 	var activity := ""
 	var clears := 0
 	var sewing := false
-	func set_loop_activity(value: String, handwork: bool = false) -> void:
+	var sewing_surface: Node3D
+	func set_loop_activity(value: String, handwork: bool = false, work_surface: Node3D = null) -> void:
 		activity = value
 		sewing = handwork
+		sewing_surface = work_surface
 	func clear_loop_activity() -> void:
 		activity = ""
 		sewing = false
+		sewing_surface = null
 		clears += 1
 
 # Actual presentation methods and AnimationPlayer ownership with synthetic clip
@@ -523,7 +526,7 @@ func _lena_sewing_activity() -> void:
 	route.arrive("unit:sewing")
 	route.actor.rotation.y = atan2(work.global_position.x-route.actor.global_position.x, work.global_position.z-route.actor.global_position.z)
 	_tick()
-	check(route.actor.activity == "work" and route.actor.sewing, "arrived Lena requests handwork only at the authored button work phase")
+	check(route.actor.activity == "work" and route.actor.sewing and route.actor.sewing_surface == work, "arrived Lena requests handwork only at the authored button work phase")
 	var before := route.actor.global_transform
 	route.actor.rotation.y += PI
 	_tick()
@@ -605,38 +608,40 @@ func _lena_sewing_release() -> void:
 	animation_player.add_animation_library("", library)
 	animation_player.play("clip_03")
 	var before := actor.transform
-	actor.set_loop_activity("work", true)
+	var work := Node3D.new()
+	actor.add_child(work)
+	actor.set_loop_activity("work", true, work)
 	check(actor._loop_sewing and animation_player.current_animation == "clip_07", "production adapter borrows explicit counter-height handwork")
 	animation_player.advance(.1)
 	var position := animation_player.current_animation_position
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(is_equal_approx(animation_player.current_animation_position, position), "polling a held handwork clip does not restart it")
 	actor.talking = true
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(actor._loop_activity.is_empty() and not actor._loop_sewing and animation_player.current_animation == "clip_03", "dialogue releases the actual player to arms-rest instead of preferred work idle")
 	actor.clear_loop_activity()
 	check(animation_player.current_animation == "clip_03", "repeated release cannot restart Lena's preferred work idle")
 	actor.talking = false
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(animation_player.current_animation == "clip_07", "eligible re-entry borrows handwork again after dialogue")
 	actor._set_walking(true)
 	check(actor._loop_activity.is_empty() and animation_player.current_animation == "walk", "ordinary walking takes the clip without a latched handwork owner")
 	actor._set_walking(false)
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(actor.play_case_role("case_reaction"), "existing case action can take the body")
 	actor.clear_loop_activity()
 	check(animation_player.current_animation == "case_reaction", "work release never overwrites the case owner's successor clip")
 	animation_player.play("clip_03")
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	animation_player.play("clip_06")
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(actor._loop_activity.is_empty() and animation_player.current_animation == "clip_06", "existing seated posture refuses handwork and retains its clip")
 	animation_player.play("clip_03")
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	actor.clear_loop_activity()
 	check(animation_player.current_animation == "clip_03", "cancel or visit retirement leaves owned sewing hands at rest")
 	actor.resident_id = "cam_ortiz"
-	actor.set_loop_activity("work", true)
+	actor.set_loop_activity("work", true, work)
 	check(not actor._loop_sewing and animation_player.current_animation == "clip_03", "a sewing request cannot change another resident's work pose")
 	check(actor.transform == before, "presentation borrow and release never reposition the actor")
 	actor.free()

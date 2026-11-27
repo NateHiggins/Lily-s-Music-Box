@@ -585,7 +585,7 @@ func _process(delta: float) -> void:
 	var plans := {}
 	var contenders := {}
 	var focuses := {}
-	var sewing := {}
+	var sewing_surfaces := {}
 	for resident: String in world.resident_routes:
 		var route: Node = world.resident_routes[resident]
 		var actor: Node = route.actor
@@ -612,7 +612,8 @@ func _process(delta: float) -> void:
 		if resident == "lena_ortiz" and not phase.is_empty() and str(loop.visit_anchor()) == "button" \
 				and route.destination == "unit:sewing" and activity == "work" and focuses[resident] == "2B_sewing_machine":
 			var work: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
-			sewing[resident] = sewing_position_ready(actor as Node3D, work)
+			if sewing_position_ready(actor as Node3D, work):
+				sewing_surfaces[resident] = work
 		# Two route graphs may name the same work surface differently. Use its
 		# authored world endpoint; watching, listening and resting can be shared.
 		if activity in ["work", "chores"]:
@@ -640,8 +641,8 @@ func _process(delta: float) -> void:
 		var actor: Node3D = world.resident_routes[resident].actor
 		if _presenting.has(resident) and not is_same(_presenting[resident], actor):
 			_release_activity(resident)
-		if bool(sewing.get(resident, false)):
-			actor.set_loop_activity(plans[resident], true)
+		if sewing_surfaces.has(resident):
+			actor.set_loop_activity(plans[resident], true, sewing_surfaces[resident])
 		else:
 			actor.set_loop_activity(plans[resident])
 		_presenting[resident] = actor
