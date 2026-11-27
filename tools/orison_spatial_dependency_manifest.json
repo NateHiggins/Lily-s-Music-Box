@@ -301206,6 +301206,64 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "a9897f91c0578177",
+   "kind": "id_reference",
+   "token": "2B_din_dc2",
+   "file": "game/scripts/characters/sewing_seat_route.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const CHAIR := \"2B_din_dc2\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7849e8334e85b407",
+   "kind": "id_reference",
+   "token": "2B_sewing_machine",
+   "file": "game/scripts/characters/sewing_seat_route.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const MACHINE := \"2B_sewing_machine\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

@@ -152,6 +152,7 @@ UNIT_ROOM = {
     "kitchen": ("KITCHEN",),
     "studio": ("STUDIO", "MAIN"),
     "workshop": ("STUDIO", "MAIN"),
+    "radio_listening": ("MAIN",),  # Cal's existing 5B tape-trading room, not a new room.
     "workbench": ("STUDIO", "MAIN"),
     "drafting": ("STUDIO", "MAIN"),
     "workroom": ("STUDIO", "MAIN"),
