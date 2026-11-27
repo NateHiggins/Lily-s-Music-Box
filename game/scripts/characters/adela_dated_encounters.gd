@@ -8,9 +8,9 @@ extends Node3D
 ## in the shop with Miss Quell and the prints. The key book's attempt flag is granted only by that witness, on
 ## 19 July before 21:01 (no offscreen act is ever written). The schedule is untouched: these bodies are
 ## presentation only and retire at 21:01. In the prints branch Miss Quell is her own routed body: the
-## whereabouts hook sends her to Photo Supplies, her ordinary route walks her to her photo_window mark at the
-## shop's window, and Adela stands inside behind the window display with the prints. The scene is seen from inside
-## the shop and counts only once Nadia's body has physically arrived at that mark. Mr. Ewald has no body yet
+## whereabouts hook names "photo_supplies_prints", and her own route walks her through the shop's storefront to
+## its photo_prints vertex just inside, while Adela works at the enlarger. The scene is seen from inside the shop
+## and counts only once Nadia's body has physically arrived at that vertex. Mr. Ewald has no body yet
 ## (ruling ewald_body_20261126 is open), so the prints scene is witnessed with Adela and Nadia.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
 const PERSON := "adela_voss"
@@ -112,7 +112,7 @@ func guest_whereabouts(npc: String) -> Dictionary:
 		return {"place": "photo_supplies", "activity": "work", "outfit": "street", "detail": "the prints, and the enlarger sulking"}
 	if npc not in branch.get("guests", []):
 		return {}
-	return {"place": "photo_supplies", "activity": "visit", "outfit": "street", "detail": "Adela's prints, three days early"}
+	return {"place": "photo_supplies_prints", "activity": "visit", "outfit": "street", "detail": "Adela's prints, three days early"}
 
 
 ## The attempt is the player's own sight of the staged scene: close, in front of the eyes, nothing between,
@@ -168,16 +168,26 @@ func _sees(camera: Camera3D, person: Node3D, reach: float) -> bool:
 ## on the mark's floor and within ARRIVED of it.
 func arrived_guests(branch: Dictionary) -> Array[Node3D]:
 	var found: Array[Node3D] = []
-	if not is_instance_valid(actor) or _stand.get("mark") == null:
+	if not is_instance_valid(actor):
 		return found
-	var mark: Vector3 = _stand.mark
 	for id: Variant in branch.get("guests", []):
 		var body := routed_body(str(id))
-		if body == null or str(body.get_parent().get("destination")) != "photo_supplies":
+		var mark: Variant = prints_mark(str(id))
+		if body == null or mark == null or str(body.get_parent().get("destination")) != "photo_supplies_prints":
 			continue
 		if absf(body.global_position.y - mark.y) <= .3 and Vector2(body.global_position.x - mark.x, body.global_position.z - mark.z).length() <= ARRIVED:
 			found.append(body)
 	return found
+
+
+## The guest's own route vertex inside the shop (photo_prints), or null when her route has none.
+func prints_mark(id: String) -> Variant:
+	var body := routed_body(id)
+	var route: Node = body.get_parent() if body != null else null
+	if route == null or not (route.get("places") as Dictionary).has("photo_supplies_prints"):
+		return null
+	var index := int((route.get("identities") as Dictionary).get("photo_prints", -1))
+	return (route.get("graph") as AStar3D).get_point_position(index) if index >= 0 else null
 
 
 ## The resident's one visible routed body (an AnimatedResident under her route), or null when there is none or
@@ -228,26 +238,7 @@ func _stance(place: String) -> Dictionary:
 			var local := Vector3(PARAPET_STANCE_X, ROOF_STANCE.y, edge + inward * PARAPET_INSET)
 			return {"origin": building.to_global(local + Vector3.UP), "room_prefix": "ROOF_DECK_",
 					"facing": building.to_global(Vector3(PARAPET_STANCE_X, ROOF_STANCE.y + 1.0, edge - inward * 2.0))}
-		"prints":
-			var region: Node = world.get("passage_region")
-			if region == null or str(region.residency.state) != "RESIDENT":
-				return {"retry": true}
-			var window := preload("res://scripts/building/orison_v2_photo_supplies.gd").window_pose(region)
-			var along := window.basis.x.slide(Vector3.UP).normalized()
-			var front := window.basis.z.slide(Vector3.UP).normalized()
-			var mark := window.origin + front * 1.55 + along * .75  # Nadia's routed photo_window stance, outside
-			var floor_y := (_stand_floor(mark + Vector3.UP * 1.5) as Dictionary).get("position", mark) as Vector3
-			mark.y = floor_y.y
-			# Adela inside, behind the window display, facing out to where Miss Quell reads them.
-			for back: float in [.9, 1.2, 1.5, 1.8]:
-				for side: float in [.75, .2, 1.3]:
-					var origin := window.origin - front * back + along * side + Vector3.UP * 1.5
-					var floor := _stand_floor(origin)
-					if floor.is_empty() or not _clear(floor.position) 							or not region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
-						continue
-					return {"origin": origin, "facing": mark, "mark": mark}
-			return {}
-		"enlarger":
+		"enlarger", "prints":
 			var enlarger: Variant = enlarger_point()
 			if enlarger == null:
 				return {"retry": true}
@@ -298,7 +289,7 @@ func _mount_resident(encounter: Dictionary) -> void:
 		return
 	actor = resident
 	_current_thread = thread
-	_stand = {"at": floor.position, "mark": placement.get("mark")}
+	_stand = {"at": floor.position}
 
 
 ## The mounted enlarger's own drawn body (its dark casting), once the shop is resident; null until then.

@@ -188,8 +188,29 @@ func _attach_photo_window() -> bool:
 		graph.connect_points(previous, approach)
 		graph.connect_points(approach, _point("photo_window", stance))
 		places["photo_supplies"] = "photo_window"
+		_attach_photo_prints(approach, point)
 		return true
 	return false
+
+## Friday 19 July, the prints branch (WR-05, AdelaDatedEncounters): one vertex just inside Photo Supplies,
+## reached through the shop's own storefront leaf from the aisle. Only that visit's whereabouts name
+## "photo_supplies_prints"; ordinary window work keeps "photo_supplies" and its window mark.
+func _attach_photo_prints(aisle: int, arcade_point: Vector3) -> void:
+	var leaf := world.passage_region.doors.get("SITE_SHOP_DOOR_PHOTO_SUPPLIES") as DoorProp
+	if leaf == null:
+		return
+	var axis := leaf.global_basis.z.slide(Vector3.UP).normalized()
+	var outward := signf(leaf.to_local(arcade_point).z)
+	var outside := leaf.global_position + axis * outward * 1.55
+	var inside := leaf.global_position - axis * outward * 1.35
+	outside.y = arcade_point.y
+	inside.y = arcade_point.y
+	var door_out := _point("photo_shop_door_out", outside)
+	graph.connect_points(aisle, door_out)
+	graph.connect_points(door_out, _point("photo_prints", inside))
+	places["photo_supplies_prints"] = "photo_prints"
+	if leaf not in _doors:
+		_doors.append(leaf)
 
 ## Reconstruct at the selected endpoint unless a person already occupies it.
 ## Fall back only along this resident's existing home-to-goal route. Keep the
