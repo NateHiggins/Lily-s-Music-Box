@@ -469,6 +469,15 @@ func _update_listener() -> void:
 		return
 	_listener_attention = owner
 	_listener_point = source.pipeline.eye_world()
+	var marks: Dictionary = _talk_encounter.get("listener_marks", {})
+	if not marks.is_empty() and marks.has(conversations.dialogue.current_node_id):
+		var model: Node = world.resident_routes[speaker].actor.cast_body
+		if is_instance_valid(model):
+			var rig: Skeleton3D = model.skeleton
+			if is_instance_valid(rig):
+				var bone := rig.find_bone(marks[conversations.dialogue.current_node_id])
+				if bone >= 0:
+					_listener_point = rig.to_global(rig.get_bone_global_pose(bone).origin)
 	owner.ensemble_target = _listener_point
 
 
