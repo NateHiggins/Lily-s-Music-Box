@@ -409,8 +409,9 @@ func _review_crossing() -> bool:
 	get_tree().paused=false
 	if not await _crossing_age(4.8):return false
 	var opaque_shadows:=0
+	var arrival_layers: int = carrier.screen_frame.DEVICE_MASK | preload("res://scripts/visuals/cel_style_presentation.gd").DEVICE_NATIVE_LAYER
 	for draw:GeometryInstance3D in carrier.rig.find_children("*","GeometryInstance3D",true,false):
-		_require(draw.layers==carrier.screen_frame.DEVICE_MASK,"arrival preserves native geometry layers: "+str(draw.name))
+		_require(draw.layers == arrival_layers, "arrival preserves the device and native-shading layers: "+str(draw.name))
 		if draw is MeshInstance3D and draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_ON:opaque_shadows+=1
 	_require(clip.world_stage and opaque_shadows>0 and (player.camera.cull_mask&carrier.screen_frame.DEVICE_MASK)!=0 and not carrier.screen_frame.layer.visible and carrier.is_story_absent() and not director.state.effects.companion_materialized,"ordinary world camera and housing shadow carry arrival; foreground, controls and completion remain withheld")
 	await _shot("crossing_emergence.png")
