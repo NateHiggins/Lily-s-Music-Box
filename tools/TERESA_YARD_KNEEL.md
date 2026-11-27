@@ -50,3 +50,22 @@ compression, active worn morphs, runtime skirt draping, the first live-clip
 handoff, skin/obstacle sweeps, storytelling, player visibility or artistic
 acceptance. Runtime uses installed bones/parts/skin; it never reads raw
 authoring `.gltf`/`.bin` files for admission.
+
+The source verifier also reads the actual shared `clip_02`/`clip_03` motion
+GLB, applies ResidentMovesLibrary's own-rest/donor-rest rotation rebase and
+hip-translation rule, and checks nine phases per clip with thirteen live-base
+blend weights (234 cases). This preserves the original failing standing/blend
+shoe penetration as an uncorrected measurement. The bounded per-leg two-bone
+support solve must support each whole shoe within0.8–6mm of the floor, preserve
+leg lengths, pelvis and horizontal ankle positions, and reject a correction
+over20mm instead of stretching. The baked kneel's stricter1mm target remains
+unchanged. This is a sampled source handoff check, not all clip crossfades or
+a substitute for native skin/cloth/transition evidence.
+
+Runtime caches actual installed shoe bind points once at admission and uses
+them only in the short live-base handoff. It decodes no mesh or raw asset per
+frame, and the settled kneel retains its nine cached pose writes. Native
+`handoff_cost_usec` diagnostics and private admission wall timing are needed
+before judging the cost of that bounded full-source support calculation.
+The regular idle clips' pre-existing unsupported shoe baseline is recorded
+separately; it is not silently repaired or accepted by this historical lease.

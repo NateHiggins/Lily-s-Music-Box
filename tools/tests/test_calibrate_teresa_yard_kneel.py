@@ -10,7 +10,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from tools.calibrate_teresa_yard_kneel import Calibration, Gltf, PRESENTATION, read_fit
+from tools.calibrate_teresa_yard_kneel import Calibration, Gltf, PRESENTATION, read_fit, rotation, quaternion, support_handoff
 
 
 class TeresaKneelCalibrationTests(unittest.TestCase):
@@ -45,6 +45,28 @@ class TeresaKneelCalibrationTests(unittest.TestCase):
         profile = formal.generate()
         with self.assertRaisesRegex(ValueError, "skirt penetrates source floor"):
             formal.verify_contact(profile)
+
+    def test_real_shared_idle_handoffs_keep_both_source_shoes_supported(self):
+        result = self.calibration.verify_handoff(self.profile)
+        self.assertEqual(result["samples"], 234)
+        self.assertLess(result["uncorrected_source_minimum_y_m"], -.004)
+        self.assertGreaterEqual(result["supported_source_minimum_y_m"], .0008)
+        self.assertLess(result["maximum_ankle_vertical_correction_m"], .02)
+
+    def test_handoff_refuses_out_of_range_instead_of_stretching_or_moving_root(self):
+        posed = self.calibration.rig.pose(0, self.profile)
+        for index in self.calibration.rig.joints:
+            posed[index][1, 3] += .05
+        before = {i: matrix.copy() for i, matrix in posed.items()}
+        with self.assertRaisesRegex(ValueError, "exceeds measured range"):
+            support_handoff(self.calibration, posed)
+        for index in posed:
+            np.testing.assert_array_equal(posed[index], before[index])
+
+    def test_quaternion_handoff_uses_existing_column_vector_rotation_abi(self):
+        for value in (np.array([.2, .3, .4, .5]), np.array([0., .7071, 0., .7071])):
+            value /= np.linalg.norm(value)
+            np.testing.assert_allclose(rotation(quaternion(rotation(value))), rotation(value), atol=1e-12)
 
     def test_portable_default_cli_is_read_only_from_another_directory(self):
         before = (ROOT / PRESENTATION).read_bytes()

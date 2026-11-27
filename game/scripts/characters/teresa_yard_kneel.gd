@@ -74,6 +74,13 @@ var _owned: Array[int]=[]
 var _floor_y := 0.0
 var _cached_t := -1.0
 var _targets: Dictionary={}
+## Only the short live-clip handoff needs support beyond the baked kneel.
+## Cached installed vertices, never raw authoring files or GPU readback.
+const HANDOFF_CLEARANCE := .001
+const HANDOFF_LIMIT := .02
+var _shoe_legs: Array[Dictionary]=[]
+var _handoff_supported := true
+var _handoff_cost_usec := 0
 
 func bind(actor: Node3D, cast: Node3D) -> bool:
 	if not is_instance_valid(actor) or str(actor.get("resident_id"))!="teresa_vale" or not is_instance_valid(cast):return _refuse("Teresa cast required")
@@ -115,7 +122,102 @@ func bind(actor: Node3D, cast: Node3D) -> bool:
 	for height: float in floors:
 		if absf(height-_floor_y)>.005:return _refuse("uneven kneel support")
 	if absf(_body.to_local(Vector3(_body.global_position.x,_floor_y,_body.global_position.z)).y)>.025:return _refuse("model origin differs from measured floor")
+	if not _bind_handoff_support():return false
 	_stand=Stand.new()
+	return true
+
+func _bind_handoff_support() -> bool:
+	for side: String in ["Left","Right"]:
+		var ids: Array[int]=[]
+		for suffix: String in ["UpLeg","Leg","Foot","ToeBase"]:ids.append(_body.find_bone(side+suffix))
+		_shoe_legs.append({"side":side,"ids":ids,"points":[]})
+	for draw: MeshInstance3D in _cast.wardrobe._meshes.get(_feet_part,[]):
+		if not (_body.global_transform.affine_inverse()*draw.global_transform).is_equal_approx(Transform3D.IDENTITY):return _refuse("shoe/skeleton coordinates differ")
+		for surface in draw.mesh.get_surface_count():
+			var arrays: Array=draw.mesh.surface_get_arrays(surface)
+			var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+			var bones: PackedInt32Array=arrays[Mesh.ARRAY_BONES]
+			var weights: PackedFloat32Array=arrays[Mesh.ARRAY_WEIGHTS]
+			if vertices.is_empty() or bones.size()%vertices.size()!=0 or weights.size()!=bones.size():return _refuse("incomplete installed shoe skin")
+			var stride:=int(bones.size()/vertices.size())
+			if stride not in [4,8]:return _refuse("unsupported installed shoe influences")
+			for vertex in vertices.size():
+				var parts: Array=[];var side:=-1;var total:=0.0
+				for slot in stride:
+					var at:=vertex*stride+slot
+					if not is_finite(weights[at]) or weights[at]<0.0:return _refuse("invalid shoe weight")
+					if weights[at]<=0.0:continue
+					if bones[at]<0 or bones[at]>=draw.skin.get_bind_count():return _refuse("invalid shoe bind")
+					var name:=draw.skin.get_bind_name(bones[at])
+					var bone:=_body.find_bone(name) if not name.is_empty() else draw.skin.get_bind_bone(bones[at])
+					var current:=-1
+					for index in 2:
+						if bone in (_shoe_legs[index].ids as Array).slice(1):current=index
+					if current<0 or (side>=0 and current!=side):return _refuse("unmeasured cross-leg shoe skin")
+					side=current;total+=weights[at]
+					parts.append([bone,(draw.skin.get_bind_pose(bones[at])*vertices[vertex])*weights[at],weights[at]])
+				if side<0 or absf(total-1.0)>.001:return _refuse("unnormalized installed shoe")
+				_shoe_legs[side].points.append(parts)
+	for leg: Dictionary in _shoe_legs:
+		if leg.points.is_empty():return _refuse("one actual shoe is missing")
+	return true
+
+func _shoe_low(body: Skeleton3D, leg: Dictionary, posed: Dictionary={}) -> float:
+	var frames: Dictionary={}
+	for bone: int in (leg.ids as Array).slice(1):frames[bone]=posed.get(bone,body.get_bone_global_pose(bone))
+	var low:=INF
+	for point: Array in leg.points:
+		var at:=Vector3.ZERO
+		for part: Array in point:
+			var frame: Transform3D=frames[int(part[0])]
+			at+=frame.basis*(part[1] as Vector3)+frame.origin*float(part[2])
+		low=minf(low,body.to_global(at).y)
+	return low
+
+func _leg_goal(body: Skeleton3D, leg: Dictionary, target: Vector3) -> Dictionary:
+	var ids: Array=leg.ids
+	var thigh:=body.get_bone_global_pose(ids[0]);var knee:=body.get_bone_global_pose(ids[1]);var foot:=body.get_bone_global_pose(ids[2])
+	var toe_relative:=foot.affine_inverse()*body.get_bone_global_pose(ids[3])
+	var upper:=thigh.origin.distance_to(knee.origin);var lower:=knee.origin.distance_to(foot.origin)
+	var reach:=target-thigh.origin;var distance:=reach.length()
+	if distance>=upper+lower-.000001 or distance<=absf(upper-lower)+.000001:return {}
+	var direction:=reach.normalized()
+	var bend:=knee.origin-thigh.origin;bend-=direction*bend.dot(direction)
+	if bend.length_squared()<.000001:
+		# The authored standing stance can be almost straight. Its knees bend
+		# toward the existing +Z front, never through an offset search.
+		bend=Vector3.BACK-direction*Vector3.BACK.dot(direction)
+	if bend.length_squared()<.000001:return {}
+	var along:=(upper*upper-lower*lower+distance*distance)/(2.0*distance)
+	var wanted:=thigh.origin+direction*along+bend.normalized()*sqrt(maxf(0.0,upper*upper-along*along))
+	var upper_turn:=Basis(Quaternion((knee.origin-thigh.origin).normalized(),(wanted-thigh.origin).normalized()))
+	var moved_foot:=wanted+upper_turn*(foot.origin-knee.origin)
+	var lower_turn:=Basis(Quaternion((moved_foot-wanted).normalized(),(target-wanted).normalized()))
+	var placed:=Transform3D(foot.basis,target)
+	return {ids[0]:Transform3D(upper_turn*thigh.basis,thigh.origin),ids[1]:Transform3D(lower_turn*upper_turn*knee.basis,wanted),ids[2]:placed,ids[3]:placed*toe_relative}
+
+func _support_handoff(body: Skeleton3D) -> bool:
+	var proposed: Dictionary={}
+	for leg: Dictionary in _shoe_legs:
+		var foot:=body.get_bone_global_pose(leg.ids[2])
+		var target:=foot.origin;var poses: Dictionary={}
+		for iteration in 3:
+			var low:=_shoe_low(body,leg,poses)
+			var error:=_floor_y+HANDOFF_CLEARANCE-low
+			if low>=_floor_y+.0008 and low<=_floor_y+.0058:break
+			if error<0.0:error=_floor_y+.0055-low
+			target=body.to_local(body.to_global(target)+Vector3.UP*error)
+			if body.to_global(target).distance_to(body.to_global(foot.origin))>HANDOFF_LIMIT:return _refuse("standing handoff exceeds measured support range")
+			poses=_leg_goal(body,leg,target)
+			if poses.is_empty():return _refuse("standing handoff leg cannot reach real floor")
+		var supported:=_shoe_low(body,leg,poses)-_floor_y
+		if supported<.0008 or supported>.006:return _refuse("standing handoff source sole did not converge")
+		proposed.merge(poses)
+	# Both legs preflight before any support writes; no stretching or actor move.
+	for leg: Dictionary in _shoe_legs:
+		for bone: int in leg.ids:
+			if proposed.has(bone):body.set_bone_global_pose(bone,proposed[bone])
+	if blocked_reason.begins_with("standing handoff"):blocked_reason=""
 	return true
 
 func _refuse(reason: String) -> bool:
@@ -132,7 +234,7 @@ func source_valid() -> bool:
 			if absf(draw.get_blend_shape_value(index))>.000001:return false
 	return not _draws.is_empty()
 
-func released() -> bool:return not wanted and amount<=0.0 and settle<=0.0
+func released() -> bool:return not wanted and amount<=0.0 and settle<=0.0 and _handoff_supported
 
 func apply_base(body: Skeleton3D, delta: float) -> void:
 	if body!=_body or not source_valid():blocked_reason="skin invalidated";return
@@ -143,7 +245,6 @@ func apply_base(body: Skeleton3D, delta: float) -> void:
 	else:
 		amount=move_toward(amount,0.0,maxf(delta,0.0)/1.0)
 		if amount<=0.0:settle=move_toward(settle,0.0,maxf(delta,0.0)/.20)
-	if settle<=0.0:return
 	var t:=amount*amount*(3.0-2.0*amount)
 	if _cached_t!=t:
 		var before: Array[Transform3D]=[]
@@ -175,7 +276,12 @@ func apply_base(body: Skeleton3D, delta: float) -> void:
 		_cached_t=t
 	for bone: int in _owned:
 		body.set_bone_pose(bone,body.get_bone_pose(bone).interpolate_with(_targets[bone],settle))
+	_handoff_supported=true;_handoff_cost_usec=0
+	if settle<1.0:
+		var began:=Time.get_ticks_usec()
+		_handoff_supported=_support_handoff(body)
+		_handoff_cost_usec=Time.get_ticks_usec()-began
 	if diagnostics:
 		var knees: Array[Vector3]=[]
 		for label: String in ["LeftLeg","RightLeg"]:knees.append(body.to_global(body.get_bone_global_pose(body.find_bone(label)).origin))
-		last={"knee_world":knees,"amount":amount,"settle":settle,"wanted":wanted,"floor_y":_floor_y,"shoe":_feet_part,"observation":"inside lower-body base stage; native whole skin/cloth qualification required"}
+		last={"knee_world":knees,"amount":amount,"settle":settle,"wanted":wanted,"floor_y":_floor_y,"shoe":_feet_part,"handoff_supported":_handoff_supported,"handoff_cost_usec":_handoff_cost_usec,"support_reason":blocked_reason,"observation":"inside lower-body base stage; native whole skin/cloth qualification required"}

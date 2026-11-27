@@ -10,6 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import struct
 import sys
 
 import numpy as np
@@ -59,15 +60,33 @@ class Gltf:
     """Small source reader; reuse the existing UV auditor's type/stride ABI.
 
     Fail on unsupported sparse/normalized data rather than silently skinning
-    different geometry. This tool needs external-buffer glTF, not a new GLB API.
+    different geometry. This tool reads external-buffer glTF and the existing shared motion GLB.
     """
 
     def __init__(self, path):
         self.path = path
-        self.doc = json.loads(path.read_bytes())
+        raw = path.read_bytes()
+        binary = None
+        if raw[:4] == b"glTF":
+            require(struct.unpack_from("<II", raw, 4) == (2, len(raw)), "invalid source GLB header")
+            chunks, offset = {}, 12
+            while offset < len(raw):
+                size, kind = struct.unpack_from("<II", raw, offset)
+                offset += 8
+                require(kind not in chunks and offset+size <= len(raw), "invalid source GLB chunk")
+                chunks[kind] = raw[offset:offset+size]
+                offset += size
+            self.doc = json.loads(chunks[0x4E4F534A])
+            binary = chunks.get(0x004E4942)
+        else:
+            self.doc = json.loads(raw)
         self.sources = [path]
         self.buffers = []
         for spec in self.doc["buffers"]:
+            if "uri" not in spec:
+                require(binary is not None and len(binary) >= spec["byteLength"], "missing GLB binary")
+                self.buffers.append(binary)
+                continue
             relative = Path(spec["uri"])
             require(not relative.is_absolute() and ".." not in relative.parts
                     and ":" not in spec["uri"], "external buffer leaves asset folder")
@@ -221,6 +240,7 @@ class Skin:
 
 class Calibration:
     def __init__(self, root=ROOT, feet="a_feet", bottom="a_bottom"):
+        self.root = Path(root)
         folder = Path(root) / ASSET
         assets = [Gltf(folder / f"teresa_vale{suffix}.gltf") for suffix in ("", "__"+feet, "__"+bottom)]
         self.sources = [path for asset in assets for path in asset.sources]
@@ -287,11 +307,194 @@ class Calibration:
         return {"samples": 129, "minimum_y_m": {key: round(value, 6) for key, value in minima.items()},
                 "maximum_individual_ankle_horizontal_drift_m": round(drift, 9)}
 
+    def verify_handoff(self, profile):
+        """Both actual shared idle clips, nine phases and thirteen blend weights.
+
+        This includes the originally failing source pose and the endpoint/seam
+        sides, but deliberately does not claim every possible clip crossfade.
+        """
+        moves = Gltf(self.root / "game/assets/characters/cast/shared/cast_moves.glb")
+        self.sources.extend(path for path in moves.sources if path not in self.sources)
+        target = self.rig.pose(0, profile)
+        for index in self.rig.joints:
+            target[index][1, 3] += profile["lifts"][0]
+        target_local = {i: value if i not in self.rig.parents else
+                        np.linalg.inv(target[self.rig.parents[i]]) @ value
+                        for i, value in target.items()}
+        original_low, corrected_low, maximum_ankle_move = float("inf"), float("inf"), 0.0
+        samples = 0
+        for name in ("clip_02", "clip_03"):
+            animation = next(row for row in moves.doc["animations"] if row["name"] == name)
+            duration = max(float(moves.accessor(row["input"])[-1, 0]) for row in animation["samplers"])
+            for seconds in np.linspace(0, duration, 9):
+                live = clip_locals(self.rig, moves, name, seconds)
+                for weight in np.linspace(0, 1, 13):
+                    before = blend_handoff(self.rig, live, target_local, weight)
+                    original_low = min(original_low, float(self.shoes.points(before)[:, 1].min()))
+                    after = support_handoff(self, before)
+                    corrected_low = min(corrected_low, float(self.shoes.points(after)[:, 1].min()))
+                    for side in SIDES:
+                        chain = [self.rig.ids[side+part] for part in ("UpLeg", "Leg", "Foot")]
+                        for first, second in zip(chain, chain[1:]):
+                            old = np.linalg.norm(before[first][:3, 3]-before[second][:3, 3])
+                            new = np.linalg.norm(after[first][:3, 3]-after[second][:3, 3])
+                            require(abs(old-new) < 1e-8, "handoff stretched a leg")
+                        foot = chain[-1]
+                        require(np.linalg.norm((after[foot][:3, 3]-before[foot][:3, 3])[[0, 2]]) < 1e-9,
+                                "handoff slid a shoe horizontally")
+                        maximum_ankle_move = max(maximum_ankle_move, float(np.linalg.norm(after[foot][:3, 3]-before[foot][:3, 3])))
+                    require(np.array_equal(before[self.rig.ids["Hips"]], after[self.rig.ids["Hips"]]), "support changed pelvis")
+                    samples += 1
+        return {"clips": ["clip_02", "clip_03"], "phase_samples_per_clip": 9,
+                "blend_samples_per_phase": 13, "samples": samples,
+                "uncorrected_source_minimum_y_m": round(original_low, 6),
+                "supported_source_minimum_y_m": round(corrected_low, 6),
+                "maximum_ankle_vertical_correction_m": round(maximum_ankle_move, 6)}
+
+
+def quaternion(matrix):
+    """Unit quaternion from a rotation matrix (symmetric eigen formulation)."""
+    m = matrix / np.linalg.norm(matrix, axis=0)
+    x, y, z = m
+    k = np.array([[x[0]-y[1]-z[2], y[0]+x[1], z[0]+x[2], y[2]-z[1]],
+                  [y[0]+x[1], y[1]-x[0]-z[2], z[1]+y[2], z[0]-x[2]],
+                  [z[0]+x[2], z[1]+y[2], z[2]-x[0]-y[1], x[1]-y[0]],
+                  [y[2]-z[1], z[0]-x[2], x[1]-y[0], x[0]+y[1]+z[2]]]) / 3
+    _, vectors = np.linalg.eigh(k)
+    q = vectors[:, -1]
+    # k uses row-vector signs; convert back to the column-vector ABI above.
+    q[:3] *= -1
+    return q
+
+
+def slerp(first, second, amount):
+    first, second = first / np.linalg.norm(first), second / np.linalg.norm(second)
+    dot = float(first @ second)
+    if dot < 0:
+        second, dot = -second, -dot
+    if dot > .9995:
+        result = first + amount*(second-first)
+        return result / np.linalg.norm(result)
+    angle = np.arccos(np.clip(dot, -1, 1))
+    return (np.sin((1-amount)*angle)*first + np.sin(amount*angle)*second) / np.sin(angle)
+
+
+def compose(rig, locals_):
+    result = {}
+    def visit(index):
+        if index not in result:
+            parent = rig.parents.get(index)
+            result[index] = locals_[index] if parent is None else visit(parent) @ locals_[index]
+        return result[index]
+    for index in range(len(rig.nodes)):
+        visit(index)
+    return result
+
+
+def clip_locals(rig, moves, name, seconds):
+    """ResidentMovesLibrary's actual cast rest rebase, with no Godot import."""
+    animation = next(row for row in moves.doc["animations"] if row["name"] == name)
+    result = {i: value.copy() for i, value in rig.local.items()}
+    for channel in animation["channels"]:
+        target = channel["target"]
+        node = moves.doc["nodes"][target["node"]]
+        label, kind = node["name"], target["path"]
+        if kind == "scale" or (kind == "translation" and label != "Hips") or label.startswith("Skirt"):
+            continue
+        sampler = animation["samplers"][channel["sampler"]]
+        interpolation = sampler.get("interpolation", "LINEAR")
+        require(interpolation in ("LINEAR", "STEP"), "unsupported cast motion interpolation")
+        times = moves.accessor(sampler["input"]).ravel()
+        values = moves.accessor(sampler["output"])
+        index = min(max(int(np.searchsorted(times, seconds, side="right"))-1, 0), len(times)-1)
+        next_index = min(index+1, len(times)-1)
+        amount = 0 if index == next_index or interpolation == "STEP" else float(np.clip((seconds-times[index])/(times[next_index]-times[index]), 0, 1))
+        own = rig.ids[label]
+        if kind == "rotation":
+            sampled = rotation(slerp(values[index], values[next_index], amount))
+            donor = rotation(node.get("rotation", [0, 0, 0, 1]))
+            rest = rig.local[own][:3, :3]
+            rest = rest / np.linalg.norm(rest, axis=0)
+            result[own][:3, :3] = rest @ donor.T @ sampled
+        else:
+            donor = np.array(node["translation"])
+            at = (1-amount)*values[index] + amount*values[next_index]
+            own_rest = rig.local[own][:3, 3]
+            result[own][:3, 3] = own_rest + (at-donor)*(own_rest[1]/donor[1])
+    return result
+
+
+def blend_handoff(rig, live, kneel, weight):
+    result = {i: value.copy() for i, value in live.items()}
+    for label in ("Hips",) + tuple(side+part for side in SIDES for part in ("UpLeg", "Leg", "Foot", "ToeBase")):
+        index = rig.ids[label]
+        posed = np.eye(4)
+        posed[:3, 3] = (1-weight)*live[index][:3, 3] + weight*kneel[index][:3, 3]
+        posed[:3, :3] = rotation(slerp(quaternion(live[index][:3, :3]), quaternion(kneel[index][:3, :3]), weight))
+        result[index] = posed
+    return compose(rig, result)
+
+
+def leg_goal(globals_, ids, target):
+    thigh, knee, foot, toe = [globals_[index] for index in ids]
+    a, b, c = thigh[:3, 3], knee[:3, 3], foot[:3, 3]
+    upper, lower = np.linalg.norm(b-a), np.linalg.norm(c-b)
+    reach = target-a
+    distance = np.linalg.norm(reach)
+    require(abs(upper-lower)+.000001 < distance < upper+lower-.000001, "handoff leg cannot reach floor")
+    direction = reach/distance
+    bend = b-a-direction*((b-a) @ direction)
+    if bend @ bend < .000001:
+        bend = np.array([0., 0., 1.])-direction*direction[2]
+    require(bend @ bend >= .000001, "unmeasured handoff bend axis")
+    along = (upper*upper-lower*lower+distance*distance)/(2*distance)
+    wanted = a+direction*along+bend/np.linalg.norm(bend)*np.sqrt(max(0, upper*upper-along*along))
+    first = arc(b-a, wanted-a)
+    moved = wanted+first @ (c-b)
+    second = arc(moved-wanted, target-wanted)
+    posed_thigh, posed_knee, posed_foot = thigh.copy(), knee.copy(), foot.copy()
+    posed_thigh[:3, :3] = first @ thigh[:3, :3]
+    posed_knee[:3, :3] = second @ first @ knee[:3, :3]
+    posed_knee[:3, 3], posed_foot[:3, 3] = wanted, target
+    return dict(zip(ids, (posed_thigh, posed_knee, posed_foot, posed_foot @ np.linalg.inv(foot) @ toe)))
+
+
+def support_handoff(calibration, globals_):
+    """Independent full-shoe oracle for the bounded per-leg runtime solve."""
+    rig, shoes = calibration.rig, calibration.shoes
+    masks = {}
+    for side in SIDES:
+        groups = []
+        for _vertices, ids, weights, joints, _inverse in shoes.parts:
+            own = np.array([rig.nodes[j]["name"].startswith(side) for j in joints])
+            groups.append(np.sum(own[ids]*weights, axis=1) >= .5)
+        masks[side] = np.concatenate(groups)
+    proposed = {}
+    for side in SIDES:
+        ids = [rig.ids[side+part] for part in ("UpLeg", "Leg", "Foot", "ToeBase")]
+        target = globals_[ids[2]][:3, 3].copy()
+        poses = {}
+        for _ in range(3):
+            low = float(shoes.points(globals_ | poses)[masks[side], 1].min())
+            error = CONTACT-low
+            if .0008 <= low <= .0058:
+                break
+            if error < 0:
+                error = .0055-low
+            target[1] += error
+            require(np.linalg.norm(target-globals_[ids[2]][:3, 3]) <= .02, "handoff exceeds measured range")
+            poses = leg_goal(globals_, ids, target)
+        low = float(shoes.points(globals_ | poses)[masks[side], 1].min())
+        require(.0008 <= low <= .006, "source handoff sole did not converge")
+        proposed.update(poses)
+    return globals_ | proposed
+
 
 def read_fit(path):
     source = path.read_text(encoding="utf-8")
     for name, expected in (("THIGH_FORWARD_DEGREES", THIGH_FORWARD_DEGREES),
-                           ("LIFT_INTERVALS", LIFT_INTERVALS)):
+                           ("LIFT_INTERVALS", LIFT_INTERVALS), ("HANDOFF_CLEARANCE", CONTACT),
+                           ("HANDOFF_LIMIT", .02)):
         declaration = re.search(r"^const " + name + r" := ([\d.]+)$", source, re.MULTILINE)
         require(declaration is not None and float(declaration[1]) == expected,
                 f"runtime {name} differs from calibration recipe")
@@ -315,6 +518,7 @@ def main():
         contact = calibration.verify_contact(profile)
         source, match, baked = read_fit(args.root/PRESENTATION)
         expected = {args.feet: profile}
+        handoff = calibration.verify_handoff(profile)
         if args.write:
             require((args.feet, args.bottom) == ("a_feet", "a_bottom"), "new outfit admission requires separate runtime/native review")
             replacement = json.dumps(expected, indent="\t")
@@ -324,7 +528,7 @@ def main():
             calibration.verify_contact(baked[args.feet])
         report = {"evidence_class": "INERT", "status": "PASS_SOURCE_ONLY", "feet": args.feet, "bottom": args.bottom,
                   "scope": "raw-source LBS; not imported morph/cloth, live-clip handoff, native contact or gameplay proof",
-                  "contact": contact, "profile": expected,
+                  "contact": contact, "handoff": handoff, "profile": expected,
                   "sources": [{"path": path.relative_to(args.root).as_posix(), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
                               for path in calibration.sources]}
         if args.out:
