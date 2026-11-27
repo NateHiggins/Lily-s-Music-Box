@@ -1,6 +1,41 @@
 extends RefCounted
 ## Bounded main-thread render preparation while the entry owner hides the world.
 ## No process/physics yield, gameplay transform, clock, input or save mutation.
+static var _reflection_prepared := false
+
+## Forward+ chooses reflection pipeline variants on its first probe capture.
+## Do this before the building registers its surfaces. The temporary scenario
+## has no connection to a gameplay camera, light, clock or input owner.
+static func prepare_room_reflections() -> void:
+    if _reflection_prepared or DisplayServer.get_name() == "headless":
+        return
+    if RenderingServer.get_current_rendering_method() != "forward_plus" or RenderingServer.get_rendering_device() == null:
+        return
+    _reflection_prepared = true
+    var scenario := RenderingServer.scenario_create()
+    var viewport := RenderingServer.viewport_create()
+    var camera := RenderingServer.camera_create()
+    var probe := RenderingServer.reflection_probe_create()
+    RenderingServer.reflection_probe_set_update_mode(probe, RenderingServer.REFLECTION_PROBE_UPDATE_ALWAYS)
+    var instance := RenderingServer.instance_create2(probe, scenario)
+    RenderingServer.camera_set_perspective(camera, 70.0, 0.05, 8.0)
+    RenderingServer.camera_set_transform(camera, Transform3D(Basis.IDENTITY, Vector3(0, 0, 2)))
+    RenderingServer.viewport_set_size(viewport, 16, 16)
+    RenderingServer.viewport_set_scenario(viewport, scenario)
+    RenderingServer.viewport_attach_camera(viewport, camera)
+    RenderingServer.viewport_set_update_mode(viewport, RenderingServer.VIEWPORT_UPDATE_ALWAYS)
+    RenderingServer.viewport_set_active(viewport, true)
+    # Culling queues the probe on the first draw. The following draw renders
+    # its six faces and finishes filtering in the temporary atlas.
+    RenderingServer.force_draw(false)
+    RenderingServer.force_draw(false)
+    RenderingServer.force_sync()
+    RenderingServer.free_rid(viewport)
+    RenderingServer.free_rid(instance)
+    RenderingServer.free_rid(probe)
+    RenderingServer.free_rid(camera)
+    RenderingServer.free_rid(scenario)
+
 static func exterior_views(frame: Transform3D, footprint: Rect2, eye_height: float, padding: float) -> Array[Transform3D]:
     var views: Array[Transform3D]=[]
     if not frame.origin.is_finite() or not frame.basis.is_finite() or frame.basis.determinant()<=.0001 \

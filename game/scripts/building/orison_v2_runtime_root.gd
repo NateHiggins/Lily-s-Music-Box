@@ -205,6 +205,7 @@ func _ready() -> void:
 	var started := Time.get_ticks_usec()
 	_startup_started_usec=started
 	startup_milestones.clear()
+	preload("res://scripts/building/v2_entry_render_preparation.gd").prepare_room_reflections()
 	var contact_precision := preload("res://scripts/building/orison_v2_contact_precision.gd").new()
 	contact_precision.name="V2ContactPrecision"
 	add_child(contact_precision)
