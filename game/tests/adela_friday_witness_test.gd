@@ -248,13 +248,14 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 						"visible": (body as Node3D).is_visible_in_tree(), "destination": str(routine.get("destination")) if routine != null else "",
 						"blocked": str(routine.get("blocked_reason")) if routine != null else "", "travelled": routine.get("travelled_metres") if routine != null else 0})
 		_check(arrived.size() == 1 and str(arrived[0].get("resident_id")) == "nadia_quell",
-				"prints: Miss Quell's own routed body walked through the storefront to her photo_prints vertex inside")
+				"prints: Miss Quell's own routed body walked through the storefront to her photo_prints vertex inside, with Adela in sight")
 		row.mark = str(owner_node.call("prints_mark", "nadia_quell"))
 		_check(world.passage_region.prepared_shop_contains("shop_photo_supplies", (arrived[0] as Node3D).global_position + Vector3.UP * .8) if not arrived.is_empty() else false,
 				"prints: she stands inside Photo Supplies")
 		_check(_visible_bodies("nadia_quell") == 1, "prints: exactly one Nadia is visible (%d)" % _visible_bodies("nadia_quell"))
 		var where: Dictionary = world.resident_whereabouts("nadia_quell")
-		_check(str(where.get("place", "")) == "photo_supplies_prints" and str(where.get("activity", "")) == "visit", "prints: her routed whereabouts are the shop's prints")
+		_check(str(where.get("place", "")) == "photo_supplies" and str(where.get("activity", "")) == "visit" and "photo:prints" in where.get("route", []),
+				"prints: her whereabouts keep the shop place with the prints stop")
 		row.nadia_at = (arrived[0] as Node3D).global_position if not arrived.is_empty() else null
 	# Out of reach, looking at her.
 	var far: Variant = _viewpoint(adela, reach + .3, reach + 1.5, true, place == "roof")

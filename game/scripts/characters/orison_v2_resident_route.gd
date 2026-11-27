@@ -193,22 +193,18 @@ func _attach_photo_window() -> bool:
 	return false
 
 ## Friday 19 July, the prints branch (WR-05, AdelaDatedEncounters): one vertex just inside Photo Supplies,
-## reached through the shop's own storefront leaf from the aisle. Only that visit's whereabouts name
-## "photo_supplies_prints"; ordinary window work keeps "photo_supplies" and its window mark.
+## reached through the middle of the shop's own storefront leaf (its local x runs hinge 0 to width) from the
+## aisle. The place stays "photo_supplies"; only a visit whose itinerary holds "photo:prints" ends at this
+## vertex, as the bodega's shelf stop does. Ordinary window work keeps the window mark.
 func _attach_photo_prints(aisle: int, arcade_point: Vector3) -> void:
 	var leaf := world.passage_region.doors.get("SITE_SHOP_DOOR_PHOTO_SUPPLIES") as DoorProp
 	if leaf == null:
 		return
-	var axis := leaf.global_basis.z.slide(Vector3.UP).normalized()
 	var outward := signf(leaf.to_local(arcade_point).z)
-	var outside := leaf.global_position + axis * outward * 1.55
-	var inside := leaf.global_position - axis * outward * 1.35
-	outside.y = arcade_point.y
-	inside.y = arcade_point.y
-	var door_out := _point("photo_shop_door_out", outside)
+	var middle := leaf.width * .5
+	var door_out := _point("photo_shop_door_out", leaf.to_global(Vector3(middle, 0.0, outward * 1.55)))
 	graph.connect_points(aisle, door_out)
-	graph.connect_points(door_out, _point("photo_prints", inside))
-	places["photo_supplies_prints"] = "photo_prints"
+	graph.connect_points(door_out, _point("photo_prints", leaf.to_global(Vector3(middle, 0.0, -outward * 1.35))))
 	if leaf not in _doors:
 		_doors.append(leaf)
 
@@ -300,6 +296,8 @@ func _select_destination() -> void:
 	var itinerary: Variant = block.get("route", [])
 	bodega_shelf_stop = destination == "bodega" and itinerary is Array and itinerary.has("bodega:shelf")
 	desired_id = int(identities.get(_node_for(destination),-1))
+	if destination == "photo_supplies" and itinerary is Array and itinerary.has("photo:prints") and identities.has("photo_prints"):
+		desired_id = int(identities.photo_prints)
 	route_speed = _speed()
 
 ## The route node for a destination: the place itself, the flat for any room

@@ -8,8 +8,8 @@ extends Node3D
 ## in the shop with Miss Quell and the prints. The key book's attempt flag is granted only by that witness, on
 ## 19 July before 21:01 (no offscreen act is ever written). The schedule is untouched: these bodies are
 ## presentation only and retire at 21:01. In the prints branch Miss Quell is her own routed body: the
-## whereabouts hook names "photo_supplies_prints", and her own route walks her through the shop's storefront to
-## its photo_prints vertex just inside, while Adela works at the enlarger. The scene is seen from inside the shop
+## whereabouts hook sends her to "photo_supplies" with a "photo:prints" itinerary, and her own route walks her
+## through the shop's storefront to its photo_prints vertex just inside, while Adela works at the enlarger. The scene is seen from inside the shop
 ## and counts only once Nadia's body has physically arrived at that vertex. Mr. Ewald has no body yet
 ## (ruling ewald_body_20261126 is open), so the prints scene is witnessed with Adela and Nadia.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
@@ -43,6 +43,7 @@ const BRANCHES := [
 			"from": 1105, "witness_from": 1255, "reach": 4.0},
 ]
 const ARRIVED := .6  # a guest has arrived when her routed body stands this close to her route's mark
+const WITH_ADELA := 4.0  # and is with Adela: faces this close, with a clear line between them
 
 var world: Node3D
 var actor: AnimatedResident
@@ -112,7 +113,8 @@ func guest_whereabouts(npc: String) -> Dictionary:
 		return {"place": "photo_supplies", "activity": "work", "outfit": "street", "detail": "the prints, and the enlarger sulking"}
 	if npc not in branch.get("guests", []):
 		return {}
-	return {"place": "photo_supplies_prints", "activity": "visit", "outfit": "street", "detail": "Adela's prints, three days early"}
+	return {"place": "photo_supplies", "activity": "visit", "outfit": "street", "route": ["photo:prints"],
+			"detail": "Adela's prints, three days early"}
 
 
 ## The attempt is the player's own sight of the staged scene: close, in front of the eyes, nothing between,
@@ -173,9 +175,19 @@ func arrived_guests(branch: Dictionary) -> Array[Node3D]:
 	for id: Variant in branch.get("guests", []):
 		var body := routed_body(str(id))
 		var mark: Variant = prints_mark(str(id))
-		if body == null or mark == null or str(body.get_parent().get("destination")) != "photo_supplies_prints":
+		var route: Node = body.get_parent() if body != null else null
+		if mark == null or str(route.get("destination")) != "photo_supplies" 				or int(route.get("desired_id")) != int((route.get("identities") as Dictionary).get("photo_prints", -2)):
 			continue
-		if absf(body.global_position.y - mark.y) <= .3 and Vector2(body.global_position.x - mark.x, body.global_position.z - mark.z).length() <= ARRIVED:
+		var at: Vector3 = mark
+		if absf(body.global_position.y - at.y) > .3 or Vector2(body.global_position.x - at.x, body.global_position.z - at.z).length() > ARRIVED:
+			continue
+		# With Adela: near her, and nothing between their faces.
+		var hers := actor.global_position + Vector3.UP * 1.55
+		var its := body.global_position + Vector3.UP * 1.55
+		if hers.distance_to(its) > WITH_ADELA:
+			continue
+		var hit := get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(hers, its, 1, [world.player.get_rid()]))
+		if hit.is_empty() or (hit.collider is Node and (actor.is_ancestor_of(hit.collider) or body.is_ancestor_of(hit.collider))):
 			found.append(body)
 	return found
 
@@ -184,7 +196,7 @@ func arrived_guests(branch: Dictionary) -> Array[Node3D]:
 func prints_mark(id: String) -> Variant:
 	var body := routed_body(id)
 	var route: Node = body.get_parent() if body != null else null
-	if route == null or not (route.get("places") as Dictionary).has("photo_supplies_prints"):
+	if route == null:
 		return null
 	var index := int((route.get("identities") as Dictionary).get("photo_prints", -1))
 	return (route.get("graph") as AStar3D).get_point_position(index) if index >= 0 else null
