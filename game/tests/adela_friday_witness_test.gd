@@ -248,10 +248,14 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 						"visible": (body as Node3D).is_visible_in_tree(), "destination": str(routine.get("destination")) if routine != null else "",
 						"blocked": str(routine.get("blocked_reason")) if routine != null else "", "travelled": routine.get("travelled_metres") if routine != null else 0})
 		_check(arrived.size() == 1 and str(arrived[0].get("resident_id")) == "nadia_quell",
-				"prints: Miss Quell's own routed body has walked to the shop beside her")
+				"prints: Miss Quell's own routed body walked through the storefront to her photo_prints vertex inside, with Adela in sight")
+		row.mark = str(owner_node.call("prints_mark", "nadia_quell"))
+		_check(world.passage_region.prepared_shop_contains("shop_photo_supplies", (arrived[0] as Node3D).global_position + Vector3.UP * .8) if not arrived.is_empty() else false,
+				"prints: she stands inside Photo Supplies")
 		_check(_visible_bodies("nadia_quell") == 1, "prints: exactly one Nadia is visible (%d)" % _visible_bodies("nadia_quell"))
 		var where: Dictionary = world.resident_whereabouts("nadia_quell")
-		_check(str(where.get("place", "")) == "photo_supplies" and str(where.get("activity", "")) == "visit", "prints: her routed whereabouts are the shop")
+		_check(str(where.get("place", "")) == "photo_supplies" and str(where.get("activity", "")) == "visit" and "photo:prints" in where.get("route", []),
+				"prints: her whereabouts keep the shop place with the prints stop")
 		row.nadia_at = (arrived[0] as Node3D).global_position if not arrived.is_empty() else null
 	# Out of reach, looking at her.
 	var far: Variant = _viewpoint(adela, reach + .3, reach + 1.5, true, place == "roof")
@@ -259,7 +263,10 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 		await _look_from(far, adela)
 		_check(not RealityState.has_knowledge(attempt), "%s: looking from beyond %.1f m grants nothing" % [place, reach])
 	# Close, looking away.
-	var near: Variant = _viewpoint(adela, 1.4, reach - .4, true, place == "roof")
+	# The shop scenes are seen from inside; the prints view keeps Miss Quell's face in the same picture.
+	var nadia: Node3D = owner_node.call("routed_body", "nadia_quell") if place == "prints" else null
+	var focus: Variant = null if nadia == null else (adela.global_position + nadia.global_position) * .5 + Vector3.UP * 1.55
+	var near: Variant = _viewpoint(adela, 1.4, minf(reach - .4, 3.0), true, place == "roof", place != "roof", nadia)
 	if not _check(near != null, "%s: a clear nearby viewpoint exists" % place):
 		return
 	await _look_from(near, adela, true)
@@ -296,20 +303,25 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 		adela = owner_node.get("actor")
 	# Sight is continuous and timed in real physics frames: a glance, or a look broken before a second, is not
 	# enough; a sustained second is.
-	await _look_from(near, adela, false, 0.0, .5)
+	await _look_from(near, adela, false, 0.0, .5, focus)
 	await _look_from(near, adela, true, 0.0, .3)
 	_check(not RealityState.has_knowledge(attempt), "%s: a half-second glance grants nothing" % place)
-	await _look_from(near, adela, false, 0.0, .6)
+	await _look_from(near, adela, false, 0.0, .6, focus)
 	await _look_from(near, adela, true, 0.0, .2)
-	await _look_from(near, adela, false, 0.0, .6)
+	await _look_from(near, adela, false, 0.0, .6, focus)
 	await _look_from(near, adela, true, 0.0, .3)
 	_check(not RealityState.has_knowledge(attempt), "%s: two 0.6 s looks broken by a glance away grant nothing" % place)
 	# The real look.
-	await _look_from(near, adela, false, 0.0, 1.25)
+	await _look_from(near, adela, false, 0.0, 1.25, focus)
 	_check(str(world.resident_whereabouts("adela_voss").get("place", "")) == ("roof" if place == "roof" else "photo_supplies"),
 			"%s: her whereabouts name the staged place" % place)
 	_check(RealityState.has_knowledge(attempt), "%s: a sustained look writes %s" % [place, attempt])
 	_check(_only_attempts([attempt]), "%s: and no other attempt" % place)
+	# The still is taken after the witness, from a physically valid place that reads her work: a three-quarter
+	# face (or both faces for the prints), not the first clear ray. The player's own camera stays free.
+	var view: Variant = _capture_view(adela, nadia, place != "roof")
+	if view != null:
+		await _look_from(view, adela, false, 0.0, .2, focus)
 	await _capture("friday_" + place)
 
 
@@ -363,7 +375,7 @@ func _bring_shop() -> void:
 
 ## A standing place `low`..`high` metres from the person, with floor and room for the player, whose eye line to
 ## the person's head is clear (or, for `clear` false, blocked by something that is not the person).
-func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool) -> Variant:
+func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool, shop := false, also: Node3D = null) -> Variant:
 	var head := person.global_position + Vector3.UP * 1.55
 	var space := get_world_3d().direct_space_state
 	for step in 6:
@@ -375,7 +387,13 @@ func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool
 				continue
 			if roof and not str(world.room_at_world(floor.position + Vector3.UP * .8)).begins_with("ROOF_DECK_"):
 				continue
+			if shop and not world.passage_region.prepared_shop_contains("shop_photo_supplies", floor.position + Vector3.UP * .8):
+				continue
 			var eye: Vector3 = floor.position + Vector3.UP * 1.6
+			if also != null:
+				var other := space.intersect_ray(PhysicsRayQueryParameters3D.create(eye, also.global_position + Vector3.UP * 1.55, 1, [world.player.get_rid()]))
+				if not other.is_empty() and not (other.collider is Node and also.is_ancestor_of(other.collider)):
+					continue
 			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(eye, head, 1, [world.player.get_rid()]))
 			var open := hit.is_empty() or (hit.collider is Node and person.is_ancestor_of(hit.collider))
 			if open == clear:
@@ -383,11 +401,41 @@ func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool
 	return null
 
 
-func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0, hold := 1.6) -> void:
+## Among clear standing places 1.6-2.6 m off, the one nearest a 40-degree three-quarter view of her face.
+func _capture_view(person: Node3D, other: Node3D, shop: bool) -> Variant:
+	var front := person.global_basis.z.slide(Vector3.UP).normalized()
+	var best: Variant = null
+	var best_error := INF
+	var space := get_world_3d().direct_space_state
+	for step in 3:
+		var distance := 1.6 + step * .5
+		for turn in 36:
+			var direction := Vector3.FORWARD.rotated(Vector3.UP, TAU * turn / 36.0)
+			var floor: Dictionary = owner_node.call("_stand_floor", person.global_position + direction * distance + Vector3.UP * 1.0)
+			if floor.is_empty() or absf(floor.position.y - person.global_position.y) > .3 or not bool(owner_node.call("_clear", floor.position)):
+				continue
+			if shop and not world.passage_region.prepared_shop_contains("shop_photo_supplies", floor.position + Vector3.UP * .8):
+				continue
+			var eye: Vector3 = floor.position + Vector3.UP * 1.6
+			var clear := true
+			for who: Node3D in ([person] if other == null else [person, other]):
+				var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(eye, who.global_position + Vector3.UP * 1.55, 1, [world.player.get_rid()]))
+				if not hit.is_empty() and not (hit.collider is Node and who.is_ancestor_of(hit.collider)):
+					clear = false
+			if not clear:
+				continue
+			var error := absf(rad_to_deg(front.angle_to(direction)) - 40.0)
+			if error < best_error:
+				best_error = error
+				best = floor.position
+	return best
+
+
+func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0, hold := 1.6, focus: Variant = null) -> void:
 	world.player.global_position = at
 	await get_tree().physics_frame
 	var camera: Camera3D = world.player.camera
-	var head := person.global_position + Vector3.UP * 1.55
+	var head: Vector3 = person.global_position + Vector3.UP * 1.55 if focus == null else focus
 	var toward := head - camera.global_position
 	if pitch_down != 0.0:
 		var right := toward.cross(Vector3.UP).normalized()

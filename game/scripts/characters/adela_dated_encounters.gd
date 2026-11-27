@@ -8,8 +8,9 @@ extends Node3D
 ## in the shop with Miss Quell and the prints. The key book's attempt flag is granted only by that witness, on
 ## 19 July before 21:01 (no offscreen act is ever written). The schedule is untouched: these bodies are
 ## presentation only and retire at 21:01. In the prints branch Miss Quell is her own routed body: the
-## whereabouts hook sends her to Photo Supplies, her ordinary route walks her to the shop window, and Adela waits
-## beside that mark; the scene counts only once Nadia has physically arrived there. Mr. Ewald has no body yet
+## whereabouts hook sends her to "photo_supplies" with a "photo:prints" itinerary, and her own route walks her
+## through the shop's storefront to its photo_prints vertex inside, where Adela waits beside it with the prints. The scene is seen from inside the shop
+## and counts only once Nadia's body has physically arrived at that vertex. Mr. Ewald has no body yet
 ## (ruling ewald_body_20261126 is open), so the prints scene is witnessed with Adela and Nadia.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
 const PERSON := "adela_voss"
@@ -37,11 +38,12 @@ const BRANCHES := [
 	{"thread": "av_friday_roof", "intent": "m_o2_roof_company", "attempt": "m_o2_stood_roof", "place": "parapet",
 			"from": 1105, "witness_from": 1105, "reach": 2.5},
 	{"thread": "av_friday_prints", "intent": "m_o2_monday_sent", "attempt": "m_o2_brought_monday", "place": "prints",
-			"from": 1110, "witness_from": 1110, "reach": 4.0, "guests": ["nadia_quell"]},
+			"from": 1110, "witness_from": 1110, "reach": 5.0, "guests": ["nadia_quell"]},
 	{"thread": "av_friday_shop", "intent": "m_o2_shop_agreed", "attempt": "m_o2_kept_shop", "place": "enlarger",
 			"from": 1105, "witness_from": 1255, "reach": 4.0},
 ]
-const ARRIVED := 1.8  # a guest stands with Adela when her routed body is this close (horizontal metres)
+const ARRIVED := .6  # a guest has arrived when her routed body stands this close to her route's mark
+const WITH_ADELA := 4.0  # and is with Adela: faces this close, with a clear line between them
 
 var world: Node3D
 var actor: AnimatedResident
@@ -99,8 +101,8 @@ func friday_branch() -> Dictionary:
 	return {}
 
 
-## Where a staged branch keeps Adela or a guest (the runtime's whereabouts hook), or {}. A guest's routed body
-## then goes out by the ordinary exterior errand, so only the staged body shows her.
+## Where a staged branch keeps Adela or a guest (the runtime's whereabouts hook), or {}. A guest is her own
+## routed body: the hook only sends her there, and her ordinary route walks her to the shop.
 func guest_whereabouts(npc: String) -> Dictionary:
 	var branch := friday_branch()
 	if branch.is_empty():
@@ -111,7 +113,8 @@ func guest_whereabouts(npc: String) -> Dictionary:
 		return {"place": "photo_supplies", "activity": "work", "outfit": "street", "detail": "the prints, and the enlarger sulking"}
 	if npc not in branch.get("guests", []):
 		return {}
-	return {"place": "photo_supplies", "activity": "visit", "outfit": "street", "detail": "Adela's prints, three days early"}
+	return {"place": "photo_supplies", "activity": "visit", "outfit": "street", "route": ["photo:prints"],
+			"detail": "Adela's prints, three days early"}
 
 
 ## The attempt is the player's own sight of the staged scene: close, in front of the eyes, nothing between,
@@ -138,6 +141,9 @@ func witnessing(branch: Dictionary) -> bool:
 		return false
 	if str(branch.place) == "parapet" and not str(world.room_at_world(world.player.global_position + Vector3.UP * .8)).begins_with("ROOF_DECK_"):
 		return false
+	# The shop scenes are seen from inside the shop.
+	if str(branch.place) in ["prints", "enlarger"] and not world.passage_region.prepared_shop_contains(SHOP, world.player.global_position + Vector3.UP * .8):
+		return false
 	var people: Array = [actor]
 	if str(branch.place) == "prints":
 		people.append_array(arrived_guests(branch))
@@ -160,25 +166,54 @@ func _sees(camera: Camera3D, person: Node3D, reach: float) -> bool:
 	return hit.is_empty() or (hit.collider is Node and person.is_ancestor_of(hit.collider))
 
 
-## The branch's guests whose own routed bodies have physically arrived beside Adela.
+## The branch's guests whose own routed bodies have physically arrived at their route's shop mark: routed there,
+## on the mark's floor and within ARRIVED of it.
 func arrived_guests(branch: Dictionary) -> Array[Node3D]:
 	var found: Array[Node3D] = []
 	if not is_instance_valid(actor):
 		return found
 	for id: Variant in branch.get("guests", []):
 		var body := routed_body(str(id))
-		if body != null and Vector2(body.global_position.x - actor.global_position.x,
-				body.global_position.z - actor.global_position.z).length() <= ARRIVED:
+		var mark: Variant = prints_mark(str(id))
+		var route: Node = body.get_parent() if body != null else null
+		if mark == null or str(route.get("destination")) != "photo_supplies" 				or int(route.get("desired_id")) != int((route.get("identities") as Dictionary).get("photo_prints", -2)):
+			continue
+		var at: Vector3 = mark
+		if absf(body.global_position.y - at.y) > .3 or Vector2(body.global_position.x - at.x, body.global_position.z - at.z).length() > ARRIVED:
+			continue
+		# With Adela: near her, and nothing between their faces.
+		var hers := actor.global_position + Vector3.UP * 1.55
+		var its := body.global_position + Vector3.UP * 1.55
+		if hers.distance_to(its) > WITH_ADELA:
+			continue
+		var hit := get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(hers, its, 1, [world.player.get_rid()]))
+		if hit.is_empty() or (hit.collider is Node and (actor.is_ancestor_of(hit.collider) or body.is_ancestor_of(hit.collider))):
 			found.append(body)
 	return found
 
 
-## The one visible routed body of a resident, or null.
-func routed_body(id: String) -> Node3D:
+## The guest's own route vertex inside the shop (photo_prints), or null when her route has none.
+func prints_mark(id: String) -> Variant:
+	var route: Node = null
 	for body: Node in get_tree().get_nodes_in_group("animated_residents"):
-		if body is Node3D and body != actor and str(body.get("resident_id")) == id and (body as Node3D).is_visible_in_tree():
-			return body as Node3D
-	return null
+		if body is AnimatedResident and body != actor and str(body.get("resident_id")) == id 				and body.get_parent() != null and str(body.get_parent().get("resident")) == id:
+			route = body.get_parent()
+	if route == null:
+		return null
+	var index := int((route.get("identities") as Dictionary).get("photo_prints", -1))
+	return (route.get("graph") as AStar3D).get_point_position(index) if index >= 0 else null
+
+
+## The resident's one visible routed body (an AnimatedResident under her route), or null when there is none or
+## more than one.
+func routed_body(id: String) -> Node3D:
+	var found: Node3D = null
+	for body: Node in get_tree().get_nodes_in_group("animated_residents"):
+		if body is AnimatedResident and body != actor and str(body.get("resident_id")) == id and (body as Node3D).is_visible_in_tree() 				and body.get_parent() != null and str(body.get_parent().get("resident")) == id:
+			if found != null:
+				return null
+			found = body as Node3D
+	return found
 
 
 func _retire() -> void:
@@ -218,19 +253,24 @@ func _stance(place: String) -> Dictionary:
 			return {"origin": building.to_global(local + Vector3.UP), "room_prefix": "ROOF_DECK_",
 					"facing": building.to_global(Vector3(PARAPET_STANCE_X, ROOF_STANCE.y + 1.0, edge - inward * 2.0))}
 		"prints":
+			# Beside Miss Quell's own stop inside the shop, deeper in than it, facing her.
 			var region: Node = world.get("passage_region")
-			if region == null or str(region.residency.state) != "RESIDENT":
+			var mark: Variant = prints_mark("nadia_quell")
+			if region == null or str(region.residency.state) != "RESIDENT" or mark == null:
 				return {"retry": true}
-			var window := preload("res://scripts/building/orison_v2_photo_supplies.gd").window_pose(region)
-			var along := window.basis.x.slide(Vector3.UP).normalized()
-			var front := window.basis.z.slide(Vector3.UP).normalized()
-			var mark := window.origin + front * 1.55 + along * .75  # Nadia's routed photo_window stance
-			for offset: float in [-.95, .95, -1.3, 1.3]:
-				var origin := mark + along * offset + Vector3.UP * 1.5
-				var floor := _stand_floor(origin)
-				if floor.is_empty() or not _clear(floor.position) 						or not region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
+			var at: Vector3 = mark
+			var enlarger: Variant = enlarger_point()
+			var inward: Vector3 = ((enlarger as Vector3) - at).slide(Vector3.UP).normalized() if enlarger != null else Vector3.ZERO
+			for turn in 12:
+				var side := Vector3.FORWARD.rotated(Vector3.UP, TAU * turn / 12.0)
+				if inward != Vector3.ZERO and side.dot(inward) < 0.0:
 					continue
-				return {"origin": origin, "facing": mark}
+				for distance: float in [1.1, 1.4]:
+					var origin := at + side * distance + Vector3.UP * 1.5
+					var floor := _stand_floor(origin)
+					if floor.is_empty() or absf(floor.position.y - at.y) > .3 or not _clear(floor.position) 							or not region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
+						continue
+					return {"origin": origin, "facing": at}
 			return {}
 		"enlarger":
 			var enlarger: Variant = enlarger_point()
