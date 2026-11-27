@@ -74,8 +74,8 @@ func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working
 		if not blend.bind(cast_body.skeleton,_animation_player.get_animation("clip_06"),_sewing_seat_live):return false
 		if not feet.bind(cast_body,machine,_sewing_seat_live):return false
 		if not contact.bind(cast_body.skeleton,machine,_sewing_seat_work_allowed,cast_body.model):return false
-		var relative:=global_transform.affine_inverse()*cast_body.skeleton.global_transform
-		var endpoint:=Transform3D(chair.global_basis*Basis(Vector3.UP,PI),chair.global_position-machine.global_basis.y*.0075)
+		var relative: Transform3D=global_transform.affine_inverse()*cast_body.skeleton.global_transform
+		var endpoint: Transform3D=Transform3D(chair.global_basis*Basis(Vector3.UP,PI),chair.global_position-machine.global_basis.y*.0075)
 		var poses: Array[Transform3D]=blend.predicted_globals(cast_body.skeleton,_animation_player.get_animation("clip_03"),0.0,1.0)
 		feet.prepare_end(poses,endpoint*relative)
 		# All fallible resource checks completed before touching the live owner.
