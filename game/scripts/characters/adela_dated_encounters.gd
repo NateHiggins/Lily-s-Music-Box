@@ -9,7 +9,7 @@ extends Node3D
 ## 19 July before 21:01 (no offscreen act is ever written). The schedule is untouched: these bodies are
 ## presentation only and retire at 21:01. In the prints branch Miss Quell is her own routed body: the
 ## whereabouts hook sends her to "photo_supplies" with a "photo:prints" itinerary, and her own route walks her
-## through the shop's storefront to its photo_prints vertex just inside, while Adela works at the enlarger. The scene is seen from inside the shop
+## through the shop's storefront to its photo_prints vertex inside, where Adela waits beside it with the prints. The scene is seen from inside the shop
 ## and counts only once Nadia's body has physically arrived at that vertex. Mr. Ewald has no body yet
 ## (ruling ewald_body_20261126 is open), so the prints scene is witnessed with Adela and Nadia.
 const Presentation := preload("res://scripts/characters/orison_v2_resident_presentation.gd")
@@ -194,8 +194,10 @@ func arrived_guests(branch: Dictionary) -> Array[Node3D]:
 
 ## The guest's own route vertex inside the shop (photo_prints), or null when her route has none.
 func prints_mark(id: String) -> Variant:
-	var body := routed_body(id)
-	var route: Node = body.get_parent() if body != null else null
+	var route: Node = null
+	for body: Node in get_tree().get_nodes_in_group("animated_residents"):
+		if body is AnimatedResident and body != actor and str(body.get("resident_id")) == id 				and body.get_parent() != null and str(body.get_parent().get("resident")) == id:
+			route = body.get_parent()
 	if route == null:
 		return null
 	var index := int((route.get("identities") as Dictionary).get("photo_prints", -1))
@@ -250,7 +252,27 @@ func _stance(place: String) -> Dictionary:
 			var local := Vector3(PARAPET_STANCE_X, ROOF_STANCE.y, edge + inward * PARAPET_INSET)
 			return {"origin": building.to_global(local + Vector3.UP), "room_prefix": "ROOF_DECK_",
 					"facing": building.to_global(Vector3(PARAPET_STANCE_X, ROOF_STANCE.y + 1.0, edge - inward * 2.0))}
-		"enlarger", "prints":
+		"prints":
+			# Beside Miss Quell's own stop inside the shop, deeper in than it, facing her.
+			var region: Node = world.get("passage_region")
+			var mark: Variant = prints_mark("nadia_quell")
+			if region == null or str(region.residency.state) != "RESIDENT" or mark == null:
+				return {"retry": true}
+			var at: Vector3 = mark
+			var enlarger: Variant = enlarger_point()
+			var inward: Vector3 = ((enlarger as Vector3) - at).slide(Vector3.UP).normalized() if enlarger != null else Vector3.ZERO
+			for turn in 12:
+				var side := Vector3.FORWARD.rotated(Vector3.UP, TAU * turn / 12.0)
+				if inward != Vector3.ZERO and side.dot(inward) < 0.0:
+					continue
+				for distance: float in [1.1, 1.4]:
+					var origin := at + side * distance + Vector3.UP * 1.5
+					var floor := _stand_floor(origin)
+					if floor.is_empty() or absf(floor.position.y - at.y) > .3 or not _clear(floor.position) 							or not region.prepared_shop_contains(SHOP, floor.position + Vector3.UP * .8):
+						continue
+					return {"origin": origin, "facing": at}
+			return {}
+		"enlarger":
 			var enlarger: Variant = enlarger_point()
 			if enlarger == null:
 				return {"retry": true}

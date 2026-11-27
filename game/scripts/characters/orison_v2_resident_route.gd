@@ -204,7 +204,9 @@ func _attach_photo_prints(aisle: int, arcade_point: Vector3) -> void:
 	var middle := leaf.width * .5
 	var door_out := _point("photo_shop_door_out", leaf.to_global(Vector3(middle, 0.0, outward * 1.55)))
 	graph.connect_points(aisle, door_out)
-	graph.connect_points(door_out, _point("photo_prints", leaf.to_global(Vector3(middle, 0.0, -outward * 1.35))))
+	var door_in := _point("photo_shop_door_in", leaf.to_global(Vector3(middle, 0.0, -outward * 1.35)))
+	graph.connect_points(door_out, door_in)
+	graph.connect_points(door_in, _point("photo_prints", leaf.to_global(Vector3(middle, 0.0, -outward * 2.6))))
 	if leaf not in _doors:
 		_doors.append(leaf)
 

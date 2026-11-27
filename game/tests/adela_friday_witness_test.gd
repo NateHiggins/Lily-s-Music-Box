@@ -317,6 +317,11 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 			"%s: her whereabouts name the staged place" % place)
 	_check(RealityState.has_knowledge(attempt), "%s: a sustained look writes %s" % [place, attempt])
 	_check(_only_attempts([attempt]), "%s: and no other attempt" % place)
+	# The still is taken after the witness, from a physically valid place that reads her work: a three-quarter
+	# face (or both faces for the prints), not the first clear ray. The player's own camera stays free.
+	var view: Variant = _capture_view(adela, nadia, place != "roof")
+	if view != null:
+		await _look_from(view, adela, false, 0.0, .2, focus)
 	await _capture("friday_" + place)
 
 
@@ -394,6 +399,36 @@ func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool
 			if open == clear:
 				return floor.position
 	return null
+
+
+## Among clear standing places 1.6-2.6 m off, the one nearest a 40-degree three-quarter view of her face.
+func _capture_view(person: Node3D, other: Node3D, shop: bool) -> Variant:
+	var front := person.global_basis.z.slide(Vector3.UP).normalized()
+	var best: Variant = null
+	var best_error := INF
+	var space := get_world_3d().direct_space_state
+	for step in 3:
+		var distance := 1.6 + step * .5
+		for turn in 36:
+			var direction := Vector3.FORWARD.rotated(Vector3.UP, TAU * turn / 36.0)
+			var floor: Dictionary = owner_node.call("_stand_floor", person.global_position + direction * distance + Vector3.UP * 1.0)
+			if floor.is_empty() or absf(floor.position.y - person.global_position.y) > .3 or not bool(owner_node.call("_clear", floor.position)):
+				continue
+			if shop and not world.passage_region.prepared_shop_contains("shop_photo_supplies", floor.position + Vector3.UP * .8):
+				continue
+			var eye: Vector3 = floor.position + Vector3.UP * 1.6
+			var clear := true
+			for who: Node3D in ([person] if other == null else [person, other]):
+				var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(eye, who.global_position + Vector3.UP * 1.55, 1, [world.player.get_rid()]))
+				if not hit.is_empty() and not (hit.collider is Node and who.is_ancestor_of(hit.collider)):
+					clear = false
+			if not clear:
+				continue
+			var error := absf(rad_to_deg(front.angle_to(direction)) - 40.0)
+			if error < best_error:
+				best_error = error
+				best = floor.position
+	return best
 
 
 func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0, hold := 1.6, focus: Variant = null) -> void:
