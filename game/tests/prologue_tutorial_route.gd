@@ -337,10 +337,12 @@ func _review_visitor() -> bool:
 	await _turn_at(visitor)
 	await get_tree().create_timer(.5).timeout
 	if not _require("looked_behind" in director.state.events and not ("visitor_seen_again" in director.state.events) and not carrier.rig.visible,"real mouse turn finds no physical machine and records only the absence investigation"):return false
+	if not _require(not RealityState.has_knowledge("m_mirror_seen"),"the Guests cannot be asked about an unconfirmed reflection"):return false
 	await _shot("reflection_visitor_absent.png")
 	await _turn_at(director.mirror.mirror_center())
 	await get_tree().create_timer(1.2).timeout
 	if not _require("visitor_seen_again" in director.state.events and director.state.phase=="reflection_visitor","mouse return rediscovers the same visitor without immediate crossing"):return false
+	if not _require(RealityState.has_knowledge("m_mirror_seen"),"seeing the visitor again unlocks the Guests' mirror question"):return false
 	await _shot("reflection_visitor_return.png")
 	# Repeat the experiment before permitting the authored crossing gate.
 	await _turn_at(visitor)

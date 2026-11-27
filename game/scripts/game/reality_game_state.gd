@@ -214,7 +214,15 @@ func ensure_case(case_id: String, resident_id: String) -> Dictionary:
 ## --- what the player knows -------------------------------------------------
 
 func has_knowledge(flag: String) -> bool:
-	return flag != "" and flag in data.get("knowledge_flags", [])
+	if flag == "":
+		return false
+	if flag in data.get("knowledge_flags", []):
+		return true
+	if flag == "m_mirror_seen":
+		# The 4B prologue records looking behind the visitor and finding it in the glass again.
+		var opening: Dictionary = data.get("prologue", {})
+		return "visitor_seen_again" in opening.get("events", [])
+	return false
 
 
 ## Grants a campaign-wide knowledge flag. Returns true only when it is new,
