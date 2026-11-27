@@ -28,7 +28,11 @@ class TestPose extends Node:
 class TestPlayer extends CharacterBody3D:
 	var call_locked := false
 
+class CuffModel extends Node3D:
+	var skeleton := Skeleton3D.new()
+
 class Actor extends Node3D:
+	var cast_body: CuffModel
 	var _walking := false
 	var activity := ""
 	var clears := 0
@@ -154,6 +158,13 @@ func _run() -> void:
 		for i in 4: route.graph.add_point(i, Vector3(world.resident_routes.size() * 5.0, 0, i * 0.6))
 		route.actor = Actor.new()
 		route.add_child(route.actor)
+		if resident == "omar_bell":
+			var model := CuffModel.new()
+			route.actor.cast_body = model
+			route.actor.add_child(model)
+			model.add_child(model.skeleton)
+			model.skeleton.add_bone("RightHand")
+			model.skeleton.set_bone_pose_position(0, Vector3(.32, 1.04, .21))
 		var attention := Attention.new()
 		attention.name = "Attention"
 		attention._resident_id = resident
@@ -878,7 +889,11 @@ func _ordinary_exchanges() -> void:
 				else:
 					attention._process(0.1)
 					var speaker: Attention = world.resident_routes[line.speaker].actor.get_node("Attention")
-					check(attention.pipeline.aim == speaker.pipeline.eye_world(), str(item.id) + " listener follows the current speaker through the real attention owner")
+					var target: Vector3 = speaker.pipeline.eye_world()
+					if item.id == "OY03" and line.text == "How temporary?":
+						var rig: Skeleton3D = world.resident_routes.omar_bell.actor.cast_body.skeleton
+						target = rig.to_global(rig.get_bone_global_pose(0).origin)
+					check(attention.pipeline.aim == target, "%s line%d directs the listener to the speaker's acting mark" % [item.id, i])
 			check(panel.attention_active() and panel._line.text == str(line.text), "%s line%d retains exact authored text" % [item.id, i])
 			check(conversations._active_resident == str(line.speaker) and not speaker_events.is_empty() \
 					and speaker_events.back() == str(line.speaker), "%s line%d speaker owns conversation signals" % [item.id, i])
