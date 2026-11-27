@@ -186,10 +186,15 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance
     if source.exists():
         for i, encounter in enumerate(intake.read_json(source)['encounters']):
             namespace = 'loop_exchange_' + safe_node(encounter['id'].lower())
+            aside_index = len(encounter['lines'])
             for j, turn in enumerate(encounter['lines']):
                 runtime = 'loop_business' if j == 0 else f'loop_business_{j}'
                 add(source, f'/encounters/{i}/lines/{j}/text', namespace,
                     runtime, turn['speaker'], turn['text'])
+                for k, branch_turn in enumerate(turn.get('aside', {}).get('lines', [])):
+                    add(source, f'/encounters/{i}/lines/{j}/aside/lines/{k}/text', namespace,
+                        f'loop_business_{aside_index}', branch_turn['speaker'], branch_turn['text'])
+                    aside_index += 1
     for row in extra_rows:
         sources = row['source_bindings']
         for binding in sources:

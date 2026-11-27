@@ -5,6 +5,155 @@ var _local_libraries: Dictionary = {}
 var _local_loops: Dictionary = {}
 var _loop_activity := ""
 var _loop_activity_clip := ""
+var _loop_sewing := false
+const SewingHands := preload("res://scripts/characters/sewing_hand_contact.gd")
+var _sewing_hands: RefCounted
+const SewingSeatPose := preload("res://scripts/characters/sewing_seat_pose.gd")
+const SewingSeatFeet := preload("res://scripts/characters/sewing_seat_feet.gd")
+var _sewing_seat_blend: RefCounted
+var _sewing_seat_feet: RefCounted
+var _sewing_seat_contact: RefCounted
+var _sewing_seat_machine: Node3D
+var _sewing_seat_chair: Node3D
+var _sewing_seat_working := false
+var _sewing_seat_previous_idle := ""
+var _sewing_seat_recovery_only := false
+var _sewing_seat_phase_locked := false
+var _sewing_seat_playback_scale := 1.0
+
+## The route owns the actual chair lease, actor root and collision sweeps.
+## This pure preflight rejects bad geometry/leg reach without posing a bone.
+## Initialize the lease at amount0 before querying positive candidate amounts.
+func can_set_sewing_seat_pose(machine: Node3D, chair: Node3D, candidate: Transform3D, amount: float) -> bool:
+	if not _sewing_seat_inputs(machine,chair,amount) or not candidate.is_finite():return false
+	if not candidate.basis.is_finite() or candidate.basis.determinant()<.99 or candidate.basis.determinant()>1.01:return false
+	var local:=machine.to_local(candidate.origin)
+	if local.x<-.1 or local.x>.65 or local.z<-.85 or local.z>-.30 or absf(local.y)>.02:return false
+	if amount>=1.0:
+		var end:=chair.global_position-machine.global_basis.y*.0075
+		if candidate.origin.distance_to(end)>.002:return false
+	if _sewing_seat_blend==null:return amount==0.0
+	if machine!=_sewing_seat_machine or chair!=_sewing_seat_chair:return false
+	if _sewing_seat_recovery_only and amount>float(_sewing_seat_blend.amount):return false
+	if not _sewing_seat_feet.source_valid():return false
+	var standing: Animation=_animation_player.get_animation("clip_03")
+	var seconds:=_animation_player.current_animation_position if str(_animation_player.current_animation)=="clip_03" else 0.0
+	var body: Skeleton3D=cast_body.skeleton
+	var poses: Array[Transform3D]=_sewing_seat_blend.predicted_globals(body,standing,seconds,amount)
+	var relative:=global_transform.affine_inverse()*body.global_transform
+	return _sewing_seat_feet.can_reach(poses,candidate*relative,amount)
+
+func _sewing_seat_inputs(machine: Node3D, chair: Node3D, amount: float) -> bool:
+	if resident_id!="lena_ortiz" or not is_finite(amount) or amount<0.0 or amount>1.0:return false
+	if not is_instance_valid(machine) or not is_instance_valid(chair) or machine==chair:return false
+	if not machine.is_inside_tree() or not chair.is_inside_tree() or not is_inside_tree():return false
+	if _walking or cast_body==null or attention==null or attention.pipeline==null or _animation_player==null:return false
+	if not _animation_player.has_animation("clip_03") or not _animation_player.has_animation("clip_06"):return false
+	var relative:=machine.global_transform.affine_inverse()*chair.global_transform
+	if relative.origin.distance_to(Vector3(0,0,-.6759))>.02:return false
+	if relative.basis.y.normalized().dot(Vector3.UP)<.999 or relative.basis.z.normalized().dot(Vector3.BACK)>-.999:return false
+	if machine.global_basis.y.normalized().dot(Vector3.UP)<.999:return false
+	var pipeline=attention.pipeline
+	if pipeline.sewing_seat!=null and pipeline.sewing_seat!=_sewing_seat_blend:return false
+	if pipeline.seated_feet!=null and pipeline.seated_feet!=_sewing_seat_feet:return false
+	if pipeline.work_hands!=null and pipeline.work_hands!=_sewing_seat_contact and pipeline.work_hands!=_sewing_hands:return false
+	return true
+
+## Amount is continuous, including exact0/1. This adapter never changes root.
+## False is atomic: no pose, animation, existing lease or helper installation.
+func set_sewing_seat_pose(machine: Node3D, chair: Node3D, amount: float, working: bool) -> bool:
+	if _sewing_seat_recovery_only and working:return false
+	if not can_set_sewing_seat_pose(machine,chair,global_transform,amount):return false
+	if _sewing_seat_blend==null:
+		var blend:=SewingSeatPose.new()
+		var feet:=SewingSeatFeet.new()
+		feet.pose_owner=blend
+		var contact:=SewingHands.new();contact.seated=true
+		contact.seated_pose_allowed=_sewing_seat_live
+		contact.posture_allowed=_sewing_seat_live
+		if not blend.bind(cast_body.skeleton,_animation_player.get_animation("clip_06"),_sewing_seat_live):return false
+		if not feet.bind(cast_body,machine,_sewing_seat_live):return false
+		if not contact.bind(cast_body.skeleton,machine,_sewing_seat_work_allowed,cast_body.model):return false
+		var relative: Transform3D=global_transform.affine_inverse()*cast_body.skeleton.global_transform
+		var endpoint: Transform3D=Transform3D(chair.global_basis*Basis(Vector3.UP,PI),chair.global_position-machine.global_basis.y*.0075)
+		var poses: Array[Transform3D]=blend.predicted_globals(cast_body.skeleton,_animation_player.get_animation("clip_03"),0.0,1.0)
+		feet.prepare_end(poses,endpoint*relative)
+		# All fallible resource checks completed before touching the live owner.
+		clear_loop_activity()
+		_local_loop("clip_03")
+		_sewing_seat_previous_idle=preferred_idle
+		preferred_idle="clip_03"
+		_sewing_seat_machine=machine;_sewing_seat_chair=chair
+		_sewing_seat_blend=blend;_sewing_seat_feet=feet;_sewing_seat_contact=contact
+		attention.pipeline.sewing_seat=blend
+		attention.pipeline.seated_feet=feet
+		attention.pipeline.work_hands=contact
+		if str(_animation_player.current_animation)!="clip_03":_animation_player.play("clip_03",.22)
+	if amount>0.0 and amount<1.0 and not _sewing_seat_phase_locked:
+		_sewing_seat_playback_scale=_animation_player.speed_scale
+		_animation_player.speed_scale=0.0
+		_sewing_seat_phase_locked=true
+	_sewing_seat_blend.hold_phase=amount>0.0 and amount<1.0
+	_sewing_seat_blend.amount=amount
+	_sewing_seat_feet.amount=amount
+	_sewing_seat_contact.posture_amount=amount
+	_sewing_seat_working=working
+	return true
+
+func _sewing_seat_live() -> bool:
+	return _sewing_seat_blend!=null and not _walking \
+		and _animation_player!=null and str(_animation_player.current_animation)=="clip_03"
+
+func _sewing_seat_work_allowed() -> bool:
+	return _sewing_seat_live() and _sewing_seat_working and _sewing_seat_blend.amount>=1.0 \
+		and _sewing_seat_feet!=null and _sewing_seat_feet.source_valid() \
+		and not _sewing_seat_recovery_only and is_visible_in_tree() and is_instance_valid(_sewing_seat_machine) and is_instance_valid(_sewing_seat_chair) and not _loop_talking()
+
+func stop_sewing_seat_work() -> void:
+	_sewing_seat_working=false
+
+## Emergency reverse only, for a genuine external outfit/mesh change. Rebind
+## the actual known shoe in temporary storage; never reuse stale landmarks,
+## change clothing, move root, resume work or accept an unreachable leg.
+func recover_sewing_seat_support() -> bool:
+	if _sewing_seat_blend==null or _sewing_seat_feet==null or _sewing_seat_feet.source_valid():return false
+	var amount: float=_sewing_seat_blend.amount
+	if not _sewing_seat_inputs(_sewing_seat_machine,_sewing_seat_chair,amount):return false
+	var feet:=SewingSeatFeet.new()
+	feet.pose_owner=_sewing_seat_blend
+	if not feet.bind(cast_body,_sewing_seat_machine,_sewing_seat_live):return false
+	feet.copy_transition(_sewing_seat_feet)
+	var body: Skeleton3D=cast_body.skeleton
+	var seconds:=_animation_player.current_animation_position
+	var poses: Array[Transform3D]=_sewing_seat_blend.predicted_globals(body,_animation_player.get_animation("clip_03"),seconds,amount)
+	if not feet.can_reach(poses,body.global_transform,amount):return false
+	feet.amount=amount
+	# All fallible validation precedes replacing our own contact slot.
+	_sewing_seat_working=false
+	_sewing_seat_recovery_only=true
+	_sewing_seat_feet=feet
+	attention.pipeline.seated_feet=feet
+	return true
+
+func clear_sewing_seat_pose() -> void:
+	if _sewing_seat_blend==null:return
+	if _sewing_seat_blend.amount<=0.0 and _sewing_seat_feet!=null and _sewing_seat_feet.source_valid() and walking_feet!=null:
+		var planted: Array[Transform3D]=[]
+		for leg: Dictionary in _sewing_seat_feet.legs:
+			if leg.has("start"):planted.append(leg.start)
+		if planted.size()==2:walking_feet.accept_sewing_seat_handoff(self,_sewing_seat_blend,planted)
+	if is_instance_valid(attention):
+		var pipeline=attention.pipeline
+		if pipeline.sewing_seat==_sewing_seat_blend:pipeline.sewing_seat=null
+		if pipeline.seated_feet==_sewing_seat_feet:pipeline.seated_feet=null
+		if pipeline.work_hands==_sewing_seat_contact:pipeline.work_hands=null
+	preferred_idle=_sewing_seat_previous_idle
+	if _sewing_seat_phase_locked and _animation_player!=null:_animation_player.speed_scale=_sewing_seat_playback_scale
+	_sewing_seat_phase_locked=false
+	_sewing_seat_previous_idle=""
+	_sewing_seat_recovery_only=false
+	_sewing_seat_blend=null;_sewing_seat_feet=null;_sewing_seat_contact=null
+	_sewing_seat_machine=null;_sewing_seat_chair=null;_sewing_seat_working=false
 
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
@@ -72,8 +221,10 @@ func _local_loop(clip: String) -> bool:
 	return true
 
 ## An arrived resident may wait attentively between their ordinary tasks.
-## These are standing attitudes, never claims of touching props or sitting.
-func set_loop_activity(activity: String) -> void:
+## Sewing is a bounded owner request at Lena's arrived historical work mark;
+## the existing handwork clip claims no needle grip, prop movement or sitting.
+func set_loop_activity(activity: String, sewing: bool = false, work_surface: Node3D = null) -> void:
+	if _sewing_seat_blend!=null:return
 	if resident_id == "mina_vale" or mina_animation != null: return
 	if activity.is_empty():
 		clear_loop_activity()
@@ -83,33 +234,69 @@ func set_loop_activity(activity: String) -> void:
 		clear_loop_activity()
 		return
 	var clip := "clip_03"
-	if activity in ["rest", "idle", "resting"]:
+	var handwork := sewing and resident_id == "lena_ortiz" and activity == "work"
+	if handwork:
+		clip = "clip_07" # Counter-height handwork, NOT her shoulder-height busy/reach role.
+	elif activity in ["rest", "idle", "resting"]:
 		# Some personal idles are working clips. Do not borrow those as a
 		# performed chore when no corresponding contact has been authored.
 		clip = preferred_idle if preferred_idle in ["clip_01", "clip_02", "clip_03", "clip_04", "clip_05"] else "clip_01"
 	if _loop_activity == activity and _loop_activity_clip == clip \
 			and str(_animation_player.current_animation) == clip and _animation_player.is_playing():
+		if handwork: _bind_sewing_hands(work_surface)
 		return
 	if not _local_loop(clip):
 		clear_loop_activity()
 		return
 	_loop_activity = activity
 	_loop_activity_clip = clip
+	_loop_sewing = handwork
+	if handwork: _bind_sewing_hands(work_surface)
+	else: _release_sewing_hands()
 	# Different authored tasks may share the same attentive attitude; do
 	# not restart its motion just because the schedule's wording changed.
 	if str(_animation_player.current_animation) != clip or not _animation_player.is_playing():
 		_animation_player.play(clip, .22)
 
 func clear_loop_activity() -> void:
+	_release_sewing_hands()
 	var owned_clip := _loop_activity_clip
+	var was_sewing := _loop_sewing
 	_loop_activity = ""
 	_loop_activity_clip = ""
+	_loop_sewing = false
 	if resident_id == "mina_vale" or mina_animation != null or _animation_player == null: return
 	# Another owner may already have started walking, talking or sitting.
 	# Only release the clip we actually borrowed, leaving their clip alone.
 	if not owned_clip.is_empty() and not _walking \
 			and str(_animation_player.current_animation) == owned_clip:
-		_play_named("idle")
+		# Lena's personal idle is itself clip_07. Restoring it here would put
+		# her hands straight back to work during dialogue or after cancellation.
+		if was_sewing and _local_loop("clip_03"):
+			_animation_player.play("clip_03", .22)
+		else:
+			_play_named("idle")
+
+func _bind_sewing_hands(work_surface: Node3D) -> void:
+	if not is_instance_valid(work_surface) or cast_body == null or attention == null:
+		_release_sewing_hands()
+		return
+	if _sewing_hands != null and _sewing_hands.surface == work_surface: return
+	_release_sewing_hands()
+	var contact := SewingHands.new()
+	if contact.bind(cast_body.skeleton, work_surface, _sewing_contact_allowed,cast_body.model):
+		_sewing_hands = contact
+		attention.pipeline.work_hands = contact
+
+func _release_sewing_hands() -> void:
+	if _sewing_hands != null and is_instance_valid(attention) and attention.pipeline.work_hands == _sewing_hands:
+		attention.pipeline.work_hands = null
+	_sewing_hands = null
+
+func _sewing_contact_allowed() -> bool:
+	return _loop_sewing and not _walking and is_visible_in_tree() and not _loop_talking() \
+			and not _loop_seated() and _animation_player != null \
+			and str(_animation_player.current_animation) == _loop_activity_clip
 
 func _loop_talking() -> bool:
 	if is_instance_valid(attention) and bool(attention.get("conversing")): return true
@@ -122,22 +309,26 @@ func _loop_seated() -> bool:
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	if _sewing_seat_blend!=null and not _sewing_seat_live():clear_sewing_seat_pose()
 	if not _loop_activity.is_empty() and (_walking or _loop_talking() or _loop_seated()):
 		clear_loop_activity()
 
 func _set_walking(on: bool) -> void:
+	if on and _sewing_seat_blend!=null:clear_sewing_seat_pose()
 	if on and not _loop_activity.is_empty(): clear_loop_activity()
 	super._set_walking(on)
 
 func play_case_role(fragment: String) -> bool:
+	if _sewing_seat_blend!=null:return false
 	if not _loop_activity.is_empty(): clear_loop_activity()
 	return super.play_case_role(fragment)
 
 ## A stage gesture never takes a seated body or a clip a loop activity has borrowed.
 func _emote_allowed() -> bool:
-	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated()
+	return super._emote_allowed() and _loop_activity.is_empty() and not _loop_seated() and _sewing_seat_blend==null
 
 func play_seated() -> bool:
+	if _sewing_seat_blend!=null:return false
 	# Mina's supplied twenty clips have no seated motion. Her owner retains
 	# its own idle and standing spot; never graft a retired donor pose onto her.
 	if mina_animation != null or not _local_loop("clip_06"): return false

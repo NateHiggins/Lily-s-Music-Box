@@ -91,6 +91,9 @@ func setup(root: Node3D) -> bool:
 	if resident == "evelyn_marsh" or resident == "peter_wren":
 		var side := -1.0 if resident == "evelyn_marsh" else 1.0
 		mail_point += mail.global_basis.x.slide(Vector3.UP).normalized() * (side * 0.70)
+		# Peter reads over Evelyn's shoulder, one step back from the boxes.
+		if resident == "peter_wren":
+			mail_point -= mail.global_basis.z.slide(Vector3.UP).normalized() * 0.65
 	mail_point.y = world.adapter.root.to_global(Vector3.ZERO).y
 	graph.connect_points(identities.mail_approach,_point("mail",mail_point))
 	var previous: int = identities.street

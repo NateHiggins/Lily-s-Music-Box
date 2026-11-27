@@ -6,7 +6,7 @@ extends SkeletonModifier3D
 ##   1. base        the clip, already applied; never rewritten here
 ##   2. posture     breath in the lower spine
 ##   3. gaze        chest, neck and head toward what the actor attends to
-##   4. contact     optional owner-supplied seated foot contacts
+##   4. contact     optional owner-supplied seated feet or stationary work hands
 ##   5. secondary   settle and overshoot (not yet built)
 ##
 ## Each layer owns its own bones and no two layers share one, so every bone
@@ -58,6 +58,10 @@ var frames := 0
 var cost_usec := 0
 ## Empty for standing/walking actors. The seating owner installs and clears it.
 var seated_feet: RefCounted
+## Optional stationary task owner. Null outside its explicit work lease.
+var work_hands: RefCounted
+## Explicit Lena seating lease; null for every other actor and ordinary gait.
+var sewing_seat: RefCounted
 
 
 ## Fit the pipeline to a skeleton. False when no rig profile fits it.
@@ -131,12 +135,15 @@ func step(delta: float) -> void:
 	if body == null or profile == null:
 		return
 	writers.clear()
+	if sewing_seat!=null:sewing_seat.apply_base(body,delta)
 	_clock += delta
 	_breath_extra_time += delta * clampf(breath_arousal, 0.0, 1.0) * 0.40
 	_posture(body)
 	_gaze(body, delta)
 	if seated_feet != null:
 		seated_feet.apply(body, _write)
+	if work_hands != null:
+		work_hands.apply(body, _write)
 	last_facing = head_facing()
 	last_eye = body.get_bone_global_pose(int(profile.bones.head)).origin
 
@@ -156,12 +163,18 @@ func _turned(pose: Transform3D, turn: Quaternion) -> Transform3D:
 
 ## Breath: the lower spine tips a little, about the body's side-to-side axis.
 func _posture(body: Skeleton3D) -> void:
-	if not breathe or not profile.has("spine_low") or profile.breath_radians <= 0.0:
+	if not profile.has("spine_low"):
 		return
 	var bone := int(profile.bones.spine_low)
 	var side: Vector3 = (profile.up as Vector3).cross(profile.forward).normalized()
-	var angle: float = sin((_clock + _breath_extra_time) * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
-	_write(bone, _turned(body.get_bone_global_pose(bone), Quaternion(side, angle)), "posture")
+	var angle := 0.0
+	var breathing: bool=breathe and profile.breath_radians>0.0
+	if breathing:
+		angle=sin((_clock + _breath_extra_time) * TAU / float(profile.breath_seconds) + breath_phase) * float(profile.breath_radians)
+	var turn := Quaternion(side,angle)
+	if work_hands!=null: turn=work_hands.posture_turn(body)*turn
+	if breathing or work_hands!=null:
+		_write(bone, _turned(body.get_bone_global_pose(bone),turn), "posture")
 
 
 ## The way the head faces now, in skeleton space, from the present pose.

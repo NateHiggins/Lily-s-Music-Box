@@ -2,6 +2,7 @@ extends Node
 ## A small lens change on a face already in the caller's shot. The cast owns
 ## the pose; the player keeps the same camera, transform and input throughout.
 
+const PosePipeline := preload("res://scripts/characters/pose_pipeline.gd")
 const RANGE := 3.5
 const MAX_LENS_CHANGE := 7.0
 var _owns_input: Callable
@@ -19,7 +20,7 @@ var _sight_elapsed := 0.0
 func _ready() -> void:
 	set_physics_process(false)
 
-func begin(player: PlayerController, resident_id: String, owns_input: Callable) -> void:
+func begin(player: PlayerController, resident_id: String, owns_input: Callable, cast := {}) -> void:
 	release()
 	if not is_instance_valid(player) or player.inspecting() or not is_instance_valid(player.camera):
 		return
@@ -31,7 +32,10 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 	var nearest := RANGE * RANGE
 	for node in get_tree().get_nodes_in_group("animated_residents"):
 		var actor := node as Node3D
-		if actor == null or actor.get("resident_id") != resident_id or not actor.is_visible_in_tree():
+		if actor == null or not actor.is_visible_in_tree():
+			continue
+		var is_speaker: bool = actor.get("resident_id") == resident_id
+		if not is_speaker and not cast.has(actor.get("resident_id")):
 			continue
 		if actor.get_viewport() != camera.get_viewport():
 			continue
@@ -41,6 +45,10 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 			if head < 0 or not skeleton.is_visible_in_tree():
 				continue
 			var eye := _eye(skeleton, head)
+			if not is_speaker:
+				if _partner_at_edge(camera, player, actor, eye):
+					return
+				break
 			var distance := camera.global_position.distance_squared_to(eye)
 			if distance < nearest and distance > 0.8 * 0.8 and _in_shot(camera, eye):
 				nearest = distance
@@ -58,7 +66,34 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 	set_physics_process(true)
 
 func _eye(body: Skeleton3D, head: int) -> Vector3:
+	# Physics reads the restored clip between skeleton updates. A seated
+	# speaker's composed head can be well below the standing clip.
+	var pose := body.get_node_or_null("PosePipeline") as PosePipeline
+	if pose != null and pose.active and pose.frames > 0:
+		return body.to_global(pose.last_eye + Vector3.UP * 0.08)
 	return body.to_global(body.get_bone_global_pose(head).origin + Vector3.UP * 0.08)
+
+func _partner_at_edge(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
+	if camera.is_position_behind(eye):
+		return false
+	var view := camera.get_viewport().get_visible_rect()
+	if not view.has_area():
+		return false
+	var x := (camera.unproject_position(eye).x - view.position.x) / view.size.x
+	if x >= 0.15 and x <= 0.85:
+		return false
+	if camera.is_position_in_frustum(eye) and _clear_sight(camera, player, actor, eye):
+		return true
+	# A cropped face can still have its inward shoulder in the player's shot.
+	var inward := camera.global_basis.x.normalized() * (1.0 if x < 0.5 else -1.0)
+	var shoulder := eye + Vector3.DOWN * 0.18 + inward * 0.23
+	return camera.is_position_in_frustum(shoulder) and _clear_sight(camera, player, actor, shoulder)
+
+func _clear_sight(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
+	var ray := PhysicsRayQueryParameters3D.create(camera.global_position, eye, 1, [player.get_rid()])
+	var hit := camera.get_world_3d().direct_space_state.intersect_ray(ray)
+	var obstacle := hit.get("collider") as Node
+	return hit.is_empty() or obstacle == actor or (obstacle != null and actor.is_ancestor_of(obstacle))
 
 func _in_shot(camera: Camera3D, eye: Vector3) -> bool:
 	if camera.is_position_behind(eye):
@@ -85,10 +120,7 @@ func _physics_process(delta: float) -> void:
 	# Recheck cover when either endpoint moves, including the first physics tick.
 	_sight_elapsed += delta
 	if _sight_elapsed >= 0.25 or from.distance_squared_to(_sight_from) > 0.01 or eye.distance_squared_to(_sight_to) > 0.01:
-		var query := PhysicsRayQueryParameters3D.create(from, eye, 1, [_player.get_rid()])
-		var hit := _camera.get_world_3d().direct_space_state.intersect_ray(query)
-		var obstacle := hit.get("collider") as Node
-		if not hit.is_empty() and obstacle != _actor and (obstacle == null or not _actor.is_ancestor_of(obstacle)):
+		if not _clear_sight(_camera, _player, _actor, eye):
 			release()
 			return
 		_sight_elapsed = 0.0

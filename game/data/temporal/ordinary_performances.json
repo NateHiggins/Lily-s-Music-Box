@@ -3,6 +3,7 @@
   "encounters": [
     {
       "id": "OY01",
+      "open_stance": true,
       "actors": ["evelyn_marsh", "peter_wren"],
       "topic": "The margin.",
       "excluded_anchors": [],
@@ -58,7 +59,13 @@
         {"speaker": "juno_kells", "text": "You were reaching."},
         {"speaker": "cal_dwyer", "text": "I was considering."},
         {"speaker": "juno_kells", "text": "There."},
-        {"speaker": "cal_dwyer", "text": "That was the chair."},
+        {"speaker": "cal_dwyer", "text": "That was the chair.",
+          "aside": {"label": "Then we'll all keep still.", "lines": [
+            {"speaker": "juno_kells", "text": "Yes. Him first."},
+            {"speaker": "cal_dwyer", "text": "I am the stillest thing in this room."},
+            {"speaker": "juno_kells", "text": "There."},
+            {"speaker": "cal_dwyer", "text": "...That wasn't the chair."}
+          ]}},
         {"speaker": "juno_kells", "text": "Let it finish."}
       ]
     },
@@ -74,7 +81,13 @@
         {"speaker": "malcolm_reed", "text": "A little to your left."},
         {"speaker": "sacha_reed", "text": "For the light?"},
         {"speaker": "malcolm_reed", "text": "For the leaf."},
-        {"speaker": "sacha_reed", "text": "I see. Like this?"},
+        {"speaker": "sacha_reed", "text": "I see. Like this?",
+          "aside": {"label": "Which one is it?", "lines": [
+            {"speaker": "malcolm_reed", "text": "Mint. The ninth of that name."},
+            {"speaker": "sacha_reed", "text": "He names them before I've focused."},
+            {"speaker": "malcolm_reed", "text": "So you know what you're focusing on."},
+            {"speaker": "sacha_reed", "text": "A little to my left, then."}
+          ]}},
         {"speaker": "malcolm_reed", "text": "Now it can stand up."}
       ]
     },
@@ -86,10 +99,11 @@
       "places": ["unit", "unit:main", "unit:doorway", "visit:4C_doorway", "corridor", "lobby"],
       "lines": [
         {"speaker": "noel_price", "text": "Not on the paper."},
-        {"speaker": "jonah_price", "text": "It's only a draft."},
+        {"speaker": "jonah_price", "text": "It's only a draft.",
+         "interject": {"label": "Where can he put the cup without losing his place?", "answer": "clear_corner"}},
         {"speaker": "noel_price", "text": "The cup doesn't know that."},
         {"speaker": "jonah_price", "text": "That was my best sentence."},
-        {"speaker": "noel_price", "text": "Cup here. Leave your finger where that sentence goes."}
+        {"beat": "clear_corner", "speaker": "noel_price", "text": "Cup here. Leave your finger where that sentence goes."}
       ]
     },
     {

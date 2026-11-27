@@ -260745,6 +260745,36 @@
    "target_exists": true
   },
   {
+   "key": "b2a3d0f75a18e57e",
+   "kind": "id_reference",
+   "token": "2B_sewing_machine",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_lena_sewing_activity"
+   ],
+   "lines": [
+    518,
+    583
+   ],
+   "count": 2,
+   "context": [
+    "world.adapter.targets[\"2B_sewing_machine\"] = work",
+    "world.adapter.targets.erase(\"2B_sewing_machine\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "671745289a35c1bb",
    "kind": "unit_reference",
    "token": "6C",
@@ -260790,6 +260820,37 @@
    "count": 1,
    "context": [
     "focus.global_position = route.actor.global_position + Vector3(0, 1, 1)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e7d07fe1847ad83e",
+   "kind": "vector3_coordinate",
+   "token": "_lena_sewing_activity",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_lena_sewing_activity"
+   ],
+   "lines": [
+    551
+   ],
+   "count": 1,
+   "context": [
+    "work.global_position += Vector3(4, 0, 0)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -260862,6 +260923,37 @@
    "count": 1,
    "context": [
     "blocker.global_position = Vector3(1000, 1.35, 0.55)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "dc7d6cad7890356e",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    173
+   ],
+   "count": 1,
+   "context": [
+    "route.graph.add_point(4, route.graph.get_point_position(0) + Vector3(1, 0, 1))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -301078,6 +301170,41 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a586bda5d454deb3",
+   "kind": "id_reference",
+   "token": "2B_sewing_machine",
+   "file": "game/scripts/characters/loop_performances.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "sewing_work_target",
+    "_process"
+   ],
+   "lines": [
+    176,
+    180,
+    613,
+    614
+   ],
+   "count": 4,
+   "context": [
+    "if route.destination != \"unit:sewing\" or phase.get(\"place\") != \"unit:sewing\" or phase.get(\"activity\") != \"work\" or phase.get(\"focus\") != \"2B_sewing_machine\": re",
+    "var machine: Node3D = world.adapter.resolve(\"2B_sewing_machine\") as Node3D",
+    "and route.destination == \"unit:sewing\" and activity == \"work\" and focuses[resident] == \"2B_sewing_machine\":",
+    "var work: Node3D = world.adapter.resolve(\"2B_sewing_machine\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   }
  ]

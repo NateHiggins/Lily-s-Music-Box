@@ -351,7 +351,7 @@ static func performance_node_id(index: int) -> String:
 	return "loop_business" if index == 0 else "loop_business_%d" % index
 
 
-## Linear authored exchanges keep the panel's deliberate choices and departure.
+## A player can hear the exchange through or interject to reach an authored answer.
 ## They carry text/speakers only: no flags, trust, actions or invented props.
 func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
 	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
@@ -368,8 +368,10 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 		cast[actor] = true
 		var key := performance_node_id(i)
 		var choices: Array = []
-		if i + 1 < lines.size():
+		if i + 1 < lines.size() and not row.get("_end", false):
 			choices.append({"label": str(row.get("choice", "Listen.")), "goto": performance_node_id(i + 1)})
+		if row.has("_interjection"):
+			choices.append(row._interjection.duplicate())
 		choices.append({"label": "I'll let you get on."})
 		nodes[key] = {"line": str(row.text), "actor": actor, "silence_goto": "",
 				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}
@@ -381,7 +383,7 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 	_active_tree = tree
 	if not dialogue.node_shown.is_connected(_performance_node_shown):
 		dialogue.node_shown.connect(_performance_node_shown)
-	dialogue.run_tree(tree, "loop_business", Callable())
+	dialogue.run_tree(tree, "loop_business", Callable(), Callable(), {"framing_cast": cast})
 	conversation_started.emit(_active_resident, "loop_business")
 	return true
 
