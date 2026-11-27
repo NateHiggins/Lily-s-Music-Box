@@ -152,6 +152,8 @@ func _drawn() -> void:
 		return
 	row.drawn_usec = Time.get_ticks_usec()
 	row.drawn_frame = Engine.get_process_frames()
+	# Audio-driven faces can resample after LateStamp, just before submission.
+	row.face_at_drawn = float(late.face.get("_speech_clock"))
 	var raw := 0.0
 	if voice.playing():
 		raw = maxf(0.0, voice._player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency())
@@ -237,11 +239,11 @@ func _measure(label: String, run: Dictionary, moved: float) -> Dictionary:
 			continue # Not yet driven, or held at the end of her cues.
 		var script_gap := (int(frame.late_usec) - int(seek.usec)) / 1e6
 		var render_gap := (int(frame.drawn_usec) - int(frame.late_usec)) / 1e6
-		var drawn_error := absf(float(frame.audible_at_drawn) - face_clock)
+		var drawn_error := absf(float(frame.audible_at_drawn) - float(frame.face_at_drawn))
 		var seek_error := absf(face_clock - clock)
 		worst_drawn = maxf(worst_drawn, drawn_error)
 		worst_seek = maxf(worst_seek, seek_error)
-		var sample := {"frame": seek.frame, "clock_at_seek": clock, "face": face_clock, "audible_at_drawn": frame.audible_at_drawn,
+		var sample := {"frame": seek.frame, "clock_at_seek": clock, "face": face_clock, "face_at_drawn": frame.face_at_drawn, "audible_at_drawn": frame.audible_at_drawn,
 				"mixer_at_drawn": frame.mixer_at_drawn, "script_gap": script_gap, "render_gap": render_gap, "drawn_error": drawn_error}
 		samples.append(sample)
 		if script_gap + render_gap > STALL or drawn_error > GATE:
