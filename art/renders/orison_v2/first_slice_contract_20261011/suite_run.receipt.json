@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 569.96,
+  "elapsed_s": 611.69,
   "exit_code": 0,
-  "finished_utc": "2026-11-27T03:48:09Z",
-  "started_utc": "2026-11-27T03:38:39Z",
+  "finished_utc": "2026-11-27T04:32:20Z",
+  "started_utc": "2026-11-27T04:22:08Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/loop_review_batch02/friday_ensemble_release01/first_slice.log.stderr",
-  "stderr_sha256": "44f3d62c7a3227eeab3948036dfdf27310784864894b177279c5529247e8a21b",
-  "stdout": "C:/ov/loop_review_batch02/friday_ensemble_release01/first_slice.log",
-  "stdout_sha256": "c8bd0c00a5dd2f35f61d47e97dfbc9b4783c62728bf8acd53afabccf18238b77"
+  "stderr": "D:/ov_reports/loop_release_20261127/price_reception01/first_slice.log.stderr",
+  "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
+  "stdout": "D:/ov_reports/loop_release_20261127/price_reception01/first_slice.log",
+  "stdout_sha256": "d9e97bdfbb6abbbc9724caf69720f35083c2b4e48ec555e4ee2b05ebfba69018"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/loop_review_batch02/friday_ensemble_release01/first_slice/packet",
+ "shot_dir": "D:/ov_reports/loop_release_20261127/price_reception01/first_slice/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "992661fb413136e50af48a7e2fa4eaad6851a205",
-  "repository_tree": "b1d9390d3ae8d3c300f1f82d7cd1b648430c5e50",
-  "runtime_inputs_sha256": "8f5e79dad468dc4085a7a543ea75c1e7445f5e9465f8e26d830e055d0d3afe04",
+  "repository_head": "b714f941d9c2df70a402f72eab57eaf97c3a7ee3",
+  "repository_tree": "384821897a4c9341799a90308d7f821c02e61095",
+  "runtime_inputs_sha256": "5db20e92d6db5fec916d7be65cc49d89b28f5aff62d34625215969081f444e2e",
   "test_path": null,
   "test_sha256": null
  },
