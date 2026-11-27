@@ -141,6 +141,20 @@ func propose(route: Node3D, target: Vector3, delta: float) -> Vector3:
 	var at: Vector3=route.actor.global_position
 	var straight:=at+Vector3(target.x-at.x,0,target.z-at.z).limit_length(delta*route.route_speed)
 	if not _configured or _retired: return at
+	# A street-side avoidance offset can put a resident outside the oak portal's
+	# usable opening. Centre on the approach before stepping toward its jamb.
+	# The route's real admission, sweep, peer and solid checks still run.
+	if not route._door_passages.is_empty():
+		for door: DoorProp in route._door_passages:
+			if door.get_meta("semantic_id", "") != "F01_DOOR_06" or not door.is_ready_for_passage(): continue
+			var side := float(route._door_passages[door].side)
+			var local := door.to_local(at)
+			if side * local.z <= 0.0 or door.to_local(target).z * side > 0.0: continue
+			var centre := door.width * 0.5
+			if absf(local.x - centre) > 0.08:
+				var aligned := door.to_global(Vector3(centre, local.y, local.z))
+				return at + Vector3(aligned.x-at.x, 0, aligned.z-at.z).limit_length(delta*route.route_speed)
+		return straight
 	if not _can_steer(route): return straight
 	var reply: Dictionary=_proposals.get(route.actor.get_instance_id(),{})
 	if reply.is_empty() or Vector3(reply.target).distance_to(target)>.001:
