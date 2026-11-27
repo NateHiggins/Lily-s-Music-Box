@@ -3,6 +3,54 @@ extends RefCounted
 ## No process/physics yield, gameplay transform, clock, input or save mutation.
 static var _reflection_prepared := false
 
+static var _room_captions_prepared := false
+var _caption_viewport: SubViewport
+
+## Keep the real shaped glyph surfaces resident through world composition.
+## The companion's existing registration wait flushes Label3D's deferred build.
+func stage_room_captions(owner: Node) -> void:
+    if _room_captions_prepared or DisplayServer.get_name() == "headless":
+        return
+    if RenderingServer.get_current_rendering_method() != "forward_plus" or RenderingServer.get_rendering_device() == null:
+        return
+    _caption_viewport = SubViewport.new()
+    _caption_viewport.name = "RoomCaptionPreparation"
+    _caption_viewport.size = Vector2i(256, 128)
+    var local_world := World3D.new()
+    local_world.environment = Environment.new()
+    local_world.environment.background_mode = Environment.BG_COLOR
+    local_world.environment.background_color = Color.BLACK
+    _caption_viewport.world_3d = local_world
+    _caption_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+    _caption_viewport.gui_disable_input = true
+    owner.add_child(_caption_viewport)
+    var camera := Camera3D.new()
+    camera.far = 6.0
+    _caption_viewport.add_child(camera)
+    camera.make_current()
+    # The first two captions are always the same glyphs for this act.
+    var positions := [Vector3(-0.35, 0.0, -2.0), Vector3(0.35, 0.0, -2.2)]
+    for index in positions.size():
+        var label := Intrusions.make_room_caption(index)
+        label.position = positions[index]
+        _caption_viewport.add_child(label)
+
+func finish_room_captions() -> void:
+    if not is_instance_valid(_caption_viewport):
+        return
+    # The isolated witness submitted both labels on draw one. Later draws
+    # had the same 124 primitives and compiled no additional surfaces.
+    _caption_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+    RenderingServer.force_draw(false)
+    RenderingServer.force_sync()
+    _caption_viewport.free()
+    _caption_viewport = null
+    _room_captions_prepared = true
+
+func _notification(what: int) -> void:
+    if what == NOTIFICATION_PREDELETE and is_instance_valid(_caption_viewport):
+        _caption_viewport.free() # A refused composition never reaches finish.
+
 ## Forward+ chooses reflection pipeline variants on its first probe capture.
 ## Do this before the building registers its surfaces. The temporary scenario
 ## has no connection to a gameplay camera, light, clock or input owner.
