@@ -317,7 +317,6 @@ func _first_person_guest(identity: String) -> bool:
 	var saved_eye := player.camera.transform
 	var baseline := player.camera.fov
 	var mouse := Input.mouse_mode
-	var before := _consequence_snapshot()
 	var panel: CaseDialoguePanel = world.conversations.dialogue
 	if not _check(not panel.attention_active() and not player.call_locked, "player owns input before speaking"): return false
 	player.global_position = foot
