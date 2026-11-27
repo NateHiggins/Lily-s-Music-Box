@@ -19,7 +19,7 @@ var _sight_elapsed := 0.0
 func _ready() -> void:
 	set_physics_process(false)
 
-func begin(player: PlayerController, resident_id: String, owns_input: Callable) -> void:
+func begin(player: PlayerController, resident_id: String, owns_input: Callable, cast := {}) -> void:
 	release()
 	if not is_instance_valid(player) or player.inspecting() or not is_instance_valid(player.camera):
 		return
@@ -31,7 +31,10 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 	var nearest := RANGE * RANGE
 	for node in get_tree().get_nodes_in_group("animated_residents"):
 		var actor := node as Node3D
-		if actor == null or actor.get("resident_id") != resident_id or not actor.is_visible_in_tree():
+		if actor == null or not actor.is_visible_in_tree():
+			continue
+		var is_speaker: bool = actor.get("resident_id") == resident_id
+		if not is_speaker and not cast.has(actor.get("resident_id")):
 			continue
 		if actor.get_viewport() != camera.get_viewport():
 			continue
@@ -41,6 +44,14 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 			if head < 0 or not skeleton.is_visible_in_tree():
 				continue
 			var eye := _eye(skeleton, head)
+			if not is_speaker:
+				# The entry composition already includes this other performer at its edge.
+				if camera.is_position_in_frustum(eye):
+					var view := camera.get_viewport().get_visible_rect()
+					var x := (camera.unproject_position(eye).x - view.position.x) / view.size.x
+					if (x < 0.15 or x > 0.85) and _clear_sight(camera, player, actor, eye):
+						return
+				break
 			var distance := camera.global_position.distance_squared_to(eye)
 			if distance < nearest and distance > 0.8 * 0.8 and _in_shot(camera, eye):
 				nearest = distance
@@ -59,6 +70,12 @@ func begin(player: PlayerController, resident_id: String, owns_input: Callable) 
 
 func _eye(body: Skeleton3D, head: int) -> Vector3:
 	return body.to_global(body.get_bone_global_pose(head).origin + Vector3.UP * 0.08)
+
+func _clear_sight(camera: Camera3D, player: PlayerController, actor: Node3D, eye: Vector3) -> bool:
+	var ray := PhysicsRayQueryParameters3D.create(camera.global_position, eye, 1, [player.get_rid()])
+	var hit := camera.get_world_3d().direct_space_state.intersect_ray(ray)
+	var obstacle := hit.get("collider") as Node
+	return hit.is_empty() or obstacle == actor or (obstacle != null and actor.is_ancestor_of(obstacle))
 
 func _in_shot(camera: Camera3D, eye: Vector3) -> bool:
 	if camera.is_position_behind(eye):
@@ -85,10 +102,7 @@ func _physics_process(delta: float) -> void:
 	# Recheck cover when either endpoint moves, including the first physics tick.
 	_sight_elapsed += delta
 	if _sight_elapsed >= 0.25 or from.distance_squared_to(_sight_from) > 0.01 or eye.distance_squared_to(_sight_to) > 0.01:
-		var query := PhysicsRayQueryParameters3D.create(from, eye, 1, [_player.get_rid()])
-		var hit := _camera.get_world_3d().direct_space_state.intersect_ray(query)
-		var obstacle := hit.get("collider") as Node
-		if not hit.is_empty() and obstacle != _actor and (obstacle == null or not _actor.is_ancestor_of(obstacle)):
+		if not _clear_sight(_camera, _player, _actor, eye):
 			release()
 			return
 		_sight_elapsed = 0.0

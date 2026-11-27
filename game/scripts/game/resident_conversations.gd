@@ -383,7 +383,7 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 	_active_tree = tree
 	if not dialogue.node_shown.is_connected(_performance_node_shown):
 		dialogue.node_shown.connect(_performance_node_shown)
-	dialogue.run_tree(tree, "loop_business", Callable())
+	dialogue.run_tree(tree, "loop_business", Callable(), Callable(), {"framing_cast": cast})
 	conversation_started.emit(_active_resident, "loop_business")
 	return true
 

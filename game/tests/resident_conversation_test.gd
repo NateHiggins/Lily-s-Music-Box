@@ -556,6 +556,30 @@ func _check_speaker_framing() -> void:
 			panel.current_node_id == "loop_business_2" and is_equal_approx(player.camera.fov, 76.0))
 	director.cancel_for_transition()
 	_check("transition restores ordinary player input", not player.call_locked)
+	var partner := LensResident.new()
+	partner.resident_id = "lily"
+	add_child(partner)
+	var view := player.camera.get_viewport().get_visible_rect()
+	for uv: Vector2 in [Vector2(.94, .46), Vector2(.06, .59)]:
+		partner.global_position = player.camera.project_position(view.position + view.size * uv, 2.1) - Vector3.UP * .08
+		_check("two-person exchange opens at the frame edge", director.start_performance_sequence("stacy", lines, player))
+		for tick in 8:
+			await get_tree().physics_frame
+		_check("edge partner keeps entry lens, position and input at " + str(uv), is_equal_approx(player.camera.fov, 76.0)
+				and player.camera.transform == eye_pose and player.global_transform == player_pose and player.call_locked)
+		director.cancel_for_transition()
+	_check("solo line opens beside a visible bystander", director.start_performance("stacy", "Here.", player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a bystander at the edge leaves the solo lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	partner.position.z = 2.1
+	_check("exchange opens with its partner behind the camera", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a partner behind the camera leaves the speaker lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	partner.free()
 	for scripted: bool in [false, true]:
 		var opened := director.start_performance_sequence("stacy", lines, player) if scripted else director.start("stacy")
 		_check("resident owns the panel before the service prompt", opened)

@@ -453,7 +453,7 @@ func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Calla
 		if _speaker_framing == null:
 			_speaker_framing = SpeakerFraming.new()
 			add_child(_speaker_framing)
-		_speaker_framing.begin(_player, actor, owns_exclusive_input)
+		_speaker_framing.begin(_player, actor, owns_exclusive_input, _context.get("framing_cast", {}))
 	node_shown.emit(node_id)
 
 
