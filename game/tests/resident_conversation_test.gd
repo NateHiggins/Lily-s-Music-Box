@@ -597,6 +597,28 @@ func _check_speaker_framing() -> void:
 	_check("a partner behind the camera leaves the speaker lens available", player.camera.fov < 76.0)
 	director.cancel_for_transition()
 	partner.free()
+	# Same skeleton, with its restored clip above the frame and its composed
+	# seated head in the shot. Exercise ordinary dialogue panel ownership.
+	var rig := actor.get_child(0) as Skeleton3D
+	var pose := preload("res://scripts/characters/pose_pipeline.gd").new()
+	pose.name = "PosePipeline"
+	rig.add_child(pose)
+	rig.set_bone_pose_position(0, Vector3.UP * 2.0)
+	pose.last_eye = Vector3.ZERO
+	pose.frames = 1
+	_check("seated performance opens", director.start_performance("stacy", "Here.", player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("lens frames the composed seated head", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	pose.active = false
+	_check("speaker can answer after a pose owner releases her", director.start_performance("stacy", "Here.", player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("inactive seated pose yields to the restored clip", is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	pose.free()
+	rig.set_bone_pose_position(0, Vector3.ZERO)
 	for scripted: bool in [false, true]:
 		var opened := director.start_performance_sequence("stacy", lines, player) if scripted else director.start("stacy")
 		_check("resident owns the panel before the service prompt", opened)
