@@ -12,7 +12,7 @@ extends Node
 
 const REQUIRED := ["quiet_fallback", "exact_binding", "audio_clock_face", "same_speaker_next", "rapid_advance",
 		"speaker_switch", "foreign_replacement", "silent_delivery", "authored_silent_node", "diagnostics_bounded",
-		"immediate_exit", "state_loaded", "continue_exit", "bus_stable"]
+		"immediate_exit", "state_loaded", "continue_exit", "bus_stable", "staff_face_handoff"]
 
 class StubFace extends RefCounted:
 	var _speech_clock := -1.0
@@ -69,6 +69,30 @@ func _contract(id: String, before: int) -> void:
 func _frames(count := 2) -> void:
 	for _i in count:
 		await get_tree().process_frame
+
+
+func _check_staff_lookup(playback: LoopVoicePlayback) -> void:
+	var before := failures.size()
+	var duplicate := StubResident.new()
+	duplicate.resident_id = "stacy"
+	add_child(duplicate)
+	duplicate.cast_body = StubBody.new()
+	duplicate.add_child(duplicate.cast_body)
+	duplicate.hide()
+	duplicate.add_to_group("animated_residents")
+	var staff := preload("res://scripts/characters/harukiya_staff_body.gd").new()
+	staff.configure("stacy", "res://assets/characters/stacy/stacy.gltf", ["work_top", "work_bottom", "work_feet"], "at_ease")
+	add_child(staff)
+	_check(staff.ready_ok and staff.load_standing_profiles(), "Stacy wears her bound counter outfit")
+	staff.set_active(true)
+	_check(playback._cast_body("stacy") == staff, "the visible counter performer owns Stacy's voice cues")
+	staff.set_active(false)
+	_check(playback._cast_body("stacy") == null, "off-duty and hidden copies receive no mouth cues")
+	duplicate.show()
+	_check(playback._cast_body("stacy") == duplicate.cast_body, "the visible routed body receives cues after handoff")
+	staff.free()
+	duplicate.free()
+	_contract("staff_face_handoff", before)
 
 
 func _run() -> void:
@@ -147,6 +171,7 @@ func _run() -> void:
 			"a one-character change finds no take")
 	_check(voice.manifest.take_for("mae_kessler", line).is_empty(), "the same words from another resident find no take")
 	_contract("exact_binding", before)
+	_check_staff_lookup(voice)
 
 	# 3. Playback on the line, face on the audio's clock.
 	before = failures.size()

@@ -252,9 +252,12 @@ func _foreign_attention() -> bool:
 
 func _cast_body(resident: String) -> Node:
 	for actor: Node in get_tree().get_nodes_in_group("animated_residents"):
-		if str(actor.get("resident_id")) == resident:
-			var body: Node = actor.get("cast_body")
-			return body if body != null and body.has_method("speak_cues") else null
+		if str(actor.get("resident_id")) != resident or not actor is Node3D or not actor.is_visible_in_tree():
+			continue
+		# Harukiya staff are the cast presentation. Routed residents wrap one.
+		var body: Node3D = actor if actor.has_method("speak_cues") else actor.get("cast_body")
+		if is_instance_valid(body) and body.is_visible_in_tree() and body.has_method("speak_cues"):
+			return body
 	return null
 
 
