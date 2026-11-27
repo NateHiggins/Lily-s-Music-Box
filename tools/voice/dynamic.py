@@ -38,7 +38,8 @@ import intake
 # Music body availability now queries the existing anecdote; its text and gift join are unchanged.
 # A shared resident input ownership query changes shoulder presentation only.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': '1b82fe222ccd444fffaf07f674caeacd0b0fe2ca4c9593eea0c66fc95b2e1b67',
+    # The shared performance node ID helper preserves the provider text and joins.
+    'game/scripts/game/resident_conversations.gd': '770d45b508548b004cbfc1412abe150a9a70620b8824256c9f7829d9a0744dab',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': 'c06d32cab10c208a297f102c984fa7fb10236572b6e3589d27cdd38919b97c26',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',

@@ -876,6 +876,42 @@
    "disposition": "REVIEW",
    "tier": "test",
    "review": "Test-written terminal runtime receipt reports elapsed host ticks only; gameplay date comes from explicit isolated campaign fixture and owner clock. Duration does not write campaign or resident facts. Retain test-tier REVIEW; no authority exemption."
+  },
+  {
+   "id": "7a5d7f3d8cdf3f90",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/loop_performance_test.gd",
+   "scope": "_host_line_across_guest_phase",
+   "evidence": "elapsed gate + host.arrive(str(phase.place))",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "Fixture advances a synthetic arrival and clock to isolate dialogue continuity. The independent installed Kessler check reaches the apartment with both bodies, moves across the minute boundary, then tests reply and quiet exit."
+  },
+  {
+   "id": "1760f643a6e7f5ba",
+   "domain": "test-proof",
+   "class": "TEST_AUTHORITY_SHORTCUT",
+   "file": "game/tests/resident_agenda_test.gd",
+   "scope": "_washer_repair",
+   "evidence": "18 direct consequence call(s), first: var block := schedule.resolve(slug, \"sat\", m, day, false)",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "ADD_PUBLIC_PROOF",
+   "review": "The schedule test queries its owner directly to distinguish civil appointments and date exceptions. Public approaches, arrival, exchanges and departure were independently exercised in the installed world."
+  },
+  {
+   "id": "87407abf702c0bf9",
+   "domain": "proximity",
+   "class": "AUTONOMY_DEPENDS_ON_PROXIMITY",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "scope": "_on_node_shown",
+   "evidence": "if not is_instance_valid(actor) or not actor.is_visible_in_tree():",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW",
+   "review": "The visibility guard in the dialogue node handler stops the outgoing speaking face before presentation updates. The handler only routes speech and expression. Rehearsal evidence covers an attended conversation. This receipt makes no claim about an unloaded stage."
   }
  ]
 }
