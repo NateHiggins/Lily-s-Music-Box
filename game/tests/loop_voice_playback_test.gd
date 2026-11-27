@@ -1,6 +1,6 @@
 extends Node
 ## Loop voice pilot playback (doc408; Codex's runtime handoff 2026-11-26). The real conversation director and
-## panel with authored trees; the 27 packed loop takes of Codex's pinned playback manifest injected from the
+## panel with authored trees; the packed loop takes of Codex's pinned playback manifest injected from the
 ## external case (LOOP_VOICE_PILOT, a runtime_manifest.json; LOOP_VOICE_PILOT_SHA256 pins it) with the recording
 ## catalog (LOOP_VOICE_CATALOG) for the exact lines; a stub cast
 ## body that records its mouth; an injected clock so the jaw's alignment to the audio is checked without a sound
@@ -229,19 +229,36 @@ func _run() -> void:
 	await _frames()
 	_contract("rapid_advance", before)
 
-	# 5. A speaker switch inside an exchange: Evelyn, then Peter (no take: silence), then Evelyn again.
+	# The earlier pilot has Evelyn alone. The later one adds Peter's recording.
 	before = failures.size()
 	_reset(voice)
+	var peter := StubResident.new()
+	peter.resident_id = "peter_wren"
+	var peter_body := StubBody.new()
+	peter.cast_body = peter_body
+	peter.add_child(peter_body)
+	add_child(peter)
+	peter.add_to_group("animated_residents")
+	var peter_voiced := OS.get_environment("LOOP_VOICE_EXPECT_PETER") == "1"
 	_check(await _perform(["loop_exchange_oy01__loop_business", "loop_exchange_oy01__loop_business_1", "loop_exchange_oy01__loop_business_2"]),
 			"the OY01 exchange opens")
 	panel.choose(0)
 	await _frames(3)
-	_check(not voice.playing() and _stops(voice).has("node_changed") and _plays(voice) == 1, "Peter's line, which has no take, is silent")
+	_check(_stops(voice).has("node_changed"), "Evelyn's first take ends on the speaker switch")
+	if peter_voiced:
+		_check(voice.playing() and _plays(voice) == 2 and voice._take.get("line_id") == "loop_exchange_oy01__loop_business_1",
+				"Peter's own recorded reply plays")
+		_check(not peter_body.calls.is_empty() and peter_body.calls[0].begins_with("cues:"), "Peter's body receives his recording's mouth cues")
+	else:
+		_check(not voice.playing() and _plays(voice) == 1 and peter_body.calls.is_empty(), "Peter waits silently when his take is absent")
 	panel.choose(0)
 	await _frames(3)
-	_check(_plays(voice) == 2, "Evelyn's next line in the exchange plays")
+	_check(_plays(voice) == (3 if peter_voiced else 2) and voice._take.get("line_id") == "loop_exchange_oy01__loop_business_2",
+			"Evelyn gets the next recorded line back")
 	panel.choose(panel.offered_labels().size() - 1)
 	await _frames()
+	peter.free()
+	details["peter_recorded_reply_expected"] = peter_voiced
 	_contract("speaker_switch", before)
 
 	# 6. A foreign tree replaces the node.
@@ -397,7 +414,7 @@ func _finish() -> void:
 	var passed := failures.is_empty()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "production_runtime": false, "selector": "v2",
 			"suite": "LoopVoicePlaybackTest", "status": "PASS" if passed else "FAIL",
-			"scope": "Real conversation director and panel with authored trees; Codex's pinned 27-take playback manifest injected from the external case; stub cast body and injected clock. No in-world body, render, audible check, or artistic or audio-quality acceptance.",
+			"scope": "Real conversation director and panel with authored trees; Pinned pilot manifest, routed test bodies, configured Stacy counter model and injected audio clock. Installed-world playback and listener acceptance require separate evidence.",
 			"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec() - started) / 1000.0},
 			"source": {"test_path": "game/" + get_script().resource_path.trim_prefix("res://"), "test_sha256": FileAccess.get_sha256(get_script().resource_path),
 					"pilot_manifest": OS.get_environment("LOOP_VOICE_PILOT"), "pilot_manifest_sha256": FileAccess.get_sha256(OS.get_environment("LOOP_VOICE_PILOT"))},
