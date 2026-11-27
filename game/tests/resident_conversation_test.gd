@@ -139,12 +139,16 @@ func _run() -> void:
 			and _has(panel.offered_labels(), "Say nothing.") and RealityState.resident_trust("peter_wren") == 0)
 	stale_evidence.pressed.emit()
 	_check("the detached button cannot answer the refreshed menu", events.is_empty())
+	_check("rejecting the stale reply leaves Peter at two visits",
+			RealityState.conversation_visits("peter_wren") == 2)
 	panel.node_shown.disconnect(on_show)
 	panel.tree_ended.disconnect(on_end)
 	panel.close()
 	panel.current_node_id = ""
 	_unit = "4A"
-	director.knock("4A")
+	_check("reopening the flat for the evidence reply records the third visit",
+			director.knock("4A").is_empty() and panel.current_node_id == "pw_open"
+			and RealityState.conversation_visits("peter_wren") == 3)
 	offered = panel.offered_labels()
 	panel.choose(_index(offered, "[the staging table]"))
 	_check("the table leads to the stations", panel.current_node_id == "pw_table")
@@ -209,7 +213,7 @@ func _run() -> void:
 	_check("knowledge, trust and visits are in the saved campaign document",
 			"peter_gap_found" in snapshot.knowledge_flags
 			and int(snapshot.resident_trust.peter_wren) == 6
-			and int(snapshot.conversation_visits.peter_wren) == 3)
+			and int(snapshot.conversation_visits.peter_wren) == 4)
 	_check("the saved shape still validates", RealityState._validate_document(snapshot).ok)
 
 	# --- a soured first contact falls back -------------------------------------------

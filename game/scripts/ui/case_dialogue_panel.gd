@@ -164,9 +164,16 @@ func _ready() -> void:
 func _fit_measure() -> void:
 	var view := get_viewport().get_visible_rect().size
 	var side := mini(72, int(view.x * .075))
+	var bottom := mini(34, int(view.y * .05))
+	var separation := 6
+	if view.y <= 400.0:
+		side = mini(side, 16)
+		bottom = mini(bottom, 8)
+		separation = 3
+	_column.add_theme_constant_override("separation", separation)
 	_measure.add_theme_constant_override("margin_left", side)
 	_measure.add_theme_constant_override("margin_right", side)
-	_measure.add_theme_constant_override("margin_bottom", mini(34, int(view.y * .05)))
+	_measure.add_theme_constant_override("margin_bottom", bottom)
 	_line.custom_minimum_size.x = minf(COLUMN_WIDTH, maxf(1.0, view.x - 2 * side))
 	_fit_replies()
 
