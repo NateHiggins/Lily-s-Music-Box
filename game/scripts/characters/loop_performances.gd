@@ -485,7 +485,7 @@ func _process(delta: float) -> void:
 		var route: Node = world.resident_routes.get(speaker)
 		# Door/counter greetings can be admitted without a route. A greeting
 		# opened face to face belongs to the original physical speaker.
-		var departed := _baseline_body_id != 0 and (not _arrived(speaker) or route.actor.get_instance_id() != _baseline_body_id)
+		var departed: bool = _baseline_body_id != 0 and (not _arrived(speaker) or route.actor.get_instance_id() != _baseline_body_id)
 		if departed or not _can_address(world.resident_whereabouts(speaker)) or not phase_for(speaker).is_empty():
 			conversations.cancel_performance()
 	if not _talk_phase.is_empty():
