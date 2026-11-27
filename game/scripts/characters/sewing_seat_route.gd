@@ -24,6 +24,8 @@ var _capsule := CapsuleShape3D.new()
 var _failed := false
 var _refused_context := ""
 var _settle_left := 0.0
+var _seat_samples: Array[Vector3] = []
+var _seat_mesh: Mesh
 
 func active() -> bool: return not phase.is_empty()
 
@@ -35,23 +37,23 @@ func begin(owner: Node3D) -> bool:
 	if _context(owner) == _refused_context: return false
 	var body: Node3D = owner.actor
 	for method: String in ["set_sewing_seat_pose", "can_set_sewing_seat_pose", "stop_sewing_seat_work", "clear_sewing_seat_pose"]:
-		if not body.has_method(method): return false
-	if owner.world.get("seat_gestures") == null: return false
+		if not body.has_method(method): return _refuse("actor lacks sewing chair API: " + method)
+	if owner.world.get("seat_gestures") == null: return _refuse("real seat reservation owner unavailable")
 	route = owner
 	machine = route.world.adapter.resolve(MACHINE) as Node3D
 	chair = route.world.adapter.resolve(CHAIR) as Node3D
 	seats = route.world.seat_gestures
-	if not is_instance_valid(machine) or not is_instance_valid(chair) or not machine.is_visible_in_tree() or not chair.is_visible_in_tree(): return false
-	if not seats.seats.has(CHAIR) or not is_instance_valid(seats.seats[CHAIR].area) or seats.seats[CHAIR].area.get_parent() != chair: return false
-	if chair is RigidBody3D and not (chair as RigidBody3D).freeze and not (chair as RigidBody3D).sleeping: return false
-	if not seats.can_reserve(CHAIR, RESIDENT, body): return false
+	if not is_instance_valid(machine) or not is_instance_valid(chair) or not machine.is_visible_in_tree() or not chair.is_visible_in_tree(): return _refuse("actual sewing chair or machine unavailable")
+	if not seats.seats.has(CHAIR) or not is_instance_valid(seats.seats[CHAIR].area) or seats.seats[CHAIR].area.get_parent() != chair: return _refuse("seat socket is not owned by actual sewing chair")
+	if chair is RigidBody3D and not (chair as RigidBody3D).freeze and not (chair as RigidBody3D).sleeping: return _refuse("sewing chair is moving")
+	if not seats.can_reserve(CHAIR, RESIDENT, body): return _refuse("actual sewing chair already occupied or reserved")
 	_chair_pose = chair.global_transform
 	_machine_pose = machine.global_transform
-	if not _upright(_chair_pose.basis) or not _upright(_machine_pose.basis): return false
+	if not _upright(_chair_pose.basis) or not _upright(_machine_pose.basis): return _refuse("chair or machine scale/up axis changed")
 	var relative := machine.to_local(chair.global_position)
-	if relative.distance_to(Vector3(0, 0, -.6759)) > .01: return false
+	if relative.distance_to(Vector3(0, 0, -.6759)) > .01: return _refuse("actual chair left calibrated machine-relative placement: %v" % relative)
 	var facing := chair.global_basis * Basis(Vector3.UP, PI)
-	if facing.z.normalized().dot(machine.global_basis.z.normalized()) < .999: return false
+	if facing.z.normalized().dot(machine.global_basis.z.normalized()) < .999: return _refuse("actual chair facing differs from calibrated seat")
 	_seated = Transform3D(facing, chair.global_position - machine.global_basis.y * ROOT_DROP)
 	_capsule.radius = .28
 	_capsule.height = 1.40
@@ -59,10 +61,11 @@ func begin(owner: Node3D) -> bool:
 	if chair is CollisionObject3D: _chair_rids.append((chair as CollisionObject3D).get_rid())
 	for collider: Node in chair.find_children("*", "CollisionObject3D", true, false):
 		_chair_rids.append((collider as CollisionObject3D).get_rid())
-	if _chair_rids.is_empty() or not _seat_supported(): return false
+	if _chair_rids.is_empty(): return _refuse("actual sewing chair has no native collision")
+	if not _qualify_seat_surface() or not _seat_supported(): return false
 	var alignment := machine.to_global(ALIGN_LOCAL)
 	if not _motion_clear(body.global_position, alignment, false): return false
-	if not seats.reserve(CHAIR, RESIDENT, body): return false
+	if not seats.reserve(CHAIR, RESIDENT, body): return _refuse("real chair reservation refused after clearance")
 	route.world.loop_performances._release_activity(RESIDENT)
 	_face_player = body.face_interacting_player
 	body.face_interacting_player = false
@@ -132,8 +135,12 @@ func tick(delta: float) -> bool:
 	if phase == "settle":
 		_settle_left -= minf(delta, .05)
 		if _settle_left > 0.0: return true
-		if not _motion_clear(_standing.origin, _seated.origin, true) or not body.can_set_sewing_seat_pose(machine, chair, _seated, 1.0):
-			_fail("complete sewing entry clearance or endpoint pose refused")
+		if not _motion_clear(_standing.origin, _seated.origin, true):
+			_fail(blocked_reason)
+			close()
+			return false
+		if not body.can_set_sewing_seat_pose(machine, chair, _seated, 1.0):
+			_fail("complete sewing endpoint pose preflight refused")
 			close()
 			return false
 		phase = "sit"
@@ -145,7 +152,7 @@ func tick(delta: float) -> bool:
 	var next_amount := move_toward(amount, goal, minf(delta, .05)/TRANSFER_SECONDS)
 	var next_pose := _standing.interpolate_with(_seated, next_amount)
 	if not _motion_clear(body.global_position, next_pose.origin, true) or not _seat_supported():
-		_fail("sewing transfer support or swept clearance refused")
+		_fail(blocked_reason)
 		body.set_sewing_seat_pose(machine, chair, amount, false)
 		return true
 	if not body.can_set_sewing_seat_pose(machine, chair, next_pose, next_amount):
@@ -195,16 +202,54 @@ func _fixtures_still() -> bool:
 static func _upright(basis: Basis) -> bool:
 	return basis.get_scale().distance_to(Vector3.ONE) < .001 and basis.y.dot(Vector3.UP) > .999
 
+func _refuse(reason: String) -> bool:
+	blocked_reason = reason
+	return false
+
+func _qualify_seat_surface() -> bool:
+	# ChairDark's authored dished upper seat is .468 at the centre, .476
+	# towards its .19m inner rim (domestic_seating_geometry.py). The .478
+	# interaction marker is the outer rim, never a pelvis-support datum.
+	var draw := chair.get_node_or_null("ChairDark__wood_dark") as MeshInstance3D
+	if str(chair.get_meta("v2_native_domestic_variant", "")) != "ChairDark" or draw == null or draw.mesh == null:
+		return _refuse("sewing chair is not the qualified native ChairDark mesh")
+	if _seat_mesh == draw.mesh and _seat_samples.size() == 5: return true
+	_seat_samples.clear()
+	var faces := draw.mesh.get_faces()
+	for xz: Vector2 in [Vector2.ZERO, Vector2(.10,0), Vector2(-.10,0), Vector2(0,.10), Vector2(0,-.10)]:
+		var found := false
+		var top := -INF
+		for index in range(0, faces.size(), 3):
+			var a: Vector3 = draw.transform * faces[index]
+			var b: Vector3 = draw.transform * faces[index+1]
+			var c: Vector3 = draw.transform * faces[index+2]
+			if minf(a.y,minf(b.y,c.y)) < .4677 or maxf(a.y,maxf(b.y,c.y)) > .4763: continue
+			var hit: Variant = Geometry3D.ray_intersects_triangle(Vector3(xz.x,.6,xz.y), Vector3.DOWN, a,b,c)
+			if hit is Vector3:
+				top = maxf(top,(hit as Vector3).y)
+				found = true
+		if not found or (xz == Vector2.ZERO and absf(top-.468) > .0003):
+			return _refuse("qualified dished seat support span absent at %v" % xz)
+		_seat_samples.append(Vector3(xz.x,top,xz.y))
+	_seat_mesh = draw.mesh
+	return true
+
 func _seat_supported() -> bool:
-	var marker: Node3D = seats.seats[CHAIR].area
-	var point := marker.global_position
-	var ray := PhysicsRayQueryParameters3D.create(point+Vector3.UP*.08, point-Vector3.UP*.08, 1)
-	var hit := chair.get_world_3d().direct_space_state.intersect_ray(ray)
-	return not hit.is_empty() and hit.collider is CollisionObject3D and (hit.collider as CollisionObject3D).get_rid() in _chair_rids and hit.normal.y > .8 and absf(hit.position.y-point.y) <= .008
+	if _seat_samples.size() != 5: return _refuse("qualified native seat support samples missing")
+	for local: Vector3 in _seat_samples:
+		var point := chair.to_global(local)
+		var ray := PhysicsRayQueryParameters3D.create(point+Vector3.UP*.04, point-Vector3.UP*.04, 1)
+		var hit := chair.get_world_3d().direct_space_state.intersect_ray(ray)
+		if hit.is_empty(): return _refuse("native seat support ray missed at %v" % local)
+		if not hit.collider is CollisionObject3D or (hit.collider as CollisionObject3D).get_rid() not in _chair_rids:
+			return _refuse("sewing seat supported by unrelated collider: %s" % hit.collider.get_path())
+		if hit.normal.y <= .8 or hit.position.distance_to(point) > .0003:
+			return _refuse("native seat contact differs from qualified dished mesh at %v: %v" % [local,hit.position])
+	return true
 
 func _motion_clear(from: Vector3, to: Vector3, seat_transition: bool) -> bool:
-	if not _fixtures_still() or (seat_transition and not _lease_live()): return false
-	if not route._characters_clear(to) or not route._route_step_allowed(to): return false
+	if not _fixtures_still() or (seat_transition and not _lease_live()): return _refuse("sweep lost stationary fixtures or exact chair lease")
+	if not route._characters_clear(to) or not route._route_step_allowed(to): return _refuse("person or original route owner blocks sewing step to %v" % to)
 	var space: PhysicsDirectSpaceState3D = route.actor.get_world_3d().direct_space_state
 	var excluded: Array[RID] = _chair_rids if seat_transition else []
 	var shape := PhysicsShapeQueryParameters3D.new()
@@ -214,15 +259,17 @@ func _motion_clear(from: Vector3, to: Vector3, seat_transition: bool) -> bool:
 	shape.transform.origin = from + Vector3.UP*.95
 	shape.motion = to-from
 	var sweep := space.cast_motion(shape)
-	if sweep.size()!=2 or sweep[0] < 1.0: return false
+	if sweep.size()!=2 or sweep[0] < 1.0: return _refuse("native capsule sweep blocked: from=%v to=%v fractions=%s" % [from,to,sweep])
 	# cast_motion ignores existing overlaps. Check both ends independently.
 	for at: Vector3 in [from, to]:
 		shape.motion = Vector3.ZERO
 		shape.transform.origin = at+Vector3.UP*.95
-		if not space.intersect_shape(shape, 1).is_empty(): return false
+		var overlap := space.intersect_shape(shape, 1)
+		if not overlap.is_empty(): return _refuse("native capsule overlap at %v: %s" % [at,overlap[0].collider.get_path()])
 		var ray := PhysicsRayQueryParameters3D.create(at+Vector3.UP*.34, at-Vector3.UP*.5, 1, excluded)
 		var floor_hit := space.intersect_ray(ray)
-		if floor_hit.is_empty() or floor_hit.normal.y < .45 or absf(floor_hit.position.y-at.y) > .03: return false
+		if floor_hit.is_empty(): return _refuse("sewing floor ray missed at %v" % at)
+		if floor_hit.normal.y < .45 or absf(floor_hit.position.y-at.y) > .03: return _refuse("unsupported sewing floor at %v: %s" % [at,floor_hit])
 	return true
 
 func close() -> void:
