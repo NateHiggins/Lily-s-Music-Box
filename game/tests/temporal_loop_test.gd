@@ -176,6 +176,77 @@ func _check_last_night_custody() -> void:
 	paper.free()
 
 
+## Rule-level consequence matrix. The real panel earns each lobby agreement.
+## Only the later on-site sighting is supplied as a fact; no world is loaded here.
+func _check_friday_book_consequences() -> void:
+	var before: Dictionary = RealityState.data.duplicate(true)
+	var original_slips := slips.size()
+	var expected_book := str(loop.command("book").text)
+	var panel := CaseDialoguePanel.new()
+	add_child(panel)
+	var director := Conversations.new()
+	add_child(director)
+	director.setup(panel)
+	RealityState.grant_knowledge("m_motive_known")
+	RealityState.grant_knowledge("m_lease_read")
+	var branches := [
+		["Don't go up. Stay in the shop.", "m_o2_shop_agreed", "m_o2_kept_shop",
+			"WARNED A.V. AT THE SHOP. SHE AGREED TO STAY."],
+		["Let me come up with you.", "m_o2_roof_company", "m_o2_stood_roof",
+			"STOOD BY A.V. AT THE PARAPET."],
+		["Bring Miss Quell and Mr. Ewald tonight. Not Monday.", "m_o2_monday_sent", "m_o2_brought_monday",
+			"BROUGHT MISS Q. AND MR. E. TO THE SHOP AT 18:30. THEY READ THE PRINTS."],
+	]
+	for branch: Array in branches:
+		for witnessed: bool in [false, true]:
+			for blackout: bool in [false, true]:
+				var tag := "%s, witnessed=%s, blackout=%s" % [branch[1], witnessed, blackout]
+				check(loop.go_friday().ok, tag + ": start a fresh Friday")
+				for pair: Array in branches:
+					check(not RealityState.has_knowledge(str(pair[1])) and not RealityState.has_knowledge(str(pair[2])),
+						tag + ": Friday clears previous agreement and sighting " + str(pair[1]))
+				check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 18 * 60 + 5))
+					and director.start_mystery("adela_voss", true, "av_nineteen"), tag + ": the lobby topic opens")
+				panel.choose(panel.offered_labels().find("Evening, Miss Voss."))
+				var choice := panel.offered_labels().find(str(branch[0]))
+				check(choice >= 0, tag + ": the authored reply is offered")
+				if choice >= 0:
+					panel.choose(choice)
+				check(RealityState.has_knowledge(str(branch[1])) and not RealityState.has_knowledge(str(branch[2])),
+					tag + ": choosing the reply earns only the agreement")
+				panel.close()
+				if witnessed:
+					RealityState.grant_knowledge(str(branch[2]))
+				var first_slip := slips.size()
+				var expected_slips: Array[String] = []
+				if blackout:
+					check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 21 * 60)), tag + ": reach 21:00")
+					clock.advance_seconds(120.0)
+					check(at(1929, 7, 20, 3, 2), tag + ": the campaign clock crosses the blackout")
+					expected_slips.append("|SATURDAY 20 JULY, 3.02 A.M. THE NEXT RECORDED MOMENT.")
+				else:
+					check(loop.go_friday().ok, tag + ": replay closes this evening before blackout")
+				if witnessed:
+					var entry := str(branch[3])
+					if blackout:
+						entry += " VISIT ENDED AT 21:01. AT 03:02 THE BODY WAS PRESENT."
+					expected_book += "\n" + entry
+					expected_slips.append("|THE KEY BOOK, IN GREASE PENCIL:\n" + entry)
+				loop._attend_rescue()
+				loop._attend_rescue()
+				check(slips.slice(first_slip) == expected_slips, tag + ": exact slips, each delivered once")
+				check(str(loop.command("book").text) == expected_book, tag + ": every earlier line remains in order")
+	check(RealityState.save_game(), "Friday branch records save")
+	RealityState.load_game()
+	check(clock.bind_state() and str(loop.command("book").text) == expected_book,
+		"Continue preserves earlier loans, attempts, and the six witnessed entries in order")
+	director.free()
+	panel.free()
+	RealityState.data = before
+	check(clock.bind_state() and RealityState.save_game(), "restore the campaign used by the remaining ending controls")
+	slips.resize(original_slips)
+
+
 func _ready() -> void:
 	var old_path: String = RealityState.save_path
 	var old_persistence: bool = RealityState.persistence_enabled
@@ -785,6 +856,8 @@ func _ready() -> void:
 	loop._attend_rescue()
 	check(slips.size() == rescue_at + 4 and slips.back() == "|THE KEY BOOK, IN GREASE PENCIL:\nKEPT AN ENVELOPE FOR 6C.",
 			"keeping Cam's envelope for 6C writes its own honest line")
+
+	_check_friday_book_consequences()
 
 	# The end: the correction, the last night on the roof, and the choice.
 	check(loop.case_closed() and loop.last_night_open() and str(loop.leads_text()).contains("LAST takes you to it"),
