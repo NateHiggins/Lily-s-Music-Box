@@ -47,6 +47,7 @@ var _faces: Dictionary = {}  # resident id -> {"body": Node, "segment": Dictiona
 var _campaign: Variant = null
 var _started_ms := 0
 var _bind_pending := false
+var _awaiting_draw := false
 var _last_clock := 0.0
 
 
@@ -96,6 +97,7 @@ func _on_node_shown(_node_id: String) -> void:
 
 
 func _bind() -> void:
+	if not _bind_pending: return
 	_bind_pending = false
 	if not _take.is_empty():
 		return
@@ -126,12 +128,33 @@ func _bind() -> void:
 	_bound = {"tree": tree, "node": node_id, "text": line, "actor": actor}
 	_campaign = _reality_data()
 	_player.stream = stream
-	_player.play()
+	_start_faces(take, actor)
+	_awaiting_draw = true
+	if DisplayServer.get_name() == "headless":
+		_start_prepared_take()
+		return
+	RenderingServer.frame_pre_draw.connect(_before_dialogue_draw)
+
+
+func _before_dialogue_draw() -> void:
+	var window := get_window()
+	if window == null or not window.can_draw() or (_panel is CanvasLayer and not (_panel as CanvasLayer).visible):
+		return
+	RenderingServer.frame_pre_draw.disconnect(_before_dialogue_draw)
+	RenderingServer.frame_post_draw.connect(_start_prepared_take, CONNECT_ONE_SHOT)
+
+
+func _start_prepared_take() -> void:
+	if _take.is_empty(): return
+	if not _valid():
+		stop(_why_invalid())
+		return
+	_awaiting_draw = false
 	_started_ms = Time.get_ticks_msec()
 	_last_clock = 0.0
-	_start_faces(take, actor)
-	_note({"event": "play", "actor": actor, "node": node_id, "line_id": take.line_id})
-	played.emit(take)
+	_player.play()
+	_note({"event": "play", "actor": _bound.actor, "node": _bound.node, "line_id": _take.line_id})
+	played.emit(_take)
 
 
 func _start_faces(take: Dictionary, actor: String) -> void:
@@ -154,6 +177,7 @@ func _process(_delta: float) -> void:
 	if not _valid():
 		stop(_why_invalid())
 		return
+	if _awaiting_draw: return
 	var at := _clock()
 	for who: String in _faces:
 		var face_row: Dictionary = _faces[who]
@@ -234,6 +258,13 @@ func _why_invalid() -> String:
 
 ## Stops the line. `faces` false leaves the mouths to the conversation's own speech owner (a node change).
 func stop(reason: String, faces := true) -> void:
+	_bind_pending = false
+	if RenderingServer.frame_pre_draw.is_connected(_before_dialogue_draw):
+		RenderingServer.frame_pre_draw.disconnect(_before_dialogue_draw)
+	if RenderingServer.frame_post_draw.is_connected(_start_prepared_take):
+		RenderingServer.frame_post_draw.disconnect(_start_prepared_take)
+	var was_pending := _awaiting_draw
+	_awaiting_draw = false
 	if _take.is_empty():
 		return
 	if _player != null:
@@ -243,11 +274,12 @@ func stop(reason: String, faces := true) -> void:
 			var body: Node = _faces[who].body
 			if _faces[who].on and is_instance_valid(body):
 				body.call("stop_speaking")
-	_note({"event": "stop", "reason": reason, "actor": str(_bound.get("actor", ""))})
+	if not was_pending:
+		_note({"event": "stop", "reason": reason, "actor": str(_bound.get("actor", ""))})
 	_take = {}
 	_bound = {}
 	_faces.clear()
-	stopped.emit(reason)
+	if not was_pending: stopped.emit(reason)
 
 
 func _note(event: Dictionary) -> void:
