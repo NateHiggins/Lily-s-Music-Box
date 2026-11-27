@@ -347,6 +347,10 @@ func start_performance(resident_id: String, line: String, player: Node) -> bool:
 	return start_performance_sequence(resident_id, [{"speaker": resident_id, "text": line}], player)
 
 
+static func performance_node_id(index: int) -> String:
+	return "loop_business" if index == 0 else "loop_business_%d" % index
+
+
 ## Linear authored exchanges keep the panel's deliberate choices and departure.
 ## They carry text/speakers only: no flags, trust, actions or invented props.
 func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
@@ -362,10 +366,10 @@ func start_performance_sequence(resident_id: String, lines: Array, player: Node)
 			return false
 		var actor := str(row.speaker)
 		cast[actor] = true
-		var key := "loop_business" if i == 0 else "loop_business_%d" % i
+		var key := performance_node_id(i)
 		var choices: Array = []
 		if i + 1 < lines.size():
-			choices.append({"label": str(row.get("choice", "Listen.")), "goto": "loop_business_%d" % (i + 1)})
+			choices.append({"label": str(row.get("choice", "Listen.")), "goto": performance_node_id(i + 1)})
 		choices.append({"label": "I'll let you get on."})
 		nodes[key] = {"line": str(row.text), "actor": actor, "silence_goto": "",
 				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}

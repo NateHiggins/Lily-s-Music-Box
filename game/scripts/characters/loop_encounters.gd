@@ -31,11 +31,21 @@ func setup(runtime: Node3D, talk: ResidentConversations, arrival: Callable) -> b
 		for actor: Variant in item.actors:
 			if actor is not String or not conversations.trees.has(actor) or actor == "mina_vale":
 				errors.append("unsupported encounter actor: " + str(actor))
-		for line: Variant in item.lines:
+		var listener_marks := {}
+		for index in item.lines.size():
+			var line: Variant = item.lines[index]
 			if line is not Dictionary or line.get("speaker") not in item.actors \
 					or line.get("text") is not String or str(line.text).is_empty() \
 					or (line.has("choice") and (line.choice is not String or str(line.choice).is_empty())):
 				errors.append("invalid line: " + str(item.id))
+			elif line.has("listener_mark"):
+				var mark: Variant = line.get("listener_mark")
+				if mark not in ["LeftHand", "RightHand"]:
+					errors.append("invalid listener wrist mark: " + str(item.id))
+				else:
+					listener_marks[ResidentConversations.performance_node_id(index)] = mark
+		if not listener_marks.is_empty():
+			item["listener_marks"] = listener_marks
 		if item.has("open_stance") and item.open_stance is not bool:
 			errors.append("invalid standing exchange setting: " + str(item.id))
 		if item.has("exclude_dates") and item.exclude_dates is not Array:

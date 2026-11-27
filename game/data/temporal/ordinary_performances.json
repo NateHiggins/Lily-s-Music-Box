@@ -34,7 +34,6 @@
     {
       "id": "OY03",
       "open_stance": true,
-      "listener_marks": {"loop_business_1": "RightHand"},
       "actors": ["lena_ortiz", "omar_bell"],
       "topic": "The temporary repair.",
       "excluded_anchors": ["button", "bench"],
@@ -42,7 +41,7 @@
       "places": ["corridor", "lobby", "mail_bank", "laundry"],
       "lines": [
         {"speaker": "lena_ortiz", "text": "Hold still. It's temporary."},
-        {"speaker": "omar_bell", "text": "How temporary?"},
+        {"speaker": "omar_bell", "text": "How temporary?", "listener_mark": "RightHand"},
         {"speaker": "lena_ortiz", "text": "Till it earns one of those tags."},
         {"speaker": "omar_bell", "text": "Mine usually outlive the tags."}
       ]
