@@ -47,12 +47,16 @@ var _refused_thread := ""
 var _poll_due := 0.0
 var guests: Array[AnimatedResident] = []
 var _witnessed := 0.0
+var _staged := {}  # the Friday branch the mounted body belongs to; watched every physics tick
 var _stand := {}  # where Adela stands for the staged branch, and the side her guests take
 
 
 func _physics_process(delta: float) -> void:
 	if world.startup_ms <= 0.0:
 		return
+	# Sight is continuous: watched each physics tick with its real delta, and any break starts it again.
+	if is_instance_valid(actor) and not _staged.is_empty():
+		_watch(_staged, delta)
 	_poll_due -= delta
 	if _poll_due > 0.0 and not is_instance_valid(actor):
 		return
@@ -68,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	if is_instance_valid(actor) and encounter.has("attempt"):
 		if guests.size() < encounter.get("guests", []).size():
 			_mount_guests(encounter)
-		_watch(encounter, .2)
 
 
 func _scheduled_encounter() -> Dictionary:
@@ -161,6 +164,7 @@ func _retire() -> void:
 			guest.queue_free()
 	guests.clear()
 	_stand = {}
+	_staged = {}
 	if not is_instance_valid(actor):
 		return
 	if world.conversations._active_resident == PERSON:
@@ -244,6 +248,7 @@ func _mount_resident(encounter: Dictionary) -> void:
 	actor = resident
 	_current_thread = thread
 	_stand = {"at": floor.position, "beside": placement.get("beside", Vector3.RIGHT)}
+	_staged = encounter if witnessed else {}
 	_mount_guests(encounter)
 
 

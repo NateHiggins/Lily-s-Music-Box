@@ -212,9 +212,19 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 		await _at(minute)
 		await _settle(2.0, func() -> bool: return _thread() == thread)
 		adela = owner_node.get("actor")
+	# Sight is continuous and timed in real physics frames: a glance, or a look broken before a second, is not
+	# enough; a sustained second is.
+	await _look_from(near, adela, false, 0.0, .5)
+	await _look_from(near, adela, true, 0.0, .3)
+	_check(not RealityState.has_knowledge(attempt), "%s: a half-second glance grants nothing" % place)
+	await _look_from(near, adela, false, 0.0, .6)
+	await _look_from(near, adela, true, 0.0, .2)
+	await _look_from(near, adela, false, 0.0, .6)
+	await _look_from(near, adela, true, 0.0, .3)
+	_check(not RealityState.has_knowledge(attempt), "%s: two 0.6 s looks broken by a glance away grant nothing" % place)
 	# The real look.
-	await _look_from(near, adela)
-	_check(RealityState.has_knowledge(attempt), "%s: the player's own look writes %s" % [place, attempt])
+	await _look_from(near, adela, false, 0.0, 1.25)
+	_check(RealityState.has_knowledge(attempt), "%s: a sustained look writes %s" % [place, attempt])
 	_check(_only_attempts([attempt]), "%s: and no other attempt" % place)
 	await _capture("friday_" + place)
 
@@ -285,7 +295,7 @@ func _viewpoint(person: Node3D, low: float, high: float, clear: bool, roof: bool
 	return null
 
 
-func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0) -> void:
+func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0, hold := 1.6) -> void:
 	world.player.global_position = at
 	await get_tree().physics_frame
 	var camera: Camera3D = world.player.camera
@@ -296,8 +306,9 @@ func _look_from(at: Vector3, person: Node3D, away := false, pitch_down := 0.0) -
 		toward = toward.rotated(right, deg_to_rad(-pitch_down))  # look below: the face rises in the picture
 	var target := camera.global_position + (toward if not away else -toward)
 	camera.look_at(target, Vector3.UP)
-	await get_tree().create_timer(1.6).timeout
-	await get_tree().physics_frame
+	var ends := Time.get_ticks_msec() + int(hold * 1000.0)
+	while Time.get_ticks_msec() < ends:
+		await get_tree().physics_frame
 
 
 func _visible_bodies(id: String) -> int:
