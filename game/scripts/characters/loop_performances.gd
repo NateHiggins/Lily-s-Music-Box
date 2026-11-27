@@ -227,6 +227,10 @@ func whereabouts(resident: String) -> Dictionary:
 	var parts := str(anchor.start).split(":")
 	var minute := int(parts[0]) * 60 + int(parts[1])
 	var destination := str(phase.place)
+	# Teresa finds Adela first. A late or obstructed nurse cannot be overtaken
+	# by Omar just because three clock minutes have passed.
+	if destination == "visit:yard_electrician" and route.destination != destination and not witness_present("teresa_vale"):
+		return {}
 	var activity := str(phase.activity)
 	# Hosts clear the shared approach while a scheduled guest comes through.
 	# The guest yields to the real body, so a slow/blocked host never gets walked
