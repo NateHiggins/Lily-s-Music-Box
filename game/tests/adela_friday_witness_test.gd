@@ -9,6 +9,7 @@ extends Node3D
 ## and grants nothing; FRIDAY clears the intents and keeps the book. Player placement is declared (teleport and
 ## camera aim), not walked. No artistic acceptance; Mr. Ewald has no body yet (ruling ewald_body_20261126).
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
+const State := preload("res://scripts/game/prologue_state.gd")
 const REQUIRED := ["authored_choices", "ordinary_friday", "roof_branch", "prints_branch", "shop_branch", "saved_scene",
 		"blackout_boundary", "friday_reset"]
 const INTENTS := ["m_o2_shop_agreed", "m_o2_roof_company", "m_o2_monday_sent"]
@@ -60,7 +61,27 @@ func _run() -> void:
 	prior_mode = GameBoot.launch_mode
 	CampaignTime.set_frozen_for_tests(true)
 	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
-	_check(CampaignClock.new().configure_date(1929, 7, 19, 1000), "actual civil Friday 19 July")
+	# The completed prologue's loop calendar (as TemporalLoopTest and the shop check set it), then Friday at six.
+	var clock := CampaignClock.new()
+	clock.configure_date(1928, 11, 10, 1380)
+	var opening := State.request_skip(State.initial())
+	for index in State.PHASES.size() - 1:
+		var phase: String = State.PHASES[index]
+		if phase == "companion_crossing":
+			opening = State.applied(opening, "companion_materialized")
+		if phase == "temporal_command":
+			opening = State.with_target(opening, {"utc_unix_seconds": 1856345696, "local_bias_minutes": -300, "local_zone": "Test"})
+		if phase == "temporal_synchronization":
+			break
+		opening = State.advance(opening, State.PHASES[index + 1])
+	RealityState.data.prologue = opening
+	_check(clock.apply_prologue_destination() and clock.loop_calendar_active(), "the loop calendar from the normal prologue destination")
+	RealityState.data.prologue = State.advance(State.advance(RealityState.data.prologue, "title_reveal"), "prologue_complete")
+	RealityState.data.intro_complete = true
+	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE, "report_id": ChirpHunt.JOB_ID, "filing": "fault_corrected"}
+	RealityState.data.core_loop = {"safe_return_anchor": "F04_B_BED", "boundary": "wake_complete", "active_job_id": "",
+			"conversation_requested": false, "conversation_complete": false, "dream_pending": false}
+	_check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, 18 * 60)), "Friday 19 July at six on the loop calendar")
 	world = Runtime.instantiate()
 	add_child(world)
 	await get_tree().physics_frame
@@ -109,13 +130,19 @@ func _run() -> void:
 	before = failures.size()
 	_reset_flags()
 	RealityState.grant_knowledge("m_o2_roof_company")
-	await _at(1200)
-	_check(_thread() == "av_friday_roof", "the roof branch is staged at 20:00")
-	await _at(1261)
-	_check(_thread().is_empty() and not is_instance_valid(owner_node.get("actor")) and (owner_node.get("guests") as Array).is_empty(),
-			"at 21:01 every staged body is gone")
-	await get_tree().create_timer(1.6).timeout
-	_check(not RealityState.has_knowledge("m_o2_stood_roof"), "after 21:01 nothing is granted")
+	await _at(1260)
+	await _settle(4.0, func() -> bool: return _thread() == "av_friday_roof")
+	if _check(_thread() == "av_friday_roof", "the roof branch is staged at 21:00"):
+		# A look 0.85 s old when the record stops at 21:01 is not finished by the next tick.
+		var adela: Node3D = owner_node.get("actor")
+		var spot: Variant = _viewpoint(adela, 1.4, 2.1, true, true)
+		if _check(spot != null, "a clear roof viewpoint at 21:00"):
+			await _look_from(spot, adela, false, 0.0, .85)
+			world.campaign_clock.advance_seconds(60.0)
+			await _hold(.6)
+			_check(_thread().is_empty() and not is_instance_valid(owner_node.get("actor")) and (owner_node.get("guests") as Array).is_empty(),
+					"at 21:01 every staged body is gone (%s %02d:%02d)" % [world.conversations.today(), int(world.campaign_clock.minute_of_day()) / 60, int(world.campaign_clock.minute_of_day()) % 60])
+			_check(not RealityState.has_knowledge("m_o2_stood_roof"), "a look spanning 21:01 grants nothing")
 	_contract("blackout_boundary", before)
 
 	# FRIDAY again: the intents go with the attempts; the book already written stays.
@@ -147,11 +174,54 @@ func _authored_choices() -> void:
 	_check(INTENTS.all(func(f: String) -> bool: return f in asks), "FRIDAY's asks_again names the three intents")
 
 
+## Start each alternative before the first lobby conversation and seed only the
+## prior clue that makes the requested reply available. The actor and panel
+## must award the intent through the same interaction the player uses.
+func _choose_lobby_intent(place: String, intent: String) -> bool:
+	var known: Array = RealityState.data.knowledge_flags
+	known.erase("mt:av_nineteen")
+	var reply := "Let me come up with you."
+	if place == "prints":
+		RealityState.grant_knowledge("m_lease_read")
+		reply = "Bring Miss Quell and Mr. Ewald tonight. Not Monday."
+	elif place == "enlarger":
+		RealityState.grant_knowledge("m_motive_known")
+		reply = "Don't go up. Stay in the shop."
+	await _at(1086)
+	await _settle(4.0, func() -> bool: return _thread() == "av_nineteen")
+	var adela := owner_node.get("actor") as Node3D
+	if not _check(is_instance_valid(adela) and not RealityState.has_knowledge(intent), place + ": Adela awaits the lobby decision"):
+		return false
+	var mark: Variant = _viewpoint(adela, 1.0, 1.5, true, false)
+	if not _check(mark is Vector3, place + ": clear standing place in front of Adela"):
+		return false
+	await _look_from(mark, adela, false, 0.0, .1)
+	world.player.use_primary_interaction()
+	var panel: CaseDialoguePanel = world.conversations.dialogue
+	var topic := panel.offered_labels().find("Evening, Miss Voss.")
+	if not _check(panel.attention_active() and topic >= 0, place + ": player primary opens Adela's actual Friday topic"):
+		return false
+	panel.choose(topic)
+	var choice := panel.offered_labels().find(reply)
+	if not _check(panel.current_node_id == "av_n1" and choice >= 0, place + ": the authored lobby reply is available"):
+		return false
+	panel.choose(choice)
+	if not _check(RealityState.has_knowledge(intent) and _only_attempts([]), place + ": the chosen reply grants intent alone"):
+		return false
+	if place == "enlarger":
+		if not _check(panel.offered_labels().has("Thank you."), "enlarger: Adela finishes her answer"):
+			return false
+		panel.choose(panel.offered_labels().find("Thank you."))
+	panel.choose(0)
+	return _check(not panel.attention_active() and not world.player.call_locked, place + ": the lobby releases the player")
+
+
 func _branch(place: String, intent: String, attempt: String, thread: String, early: int, minute: int, reach: float) -> void:
 	var row := {"place": place}
 	details.branches[place] = row
 	_reset_flags()
-	RealityState.grant_knowledge(intent)
+	if not await _choose_lobby_intent(place, intent):
+		return
 	await _at(early)
 	if place in ["enlarger", "prints"]:
 		await _bring_shop()
@@ -224,6 +294,8 @@ func _branch(place: String, intent: String, attempt: String, thread: String, ear
 	_check(not RealityState.has_knowledge(attempt), "%s: two 0.6 s looks broken by a glance away grant nothing" % place)
 	# The real look.
 	await _look_from(near, adela, false, 0.0, 1.25)
+	_check(str(world.resident_whereabouts("adela_voss").get("place", "")) == ("roof" if place == "roof" else "photo_supplies"),
+			"%s: her whereabouts name the staged place" % place)
 	_check(RealityState.has_knowledge(attempt), "%s: a sustained look writes %s" % [place, attempt])
 	_check(_only_attempts([attempt]), "%s: and no other attempt" % place)
 	await _capture("friday_" + place)
@@ -248,8 +320,14 @@ func _thread() -> String:
 
 
 func _at(minute: int) -> void:
-	_check(world.campaign_clock.configure_date(1929, 7, 19, minute) and world.campaign_clock.bind_state(), "clock at %02d:%02d" % [minute / 60, minute % 60])
+	_check(world.campaign_clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 7, 19, float(minute))), "clock at %02d:%02d" % [minute / 60, minute % 60])
 	await _settle()
+
+
+func _hold(seconds: float) -> void:
+	var ends := Time.get_ticks_msec() + int(seconds * 1000.0)
+	while Time.get_ticks_msec() < ends:
+		await get_tree().physics_frame
 
 
 func _settle(seconds := .6, until := Callable()) -> void:
@@ -264,13 +342,12 @@ func _settle(seconds := .6, until := Callable()) -> void:
 ## The shop's cell streams in with the player: stand at the shop window's inside stance until the enlarger is
 ## resident.
 func _bring_shop() -> void:
-	var window := world.photo_supplies.get("window") as Node3D
-	if not _check(is_instance_valid(window), "the installed shop window"):
-		return
-	world.player.global_position = window.global_position + window.global_basis.z * 1.55 + window.global_basis.x * .75 - Vector3.UP * 1.0
-	var building := world.adapter.root as Node3D
-	await _settle(12.0, func() -> bool: return building.find_child("storm_shop_photo_supplies_enl0", true, false) != null)
-	_check(building.find_child("storm_shop_photo_supplies_enl0", true, false) != null, "the shop cell is resident")
+	var vestibule: Dictionary = world.layout.spaces.filter(func(row: Dictionary) -> bool: return row.id == "F01_VESTIBULE")[0]
+	var rect: Array = vestibule.rect
+	world.player.global_position = world.adapter.root.to_global(Vector3((rect[0] + rect[2]) * .5, .025, (rect[1] + rect[3]) * .5))
+	world.player.velocity = Vector3.ZERO
+	await _settle(90.0, func() -> bool: return owner_node.call("enlarger_point") != null)
+	_check(owner_node.call("enlarger_point") != null, "the shop is resident with its mounted enlarger")
 
 
 ## A standing place `low`..`high` metres from the person, with floor and room for the player, whose eye line to
