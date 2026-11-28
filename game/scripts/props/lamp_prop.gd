@@ -16,6 +16,7 @@ extends FunctionalProp
 ## A hand-reachable lamp owns its own key switch.  Room plates still own fixed
 ## fixtures; this local contact only interrupts the task lamp and survives the
 ## LightRig's budget passes.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 
 ## Set from the marker before `_ready()`. Every marker carries one explicitly;
 ## the fallback is the cheap one, because an unmarked lamp in this building is
@@ -437,8 +438,7 @@ func set_budget(scale: float, _with_bounce: bool, with_shadow: bool) -> void:
 	if light == null:
 		return
 	light.visible = _local_enabled and scale > 0.001
-	if light.shadow_enabled != with_shadow:
-		light.shadow_enabled = with_shadow
+	ShadowPolicy.set_shadow(light, with_shadow)
 	light.light_energy = _base_energy * scale if _local_enabled else 0.0
 
 

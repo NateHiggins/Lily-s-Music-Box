@@ -21,6 +21,7 @@ var onset_warning: CheckBox
 var reduce_roll: CheckBox
 var reduce_flashing: CheckBox
 var cel_shading: CheckBox
+var comic_world: CheckBox
 var look_sensitivity: HSlider
 var controller_look_sensitivity: HSlider
 var controller_look_deadzone: HSlider
@@ -187,6 +188,10 @@ func _build() -> void:
 	cel_shading.name = "CelShading"
 	cel_shading.text = "CEL SHADING"
 	box.add_child(cel_shading)
+	comic_world = CheckBox.new()
+	comic_world.name = "ComicWorld"
+	comic_world.text = "COMIC BOOK WORLD"
+	box.add_child(comic_world)
 	for record in LEVELS:
 		var words: String = record[0]
 		var key: String = record[1]
@@ -284,7 +289,7 @@ func _build() -> void:
 			confirm_events.append(event)
 	var controller_confirm := Shortcut.new()
 	controller_confirm.events = confirm_events
-	for button: BaseButton in [cel_shading, captions, onset_warning, reduce_roll, reduce_flashing,
+	for button: BaseButton in [cel_shading, comic_world, captions, onset_warning, reduce_roll, reduce_flashing,
 			controller_invert_y, _case_button, apply_button, resume]:
 		button.shortcut = controller_confirm
 		button.shortcut_context = button
@@ -320,6 +325,7 @@ func _load_controls() -> void:
 			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
 			"dream_directional_captions", false))
 	cel_shading.set_pressed_no_signal(bool(GameBoot.settings.cel_shading))
+	comic_world.set_pressed_no_signal(str(GameBoot.settings.get("world_look", "comic")) == "comic")
 	onset_warning.button_pressed = bool(GameBoot.settings.get(
 			"always_warn_before_sleep", false))
 	reduce_roll.button_pressed = bool(GameBoot.settings.get(
@@ -353,6 +359,7 @@ func _store_controls() -> void:
 		GameBoot.settings[key] = sliders[key].value
 	GameBoot.settings.gameplay_sound_captions = captions.button_pressed
 	GameBoot.settings.cel_shading = cel_shading.button_pressed
+	GameBoot.settings.world_look = "comic" if comic_world.button_pressed else "cel"
 	GameBoot.settings.dream_directional_captions = captions.button_pressed
 	GameBoot.settings.always_warn_before_sleep = onset_warning.button_pressed
 	GameBoot.settings.reduce_camera_roll = reduce_roll.button_pressed

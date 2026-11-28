@@ -101,6 +101,8 @@ func _build_primary_light() -> void:
 	light = SpotLight3D.new()
 	light.name = "HeroShadowLamp"
 	light.shadow_enabled = true
+	# Vantry's beam keeps its shadow in the comic world (rendering/shadow_policy.gd).
+	light.add_to_group(&"lamp_shadow_caster")
 	light.spot_range = range_m
 	light.spot_angle = 37.0
 	light.spot_attenuation = 1.35

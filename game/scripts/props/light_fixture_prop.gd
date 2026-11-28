@@ -8,6 +8,7 @@ extends FunctionalProp
 ## tungsten-warm color ramps, inverse-square-ish falloff, an emissive
 ## envelope, volumetric scattering, and a low faux-bounce light enabled up close
 ## to fake the first ray bounce.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 
 const TONE := {  # warm tungsten family, per fixture type
 	"pendant_shade": Color(1.0, 0.83, 0.60),
@@ -557,12 +558,10 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		# Compatibility counts visible zero-energy lights against its
 		# per-object limit, so dormant fixtures must leave the render list.
 		light.visible = scale > 0.001
-		if light.shadow_enabled != with_shadow:
-			light.shadow_enabled = with_shadow
+		ShadowPolicy.set_shadow(light, with_shadow)
 	if _entry_spot:
 		_entry_spot.visible = scale > 0.001
-		if _entry_spot.shadow_enabled != with_shadow:
-			_entry_spot.shadow_enabled = with_shadow
+		ShadowPolicy.set_shadow(_entry_spot, with_shadow)
 	if bounce:
 		bounce.visible = with_bounce and scale > 0.001
 

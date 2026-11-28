@@ -1,6 +1,7 @@
 extends RefCounted
 ## Presentation only. Native fades hide the contribution before explicit culling
 ## avoids otherwise submitted shadow maps. No rays, target scans or saved facts.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 const BEGIN_M:=4.
 const LENGTH_M:=4.
 const END_M:=BEGIN_M+LENGTH_M
@@ -18,7 +19,7 @@ func _init(owner_policy: Node) -> void:
 	reflections=world.get_node_or_null("V2RoomReflections")
 	for source: Dictionary in policy.sources:
 		var light: Light3D=source.light
-		var row := {"source":source,"shadow":light.shadow_enabled,"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow}
+		var row := {"source":source,"shadow":ShadowPolicy.wanted(light),"fade":light.distance_fade_enabled,"begin":light.distance_fade_begin,"length":light.distance_fade_length,"shadow_distance":light.distance_fade_shadow}
 		if light is OmniLight3D and source.shaft and source.service_shaft_threshold \
 				and int(str(source.level).trim_prefix("F")) in MEASURED_SHAFT_STOREYS:
 			row.omni_mode = light.omni_shadow_mode
@@ -34,7 +35,7 @@ func set_enabled(value: bool) -> void:
 		light.distance_fade_begin=BEGIN_M if value else row.begin
 		light.distance_fade_length=LENGTH_M if value else row.length
 		light.distance_fade_shadow=BEGIN_M if value else row.shadow_distance
-		if not value:light.shadow_enabled=row.shadow
+		if not value:ShadowPolicy.set_shadow(light,row.shadow)
 	tick()
 
 func _near(point: Vector3,eyes: Array[Vector3]) -> bool:
@@ -88,6 +89,8 @@ func tick() -> void:
 		if light.visible!=visible:light.visible=visible;switches+=1
 		if row.has("omni_mode"):
 			_shaft_shadow_mode(light as OmniLight3D, row, shadow, shadow_eyes)
-		if light.shadow_enabled!=shadow:light.shadow_enabled=shadow;switches+=1
+		var had_shadow: bool=light.shadow_enabled
+		ShadowPolicy.set_shadow(light,shadow)
+		if light.shadow_enabled!=had_shadow:switches+=1
 		if visible:policy.visible_sources.append(source.id)
 	last_tick_usec=Time.get_ticks_usec()-started

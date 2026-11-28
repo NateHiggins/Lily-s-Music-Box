@@ -14,6 +14,7 @@ extends RefCounted
 ##     interior shadow.
 ## The template stays as authored (its digest is bound); this owner changes only the
 ## mounted nodes and records every original so restore() returns them exactly.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 
 const CULLED := ["counter_practical", "cooler_practical", "back_shop_practical"]
 const UNSHADOWED := ["storefront_spill"]
@@ -43,11 +44,11 @@ static func apply(shop: Node3D) -> bool:
 	for identity: String in lights:
 		var light: OmniLight3D = lights[identity]
 		record.lights.append({"node": weakref(light), "visible": light.visible,
-			"shadow": light.shadow_enabled, "range": light.omni_range})
+			"shadow": ShadowPolicy.wanted(light), "range": light.omni_range})
 		if identity in CULLED:
 			light.visible = false
 		if identity in UNSHADOWED:
-			light.shadow_enabled = false
+			ShadowPolicy.set_shadow(light, false)
 		if RANGE.has(identity):
 			light.omni_range = float(RANGE[identity])
 	for identity: String in DARK_FIXTURES:
@@ -74,7 +75,7 @@ static func restore(shop: Node3D) -> bool:
 		if light == null:
 			continue
 		light.visible = bool(row.visible)
-		light.shadow_enabled = bool(row.shadow)
+		ShadowPolicy.set_shadow(light, bool(row.shadow))
 		light.omni_range = float(row.range)
 	for row: Dictionary in record.fixtures:
 		(row.material as StandardMaterial3D).emission_enabled = bool(row.emission)

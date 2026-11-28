@@ -307,6 +307,8 @@ func _ready() -> void:
 	flashlight.spot_attenuation = 1.35
 	flashlight.light_color = Color(1.0, 0.80, 0.56)
 	flashlight.shadow_enabled = true
+	# The one shadow caster the comic world keeps (rendering/shadow_policy.gd).
+	flashlight.add_to_group(&"lamp_shadow_caster")
 	# On from the first frame, but no longer welded on: L operates the guarded
 	# physical lever and every input surface reaches set_lamp_enabled().
 	flashlight.visible = true

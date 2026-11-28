@@ -80,12 +80,19 @@ enum LaunchMode { CINEMATIC, DEBUG }
 
 var launch_mode := LaunchMode.CINEMATIC
 var _last_launch_result: Dictionary = {}
+## True once a night has opened through begin_game. Scenes run on their own
+## (tests, tools, benches) keep the look they had before the comic world.
+var game_launched := false
 # Only the scene operation is replaceable in the button-handler fixture;
 # campaign validation, archival, persistence and launch gates remain real.
 var _scene_change_for_tests := Callable()
 var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
 	"cel_shading": true,
+	# The world look in a launched game (Lily 2026-11-28): "comic" draws the
+	# world as ink on manila, lamp-only shadows, real round Adela; "cel" is the
+	# soft palette. CEL SHADING off draws the stock render under either.
+	"world_look": "comic",
 	"fullscreen": false,
 	"master_volume": 0.82,
 	"gameplay_volume": 1.0,
@@ -218,6 +225,7 @@ func begin_game(mode: LaunchMode, new_campaign := false,
 		return _refuse_launch("scene_change_failed",
 				"The night could not open. Your save is available; please try again.")
 	_last_launch_result = {"ok": true, "code": "launched"}
+	game_launched = true
 	return true
 
 
@@ -251,6 +259,19 @@ func apply_render_profile() -> void:
 	var viewport := get_tree().root
 	viewport.positional_shadow_atlas_size = atlas_size
 	RenderingServer.directional_shadow_atlas_set_size(atlas_size, true)
+
+
+## The world look the presentation draws: "stock", "cel" or "comic" (and a
+## later finale look). ORISON_WORLD_LOOK pins it for captures and tests.
+func world_look() -> String:
+	var pinned := OS.get_environment("ORISON_WORLD_LOOK").strip_edges().to_lower()
+	if not pinned.is_empty():
+		return pinned
+	if not bool(settings.get("cel_shading", true)):
+		return "stock"
+	if not game_launched:
+		return "cel"
+	return str(settings.get("world_look", "comic"))
 
 
 func apply_user_settings() -> void:

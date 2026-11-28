@@ -33,7 +33,7 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 	super.set_budget(scale, with_bounce, with_shadow and pool == null)
 	if pool != null:
 		pool.visible = light.visible
-		pool.shadow_enabled = with_shadow and powered and scale > 0.001
+		ShadowPolicy.set_shadow(pool, with_shadow and powered and scale > 0.001)
 
 func _process(delta: float) -> void:
 	if pool != null: light.light_energy = _unshaded_energy
