@@ -13,11 +13,13 @@ layout(set = 0, binding = 1) uniform sampler2D source_color;
 #ifndef COPY_IMAGE
 layout(set = 0, binding = 2) uniform sampler2D scene_depth;
 layout(set = 0, binding = 3) uniform sampler2D native_depth;
+// The mask's colour: alpha is coverage by see-through native subjects.
+layout(set = 0, binding = 4) uniform sampler2D native_color;
 
 layout(push_constant, std430) uniform Params {
 	vec4 camera;   // near, far, projection[0][0], projection[1][1]
 	vec4 aura;     // centre uv x, y, radius and feather in frame heights
-	vec4 frame;    // aura strength, aspect (w/h), resolution scale (h/1440), unused
+	vec4 frame;    // aura strength, aspect (w/h), resolution scale (h/1440), see-through native near depth (0 off)
 	vec4 paper;    // rgb, saturation kept from the render
 	vec4 ink;      // rgb, halftone cell in pixels at 1440p
 	vec4 line;     // detail carried, line reach in px at 1440p, depth break, crease break
@@ -84,6 +86,14 @@ void main() {
 	float aspect = p.frame.y;
 	float from_her = length((uv - p.aura.xy) * vec2(aspect, 1.0));
 	float real = p.frame.x * (1.0 - smoothstep(p.aura.z, p.aura.z + p.aura.w, from_her));
+	// A see-through native subject (the tardigrade) writes no depth: keep it
+	// real where the mask shows it and the opaque world lies behind it.
+	if (p.frame.w > 0.0) {
+		float cover = smoothstep(0.01, 0.10, texture(native_color, uv).a);
+		if (cover > 0.0 && view_z(pixel, size) > p.frame.w - 0.05) {
+			real = max(real, cover);
+		}
+	}
 	if (real >= 0.999 || native_surface(uv)) {
 		imageStore(output_image, pixel, original);
 		return;

@@ -23,6 +23,10 @@ const AdelaPresence := preload("res://scripts/rendering/adela_presence.gd")
 ## Lettering is drawn with Label3D. In the comic look it joins the native
 ## layer, so the mask keeps it real and tone bands never flatten print.
 const LABEL_META := &"comic_native_label"
+## Native subjects drawn only with see-through materials (the tardigrade's
+## membranes write no depth). The comic pass finds them by the mask's alpha,
+## and keeps them real wherever the opaque world lies behind their nearest point.
+const SEE_THROUGH_GROUP := &"cel_native_see_through"
 
 class NativeDepth extends CompositorEffect:
 	var depth := RID()
@@ -165,12 +169,17 @@ class Comic extends Palette:
 	var line_px := 2.3
 	var depth_break := 0.035
 	var crease_break := 0.30
+	# The mask's colour (alpha is see-through native coverage) and the nearest
+	# view depth of any see-through native subject; 0 turns coverage off.
+	var native_color := RID()
+	var see_through_near := 0.0
 
 	func _constants(size: Vector2i) -> PackedByteArray:
 		var values := PackedFloat32Array([
 			near, far, focal.x, focal.y,
 			aura_center.x, aura_center.y, aura_radius, aura_feather,
-			aura_strength, float(size.x) / float(size.y), float(size.y) / 1440.0, 0.0,
+			aura_strength, float(size.x) / float(size.y), float(size.y) / 1440.0,
+			see_through_near if native_color.is_valid() else 0.0,
 			paper.r, paper.g, paper.b, saturation,
 			ink.r, ink.g, ink.b, halftone_px,
 			detail, line_px, depth_break, crease_break])
@@ -199,7 +208,8 @@ class Comic extends Palette:
 			_binding(0, scratch, false), _binding(1, target, true)])
 		var filter_set := UniformSetCacheRD.get_cache(palette_shader, 0, [
 			_binding(0, target, false), _binding(1, scratch, true),
-			_binding(2, buffers.get_depth_layer(0), true), _binding(3, native.depth, true)])
+			_binding(2, buffers.get_depth_layer(0), true), _binding(3, native.depth, true),
+			_binding(4, native_color if native_color.is_valid() else scratch, true)])
 		var constants := _constants(size)
 		var x := ceili(float(size.x) / 8.0)
 		var y := ceili(float(size.y) / 8.0)
@@ -252,6 +262,7 @@ func _make_mask(view: Viewport) -> void:
 	_mask.gui_disable_input = true
 	_mask.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	_mask.positional_shadow_atlas_size = 0
+	_mask.transparent_bg = true
 	add_child(_mask)
 	_mask_camera = Camera3D.new()
 	_mask_camera.cull_mask = NATIVE_LAYER
@@ -320,6 +331,7 @@ func _process(_delta: float) -> void:
 		effect.enabled = true
 	if effect == _comic:
 		_feed_aura(camera)
+		_feed_see_through(camera)
 
 
 ## The look to draw (GameBoot.world_look(); ORISON_WORLD_LOOK pins one).
@@ -368,6 +380,26 @@ func _feed_aura(camera: Camera3D) -> void:
 	_comic.aura_radius = aura.radius
 	_comic.aura_feather = aura.feather
 	_comic.aura_strength = aura.strength
+
+
+func _feed_see_through(camera: Camera3D) -> void:
+	var near := INF
+	var to_view := camera.global_transform.affine_inverse()
+	for node: Node in get_tree().get_nodes_in_group(SEE_THROUGH_GROUP):
+		var subject := node as GeometryInstance3D
+		if subject == null or not subject.is_visible_in_tree():
+			continue
+		var draws: Array = [subject]
+		draws.append_array(subject.find_children("*", "GeometryInstance3D", true, false))
+		for draw: GeometryInstance3D in draws:
+			if not draw.is_visible_in_tree():
+				continue
+			var box := draw.global_transform * draw.get_aabb()
+			for corner in 8:
+				near = minf(near, -(to_view * box.get_endpoint(corner)).z)
+	_comic.see_through_near = maxf(near, 0.01) if near < INF else 0.0
+	_comic.native_color = RenderingServer.texture_get_rd_texture(_mask.get_texture().get_rid()) \
+			if _comic.see_through_near > 0.0 else RID()
 
 
 func _watch_labels(on: bool) -> void:
