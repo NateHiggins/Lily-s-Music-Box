@@ -3946,12 +3946,6 @@
       "source_record": "PASSAGE_AISLE_LT_00"
     },
     {
-      "id": "cage_bulb_rise140",
-      "kind": "cage_bulb",
-      "cell": "shared",
-      "source_record": "F01_BAR_LT_DARTS"
-    },
-    {
       "id": "cage_bulb_rise250",
       "kind": "cage_bulb",
       "cell": "shared",
@@ -3962,12 +3956,6 @@
       "kind": "cage_bulb",
       "cell": "shared",
       "source_record": "F01_BAR_LT_WELL"
-    },
-    {
-      "id": "cage_bulb_rise2000",
-      "kind": "cage_bulb",
-      "cell": "shared",
-      "source_record": "F01_BAR_LT_STAIR"
     },
     {
       "id": "kitchen_linear_rise80",
@@ -3992,12 +3980,6 @@
       "kind": "pendant_shade",
       "cell": "shared",
       "source_record": "F01_BAR_LT_TAB1"
-    },
-    {
-      "id": "cage_bulb_rise800",
-      "kind": "cage_bulb",
-      "cell": "shared",
-      "source_record": "F01_BAR_LT_STAGE0"
     },
     {
       "id": "sconce_globe_back80",
@@ -4040,6 +4022,18 @@
       "kind": "sconce_globe",
       "cell": "shared",
       "source_record": "3B_LT_SCONCE"
+    },
+    {
+      "id": "cage_bulb_venue_collar",
+      "kind": "cage_bulb",
+      "cell": "shared",
+      "source_record": "F01_BAR_LT_DARTS"
+    },
+    {
+      "id": "cage_bulb_rise070",
+      "kind": "cage_bulb",
+      "cell": "shared",
+      "source_record": "PASSAGE_AISLE_LT_00"
     }
   ],
   "closed_stocks": [
@@ -5094,126 +5088,6 @@
       "volume_m3": 6.814509524174334e-05
     },
     {
-      "name": "cage_bulb_rise140_Canopy",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 1.6158098810035204e-05
-    },
-    {
-      "name": "cage_bulb_rise140_CanopyScrew-1",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 1.6994508078561443e-07
-    },
-    {
-      "name": "cage_bulb_rise140_CanopyScrew1",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 1.6994508078561462e-07
-    },
-    {
-      "name": "cage_bulb_rise140_Drop",
-      "assembly": "cage_bulb_rise140",
-      "key": "rubber",
-      "volume_m3": 2.9681653858036768e-05
-    },
-    {
-      "name": "cage_bulb_rise140_SocketCap",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 0.00036962918200970446
-    },
-    {
-      "name": "cage_bulb_rise140_Insulator",
-      "assembly": "cage_bulb_rise140",
-      "key": "enamel",
-      "volume_m3": 6.73066095802972e-05
-    },
-    {
-      "name": "cage_bulb_rise140_InsulatorThread0",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 3.514603467077558e-07
-    },
-    {
-      "name": "cage_bulb_rise140_InsulatorThread1",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 3.5146034670783667e-07
-    },
-    {
-      "name": "cage_bulb_rise140_InsulatorThread2",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 3.514614455694006e-07
-    },
-    {
-      "name": "cage_bulb_rise140_InsulatorThread3",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 3.514614455694094e-07
-    },
-    {
-      "name": "cage_bulb_rise140_PearLamp",
-      "assembly": "cage_bulb_rise140",
-      "key": "bulb",
-      "volume_m3": 3.9477673106080884e-05
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib0",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.79436435801898e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib1",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib2",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib3",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.794350565971374e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib4",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardRib5",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise140_GuardHoop",
-      "assembly": "cage_bulb_rise140",
-      "key": "iron",
-      "volume_m3": 2.9612690474326095e-05
-    },
-    {
-      "name": "cage_bulb_rise140_RigidMount",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 4.5736374698252756e-05
-    },
-    {
-      "name": "cage_bulb_rise140_UpperRosette",
-      "assembly": "cage_bulb_rise140",
-      "key": "brass",
-      "volume_m3": 6.814511112065725e-05
-    },
-    {
       "name": "cage_bulb_rise250_Canopy",
       "assembly": "cage_bulb_rise250",
       "key": "brass",
@@ -5452,126 +5326,6 @@
       "assembly": "cage_bulb_rise60",
       "key": "brass",
       "volume_m3": 6.814510515342214e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_Canopy",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 1.6158098810035204e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_CanopyScrew-1",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 1.6994508078561443e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_CanopyScrew1",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 1.6994508078561462e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_Drop",
-      "assembly": "cage_bulb_rise2000",
-      "key": "rubber",
-      "volume_m3": 2.9681653858036768e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_SocketCap",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 0.00036962918200970446
-    },
-    {
-      "name": "cage_bulb_rise2000_Insulator",
-      "assembly": "cage_bulb_rise2000",
-      "key": "enamel",
-      "volume_m3": 6.73066095802972e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_InsulatorThread0",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 3.514603467077558e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_InsulatorThread1",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 3.5146034670783667e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_InsulatorThread2",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 3.514614455694006e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_InsulatorThread3",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 3.514614455694094e-07
-    },
-    {
-      "name": "cage_bulb_rise2000_PearLamp",
-      "assembly": "cage_bulb_rise2000",
-      "key": "bulb",
-      "volume_m3": 3.9477673106080884e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib0",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.79436435801898e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib1",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib2",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib3",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.794350565971374e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib4",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardRib5",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise2000_GuardHoop",
-      "assembly": "cage_bulb_rise2000",
-      "key": "iron",
-      "volume_m3": 2.9612690474326095e-05
-    },
-    {
-      "name": "cage_bulb_rise2000_RigidMount",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 0.0006284052490159761
-    },
-    {
-      "name": "cage_bulb_rise2000_UpperRosette",
-      "assembly": "cage_bulb_rise2000",
-      "key": "brass",
-      "volume_m3": 6.814517031843624e-05
     },
     {
       "name": "kitchen_linear_rise80_Spine",
@@ -5992,126 +5746,6 @@
       "assembly": "pendant_shade_retained_rod",
       "key": "bulb",
       "volume_m3": 2.7973109971052387e-05
-    },
-    {
-      "name": "cage_bulb_rise800_Canopy",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 1.6158098810035204e-05
-    },
-    {
-      "name": "cage_bulb_rise800_CanopyScrew-1",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 1.6994508078561443e-07
-    },
-    {
-      "name": "cage_bulb_rise800_CanopyScrew1",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 1.6994508078561462e-07
-    },
-    {
-      "name": "cage_bulb_rise800_Drop",
-      "assembly": "cage_bulb_rise800",
-      "key": "rubber",
-      "volume_m3": 2.9681653858036768e-05
-    },
-    {
-      "name": "cage_bulb_rise800_SocketCap",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 0.00036962918200970446
-    },
-    {
-      "name": "cage_bulb_rise800_Insulator",
-      "assembly": "cage_bulb_rise800",
-      "key": "enamel",
-      "volume_m3": 6.73066095802972e-05
-    },
-    {
-      "name": "cage_bulb_rise800_InsulatorThread0",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 3.514603467077558e-07
-    },
-    {
-      "name": "cage_bulb_rise800_InsulatorThread1",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 3.5146034670783667e-07
-    },
-    {
-      "name": "cage_bulb_rise800_InsulatorThread2",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 3.514614455694006e-07
-    },
-    {
-      "name": "cage_bulb_rise800_InsulatorThread3",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 3.514614455694094e-07
-    },
-    {
-      "name": "cage_bulb_rise800_PearLamp",
-      "assembly": "cage_bulb_rise800",
-      "key": "bulb",
-      "volume_m3": 3.9477673106080884e-05
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib0",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.79436435801898e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib1",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib2",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib3",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.794350565971374e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib4",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.794351719531747e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardRib5",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 8.79436553430377e-06
-    },
-    {
-      "name": "cage_bulb_rise800_GuardHoop",
-      "assembly": "cage_bulb_rise800",
-      "key": "iron",
-      "volume_m3": 2.9612690474326095e-05
-    },
-    {
-      "name": "cage_bulb_rise800_RigidMount",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 0.0002524898483384682
-    },
-    {
-      "name": "cage_bulb_rise800_UpperRosette",
-      "assembly": "cage_bulb_rise800",
-      "key": "brass",
-      "volume_m3": 6.814517031842606e-05
     },
     {
       "name": "sconce_globe_back80_Backplate",
@@ -6760,6 +6394,222 @@
       "assembly": "bath_bell_over_mirror",
       "key": "bulb",
       "volume_m3": 1.903384940389008e-05
+    },
+    {
+      "name": "cage_bulb_venue_collar_InlineCollar",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "brass",
+      "volume_m3": 3.5789238553015475e-05
+    },
+    {
+      "name": "cage_bulb_venue_collar_Drop",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "rubber",
+      "volume_m3": 2.9681653858036768e-05
+    },
+    {
+      "name": "cage_bulb_venue_collar_SocketCap",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 0.00036962918200970446
+    },
+    {
+      "name": "cage_bulb_venue_collar_Insulator",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "enamel",
+      "volume_m3": 6.73066095802972e-05
+    },
+    {
+      "name": "cage_bulb_venue_collar_InsulatorThread0",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "brass",
+      "volume_m3": 3.514603467077558e-07
+    },
+    {
+      "name": "cage_bulb_venue_collar_InsulatorThread1",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "brass",
+      "volume_m3": 3.5146034670783667e-07
+    },
+    {
+      "name": "cage_bulb_venue_collar_InsulatorThread2",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "brass",
+      "volume_m3": 3.514614455694006e-07
+    },
+    {
+      "name": "cage_bulb_venue_collar_InsulatorThread3",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "brass",
+      "volume_m3": 3.514614455694094e-07
+    },
+    {
+      "name": "cage_bulb_venue_collar_PearLamp",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "bulb",
+      "volume_m3": 3.9477673106080884e-05
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib0",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.79436435801898e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib1",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.794351719531747e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib2",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.79436553430377e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib3",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.794350565971374e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib4",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.794351719531747e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardRib5",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 8.79436553430377e-06
+    },
+    {
+      "name": "cage_bulb_venue_collar_GuardHoop",
+      "assembly": "cage_bulb_venue_collar",
+      "key": "iron",
+      "volume_m3": 2.9612690474326095e-05
+    },
+    {
+      "name": "cage_bulb_rise070_Canopy",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 1.6158098810035204e-05
+    },
+    {
+      "name": "cage_bulb_rise070_CanopyScrew-1",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 1.6994508078561443e-07
+    },
+    {
+      "name": "cage_bulb_rise070_CanopyScrew1",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 1.6994508078561462e-07
+    },
+    {
+      "name": "cage_bulb_rise070_Drop",
+      "assembly": "cage_bulb_rise070",
+      "key": "rubber",
+      "volume_m3": 2.9681653858036768e-05
+    },
+    {
+      "name": "cage_bulb_rise070_SocketCap",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 0.00036962918200970446
+    },
+    {
+      "name": "cage_bulb_rise070_Insulator",
+      "assembly": "cage_bulb_rise070",
+      "key": "enamel",
+      "volume_m3": 6.73066095802972e-05
+    },
+    {
+      "name": "cage_bulb_rise070_InsulatorThread0",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 3.514603467077558e-07
+    },
+    {
+      "name": "cage_bulb_rise070_InsulatorThread1",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 3.5146034670783667e-07
+    },
+    {
+      "name": "cage_bulb_rise070_InsulatorThread2",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 3.514614455694006e-07
+    },
+    {
+      "name": "cage_bulb_rise070_InsulatorThread3",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 3.514614455694094e-07
+    },
+    {
+      "name": "cage_bulb_rise070_PearLamp",
+      "assembly": "cage_bulb_rise070",
+      "key": "bulb",
+      "volume_m3": 3.9477673106080884e-05
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib0",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.79436435801898e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib1",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.794351719531747e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib2",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.79436553430377e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib3",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.794350565971374e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib4",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.794351719531747e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardRib5",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 8.79436553430377e-06
+    },
+    {
+      "name": "cage_bulb_rise070_GuardHoop",
+      "assembly": "cage_bulb_rise070",
+      "key": "iron",
+      "volume_m3": 2.9612690474326095e-05
+    },
+    {
+      "name": "cage_bulb_rise070_RigidMount",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 2.3807976014199448e-05
+    },
+    {
+      "name": "cage_bulb_rise070_UpperRosette",
+      "assembly": "cage_bulb_rise070",
+      "key": "brass",
+      "volume_m3": 6.814512084561632e-05
     }
   ],
   "contacts": [
@@ -7124,36 +6974,6 @@
       "label": "fitted suspension seat"
     },
     {
-      "assembly": "cage_bulb_rise140",
-      "owner": "ceiling",
-      "point": [
-        -0.025,
-        0.14,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
-    },
-    {
-      "assembly": "cage_bulb_rise140",
-      "owner": "ceiling",
-      "point": [
-        0.025,
-        0.14,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
-    },
-    {
       "assembly": "cage_bulb_rise250",
       "owner": "ceiling",
       "point": [
@@ -7204,36 +7024,6 @@
       "point": [
         0.005,
         0.06,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
-    },
-    {
-      "assembly": "cage_bulb_rise2000",
-      "owner": "ceiling",
-      "point": [
-        -0.025,
-        2.0,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
-    },
-    {
-      "assembly": "cage_bulb_rise2000",
-      "owner": "ceiling",
-      "point": [
-        0.025,
-        2.0,
         0
       ],
       "direction": [
@@ -7362,36 +7152,6 @@
         0
       ],
       "label": "retained source suspension rod endpoint"
-    },
-    {
-      "assembly": "cage_bulb_rise800",
-      "owner": "ceiling",
-      "point": [
-        -0.025,
-        0.8,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
-    },
-    {
-      "assembly": "cage_bulb_rise800",
-      "owner": "ceiling",
-      "point": [
-        0.025,
-        0.8,
-        0
-      ],
-      "direction": [
-        0,
-        -1,
-        0
-      ],
-      "label": "fitted suspension seat"
     },
     {
       "assembly": "sconce_globe_back80",
@@ -7602,6 +7362,66 @@
         -4.371138828673793e-08
       ],
       "label": "oval rosette seated to tile wall"
+    },
+    {
+      "assembly": "cage_bulb_venue_collar",
+      "owner": "ceiling",
+      "point": [
+        -0.008,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "retained source suspension rod endpoint"
+    },
+    {
+      "assembly": "cage_bulb_venue_collar",
+      "owner": "ceiling",
+      "point": [
+        0.008,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "retained source suspension rod endpoint"
+    },
+    {
+      "assembly": "cage_bulb_rise070",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.07,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise070",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.07,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
     }
   ],
   "parts": [
@@ -7984,48 +7804,6 @@
       "triangles": 2012
     },
     {
-      "name": "cage_bulb_rise140__Body_ON_brass",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 3072
-    },
-    {
-      "name": "cage_bulb_rise140__Body_ON_enamel",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "enamel",
-      "triangles": 384
-    },
-    {
-      "name": "cage_bulb_rise140__Body_ON_iron",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "iron",
-      "triangles": 1992
-    },
-    {
-      "name": "cage_bulb_rise140__Body_ON_rubber",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "rubber",
-      "triangles": 188
-    },
-    {
-      "name": "cage_bulb_rise140__Bulb_ON_bulb",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "bulb",
-      "triangles": 240
-    },
-    {
-      "name": "cage_bulb_rise140__Mount_ON_brass",
-      "assembly": "cage_bulb_rise140",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 2012
-    },
-    {
       "name": "cage_bulb_rise250__Body_ON_brass",
       "assembly": "cage_bulb_rise250",
       "cell": "shared",
@@ -8105,48 +7883,6 @@
     {
       "name": "cage_bulb_rise60__Mount_ON_brass",
       "assembly": "cage_bulb_rise60",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 2012
-    },
-    {
-      "name": "cage_bulb_rise2000__Body_ON_brass",
-      "assembly": "cage_bulb_rise2000",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 3072
-    },
-    {
-      "name": "cage_bulb_rise2000__Body_ON_enamel",
-      "assembly": "cage_bulb_rise2000",
-      "cell": "shared",
-      "key": "enamel",
-      "triangles": 384
-    },
-    {
-      "name": "cage_bulb_rise2000__Body_ON_iron",
-      "assembly": "cage_bulb_rise2000",
-      "cell": "shared",
-      "key": "iron",
-      "triangles": 1992
-    },
-    {
-      "name": "cage_bulb_rise2000__Body_ON_rubber",
-      "assembly": "cage_bulb_rise2000",
-      "cell": "shared",
-      "key": "rubber",
-      "triangles": 188
-    },
-    {
-      "name": "cage_bulb_rise2000__Bulb_ON_bulb",
-      "assembly": "cage_bulb_rise2000",
-      "cell": "shared",
-      "key": "bulb",
-      "triangles": 240
-    },
-    {
-      "name": "cage_bulb_rise2000__Mount_ON_brass",
-      "assembly": "cage_bulb_rise2000",
       "cell": "shared",
       "key": "brass",
       "triangles": 2012
@@ -8304,48 +8040,6 @@
       "cell": "shared",
       "key": "brass",
       "triangles": 384
-    },
-    {
-      "name": "cage_bulb_rise800__Body_ON_brass",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 3072
-    },
-    {
-      "name": "cage_bulb_rise800__Body_ON_enamel",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "enamel",
-      "triangles": 384
-    },
-    {
-      "name": "cage_bulb_rise800__Body_ON_iron",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "iron",
-      "triangles": 1992
-    },
-    {
-      "name": "cage_bulb_rise800__Body_ON_rubber",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "rubber",
-      "triangles": 188
-    },
-    {
-      "name": "cage_bulb_rise800__Bulb_ON_bulb",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "bulb",
-      "triangles": 240
-    },
-    {
-      "name": "cage_bulb_rise800__Mount_ON_brass",
-      "assembly": "cage_bulb_rise800",
-      "cell": "shared",
-      "key": "brass",
-      "triangles": 2012
     },
     {
       "name": "sconce_globe_back80__Body_ON_brass",
@@ -8556,9 +8250,93 @@
       "cell": "shared",
       "key": "bulb",
       "triangles": 1920
+    },
+    {
+      "name": "cage_bulb_venue_collar__Body_ON_brass",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 3072
+    },
+    {
+      "name": "cage_bulb_venue_collar__Body_ON_enamel",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 384
+    },
+    {
+      "name": "cage_bulb_venue_collar__Body_ON_iron",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 1992
+    },
+    {
+      "name": "cage_bulb_venue_collar__Body_ON_rubber",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "rubber",
+      "triangles": 188
+    },
+    {
+      "name": "cage_bulb_venue_collar__Bulb_ON_bulb",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "bulb",
+      "triangles": 240
+    },
+    {
+      "name": "cage_bulb_venue_collar__Mount_ON_brass",
+      "assembly": "cage_bulb_venue_collar",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 384
+    },
+    {
+      "name": "cage_bulb_rise070__Body_ON_brass",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 3072
+    },
+    {
+      "name": "cage_bulb_rise070__Body_ON_enamel",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 384
+    },
+    {
+      "name": "cage_bulb_rise070__Body_ON_iron",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 1992
+    },
+    {
+      "name": "cage_bulb_rise070__Body_ON_rubber",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "rubber",
+      "triangles": 188
+    },
+    {
+      "name": "cage_bulb_rise070__Bulb_ON_bulb",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "bulb",
+      "triangles": 240
+    },
+    {
+      "name": "cage_bulb_rise070__Mount_ON_brass",
+      "assembly": "cage_bulb_rise070",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 2012
     }
   ],
-  "triangles": 198864,
+  "triangles": 189348,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -9346,89 +9124,6 @@
         "yaw": 0
       },
       {
-        "id": "cage_bulb_rise140",
-        "parts": [
-          {
-            "name": "cage_bulb_rise140__Body_ON_brass",
-            "component": "Body",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          },
-          {
-            "name": "cage_bulb_rise140__Body_ON_enamel",
-            "component": "Body",
-            "key": "enamel",
-            "tile": 0.72,
-            "catalog_key": "enamel_appliance",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.28
-            }
-          },
-          {
-            "name": "cage_bulb_rise140__Body_ON_iron",
-            "component": "Body",
-            "key": "iron",
-            "tile": 0.4,
-            "catalog_key": "iron_blackened",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.48
-            }
-          },
-          {
-            "name": "cage_bulb_rise140__Body_ON_rubber",
-            "component": "Body",
-            "key": "rubber",
-            "tile": 0.26,
-            "catalog_key": "rubber_aged",
-            "tint": [
-              0.055,
-              0.05,
-              0.044,
-              1.0
-            ],
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.7
-            }
-          },
-          {
-            "name": "cage_bulb_rise140__Bulb_ON_bulb",
-            "component": "Bulb",
-            "key": "bulb",
-            "tile": 0.5,
-            "catalog_key": "milk_glass",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.2
-            }
-          },
-          {
-            "name": "cage_bulb_rise140__Mount_ON_brass",
-            "component": "Mount",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          }
-        ],
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "yaw": 0
-      },
-      {
         "id": "cage_bulb_rise250",
         "parts": [
           {
@@ -9577,89 +9272,6 @@
           },
           {
             "name": "cage_bulb_rise60__Mount_ON_brass",
-            "component": "Mount",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          }
-        ],
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "yaw": 0
-      },
-      {
-        "id": "cage_bulb_rise2000",
-        "parts": [
-          {
-            "name": "cage_bulb_rise2000__Body_ON_brass",
-            "component": "Body",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          },
-          {
-            "name": "cage_bulb_rise2000__Body_ON_enamel",
-            "component": "Body",
-            "key": "enamel",
-            "tile": 0.72,
-            "catalog_key": "enamel_appliance",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.28
-            }
-          },
-          {
-            "name": "cage_bulb_rise2000__Body_ON_iron",
-            "component": "Body",
-            "key": "iron",
-            "tile": 0.4,
-            "catalog_key": "iron_blackened",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.48
-            }
-          },
-          {
-            "name": "cage_bulb_rise2000__Body_ON_rubber",
-            "component": "Body",
-            "key": "rubber",
-            "tile": 0.26,
-            "catalog_key": "rubber_aged",
-            "tint": [
-              0.055,
-              0.05,
-              0.044,
-              1.0
-            ],
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.7
-            }
-          },
-          {
-            "name": "cage_bulb_rise2000__Bulb_ON_bulb",
-            "component": "Bulb",
-            "key": "bulb",
-            "tile": 0.5,
-            "catalog_key": "milk_glass",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.2
-            }
-          },
-          {
-            "name": "cage_bulb_rise2000__Mount_ON_brass",
             "component": "Mount",
             "key": "brass",
             "tile": 0.6,
@@ -9982,89 +9594,6 @@
           },
           {
             "name": "pendant_shade_retained_rod__Mount_ON_brass",
-            "component": "Mount",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          }
-        ],
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "yaw": 0
-      },
-      {
-        "id": "cage_bulb_rise800",
-        "parts": [
-          {
-            "name": "cage_bulb_rise800__Body_ON_brass",
-            "component": "Body",
-            "key": "brass",
-            "tile": 0.6,
-            "catalog_key": "bronze_sheet",
-            "finish": {
-              "roughness": 0.7,
-              "normal_scale": 0.25
-            }
-          },
-          {
-            "name": "cage_bulb_rise800__Body_ON_enamel",
-            "component": "Body",
-            "key": "enamel",
-            "tile": 0.72,
-            "catalog_key": "enamel_appliance",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.28
-            }
-          },
-          {
-            "name": "cage_bulb_rise800__Body_ON_iron",
-            "component": "Body",
-            "key": "iron",
-            "tile": 0.4,
-            "catalog_key": "iron_blackened",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.48
-            }
-          },
-          {
-            "name": "cage_bulb_rise800__Body_ON_rubber",
-            "component": "Body",
-            "key": "rubber",
-            "tile": 0.26,
-            "catalog_key": "rubber_aged",
-            "tint": [
-              0.055,
-              0.05,
-              0.044,
-              1.0
-            ],
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.7
-            }
-          },
-          {
-            "name": "cage_bulb_rise800__Bulb_ON_bulb",
-            "component": "Bulb",
-            "key": "bulb",
-            "tile": 0.5,
-            "catalog_key": "milk_glass",
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.2
-            }
-          },
-          {
-            "name": "cage_bulb_rise800__Mount_ON_brass",
             "component": "Mount",
             "key": "brass",
             "tile": 0.6,
@@ -10497,6 +10026,172 @@
             "finish": {
               "normal_scale": 0.02,
               "roughness": 0.2
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "cage_bulb_venue_collar",
+        "parts": [
+          {
+            "name": "cage_bulb_venue_collar__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "finish": {
+              "roughness": 0.7,
+              "normal_scale": 0.25
+            }
+          },
+          {
+            "name": "cage_bulb_venue_collar__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.28
+            }
+          },
+          {
+            "name": "cage_bulb_venue_collar__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "cage_bulb_venue_collar__Body_ON_rubber",
+            "component": "Body",
+            "key": "rubber",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "tint": [
+              0.055,
+              0.05,
+              0.044,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "cage_bulb_venue_collar__Bulb_ON_bulb",
+            "component": "Bulb",
+            "key": "bulb",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.2
+            }
+          },
+          {
+            "name": "cage_bulb_venue_collar__Mount_ON_brass",
+            "component": "Mount",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "finish": {
+              "roughness": 0.7,
+              "normal_scale": 0.25
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "cage_bulb_rise070",
+        "parts": [
+          {
+            "name": "cage_bulb_rise070__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "finish": {
+              "roughness": 0.7,
+              "normal_scale": 0.25
+            }
+          },
+          {
+            "name": "cage_bulb_rise070__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.28
+            }
+          },
+          {
+            "name": "cage_bulb_rise070__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "cage_bulb_rise070__Body_ON_rubber",
+            "component": "Body",
+            "key": "rubber",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "tint": [
+              0.055,
+              0.05,
+              0.044,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "cage_bulb_rise070__Bulb_ON_bulb",
+            "component": "Bulb",
+            "key": "bulb",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.2
+            }
+          },
+          {
+            "name": "cage_bulb_rise070__Mount_ON_brass",
+            "component": "Mount",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "finish": {
+              "roughness": 0.7,
+              "normal_scale": 0.25
             }
           }
         ],
@@ -11093,39 +10788,39 @@
       },
       {
         "id": "PASSAGE_AISLE_LT_00",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_01",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_02",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_03",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_04",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_05",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_06",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "PASSAGE_AISLE_LT_07",
-        "variant": "cage_bulb_rise160"
+        "variant": "cage_bulb_rise070"
       },
       {
         "id": "F01_BAR_LT_DARTS",
-        "variant": "cage_bulb_rise140"
+        "variant": "cage_bulb_venue_collar"
       },
       {
         "id": "F01_BAR_LT_LOBBY",
@@ -11137,7 +10832,7 @@
       },
       {
         "id": "F01_BAR_LT_STAIR",
-        "variant": "cage_bulb_rise2000"
+        "variant": "cage_bulb_venue_collar"
       },
       {
         "id": "F01_BAR_LT_CAN0",
@@ -11165,11 +10860,11 @@
       },
       {
         "id": "F01_BAR_LT_STAGE0",
-        "variant": "cage_bulb_rise800"
+        "variant": "cage_bulb_venue_collar"
       },
       {
         "id": "F01_BAR_LT_STAGE1",
-        "variant": "cage_bulb_rise800"
+        "variant": "cage_bulb_venue_collar"
       },
       {
         "id": "F01_BAR_LT_DECK0",
@@ -11194,7 +10889,12 @@
       },
       {
         "id": "F01_BAR_LT_WEST1",
-        "variant": "sconce_globe_back100"
+        "variant": "sconce_globe_back100",
+        "visual_offset": [
+          0,
+          0,
+          -0.05
+        ]
       },
       {
         "id": "F01_BAR_LT_WC",
@@ -11402,23 +11102,48 @@
       },
       {
         "id": "F02_LANDING_LT_SCONCE",
-        "variant": "sconce_globe_back050"
+        "variant": "sconce_globe_back050",
+        "visual_offset": [
+          2.95,
+          0,
+          0
+        ]
       },
       {
         "id": "F03_LANDING_LT_SCONCE",
-        "variant": "sconce_globe_back050"
+        "variant": "sconce_globe_back050",
+        "visual_offset": [
+          2.95,
+          0,
+          0
+        ]
       },
       {
         "id": "F04_LANDING_LT_SCONCE",
-        "variant": "sconce_globe_back050"
+        "variant": "sconce_globe_back050",
+        "visual_offset": [
+          2.95,
+          0,
+          0
+        ]
       },
       {
         "id": "F05_LANDING_LT_SCONCE",
-        "variant": "sconce_globe_back050"
+        "variant": "sconce_globe_back050",
+        "visual_offset": [
+          2.95,
+          0,
+          0
+        ]
       },
       {
         "id": "F06_LANDING_LT_SCONCE",
-        "variant": "sconce_globe_back050"
+        "variant": "sconce_globe_back050",
+        "visual_offset": [
+          2.95,
+          0,
+          0
+        ]
       },
       {
         "id": "B1_BOILER_ROOM_LT_A",
@@ -11439,9 +11164,9 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "c23a8345cf6bddaf6de4337099cfeee28bca5ac8de5ff560bedebb0fc9217b15",
+  "asset_sha256": "4942cf66c657fb4cc80ff5320c7be1db49e5b21b74b4d93447252ba9be363ace",
   "source_bindings": {
-    "art/data/fixed_lighting/source_plan.json": "10830a17ef40d65880652d75ef734d5d9a03249fc3e42c104828ccae4bef3658",
+    "art/data/fixed_lighting/source_plan.json": "2b7f53102bc5c533f9f9e005139f8d47e8dbdf68a3c931fdd5e2727410e00a2f",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/scripts/build_fixed_lighting.py": "ee3e70715ae745f0e7ecad21b77017db3f48807c4f532a021aab503c2ff1ff6e",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -11489,7 +11214,7 @@
     "game/data/orison_v2/room_lighting.json": "76452ab86d5965d055d12488246467135385885b469ece6e72427009fca480fb",
     "game/data/orison_v2/completion_interiors.json": "ec5ea7a557f46b8c47484c3ccb0c056bf049e2b15a1c3034c13448db9f52737c",
     "game/data/orison_v2_blockout.json": "f7d557faa3b44b4e82972673d766491c45f63d73a96c414643a716505e585aa1",
-    "art/blender/scripts/inspect_fixed_lighting_city_context.py": "5c08af2737b7c74140e8d185c1a3bc11c9aa43fa119b86b67998925c6218d996",
+    "art/blender/scripts/inspect_fixed_lighting_city_context.py": "a6d5940975bef3ab5f7bdd75525bc637586fcc47c041b40d1b00f0ee0bf2fa14",
     "game/assets/building/floor_01_cells/orison_f01_interior.gltf": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
     "game/assets/building/floor_01_cells/orison_f01_interior.bin": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
     "game/assets/building/floor_01_cells/orison_facade_shell.gltf": "c47a6eeefe146ff9bebb6d09a8ae5d24f6beb6f9a69a15a4f79b2b8e9c2314c8",
@@ -11779,32 +11504,6 @@
       ]
     },
     {
-      "assembly": "cage_bulb_rise140",
-      "id": "cage_bulb_rise140_Fixture",
-      "stocks": [
-        "cage_bulb_rise140_Canopy",
-        "cage_bulb_rise140_CanopyScrew-1",
-        "cage_bulb_rise140_CanopyScrew1",
-        "cage_bulb_rise140_Drop",
-        "cage_bulb_rise140_SocketCap",
-        "cage_bulb_rise140_Insulator",
-        "cage_bulb_rise140_InsulatorThread0",
-        "cage_bulb_rise140_InsulatorThread1",
-        "cage_bulb_rise140_InsulatorThread2",
-        "cage_bulb_rise140_InsulatorThread3",
-        "cage_bulb_rise140_PearLamp",
-        "cage_bulb_rise140_GuardRib0",
-        "cage_bulb_rise140_GuardRib1",
-        "cage_bulb_rise140_GuardRib2",
-        "cage_bulb_rise140_GuardRib3",
-        "cage_bulb_rise140_GuardRib4",
-        "cage_bulb_rise140_GuardRib5",
-        "cage_bulb_rise140_GuardHoop",
-        "cage_bulb_rise140_RigidMount",
-        "cage_bulb_rise140_UpperRosette"
-      ]
-    },
-    {
       "assembly": "cage_bulb_rise250",
       "id": "cage_bulb_rise250_Fixture",
       "stocks": [
@@ -11854,32 +11553,6 @@
         "cage_bulb_rise60_GuardHoop",
         "cage_bulb_rise60_RigidMount",
         "cage_bulb_rise60_UpperRosette"
-      ]
-    },
-    {
-      "assembly": "cage_bulb_rise2000",
-      "id": "cage_bulb_rise2000_Fixture",
-      "stocks": [
-        "cage_bulb_rise2000_Canopy",
-        "cage_bulb_rise2000_CanopyScrew-1",
-        "cage_bulb_rise2000_CanopyScrew1",
-        "cage_bulb_rise2000_Drop",
-        "cage_bulb_rise2000_SocketCap",
-        "cage_bulb_rise2000_Insulator",
-        "cage_bulb_rise2000_InsulatorThread0",
-        "cage_bulb_rise2000_InsulatorThread1",
-        "cage_bulb_rise2000_InsulatorThread2",
-        "cage_bulb_rise2000_InsulatorThread3",
-        "cage_bulb_rise2000_PearLamp",
-        "cage_bulb_rise2000_GuardRib0",
-        "cage_bulb_rise2000_GuardRib1",
-        "cage_bulb_rise2000_GuardRib2",
-        "cage_bulb_rise2000_GuardRib3",
-        "cage_bulb_rise2000_GuardRib4",
-        "cage_bulb_rise2000_GuardRib5",
-        "cage_bulb_rise2000_GuardHoop",
-        "cage_bulb_rise2000_RigidMount",
-        "cage_bulb_rise2000_UpperRosette"
       ]
     },
     {
@@ -11974,32 +11647,6 @@
         "pendant_shade_retained_rod_DiffuserStay1",
         "pendant_shade_retained_rod_DiffuserStay2",
         "pendant_shade_retained_rod_Lamp"
-      ]
-    },
-    {
-      "assembly": "cage_bulb_rise800",
-      "id": "cage_bulb_rise800_Fixture",
-      "stocks": [
-        "cage_bulb_rise800_Canopy",
-        "cage_bulb_rise800_CanopyScrew-1",
-        "cage_bulb_rise800_CanopyScrew1",
-        "cage_bulb_rise800_Drop",
-        "cage_bulb_rise800_SocketCap",
-        "cage_bulb_rise800_Insulator",
-        "cage_bulb_rise800_InsulatorThread0",
-        "cage_bulb_rise800_InsulatorThread1",
-        "cage_bulb_rise800_InsulatorThread2",
-        "cage_bulb_rise800_InsulatorThread3",
-        "cage_bulb_rise800_PearLamp",
-        "cage_bulb_rise800_GuardRib0",
-        "cage_bulb_rise800_GuardRib1",
-        "cage_bulb_rise800_GuardRib2",
-        "cage_bulb_rise800_GuardRib3",
-        "cage_bulb_rise800_GuardRib4",
-        "cage_bulb_rise800_GuardRib5",
-        "cage_bulb_rise800_GuardHoop",
-        "cage_bulb_rise800_RigidMount",
-        "cage_bulb_rise800_UpperRosette"
       ]
     },
     {
@@ -12150,6 +11797,54 @@
         "bath_bell_over_mirror_GalleryScrew2",
         "bath_bell_over_mirror_OpalBell",
         "bath_bell_over_mirror_InnerLamp"
+      ]
+    },
+    {
+      "assembly": "cage_bulb_venue_collar",
+      "id": "cage_bulb_venue_collar_Fixture",
+      "stocks": [
+        "cage_bulb_venue_collar_InlineCollar",
+        "cage_bulb_venue_collar_Drop",
+        "cage_bulb_venue_collar_SocketCap",
+        "cage_bulb_venue_collar_Insulator",
+        "cage_bulb_venue_collar_InsulatorThread0",
+        "cage_bulb_venue_collar_InsulatorThread1",
+        "cage_bulb_venue_collar_InsulatorThread2",
+        "cage_bulb_venue_collar_InsulatorThread3",
+        "cage_bulb_venue_collar_PearLamp",
+        "cage_bulb_venue_collar_GuardRib0",
+        "cage_bulb_venue_collar_GuardRib1",
+        "cage_bulb_venue_collar_GuardRib2",
+        "cage_bulb_venue_collar_GuardRib3",
+        "cage_bulb_venue_collar_GuardRib4",
+        "cage_bulb_venue_collar_GuardRib5",
+        "cage_bulb_venue_collar_GuardHoop"
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise070",
+      "id": "cage_bulb_rise070_Fixture",
+      "stocks": [
+        "cage_bulb_rise070_Canopy",
+        "cage_bulb_rise070_CanopyScrew-1",
+        "cage_bulb_rise070_CanopyScrew1",
+        "cage_bulb_rise070_Drop",
+        "cage_bulb_rise070_SocketCap",
+        "cage_bulb_rise070_Insulator",
+        "cage_bulb_rise070_InsulatorThread0",
+        "cage_bulb_rise070_InsulatorThread1",
+        "cage_bulb_rise070_InsulatorThread2",
+        "cage_bulb_rise070_InsulatorThread3",
+        "cage_bulb_rise070_PearLamp",
+        "cage_bulb_rise070_GuardRib0",
+        "cage_bulb_rise070_GuardRib1",
+        "cage_bulb_rise070_GuardRib2",
+        "cage_bulb_rise070_GuardRib3",
+        "cage_bulb_rise070_GuardRib4",
+        "cage_bulb_rise070_GuardRib5",
+        "cage_bulb_rise070_GuardHoop",
+        "cage_bulb_rise070_RigidMount",
+        "cage_bulb_rise070_UpperRosette"
       ]
     }
   ],

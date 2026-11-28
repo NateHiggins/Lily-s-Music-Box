@@ -57,7 +57,7 @@ def build(root=ROOT):
     need(sha(root/doors.FABRICATION)==doors.FABRICATION_SHA256_LF,'fabrication changed')
     retained=json.loads((root/RETAINED).read_text(encoding='utf-8'))
     floor=next(f for f in layout['floors'] if f['id']=='F01');markers={m['id']:m for m in floor['markers']};furniture={m['id']:m for m in floor['furniture']}
-    origin=plan['source_origin_blender_m'];depth=plan['wall_thickness_m'];entries=[];witnesses=[]
+    origin=plan['source_origin_blender_m'];depth=plan['wall_thickness_m'];entries=[];witnesses=[];fascia_piers=[]
     for shop in plan['shops']:
         cell=shop['id'];suffix=cell_suffix(cell);name=cell[5:].replace('otis_son','otis___son')
         owned=[m for m in floor['markers'] if m['kind'] in KINDS and m['id'].endswith('_'+suffix) and m.get('zone')=='PASSAGE']
@@ -78,9 +78,14 @@ def build(root=ROOT):
                 role='original_authored_lettering_on_storefront_stock'
             elif source['id'].startswith('SITE_SHOP_LT_'):
                 door_along=shop['entrance_center_m'][1 if front!='north' else 0]
-                edge=along0+depth*.5 if door_along<along else along1-depth*.5
+                near,far=(along0+depth*.5,along1-depth*.5) if door_along<along else (along1-depth*.5,along0+depth*.5)
+                # Neighbouring shops share party-wall piers. Take the door-side
+                # pier unless the previous tenant's lamp already occupies it.
+                edge=far if any(f==front and abs(e-near)<.5 for f,e in fascia_piers) else near
+                fascia_piers.append((front,edge))
                 u,v=(centre[0],edge) if front!='north' else (edge,centre[1])
-                patch=dict(pos=[origin[0]+u+normal[0]*.02,origin[1]-v-normal[1]*.02,p[2]-.01],yaw_deg=inward_yaw);role='original_fascia_fixture_corner_pier'
+                # The wall-arm lamp's rosette sits .20m behind its actor; seat it on the fascia face.
+                patch=dict(pos=[origin[0]+u+normal[0]*.20,origin[1]-v-normal[1]*.20,p[2]-.01],yaw_deg=inward_yaw);role='original_fascia_fixture_corner_pier'
             elif source['id'].startswith('SITE_SHOP_DARKROOM_'):
                 group=next(g for g in retained['groups'] if g['cell']==cell and g['id']=='all4_original_developing_trays_all3_tanks_and_print_dryer')
                 q=point(group['delta_transform'],b2g(p))
@@ -100,7 +105,8 @@ def build(root=ROOT):
                 if front=='east':u,v=x1-distance*(x1-x0),y0+lateral*(y1-y0)
                 elif front=='west':u,v=x0+distance*(x1-x0),y0+lateral*(y1-y0)
                 else:u,v=x0+lateral*(x1-x0),y0+distance*(y1-y0)
-                patch=dict(pos=[origin[0]+u,origin[1]-v,p[2]-.01],yaw_deg=inward_yaw);role='original_sales_light_relative_floor_position'
+                # The rigid 380mm mount seats on the 25mm-thick sales ceiling underside.
+                patch=dict(pos=[origin[0]+u,origin[1]-v,p[2]-.025],yaw_deg=inward_yaw);role='original_sales_light_relative_floor_position'
             need(all(type(x) in (int,float) and math.isfinite(x) for x in patch['pos']),'invalid target position')
             target.update(patch);entries.append(dict(id=source['id'],kind=kind,patch=patch))
             witnesses.append(dict(id=source['id'],cell=cell,role=role,source_marker=copy.deepcopy(source),target_marker=target))
