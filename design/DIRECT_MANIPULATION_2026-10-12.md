@@ -157,5 +157,28 @@ interaction layer, aiming dot included, so in the installed game nothing on the
 glass said what could be taken. The paper still owns every prompt word; only
 the reticle now stays. Captures and the waking shot still hide the layer.
 
+**One-click controls.** A part with two seats and nothing between them may
+declare **control: tap** with a **press** callable. One primary click works it;
+nothing is latched and no mouse travel is read. The reticle draws the click
+mark and names the state it is in now. The first is the bath's faucet and
+shower diverter (owner ruling **faucet_shower_toggle_20261127**), which was a
+12 mm slide. This is an owner-ruled exception for two-seat parts, not a return
+to click-to-toggle for parts with real travel.
+
+**Shower spray and steam (same day, owner request).** The spray was 128 drops
+thinner than a pixel. It is now thicker streaks from the rose, a soft
+untextured cone body and a crown of splashes that rides the standing water.
+The steam was one even fog box. It is now a plume over the hot water that
+banks under the ceiling and deepens downward as the room fills, then thins
+after shutoff. Flow, temperature and humidity still come from the tap and the
+moisture owner; only their picture changed. Her eye on the result is owed.
+
+Her follow-up the same day: the rose now sits 14 degrees over on its captive
+swivel (**tilt_clawfoot_rose.py**, then the ordinary bath export), and the
+**SprayOrigin** datum carries that axis, so the whole cone lands inside the
+tub. Drops leave a centre hole and three rings along each hole's own line, as
+standing jets. The supply pressure surges, shivers and knocks on a fixed
+schedule shared by every running rose; it changes only how the spray is drawn.
+
 Proof for this extension is the bench **ReticleValveBench**; it is not
 occupied-world qualification.

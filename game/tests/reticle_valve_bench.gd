@@ -176,6 +176,37 @@ func run() -> void:
 		cap=handle.global_position+handle.global_basis.x*.06
 		await exercise(bath,index,Vector3(.95,0,-.80),cap,"bath from the far side")
 
+	# The rose is tilted on its swivel so every jet lands inside the tub.
+	var jet: Vector3=-bath._stream.basis.y
+	var reach: float=(bath._water_empty_y-bath._stream.position.y)/jet.y
+	var landing: Vector3=bath._stream.position+jet*reach-bath.model.position
+	var cone: float=reach*tan(deg_to_rad(7.6))
+	print("RETICLE VALVE spray jet=",jet," landing=",landing," cone=",cone)
+	check(jet.x>.2 and absf(jet.z)<.01,"the rose leans toward the middle of the tub")
+	check(absf(landing.x)+cone<.60 and absf(landing.z)+cone<.33,"the whole cone lands inside the tub's rim")
+	var Moisture:=preload("res://scripts/building/v2_bathroom_moisture.gd")
+	var lowest:=2.;var highest:=0.
+	for tick in 600:
+		var head: float=Moisture.pressure_at(float(tick)*.05)
+		lowest=minf(lowest,head);highest=maxf(highest,head)
+	check(lowest>=.3 and lowest<.5 and highest>1. and highest<=1.1,"supply pressure sags, knocks and recovers within bounds: %s..%s"%[lowest,highest])
+
+	# The faucet and shower diverter is a one-click control, not a drag.
+	await stand(Vector3(.32,0,-1.15),bath.diverter.global_position)
+	var mark: Dictionary=player._target_dot.guide
+	check(player._grab.find_target().get("part")==bath.diverter and mark.get("archetype")=="tap" and mark.get("ends")==["FAUCET","SHOWER"],"diverter hover is the click mark naming faucet and shower")
+	bath.set_valve_opening(1,.5)
+	await settle()
+	check(bath._stream.visible and not bath.filler.visible,"water starts at the shower head")
+	await click()
+	check(not player._grab.active() and is_zero_approx(bath.shower_fraction) and bath.filler.visible and not bath._stream.visible,"one click sends the water to the faucet and latches nothing")
+	await shot("bath_toggle_faucet")
+	await click()
+	check(is_equal_approx(bath.shower_fraction,1.) and bath._stream.visible and not bath.filler.visible,"the next click sends it back to the shower")
+	await shot("bath_toggle_shower")
+	bath.set_valve_opening(1,0.)
+	await settle()
+
 	# A wall-valved lavatory from the left, the right and close above.
 	for index in 2:
 		var handle: Node3D=lavatory._handles[index]

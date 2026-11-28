@@ -24,6 +24,8 @@ var _added_stock_exception := false
 var _gesture_axis := Vector2.ZERO
 var transform_axis: int=-1
 var transform_rotating:=false
+var pressed_part: Node3D
+var pressed_until := 0
 
 func transform_input(event: InputEvent) -> bool:
 	# Precision manipulation belongs to the existing static inspection view;
@@ -143,6 +145,9 @@ func held_physics_body() -> PhysicsBody3D:
 func acquire(candidate: Dictionary) -> bool:
 	if active() or candidate.is_empty() or candidate.get("blocked",false): return false
 	if not is_instance_valid(candidate.get("part")) or not is_instance_valid(candidate.get("owner")): return false
+	if candidate.get("control")=="tap":
+		_press(candidate)
+		return false
 	var started := Time.get_ticks_usec() if profiling else 0
 	if candidate.has("begin") and not candidate.begin.call(): return false
 	_record_cost("begin",str(candidate.owner.name),started)
@@ -301,6 +306,16 @@ func feedback(aimed: Dictionary) -> Dictionary:
 		"transform_rotating":transform_rotating if active() and player.inspecting() else false,
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 
+## One click works an instant control. Nothing is latched and nothing follows
+## the mouse; the owner alone decides whether the press is allowed.
+func _press(candidate: Dictionary) -> void:
+	var press: Variant=candidate.get("press")
+	if not press is Callable or not press.is_valid() or not bool(press.call()):return
+	pressed_part=candidate.part
+	pressed_until=Time.get_ticks_msec()+220
+	var source:=candidate.owner as Node3D
+	if is_instance_valid(source):player.world_modified.emit(source.global_position,str(source.name))
+
 ## Screen pixels travelled per unit of constraint value at this contact. The
 ## hand and the reticle's arrow share this projection, so they cannot disagree.
 func _screen_axis(descriptor: Dictionary,point: Vector3,camera: Camera3D) -> Vector2:
@@ -327,7 +342,8 @@ func guide(descriptor: Dictionary) -> Dictionary:
 	var part: Variant=descriptor.get("part")
 	if not part is Node3D or not is_instance_valid(part) or not is_instance_valid(descriptor.get("frame")):return {}
 	var kind:=str(descriptor.get("kind",""))
-	var result:={"archetype":"take" if kind=="free" else "dial" if descriptor.get("control")=="dial" else "slide",
+	var result:={"archetype":"tap" if descriptor.get("control")=="tap" else "take" if kind=="free" else "dial" if descriptor.get("control")=="dial" else "slide",
+		"pressed":part==pressed_part and Time.get_ticks_msec()<pressed_until,
 		"part":part,"label":str(descriptor.get("label","")),"ends":descriptor.get("ends",[]),
 		"tint":descriptor.get("tint",Color(0,0,0,0))}
 	var camera: Camera3D=descriptor.get("view_camera",player.camera)

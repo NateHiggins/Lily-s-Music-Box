@@ -48,7 +48,7 @@ func present(next_state: String, can_inspect: bool, at: Vector2,axis: int=-1,rot
 	# Redraw on what is drawn, not on every sub-pixel of travel.
 	var shown: Array=[next_state,can_inspect,axis,rotating,next_guide.get("archetype",""),next_guide.get("label",""),
 		snappedf(fraction,.004),(next_guide.get("direction",Vector2.ZERO) as Vector2).snapped(Vector2(.02,.02)),
-		next_guide.get("tint",Color(0,0,0,0)),travel_sign]
+		next_guide.get("tint",Color(0,0,0,0)),travel_sign,next_guide.get("pressed",false)]
 	guide=next_guide
 	if shown==_shown:return
 	_shown=shown
@@ -152,7 +152,13 @@ func _draw() -> void:
 		var tint: Color=[Color(.94,.52,.43),Color(.58,.86,.55),Color(.52,.72,1.)][transform_axis]
 		_stroke(Vector2(12,-4),Vector2(12,4),tint,1.5)
 	if transform_rotating:_curve(12.,PI*.25,PI*.8,PAPER,1.5)
-	if archetype=="dial":_draw_dial(held)
+	if archetype=="tap":
+		_draw_tap()
+		if guide.get("pressed",false):_burst(Vector2.ZERO,_tint(HELD))
+		var ends:=_ends()
+		var now:=str(ends[1] if float(guide.get("fraction",0.))>=.5 else ends[0])
+		_pill(Vector2(0,30),(str(guide.get("label",""))+"  "+now).strip_edges(),_tint(PAPER))
+	elif archetype=="dial":_draw_dial(held)
 	elif archetype=="slide" and not (guide.get("direction",Vector2.ZERO) as Vector2).is_zero_approx():_draw_slide(held)
 	elif archetype=="take":_draw_take(held)
 	elif state=="blocked" and not held:

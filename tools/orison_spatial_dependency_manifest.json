@@ -255924,6 +255924,69 @@
    "target_exists": null
   },
   {
+   "key": "7110d1748ce748b6",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/tests/bath_steam_capture.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "var tap:=world.adapter.resolve(\"F04_4B_SHOWER_01\") as TapProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "97682ac31e242210",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/bath_steam_capture.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    32,
+    49
+   ],
+   "count": 2,
+   "context": [
+    "var room: Vector3=model.to_global(Vector3(0,0,-1.05))",
+    "await _look(model.to_global(Vector3(.9,0,-1.6)),model.to_global(Vector3(0,1.9,0)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "b2cc76414a0b9159",
    "kind": "vector3_coordinate",
    "token": "_cancel_and_transit",
@@ -287789,9 +287852,9 @@
     "_save_rebuild_bath"
    ],
    "lines": [
-    716,
-    787,
-    807
+    725,
+    796,
+    816
    ],
    "count": 3,
    "context": [
@@ -287823,7 +287886,7 @@
     "_save_rebuild_bath"
    ],
    "lines": [
-    816
+    825
    ],
    "count": 1,
    "context": [
@@ -287937,9 +288000,9 @@
     "_check_return_anchor_resolution"
    ],
    "lines": [
-    1079,
-    1091,
-    1094
+    1088,
+    1100,
+    1103
    ],
    "count": 3,
    "context": [
@@ -288000,13 +288063,13 @@
     "_check_return_anchor_resolution"
    ],
    "lines": [
-    1081,
-    1083,
-    1086,
-    1088,
-    1089,
+    1090,
     1092,
-    1095
+    1095,
+    1097,
+    1098,
+    1101,
+    1104
    ],
    "count": 7,
    "context": [
@@ -288040,7 +288103,7 @@
     "_review_installed_bath"
    ],
    "lines": [
-    719
+    728
    ],
    "count": 1,
    "context": [
@@ -289504,8 +289567,8 @@
     "run"
    ],
    "lines": [
-    194,
-    194
+    225,
+    225
    ],
    "count": 2,
    "context": [
