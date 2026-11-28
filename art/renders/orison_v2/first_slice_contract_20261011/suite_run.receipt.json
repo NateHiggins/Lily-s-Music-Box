@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 536.53,
+  "elapsed_s": 565.45,
   "exit_code": 0,
-  "finished_utc": "2026-11-28T00:27:20Z",
-  "started_utc": "2026-11-28T00:18:23Z",
+  "finished_utc": "2026-11-28T02:25:32Z",
+  "started_utc": "2026-11-28T02:16:06Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/pr567_takeover/lane02/first_slice.log.stderr",
+  "stderr": "C:/ov/reports/vantry_cuff_20261127/first_slice.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/pr567_takeover/lane02/first_slice.log",
-  "stdout_sha256": "a11e3b1cfb312db167e71af8391caeed8f3311258bea09eb22d259021f95bfc1"
+  "stdout": "C:/ov/reports/vantry_cuff_20261127/first_slice.log",
+  "stdout_sha256": "1d333e7646878ecc9979dc47eb90d86b7a18a04e0606c5d8229da0fc2e54f885"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/pr567_takeover/lane02/first_slice/packet",
+ "shot_dir": "C:/ov/reports/vantry_cuff_20261127/first_slice/packet",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "ccb10383dd464b17cfcd8f1241577ea988842d41",
-  "repository_tree": "a4d8e61d11004dcd91ae355e965d8d7fdd5489e9",
-  "runtime_inputs_sha256": "02932e34b586af3a4114f50aba7c46526373fed7c701cf8dad1e31a50361aec2",
+  "repository_head": "492e3699b86b451d6dac1a3f9d224acdf09ec97c",
+  "repository_tree": "25868f82e2dbc03a1960d2a2d8e6d61d89bd02dd",
+  "runtime_inputs_sha256": "0598a2d4cbd4d2ca459cefda1dc64a93eb3176e47e50c500a11bbaa152782137",
   "test_path": null,
   "test_sha256": null
  },

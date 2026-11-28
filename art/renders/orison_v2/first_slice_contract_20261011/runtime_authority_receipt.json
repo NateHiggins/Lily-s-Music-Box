@@ -789,19 +789,11 @@
 			"ok": true
 		},
 		{
-			"label": "service cursor resolves actual part: @MeshInstance3D@3667",
+			"label": "service cursor resolves actual part: @MeshInstance3D@3668",
 			"ok": true
 		},
 		{
-			"label": "grab, mouse travel and release: @MeshInstance3D@3667",
-			"ok": true
-		},
-		{
-			"label": "service cursor resolves actual part: @MeshInstance3D@3689",
-			"ok": true
-		},
-		{
-			"label": "grab, mouse travel and release: @MeshInstance3D@3689",
+			"label": "grab, mouse travel and release: @MeshInstance3D@3668",
 			"ok": true
 		},
 		{
@@ -810,6 +802,14 @@
 		},
 		{
 			"label": "grab, mouse travel and release: @MeshInstance3D@3690",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@3691",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@3691",
 			"ok": true
 		},
 		{
@@ -977,19 +977,19 @@
 			"ok": true
 		},
 		{
-			"label": "service cursor resolves actual part: @Node3D@7224",
+			"label": "service cursor resolves actual part: @Node3D@7225",
 			"ok": true
 		},
 		{
-			"label": "grab, mouse travel and release: @Node3D@7224",
+			"label": "grab, mouse travel and release: @Node3D@7225",
 			"ok": true
 		},
 		{
-			"label": "service cursor resolves actual part: @Node3D@7227",
+			"label": "service cursor resolves actual part: @Node3D@7228",
 			"ok": true
 		},
 		{
-			"label": "grab, mouse travel and release: @Node3D@7227",
+			"label": "grab, mouse travel and release: @Node3D@7228",
 			"ok": true
 		},
 		{
@@ -1009,19 +1009,19 @@
 			"ok": true
 		},
 		{
-			"label": "service cursor resolves actual part: @Node3D@7224",
+			"label": "service cursor resolves actual part: @Node3D@7225",
 			"ok": true
 		},
 		{
-			"label": "grab, mouse travel and release: @Node3D@7224",
+			"label": "grab, mouse travel and release: @Node3D@7225",
 			"ok": true
 		},
 		{
-			"label": "service cursor resolves actual part: @Node3D@7227",
+			"label": "service cursor resolves actual part: @Node3D@7228",
 			"ok": true
 		},
 		{
-			"label": "grab, mouse travel and release: @Node3D@7227",
+			"label": "grab, mouse travel and release: @Node3D@7228",
 			"ok": true
 		},
 		{
@@ -1511,15 +1511,15 @@
 			"shared_cache_count": 84,
 			"status": "PASS",
 			"tracked_borrowed_shapes": 168,
-			"tracked_nodes": 189660,
-			"tracked_playbacks": 109,
+			"tracked_nodes": 189645,
+			"tracked_playbacks": 111,
 			"tracked_resources": 248
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 509.644,
+		"elapsed_s": 534.614,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -4029,9 +4029,9 @@
 		}
 	],
 	"source": {
-		"physical_inputs_sha256": "8a9ce31cb2a50e9c8157e318ad283ea43d705b14661a03d65406a8176076eabb",
-		"repository_head": "ccb10383dd464b17cfcd8f1241577ea988842d41",
-		"runtime_inputs_sha256": "02932e34b586af3a4114f50aba7c46526373fed7c701cf8dad1e31a50361aec2",
+		"physical_inputs_sha256": "8f804a4cba6a72843a6bcaad2864a9fb78e76dc109cadf2f9cf8e5c4f99e0795",
+		"repository_head": "492e3699b86b451d6dac1a3f9d224acdf09ec97c",
+		"runtime_inputs_sha256": "0598a2d4cbd4d2ca459cefda1dc64a93eb3176e47e50c500a11bbaa152782137",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_scene_path": "game/tests/orison_v2_first_slice_contract_test.tscn",
 		"test_scene_sha256": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",

@@ -231,9 +231,13 @@ func respond(raw: String, context: Dictionary) -> Dictionary:
 				id = "newspaper_unavailable" if output.is_empty() else "newspaper_report"
 				if not output.is_empty(): output = _with_comment(output, context.get("newspaper_comment_id", ""))
 			"joke": id = "joke_again" if int(memory.counts.get(intent, 0)) > 0 else "joke_request"
+			"compliment": id = "compliment_again" if int(memory.counts.get(intent, 0)) > 0 else "compliment_first"
 			"magic": id = "magic_word"
 			"undo": id = "undo_request"
 			"sing": id = "sing_request"
+			"lamp_arithmetic": id = "lamp_arithmetic"
+			"keep_company": id = "keep_company"
+			"practice": id = "speech_practice" if context.get("has_spoken_words", false) else "speech_babble"
 			"wait": id = "wait_request"
 			"silence": id = "silence_request"
 			"rude": id = "rude_command"

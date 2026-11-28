@@ -72,10 +72,13 @@ var _fade: Tween
 var _line_exchange: Dictionary = {}
 var _line_delivery := "spoken"
 var current_node_id := ""
+var _spoken := preload("res://scripts/audio/resident_heard_speech.gd").new()
 
 
 func _ready() -> void:
 	add_to_group("attention_people")
+	add_child(_spoken)
+	_spoken.setup(self)
 	layer = 11
 	_panel = Control.new()
 	_panel.name = "Conversation"
@@ -264,6 +267,8 @@ func _replace_tree(incoming: Dictionary) -> void:
 
 
 func _present_line(speaker_name: String, words: String, options: Array, delivery := "spoken") -> void:
+	# A new line ends any heard take still sounding; tree lines begin theirs after.
+	_spoken.cancel()
 	_line_delivery = delivery
 	if _speaker_framing != null:
 		_speaker_framing.release()
@@ -370,6 +375,7 @@ func owns_exclusive_input(player: PlayerController) -> bool:
 
 
 func close() -> void:
+	_spoken.cancel()
 	_line_exchange = {}
 	if _speaker_framing != null:
 		_speaker_framing.release()
@@ -454,6 +460,9 @@ func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Calla
 			_speaker_framing = SpeakerFraming.new()
 			add_child(_speaker_framing)
 		_speaker_framing.begin(_player, actor, owns_exclusive_input, _context.get("framing_cast", {}))
+	# Only a line said aloud can be heard (and learned from); printed copy cannot.
+	if _line_delivery == "spoken":
+		_spoken.begin(node_id, speaker, str(node.line))
 	node_shown.emit(node_id)
 
 

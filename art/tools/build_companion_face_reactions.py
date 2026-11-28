@@ -2,11 +2,14 @@
 Run from the repository root. The game consumes only the structured bit planes.
 """
 from pathlib import Path
-import json, math
+import argparse, json, math
 from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "game/data/device/companion_face_reactions.json"
 REVIEW = ROOT / "art/reviews/v2_companion_faces_20261025"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--review-dir", type=Path, default=REVIEW)
+REVIEW = parser.parse_args().review_dir
 W, H = 32, 12
 
 def blank(): return [[0] * W for _ in range(H)]
@@ -73,20 +76,38 @@ def rain(phase):
         y=(x+phase*2)%8;dot(p,x,y);dot(p,x,y+1)
     return p
 
+def stage_face(glance=0, wink=False, chin=0, crooked=False):
+    # Eyes lead the gesture. Three-wide pupils remain legible at travel size.
+    p = blank()
+    for i, x in enumerate((7, 21)):
+        x += glance
+        if wink and i == 1:
+            line(p, x - 1, 4 + chin, x + 2, 4 + chin)
+            dot(p, x + 3, 3 + chin)
+        else:
+            for row in (2, 3, 4):
+                line(p, x, row + chin, x + 2, row + chin)
+    line(p, 9, 8 + chin, 12, 9 + chin)
+    line(p, 13, 9 + chin, 19, 9 + chin)
+    line(p, 20, 9 + chin, 23, 7 + chin if crooked else 8 + chin)
+    if crooked: dot(p, 24, 6 + chin)
+    return p
+
 def rows(p): return ["".join("#" if x else "." for x in row) for row in p]
 normal=face()
 strips={
- "vaudeville_wink":[(normal,400),(face(blink=True),300),(normal,300),(face(wink=True),500),(normal,400)],
+ "vaudeville_wink":[(stage_face(),250),(stage_face(glance=1),280),(stage_face(glance=1,wink=True,crooked=True),500),(stage_face(crooked=True),300),(stage_face(),250)],
  "clockwork_thought":[(normal,350)]+[(thought(i),400) for i in [0,1,2,3,0]]+[(normal,400)],
  "wireless_call":[(normal,350)]+[(call(i),350) for i in [1,2,1,0,1,2,1]]+[(normal,400)],
  "lamp_trim":[(normal,350),(bulb(False),400),(bulb(True),400),(bulb(False),350),(bulb(True),450),(normal,400)],
  "rain_hat":[(normal,350)]+[(rain(i),400) for i in [0,1,2,3]]+[(normal,400)],
  "catnap":[(normal,400),(face(yawning=True),500),(face(blink=True),500),(face(blink=True),500),(normal,400)],
+ "good_side":[(stage_face(glance=-2),330),(stage_face(glance=-2,chin=1,crooked=True),380),(stage_face(wink=True,crooked=True),540),(stage_face(crooked=True),380),(stage_face(),300)],
 }
 REVIEW.mkdir(parents=True,exist_ok=True)
 document={"schema_version":1,"width":W,"height":H,"reactions":[]}
 report={"evidence_class":"INERT","scope":"Original code-authored bit planes and derived GIF preview; not renderer verification","reactions":[]}
-contact=Image.new("RGB",(W*10*3,H*10*2),(28,24,20))
+contact=Image.new("RGB",(W*10*3,H*10*math.ceil(len(strips)/3)),(28,24,20))
 for index,(name,frames) in enumerate(strips.items()):
     changes=[];images=[]
     for n,(p,hold) in enumerate(frames):

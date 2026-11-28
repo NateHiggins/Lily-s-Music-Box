@@ -215,6 +215,10 @@ func advance(delta: float, reading: bool) -> void:
 		desired.x += clampf(-_travel_speed.z * .75, -.19, .19)
 		desired.z += clampf(-_travel_speed.x * 1.35, -.32, .32)
 	if settling_copy: desired *= .50
+	var face: Node = carrier.rig.reaction_player
+	if reading and face != null and face.current == "good_side" and not carrier.story_pose_active():
+		# The eyes look first. The chassis follows, then rights itself for the tag.
+		if face.frame in [1, 2]: desired.z += .075 * intensity
 	desired += carrier.story_attitude * intensity
 	if held: desired = Vector3.ZERO
 	# Slightly underdamped attitude correction sells effort without jitter.
