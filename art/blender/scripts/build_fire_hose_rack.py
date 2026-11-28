@@ -115,14 +115,15 @@ r=.00595;stem=.0028;end=Vector((0,.014,.068))
 back=-math.sqrt(r*r-stem*stem);entry=end+Vector((0,0,back))
 a=Vector((0,0,.0045));c1=a+Vector((0,0,.014));c2=entry-Vector((0,0,.020))
 centers=[];radii=[];tangents=[]
-for i in range(49):
-    t=i/48;centers.append((1-t)**3*a+3*(1-t)**2*t*c1+3*(1-t)*t*t*c2+t**3*entry)
+# 2026-11-28 tidy: 17 + 24 rings of 32 replace 49 + 64 rings of 64 on the arm.
+for i in range(17):
+    t=i/16;centers.append((1-t)**3*a+3*(1-t)**2*t*c1+3*(1-t)*t*t*c2+t**3*entry)
     tangents.append((3*(1-t)**2*(c1-a)+6*(1-t)*t*(c2-c1)+3*t*t*(entry-c2)).normalized());radii.append(stem)
 angle=math.acos(back/r)
-for i in range(1,65):
-    theta=angle*(1-i/64);centers.append(end+Vector((0,0,r*math.cos(theta))))
+for i in range(1,25):
+    theta=angle*(1-i/24);centers.append(end+Vector((0,0,r*math.cos(theta))))
     tangents.append(Vector((0,0,1)));radii.append(r*math.sin(theta))
-n=64;verts=[];faces=[]
+n=32;verts=[];faces=[]
 for center,radius,tangent in zip(centers,radii,tangents):
     u=Vector((1,0,0));v=tangent.cross(u).normalized()
     for i in range(n):verts.append(b(center+radius*(u*math.cos(math.tau*i/n)+v*math.sin(math.tau*i/n))))
@@ -144,8 +145,8 @@ def screw(name,radius,length,head_radius,head_height,slot,key):
     return finish(name,obj,key,min(.0001,slot*.15))
 screw('MountScrew',.0022,.008,.0042,.002,.001,'iron')
 
-def radial_stock(name,rings,key):
-    verts=[];faces=[];n=96
+def radial_stock(name,rings,key,n=96):
+    verts=[];faces=[]
     for x,radius in rings:
         for i in range(n):
             angle=math.tau*i/n;r=radius(x,angle) if callable(radius) else radius
@@ -167,12 +168,15 @@ def thread(x,angle):
 def male(x,angle):return .0027+.0003*thread(x,angle)*min(1,max(0,(x-.050)/.0004),max(0,(.055-x)/.0004))
 def female(x,angle):return .00275+.0003*thread(x,angle)
 radial_stock('Shaft',[(-.2779,.0043),(-.2777,.0045),(-.2762,.0045),(-.276,.0043),(-.276,.003),(.050,.003)]+
-    [(.050+.005*i/160,male) for i in range(1,161)]+[(.055,0),(-.2779,0)],'iron')
+    [(.050+.005*i/50,male) for i in range(1,51)]+[(.055,0),(-.2779,0)],'iron',48)
+# 2026-11-28 tidy (Lily): the 5 mm thread hides inside the nut, so 50 steps along
+# and 48 round replace 160 and 96 (31,872 triangles to about 5,600). Shaft and nut
+# keep one 0.1 mm grid along the axis, so their clearance holds at every vertex.
 # Axis rings are welded and degenerate cap faces dissolved by finish().
 def hex_outer(x,a):return .004/math.cos((a+math.pi/6)%(math.pi/3)-math.pi/6)
 def hex_edge(x,a):return .0038/math.cos((a+math.pi/6)%(math.pi/3)-math.pi/6)
 radial_stock('EndNut',[(.051,hex_edge),(.0512,hex_outer),(.0548,hex_outer),(.055,hex_edge)]+
-    [(.055-.004*i/128,female) for i in range(129)],'brass')
+    [(.055-.004*i/40,female) for i in range(41)],'brass',48)
 
 # Source stock loaded only for form/contact comparison. Original nodes/data stay.
 with bpy.data.libraries.load(str(ROOT/'art/blender/fire_service.blend'),link=False) as (available,loaded):

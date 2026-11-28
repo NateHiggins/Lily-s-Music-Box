@@ -160,8 +160,9 @@ def prism(name,outline,z0,z1,identity,key,bevel=0):
 
 
 
-def vessel(name,cx,cy,z,profile,identity,key):
- n=96 if max(radius for radius,_ in profile)>.08 else 48;verts=[];rings=[];closed_profile=profile[0]==profile[-1]
+def vessel(name,cx,cy,z,profile,identity,key,n=None):
+ faceted=n is not None
+ n=n or (96 if max(radius for radius,_ in profile)>.08 else 48);verts=[];rings=[];closed_profile=profile[0]==profile[-1]
  if closed_profile:profile=profile[:-1]
  for radius,height in profile:
   if radius==0:rings.append([len(verts)]);verts.append((cx,cy,z+height))
@@ -174,7 +175,11 @@ def vessel(name,cx,cy,z,profile,identity,key):
    elif len(a)==1:faces.append((a[0],b[i],b[(i+1)%n]))
    elif len(b)==1:faces.append((a[i],b[0],a[(i+1)%n]))
    else:faces.append((a[i],b[i],b[(i+1)%n],a[(i+1)%n]))
- obj=solid(name,verts,faces,identity,key);obj['uv_axis']=(0,0,1);obj['uv_center']=(cx,cy,z);return obj
+ obj=solid(name,verts,faces,identity,key)
+ # A faceted vessel (a few sides, n given) takes flat per-face charts: a revolved
+ # chart assumes arcs, and a ten-sided chord is 1.6% short of its arc.
+ if not faceted:obj['uv_axis']=(0,0,1);obj['uv_center']=(cx,cy,z)
+ return obj
 
 # Turned sections run along Y; the front faces into the shop (-Y).
 def axial(name,cx,cz,profile,identity,key,n=64):

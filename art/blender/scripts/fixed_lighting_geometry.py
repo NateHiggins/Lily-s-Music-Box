@@ -26,14 +26,39 @@ def ceiling_canopy(radius=.06):
   support(identity,'ceiling',(side*(radius-.001),0,0),(0,0,-1),'canopy rim against original ceiling')
  for obj,key in pieces[identity][start:]:component(obj,'Mount')
 
+# Glass forms (Lily 2026-11-28: "build good topography and stylize them"). Each
+# lamp glass is drawn as a few deliberate rings at its real features instead of
+# a 49-step ellipsoid. Opal globes are eight moulded panels: at 45 degrees a
+# panel edge creases (the normal cutoff is 40), so the facets are the design.
+# Bare lamps are ten-sided tipped pears, smooth-shaded, and chandelier candles
+# are flames pointing up. Every ring keeps a vertex on the original outline, so
+# seats, rings and clearances fitted to that outline still hold.
+GLOBES={'OpalBowl','OpalGlobe','OpalFruit'}
+def _outline(form,radius,height):
+ half=height*.5
+ if form=='globe':
+  # Latitudes on the source ellipse: neck lip, shoulder, a rounding ring, upper belly, equator,
+  # lower belly, base, then the closed foot.
+  # Panel faces, not corners, lie on the source outline (the corner radius is
+  # divided by cos 22.5 degrees), so every seat, ring and screw still meets it.
+  wide=1./math.cos(math.pi/8)
+  return [(wide*radius*math.sin(t),half*math.cos(t)) for t in (.20,.62,.84,1.05,1.5708,2.10,2.62)]+[(0.,-half)]
+ if form=='candle':
+  # A flame lamp: socket collar at the foot, swelling, then a drawn point up.
+  rows=[(.62,-.50),(.95,-.30),(1.0,-.08),(.80,.16),(.45,.36),(0.,.50)]
+  return [(radius*r,height*z) for r,z in rows]
+ # A tipped pear lamp: neck at the socket, shoulder, belly, the round under
+ # it, and the small exhaust tip of a period lamp.
+ rows=[(.48,.50),(.80,.36),(1.0,.08),(.86,-.24),(.50,-.42),(.14,-.48),(0.,-.50)]
+ return [(radius*r,height*z) for r,z in rows]
 def shell(label,center,radius,height,key='bulb',wall=.0016):
- # Closed thin glass wall, avoiding coincident solid sphere caps.
- neck=radius*math.sin(.20)
- profile=[(neck,height*.5)]
- for t in np.linspace(.20,math.pi,49):profile.append((0. if t==math.pi else radius*math.sin(t),height*.5*math.cos(t)))
- profile.extend((0. if t==math.pi else (radius-wall)*math.sin(t),(height*.5-wall)*math.cos(t)) for t in np.linspace(math.pi,.20,49))
- profile.extend([(neck-wall,height*.5),(neck,height*.5)])
- obj=lathe(label,center[0],center[1],center[2],profile,key)
+ form='globe' if label in GLOBES else 'candle' if label.startswith('CandleLamp') else 'lamp'
+ sides=8 if form=='globe' else 10
+ outer=_outline(form,radius,height)
+ inner=_outline(form,radius-wall,height-2*wall)
+ # Closed thin glass wall: down the outside, back up the inside, a lip at the neck.
+ profile=outer+list(reversed(inner))+[outer[0]]
+ obj=vessel(identity+'_'+label,center[0],center[1],center[2],profile,identity,key,sides)
  return component(obj,'Bulb' if key=='bulb' else 'Stained' if key=='stained' else 'Body')
 
 def socket(label,center,height=.045,r=.017):
@@ -58,7 +83,9 @@ def pendant():
   a=i*math.tau/3
   tube('ShadeSpider'+str(i),(math.cos(a)*.021,math.sin(a)*.021,-.538),(math.cos(a)*.189,math.sin(a)*.189,-.512),.002,'brass')
  # Lower diffuser is source-sized; three clips visibly support its rim.
- component(cap('Diffuser',.20,-.761,.012,'bulb'),'Bulb')
+ # 24 sides (Lily 2026-11-28): a flat lit disc under a drum shade; 96 bought nothing seen.
+ r=.20;h=.012
+ component(vessel(identity+'_Diffuser',0,0,-.761,[(0,0),(r-.001,0),(r,.001),(r,h-.001),(r-.001,h),(0,h)],identity,'bulb',24),'Bulb')
  for i in range(3):
   a=i*math.tau/3
   tube('DiffuserStay'+str(i),(math.cos(a)*.228,math.sin(a)*.228,-.748),(math.cos(a)*.198,math.sin(a)*.198,-.758),.002,'brass')
