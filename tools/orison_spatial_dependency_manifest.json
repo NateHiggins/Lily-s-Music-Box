@@ -216422,7 +216422,7 @@
     "<module>"
    ],
    "lines": [
-    89
+    90
    ],
    "count": 1,
    "context": [
@@ -216453,9 +216453,9 @@
     "_floor_at_height"
    ],
    "lines": [
-    89,
-    95,
-    596
+    90,
+    96,
+    599
    ],
    "count": 3,
    "context": [
@@ -216487,7 +216487,7 @@
     "<module>"
    ],
    "lines": [
-    89
+    90
    ],
    "count": 1,
    "context": [
@@ -216517,7 +216517,7 @@
     "<module>"
    ],
    "lines": [
-    89
+    90
    ],
    "count": 1,
    "context": [
@@ -216547,7 +216547,7 @@
     "<module>"
    ],
    "lines": [
-    90
+    91
    ],
    "count": 1,
    "context": [
@@ -216577,7 +216577,7 @@
     "<module>"
    ],
    "lines": [
-    90
+    91
    ],
    "count": 1,
    "context": [
@@ -216607,7 +216607,7 @@
     "<module>"
    ],
    "lines": [
-    90
+    91
    ],
    "count": 1,
    "context": [
@@ -216637,7 +216637,7 @@
     "<module>"
    ],
    "lines": [
-    90
+    91
    ],
    "count": 1,
    "context": [
@@ -231331,6 +231331,150 @@
    "count": 1,
    "context": [
     "\"F02_SOUTHWEST_HALL_LT\", \"F02_B_VESTIBULE_LT_FLUSH_DOME\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2ab7fe68e1314b69",
+   "kind": "id_reference",
+   "token": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_EAST_HALL_LT\", \"F03_B_KITCHEN_LT_KITCHEN_LINEAR\", \"F03_B_MAIN_LT_PENDANT_SHADE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+acoustic_node+fixture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d4c3e4d96348d39d",
+   "kind": "id_reference",
+   "token": "F03_B_MAIN_LT_PENDANT_SHADE",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_EAST_HALL_LT\", \"F03_B_KITCHEN_LT_KITCHEN_LINEAR\", \"F03_B_MAIN_LT_PENDANT_SHADE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+acoustic_node+fixture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "257f7598832038d2",
+   "kind": "id_reference",
+   "token": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_B_PRIVATE_HALL_LT_FLUSH_DOME\", \"F03_B_VESTIBULE_LT_FLUSH_DOME\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0645706c608bec70",
+   "kind": "id_reference",
+   "token": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_B_PRIVATE_HALL_LT_FLUSH_DOME\", \"F03_B_VESTIBULE_LT_FLUSH_DOME\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "35150dffdb76867d",
+   "kind": "id_reference",
+   "token": "F03_EAST_HALL_LT",
+   "file": "game/scripts/building/orison_v2_room_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_EAST_HALL_LT\", \"F03_B_KITCHEN_LT_KITCHEN_LINEAR\", \"F03_B_MAIN_LT_PENDANT_SHADE\","
    ],
    "gameplay_binding": false,
    "authority": [

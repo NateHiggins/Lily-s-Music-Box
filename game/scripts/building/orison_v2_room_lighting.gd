@@ -9,7 +9,13 @@ const F02_SHADOW_FADE_FIXTURES := [
 	"F02_SOUTHWEST_HALL_LT", "F02_B_VESTIBULE_LT_FLUSH_DOME",
 	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2",
 ]
-const F02_SHADOW_FADE_LENGTH_M := 1.0
+# F03 service crossing and 3B fixtures with the same shadow policy. The upper
+# commons (PR 567) retired F03_FRONT_GALLERY_LT_3 and F03_FRONT_HALL_LT_2.
+const F03_SHADOW_FADE_FIXTURES := [
+	"F03_EAST_HALL_LT", "F03_B_KITCHEN_LT_KITCHEN_LINEAR", "F03_B_MAIN_LT_PENDANT_SHADE",
+	"F03_B_PRIVATE_HALL_LT_FLUSH_DOME", "F03_B_VESTIBULE_LT_FLUSH_DOME",
+]
+const SHADOW_FADE_LENGTH_M := 1.0
 # Keep emission in range for any installed observer. This tuning fades only shadows.
 const LIGHT_FADE_OUTSIDE_OBSERVATION_M := 10000.0
 var errors: Array[String] = []
@@ -39,12 +45,13 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 		if not adapter.mount_consumer(str(record.id), prop):
 			prop.free()
 			return false
-		if str(record.id) in F02_SHADOW_FADE_FIXTURES and prop is LightFixtureProp:
+		if prop is LightFixtureProp and (record.id in F02_SHADOW_FADE_FIXTURES or record.id in F03_SHADOW_FADE_FIXTURES):
 			var light := (prop as LightFixtureProp).light
 			light.omni_shadow_mode = OmniLight3D.SHADOW_DUAL_PARABOLOID
 			light.distance_fade_begin = LIGHT_FADE_OUTSIDE_OBSERVATION_M
-			light.distance_fade_length = F02_SHADOW_FADE_LENGTH_M
+			light.distance_fade_length = SHADOW_FADE_LENGTH_M
 			light.distance_fade_shadow = light.omni_range
+			light.set_meta(LightRig.SHADOW_FADE_FOLLOWS_RANGE, true)
 			light.distance_fade_enabled = true
 		if record.kind != "lamp":
 			if not circuits.has(record.room):
