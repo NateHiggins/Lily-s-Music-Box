@@ -451,6 +451,9 @@ func interact(_player: Node) -> void:
 	if RealityState.save_write_blocked or _hand_gripped: return
 	if _moving or (_key_turning and _player != null):
 		return
+	if _player != null and story_held() and not open:
+		_rattle()
+		return
 	if leaf_state == "locked":
 		if _player != null and height >= 1.2 and door_kind != "cabinet" and passage_allowed():
 			if request_passage(_player as Node3D): _passage_holds.clear()
@@ -627,7 +630,28 @@ func npc_set_open(want_open: bool, resident_id := "") -> void:
 		interact(null) # An explicit close remains available to authored actions.
 
 
+## Story owners that keep this door shut to the player (the prologue keeps her
+## in 4B until the opening ends). Residents and their keys are unaffected.
+var _story_holds := {}
+
+
+func hold_shut(owner: Object, on: bool) -> void:
+	if on:
+		_story_holds[owner.get_instance_id()] = true
+		# An open leaf closes when the hold begins, if nothing stands in it.
+		if open and not _moving and not _hand_gripped and motion_clear(false) and not hose_blocks_close():
+			_passage_holds.clear()
+			_begin_motion(false)
+	else:
+		_story_holds.erase(owner.get_instance_id())
+
+
+func story_held() -> bool:
+	return not _story_holds.is_empty()
+
+
 func passage_allowed(resident_id := "") -> bool:
+	if resident_id.is_empty() and story_held(): return false
 	if leaf_state != "locked": return true
 	return DoorKeyring.player_has_key(self) if resident_id.is_empty() else DoorKeyring.resident_has_key(resident_id, self)
 

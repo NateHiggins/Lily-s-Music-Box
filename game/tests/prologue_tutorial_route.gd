@@ -106,6 +106,9 @@ func _route() -> void:
 	if OS.get_environment("PROLOGUE_WAKE_REVIEW")=="1":
 		await _review_waking()
 		return
+	if OS.get_environment("PROLOGUE_SKYLINE_REVIEW")=="1":
+		await _review_skyline_wake()
+		return
 	var carrier: Node=world.service_set_carrier
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
@@ -870,6 +873,46 @@ func _review_refit(carrier: Node) -> void:
 	var out := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("phone_flight.json"),FileAccess.WRITE)
 	if _require(out!=null,"flight diagnostic output writable"):
 		out.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Occupied 4B capped-rate station-keeping and camera-turn diagnostic; no matched performance gain or artistic acceptance.","records":records,"minimum_upright_dot":min_up,"drift_span":str(drift_max-drift_min)},"\t"))
+
+## Lily 2026-11-28: the skyline at Adela's death, the flash to sitting up, the
+## typed wake line with its echoes, and the 4B door held through the opening.
+func _review_skyline_wake() -> void:
+	var scene:=load("res://assets/props/prologue_wake_cover.glb") as PackedScene
+	var opening := world.adapter.resolve("F04_DOOR_03") as Node3D
+	var door: DoorProp=opening.get_node_or_null("F04_DOOR_03_Leaf") as DoorProp if opening!=null else null
+	if not _require(director.state.phase=="dream" and director.resume_opening(scene),"actual DREAM starts"):return
+	if not _require(door!=null and door.story_held() and not door.passage_allowed(),"the 4B entry door is held shut to the player during the opening: "+str([door!=null,door.story_held() if door!=null else null,director.state.phase])):return
+	var clip:Node=director.waking
+	clip.seek(9.7)
+	var deadline:=Time.get_ticks_msec()+40000
+	var shots:={}
+	while Time.get_ticks_msec()<deadline and is_instance_valid(clip) and clip.active:
+		await get_tree().process_frame
+		if not is_instance_valid(clip) or not clip.active:break
+		var sky:Node=clip.get("_sky")
+		if is_instance_valid(sky) and sky.active:
+			for at:float in [1.2,2.56,3.8]:
+				if sky.age>=at and not shots.has("sky%d"%int(at*10)):
+					shots["sky%d"%int(at*10)]=true;await _shot("skyline_%02d.png"%int(at*10))
+			continue
+		for pair:Array in [[10.5,"sit_flash"],[11.0,"sitting"],[12.3,"typing"]]:
+			if clip.age>=float(pair[0]) and not shots.has(pair[1]):
+				shots[pair[1]]=true;await _shot("wake_%s.png"%pair[1])
+		if clip._stand_at<INF and clip.age>=clip._stand_at-.3 and not shots.has("written"):
+			shots.written=true;await _shot("wake_written.png")
+		if clip._stand_at<INF and clip.age>=clip._stand_at+STAND_REVIEW and not shots.has("standing"):
+			shots.standing=true;await _shot("wake_standing.png")
+	await get_tree().create_timer(.5).timeout
+	var echoes: int=director.writing.get("_echoes").size()
+	_require(shots.has("sky12") and shots.has("sky38"),"the skyline played: "+str(shots.keys()))
+	_require(director.state.phase=="bedroom_exploration" and director.message_id=="wake_passed" and director.writing.current_text!="","the wake line stays written into bedroom exploration")
+	_require(echoes>=24,"dozens of echoes strewn across the wall (%d)"%echoes)
+	_require(not door.passage_allowed(),"the door still holds during bedroom exploration")
+	var out := OS.get_environment("SHOT_DIR")
+	var file := FileAccess.open(out.path_join("skyline_wake.json"),FileAccess.WRITE)
+	if file!=null:file.store_string(JSON.stringify({"evidence_class":"INERT","shots":shots.keys(),"echoes":echoes,"phase":director.state.phase,"failures":failures},"\t"))
+
+const STAND_REVIEW:=1.6
 
 func _review_waking() -> void:
 	var load_started:=Time.get_ticks_usec()

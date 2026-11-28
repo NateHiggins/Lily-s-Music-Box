@@ -10,6 +10,12 @@ const TemporalSky:=preload("res://scripts/game/prologue_temporal_sky.gd")
 const WORDS := "res://data/dialogue/prologue.json"
 const PERIOD := 0.1
 const COMFORT := Vector2(0.30,0.57)
+# Below FREEZING or above SCALD the writing says so outright (Lily 2026-11-28:
+# constant feedback about cold, hot and standing under the water).
+const FREEZING := 0.18
+const SCALD := 0.75
+# Standing within this of the tub's centre is standing under the water.
+const UNDER_SPRAY_M := 0.55
 const CONTACT_VOICE := {
 	"contact_sorry": &"companion_babble_concern",
 	"contact_murder": &"companion_babble_acknowledgement",
@@ -105,7 +111,7 @@ func configure(owner_world: Node3D) -> bool:
 		if row is not Dictionary or row.get("id") is not String or row.get("text") is not String: return _fail("invalid writing row")
 		if row.id.is_empty() or row.text.is_empty() or _messages.has(row.id): return _fail("duplicate/empty writing row")
 		_messages[row.id]=row.text
-	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off","cabinet_open","contact_sorry","contact_murder","contact_bigger","contact_who","contact_connect"]:
+	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","freezing","ease_cold","scalding","step_in","comfort","hot_off","water_off","cabinet_open","contact_sorry","contact_murder","contact_bigger","contact_who","contact_connect"]:
 		if not _messages.has(id): return _fail("missing writing message "+id)
 	# One mounting survey per support. The actual wall hit supplies the frame;
 	# do not float lettering at a guessed wall plane or scan interaction targets.
@@ -146,6 +152,8 @@ func _wall_anchor(at: Vector3, normal: Vector3) -> Transform3D:
 	return Transform3D(Basis.looking_at(-expected,Vector3.UP),hit.position+expected*.006)
 
 func _claim_waking_presentation() -> bool:
+	# The opening's holds begin with the dream itself, not at the first phase change.
+	_hold_front_door(true);_hold_boiler(true)
 	_carrier=world.service_set_carrier
 	if _carrier==null or (not state.effects.companion_materialized and not _carrier.acquire_story_absence(self)): return _fail("companion absence lease refused")
 	if not _avatar_leased:
@@ -336,8 +344,13 @@ func _enter_phase() -> void:
 	elif state.phase in ["protagonist_reveal","cabinet_inspection","reflection_visitor"]:_set_mirror_film(Vector2(1,1))
 	elif mirror!=null:_set_mirror_film(Vector2(-1,0))
 	if is_instance_valid(_knock):_knock.stop()
+	_hold_boiler(State.PHASES.find(state.phase)<State.PHASES.find("mirror_condensation"))
+	_hold_front_door(state.phase!="prologue_complete")
 	match state.phase:
-		"bedroom_exploration": _say("wake_passed",false)
+		"bedroom_exploration":
+			# The waking shot already typed this line while she sat up; keep it.
+			if writing.current_text==str(_messages.get("wake_passed","")):message_id="wake_passed"
+			else:_say("wake_passed",false)
 		"bathroom_entry": _advance("curtain_interaction");return
 		"curtain_interaction": _say("cold_start" if "curtain_pulled" in state.events else "curtain_open",true)
 		"shower_temperature":
@@ -367,6 +380,60 @@ func _enter_phase() -> void:
 			_running=false
 			set_process(false)
 	phase_changed.emit(state.phase)
+
+## The writing keeps up with the water: one line for each state the player can
+## act on, so the wall always says what to do next.
+func _shower_hint(flow: Dictionary, temperature: float, comfortable: bool, under: bool) -> String:
+	var hot_open := float(flow.hot_opening)
+	var cold_open := float(flow.cold_opening)
+	if comfortable:return "comfort" if under else "step_in"
+	if hot_open<=.1:return "hot_start"
+	if cold_open<=.1:return "scalding" if temperature>SCALD else "less_hot"
+	if temperature<FREEZING:return "ease_cold" if hot_open>=.98 else "freezing"
+	if temperature<COMFORT.x:return "ease_cold" if hot_open>=.98 else "more_hot"
+	return "scalding" if temperature>SCALD else "less_hot"
+
+func _under_spray() -> bool:
+	# The tub's own frame where the shower exposes it (the route test's standing
+	# pose is its origin), else the fixture's.
+	var tub: Variant=shower.get("model")
+	var centre: Vector3=(tub as Node3D).global_position if tub is Node3D else shower.global_position
+	var offset: Vector3=player.global_position-centre
+	offset.y=0.0
+	return offset.length()<=UNDER_SPRAY_M
+
+## The boiler keeps the morning's heat while the player learns the shower, so a
+## sensible mix always exists however long the opening takes. Released once the
+## water is off, and on shutdown.
+func _hold_boiler(on: bool) -> void:
+	var tend: Variant=world.get("boiler_tend") if world!=null else null
+	if tend is Node and is_instance_valid(tend) and tend.has_method("hold"):tend.hold(self,on)
+
+## The wake line, typed letter by letter on the bedroom wall while she sits up,
+## each letter echoing faint copies of the whole line across the wall: she has
+## been woken to this reminder many times before (Lily 2026-11-28). Returns the
+## typing time so the waking shot can hold until it is written.
+const WAKE_LETTER_SECONDS := 0.11
+const WAKE_ECHOES_PER_LETTER := 3
+func show_wake_text() -> float:
+	var text: String=str(_messages.get("wake_passed",""))
+	if text.is_empty() or writing==null:return 0.0
+	message_id="wake_passed"
+	writing.global_transform=_bed_anchor
+	var seconds:=minf(text.length()*WAKE_LETTER_SECONDS,7.5)
+	if not writing.show_message(text,seconds,-1.0,1.25,WAKE_ECHOES_PER_LETTER):
+		_fail("writing presentation refused wake_passed");return 0.0
+	return seconds
+
+## The opening keeps the player in 4B: the entry door holds shut, rattling when
+## tried, until the prologue completes (Lily 2026-11-28).
+func _hold_front_door(on: bool) -> void:
+	if world==null or world.adapter==null:return
+	# 4B's apartment entry onto the fourth floor corridor; its leaf is the DoorProp.
+	var opening := world.adapter.resolve("F04_DOOR_03") as Node3D
+	var door: DoorProp=opening.get_node_or_null("F04_DOOR_03_Leaf") as DoorProp if opening!=null else null
+	if door!=null:door.hold_shut(self,on)
+	elif on:push_warning("PrologueDirector: 4B entry door F04_DOOR_03 not found; the opening cannot hold it")
 
 func _say(id: String, bathroom: bool) -> void:
 	if id==message_id: return
@@ -462,9 +529,10 @@ func _process(delta: float) -> void:
 			var temperature := float(flow.temperature)
 			var mixed: bool=float(flow.hot_opening)>.1 and float(flow.cold_opening)>.1
 			var comfortable: bool=mixed and temperature>=COMFORT.x and temperature<=COMFORT.y
-			_comfortable=_comfortable+elapsed if comfortable else 0.0
-			if _phase_age>=2.5:
-				_say("comfort" if comfortable else "less_hot" if temperature>COMFORT.y else "more_hot",true)
+			var under:=_under_spray()
+			# Only a comfortable mix the player stands in counts as a shower.
+			_comfortable=_comfortable+elapsed if comfortable and under else 0.0
+			if _phase_age>=1.0:_say(_shower_hint(flow,temperature,comfortable,under),true)
 			if _comfortable>=1.5 and shower._held_valve==-1 and not player._grab.active():
 				# A comfortable mix proves the hot valve is open, whichever came first.
 				if _observe("hot_water_adjusted") and _observe("temperature_balanced"): _advance("shower_complete")
@@ -699,6 +767,7 @@ func shutdown() -> void:
 	mirror_crossing=null
 	_end_visitor()
 	_running=false;set_process(false)
+	if world!=null:_hold_boiler(false);_hold_front_door(false)
 	_resume_pending=false
 	_opening_cover=null
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()

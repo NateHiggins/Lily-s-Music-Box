@@ -4,6 +4,14 @@ extends Node
 signal finished(completed:bool)
 const DURATION:=16.0
 const AWAKENING:=11.0
+# Lily 2026-11-28: after the thunder, a five-second flash of the skyline at the
+# moment Adela dies; then a flash to sitting up in bed facing the wall, where
+# the wake line is typed (with its echoes) before she gets up.
+const SKY_AT:=10.0
+const TEXT_AT:=11.2
+const HOLD_AFTER_TEXT:=1.8
+const STAND_SECONDS:=2.5
+const Skyline:=preload("res://scripts/game/prologue_death_skyline.gd")
 var director:Node
 var player:PlayerController
 var camera:Camera3D
@@ -32,6 +40,12 @@ var _thunder:AudioStreamPlayer
 var _rustle:AudioStreamPlayer3D
 var _quiet:=false
 var _awake:=false
+var _sitting:Transform3D
+var _sky:Node
+var _sky_done:=false
+var _text_started:=false
+var _stand_at:=INF
+var _duration:=INF
 
 func _init() -> void:set_process(false)
 
@@ -79,6 +93,9 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	var eye_at:=_bed.to_global(Vector3(-.05,.94,.82))
 	var eye_toward:=_bed.to_global(Vector3(0,.96,-.7))
 	_bed_eye=Transform3D(Basis.looking_at(eye_toward-eye_at,Vector3.UP),eye_at)
+	# Sitting up against the pillows, looking straight at the writing wall.
+	var sit_at:=_bed.to_global(Vector3(-.05,1.24,.52))
+	_sitting=Transform3D(Basis.looking_at(director._bed_anchor.origin-sit_at,Vector3.UP),sit_at)
 	# Build the final view from the existing standing anchor and eye height.
 	# Do not shrink the capsule, move its colliders onto the bed, or infer a
 	# mattress datum from the nominal semantic wake marker.
@@ -108,6 +125,8 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	_rustle.volume_db=-26;_rustle.max_distance=4;add_child(_rustle);_rustle.global_position=center
 	start_costs.audio_ms=(Time.get_ticks_usec()-mark)/1000.0;mark=Time.get_ticks_usec()
 	active=true;_awake=owner.state.phase=="awakening"
+	# A restored awakening resumes sitting up, after the skyline.
+	_sky_done=_awake
 	age=AWAKENING if _awake else 0
 	seek(age);camera.make_current();set_process(true)
 	start_costs.first_pose_ms=(Time.get_ticks_usec()-mark)/1000.0
@@ -116,29 +135,58 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 
 func seek(seconds:float) -> void:
 	if not active or not is_finite(seconds):return
-	var previous:=age;age=clampf(seconds,0,DURATION)
+	var previous:=age;age=clampf(seconds,0,_duration if _duration<INF else 60.0)
 	cover.set_blend_shape_value(cover.find_blend_shape_by_name("Breath"),.5+.5*sin(age*1.4))
 	var recoil:=exp(-pow((age-9.9)/.24,2))+.35*exp(-pow((age-6.4)/.35,2))
 	cover.set_blend_shape_value(cover.find_blend_shape_by_name("Recoil"),clampf(recoil,0,1))
-	var wake:=smoothstep(AWAKENING,13.0,age)
-	var stand:=smoothstep(13.0,15.5,age)
-	camera.global_transform=_start.interpolate_with(_bed_eye,wake).interpolate_with(_standing,stand)
-	# Darkness conceals the cut from outside to first person; no exposed body
-	# or screen blur. Reduced-flash uses a slow window glow, never a flash.
-	var blink:=smoothstep(10.4,10.8,age)*(1-smoothstep(11.2,12.0,age))
-	_veil.color=Color(0,0,0,maxf(1-smoothstep(1.8,4.0,age),blink))
+	if age<SKY_AT:
+		camera.global_transform=_start
+	else:
+		var stand:=smoothstep(_stand_at,_stand_at+STAND_SECONDS,age) if _stand_at<INF else 0.0
+		camera.global_transform=_sitting.interpolate_with(_standing,stand)
+	# Darkness conceals the cut from outside; the cut back from the skyline is
+	# a white flash (a black fade under reduced flashing).
+	var fade_in:=1-smoothstep(1.8,4.0,age)
+	if age<SKY_AT:
+		_veil.color=Color(0,0,0,fade_in)
+	else:
+		var back:=1-smoothstep(SKY_AT,SKY_AT+(.9 if _quiet else .45),age)
+		_veil.color=Color(0,0,0,back) if _quiet else Color(1,1,1,back)
 	var flash:=exp(-pow((age-5.7)/.13,2))*.35+exp(-pow((age-9.8)/.20,2))*.7
 	_light.light_energy=.14+.18*sin(PI*smoothstep(3,11,age)) if _quiet else .10+flash
 	_storm.volume_db=lerpf(-28,-24,smoothstep(7,9.8,age))
 	if age>=6.2 and previous<6.2:_rustle.play()
 	if age>=9.8 and previous<9.8:_rustle.play();_thunder.play()
+	if age>=SKY_AT and not _sky_done:
+		_sky_done=true
+		age=SKY_AT
+		_sky=Skyline.new();add_child(_sky)
+		if _sky.start(director.world):
+			_sky.finished.connect(_sky_finished,CONNECT_ONE_SHOT)
+			# The skyline owns its own flashes; this shot's flash-back veil waits for its return.
+			_veil.color.a=0.0
+			set_process(false);return
+		_sky.queue_free();_sky=null
 	if age>=AWAKENING and not _awake:
 		_awake=true
 		if not director._advance("awakening"):cancel();return
-	if age>=DURATION:_complete()
+	if age>=TEXT_AT and not _text_started:
+		_text_started=true
+		var typing:float=director.show_wake_text()
+		_stand_at=age+maxf(typing,1.0)+HOLD_AFTER_TEXT
+		_duration=_stand_at+STAND_SECONDS
+	if age>=_duration:_complete()
+
+func _sky_finished(_completed:bool) -> void:
+	if is_instance_valid(_sky):_sky.queue_free()
+	_sky=null
+	if not active:return
+	# Back from the skyline: the white flash lands on sitting up in bed.
+	if is_instance_valid(camera) and not camera.is_current():camera.make_current()
+	set_process(true);seek(SKY_AT)
 
 func _process(delta:float) -> void:
-	if not active:return
+	if not active or is_instance_valid(_sky):return
 	if not is_same(_document,RealityState.data) or player.text_input_owner!=self or player.protected_input_active() or not camera.is_current() or RealityState.save_write_blocked or director.state.phase not in ["dream","awakening"]:
 		cancel();return
 	seek(age+maxf(delta,0))
@@ -152,6 +200,7 @@ func _complete() -> void:
 	else:finished.emit(false)
 
 func cancel() -> void:
+	if is_instance_valid(_sky) and _sky.active:_sky.cancel()
 	if not active:return
 	_release();finished.emit(false)
 
