@@ -201,6 +201,7 @@ func _play_voice_line(node_id: String) -> void:
 	if not ResourceLoader.exists(path):
 		_voice.stop()
 		return
+	dialogue._spoken.cancel()
 	_voice.stream = load(path)
 	_voice.play()
 

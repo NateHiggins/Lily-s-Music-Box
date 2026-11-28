@@ -53,7 +53,7 @@ func _run() -> void:
 		check(false, "original printer reaches idle before reaction review"); finish(); return
 	var player: Node = rig.reaction_player
 	var face: Node = rig.display
-	check(player.clips.size() == 6, "six authored reaction strips are loaded")
+	check(player.clips.size() == 7 and player.clips.has("good_side"), "all seven authored reaction strips are loaded")
 	check(not player.is_processing(), "reaction player sleeps before a request")
 	check(not rig.play_reaction("not_a_reaction") and player.current.is_empty(), "unknown reaction refuses without changing state")
 	var draw_count := rig.find_children("*", "MultiMeshInstance3D", true, false).size()
@@ -77,7 +77,7 @@ func _run() -> void:
 					for index in 384:
 						if absf(float(face.angles[index]) - (0.0 if expected[index] else PI)) > .000001: pose_ok = false; break
 					check(pose_ok, "all actual tile rotations reach the selected two-colour image")
-					var capture_frame := 3 if id == "vaudeville_wink" else 2
+					var capture_frame := 2
 					if cap == 60 and player.frame == capture_frame and not captured:
 						await RenderingServer.frame_post_draw
 						check(get_viewport().get_texture().get_image().save_png(directory.path_join(id + ".png")) == OK, "rendered physical reaction " + id)
@@ -88,7 +88,7 @@ func _run() -> void:
 			check(not rig.play_reaction(id), "same reaction is rate-limited without restarting: " + id)
 			observations.append({"id":id, "render_cap":cap, "stable_frames":seen.size(), "elapsed_ms":Time.get_ticks_msec()-started})
 	check(peak_active <= 32 and peak_writes <= 64, "all reactions retain32 active flips and64 transform writes per rendered step")
-	check(rig.find_children("*", "MultiMeshInstance3D", true, false).size() == draw_count, "all six shorts reuse the existing mesh batches")
+	check(rig.find_children("*", "MultiMeshInstance3D", true, false).size() == draw_count, "all shorts reuse the existing mesh batches")
 	check(rig.play_reaction("clockwork_thought"), "new eligible reaction starts for keyboard interruption")
 	rig.request_keyboard(true)
 	await get_tree().process_frame; await get_tree().process_frame
