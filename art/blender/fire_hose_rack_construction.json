@@ -2,12 +2,12 @@
   "evidence_class": "INERT",
   "scope": "Native rack candidate; no runtime/human acceptance.",
   "source_bindings": {
-    "art/blender/scripts/build_fire_hose_rack.py": "954e12db2a96dbbf3c8b5ff59542d549b0827d0a7b517c85fd4393852f0a8e9f",
-    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/build_fire_hose_rack.py": "4f46bb0931f44c6c0a0580a5181c1b88f2d7892037cc5e024543ca6caab67e44",
+    "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c",
-    "game/data/runtime_material_sets.json": "d6fcacde2bd8570a0cea67029f27078d8d576ae898637b1a4966b0546bebfa34"
+    "game/data/runtime_material_sets.json": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44"
   },
   "stocks": {
     "MountBracket": {
@@ -18,8 +18,8 @@
     },
     "CarrierArm": {
       "nonmanifold_edges": 0,
-      "volume_m3": 2.9340453549846413e-06,
-      "triangles": 15790,
+      "volume_m3": 2.9200612217515148e-06,
+      "triangles": 4014,
       "material": "brass"
     },
     "MountScrew": {
@@ -30,14 +30,14 @@
     },
     "Shaft": {
       "nonmanifold_edges": 0,
-      "volume_m3": 9.458222625751792e-06,
-      "triangles": 31872,
+      "volume_m3": 9.438124928921471e-06,
+      "triangles": 5376,
       "material": "iron"
     },
     "EndNut": {
       "nonmanifold_edges": 0,
-      "volume_m3": 1.139641105906963e-07,
-      "triangles": 25536,
+      "volume_m3": 1.1421787671646385e-07,
+      "triangles": 4320,
       "material": "brass"
     }
   },
@@ -186,13 +186,13 @@
   "bearing_rays": 100,
   "case_mount_bearings": 8,
   "export": {
-    "asset": "C:\\ov\\v2-fire-verify\\tmp\\fire-rack-finish2-20261020\\game\\assets\\props\\fire_hose_rack.glb",
+    "asset": "C:\\ov\\tidy\\tmp\\tidy\\rack\\game\\assets\\props\\fire_hose_rack.glb",
     "primitives": 5,
-    "triangles": 76550,
+    "triangles": 17062,
     "minimum_tangent_agreement": 0.9999942115666456,
     "status": "PASS"
   },
-  "glb_sha256": "e261112c861d5122f5e8d94e047270f3cc128895082bde72aa910af63137b919",
-  "blend_sha256": "b827fe27cf93a53068806a029a0b20052f414d7e66ab214adef06ba4dc4989e9",
-  "candidate_blend_sha256": "4d70bb6351d604e88d4189e214f53ff98431f013295bf6abb7fcc58210069435"
+  "glb_sha256": "bf9d8daea64d04c1090a76f065d7ebfdaf9641774ad998a49b72ec05a32d45dc",
+  "blend_sha256": "72b04159c9c954364485e85517af4995c1d291ac4af7731bcf80fd690cf183ed",
+  "candidate_blend_sha256": "e45ff44bee51e3315a33c486f064c7536740bd4a33ffbcb1151c01e4fd82f893"
 }
