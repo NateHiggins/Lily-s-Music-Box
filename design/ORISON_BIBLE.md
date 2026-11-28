@@ -1311,9 +1311,11 @@ remain release requirements. Account setup, entitlement rules and build tracing
 are tracked in **design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md**; proposed platform
 channels do not establish qualified builds or live subscriptions.
 
-The signal-bound companion may have a folding temporal readout and an original
-three-branch flux-capacitor homage, manufactured in its existing mechanical
-language. References inform form, not copied labels/textures or a new nuclear
+Vantry carries the current civil date in an uncovered window above his face.
+During a time passage the register shows the dates supplied by the journey.
+Beside it, the original three-branch flux capacitor stays visible in ordinary
+flight and brightens for the crossing. His compact twin rotors leave the face
+and printed messages in view. The keyboard unfolds when someone needs to type. References inform form, not copied labels/textures or a new nuclear
 fuel/gameplay authority. Its vocal system begins in synthetic babble/emotes and
 learns spoken English from witnessed words; its articulate written dialogue is
 preserved. *(Amended 2026-11-22, RUL-015:* the learning is authored stages, each

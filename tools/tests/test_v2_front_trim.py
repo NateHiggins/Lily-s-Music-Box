@@ -13,7 +13,9 @@ class FrontTrimTests(unittest.TestCase):
         before=copy.deepcopy(self.snapshot);result=self.build()
         self.assertEqual(before,self.snapshot);self.assertEqual(result,self.build())
         self.assertEqual(sum(r['variant']=='rail' for r in result['fittings']),0)
-        self.assertEqual(sum(r['variant']=='cornice' for r in result['fittings']),22)
+        retained = [r for r in result['fittings'] if r['variant']=='cornice']
+        self.assertEqual(len(retained),12)
+        self.assertTrue(all(row['room'].startswith('F01') for row in retained))
         anchors={r['id'] for r in self.layout['anchors']};ports={r['id'] for r in self.layout['wall_service_openings']}
         self.assertTrue(all(r['owner'] in anchors|ports for r in result['fittings']))
     def test_only_real_bounded_source_instances_are_cut(self):

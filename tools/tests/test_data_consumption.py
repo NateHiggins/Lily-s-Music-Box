@@ -12,6 +12,301 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def test_installed_clock_collaborator_reports_fields_without_clearing_skipped_profiles(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        source = "game/data/domestic_witness_clocks.json"
+        base = "game/scripts/props/domestic_witness_clock.gd"
+        for filename in (source, base, "game/scripts/building/orison_v2_witness_clocks.gd",
+                         "game/scripts/building/orison_v2_witness_clock.gd"):
+            path = root / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((TOOLS.parent / filename).read_bytes())
+        data = json.loads((root / source).read_text())
+        profiles = data["profiles"]
+        profiles.append({"case_id": "missing_placement", "style": "uninstalled",
+                         "new_probe": True, "metadata": {"accent": "unread"}})
+        data["metadata"] = {"style": "unrelated"}
+        (root / source).write_text(json.dumps(data))
+        (root / "game/data/unrelated.json").write_text(json.dumps(data))
+
+        def findings():
+            return {(r["file"], r["field"]): r for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                    if r["kind"] == "FIELD_UNREAD"}
+
+        result = findings()
+        for field in ("resident", "style", "tell", "time", "accent"):
+            row = result[source, field]
+            self.assertIn("potential source-row parameter read through WitnessClock.configure", row["detail"])
+            self.assertEqual(row["occurrences"], {"style": 20, "accent": 19}.get(field, 18))
+            self.assertIn(f"{19 if field == 'style' else 18} source-row occurrences", row["detail"])
+            self.assertEqual(result["game/data/unrelated.json", field]["detail"], "zero production token readers")
+        for field in ("version", "new_probe"):
+            self.assertEqual(result[source, field]["detail"], "zero production token readers")
+        for profile in profiles:
+            profile.pop("style", None)
+        (root / source).write_text(json.dumps(data))
+        self.assertEqual(findings()[source, "style"]["detail"], "zero production token readers")
+
+    def test_collaborator_requires_literal_constructed_type_original_row_and_explicit_super(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        parent = ('extends Node\nfunc configure(row: Dictionary) -> void:\n'
+                  '    shade = str(row.colour)\n')
+        child = ('extends "res://scripts/parent.gd"\nfunc configure(spec: Dictionary) -> void:\n'
+                 '    super.configure(spec)\n')
+        sender = ('extends Node\nconst DATA := "res://data/bundle.json"\n'
+                  'const Child := preload("res://scripts/child.gd")\nfunc mount():\n'
+                  '    var data = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+                  '    for entry: Dictionary in data.rows:\n'
+                  '        var model := Child.new()\n        model.configure(entry)\n')
+
+        def observed(s=sender, c=child, b=parent):
+            texts = {root / "game/scripts" / fname: text for fname, text in (
+                ("sender.gd", s), ("child.gd", c), ("parent.gd", b))}
+            return audit.collaborator_parameter_reads(root, texts)
+
+        self.assertEqual(observed(), {"bundle.json": {("rows", None, "colour"): {"Child.configure"}}})
+        for s, c, b in (
+            (sender.replace("var data = JSON.parse_string(FileAccess.get_file_as_string(DATA))", "var data = fake"), child, parent),
+            (sender.replace("const DATA", "const OTHER"), child, parent),
+            (sender.replace("func mount()", "func mount(DATA)"), child, parent),
+            (sender.replace("    var data =", "    if other:\n        var data ="), child, parent),
+            (sender.replace("data.rows", "fake.rows"), child, parent),
+            (sender.replace("Child.new()", "Unknown.new()"), child, parent),
+            (sender.replace("func mount()", "func mount(Child)"), child, parent),
+            (sender.replace("        var model := Child.new()\n        model.configure(entry)",
+                            "        model.configure(entry)\n        var model := Child.new()"), child, parent),
+            (sender.replace("        model.configure", "        model = other\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        entry = other\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        entry.clear()\n        model.configure"), child, parent),
+            (sender.replace("        model.configure", "        mutate(entry)\n        model.configure"), child, parent),
+            (sender.replace("model.configure(entry)", "model.configure(other)"), child, parent),
+            (sender.replace("        model.configure", "    model.configure"), child, parent),
+            (sender.replace("        model.configure", "        continue\n        model.configure"), child, parent),
+            (sender, child.replace("parent.gd", "unrelated.gd"), parent),
+            (sender, child.replace("super.configure(spec)", "super.configure({})"), parent),
+            (sender, child.replace("super.configure(spec)", "if allowed:\n        super.configure(spec)"), parent),
+            (sender, child, parent.replace("shade = ", "row = other\n    shade = ")),
+            (sender, child, parent.replace("shade = ", "return\n    shade = ")),
+            (sender, child, parent.replace("str(row.colour)", '"row.colour"')),
+        ):
+            with self.subTest(sender=s, child=c, parent=b):
+                self.assertEqual(observed(s, c, b), {})
+
+    def test_installed_case_getter_records_potential_read_and_keeps_all_unproven_cases(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        owner = "game/scripts/game/reality_case_manager.gd"
+        director = "game/scripts/building/orison_v2_reality_director.gd"
+        data = "game/data/reality_cases.json"
+        for relative in ("game/project.godot", owner, director, data):
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((TOOLS.parent / relative).read_bytes())
+        cases = json.loads((root / data).read_text(encoding="utf-8"))
+        first = next(iter(cases.values()))
+        first["metadata"] = {"enabled": False}
+        first["never_read_probe"] = 2
+        (root / data).write_text(json.dumps(cases), encoding="utf-8")
+        other = "game/data/other.json"
+        (root / other).write_text(json.dumps(cases), encoding="utf-8")
+
+        def unread():
+            return {(row["file"], row["field"]): row
+                    for row in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                    if row["kind"] == "FIELD_UNREAD"}
+
+        fields = unread()
+        n = sum("enabled" in case for case in cases.values())
+        self.assertGreater(n, 0)
+        self.assertEqual(fields[data, "enabled"]["occurrences"], n + 1)
+        self.assertIn("potential read through JSON-backed getter RealityCases.definition",
+                      fields[data, "enabled"]["detail"])
+        self.assertEqual(fields[data, "never_read_probe"]["detail"], "zero production token readers")
+        self.assertEqual(fields[other, "enabled"]["occurrences"], n + 1)
+        self.assertEqual(fields[other, "enabled"]["detail"], "zero production token readers")
+        # If enabled survives only in nested metadata, its same name does not earn the getter detail.
+        for row in cases.values():
+            row.pop("enabled", None)
+        (root / data).write_text(json.dumps(cases), encoding="utf-8")
+        self.assertEqual(unread()[data, "enabled"]["detail"], "zero production token readers")
+        first["enabled"] = True
+        (root / data).write_text(json.dumps(cases), encoding="utf-8")
+        project = root / "game/project.godot"
+        project.write_text(project.read_text().replace("RealityCases=", "UnrelatedCases="))
+        self.assertEqual(unread()[data, "enabled"]["detail"], "zero production token readers")
+
+    def test_getter_proof_requires_registered_loader_pure_return_and_matching_loop_key(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        project = root / "game/project.godot"
+        config = '[autoload]\nCases="*res://scripts/game/cases.gd"\n[display]\n'
+        owner = ('extends Node\nconst DATA := "res://data/reality_cases.json"\n'
+                 'var records: Dictionary = {}\nfunc _ready():\n'
+                 '    records = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+                 'func row(id: String) -> Dictionary:\n    return records.get(id, {})\n')
+        consumer = ('extends Node\nfunc tick():\n    for id: String in Cases.records:\n'
+                    '        if bool(Cases.row(id).get("enabled", false)):\n            pass\n')
+        owner_path = root / "game/scripts/game/cases.gd"
+        reader_path = root / "game/scripts/game/consumer.gd"
+
+        def proof(project_text=config, loader=owner, reader=consumer):
+            project.write_text(project_text, encoding="utf-8")
+            return audit.autoload_getter_reads(root, {owner_path: loader, reader_path: reader})
+
+        expected = {"reality_cases.json": {(None, "enabled"): {"Cases.row"}}}
+        self.assertEqual(proof(), expected)
+        for config_text in (config.replace("[autoload]", "[other]"),
+                            config.replace("*res://", "res://"),
+                            config.replace("cases.gd", "other.gd"),
+                            config.replace("[display]", 'Cases="*res://scripts/game/other.gd"')):
+            with self.subTest(config=config_text):
+                self.assertEqual(proof(project_text=config_text), {})
+        for loader in (owner.replace("FileAccess.get_file_as_string(DATA)", '"{}"'),
+                       owner.replace("_ready()", "later()"),
+                       owner.replace("= {}", '= {"x": {}}', 1),
+                       owner.replace("return records.get(id, {})", 'return {"unrelated": true}'),
+                       owner.replace("get(id, {})", 'get("somebody", {})'),
+                       owner.replace("get(id, {})", 'get(id, default_record)'),
+                       owner.replace("    return", "    if cached:\n        return cached\n    return"),
+                       owner + "func reset():\n    self.records = {}\n",
+                       owner + 'func reset():\n    records["x"] = {}\n'):
+            with self.subTest(loader=loader):
+                self.assertEqual(proof(loader=loader), {})
+        for reader in (consumer.replace("Cases.row(id)", "Other.row(id)"),
+                       consumer.replace("Cases.records", "Other.records"),
+                       consumer.replace("Cases.row(id)", 'Cases.row("no_such_id")'),
+                       consumer.replace("Cases.row(id)", "Cases.row(other_id)"),
+                       consumer.replace("tick()", "tick(Cases)"),
+                       consumer.replace("for id:", "var Cases = Other.new()\n    for id:"),
+                       consumer.replace("        if", '        id = "absent"\n        if'),
+                       consumer.replace("        if", "        pass\n    if"),
+                       consumer.replace("        if", "        break\n        if"),
+                       consumer.replace("        if", "        return\n        if"),
+                       consumer.replace("        if", "        continue\n        if"),
+                       consumer.replace('"enabled"', "field_name"),
+                       consumer.replace("if bool(Cases.row(id).get(\"enabled\", false)):", "if true: # Cases.row(id).get('enabled')"),
+                       consumer.replace('if bool(Cases.row(id).get("enabled", false)):', '''if "Cases.row(id).get('enabled')":'''),
+                       consumer + "func replace_data():\n    Cases.records = fixture\n",
+                       consumer + "func replace_data():\n    Cases.records[key] = fixture\n"):
+            with self.subTest(reader=reader):
+                self.assertEqual(proof(reader=reader), {})
+
+        (root / "game/data/reality_cases.json").write_text(json.dumps({
+            key: {"enabled": False} for key in ("named", "other")}), encoding="utf-8")
+        owner_path.write_text(owner, encoding="utf-8")
+        project.write_text(config, encoding="utf-8")
+        # Conditional control flow never upgrades a possible read to all-entry evidence.
+        for reader in (consumer,
+                       consumer.replace("        if", '        if id != "named":\n            continue\n        if'),
+                       consumer.replace("        if", '        if id == "named":\n            if').replace(
+                           "            pass", "                pass"),
+                       consumer.replace("        if", "        if hidden:\n            break\n        if"),
+                       consumer.replace("        if", "        if hidden:\n            return\n        if")):
+            with self.subTest(reader=reader):
+                reader_path.write_text(reader, encoding="utf-8")
+                result = next(row for row in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                              if row["file"] == "game/data/reality_cases.json" and row.get("field") == "enabled")
+                self.assertEqual(result["occurrences"], 2)
+                self.assertIn("potential read through JSON-backed getter Cases.row", result["detail"])
+
+    def test_darts_instance_consumes_only_its_dealt_card_and_kind_blurb(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        for relative in ("game/scripts/minigames/trivia_darts.gd", "game/scripts/ui/darts_panel.gd",
+                         "game/data/trivia_darts.json"):
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((TOOLS.parent / relative).read_bytes())
+        deck_path = root / "game/data/trivia_darts.json"
+        deck = json.loads(deck_path.read_text(encoding="utf-8"))
+        deck["metadata"] = {"q": "unread sibling", "blurb": "unread sibling"}
+        deck["deck"][0]["unread_probe"] = True
+        deck_path.write_text(json.dumps(deck), encoding="utf-8")
+        (root / "game/data/other.json").write_text(json.dumps(deck), encoding="utf-8")
+
+        def findings():
+            return {(r["file"], r["field"]): r["occurrences"]
+                    for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                    if r["kind"] == "FIELD_UNREAD"}
+
+        current = findings()
+        file = "game/data/trivia_darts.json"
+        self.assertEqual(current[file, "q"], 1)
+        # The UI reads a blurb only for bonus-scoring kinds. A dynamic key
+        # cannot vouch for the plain category, which awards zero bonus.
+        self.assertEqual(current[file, "blurb"], len(deck["kinds"]) + 1)
+        blurb = next(r for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                     if r["file"] == file and r.get("field") == "blurb")
+        self.assertIn("dynamic dictionary key", blurb["detail"])
+        self.assertEqual(current[file, "unread_probe"], 1)
+        self.assertEqual(current["game/data/other.json", "q"], len(deck["deck"]) + 1)
+        self.assertEqual(current["game/data/other.json", "blurb"], len(deck["kinds"]) + 1)
+
+        panel = root / "game/scripts/ui/darts_panel.gd"
+        panel.write_text(panel.read_text(encoding="utf-8").replace("var trivia := TriviaDarts.new()",
+                                                                   "var trivia := OtherGame.new()"),
+                         encoding="utf-8")
+        disconnected = findings()
+        self.assertEqual(disconnected[file, "q"], len(deck["deck"]) + 1)
+        self.assertEqual(disconnected[file, "blurb"], len(deck["kinds"]) + 1)
+
+    def test_instance_handoff_requires_unambiguous_file_member_and_receiver(self):
+        owner = ('class_name Deck\nextends RefCounted\nconst DATA := "res://data/cards.json"\n'
+                 'var records := []\nvar dealt := {}\nfunc load_data():\n'
+                 '    var d = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+                 '    records = d.get("cards", [])\nfunc select(i):\n    dealt = records[i]\n')
+        panel = ('extends Control\nvar source := Deck.new()\nfunc open():\n'
+                 '    source.load_data()\n    source.select(0)\nfunc show_card():\n'
+                 '    label.text = source.dealt.get("copy", "")\n')
+
+        def reads(loader, reader):
+            return audit.constructed_member_reads({"loader.gd": loader, "reader.gd": reader})
+
+        expected = ("cards", None, "copy")
+        self.assertIn(expected, reads(owner, panel)["cards.json"])
+        for loader, reader in (
+            (owner.replace('FileAccess.get_file_as_string(DATA)', '"{}"'), panel),
+            (owner.replace('load_data():', 'load_data(DATA := "res://data/other.json"):'), panel),
+            (owner.replace('load_data():', 'load_data():\n    var DATA := "res://data/other.json"'), panel),
+            (owner.replace('dealt = records[i]', 'dealt = other_records[i]'), panel),
+            (owner + 'func replace():\n    dealt = fake()\n', panel),
+            (owner, panel.replace('source.load_data()', 'other.load_data()')),
+            (owner, panel.replace('show_card()', 'show_card(source)')),
+            (owner, panel.replace('show_card()', 'show_card(\n    source: Dictionary\n)')),
+            (owner, panel.replace('    label.text =', '    var cb := func(source):\n        label.text =')),
+            (owner, panel.replace('    label.text', '    source = substitute\n    label.text')),
+            (owner, panel.replace('    label.text', '    source.dealt = other_card\n    label.text')),
+            (owner, panel.replace('Deck.new()', 'Other.new()')),
+            (owner, panel.replace('    label.text = source.dealt.get("copy", "")',
+                                  '    print(\'source.dealt.get("copy", "")\')')),
+        ):
+            with self.subTest(loader=loader, reader=reader):
+                self.assertNotIn(expected, reads(loader, reader).get("cards.json", ()))
+        self.assertNotIn(("cards", None, "get"), reads(owner, panel)["cards.json"])
+
+    def test_literal_star_integer_and_dynamic_keys_do_not_credit_named_siblings(self):
+        td, root = self.fixture()
+        self.addCleanup(td.cleanup)
+        data = root / "game/data/map.json"
+        data.write_text('{"rows":{"*":{"leaf":1},"x":{"leaf":2},"y":{"leaf":3}}}', encoding="utf-8")
+        game = root / "game/scripts/game"
+        (game / "table.gd").write_text(
+            'class_name Table\nvar rows := {}\nfunc _init():\n'
+            '    var d = JSON.parse_string(FileAccess.get_file_as_string("res://data/map.json"))\n'
+            '    rows = d.get("rows", {})\n', encoding="utf-8")
+        for key, expected, conditional in [('"*"', 2, False), ('"x"', 2, False),
+                                            ('5', 3, False), ('kind', 3, True)]:
+            with self.subTest(key=key):
+                (game / "view.gd").write_text(
+                    'var table := Table.new()\nfunc show_row(kind):\n'
+                    f'    return table.rows.get({key}, {{}}).get("leaf")\n', encoding="utf-8")
+                records = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                row = next(r for r in records if r["file"] == "game/data/map.json" and r.get("field") == "leaf")
+                self.assertEqual(row["occurrences"], expected)
+                self.assertEqual("dynamic dictionary key" in row["detail"], conditional)
+
     def entry_contract_fixture(self):
         td, root = self.fixture()
         for relative in audit.ENTRY_RECORD_CONSTANTS:

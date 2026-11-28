@@ -1,6 +1,5 @@
 extends "res://tests/companion_session_ownership_bench.gd"
 ## Late-phase diagnostic, not proof that preceding prologue scenes were played.
-const Opening:=preload("res://scripts/game/prologue_state.gd")
 const Director:=preload("res://scripts/game/prologue_director.gd")
 const Console:=preload("res://scripts/game/prologue_temporal_console.gd")
 var accepted_count:=0
@@ -45,7 +44,7 @@ func additional_checks() -> void:
 	check(not console.returned and accepted_count==0 and "destination_accepted" not in director.state.events,"partial command cannot accept the date")
 	check(paper.pages[0].contains(console.text.substr(0,8)) and paper.printing,"physical paper consumes actual contact characters")
 	var register:Node=carrier.rig.temporal_register
-	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary command typing keeps temporal visor and capacitor dark")
+	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary typing preserves idle register and leaves travel charge off")
 	var visible_rows:=true
 	var frame:Node=carrier.screen_frame
 	var aperture:=Rect2(Vector2.ZERO,Vector2(frame.view.size)).grow(-1)
@@ -134,8 +133,15 @@ func additional_checks() -> void:
 	RealityState.data.prologue=Opening.initial()
 	if check(RealityState.save_game(),"validated storage records an earlier prologue boundary during pending stow"):
 		RealityState.load_game();stow_owner._restore()
-		carrier.rig.request_keyboard(true)
-		check(await wait_for(func():return carrier.rig.typing_ready(),4.0),"backward reload releases stale stow ownership and permits actual keyboard travel")
+		check(carrier.rig._closed_keyboard_hold == null and not carrier.rig.keyboard_requested,
+			"backward reload releases the live director's hold and leaves the face forward")
+		if not carrier.reading: await key(KEY_E)
+		await wait_for(func():return carrier.session.available() and not paper.printing)
+		await key(KEY_ENTER)
+		check(await wait_for(func():return carrier.session.typing and carrier.rig.typing_ready(), 8.0)
+			and player.text_input_owner == carrier.session,
+			"deliberate player input opens the physical keyboard after backward reload")
+		await key(KEY_ESCAPE)
 	stow_owner.shutdown();stow_owner.queue_free()
 	RealityState.save_path=stow_path_before;RealityState.persistence_enabled=stow_enabled_before
 	FileAccess.open(directory.path_join("temporal_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify({"destination":destination,"contacts":contact_keys,"accepted":accepted_count},"\t"))

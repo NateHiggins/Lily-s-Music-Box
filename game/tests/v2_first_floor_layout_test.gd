@@ -137,6 +137,20 @@ func _ready() -> void:
 			"Mina's mail walk ends in the lobby")
 	_check(not (mina.graph.get_id_path(mina.identities.stair_bottom, mina.identities.mail) as PackedInt64Array).is_empty(),
 			"and there is a way to it from the foot of the stair")
+	var reader_points: Array[Vector3] = []
+	for resident: String in ["evelyn_marsh", "peter_wren"]:
+		var route: Node = world.resident_routes[resident]
+		var target: int = route.identities.mail
+		var feet: Vector3 = route.graph.get_point_position(target)
+		reader_points.append(feet)
+		_check(world.room_at_world(feet + Vector3.UP * 0.3) == "F01_LOBBY"
+				and route.graph.are_points_connected(route.identities.mail_approach, target),
+				resident + " has a connected mail-bank stance inside the lobby")
+	var separation := reader_points[0].distance_to(reader_points[1])
+	_check(separation >= 1.3 and separation <= 2.8, "both mail readers fit within speaking distance")
+	var eyes := reader_points[0] + Vector3.UP * 1.35
+	_check(world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eyes, reader_points[1] + Vector3.UP * 1.35, 1)).is_empty(),
+			"the two mail readers have an unobstructed sightline")
 	# The watch room keeps the watchman's instruments and nothing else of these.
 	for identity: String in ["F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER", "F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD"]:
 		var thing := world.adapter.resolve(identity) as Node3D

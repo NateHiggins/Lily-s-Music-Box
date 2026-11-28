@@ -5,14 +5,14 @@ const Plate := preload("res://scripts/building/switch_plate.gd")
 const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
 # Only the ranked fixtures qualified together at the F02 landing and gallery.
 const F02_SHADOW_FADE_FIXTURES := [
-	"F02_EAST_HALL_LT", "F02_FRONT_HALL_LT_1", "F02_FRONT_HALL_LT_2",
+	"F02_EAST_HALL_LT",
 	"F02_SOUTHWEST_HALL_LT", "F02_B_VESTIBULE_LT_FLUSH_DOME",
-	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2", "F02_FRONT_GALLERY_LT_3",
+	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2",
 ]
-# F03 service crossing and 3B fixtures with the same shadow policy.
+# F03 service crossing and 3B fixtures with the same shadow policy. The upper
+# commons (PR 567) retired F03_FRONT_GALLERY_LT_3 and F03_FRONT_HALL_LT_2.
 const F03_SHADOW_FADE_FIXTURES := [
-	"F03_EAST_HALL_LT", "F03_FRONT_GALLERY_LT_3", "F03_FRONT_HALL_LT_2",
-	"F03_B_KITCHEN_LT_KITCHEN_LINEAR", "F03_B_MAIN_LT_PENDANT_SHADE",
+	"F03_EAST_HALL_LT", "F03_B_KITCHEN_LT_KITCHEN_LINEAR", "F03_B_MAIN_LT_PENDANT_SHADE",
 	"F03_B_PRIVATE_HALL_LT_FLUSH_DOME", "F03_B_VESTIBULE_LT_FLUSH_DOME",
 ]
 const SHADOW_FADE_LENGTH_M := 1.0
@@ -113,7 +113,9 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				errors.append("invalid Omar lamp variant")
 		else:
 			rooms[record.room] = true
-			if record.properties.size() != 2:
+			var navigation: Variant = record.properties.get("navigation_light", false)
+			var expected_settings := 3 if record.properties.has("navigation_light") else 2
+			if typeof(navigation) != TYPE_BOOL or record.properties.size() != expected_settings:
 				errors.append("unexpected fixture setting")
 			for key in ["energy_scale", "range_clamp"]:
 				var value: Variant = record.properties.get(key)

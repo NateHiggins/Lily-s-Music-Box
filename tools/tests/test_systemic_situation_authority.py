@@ -130,6 +130,23 @@ class ReconciledReviewTests(unittest.TestCase):
             _, findings, _ = run_findings(root)
             return [row for row in findings if row["file"] == rel]
 
+    def test_custody_script_import_is_distinct_from_custody_state(self):
+        script = '"res://scripts/songbook/found_trace_custody.gd"'
+        lines = [
+            (f'const Store := preload({script})', False),
+            (f'const Store: Script = preload({script}) # sheet custody', False),
+            ("const Store = preload('res://records/custody.gd');", False),
+            ('const source = "part_custody:player"', True),
+            (f'var tool_custody = preload({script}).new()', True),
+            (f'const owner = preload({script}).tool_custody', True),
+            ('const owner = preload("res://state/tool_custody.tres")', True),
+        ]
+        for line, expected in lines:
+            with self.subTest(line=line):
+                found = self.scan_source("extends Node\n" + line + "\n",
+                                         "game/scripts/props/store.gd")
+                self.assertEqual(bool(of_class(found, "DUPLICATE_CUSTODY")), expected)
+
     def test_declaration_is_not_a_timer_consequence_but_a_call_is(self):
         source = "extends Node\nfunc _complete_visit():\n    var elapsed := 1.0\n"
         self.assertFalse(of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR"))

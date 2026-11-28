@@ -3,7 +3,7 @@ extends ServiceSetCarrier
 ## lamp, print and WorkOrders owner. V2 always presents this autonomous bot.
 const Motion := preload("res://scripts/device/companion_motion.gd")
 const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
-const PRESENTATION_SCALE := 0.42 # Native closed envelope becomes 83 × 153 mm.
+const PRESENTATION_SCALE := 0.42 # Native closed envelope becomes 83 Ã— 153 mm.
 var motion: Motion
 var rig: Mechanism
 var world_ready := false
@@ -196,6 +196,9 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	rig.add_child(rig.temporal_register)
 	if not rig.temporal_register.configure(rig,self):
 		failure="Native temporal register refused";push_error(failure);return
+	if player.get_parent().is_in_group("orison_v2_runtime"):
+		rig.temporal_register.campaign_clock = player.get_parent().get("campaign_clock")
+		rig.temporal_register.refresh_campaign_date(0, true)
 	var cel_style := preload("res://scripts/visuals/cel_style_presentation.gd")
 	cel_style.preserve(rig, cel_style.DEVICE_NATIVE_LAYER)
 	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
@@ -380,6 +383,7 @@ func _advance_presentation(_delta: float) -> void:
 	if is_story_absent():
 		rig.request_keyboard(false)
 		return # No fabricated observations or autonomous replies before arrival.
+	rig.temporal_register.refresh_campaign_date(_delta)
 	if witness != null: witness.observe(_delta)
 	beam_valid = true
 	if device.lamp_enabled != _lamp_face_state:

@@ -6,6 +6,19 @@ const SOURCE := "res://data/temporal/performances.json"
 const Encounters := preload("res://scripts/characters/loop_encounters.gd")
 const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "box": ["mae_kessler", "nadia_quell"],
 		"drama": ["cal_dwyer", "juno_kells"]}
+# Machine-local floor mark, measured against the actual table/neighbor stock.
+# The route's final edge faces the machine; presentation never moves/turns her.
+const SEWING_FEET := Vector3(.50, 0, -.52)
+const SEWING_REACH_M := .08
+
+static func sewing_position_ready(body: Node3D, machine: Node3D, require_facing := true) -> bool:
+	if not is_instance_valid(body) or not is_instance_valid(machine) or not machine.is_visible_in_tree(): return false
+	var feet := machine.to_local(body.global_position)
+	if absf(feet.y) > .08 or Vector2(feet.x-SEWING_FEET.x, feet.z-SEWING_FEET.z).length() > SEWING_REACH_M: return false
+	if not require_facing: return true
+	var toward := (machine.global_position-body.global_position).slide(Vector3.UP).normalized()
+	var facing := body.global_basis.z.slide(Vector3.UP).normalized()
+	return not toward.is_zero_approx() and facing.dot(toward) >= .98
 
 var world: Node3D
 var loop: Node
@@ -17,11 +30,22 @@ var _campaign: Dictionary = {}
 var _ordinary_day := ""
 var ordinary: RefCounted
 var _talk_encounter: Dictionary = {}
+var _standing_speaker: AnimatedResident
+var _standing_yaw := 0.0
+var _standing_elapsed := 0.0
+var _standing_node := ""
+var _standing_voice: LoopVoicePlayback
+var _listener_attention: Node
+var _listener_point := Vector3.ZERO
 var _heard: Dictionary = {}
+var _phase_ends: Dictionary = {}
+var _work_stations: Dictionary = {}
 var _presenting: Dictionary = {}
 var _gaze: Dictionary = {}
 var _poll := 0.0
+var _price_guest_received := false
 var _talk_phase := ""
+var _baseline_body_id := 0
 var _guest_waits: Dictionary = {}
 
 
@@ -42,6 +66,16 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 		var profile: Variant = data.profiles[resident]
 		if profile is not Dictionary or profile.get("topic") is not String or profile.get("line") is not String:
 			errors.append("invalid profile: " + resident)
+			continue
+		var activities: Variant = profile.get("activities", {})
+		if activities is not Dictionary:
+			errors.append("invalid profile activities: " + resident)
+			continue
+		for activity: String in activities:
+			var reply: Variant = activities[activity]
+			if activity.is_empty() or reply is not Dictionary or not (reply.get("topic") is String) \
+					or not (reply.get("line") is String) or reply.topic.strip_edges().is_empty() or reply.line.strip_edges().is_empty():
+				errors.append("invalid activity reply: " + resident + "/" + activity)
 	for anchor: String in loop.table.anchors:
 		var spec: Variant = data.anchors.get(anchor)
 		if spec is not Dictionary or spec.get("actors") is not Dictionary:
@@ -52,6 +86,7 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 			if phases is not Array or phases.is_empty():
 				errors.append("missing phases: " + anchor + "/" + resident)
 				continue
+			var ends := PackedFloat64Array()
 			var previous := 0.0
 			for phase: Variant in phases:
 				if phase is not Dictionary or not (typeof(phase.get("until")) in [TYPE_INT, TYPE_FLOAT]):
@@ -63,6 +98,10 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 				if float(phase.until) <= previous:
 					errors.append("non-increasing phases: " + anchor + "/" + resident)
 				previous = float(phase.until)
+				ends.append(previous)
+			if not _phase_ends.has(anchor):
+				_phase_ends[anchor] = {}
+			_phase_ends[anchor][resident] = ends
 			if not is_equal_approx(previous, float(loop.table.anchors[anchor].minutes)):
 				errors.append("phases do not cover visit: " + anchor + "/" + resident)
 	if not errors.is_empty():
@@ -75,12 +114,23 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 	# graph geometry, not an invented straight line through the flats.
 	# Off-travel room endpoints keep a parked guest off the host's kitchen
 	# path. Do not park them on a transit waypoint merely to compose a two-shot.
-	_extend_visit("nadia_quell", "mae_kessler", "visit:6C", "studio")
+	_extend_visit("nadia_quell", "mae_kessler", "visit:6C", "tea_guest")
 	_extend_visit("juno_kells", "cal_dwyer", "visit:5B", "alcove")
+	_extend_visit("juno_kells", "cal_dwyer", "visit:5B:listening", "listening_guest")
 	add_to_group("loop_performances")
 	loop.changed.connect(_sync_visit)
+	if conversations != null:
+		conversations.conversation_started.connect(_on_speaker_started)
+		conversations.conversation_ended.connect(_on_speaker_ended)
 	_sync_visit()
 	return true
+
+
+## Full V2 composition supplies the cast, calendar and collision world.
+func install_yard_tableau() -> void:
+	var tableau := preload("res://scripts/characters/adela_discovery_tableau.gd").new()
+	tableau.configure(world, loop)
+	add_child(tableau)
 
 
 func _extend_visit(guest: String, host: String, place: String, arrival_node: String) -> void:
@@ -125,23 +175,51 @@ func _extend_visit(guest: String, host: String, place: String, arrival_node: Str
 	# npc_set_open still requires real access. This grants no key or invitation.
 
 
+
+## The phase selects the task; route/seat owners alone admit its physical posture.
+func sewing_phase_requested(resident: String) -> bool:
+	if resident != "lena_ortiz" or loop == null or str(loop.visit_anchor()) != "button": return false
+	var route: Node = world.resident_routes.get(resident)
+	if not is_instance_valid(route) or route.outside or route.force_destination != "" or route.destination != "unit:sewing": return false
+	var phase := phase_for(resident)
+	if phase.get("place") != "unit:sewing" or phase.get("activity") != "work" or phase.get("focus") != "2B_sewing_machine": return false
+	var case_id := RealityCases.case_for_resident(resident)
+	return case_id.is_empty() or str(RealityState.case_state(case_id).get("stage", "unseen")) not in ["active", "reopened"]
+
+
+## Standing approach eligibility, before any chair lease has the body.
+func sewing_work_target(resident: String) -> Node3D:
+	if resident != "lena_ortiz" or loop == null or str(loop.visit_anchor()) != "button" or not _arrived(resident): return null
+	var route: Node = world.resident_routes[resident]
+	if route.actor.has_method("_loop_seated") and route.actor._loop_seated(): return null
+	var phase := phase_for(resident)
+	if route.destination != "unit:sewing" or phase.get("place") != "unit:sewing" or phase.get("activity") != "work" or phase.get("focus") != "2B_sewing_machine": return null
+	if conversations != null and conversations._active_resident == resident: return null
+	var case_id := RealityCases.case_for_resident(resident)
+	if not case_id.is_empty() and str(RealityState.case_state(case_id).get("stage", "unseen")) in ["active", "reopened"]: return null
+	var machine: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
+	return machine if sewing_position_ready(route.actor as Node3D, machine, false) else null
+
+
 func phase_for(resident: String) -> Dictionary:
 	if loop == null or not loop.in_visit():
 		return {}
-	var anchor := str(loop.visit_anchor())
-	var actors: Dictionary = data.anchors.get(anchor, {}).get("actors", {})
-	var phases: Array = actors.get(resident, [])
-	var elapsed := float(loop.loop_minutes())
-	var start := 0.0
-	for i in phases.size():
-		var phase: Dictionary = phases[i]
-		if elapsed >= start and elapsed < float(phase.until):
-			var result := phase.duplicate()
-			result["phase_id"] = "%s:%s:%d" % [anchor, resident, i]
-			result["start"] = start
-			return result
-		start = float(phase.until)
-	return {}
+	return phase_at(str(loop.visit_anchor()), resident, float(loop.loop_minutes()))
+
+
+## Pure sampling for live visits and out-of-order film pickups. The exclusive
+## ends belong to the validated authored phases, including fractional minutes.
+func phase_at(anchor: String, resident: String, minute: float) -> Dictionary:
+	if not is_finite(minute) or minute < 0.0:
+		return {}
+	var ends: PackedFloat64Array = _phase_ends.get(anchor, {}).get(resident, PackedFloat64Array())
+	var i := ends.bsearch(minute, false)
+	if i == ends.size():
+		return {}
+	var phase: Dictionary = data.anchors[anchor].actors[resident][i].duplicate()
+	phase["phase_id"] = "%s:%s:%d" % [anchor, resident, i]
+	phase["start"] = ends[i - 1] if i > 0 else 0.0
+	return phase
 
 
 ## Empty means inherit the current agenda, including sleep and hard work blocks.
@@ -156,14 +234,23 @@ func whereabouts(resident: String) -> Dictionary:
 	var parts := str(anchor.start).split(":")
 	var minute := int(parts[0]) * 60 + int(parts[1])
 	var destination := str(phase.place)
+	# Teresa finds Adela first. A late or obstructed nurse cannot be overtaken
+	# by Omar just because three clock minutes have passed.
+	if destination == "visit:yard_electrician" and route.destination != destination and not witness_present("teresa_vale"):
+		return {}
 	var activity := str(phase.activity)
 	# Hosts clear the shared approach while a scheduled guest comes through.
 	# The guest yields to the real body, so a slow/blocked host never gets walked
 	# through. Once the guest reaches the off-travel endpoint, normal work resumes.
 	var guest := "nadia_quell" if resident == "mae_kessler" else "juno_kells" if resident == "cal_dwyer" else ""
-	if not guest.is_empty():
+	# A host in the middle of her own dedicated line stays put: her route is
+	# halted for the reply, so yielding now would only read as a departure and
+	# cut a sentence she has not moved away from. She makes room once it ends.
+	var host_speaking := conversations != null and conversations.performance_active() \
+			and conversations._active_resident == resident
+	if not guest.is_empty() and not host_speaking:
 		var visitor := phase_for(guest)
-		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not _arrived(guest):
+		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not witness_present(guest):
 			var key := str(visitor.phase_id)
 			if not _guest_waits.has(key):
 				_guest_waits[key] = 0.0
@@ -227,12 +314,19 @@ func _sync_visit() -> void:
 	_ordinary_day = day
 	_identity = current
 	_heard.clear()
+	# A restored closed leaf stays closed after the brothers have met.
+	# Each new date or distinct loop visit is a fresh appointment.
+	var reception: Dictionary = _campaign.get("price_reception", {})
+	_price_guest_received = not day.is_empty() and reception.get("day") == day and reception.get("visit") == current
 	_guest_waits.clear()
 	_talk_phase = ""
 	_talk_encounter = {}
+	_release_listener()
 	if conversations != null:
 		conversations.cancel_for_transition()
 	_clear_activities()
+	var tableau: Node=get_node_or_null("AdelaDiscoveryTableau")
+	if tableau!=null:tableau.refresh() # Includes validated same-visit load/data replacement.
 	# Existing bodies walk from their actual positions toward the reconstructed
 	# phase. No visible teleport on jump, home, load or immediate rerun.
 
@@ -255,44 +349,68 @@ func witness_present(resident: String) -> bool:
 
 func _arrived(resident: String) -> bool:
 	var route: Node = world.resident_routes.get(resident)
-	if route == null or route.actor == null or not route.actor.is_visible_in_tree() \
+	if not is_instance_valid(route) or not is_instance_valid(route.actor) or not route.actor.is_visible_in_tree() \
 			or route.outside or route.desired_id < 0 or route.current_id != route.desired_id \
 			or not route.path.is_empty() or route.actor._walking or route.force_destination != "":
 		return false
+	if route.has_method("sewing_seat_arrived") and route.sewing_seat_arrived(): return true
 	return route.actor.global_position.distance_to(route.graph.get_point_position(route.desired_id)) < 0.15
 
 
+func _can_address(block: Dictionary) -> bool:
+	return str(block.get("place", "")) not in ["", "out"] and block.get("activity", "") not in ["sleeping", "dressing", "shower"]
+
+
 func _line_for(resident: String, entry_admitted := false) -> Dictionary:
+	return _line_with_history(resident, _heard, entry_admitted)
+
+
+func _line_with_history(resident: String, heard: Dictionary, entry_admitted := false) -> Dictionary:
 	if resident == "mina_vale":
 		return {}
 	if not _arrived(resident) and not (entry_admitted and not world.resident_routes.has(resident)):
 		return {}
 	var block: Dictionary = world.resident_whereabouts(resident)
-	if str(block.get("activity", "")) in ["sleeping", "dressing", "shower"]:
+	var activity := str(block.get("activity", ""))
+	if not _can_address(block):
 		return {}
 	var phase := phase_for(resident)
 	if not phase.is_empty():
 		# Inherited travel/arrival phases deliberately have no replacement line.
-		if str(phase.place).is_empty():
+		if str(phase.place).is_empty() or block.get("place", "") != phase.place:
 			return {}
 		var route: Node = world.resident_routes.get(resident)
 		if route == null or route.destination != str(phase.place):
 			return {}
 	else:
-		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", _heard)
+		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", heard)
 		if not encounter.is_empty():
 			return encounter
-		phase = (data.profiles.get(resident, {}) as Dictionary).duplicate()
+		var profile: Dictionary = data.profiles.get(resident, {})
+		var body_route: Node = world.resident_routes.get(resident)
+		var replies: Dictionary = profile.get("activities", {})
+		# During a timetable change the old endpoint can still be settled.
+		# Use its ordinary greeting until the actor reaches the new work.
+		if body_route != null and body_route.destination != block.get("place", ""):
+			phase = profile.duplicate()
+		else:
+			phase = (replies.get(activity, profile) as Dictionary).duplicate()
 		phase["phase_id"] = "baseline:" + resident
 	var key := str(phase.get("phase_id", ""))
-	if _heard.has(key) or str(phase.get("line", "")).is_empty() or str(phase.get("topic", "")).is_empty():
+	if heard.has(key) or str(phase.get("line", "")).is_empty() or str(phase.get("topic", "")).is_empty():
 		return {}
 	return phase
 
 
 func conversation_prompt(resident: String) -> String:
-	_sync_visit()
-	return str(_line_for(resident).get("topic", ""))
+	if world == null or loop == null or ordinary == null or conversations == null \
+			or conversations.dialogue == null or conversations.dialogue.attention_active() or not conversations.has_tree(resident):
+		return ""
+	# A hover may arrive before the next visit tick. Sample its new history
+	# without consuming a line, clearing activities, or cancelling dialogue.
+	var same_visit := _visit_identity() == _identity and is_same(_campaign, RealityState.data) and conversations.today() == _ordinary_day
+	var history: Dictionary = _heard if same_visit else {}
+	return str(_line_with_history(resident, history).get("topic", ""))
 
 
 func try_entry(resident: String, player: Node) -> bool:
@@ -318,20 +436,170 @@ func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	if not accepted:
 		return false
 	_talk_phase = str(line.phase_id)
+	_baseline_body_id = 0
+	if _talk_phase.begins_with("baseline:"):
+		var route: Node = world.resident_routes.get(resident)
+		if is_instance_valid(route) and is_instance_valid(route.actor):
+			_baseline_body_id = route.actor.get_instance_id()
 	_talk_encounter = line.get("encounter", {})
 	_heard[_talk_phase] = true # Presentation only; never a knowledge/visit grant.
+	_update_listener()
 	return true
+
+
+func _on_speaker_started(resident: String, _entry: String) -> void:
+	if not _talk_phase.is_empty():
+		_update_listener()
+		if _talk_encounter.get("open_stance", false) and is_instance_valid(_listener_attention):
+			_open_standing_reply(resident)
+
+
+## A routed resident turns when clicked. A second speaker inherits the panel
+## without a click; open her stance to the caller while acknowledging her partner.
+func _open_standing_reply(resident: String) -> void:
+	var body := world.resident_routes[resident].actor as AnimatedResident
+	var caller := world.get("player") as Node3D
+	var partner := _listener_attention.get_parent() as Node3D
+	if body == null or caller == null or partner == null or not body.is_visible_in_tree():
+		return
+	var toward_caller := caller.global_position - body.global_position
+	var toward_partner := partner.global_position - body.global_position
+	if Vector2(toward_caller.x, toward_caller.z).length_squared() < .01 or Vector2(toward_partner.x, toward_partner.z).length_squared() < .01:
+		return
+	var caller_yaw := atan2(toward_caller.x, toward_caller.z)
+	var partner_yaw := atan2(toward_partner.x, toward_partner.z)
+	_standing_yaw = caller_yaw + clampf(angle_difference(caller_yaw, partner_yaw) * .5, -PI / 5.0, PI / 5.0)
+	_standing_speaker = body
+	_standing_elapsed = 0.0
+	_standing_node = conversations.dialogue.current_node_id
+	_standing_voice = world.get_node_or_null("LoopVoicePlayback") as LoopVoicePlayback
+
+
+## Before playback, and on quiet lines, the body uses ordinary process time.
+## Once this exact take is audible its timeline includes any frames missed
+## during a slow render. Time already spent turning is counted only once.
+func _advance_standing_turn(delta: float, audible: float) -> void:
+	var elapsed := maxf(_standing_elapsed, audible) if audible >= 0.0 else _standing_elapsed + delta
+	var step := deg_to_rad(210.0) * (elapsed - _standing_elapsed)
+	_standing_elapsed = elapsed
+	_standing_speaker.global_rotation.y = rotate_toward(_standing_speaker.global_rotation.y, _standing_yaw, step)
+	if absf(angle_difference(_standing_speaker.global_rotation.y, _standing_yaw)) < .001:
+		_standing_speaker = null
+
+
+func _on_speaker_ended(_resident: String) -> void:
+	_release_listener()
+	if not conversations.performance_active():
+		_talk_phase = ""
+		_talk_encounter = {}
+
+
+func _release_listener() -> void:
+	_standing_speaker = null
+	if is_instance_valid(_listener_attention) and _listener_attention.ensemble_target == _listener_point:
+		_listener_attention.ensemble_target = null
+	_listener_attention = null
+
+
+## Rebuilt residents expose their model's attention owner on the routed actor.
+func _resident_attention(actor: Node) -> Node:
+	if actor is AnimatedResident:
+		return (actor as AnimatedResident).attention
+	return actor.get_node_or_null("Attention")
+
+
+func _update_listener() -> void:
+	if _talk_phase.is_empty() or not conversations.performance_active():
+		_release_listener()
+		return
+	var speaker: String = conversations._active_resident
+	var pair: Array = _talk_encounter.get("actors", [])
+	if not _talk_encounter.is_empty():
+		if not ordinary.eligible(_talk_encounter, str(loop.visit_anchor()) if loop.in_visit() else ""):
+			conversations.cancel_performance()
+			return
+	elif not _talk_phase.begins_with("baseline:"):
+		pair = VISIT_PAIRS.get(str(loop.visit_anchor()), [])
+		if speaker in pair and witness_present(str(pair[0])) and witness_present(str(pair[1])):
+			# The same body, proximity, case and sight checks as a street exchange.
+			var places := [phase_for(str(pair[0])).place, phase_for(str(pair[1])).place]
+			if not ordinary.eligible({"actors": pair, "places": places, "excluded_anchors": []}, str(loop.visit_anchor())):
+				pair = []
+		else:
+			pair = []
+	if pair.size() != 2 or speaker not in pair:
+		_release_listener()
+		return
+	var listener := str(pair[1] if pair[0] == speaker else pair[0])
+	var owner: Node = _resident_attention(world.resident_routes[listener].actor)
+	var source: Node = _resident_attention(world.resident_routes[speaker].actor)
+	if owner != _listener_attention:
+		_release_listener()
+	if owner == null or source == null or not is_instance_valid(source.pipeline) or source.pipeline.frames == 0:
+		_release_listener()
+		return
+	if owner.ensemble_target != null and (owner != _listener_attention or owner.ensemble_target != _listener_point):
+		_release_listener()
+		return
+	_listener_attention = owner
+	_listener_point = source.pipeline.eye_world()
+	var marks: Dictionary = _talk_encounter.get("listener_marks", {})
+	if not marks.is_empty() and marks.has(conversations.dialogue.current_node_id):
+		var model: Node = world.resident_routes[speaker].actor.cast_body
+		if is_instance_valid(model):
+			var rig: Skeleton3D = model.skeleton
+			if is_instance_valid(rig):
+				var bone := rig.find_bone(marks[conversations.dialogue.current_node_id])
+				if bone >= 0:
+					_listener_point = rig.to_global(rig.get_bone_global_pose(bone).origin)
+	owner.ensemble_target = _listener_point
+
+
+## On Sunday the host opens his own door when both brothers reach their marks.
+## Parked visitors acquire neither the apartment's door nor its private graph.
+func _receive_price_guest() -> void:
+	if _price_guest_received or conversations == null:
+		return
+	var host: Node = world.resident_routes.get("noel_price")
+	var guest: Node = world.resident_routes.get("jonah_price")
+	if host == null or guest == null or host.destination != "unit:doorway" or guest.destination != "visit:4C_doorway":
+		return
+	if not _arrived("noel_price") or not _arrived("jonah_price"):
+		return
+	# The schedule may already have changed in the interval between motor ticks.
+	if world.resident_whereabouts("noel_price").get("place") != host.destination \
+			or world.resident_whereabouts("jonah_price").get("place") != guest.destination:
+		return
+	for door: DoorProp in host._doors:
+		if is_instance_valid(door) and door.name == &"F04_C_ENTRY_DOOR_Leaf":
+			_price_guest_received = door.request_passage(host.actor, "noel_price")
+			if _price_guest_received and not _ordinary_day.is_empty():
+				_campaign["price_reception"] = {"day": _ordinary_day, "visit": _identity}
+			return
 
 
 func _process(delta: float) -> void:
 	if data.is_empty() or not is_instance_valid(world) or not is_instance_valid(loop):
 		return
+	if is_instance_valid(_standing_speaker):
+		if conversations._active_resident != _standing_speaker.resident_id or not conversations.owns_dialogue_input(world.get("player") as PlayerController):
+			_standing_speaker = null
+		else:
+			var audible := -1.0
+			if is_instance_valid(_standing_voice) and _standing_voice.playing() \
+					and _standing_voice._bound.get("actor") == _standing_speaker.resident_id \
+					and _standing_voice._bound.get("node") == _standing_node:
+				# Playback seeks the speaker's face at priority -100, before this
+				# owner. Read the same audible position without advancing its clock.
+				audible = _standing_voice._last_clock
+			_advance_standing_turn(delta, audible)
 	_poll += delta
 	if _poll < 0.25:
 		return
 	var elapsed := _poll
 	_poll = 0.0
 	_sync_visit()
+	_receive_price_guest()
 	# Route motors stop during conversation. A player taking time to read must
 	# not consume the host's opportunity to clear the approach. Process time also
 	# naturally stops with the scene tree, unlike a wall-clock deadline.
@@ -339,20 +607,37 @@ func _process(delta: float) -> void:
 	if player == null or not bool(player.get("call_locked")):
 		for key: String in _guest_waits:
 			_guest_waits[key] = minf(30.0, float(_guest_waits[key]) + elapsed)
-	if conversations != null and conversations.performance_active() and not _talk_encounter.is_empty() \
-			and not ordinary.eligible(_talk_encounter, str(loop.visit_anchor()) if loop.in_visit() else ""):
-		conversations.cancel_performance()
+	if _talk_phase.begins_with("baseline:") and conversations.performance_active():
+		var speaker: String = conversations._active_resident
+		var route: Node = world.resident_routes.get(speaker)
+		# Door/counter greetings can be admitted without a route. A greeting
+		# opened face to face belongs to the original physical speaker.
+		var departed: bool = _baseline_body_id != 0 and (not _arrived(speaker) or route.actor.get_instance_id() != _baseline_body_id)
+		if departed or not _can_address(world.resident_whereabouts(speaker)) or not phase_for(speaker).is_empty():
+			conversations.cancel_performance()
+	if not _talk_phase.is_empty():
+		_update_listener()
 	if _identity.is_empty():
 		return
+	# Dedicated historical lines need their original speaker at the staged
+	# place for the lifetime of the reply, even if the route has been removed.
+	if conversations != null and not _talk_phase.is_empty() and conversations.performance_active() and _talk_encounter.is_empty() \
+			and not _talk_phase.begins_with("baseline:"):
+		var speaker: String = conversations._active_resident
+		var live_phase := phase_for(speaker)
+		if _talk_phase != live_phase.get("phase_id", "") or not witness_present(speaker) \
+				or world.resident_whereabouts(speaker).get("place", "") != live_phase.place:
+			conversations.cancel_performance()
+	var plans := {}
+	var contenders := {}
+	var focuses := {}
+	var sewing_surfaces := {}
 	for resident: String in world.resident_routes:
 		var route: Node = world.resident_routes[resident]
 		var actor: Node = route.actor
 		var phase := phase_for(resident)
 		var talking := conversations != null and conversations._active_resident == resident
-		if talking and _talk_encounter.is_empty() and not _talk_phase.is_empty() and conversations.performance_active() \
-				and _talk_phase != str(phase.get("phase_id", "baseline:" + resident)):
-			conversations.cancel_performance()
-		if actor == null or not actor.has_method("set_loop_activity"):
+		if resident == "mina_vale" or actor == null or not actor.has_method("set_loop_activity"):
 			continue
 		# Bar seats have their own exact posture/route owner. Sleeping, unseen,
 		# obstructed and moving residents keep their existing presentation.
@@ -360,27 +645,88 @@ func _process(delta: float) -> void:
 		var activity := str(block.get("activity", ""))
 		var case_id := RealityCases.case_for_resident(resident)
 		var case_active := not case_id.is_empty() and str(RealityState.case_state(case_id).get("stage", "unseen")) in ["active", "reopened"]
-		if not _arrived(resident) or talking or str(route.destination) == "harukiya_bar" \
+		if not _arrived(resident) or str(route.destination) != str(block.get("place", "")) \
+				or talking or str(route.destination) == "harukiya_bar" \
 				or case_active or activity in ["sleeping", "dressing", "shower"]:
-			_release_activity(resident)
 			continue
-		actor.set_loop_activity(activity)
+		if route.has_method("sewing_seat_active") and route.sewing_seat_active(): continue
+		plans[resident] = activity
+		# A host clearing the approach may be doing chores in the kitchen
+		# while her authored work surface is still in the front room.
+		focuses[resident] = phase.get("focus", "") if route.destination == phase.get("place", "") else ""
+		# One authored standing handwork beat, not a global replacement of
+		# work/chores with a prop-contact animation. Arrival remains route-owned.
+		if resident == "lena_ortiz" and not phase.is_empty() and str(loop.visit_anchor()) == "button" \
+				and route.destination == "unit:sewing" and activity == "work" and focuses[resident] == "2B_sewing_machine" \
+				and not actor.has_method("set_sewing_seat_pose"):
+			var work: Node3D = world.adapter.resolve("2B_sewing_machine") as Node3D
+			if sewing_position_ready(actor as Node3D, work):
+				sewing_surfaces[resident] = work
+		# Two route graphs may name the same work surface differently. Use its
+		# authored world endpoint; watching, listening and resting can be shared.
+		if activity in ["work", "chores"]:
+			var station: Vector3i = Vector3i((route.graph.get_point_position(route.desired_id) * 1000.0).round())
+			if not contenders.has(station):
+				contenders[station] = []
+			contenders[station].append(resident)
+	for resident: String in _presenting.keys():
+		if not plans.has(resident):
+			_release_activity(resident)
+	var next_stations := {}
+	for station: Vector3i in contenders:
+		var candidates: Array = contenders[station]
+		candidates.sort()
+		var winner: String = _work_stations.get(station, candidates.front())
+		if winner not in candidates:
+			winner = candidates.front()
+		next_stations[station] = winner
+		for resident: String in candidates:
+			if resident != winner:
+				plans.erase(resident)
+				_release_activity(resident)
+	_work_stations = next_stations
+	for resident: String in plans:
+		var actor: Node3D = world.resident_routes[resident].actor
+		if _presenting.has(resident) and not is_same(_presenting[resident], actor):
+			_release_activity(resident)
+		if sewing_surfaces.has(resident):
+			actor.set_loop_activity(plans[resident], true, sewing_surfaces[resident])
+		else:
+			actor.set_loop_activity(plans[resident])
 		_presenting[resident] = actor
 		# Optional authored gaze uses the existing attention owner, never IK grips.
-		var attention: Node = actor.get_node_or_null("Attention")
-		var focus := str(phase.get("focus", ""))
+		var attention: Node = _resident_attention(actor)
+		var focus: String = focuses[resident]
 		if focus.is_empty() or attention == null:
 			_release_gaze(resident)
 			continue
-		var target: Node3D = world.adapter.resolve(focus) as Node3D
+		var point := _focus_point(focus)
 		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
 				and attention.staged_target == _gaze[resident].point
-		if target != null and target.global_position.distance_to(route.actor.global_position) < 3.2 \
+		if point.is_finite() and point.distance_to(actor.global_position) < 3.2 \
 				and (attention.staged_target == null or still_owned):
-			attention.staged_target = target.global_position
-			_gaze[resident] = {"owner": attention, "point": target.global_position}
+			attention.staged_target = point
+			_gaze[resident] = {"owner": attention, "point": point}
 		else:
 			_release_gaze(resident)
+
+
+func _focus_point(focus: String) -> Vector3:
+	if focus == "historical:adela_head":
+		var tableau := get_tree().get_first_node_in_group("adela_discovery_tableau") if is_inside_tree() else null
+		if tableau != null and tableau.has_method("head_world"):
+			var head: Variant = tableau.call("head_world")
+			return head if head is Vector3 else Vector3.INF
+		return Vector3.INF
+	if focus.begins_with("resident:"):
+		var id := focus.trim_prefix("resident:")
+		if witness_present(id):
+			var attention := _resident_attention(world.resident_routes[id].actor)
+			if attention != null and attention.get("pipeline") != null:
+				return attention.pipeline.eye_world()
+		return Vector3.INF
+	var target := world.adapter.resolve(focus) as Node3D
+	return target.global_position if is_instance_valid(target) and target.is_visible_in_tree() else Vector3.INF
 
 
 func _release_gaze(resident: String) -> void:
@@ -400,11 +746,13 @@ func _release_activity(resident: String) -> void:
 
 
 func _clear_activities() -> void:
+	_work_stations.clear()
 	for resident: String in _presenting.keys():
 		_release_activity(resident)
 
 
 func _exit_tree() -> void:
+	_release_listener()
 	_clear_activities()
 	if is_instance_valid(conversations):
 		conversations.cancel_performance()

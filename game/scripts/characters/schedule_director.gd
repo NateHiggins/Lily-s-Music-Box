@@ -128,6 +128,11 @@ func _process(delta: float) -> void:
 		routines.set_schedule(str(slug), directive)
 
 
+## An explicit authored appointment keeps an ordinary meeting on the timetable.
+static func has_appointment(block: Dictionary) -> bool:
+	return block.get("appointment", false) == true
+
+
 ## ---- clock ----------------------------------------------------------
 
 static func minute_now() -> float:
@@ -344,13 +349,15 @@ func _place_directive(slug: String, block: Dictionary) -> Dictionary:
 	if place.begins_with("unit"):
 		return {"mode": "home", "activity": activity, "key": place}
 	if place.begins_with("visit:"):
-		var point := _visit_point(place.substr(6))
+		var point := _visit_point(place.get_slice(":", 1))
 		if not point.is_finite():
 			return {"mode": "home", "activity": activity, "key": place}
 		return {"mode": "place", "activity": activity, "key": place,
 				"point": point}
-	if ANCHORS.has(place):
-		var anchor: Dictionary = ANCHORS[place]
+	# V2 resident routes own distinct marks along the entrance passage.
+	var venue := "lobby" if place == "corridor_pause" else place
+	if ANCHORS.has(venue):
+		var anchor: Dictionary = ANCHORS[venue]
 		var point := _passage_point(place) if anchor.get("passage", false) \
 				else _world_point(str(anchor.floor), anchor.at)
 		return {"mode": "exterior" if anchor.get("exterior", false)

@@ -16,6 +16,19 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("prologue")
 	if candidate.has("caretaker_economy") and not preload("res://scripts/game/caretaker_economy.gd").valid(candidate.caretaker_economy):
 		return _invalid_shape("caretaker_economy")
+	if candidate.has("price_reception"):
+		var reception: Variant = candidate.price_reception
+		if reception is not Dictionary or reception.size() != 2 or reception.get("day") is not String or reception.get("visit") is not String:
+			return _invalid_shape("price_reception")
+		var day: String = reception.day
+		var parts := day.split("-")
+		if parts.size() != 3 or day.length() != 10 or not day.replace("-", "").is_valid_int():
+			return _invalid_shape("price_reception")
+		var year := int(parts[0])
+		var month := int(parts[1])
+		var dom := int(parts[2])
+		if day != "%04d-%02d-%02d" % [year, month, dom] or not CampaignClock._valid_date_values({"year": year, "month": month, "day_of_month": dom}):
+			return _invalid_shape("price_reception")
 	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):
 		return _invalid_shape("door_keys")
 	if candidate.has("household_larders") and not preload("res://scripts/game/kitchen_larder.gd").valid(candidate.household_larders):

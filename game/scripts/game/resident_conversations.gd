@@ -167,6 +167,7 @@ var _home_resolver: Callable = Callable()
 var _active_resident := ""
 var _performance_active := false
 var _performance_tree: Dictionary = {}
+var _performance_cast: Dictionary = {}
 var _active_tree: Dictionary = {}
 
 
@@ -180,6 +181,8 @@ func setup(panel: CaseDialoguePanel, player_unit := Callable(),
 	_home_resolver = resident_home
 	if not dialogue.tree_ended.is_connected(_on_tree_ended):
 		dialogue.tree_ended.connect(_on_tree_ended)
+	if not dialogue.tree_replaced.is_connected(_on_tree_replaced):
+		dialogue.tree_replaced.connect(_on_tree_replaced)
 	_load_units()
 	_load_trees()
 	_load_notes()
@@ -292,7 +295,9 @@ func start(resident_id: String, place_context: String = "") -> bool:
 	dialogue.run_tree(tree, node_id,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),
-			{"available": func(choice: Dictionary): return _available(resident_id, choice),
+			{"framing_resident": resident_id,
+			 "available": func(choice: Dictionary): return _available(resident_id, choice),
+			 "transaction_for": _reply_transaction.bind(resident_id),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, entry_id)
 	return true
@@ -342,33 +347,43 @@ func start_performance(resident_id: String, line: String, player: Node) -> bool:
 	return start_performance_sequence(resident_id, [{"speaker": resident_id, "text": line}], player)
 
 
-## Linear authored exchanges keep the panel's deliberate choices and departure.
+static func performance_node_id(index: int) -> String:
+	return "loop_business" if index == 0 else "loop_business_%d" % index
+
+
+## A player can hear the exchange through or interject to reach an authored answer.
 ## They carry text/speakers only: no flags, trust, actions or invented props.
 func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
 	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
 			or not trees.has(resident_id) or lines.is_empty() or player == null:
 		return false
 	var nodes := {}
+	var cast := {}
+	cast[resident_id] = true
 	for i in lines.size():
 		var row: Variant = lines[i]
 		if row is not Dictionary or not trees.has(str(row.get("speaker", ""))) or str(row.get("text", "")).is_empty():
 			return false
 		var actor := str(row.speaker)
-		var key := "loop_business" if i == 0 else "loop_business_%d" % i
+		cast[actor] = true
+		var key := performance_node_id(i)
 		var choices: Array = []
-		if i + 1 < lines.size():
-			choices.append({"label": str(row.get("choice", "Listen.")), "goto": "loop_business_%d" % (i + 1)})
+		if i + 1 < lines.size() and not row.get("_end", false):
+			choices.append({"label": str(row.get("choice", "Listen.")), "goto": performance_node_id(i + 1)})
+		if row.has("_interjection"):
+			choices.append(row._interjection.duplicate())
 		choices.append({"label": "I'll let you get on."})
-		nodes[key] = {"line": str(row.text), "actor": actor,
+		nodes[key] = {"line": str(row.text), "actor": actor, "silence_goto": "",
 				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}
 	var tree := {"meta": {}, "nodes": nodes}
 	_active_resident = str(lines[0].speaker)
 	_performance_active = true
 	_performance_tree = tree
+	_performance_cast = cast
 	_active_tree = tree
 	if not dialogue.node_shown.is_connected(_performance_node_shown):
 		dialogue.node_shown.connect(_performance_node_shown)
-	dialogue.run_tree(tree, "loop_business", Callable())
+	dialogue.run_tree(tree, "loop_business", Callable(), Callable(), {"framing_cast": cast})
 	conversation_started.emit(_active_resident, "loop_business")
 	return true
 
@@ -382,6 +397,28 @@ func _performance_node_shown(node_id: String) -> void:
 	conversation_ended.emit(_active_resident)
 	_active_resident = actor
 	conversation_started.emit(actor, "loop_business")
+
+
+## A resident currently owns this player's attention through this exact tree.
+func owns_dialogue_input(player: PlayerController) -> bool:
+	return not _active_resident.is_empty() and is_instance_valid(dialogue) \
+			and dialogue.owns_exclusive_input(player) and is_same(_active_tree, dialogue._tree)
+
+
+## Only this resident panel's exclusive lock leaves unrelated bodies at work.
+## A foreign prompt, telephone, editor, seat or replacement tree stays protected.
+static func permits_background_work(body: Node3D, caller: Node) -> bool:
+	var player := caller as PlayerController
+	var resident := body as AnimatedResident
+	if player == null or resident == null or not resident.is_inside_tree() or resident.get_tree().paused or resident.resident_id in ["", "mina_vale"]:
+		return false
+	var owner := resident.get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
+	if owner == null or owner._active_resident == resident.resident_id or not owner.owns_dialogue_input(player):
+		return false
+	if owner._performance_active and owner._performance_cast.has(resident.resident_id):
+		return false
+	# Historical paired hosts can listen without speaking a line in the tree.
+	return not is_instance_valid(resident.attention) or (not resident.attention.conversing and resident.attention.ensemble_target == null)
 
 
 func performance_active() -> bool:
@@ -449,6 +486,12 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 	if price.cents > 0 and not can_pay(price.cents):
 		return false
 	return true
+
+
+## A priced selection must complete the ledger sale before the paid scene can open.
+func _reply_transaction(choice: Dictionary, resident_id: String) -> Callable:
+	var flag := str(choice.get("flag", ""))
+	return _pay.bind(resident_id, flag) if flag.begins_with(PAY_PREFIX) else Callable()
 
 
 ## The item and the price a "pay:" flag names, or zero cents when it names none.
@@ -527,6 +570,13 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 			RealityCases.record_conversation(case_id, flag, trust)
 			return
 	RealityState.commit()
+
+
+## A new panel has already taken possession. Release the former cast and
+## leave its unfinished reply, knowledge and first-conversation note alone.
+func _on_tree_replaced(previous: Dictionary) -> void:
+	if is_same(previous, _active_tree):
+		cancel_for_transition()
 
 
 func _on_tree_ended() -> void:
@@ -850,22 +900,22 @@ static func _clock_minute(value: String) -> int:
 
 
 ## The threads a person would open now: inside the dates and hours, every
-## `requires` known, not yet heard, and not held for another owner's canon.
+## `requires` known, and not held for another owner's canon. Heard topics stay
+## closed unless an authored retry_until flag leaves an interrupted exchange
+## unfinished; its first-line hearing remains knowledge throughout.
 func active_threads(resident_id: String, date: String, minute: int) -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 	if date == "":
 		return out
 	for thread in (mystery.get(resident_id, {}).get("threads", []) as Array):
-		if date < str(thread.from) or date > str(thread.until):
+		if not _thread_in_scene(thread, date, minute):
 			continue
 		if thread.has("hold") and not playtest_holds:
 			continue
-		if RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
+		var retry_until := str(thread.get("retry_until", ""))
+		if not retry_until.is_empty() and RealityState.has_knowledge(retry_until):
 			continue
-		if thread.has("hours"):
-			if minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1])):
-				continue
-		if not _witnesses_present(thread):
+		if retry_until.is_empty() and RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
 			continue
 		var ready := true
 		for flag in thread.get("requires", []):
@@ -877,6 +927,23 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 		if ready:
 			out.append(thread)
 	return out
+
+
+func _thread_in_scene(thread: Dictionary, date: String, minute: int) -> bool:
+	if date < str(thread.from) or date > str(thread.until):
+		return false
+	if thread.has("hours") and (minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1]))):
+		return false
+	return _witnesses_present(thread)
+
+
+## The topic may already be heard. Only its deadline and required cast can
+## expire while its reply is on screen.
+func _continue_thread(thread: Dictionary) -> bool:
+	if _thread_in_scene(thread, today(), minute_now()):
+		return true
+	cancel_for_transition()
+	return false
 
 
 ## A thread may name residents who must be bodily there (`present`). Only the
@@ -919,6 +986,7 @@ func _graft_thread_nodes(resident_id: String, into: Dictionary, active: Array[Di
 		into.nodes[node_id] = (source[node_id] as Dictionary).duplicate(true)
 	for thread in active:
 		var root: Dictionary = into.nodes[str(thread.root)]
+		root["reply_guard"] = _continue_thread.bind(thread)
 		var flags: Array = root.get("flags", [])
 		flags.append(MYSTERY_HEARD_PREFIX + str(thread.id))
 		root["flags"] = flags
@@ -932,12 +1000,7 @@ func has_spoken_thread(resident_id: String) -> bool:
 	return false
 
 
-## Open a person's threads with no door tree behind them, from a menu of their
-## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
-## patrolman have no door in the world yet, so this is how they are read.
-func start_mystery(resident_id: String, spoken_only := false, installed_topic := "") -> bool:
-	if dialogue == null or dialogue.attention_active():
-		return false
+func _body_mystery_threads(resident_id: String, spoken_only: bool, installed_topic: String) -> Array[Dictionary]:
 	var active := active_threads(resident_id, today(), minute_now())
 	if not installed_topic.is_empty():
 		active = active.filter(func(thread: Dictionary) -> bool: return thread.id == installed_topic)
@@ -947,6 +1010,21 @@ func start_mystery(resident_id: String, spoken_only := false, installed_topic :=
 			if bool(thread.get("spoken", false)):
 				spoken.append(thread)
 		active = spoken
+	return active
+
+
+func can_offer_body_mystery(resident_id: String, spoken_only: bool, installed_topic := "") -> bool:
+	return dialogue != null and not dialogue.attention_active() \
+			and not _body_mystery_threads(resident_id, spoken_only, installed_topic).is_empty()
+
+
+## Open a person's threads with no door tree behind them, from a menu of their
+## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
+## patrolman have no door in the world yet, so this is how they are read.
+func start_mystery(resident_id: String, spoken_only := false, installed_topic := "") -> bool:
+	if dialogue == null or dialogue.attention_active():
+		return false
+	var active := _body_mystery_threads(resident_id, spoken_only, installed_topic)
 	if active.is_empty():
 		return false
 	var tree := {"meta": (mystery[resident_id].meta as Dictionary).duplicate(), "nodes": {}}
@@ -960,7 +1038,9 @@ func start_mystery(resident_id: String, spoken_only := false, installed_topic :=
 	dialogue.run_tree(tree, MYSTERY_MENU,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),
-			{"available": func(choice: Dictionary): return _available(resident_id, choice),
+			{"framing_resident": resident_id,
+			 "available": func(choice: Dictionary): return _available(resident_id, choice),
+			 "transaction_for": _reply_transaction.bind(resident_id),
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, MYSTERY_MENU)
 	return true
@@ -1002,8 +1082,13 @@ func _valid_mystery(doc: Dictionary, path: String) -> bool:
 		if thread.has("hold") and str(thread.hold) == "":
 			errors.append("%s: thread %s hold names nothing" % [path, thread.get("id", "")])
 			ok = false
+		if thread.has("retry_until") and (typeof(thread.retry_until) != TYPE_STRING or str(thread.retry_until).is_empty()):
+			errors.append("%s: thread %s retry_until must name a completion flag" % [path, thread.get("id", "")])
+			ok = false
 	for node_id in nodes:
 		var node: Dictionary = nodes[node_id]
+		if not _valid_delivery(node, node_id, path):
+			ok = false
 		if str(node.get("line", "")) == "":
 			errors.append("%s: node %s has no line" % [path, node_id])
 			ok = false
@@ -1128,6 +1213,14 @@ func _load_trees() -> void:
 
 ## The authored contract, checked at load so a broken tree is a startup
 ## message and not a dead door. Every field the writers may use is named here.
+func _valid_delivery(node: Dictionary, node_id: String, path: String) -> bool:
+	var delivery: Variant = node.get("delivery", "spoken")
+	if delivery is String and delivery in ["spoken", "silent"]:
+		return true
+	errors.append("%s: node %s delivery must be spoken or silent" % [path, node_id])
+	return false
+
+
 func _valid_tree(tree: Dictionary, path: String) -> bool:
 	var ok := true
 	var meta: Dictionary = tree.get("meta", {})
@@ -1143,6 +1236,8 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 			ok = false
 	for node_id in nodes:
 		var node: Dictionary = nodes[node_id]
+		if not _valid_delivery(node, node_id, path):
+			ok = false
 		if str(node.get("line", "")) == "":
 			errors.append("%s: node %s has no line" % [path, node_id])
 			ok = false

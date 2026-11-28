@@ -64,7 +64,7 @@ func _evening() -> String:
 	var day: Dictionary = clock.day_info()
 	if not day.get("civil_date_valid", false) or day.day not in ["fri", "sat"] or clock.minute_of_day() < 1140.0:
 		return ""
-	if not cast_owner.counter.on_shift() or not cast_owner._adela_is_here() or not cast_owner._speaker.is_empty():
+	if not cast_owner.counter.on_shift() or not cast_owner.lily_is_here() or not cast_owner._adela_is_here() or not cast_owner._speaker.is_empty():
 		return ""
 	if PersonInventory.object_holder() != "lily" or PersonInventory.object_location() != "inventory":
 		return ""

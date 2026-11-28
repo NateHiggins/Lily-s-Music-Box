@@ -26,7 +26,8 @@ class FrontLightingPlanTests(unittest.TestCase):
         self.assertEqual('NATIVE_CANDIDATE_NOT_INSTALLED', self.plan['status'])
 
     def test_complete_program_and_single_control(self):
-        rooms = {s['id'] for s in self.layout['spaces'] if '_FRONT_' in s['id']}
+        rooms = {s['id'] for s in self.layout['spaces']
+                 if '_FRONT_' in s['id'] and not s['id'].endswith('_FRONT_HALL')}
         self.assertEqual(rooms, {s['room'] for s in self.plan['fixtures']})
         controls = [s['room'] for s in self.plan['switches']]
         self.assertEqual(rooms, set(controls))
@@ -81,9 +82,23 @@ class FrontLightingPlanTests(unittest.TestCase):
                     reached.add(p)
                     pending.extend(graph[p] - reached)
             for route in self.plan['routes']:
-                if route['level'] == level:
+                if route['level'] == level and route['kind'] != 'concealed_canopy':
                     self.assertIn(tuple(route['points'][-1]), reached, route['id'])
             self.assertTrue(all(abs(p[1] - self.levels[level]) < 3.01 for p in reached))
+
+    def test_upper_shared_circuits_have_one_fixture_and_no_exposed_runs(self):
+        feeds = self.plan['concealed_feeds']
+        self.assertEqual([row['level'] for row in feeds], [f'F{i:02}' for i in range(2, 7)])
+        for feed in feeds:
+            level, room = feed['level'], feed['room']
+            hall = level + '_FRONT_HALL'
+            self.assertEqual(feed['junction'], level + '_ELECTRICAL_JUNCTION')
+            self.assertEqual([r['id'] for r in self.plan['fixtures'] if r['room'] in (room, hall)],
+                             [feed['fixture']])
+            self.assertEqual([r['id'] for r in self.plan['switches'] if r['room'] in (room, hall)],
+                             [feed['control']])
+            self.assertEqual([r['kind'] for r in self.plan['routes'] if r['owner'] in (room, hall)],
+                             ['concealed_canopy'])
 
     def test_no_duplicate_overlapping_stock_or_unsplit_junctions(self):
         vertices = {tuple(p) for s in self.plan['segments'] for p in (s['a'], s['b'])}
@@ -106,11 +121,14 @@ class FrontLightingPlanTests(unittest.TestCase):
             self.assertEqual(support['seat'][::2], support['position'][::2])
 
     def test_switch_boxes_clear_panel_caps_and_picture_rails(self):
+        concealed = {row['control'] for row in self.plan['concealed_feeds']}
         for switch in self.plan['switches']:
             bottom=switch['position'][1]-switch['backbox_size'][1]/2
             top=switch['position'][1]+switch['backbox_size'][1]/2
             self.assertGreater(bottom,1.36+.02,switch['id'])
             self.assertLess(top,1.65-.021-.02,switch['id'])
+            if switch['id'] in concealed:
+                continue
             feed=next(r for r in self.plan['routes'] if r['id']==switch['room']+'_SWITCH_FEED')
             self.assertAlmostEqual(feed['points'][-1][1]-self.levels[switch['level']],switch['position'][1]+.08)
 

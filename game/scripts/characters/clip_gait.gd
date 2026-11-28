@@ -20,6 +20,10 @@ const SMOOTH_SECONDS := 0.18
 ## set by Mina's stair clips, generated slow: at 3x the climb is about 1.8 steps a second, a person's cadence.
 const MIN_SCALE := 0.5
 const MAX_SCALE := 3.0
+## On stairs the long-legged (male base) shared walk may slow to a third, so its planted foot keeps up with the
+## stair pace (Lily's ruling npc_male_stair_slide_20261125). Its steps read slower and heavier there; level walking
+## keeps MIN_SCALE.
+const STAIR_MIN_SCALE := 1.0 / 3.0
 
 static var _cache := {}
 
@@ -114,8 +118,8 @@ func mean_rate() -> float:
 
 
 ## The speed scale at which the clip, now at `t`, covers ground at `metres_per_second`.
-func scale_for(t: float, metres_per_second: float) -> float:
+func scale_for(t: float, metres_per_second: float, min_scale: float = MIN_SCALE) -> float:
 	var rate := rate_at(t)
 	if rate <= 0.0:
 		return 1.0
-	return clampf(metres_per_second / rate, MIN_SCALE, MAX_SCALE)
+	return clampf(metres_per_second / rate, min_scale, MAX_SCALE)

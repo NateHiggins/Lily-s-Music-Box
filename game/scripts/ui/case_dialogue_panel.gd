@@ -28,6 +28,7 @@ extends CanvasLayer
 
 signal node_shown(node_id: String)
 signal tree_ended
+signal tree_replaced(previous: Dictionary)
 
 const SERIF: Font = preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
 const SERIF_ITALIC: Font = preload("res://assets/fonts/eb_garamond/EBGaramond-Italic[wght].ttf")
@@ -53,16 +54,23 @@ var _scrim: TextureRect
 var _column: VBoxContainer
 var _speaker: Label
 var _line: Label
+var _measure: MarginContainer
+var _reply_scroll: ScrollContainer
 var _choices: VBoxContainer
+const SpeakerFraming := preload("res://scripts/ui/resident_speaker_framing.gd")
+var _speaker_framing: SpeakerFraming
 var _player: PlayerController
+var _input_revision := -1
 var _previous_mouse := Input.MOUSE_MODE_CAPTURED
 var _tree: Dictionary = {}
 var _on_flag: Callable = Callable()
 var _on_action: Callable = Callable()
 var _context: Dictionary = {}
 var _actions: Array = []
-var _silence_action: Callable = Callable()
+var _silence_index := -1
 var _fade: Tween
+var _line_exchange: Dictionary = {}
+var _line_delivery := "spoken"
 var current_node_id := ""
 
 
@@ -86,16 +94,13 @@ func _ready() -> void:
 	_scrim.offset_bottom = 0.0
 	_panel.add_child(_scrim)
 
-	var margin := MarginContainer.new()
-	margin.name = "Measure"
-	# Give the bottom-aligned column room to grow upward with more replies.
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_theme_constant_override("margin_left", 72)
-	margin.add_theme_constant_override("margin_right", 72)
-	margin.add_theme_constant_override("margin_bottom", 34)
-	margin.add_theme_constant_override("margin_top", 0)
-	_panel.add_child(margin)
+	_measure = MarginContainer.new()
+	_measure.name = "Measure"
+	# The column stays bottom-aligned as the viewport changes.
+	_measure.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_measure.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_measure.add_theme_constant_override("margin_top", 0)
+	_panel.add_child(_measure)
 
 	_column = VBoxContainer.new()
 	_column.name = "Column"
@@ -105,7 +110,7 @@ func _ready() -> void:
 	_column.alignment = BoxContainer.ALIGNMENT_END
 	_column.add_theme_constant_override("separation", 6)
 	_column.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_child(_column)
+	_measure.add_child(_column)
 
 	_speaker = Label.new()
 	_speaker.name = "Speaker"
@@ -137,12 +142,85 @@ func _ready() -> void:
 	rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_column.add_child(rule)
 
+	_reply_scroll = ScrollContainer.new()
+	_reply_scroll.name = "ReplyScroll"
+	_reply_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_reply_scroll.follow_focus = true
+	_column.add_child(_reply_scroll)
 	_choices = VBoxContainer.new()
 	_choices.name = "Replies"
 	_choices.add_theme_constant_override("separation", 2)
-	_column.add_child(_choices)
+	_choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_reply_scroll.add_child(_choices)
+	get_viewport().size_changed.connect(_fit_measure)
+	_line.minimum_size_changed.connect(_fit_replies, CONNECT_DEFERRED)
+	_choices.minimum_size_changed.connect(_fit_replies, CONNECT_DEFERRED)
+	_reply_scroll.resized.connect(_reveal_reply, CONNECT_DEFERRED)
+	_fit_measure()
 	_panel.visible = false
 	_panel.modulate.a = 0.0
+
+
+func _fit_measure() -> void:
+	var view := get_viewport().get_visible_rect().size
+	var side := mini(72, int(view.x * .075))
+	var bottom := mini(34, int(view.y * .05))
+	var separation := 6
+	if view.y <= 400.0:
+		side = mini(side, 16)
+		bottom = mini(bottom, 6)
+		separation = 2
+	_column.add_theme_constant_override("separation", separation)
+	_measure.add_theme_constant_override("margin_left", side)
+	_measure.add_theme_constant_override("margin_right", side)
+	_measure.add_theme_constant_override("margin_bottom", bottom)
+	_line.custom_minimum_size.x = minf(COLUMN_WIDTH, maxf(1.0, view.x - 2 * side))
+	_fit_spoken_line()
+	_fit_replies()
+
+
+func _fit_spoken_line() -> void:
+	var view := get_viewport().get_visible_rect().size
+	var name_height := _speaker.get_combined_minimum_size().y if _speaker.visible else 0.0
+	var gaps := _column.get_theme_constant("separation") * (3 if _speaker.visible else 2)
+	# Keep one reachable reply and leave the upper half of the shot for the face.
+	var budget := view.y * .51 - name_height - gaps - 35.0 - _measure.get_theme_constant("margin_bottom")
+	var size := LINE_SIZE
+	var spacing := 3
+	while not _line.text.is_empty() and budget >= SERIF.get_height(REPLY_SIZE):
+		var height := SERIF.get_multiline_string_size(_line.text, HORIZONTAL_ALIGNMENT_LEFT,
+				_line.custom_minimum_size.x, size).y
+		var rows := maxi(1, roundi(height / SERIF.get_height(size)))
+		if rows == 1 or height + (rows - 1) * spacing <= budget:
+			break
+		if spacing > 0:
+			spacing = 0
+		elif size > REPLY_SIZE:
+			size -= 1
+		elif spacing > -3:
+			# The 17 px face has a 22.6 px line box. Keep at least 19.6 px
+			# between baselines even for the longest spoken paragraph.
+			spacing -= 1
+		else:
+			break
+	_line.add_theme_constant_override("line_spacing", spacing)
+	_line.add_theme_font_size_override("font_size", size)
+
+
+func _fit_replies() -> void:
+	# Reserve space for the visible question before giving the rest to replies.
+	# Use the wrapped controls' measured height so short lists still fit exactly.
+	var name_height := _speaker.get_combined_minimum_size().y if _speaker.visible else 0.0
+	var gaps := _column.get_theme_constant("separation") * (3 if _speaker.visible else 2)
+	var fixed := name_height + _line.get_combined_minimum_size().y + 1 + gaps
+	var available := get_viewport().get_visible_rect().size.y * .49 - fixed - _measure.get_theme_constant("margin_bottom")
+	_reply_scroll.custom_minimum_size.y = minf(_choices.get_combined_minimum_size().y, maxf(32.0, available))
+
+
+func _reveal_reply() -> void:
+	var focus := get_viewport().gui_get_focus_owner()
+	if _panel.visible and focus != null and _choices.is_ancestor_of(focus):
+		_reply_scroll.ensure_control_visible(focus)
 
 
 ## A vertical gradient: nothing at the top edge, a quiet dark at the bottom.
@@ -168,46 +246,85 @@ func attention_active() -> bool:
 ## One hand-built prompt. `options` are dictionaries with `text` and `action`,
 ## optionally `silent`, `evidence` or `infer` for presentation.
 func present(speaker_name: String, words: String, options: Array) -> void:
-	for old in _choices.get_children():
-		_choices.remove_child(old)
-		old.queue_free()
+	_replace_tree({})
+	_on_flag = Callable()
+	_on_action = Callable()
+	_context = {}
+	_present_line(speaker_name, words, options)
+
+
+func _replace_tree(incoming: Dictionary) -> void:
+	_line_exchange = {}
+	var previous := _tree
+	var interrupted := not current_node_id.is_empty() and not is_same(previous, incoming)
+	_tree = incoming
+	current_node_id = ""
+	if interrupted:
+		tree_replaced.emit(previous)
+
+
+func _present_line(speaker_name: String, words: String, options: Array, delivery := "spoken") -> void:
+	_line_delivery = delivery
+	if _speaker_framing != null:
+		_speaker_framing.release()
 	_speaker.text = speaker_name
 	_speaker.visible = speaker_name.strip_edges() != ""
 	_line.text = words
-	_actions = []
-	_silence_action = Callable()
-	var number := 0
-	for option in options:
-		var action: Callable = option.action
-		var silent: bool = bool(option.get("silent", false))
-		number += 1
-		_actions.append(action)
-		if silent:
-			_silence_action = action
-		var reply := _reply_button(number, str(option.text), silent,
-				bool(option.get("evidence", false)), bool(option.get("infer", false)))
-		reply.pressed.connect(func():
-			close()
-			if action.is_valid():
-				action.call())
-		_choices.add_child(reply)
+	_fit_spoken_line()
+	_set_replies(options)
+	if not _panel.visible:
+		_previous_mouse = Input.mouse_mode
 	_panel.visible = true
 	_fade_to(1.0)
-	_previous_mouse = Input.mouse_mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_player = get_tree().get_first_node_in_group(
 			"player_controller") as PlayerController
-	if _player:
+	if _player and not _player.protected_input_active():
+		# A text lease can coexist with this panel but blocks background work.
 		_player.call_locked = true
+		_input_revision = _player.call_lock_revision
 	if _choices.get_child_count() > 0:
 		(_choices.get_child(0) as Control).grab_focus()
+
+
+func _set_replies(options: Array) -> void:
+	for old in _choices.get_children():
+		_choices.remove_child(old)
+		old.queue_free()
+	_actions = []
+	_silence_index = -1
+	var number := 0
+	for option in options:
+		var silent: bool = bool(option.get("silent", false))
+		number += 1
+		_actions.append(option)
+		if silent:
+			_silence_index = _actions.size() - 1
+		var reply := _reply_button(number, str(option.text), silent,
+				bool(option.get("evidence", false)), bool(option.get("infer", false)))
+		reply.pressed.connect(_answer.bind(option))
+		_choices.add_child(reply)
+	var replies := _choices.get_children()
+	for index in replies.size():
+		# Explicit neighbours keep clipped rows in directional and tab navigation.
+		var row := replies[index] as Button
+		var previous := row.get_path_to(replies[posmod(index - 1, replies.size())])
+		var following := row.get_path_to(replies[(index + 1) % replies.size()])
+		row.focus_neighbor_top = previous
+		row.focus_previous = previous
+		row.focus_neighbor_bottom = following
+		row.focus_next = following
+	_reply_scroll.scroll_vertical = 0
+	_fit_replies()
 
 
 func _reply_button(number: int, text: String, silent: bool, evidence: bool,
 		infer: bool) -> Button:
 	var button := Button.new()
-	button.text = "%d   %s" % [number, text]
+	var shortcut := "0" if silent else str(number) if number <= 9 else ""
+	button.text = "%s   %s" % [shortcut, text]
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.flat = true
 	button.focus_mode = Control.FOCUS_ALL
 	button.custom_minimum_size = Vector2(0, 28)
@@ -245,14 +362,26 @@ func _fade_to(alpha: float) -> void:
 	_fade.tween_property(_panel, "modulate:a", alpha, FADE_SECONDS)
 
 
+func owns_exclusive_input(player: PlayerController) -> bool:
+	return player == _player and is_instance_valid(player) and attention_active() \
+			and _input_revision == player.call_lock_revision and player.protected_input_active() \
+			and not is_instance_valid(player.text_input_owner) and not is_instance_valid(player.seated_interaction) \
+			and not player.mouse_released and not player.inspecting()
+
+
 func close() -> void:
+	_line_exchange = {}
+	if _speaker_framing != null:
+		_speaker_framing.release()
 	_panel.visible = false
 	_panel.modulate.a = 0.0
 	if _fade and _fade.is_valid():
 		_fade.kill()
-	if _player:
+	if is_instance_valid(_player) and _input_revision == _player.call_lock_revision:
 		_player.call_locked = false
-	Input.mouse_mode = _previous_mouse
+	_input_revision = -1
+	if not is_instance_valid(_player) or not _player.call_locked:
+		Input.mouse_mode = _previous_mouse
 
 
 ## Number keys answer; the reply with no words answers to 0.
@@ -267,7 +396,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if index < _actions.size():
 			get_viewport().set_input_as_handled()
 			choose(index)
-	elif key.keycode == KEY_0 and _silence_action.is_valid():
+	elif key.keycode == KEY_0 and _silence_index >= 0:
 		get_viewport().set_input_as_handled()
 		choose_silence()
 
@@ -277,18 +406,20 @@ func _unhandled_input(event: InputEvent) -> void:
 ## `context` may carry:
 ##   "available": Callable(choice: Dictionary) -> bool
 ##        a choice it refuses is not offered (requires / evidence)
+##   "transaction_for": Callable(choice: Dictionary) -> Callable
+##        optional sale that must succeed and owns the selected flag
 ##   "on_node_flag": Callable(flag: String)
 ##        a node's own `flag`, granted on arrival; falls back to on_flag(flag, 0)
 func run_tree(tree: Dictionary, entry_id: String, on_flag: Callable,
 		on_action := Callable(), context := {}) -> void:
-	_tree = tree
+	_replace_tree(tree)
 	_on_flag = on_flag
 	_on_action = on_action
 	_context = context
 	_show_node(entry_id)
 
 
-func _show_node(node_id: String) -> void:
+func _show_node(node_id: String, exchange: Dictionary = {}, reply_guard := Callable()) -> void:
 	var nodes: Dictionary = _tree.get("nodes", {})
 	if not nodes.has(node_id):
 		push_warning("case dialogue: missing node '%s'" % node_id)
@@ -309,44 +440,91 @@ func _show_node(node_id: String) -> void:
 			on_node_flag.call(node_flag)
 		elif _on_flag.is_valid():
 			_on_flag.call(node_flag, 0)
-	var speaker := str(node.get("speaker",
-			_tree.get("meta", {}).get("speaker_default", "")))
+	var default_speaker := str(_tree.get("meta", {}).get("speaker_default", ""))
+	var speaker := str(node.get("speaker", default_speaker))
+	_line_exchange = exchange
+	_present_line(speaker, str(node.line), _node_options(node, reply_guard), str(node.get("delivery", "spoken")))
+	var actor := str(node.get("actor", ""))
+	# Ordinary, fallback and case trees have one known caller. A different
+	# caption or anonymous voice never borrows that person's face.
+	if not node.has("actor") and not speaker.is_empty() and speaker == default_speaker:
+		actor = str(_context.get("framing_resident", ""))
+	if _player != null and not actor.is_empty():
+		if _speaker_framing == null:
+			_speaker_framing = SpeakerFraming.new()
+			add_child(_speaker_framing)
+		_speaker_framing.begin(_player, actor, owns_exclusive_input, _context.get("framing_cast", {}))
+	node_shown.emit(node_id)
+
+
+func _node_options(node: Dictionary, reply_guard: Callable) -> Array:
 	var available: Callable = _context.get("available", Callable())
+	var transaction_for: Callable = _context.get("transaction_for", Callable())
 	var options: Array = []
 	for choice in node.get("choices", []):
 		if available.is_valid() and not bool(available.call(choice)):
 			continue
+		var target: Dictionary = _tree.nodes.get(str(choice.get("goto", "")), {})
+		var guard: Callable = target.get("reply_guard", reply_guard)
+		var transaction := Callable()
+		if transaction_for.is_valid():
+			transaction = transaction_for.call(choice)
 		options.append({"text": str(choice.label),
 				"evidence": choice.has("evidence"),
 				"infer": bool(choice.get("infer", false)),
-				"action": _advance_action(choice)})
+				"admit": _admit_reply.bind(choice, guard, transaction, node, reply_guard),
+				"action": _advance_action(choice, guard, transaction.is_valid())})
 	if node.has("silence_goto"):
 		var silence := {"goto": node.silence_goto, "flag": node.get("silence_flag", "")}
 		if node.has("silence_trust"):
 			silence["trust"] = node.silence_trust
-		options.append({"text": "Say nothing.", "silent": true,
-				"action": _advance_action(silence)})
+		var target: Dictionary = _tree.nodes.get(str(silence.goto), {})
+		var guard: Callable = target.get("reply_guard", reply_guard)
+		options.append({"text": "Say nothing.", "silent": true, "admit": guard,
+				"action": _advance_action(silence, guard, false)})
 	if options.is_empty():
 		options.append({"text": "...", "silent": true, "action": _end_tree})
-	present(speaker, str(node.line), options)
-	node_shown.emit(node_id)
+	return options
 
 
-func _advance_action(choice: Dictionary) -> Callable:
+func _admit_reply(choice: Dictionary, guard: Callable, transaction: Callable,
+		node: Dictionary, reply_guard: Callable) -> bool:
+	# An expired scene guard owns its cancellation, including releasing the cast.
+	if guard.is_valid() and not bool(guard.call()):
+		return false
+	var available: Callable = _context.get("available", Callable())
+	if (available.is_valid() and not bool(available.call(choice))) \
+			or (transaction.is_valid() and not bool(transaction.call())):
+		# Redraw just the choices. The current speech, node grants and camera lease persist.
+		_set_replies(_node_options(node, reply_guard))
+		(_choices.get_child(0) as Button).grab_focus()
+		return false
+	return true
+
+
+func _advance_action(choice: Dictionary, guard: Callable, transacted: bool) -> Callable:
+	var goto_id := str(choice.get("goto", ""))
 	return func():
 		# A flag implies one trust unless the reply says otherwise; a reply may
 		# also move trust alone, as the inference and comfort replies do.
 		var flag := str(choice.get("flag", ""))
-		if (flag != "" or choice.has("trust")) and _on_flag.is_valid():
+		if not transacted and (flag != "" or choice.has("trust")) and _on_flag.is_valid():
 			_on_flag.call(flag, int(choice.get("trust", 1)))
-		var goto_id := str(choice.get("goto", ""))
 		if goto_id != "":
-			_show_node(goto_id)
+			# Only an offered reply can create this callback. Its reaction belongs
+			# exclusively to the line that answering it puts on screen.
+			var exchange := {}
+			if bool(choice.get("infer", false)):
+				exchange["inferred"] = true
+			if choice.has("evidence"):
+				exchange["evidence"] = true
+			_show_node(goto_id, exchange, guard)
 		else:
 			_end_tree()
 
 
 func _end_tree() -> void:
+	_line_exchange = {}
 	current_node_id = ""
 	tree_ended.emit()
 
@@ -355,17 +533,37 @@ func _end_tree() -> void:
 func choose(index: int) -> void:
 	if index < 0 or index >= _actions.size():
 		return
-	var action: Callable = _actions[index]
-	close()
-	if action.is_valid():
-		action.call()
+	_answer(_actions[index])
 
 
 func choose_silence() -> void:
-	var action := _silence_action
+	if attention_active():
+		choose(_silence_index)
+
+
+func _answer(option: Dictionary) -> void:
+	if not attention_active() or not _actions.has(option):
+		return
+	var admit: Callable = option.get("admit", Callable())
+	if admit.is_valid() and not bool(admit.call()):
+		return
+	var action: Callable = option.action
+	var previous_tree := _tree
+	var lens := _speaker_framing.reply_lens() if _speaker_framing != null else {}
 	close()
 	if action.is_valid():
 		action.call()
+	# The original choice callback sees the released panel/input as before.
+	# Rejoin a retained shot before the next frame, only within this same tree.
+	if previous_tree.is_empty() or not attention_active() or not is_same(previous_tree, _tree):
+		return
+	# The reader is already inside this exchange. Keep the next line legible
+	# on its first frame, including when the player answers during the fade.
+	if _fade and _fade.is_valid():
+		_fade.kill()
+	_panel.modulate.a = 1.0
+	if not lens.is_empty():
+		_speaker_framing.continue_reply(lens)
 
 
 ## The replies currently offered, in order, for tests and drivers.
@@ -373,7 +571,7 @@ func offered_labels() -> Array:
 	var labels: Array = []
 	for child in _choices.get_children():
 		if child is Button:
-			# The number grows beyond one digit; preserve the exact authored label.
+			# The shortcut column is empty on rows reached by scrolling.
 			var numbered: PackedStringArray = str(child.text).split("   ",true,1)
 			labels.append(numbered[1] if numbered.size()==2 else str(child.text))
 	return labels
@@ -382,4 +580,5 @@ func offered_labels() -> Array:
 ## Read-only presentation snapshot for an actor face; dialogue remains owned here.
 func displayed_line() -> Dictionary:
 	return {"speaker": _speaker.text if _speaker != null else "",
-		"text": _line.text if _line != null else ""}
+		"text": _line.text if _line != null else "", "exchange": _line_exchange.duplicate(),
+		"delivery": _line_delivery}

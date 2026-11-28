@@ -60,6 +60,27 @@ var errors: Array[String] = []
 
 
 var _last_usec := 0
+var _sewing_pipeline: Node
+var _sewing_carry: Array[Vector3] = [Vector3.ZERO,Vector3.ZERO]
+var _sewing_carry_weight := 0.0
+
+## One bounded handoff from Lena's occupied seat lease. No default gait,
+## floor law or other actor changes; only this owner's actual final offsets
+## ease into the existing gait over its ordinary EASE_SECONDS.
+func accept_sewing_seat_handoff(owner_actor: Node3D, pose_lease: RefCounted, planted: Array[Transform3D]) -> bool:
+	if actor==null or not is_instance_valid(actor):return false
+	if owner_actor!=actor or str(actor.get("resident_id"))!="lena_ortiz" or planted.size()!=2:return false
+	if not is_instance_valid(_sewing_pipeline) or _sewing_pipeline.sewing_seat!=pose_lease or pose_lease==null:return false
+	var body:=get_skeleton()
+	if body==null:return false
+	var offsets: Array[Vector3]=[]
+	for side in 2:
+		var current:=body.to_global(body.get_bone_global_pose(legs[side].bones[2]).origin)
+		var offset:=planted[side].origin-current
+		if not offset.is_finite() or offset.length()>.06:return false
+		offsets.append(offset)
+	_sewing_carry=offsets;_sewing_carry_weight=1.0
+	return true
 
 
 ## Installs the stage on `pipeline`'s skeleton, directly after it. Null when the rig lacks a leg chain.
@@ -68,6 +89,7 @@ static func install(body_actor: Node3D, pipeline: Node) -> Node:
 	if skeleton == null or pipeline.get("profile") == null:
 		return null
 	var feet: Node = (load("res://scripts/characters/walking_feet.gd") as GDScript).new()
+	feet._sewing_pipeline=pipeline
 	feet.name = "WalkingFeet"
 	if not feet.bind(body_actor, pipeline.profile):
 		feet.free()
@@ -133,9 +155,11 @@ func _floor_under(world: World3D, at: Vector3, floor_y: float) -> float:
 
 
 func apply(skeleton: Skeleton3D, write: Callable, delta: float) -> void:
+	var carry:=_sewing_carry_weight
+	_sewing_carry_weight=move_toward(_sewing_carry_weight,0.0,delta/EASE_SECONDS)
 	var ease := 1.0 - exp(-delta * 3.0 / EASE_SECONDS)
 	weight = lerpf(weight, 1.0 if walking else 0.0, ease)
-	if weight < 0.001 or actor == null or not is_instance_valid(actor) or not actor.is_inside_tree():
+	if (weight < 0.001 and carry < 0.001) or actor == null or not is_instance_valid(actor) or not actor.is_inside_tree():
 		_hip = 0.0
 		_feet = [0.0, 0.0]
 		last_feet_world.clear()
@@ -183,6 +207,7 @@ func apply(skeleton: Skeleton3D, write: Callable, delta: float) -> void:
 		var clip_foot := skeleton.get_bone_global_pose(ids[2])
 		# The pelvis write already carried this ankle up by the hip's share; add only the rest of its own.
 		var target := clip_foot.origin + skeleton_from_world.basis * (Vector3.UP * (offsets[side] - _hip) * weight)
+		if carry>0.0:target+=skeleton_from_world.basis*(_sewing_carry[side]*carry)
 		var thigh := skeleton.get_bone_global_pose(ids[0])
 		var knee := skeleton.get_bone_global_pose(ids[1]).origin
 		var hip_at := thigh.origin

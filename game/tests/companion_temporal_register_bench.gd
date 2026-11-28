@@ -20,6 +20,8 @@ func _ready() -> void:
 
 func _run() -> void:
 	RealityState.persistence_enabled = false
+	var civil := CampaignClock.new()
+	check(civil.configure_date(1929, 5, 24, 23 * 60 + 59), "civil fixture supplied by the campaign clock")
 	var campaign := RealityState.data.duplicate(true)
 	rig = preload("res://scripts/device/companion_mechanism.gd").new(); add_child(rig)
 	if not rig.build(): check(false, "installed companion builds"); finish(); return
@@ -48,6 +50,9 @@ func _run() -> void:
 	var light := DirectionalLight3D.new(); light.rotation_degrees = Vector3(-30, -25, 0); light.light_energy = .8; add_child(light)
 	var camera := Camera3D.new(); camera.projection = Camera3D.PROJECTION_ORTHOGONAL; camera.size = .26
 	add_child(camera); camera.position = Vector3(.09, .02, .30); camera.look_at(Vector3(0, -.025, .015)); camera.make_current()
+	register.campaign_clock = civil
+	register.refresh_campaign_date(0, true)
+	check(register.row_values[1] == "05/24/1929 23.59" and register.civil_plate.is_visible_in_tree() and register.civil_plate.text == "05/24/1929" and not register.hinge.is_visible_in_tree(), "uncovered idle register shows current civil minute")
 	await shot("stowed")
 	var target := {"utc_unix_seconds": State.LOOP_START_UTC + 86300, "local_bias_minutes": -300, "local_zone": "EST"}
 	rig.typing_arm.case_time=rig.typing_arm.PREOPEN_END
@@ -62,6 +67,8 @@ func _run() -> void:
 	check(register.labels.Unknown.text == "UNKNOWN" and register.row_values[0].is_empty(), "staged date never invents death time")
 	register.sample_clock(self, State.LOOP_START_UTC + 3600)
 	check(register.row_values[1] == "11/10/1928 01.00", "passing row uses supplied historical clock")
+	register.refresh_campaign_date(1)
+	check(register.row_values[1] == "11/10/1928 01.00", "campaign sampling yields to borrowed sky clock")
 	var updates:int=register.mask_updates
 	register.sample_clock(self,State.LOOP_START_UTC+3659)
 	check(register.mask_updates==updates,"sub-minute clock sampling does not rebuild digit masks")
@@ -91,6 +98,7 @@ func _run() -> void:
 	get_tree().paused = false
 	register.set_process(false)
 	for frame in 240: register.advance(1.0 / 120)
+	check(register.row_values[1] == "05/24/1929 23.59" and register.row_values[2].is_empty(), "release restores civil date and retires destination")
 	check(register.phase == "idle" and not register.is_processing(), "released accessory settles and stops idle callbacks")
 	check(register.capacitor.get_shader_parameter("capacitor_charge") == 0.0, "released command retires emission")
 	check(register.hinge.basis.is_equal_approx(Basis.IDENTITY), "absolute authored stowed stop")
@@ -99,6 +107,9 @@ func _run() -> void:
 	camera.position = Vector3(-.08, .04, -.28); camera.look_at(Vector3(0, -.015, .01))
 	await shot("capacitor_rear")
 	await photo_surface_controls(camera)
+	civil.advance_to(civil.elapsed_minutes() + 1)
+	register.refresh_campaign_date(.26)
+	check(register.row_values[1] == "05/25/1929 00.00", "idle register crosses civil midnight")
 	await world_controls(target)
 	finish()
 
@@ -133,6 +144,13 @@ func world_controls(target: Dictionary) -> void:
 	carrier.motion.motion_intensity = 0
 	carrier.reading = true; carrier.rig.keyboard_requested=false;carrier.rig.keyboard_open = 0; carrier.rig._apply_keyboard()
 	register = carrier.rig.temporal_register
+	register.campaign_clock = CampaignClock.new()
+	register.refresh_campaign_date(0, true)
+	carrier.reading = false
+	await shot("walking_front")
+	carrier.reading = true
+	carrier.screen_frame.present_reading = true
+	await shot("chat_front")
 	check(carrier.rig.hold_keyboard_closed(self),"temporal preparation holds ordinary keyboard requests closed")
 	carrier.rig.request_keyboard(true)
 	check(not carrier.rig.keyboard_requested,"normal reading cannot override the stow holder")

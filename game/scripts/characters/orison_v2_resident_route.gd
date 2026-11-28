@@ -86,6 +86,14 @@ func setup(root: Node3D) -> bool:
 			previous = index
 	var mail: Node3D = world.adapter.resolve("LobbyMailBank")
 	var mail_point: Vector3 = mail.global_position - mail.global_basis.z * .9
+	# The weekday mail-bank overlap has two readers and a player approach
+	# between them. Both residents still walk their own graph to the bank.
+	if resident == "evelyn_marsh" or resident == "peter_wren":
+		var side := -1.0 if resident == "evelyn_marsh" else 1.0
+		mail_point += mail.global_basis.x.slide(Vector3.UP).normalized() * (side * 0.70)
+		# Peter reads over Evelyn's shoulder, one step back from the boxes.
+		if resident == "peter_wren":
+			mail_point -= mail.global_basis.z.slide(Vector3.UP).normalized() * 0.65
 	mail_point.y = world.adapter.root.to_global(Vector3.ZERO).y
 	graph.connect_points(identities.mail_approach,_point("mail",mail_point))
 	var previous: int = identities.street
@@ -114,6 +122,20 @@ func setup(root: Node3D) -> bool:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != str(source.unit): return false
 		_doors.append(door)
+	# The receiving apron is reached through the actual service leaf. Let the
+	# existing passage owner check the resident's keys and release the door.
+	if places.has("rear_apron"):
+		var rear_leaf := world.find_child("F01_REAR_SERVICE_DOOR_Leaf", true, false) as DoorProp
+		if rear_leaf == null: return false
+		_doors.append(rear_leaf)
+	# Roof access is a public connection. Apartment doors above still
+	# require the route owner to match the private unit.
+	if places.has("roof"):
+		var opening: Node = world.adapter.resolve("ROOF_PUBLIC_DOOR")
+		if opening == null: return false
+		var roof_door := opening.get_node_or_null(str(opening.name) + "_Leaf") as DoorProp
+		if roof_door == null: return false
+		_doors.append(roof_door)
 	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
 	if not _bar_route.attach(self): return false
 	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()
@@ -175,8 +197,27 @@ func _attach_photo_window() -> bool:
 		graph.connect_points(previous, approach)
 		graph.connect_points(approach, _point("photo_window", stance))
 		places["photo_supplies"] = "photo_window"
+		_attach_photo_prints(approach, point)
 		return true
 	return false
+
+## Friday 19 July, the prints branch (WR-05, AdelaDatedEncounters): one vertex just inside Photo Supplies,
+## reached through the middle of the shop's own storefront leaf (its local x runs hinge 0 to width) from the
+## aisle. The place stays "photo_supplies"; only a visit whose itinerary holds "photo:prints" ends at this
+## vertex, as the bodega's shelf stop does. Ordinary window work keeps the window mark.
+func _attach_photo_prints(aisle: int, arcade_point: Vector3) -> void:
+	var leaf := world.passage_region.doors.get("SITE_SHOP_DOOR_PHOTO_SUPPLIES") as DoorProp
+	if leaf == null:
+		return
+	var outward := signf(leaf.to_local(arcade_point).z)
+	var middle := leaf.width * .5
+	var door_out := _point("photo_shop_door_out", leaf.to_global(Vector3(middle, 0.0, outward * 1.55)))
+	graph.connect_points(aisle, door_out)
+	var door_in := _point("photo_shop_door_in", leaf.to_global(Vector3(middle, 0.0, -outward * 1.35)))
+	graph.connect_points(door_out, door_in)
+	graph.connect_points(door_in, _point("photo_prints", leaf.to_global(Vector3(middle, 0.0, -outward * 2.6))))
+	if leaf not in _doors:
+		_doors.append(leaf)
 
 ## Reconstruct at the selected endpoint unless a person already occupies it.
 ## Fall back only along this resident's existing home-to-goal route. Keep the
@@ -266,6 +307,8 @@ func _select_destination() -> void:
 	var itinerary: Variant = block.get("route", [])
 	bodega_shelf_stop = destination == "bodega" and itinerary is Array and itinerary.has("bodega:shelf")
 	desired_id = int(identities.get(_node_for(destination),-1))
+	if destination == "photo_supplies" and itinerary is Array and itinerary.has("photo:prints") and identities.has("photo_prints"):
+		desired_id = int(identities.photo_prints)
 	route_speed = _speed()
 
 ## The route node for a destination: the place itself, the flat for any room
@@ -362,7 +405,7 @@ func _route_tick(delta: float) -> void:
 		_sample = .5
 		_select_destination()
 		_dress_unseen()
-	if world.player.call_locked or desired_id < 0:
+	if desired_id < 0 or _player_lock_holds_route():
 		actor._set_walking(false)
 		return
 	if _bar_route != null and _bar_route.update_place(delta):
@@ -620,7 +663,11 @@ func _release_passed_doors() -> void:
 func _talking() -> bool:
 	if actor.mina_animation != null:
 		return actor.mina_animation.conversation_active
-	return world.player.call_locked and actor.global_position.distance_to(world.player.global_position) < 3.0
+	return _player_lock_holds_route() and actor.global_position.distance_squared_to(world.player.global_position) < 9.0
+
+
+func _player_lock_holds_route() -> bool:
+	return world.player.call_locked and not ResidentConversations.permits_background_work(actor, world.player)
 
 func _face_door(door: DoorProp) -> void:
 	var toward := door.to_global(Vector3(door.width * .75, 0, 0)) - actor.global_position
@@ -655,7 +702,7 @@ func _set_outside(value: bool) -> void:
 ## Places as the wardrobe rules know them: the flat is home, the bar the bar, the building's halls the lobby,
 ## the roof the roof, and anywhere off the block the street (outdoors).
 const WARDROBE_PLACE := {"unit": "home", "harukiya_bar": "bar", "lobby": "lobby", "mail_bank": "lobby",
-	"corridor": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
+	"corridor": "lobby", "corridor_pause": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
 
 ## A resident on a rebuilt body changes clothes by the wardrobe rules for where it is and what it is doing,
 ## only while nobody can see it (Lily 2026-11-12, ruling cast_swap_clothes).
@@ -720,7 +767,10 @@ func _characters_clear(next: Vector3) -> bool:
 		var step := next-actor.global_position
 		step.y = 0
 		if (offset-step).length() < separation and (offset-step).length() <= offset.length()+.00001:
-			if _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
+			if world.player.call_locked and (peer == world.player or not ResidentConversations.permits_background_work(peer, world.player)):
+				# The locked caller/listeners cannot step aside; keep their space.
+				clear = false
+			elif _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
 				clear = false
 			elif not squeeze.permits(actor, peer): clear = false
 	return clear

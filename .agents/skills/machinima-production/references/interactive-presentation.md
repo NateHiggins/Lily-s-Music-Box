@@ -25,6 +25,28 @@ Camera visibility alone cannot grant evidence. The existing observation or case
 owner determines its prerequisites. Let optional performances coexist with
 maintenance, reading and exploration; don't hold the player hostage to idle speech.
 
+## Stage a conversation in a moving building
+
+Pick a day and minute and read both residents' resolved agendas there. In V2,
+a timetable's list of stops can mention a room the motor never visits.
+Record each actor's destination and actual arrival. Give them distinct places
+to stand and walk the last approach through the fitted door. Try the player's
+view from the near side, including standing between the two actors. A wall
+should break the exchange. The player's body alone should let it continue.
+
+Hold the framing through consecutive lines from the same face. On a change
+of speaker, check the listener's gaze and whether the new face is visible
+from where the player chose to stand. An off-screen reply can remain there.
+Advance a line, leave early, then let a service prompt interrupt mid-answer.
+Check which panel gets the next click, which voice and mouth stop, and who
+owns the lens. While the player reads, watch one resident outside the scene
+finish an ordinary action.
+
+When checking a clock boundary, record the civil minute and story flags
+separately. Let the clock advance while a line is open. Check whether the
+speaker's own appointment changed, then inspect the flags after the choice.
+This distinguishes an arriving guest from a reason to cut the speaker off.
+
 ## Map authority before authoring events
 
 Record the actual owner and supported API for each affected domain:

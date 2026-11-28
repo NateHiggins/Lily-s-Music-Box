@@ -19,6 +19,9 @@ var pipeline: Node
 var conversing := false
 ## For a test or a staged scene: a point to attend to instead of the camera.
 var staged_target: Variant = null
+## An authored cue (e.g. a band member across the room). Conversation has priority.
+var ensemble_target: Variant = null
+var _caller: Node3D
 var _resident_id := ""
 var _random := RandomNumberGenerator.new()
 var _looking := false
@@ -37,7 +40,7 @@ static func install(actor: Node3D, model: Node, resident_id: String) -> Node:
 	var fitted: Node = Pipeline.new()
 	fitted.name = "PosePipeline"
 	body.add_child(fitted)
-	if not fitted.bind(body):
+	if not fitted.bind(body, resident_id):
 		fitted.queue_free()
 		return null
 	var attention: Node = (load("res://scripts/characters/resident_attention.gd") as GDScript).new()
@@ -55,6 +58,8 @@ func _ready() -> void:
 		node = node.get_parent()
 	if node == null or not (node.get("conversations") is Object):
 		return
+	if "player" in node:
+		_caller = node.get("player") as Node3D
 	var conversations: Object = node.get("conversations")
 	if conversations.has_signal("conversation_started"):
 		conversations.connect("conversation_started", _on_conversation_started)
@@ -84,8 +89,13 @@ func _begin_look_away() -> void:
 
 
 func _target() -> Variant:
+	# During a conversation the live player may be observed by a separate film camera.
+	if conversing and is_instance_valid(_caller) and is_instance_valid(_caller.get("camera")):
+		return (_caller.get("camera") as Camera3D).global_position
 	if staged_target is Vector3:
 		return staged_target
+	if is_instance_valid(_caller) and is_instance_valid(_caller.get("camera")):
+		return (_caller.get("camera") as Camera3D).global_position
 	var viewport := get_viewport()
 	var camera := viewport.get_camera_3d() if viewport != null else null
 	return camera.global_position if camera != null else null
@@ -96,13 +106,19 @@ func _process(delta: float) -> void:
 		return
 	_clock += delta
 	var actor := get_parent() as Node3D
+	if actor == null or not actor.is_visible_in_tree():
+		pipeline.rest()
+		return
+	if not conversing and ensemble_target is Vector3:
+		pipeline.attend(ensemble_target)
+		return
 	var target: Variant = _target()
-	if actor == null or not actor.is_visible_in_tree() or target == null:
+	if target == null:
 		pipeline.rest()
 		return
 	var apart: float = (target as Vector3).distance_to(actor.global_position + Vector3(0, 1.4, 0))
 	var near := apart < (RELEASE_METRES if _noticed else NOTICE_METRES)
-	if near and not _noticed:
+	if near and not _noticed and not conversing:
 		# Noticing takes a moment; it is not a switch.
 		_looking = false
 		_until = _clock + _random.randf_range(0.25, 0.7)
@@ -122,4 +138,4 @@ func _process(delta: float) -> void:
 
 
 func is_looking() -> bool:
-	return _looking and pipeline != null and pipeline.attending()
+	return pipeline != null and pipeline.attending()

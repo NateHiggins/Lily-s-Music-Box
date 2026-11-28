@@ -1,12 +1,9 @@
-extends Node3D
+extends "res://scripts/player/player_avatar_held_items.gd"
 ## Owner-supplied rig is presentation only; the existing controller owns motion.
 const LAYER:=1<<15
 const MODEL:="res://assets/characters/player_doodle/player_doodle.glb"
 const FACE_SHADER:=preload("res://shaders/player_doodle.gdshader")
-const HeldHandSlotScript := preload("res://scripts/characters/held_hand_slot.gd")
-var holder: PlayerController
 var animator: AnimationPlayer
-var skeleton: Skeleton3D
 var idle_clip: StringName
 var native_ready:=false
 var reflected:=false
@@ -73,34 +70,7 @@ func _ready() -> void:
 	head_aim.active=false;skeleton.add_child(head_aim)
 	holder.camera.cull_mask&=~LAYER
 	native_ready=true
-	_bind_hand_slot()
-
-## The hand slot shows what the carried case says is held. It is drawn on the
-## avatar's own layer, so mirrors see it and the first-person camera does not
-## (ruling held_view_first_person_20261125 is open).
-var hand_slot: HeldHandSlotScript
-
-func _bind_hand_slot() -> void:
-	hand_slot=HeldHandSlotScript.new();hand_slot.name="HandSlot";hand_slot.layers=LAYER
-	skeleton.add_child(hand_slot)
-	if not hand_slot.bind_hand(skeleton):
-		hand_slot.queue_free();hand_slot=null;return
-	if not RealityState.state_changed.is_connected(refresh_hand):RealityState.state_changed.connect(refresh_hand)
-	refresh_hand()
-
-func refresh_hand() -> void:
-	if not is_instance_valid(hand_slot):return
-	var item:=CarriedCase.hand()
-	if item==hand_slot.worn:return
-	var part: Node3D
-	var state: Node=get_tree().get_first_node_in_group("v2_household_state") if is_inside_tree() else null
-	if not item.is_empty() and state!=null and state.has_method("packed_kitchen_tool"):
-		var packed: Dictionary=state.packed_kitchen_tool(item)
-		if not packed.is_empty():part=packed.station.tool_visual(packed.assembly)
-	hand_slot.wear(item if part!=null else "",part)
-
-func _exit_tree() -> void:
-	if RealityState.state_changed.is_connected(refresh_hand):RealityState.state_changed.disconnect(refresh_hand)
+	_bind_hand_slot(LAYER)
 
 func _bind_face(draw:MeshInstance3D,base:StandardMaterial3D,head:int) -> bool:
 	if draw.skin==null:return false

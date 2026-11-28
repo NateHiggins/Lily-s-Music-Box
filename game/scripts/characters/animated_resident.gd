@@ -31,14 +31,23 @@ var mina_animation: MinaAnimationBehavior
 ## batches once the pilot qualifies; the rest keep the plain 1x walk.
 const GAIT_PILOT := ["malcolm_reed",
 		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
-		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests",
+		"cam_ortiz", "iris_bell", "mae_kessler", "nadia_quell", "omar_bell", "sacha_reed"]
 var walk_gait: ClipGait
+## The male cast base's long shin: its shared walk may slow further on stairs (ClipGait.STAIR_MIN_SCALE). A route
+## slope this steep or steeper is a stair; the house's run 0.16 m in 0.285 m.
+const LONG_SHIN := 0.40
+const STAIR_SLOPE := 0.3
+var long_legged := false
+var _route_slope := 0.0
 ## Walking foot placement (Lily's ruling npc_generic_stairs_20261124): feet land on the tread under them. The two
 ## pilot bodies first, one per cast base; then batches (batch one by her ruling npc_feet_descent_backswing_20261124,
-## "widen to more residents"): two more of each base; batch two, three more of each. Everyone else joins later.
+## "widen to more residents"): two more of each base; batch two, three more of each; batch three, the last six.
+## Every regular resident is now in both gates. Adela (staff, not a resident) stays outside them.
 const FEET_PILOT := ["mina_vale", "malcolm_reed",
 		"evelyn_marsh", "teresa_vale", "peter_wren", "noel_price",
-		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests"]
+		"lena_ortiz", "juno_kells", "rhea_sato", "cal_dwyer", "jonah_price", "transient_guests",
+		"cam_ortiz", "iris_bell", "mae_kessler", "nadia_quell", "omar_bell", "sacha_reed"]
 const WalkingFeet := preload("res://scripts/characters/walking_feet.gd")
 var walking_feet: Node
 var _ground_speed := 0.0
@@ -97,6 +106,7 @@ func _ready() -> void:
 			push_error("Mina Gray Resolve batch is incomplete")
 	elif resident_id in GAIT_PILOT and cast_body != null and _animation_player != null and _animation_player.has_animation(preferred_walk):
 		walk_gait = ClipGait.measure(_animation_player, cast_body.skeleton, preferred_walk, CastBodies.cast_person(resident_id))
+		long_legged = _shin_length(cast_body.skeleton) >= LONG_SHIN
 	if resident_id in FEET_PILOT and cast_body != null:
 		var owner_of_attention: Node = cast_body.get("attention")
 		if owner_of_attention != null and owner_of_attention.pipeline != null:
@@ -342,7 +352,18 @@ func _match_ground() -> void:
 		return
 	if str(_animation_player.current_animation) != preferred_walk:
 		return
-	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed)
+	var lowest := ClipGait.STAIR_MIN_SCALE if long_legged and absf(_route_slope) >= STAIR_SLOPE else ClipGait.MIN_SCALE
+	_animation_player.speed_scale = walk_gait.scale_for(_animation_player.current_animation_position, _ground_speed, lowest)
+
+
+## The rest length of the left shin. Measured 2026-11-25 on all seventeen generic bodies: the male base 0.405-0.486 m
+## (Cam shortest), the female 0.377-0.397 m. LONG_SHIN sits in that gap; NpcPilotGenericGaitTest holds the split.
+static func _shin_length(skeleton: Skeleton3D) -> float:
+	var knee := skeleton.find_bone("LeftLeg")
+	var ankle := skeleton.find_bone("LeftFoot")
+	if knee < 0 or ankle < 0:
+		return 0.0
+	return skeleton.get_bone_global_rest(knee).origin.distance_to(skeleton.get_bone_global_rest(ankle).origin)
 
 
 func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
@@ -354,6 +375,7 @@ func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
 	else:
 		_set_walking(on)
 		_ground_speed = metres_per_second if on else 0.0
+		_route_slope = slope if on else 0.0
 
 
 ## Case beats may borrow the actor: the dialogue tree asks for roles like
@@ -434,19 +456,31 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
+	if not is_inside_tree():
+		return ""
+	var speak := "[E]  Speak with %s" % display_name
+	var talk := get_tree().get_first_node_in_group("resident_conversations") as ResidentConversations
 	if not installed_topic.is_empty():
-		if not _installed_topic_present():
-			return ""
-	elif is_inside_tree():
-		var loop_performances := get_tree().get_first_node_in_group("loop_performances")
-		# An open spoken thread answers the click before the ambient topic.
-		var talk := get_tree().get_first_node_in_group("resident_conversations")
-		if talk is ResidentConversations and (talk as ResidentConversations).has_spoken_thread(resident_id):
-			loop_performances = null
-		if loop_performances != null:
-			var topic := str(loop_performances.conversation_prompt(resident_id))
-			if not topic.is_empty(): return topic
-	return "[E]  Speak with %s" % display_name
+		if _installed_topic_present() and talk != null and talk.can_offer_body_mystery(resident_id, false, installed_topic):
+			return speak
+		return ""
+	if talk != null and talk.can_offer_body_mystery(resident_id, true):
+		return speak
+	var performances := get_tree().get_first_node_in_group("loop_performances")
+	if performances != null:
+		var topic := str(performances.conversation_prompt(resident_id))
+		if not topic.is_empty():
+			return topic
+	var music := get_tree().get_first_node_in_group("music_director")
+	if music != null and not music.body_music_anecdote(resident_id).is_empty():
+		return speak
+	return speak if _has_enabled_case() else ""
+
+
+func _has_enabled_case() -> bool:
+	var case_id := RealityCases.case_for_resident(resident_id)
+	return case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false))
+
 
 
 func key_prompt() -> String:
@@ -487,8 +521,7 @@ func interact(_player: Node) -> void:
 		return
 	# Only an enabled case hears an ordinary interaction (the rule ResidentConversations.start keeps): speaking
 	# to a body must never open a case that is switched off (order w715d783b50d8).
-	var case_id := RealityCases.case_for_resident(resident_id)
-	if case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false)):
+	if _has_enabled_case():
 		RealityCases.interact_with_resident(resident_id)
 
 

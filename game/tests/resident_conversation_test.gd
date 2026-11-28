@@ -35,8 +35,31 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	await _run()
 	await _check_reply_layout()
+	await _check_speaker_framing()
 	print("RESIDENT CONVERSATION TEST: %d failures" % _fails)
 	get_tree().quit(0 if _fails == 0 else 1)
+
+
+func _check_delivery_validation(director: ResidentConversations) -> void:
+	var validator := ResidentConversations.new()
+	for mystery: bool in [false, true]:
+		var book: Dictionary = director.mystery if mystery else director.trees
+		var tree: Dictionary = book["adela_voss"].duplicate(true)
+		var validate := Callable(validator, "_valid_mystery" if mystery else "_valid_tree")
+		var id := "av_o54" if mystery else "ad_int_beat"
+		var node: Dictionary = tree.nodes[id]
+		tree.meta["delivery"] = "ignored metadata"
+		for field: Variant in [null, "spoken", "silent", "silnt", false]:
+			if field == null:
+				node.erase("delivery")
+			else:
+				node["delivery"] = field
+			validator.errors.clear()
+			var accepted := bool(validate.call(tree, "fixture"))
+			var expected: bool = field == null or field in ["spoken", "silent"]
+			_check("node delivery %s in %s" % [str(field), id], accepted == expected
+					and (accepted or validator.errors.has("fixture: node %s delivery must be spoken or silent" % id)))
+	validator.free()
 
 
 func _run() -> void:
@@ -55,6 +78,7 @@ func _run() -> void:
 	if not director.errors.is_empty():
 		for line in director.errors:
 			print("  tree error: ", line)
+	_check_delivery_validation(director)
 	_check("trees are keyed by resident", director.has_tree("peter_wren")
 			and director.has_tree("transient_guests") and not director.has_tree("mina_vale"))
 	_check("doors know their tenants", director.residents_in("4C") == ["cam_ortiz", "noel_price"]
@@ -99,8 +123,38 @@ func _run() -> void:
 	offered = panel.offered_labels()
 	_check("the evidence reply appears when the player stands in 4A",
 			_has(offered, "[the staging table]"))
+	_check("a fresh conversation starts with its entrance fade", is_zero_approx(panel._panel.modulate.a))
+	var events: Array[String] = []
+	var on_show := func(id: String): events.append(id)
+	var on_end := func(): events.append("ended")
+	panel.node_shown.connect(on_show)
+	panel.tree_ended.connect(on_end)
+	var line := panel.displayed_line()
+	_unit = ""
+	var stale_evidence := panel._choices.get_child(_index(offered, "[the staging table]")) as Button
+	stale_evidence.pressed.emit()
+	_check("leaving Peter's flat rejects the stale button without replaying the node",
+			panel.attention_active() and panel.current_node_id == "pw_open" and panel.displayed_line() == line
+			and events.is_empty() and not _has(panel.offered_labels(), "[the staging table]")
+			and _has(panel.offered_labels(), "Say nothing.") and RealityState.resident_trust("peter_wren") == 0)
+	stale_evidence.pressed.emit()
+	_check("the detached button cannot answer the refreshed menu", events.is_empty())
+	_check("rejecting the stale reply leaves Peter at two visits",
+			RealityState.conversation_visits("peter_wren") == 2)
+	panel.node_shown.disconnect(on_show)
+	panel.tree_ended.disconnect(on_end)
+	panel.close()
+	panel.current_node_id = ""
+	_unit = "4A"
+	_check("reopening the flat for the evidence reply records the third visit",
+			director.knock("4A").is_empty() and panel.current_node_id == "pw_open"
+			and RealityState.conversation_visits("peter_wren") == 3)
+	offered = panel.offered_labels()
 	panel.choose(_index(offered, "[the staging table]"))
 	_check("the table leads to the stations", panel.current_node_id == "pw_table")
+	_check("the evidence reply is readable on its first frame", is_equal_approx(panel._panel.modulate.a, 1.0))
+	await get_tree().process_frame
+	_check("the entrance tween cannot dim the reply again", is_equal_approx(panel._panel.modulate.a, 1.0))
 	panel.choose(_index(panel.offered_labels(), "'The other matter.'"))
 	panel.choose(_index(panel.offered_labels(), "What was the filing?"))
 	_check("reaching the appeal grants the node's own flag",
@@ -159,7 +213,7 @@ func _run() -> void:
 	_check("knowledge, trust and visits are in the saved campaign document",
 			"peter_gap_found" in snapshot.knowledge_flags
 			and int(snapshot.resident_trust.peter_wren) == 6
-			and int(snapshot.conversation_visits.peter_wren) == 3)
+			and int(snapshot.conversation_visits.peter_wren) == 4)
 	_check("the saved shape still validates", RealityState._validate_document(snapshot).ok)
 
 	# --- a soured first contact falls back -------------------------------------------
@@ -254,12 +308,19 @@ func _run() -> void:
 			{"text": "Two", "action": Callable(), "silent": true}])
 	await get_tree().process_frame
 	_check("replies are numbered plain lines, silence set apart",
-			panel.offered_labels() == ["One", "Two"] and panel._choices.get_child(1).text.begins_with("2"))
+			panel.offered_labels() == ["One", "Two"] and panel._choices.get_child(1).text.begins_with("0   "))
 	_check("the panel lowers the scrim, never a box over the view",
 			panel._scrim.anchor_top > 0.5 and panel._line.autowrap_mode == TextServer.AUTOWRAP_WORD_SMART
 			and panel._line.get_theme_font_size("font_size") >= 20)
+	var quiet_key := InputEventKey.new()
+	quiet_key.keycode = KEY_0
+	quiet_key.pressed = true
+	panel._unhandled_input(quiet_key)
+	_check("zero closes a silent leave option even when it has no callback", not panel.attention_active())
+	panel.present("TEST", "A spoken choice only.", [{"text": "Reply.", "action": Callable()}])
+	panel.choose_silence()
+	_check("an unavailable silent reply leaves the current prompt open", panel.attention_active())
 	panel.close()
-	_check("closing hands the pointer back", not panel.attention_active())
 
 
 func _check_reply_layout() -> void:
@@ -286,8 +347,109 @@ func _check_reply_layout() -> void:
 				last_reply.get_global_rect().end.y <= visible.end.y - 34.0)
 		_check("dialogue at %s sits below the centre" % size,
 				panel._column.get_global_rect().position.y > visible.get_center().y)
+	await _check_long_replies(viewport, panel)
 	panel.close()
 	viewport.queue_free()
+
+
+## The same bar line and dated topics seen stacked in the installed Adela proof.
+## Presentation-only fixture: availability remains the conversation owner's job.
+func _check_long_replies(viewport: SubViewport, panel: CaseDialoguePanel) -> void:
+	var book: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/adela_voss.json"))
+	var mystery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/mystery/adela_voss.json"))
+	var line: Dictionary = book.nodes.ad_singing
+	var labels: Array[String] = [str(line.choices[0].label)]
+	for thread: Dictionary in mystery.threads:
+		labels.append(str(thread.topic))
+		if labels.size() == 14: break
+	labels.append("Say nothing.")
+	var chosen: Array[String] = []
+	var options := []
+	for label: String in labels:
+		options.append({"text": label, "action": func(): chosen.append(label), "silent": label == "Say nothing."})
+	for size: Vector2i in [Vector2i(960, 540), Vector2i(640, 360)]:
+		viewport.size = size
+		panel.present("ADELA", str(line.line), options)
+		for frame in 5: await get_tree().process_frame
+		var rect := panel._reply_scroll.get_global_rect()
+		var speaker := panel._speaker.get_global_rect()
+		var words := panel._line.get_global_rect()
+		_check("long replies keep speaker and line visible at %s" % size, speaker.position.y >= size.y * .48
+				and words.end.y <= rect.position.y and words.end.x <= size.x and rect.end.y <= size.y)
+		_check("all authored labels are available at %s" % size, panel.offered_labels() == labels
+				and panel._reply_scroll.get_v_scroll_bar().visible and panel._reply_scroll.scroll_vertical == 0)
+		_check("shortcut labels match the available number keys at %s" % size,
+				panel._choices.get_child(8).text.begins_with("9   ")
+				and panel._choices.get_child(9).text == "   " + labels[9]
+				and panel._choices.get_child(-1).text == "0   " + labels.back())
+		var move := InputEventMouseMotion.new()
+		move.position = rect.get_center()
+		viewport.push_input(move, true)
+		var wheel := InputEventMouseButton.new()
+		wheel.position = move.position
+		wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN
+		wheel.pressed = true
+		viewport.push_input(wheel, true)
+		await get_tree().process_frame
+		_check("wheel scrolls the replies at %s" % size, panel._reply_scroll.scroll_vertical > 0)
+		var all_reached := true
+		for index in range(1, labels.size()):
+			# Alternate the default keyboard and controller down bindings.
+			var input: InputEvent
+			if index % 2:
+				var key := InputEventKey.new()
+				key.keycode = KEY_DOWN
+				key.pressed = true
+				input = key
+			else:
+				var pad := InputEventJoypadButton.new()
+				pad.button_index = JOY_BUTTON_DPAD_DOWN
+				pad.pressed = true
+				input = pad
+			viewport.push_input(input, true)
+			input.set("pressed", false)
+			viewport.push_input(input, true)
+			await get_tree().process_frame
+			var row := panel._choices.get_child(index) as Button
+			var bounds := row.get_global_rect()
+			all_reached = all_reached and viewport.gui_get_focus_owner() == row \
+					and bounds.position.y >= rect.position.y - 1 and bounds.end.y <= rect.end.y + 1
+		_check("directional focus reveals every row including silence at %s" % size, all_reached
+				and panel._speaker.get_global_rect() == speaker and panel._line.get_global_rect() == words)
+		var accept := InputEventKey.new()
+		accept.keycode = KEY_ENTER
+		accept.pressed = true
+		viewport.push_input(accept, true)
+		accept.pressed = false
+		viewport.push_input(accept, true)
+		_check("focused last reply activates at %s" % size, not chosen.is_empty() and chosen.back() == labels.back()
+				and not panel.attention_active())
+		chosen.clear()
+		for digit: int in [KEY_1, KEY_9, KEY_0]:
+			panel.present("ADELA", str(line.line), options)
+			var shortcut := InputEventKey.new()
+			shortcut.keycode = digit
+			shortcut.pressed = true
+			viewport.push_input(shortcut, true)
+			_check("shortcut %s preserves its authored reply at %s" % [digit, size], not chosen.is_empty()
+					and chosen.back() == labels[-1 if digit == KEY_0 else digit - KEY_1])
+			chosen.clear()
+
+
+		# Noel's terminal inventory confession is the longest authored resident line.
+		# The panel must retain the full words for both the reader and the voice owner.
+		var noel: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue/noel_price.json"))
+		panel.run_tree(noel, "np_assoc_chair", Callable())
+		for frame in 5: await get_tree().process_frame
+		var caption := panel._line.get_global_rect()
+		var replies := panel._reply_scroll.get_global_rect()
+		_check("Noel's complete confession leaves his face and closing reply visible at %s" % size,
+				panel.displayed_line().text == noel.nodes.np_assoc_chair.line
+				and panel._line.get_theme_font_size("font_size") >= CaseDialoguePanel.REPLY_SIZE
+				and panel._speaker.get_global_rect().position.y >= size.y * .48
+				and caption.end.x <= size.x and caption.end.y <= replies.position.y
+				and replies.end.y <= size.y and panel.offered_labels() == ["..."])
+		panel.close()
 
 
 static func _has(labels: Array, text: String) -> bool:
@@ -318,3 +480,192 @@ static func _index(labels: Array, text: String) -> int:
 		if str(labels[i]).contains(text):
 			return i
 	return -1
+
+class LensPlayer extends PlayerController:
+	func _ready() -> void:
+		camera = Camera3D.new()
+		add_child(camera)
+		camera.make_current()
+		add_to_group("player_controller")
+		set_physics_process(false)
+		set_process(false)
+		set_process_input(false)
+		set_process_unhandled_input(false)
+
+
+class LensResident extends Node3D:
+	var resident_id := "stacy"
+
+	func _ready() -> void:
+		add_to_group("animated_residents")
+		var skeleton := Skeleton3D.new()
+		skeleton.add_bone("Head")
+		add_child(skeleton)
+
+
+func _check_speaker_framing() -> void:
+	var previous_mouse := Input.mouse_mode
+	var player := LensPlayer.new()
+	add_child(player)
+	player.camera.fov = 76.0
+	var player_pose := player.global_transform
+	var eye_pose := player.camera.transform
+	var actor := LensResident.new()
+	actor.position = Vector3(0.0, 0.0, -2.1)
+	add_child(actor)
+	var panel := CaseDialoguePanel.new()
+	add_child(panel)
+	var director := ResidentConversations.new()
+	add_child(director)
+	director.setup(panel)
+	_check("ordinary Stacy dialogue opens", director.start("stacy"))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("the ordinary authored speaker uses the same bounded lens", player.camera.fov < 76.0)
+	# A replacement panel can take ownership before the former conversation
+	# ends. An anonymous intercom announcement carries no physical face.
+	panel.run_tree({"meta": {"speaker_default": "STACY"}, "nodes": {
+		"announcement": {"speaker": "INTERCOM", "line": "Stand by."}
+	}}, "announcement", Callable(), Callable(), {"framing_resident": "stacy"})
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("another voice restores the lens without stealing the replacement panel",
+			is_equal_approx(player.camera.fov, 76.0) and panel.attention_active() and player.call_locked)
+	director.cancel_for_transition()
+	_check("old conversation cancellation leaves replacement input ownership intact", player.call_locked)
+	panel.close()
+	_check("replacement closes to the mouse mode owned before the exchange", Input.mouse_mode == previous_mouse)
+	var lines := [{"speaker": "stacy", "text": "Here."}, {"speaker": "stacy", "text": "Still here."},
+			{"speaker": "lily", "text": "Across the room."}]
+	_check("loop performance opens on the speaking resident", director.start_performance_sequence("stacy", lines, player))
+	for tick in 12:
+		await get_tree().physics_frame
+	_check("a visible speaker gets a bounded push from the caller's original lens",
+			player.camera.fov >= 69.0 and player.camera.fov < 76.0)
+	_check("framing preserves the player's camera, aim, position and existing dialogue lock",
+			player.camera.is_current() and player.call_locked and player.global_transform == player_pose
+			and player.camera.transform == eye_pose)
+	var held_lens := player.camera.fov
+	panel.choose(0)
+	_check("the next line from the same body keeps the caller's lens between frames",
+			panel.current_node_id == "loop_business_1" and is_equal_approx(player.camera.fov, held_lens))
+	await get_tree().physics_frame
+	_check("the retained shot continues smoothly", player.camera.fov <= held_lens)
+	panel.choose(0)
+	_check("an absent second speaker immediately restores the original shot",
+			panel.current_node_id == "loop_business_2" and is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	_check("transition restores ordinary player input", not player.call_locked)
+	var partner := LensResident.new()
+	partner.resident_id = "lily"
+	add_child(partner)
+	var view := player.camera.get_viewport().get_visible_rect()
+	for uv: Vector2 in [Vector2(.94, .46), Vector2(.06, .59)]:
+		partner.global_position = player.camera.project_position(view.position + view.size * uv, 2.1) - Vector3.UP * .08
+		_check("two-person exchange opens at the frame edge", director.start_performance_sequence("stacy", lines, player))
+		for tick in 8:
+			await get_tree().physics_frame
+		_check("edge partner keeps entry lens, position and input at " + str(uv), is_equal_approx(player.camera.fov, 76.0)
+				and player.camera.transform == eye_pose and player.global_transform == player_pose and player.call_locked)
+		director.cancel_for_transition()
+	_check("solo line opens beside a visible bystander", director.start_performance("stacy", "Here.", player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a bystander at the edge leaves the solo lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	# Sacha's rooftop entry projects her eyes beyond x=1 while part of her shoulder remains visible.
+	var cropped_eye := player.camera.project_position(view.position + view.size * Vector2(1.07, .38), .75)
+	partner.global_position = cropped_eye - Vector3.UP * .08
+	_check("cropped fixture has only the shoulder inside", not player.camera.is_position_in_frustum(cropped_eye)
+			and player.camera.is_position_in_frustum(cropped_eye - player.camera.global_basis.x * .23 + Vector3.DOWN * .18))
+	_check("exchange opens with a partially visible partner", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a visible shoulder preserves the player's entry shot", is_equal_approx(player.camera.fov, 76.0)
+			and player.camera.transform == eye_pose and player.global_transform == player_pose)
+	director.cancel_for_transition()
+	partner.global_position += player.camera.global_basis.x * 2.0
+	_check("exchange opens with its partner fully offscreen", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a fully offscreen partner leaves the speaker lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	partner.position.z = 2.1
+	_check("exchange opens with its partner behind the camera", director.start_performance_sequence("stacy", lines, player))
+	for tick in 8:
+		await get_tree().physics_frame
+	_check("a partner behind the camera leaves the speaker lens available", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	partner.free()
+	# Same skeleton, with its restored clip above the frame and its composed
+	# seated head in the shot. Exercise ordinary dialogue panel ownership.
+	var rig := actor.get_child(0) as Skeleton3D
+	var pose := preload("res://scripts/characters/pose_pipeline.gd").new()
+	pose.name = "PosePipeline"
+	rig.add_child(pose)
+	rig.set_bone_pose_position(0, Vector3.UP * 2.0)
+	pose.last_eye = Vector3.ZERO
+	pose.frames = 1
+	_check("seated performance opens", director.start_performance("stacy", "Here.", player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("lens frames the composed seated head", player.camera.fov < 76.0)
+	director.cancel_for_transition()
+	pose.active = false
+	_check("speaker can answer after a pose owner releases her", director.start_performance("stacy", "Here.", player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("inactive seated pose yields to the restored clip", is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	pose.free()
+	rig.set_bone_pose_position(0, Vector3.ZERO)
+	for scripted: bool in [false, true]:
+		var opened := director.start_performance_sequence("stacy", lines, player) if scripted else director.start("stacy")
+		_check("resident owns the panel before the service prompt", opened)
+		var before := RealityState.data.duplicate(true)
+		var answered := [false]
+		panel.present("SERVICE", "One moment.", [{"text": "Ready.", "action": func(): answered[0] = true}])
+		_check("standalone prompt immediately releases the resident and clears her former node",
+				director._active_resident.is_empty() and not director.performance_active() and panel.current_node_id.is_empty())
+		director.cancel_for_transition()
+		_check("former conversation leaves the service prompt, input and campaign intact",
+				panel.attention_active() and player.call_locked and panel.offered_labels() == ["Ready."] and before == RealityState.data)
+		panel.choose(0)
+		_check("the service prompt receives its own reply and releases input", answered[0] and not player.call_locked)
+	var wall := StaticBody3D.new()
+	var shape := CollisionShape3D.new()
+	shape.shape = BoxShape3D.new()
+	wall.add_child(shape)
+	wall.position.z = -1.0
+	add_child(wall)
+	await get_tree().physics_frame
+	_check("occluded exchange still opens", director.start_performance_sequence("stacy", lines, player))
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("a wall between player and eyes keeps the original lens", is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	wall.free()
+	await get_tree().physics_frame
+	director.start_performance_sequence("stacy", lines, player)
+	for tick in 4:
+		await get_tree().physics_frame
+	_check("speaker lens engaged before protected input changes hands", player.camera.fov < 76.0)
+	player.call_locked = true
+	for tick in 2:
+		await get_tree().physics_frame
+	_check("successor input restores the entry shot while the old panel remains visible",
+			panel.attention_active() and player.call_locked and is_equal_approx(player.camera.fov, 76.0))
+	director.cancel_for_transition()
+	_check("retiring the speaker leaves the new input owner in control", player.call_locked)
+	player.call_locked = false
+	director.start_performance_sequence("stacy", lines, player)
+	for tick in 4:
+		await get_tree().physics_frame
+	player.camera.fov = 52.0
+	director.cancel_for_transition()
+	_check("a succeeding lens owner keeps its own setting", is_equal_approx(player.camera.fov, 52.0))
+	director.free()
+	panel.free()
+	actor.free()
+	player.free()
+	Input.mouse_mode = previous_mouse

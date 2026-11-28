@@ -3,6 +3,7 @@ extends Node3D
 const Contacts := preload("res://scripts/characters/harukiya_show_contacts.gd")
 const Pose := preload("res://scripts/characters/harukiya_show_pose.gd")
 const Transport := preload("res://scripts/characters/harukiya_show_transport.gd")
+const Timing := preload("res://scripts/characters/harukiya_ensemble_timing.gd")
 const PERFORMERS := ["adela_voss", "lily", "stacy"]
 const TRANSFER_SECONDS := .75
 
@@ -16,6 +17,7 @@ var _room: OrisonV2BarRegion
 var _standing := {}
 var _transition := 0
 var _progress := 0.0
+var _timing := Timing.new()
 
 
 func prepare(room: OrisonV2BarRegion, actors: Dictionary) -> bool:
@@ -31,6 +33,7 @@ func prepare(room: OrisonV2BarRegion, actors: Dictionary) -> bool:
 	if not _transport.prepare():
 		_clear()
 		return false
+	_timing.prepare(_transport.score.voices)
 	_transport.global_position = room.to_global(_transport.score.anchors.music_source)
 	for id: String in PERFORMERS:
 		var pose := Pose.new()
@@ -143,8 +146,15 @@ func reset() -> void:
 
 func _seek(seconds: float) -> void:
 	_contacts.seconds = seconds
+	var lead: Vector3 = _contacts.placements.adela_voss.origin + Vector3.UP * .9
 	for id: String in PERFORMERS:
-		_poses[id].seek(seconds, _contacts.state_for(id))
+		var state: Dictionary = _contacts.state_for(id)
+		var look := _timing.look_to_lead(id, seconds)
+		if look > 0.0:
+			var home: Vector3 = state.gaze_target
+			state.gaze_target = home.lerp(lead, look)
+			state.gaze_weight = lerpf(float(state.gaze_weight), .55, look)
+		_poses[id].seek(seconds, state)
 
 
 func _on_end() -> void:
@@ -164,6 +174,12 @@ func _finish() -> void:
 func _clear() -> void:
 	_transition = 0
 	_performing = false
+	if is_instance_valid(_transport):
+		if _transport.played_at.is_connected(_seek):
+			_transport.played_at.disconnect(_seek)
+		if _transport.ended.is_connected(_on_end):
+			_transport.ended.disconnect(_on_end)
+		_transport.stop()
 	for pose: SkeletonModifier3D in _poses.values():
 		if is_instance_valid(pose):
 			pose.release()
