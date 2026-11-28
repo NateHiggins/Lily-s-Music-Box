@@ -692,6 +692,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: furniture refused: %s" % [furniture.errors])
 		return
+	if not preload("res://scripts/building/orison_v2_upper_front_commons.gd").mount(adapter.root, layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: upper front commons stock refused")
+		return
 	# All replacement fittings/furniture now exist. Standalone gray-box scenes
 	# retain their masses; the playable apartment has one physical owner per use.
 	for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",

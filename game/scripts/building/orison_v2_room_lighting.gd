@@ -5,9 +5,9 @@ const Plate := preload("res://scripts/building/switch_plate.gd")
 const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
 # Only the ranked fixtures qualified together at the F02 landing and gallery.
 const F02_SHADOW_FADE_FIXTURES := [
-	"F02_EAST_HALL_LT", "F02_FRONT_HALL_LT_1", "F02_FRONT_HALL_LT_2",
+	"F02_EAST_HALL_LT",
 	"F02_SOUTHWEST_HALL_LT", "F02_B_VESTIBULE_LT_FLUSH_DOME",
-	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2", "F02_FRONT_GALLERY_LT_3",
+	"F02_LANDING_LT_SCONCE", "F02_FRONT_GALLERY_LT_2",
 ]
 const F02_SHADOW_FADE_LENGTH_M := 1.0
 # Keep emission in range for any installed observer. This tuning fades only shadows.
@@ -106,7 +106,9 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				errors.append("invalid Omar lamp variant")
 		else:
 			rooms[record.room] = true
-			if record.properties.size() != 2:
+			var navigation: Variant = record.properties.get("navigation_light", false)
+			var expected_settings := 3 if record.properties.has("navigation_light") else 2
+			if typeof(navigation) != TYPE_BOOL or record.properties.size() != expected_settings:
 				errors.append("unexpected fixture setting")
 			for key in ["energy_scale", "range_clamp"]:
 				var value: Variant = record.properties.get(key)
