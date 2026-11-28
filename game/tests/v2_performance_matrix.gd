@@ -34,7 +34,9 @@ const STATIONS := [
 	{"name": "lobby", "local": Vector3(1.925, 0.02, -3.5)},
 	{"name": "main_stair_first_flight", "local": Vector3(1.925, 1.62, 1.3)},
 	{"name": "second_floor_landing", "local": Vector3(3.975, 3.22, -3.4)},
-	{"name": "third_floor_crossing", "local": Vector3(8.85, 6.42, -3.25)},
+	# Moved 0.6 m on 2026-11-28: at -3.25 the lens stood inside Omar Bell, who
+	# waits at the crossing at the matrix's frozen 20:00 on 10 Nov 1928.
+	{"name": "third_floor_crossing", "local": Vector3(8.85, 6.42, -2.65)},
 	{"name": "fourth_floor_service_hall", "local": Vector3(8.9, 9.62, -1.0)},
 	{"name": "flat_4b_desk", "anchor": "F04_B_MONITOR_STANCE"},
 	{"name": "sixth_floor_landing", "local": Vector3(3.975, 16.02, -3.4)},
@@ -215,6 +217,8 @@ func _measure(station: Dictionary) -> Dictionary:
 		var max_horizontal_drift := 0.0
 		var max_heading_drift := 0.0
 		var room_before := world.room_at_world(player.global_position)
+		# Checked outside the timed frames: a tree walk inside them would cost time it then measured.
+		var lens_inside := _body_around(player.camera.global_position)
 		for i in SAMPLE_FRAMES:
 			await get_tree().process_frame
 			calls = maxf(calls, Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
@@ -228,10 +232,15 @@ func _measure(station: Dictionary) -> Dictionary:
 			max_horizontal_drift = maxf(max_horizontal_drift, Vector2(offset.x, offset.z).length())
 			max_heading_drift = maxf(max_heading_drift, absf(angle_difference(player.rotation.y, yaw)))
 		_sampling = false
+		if lens_inside.is_empty():
+			lens_inside = _body_around(player.camera.global_position)
 		var room_after := world.room_at_world(player.global_position)
 		if max_horizontal_drift > MAX_HORIZONTAL_DRIFT or max_heading_drift > MAX_HEADING_DRIFT or room_after != room_before:
 			failures.append("%s yaw %.0f drifted (horizontal %.3f m, heading %.4f rad, room %s to %s)" % [
 				station.name, rad_to_deg(yaw), max_horizontal_drift, max_heading_drift, room_before, room_after])
+		if not lens_inside.is_empty():
+			failures.append("%s yaw %.0f: the lens is inside %s, so the frame shows a body's interior" % [
+				station.name, rad_to_deg(yaw), lens_inside])
 		var wall := _summary_usec(_frame_usec)
 		headings.append({
 			"yaw_degrees": 360.0 * float(index) / float(HEADINGS),
@@ -241,7 +250,7 @@ func _measure(station: Dictionary) -> Dictionary:
 			"draw_calls": int(calls), "primitives": int(primitives), "objects": int(objects),
 			"main_visible_draws_median": _median(visible), "main_shadow_draws_median": _median(shadows),
 			"max_horizontal_drift_m": max_horizontal_drift, "max_heading_drift_rad": max_heading_drift,
-			"room_before": room_before, "room_after": room_after,
+			"room_before": room_before, "room_after": room_after, "lens_inside": lens_inside,
 		})
 	var worst: Dictionary = headings[0]
 	for heading: Dictionary in headings:
@@ -260,6 +269,33 @@ func _measure(station: Dictionary) -> Dictionary:
 		row.name, worst.wall_ms_median, worst.wall_ms_p95, worst.draw_calls, worst.primitives,
 		worst.render_gpu_ms_median, row.passage_residency])
 	return row
+
+
+## The name of a character whose body (any skinned figure but the player's own
+## mirror double) encloses this point, or "" when it is clear. A resident who
+## stands on a station puts the lens inside a high-detail rig (11-28: Omar Bell
+## at the third floor crossing), which is not a view anyone plays.
+func _body_around(point: Vector3) -> String:
+	for node: Node in world.find_children("*", "Skeleton3D", true, false):
+		var skeleton := node as Skeleton3D
+		if not skeleton.is_visible_in_tree() or player.is_ancestor_of(skeleton):
+			continue
+		var figure := skeleton.get_parent() as Node3D
+		if figure == null:
+			continue
+		var box := AABB()
+		var first := true
+		for mesh_node: Node in figure.find_children("*", "MeshInstance3D", true, false):
+			var draw := mesh_node as MeshInstance3D
+			if not draw.is_visible_in_tree():
+				continue
+			var world_box := draw.global_transform * draw.get_aabb()
+			box = world_box if first else box.merge(world_box)
+			first = false
+		if not first and box.grow(0.15).has_point(point):
+			var holder: Node = figure.get_parent()
+			return "%s (%s)" % [figure.name, holder.name if holder != null else ""]
+	return ""
 
 
 func _summary_usec(values: PackedInt64Array) -> Dictionary:
