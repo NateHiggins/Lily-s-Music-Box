@@ -3,6 +3,7 @@ extends Node
 ## One storm seen at four hours. This node is the sole absolute writer for the
 ## Environment and the one exterior directional key. LightRig supplies only
 ## owner-facing gains; WeatherFX receives the resolved presentation profile.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 
 const SKY_DIR := "res://assets/building/textures/sky/"
 const CelestialEphemerisScript := preload(
@@ -174,12 +175,16 @@ var extreme_weather: RefCounted
 func _gate_key_shadow() -> void:
 	if not _sky_key:
 		return
+	# The hysteresis runs on the shadow this owner wants; the world look may
+	# still withhold it (ShadowPolicy, lamp-only in the comic world).
+	var want := ShadowPolicy.wanted(_sky_key)
 	if not key_shadow_gate:
-		_sky_key.shadow_enabled = true
-	elif _sky_key.shadow_enabled and _sky_key.light_energy < KEY_SHADOW_OFF_E:
-		_sky_key.shadow_enabled = false
-	elif not _sky_key.shadow_enabled and _sky_key.light_energy > KEY_SHADOW_ON_E:
-		_sky_key.shadow_enabled = true
+		want = true
+	elif want and _sky_key.light_energy < KEY_SHADOW_OFF_E:
+		want = false
+	elif not want and _sky_key.light_energy > KEY_SHADOW_ON_E:
+		want = true
+	ShadowPolicy.set_shadow(_sky_key, want)
 
 
 func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,

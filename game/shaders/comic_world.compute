@@ -1,0 +1,163 @@
+#version 450
+// The comic world (Lily 2026-11-28): the V2 frame drawn as ink on manila.
+// Flat tone bands that keep a dim night band, halftone dots in the shade,
+// ink lines from depth and crease breaks, a manila paper cast, and the real
+// render kept where the native mask says so (lettering, the companion,
+// critters) and inside Adela's aura. Driven by
+// scripts/visuals/cel_style_presentation.gd (look "comic").
+layout(local_size_x = 8, local_size_y = 8) in;
+
+layout(rgba16f, set = 0, binding = 0) uniform writeonly image2D output_image;
+layout(set = 0, binding = 1) uniform sampler2D source_color;
+
+#ifndef COPY_IMAGE
+layout(set = 0, binding = 2) uniform sampler2D scene_depth;
+layout(set = 0, binding = 3) uniform sampler2D native_depth;
+// The mask's colour: alpha is coverage by see-through native subjects.
+layout(set = 0, binding = 4) uniform sampler2D native_color;
+
+layout(push_constant, std430) uniform Params {
+	vec4 camera;   // near, far, projection[0][0], projection[1][1]
+	vec4 aura;     // centre uv x, y, radius and feather in frame heights
+	vec4 frame;    // aura strength, aspect (w/h), resolution scale (h/1440), see-through native near depth (0 off)
+	vec4 paper;    // rgb, saturation kept from the render
+	vec4 ink;      // rgb, halftone cell in pixels at 1440p
+	vec4 line;     // detail carried, line reach in px at 1440p, depth break, crease break
+} p;
+
+float luma(vec3 c) {
+	return dot(c, vec3(0.2126, 0.7152, 0.0722));
+}
+
+// Linear light to a display-like 0..1 (Reinhard then gamma), and back.
+vec3 to_display(vec3 c) {
+	vec3 positive = max(c, vec3(0.0));
+	return pow(positive / (positive + 1.0), vec3(1.0 / 2.2));
+}
+
+vec3 to_linear(vec3 c) {
+	vec3 l = pow(clamp(c, 0.0, 0.996), vec3(2.2));
+	return l / (1.0 - l);
+}
+
+float view_z(ivec2 pixel, ivec2 size) {
+	vec2 uv = (vec2(clamp(pixel, ivec2(0), size - 1)) + 0.5) / vec2(size);
+	float d = texture(scene_depth, uv).r;
+	// Reverse Z: 1 at the near plane, 0 at the far plane.
+	return p.camera.x * p.camera.y / (p.camera.x + d * (p.camera.y - p.camera.x));
+}
+
+vec3 view_position(ivec2 pixel, ivec2 size) {
+	vec2 uv = (vec2(clamp(pixel, ivec2(0), size - 1)) + 0.5) / vec2(size);
+	float z = view_z(pixel, size);
+	return vec3((uv.x * 2.0 - 1.0) * z / p.camera.z, (1.0 - uv.y * 2.0) * z / p.camera.w, z);
+}
+
+// A crease normal from depth alone, using the nearer of the two one-pixel
+// differences on each axis so silhouettes do not smear it.
+vec3 crease_normal(ivec2 pixel, ivec2 size) {
+	vec3 c = view_position(pixel, size);
+	vec3 r = view_position(pixel + ivec2(1, 0), size) - c;
+	vec3 l = c - view_position(pixel - ivec2(1, 0), size);
+	vec3 u = view_position(pixel + ivec2(0, 1), size) - c;
+	vec3 d = c - view_position(pixel - ivec2(0, 1), size);
+	vec3 dx = abs(r.z) < abs(l.z) ? r : l;
+	vec3 dy = abs(u.z) < abs(d.z) ? u : d;
+	return normalize(cross(dx, dy));
+}
+
+bool native_surface(vec2 uv) {
+	float surface = texture(native_depth, uv).r;
+	float foreground = texture(scene_depth, uv).r;
+	return surface > 0.000001 && surface >= foreground * 0.998;
+}
+#endif
+
+void main() {
+	ivec2 pixel = ivec2(gl_GlobalInvocationID.xy);
+	ivec2 size = imageSize(output_image);
+	if (any(greaterThanEqual(pixel, size))) return;
+	vec4 original = texelFetch(source_color, pixel, 0);
+#ifdef COPY_IMAGE
+	imageStore(output_image, pixel, original);
+#else
+	vec2 uv = (vec2(pixel) + 0.5) / vec2(size);
+	// Adela's aura: the real render, round her on screen, soft to the comic.
+	float aspect = p.frame.y;
+	float from_her = length((uv - p.aura.xy) * vec2(aspect, 1.0));
+	float real = p.frame.x * (1.0 - smoothstep(p.aura.z, p.aura.z + p.aura.w, from_her));
+	// A see-through native subject (the tardigrade) writes no depth: keep it
+	// real where the mask shows it and the opaque world lies behind it.
+	if (p.frame.w > 0.0) {
+		float cover = smoothstep(0.01, 0.10, texture(native_color, uv).a);
+		if (cover > 0.0 && view_z(pixel, size) > p.frame.w - 0.05) {
+			real = max(real, cover);
+		}
+	}
+	if (real >= 0.999 || native_surface(uv)) {
+		imageStore(output_image, pixel, original);
+		return;
+	}
+	float scale = p.frame.z;
+	vec3 shown = to_display(original.rgb);
+	float lum = luma(shown);
+
+	// Detail carried through the flat tones: the pixel against its neighbours
+	// two pixels out, so grain, print and small lettering on a texture stay.
+	int reach = max(1, int(round(2.0 * scale)));
+	float around = 0.25 * (luma(to_display(texelFetch(source_color, clamp(pixel + ivec2(reach, 0), ivec2(0), size - 1), 0).rgb))
+		+ luma(to_display(texelFetch(source_color, clamp(pixel - ivec2(reach, 0), ivec2(0), size - 1), 0).rgb))
+		+ luma(to_display(texelFetch(source_color, clamp(pixel + ivec2(0, reach), ivec2(0), size - 1), 0).rgb))
+		+ luma(to_display(texelFetch(source_color, clamp(pixel - ivec2(0, reach), ivec2(0), size - 1), 0).rgb)));
+	float detail = lum - around;
+
+	// Five flat tones. The darkest is a dim wash, never solid ink, so a room
+	// outside the lamp stays readable at night.
+	float t = clamp(lum, 0.0, 1.0);
+	float tone = 0.15
+		+ 0.15 * smoothstep(0.050, 0.075, t)
+		+ 0.21 * smoothstep(0.175, 0.205, t)
+		+ 0.23 * smoothstep(0.380, 0.420, t)
+		+ 0.17 * smoothstep(0.640, 0.690, t);
+	// Hue from the render where there is enough light to trust it.
+	vec3 hue = shown / max(lum, 1e-4);
+	hue = mix(vec3(1.0), clamp(hue, 0.0, 3.0), smoothstep(0.015, 0.09, lum));
+	vec3 toned = mix(vec3(tone), hue * tone, p.paper.w) * p.paper.rgb;
+	toned += detail * p.line.x;
+
+	// Halftone in the two shade tones, on a 45 degree screen.
+	float cell_px = p.ink.w * scale;
+	vec2 cell_uv = mat2(vec2(0.7071, -0.7071), vec2(0.7071, 0.7071)) * (vec2(pixel) / cell_px);
+	vec2 cell = fract(cell_uv) - 0.5;
+	float coverage = 0.42 * (1.0 - smoothstep(0.03, 0.19, t)) + 0.16 * (1.0 - smoothstep(0.19, 0.40, t));
+	float radius = sqrt(coverage) * 0.62;
+	float dot_mask = 1.0 - smoothstep(radius - 0.06, radius + 0.06, length(cell));
+	toned = mix(toned, p.ink.rgb, dot_mask * 0.8);
+
+	// Ink lines: depth and crease breaks against eight neighbours.
+	float z0 = view_z(pixel, size);
+	vec3 n0 = crease_normal(pixel, size);
+	int r = max(1, int(round(p.line.y * scale)));
+	float edge = 0.0;
+	ivec2 offsets[8] = ivec2[](ivec2(r, 0), ivec2(-r, 0), ivec2(0, r), ivec2(0, -r),
+		ivec2(r, r), ivec2(-r, -r), ivec2(r, -r), ivec2(-r, r));
+	for (int i = 0; i < 8; i++) {
+		ivec2 o = pixel + offsets[i];
+		float z = view_z(o, size);
+		// Only the nearer side of a depth break draws, so a line is one weight.
+		float jump = (z - z0) / max(z0, 0.05);
+		edge = max(edge, smoothstep(p.line.z, p.line.z * 2.0, jump));
+		float bend = 1.0 - dot(n0, crease_normal(o, size));
+		edge = max(edge, smoothstep(p.line.w, p.line.w * 1.6, bend) * step(abs(z - z0) / max(z0, 0.05), p.line.z * 4.0));
+	}
+	// Brightness breaks (a lit window against its frame) ink more lightly.
+	edge = max(edge, 0.7 * smoothstep(0.16, 0.30, abs(detail)) * step(0.12, t));
+	// Lines thin out with distance so the far city does not turn to mud.
+	edge *= 1.0 - 0.75 * smoothstep(18.0, 70.0, z0);
+	// The sky has no edges.
+	edge *= step(texture(scene_depth, uv).r, 0.999999) * step(0.0000001, texture(scene_depth, uv).r);
+
+	vec3 comic = to_linear(mix(clamp(toned, 0.0, 1.0), p.ink.rgb, edge));
+	imageStore(output_image, pixel, vec4(mix(comic, original.rgb, real), original.a));
+#endif
+}

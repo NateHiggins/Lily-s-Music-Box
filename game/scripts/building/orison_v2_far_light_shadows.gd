@@ -8,6 +8,7 @@ extends Node
 ## native shadow fade takes the last FADE_M so the shadow thins out rather than
 ## snapping off. Never changes a light's colour, energy, range or visibility,
 ## and switching it off gives every shadow back as authored.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 const REACH_M := 16.0
 const FADE_M := 4.0
 const LIGHT_FADE_BEGIN_M := 1000.0
@@ -35,7 +36,7 @@ func setup(owner_world: Node3D) -> bool:
 func _collect(parent: Node, indoors: bool) -> void:
 	for node: Node in parent.find_children("*", "Light3D", true, false):
 		var light := node as Light3D
-		if light is DirectionalLight3D or not light.shadow_enabled:
+		if light is DirectionalLight3D or not ShadowPolicy.wanted(light):
 			continue
 		rows.append({"light": light, "indoors": indoors, "shadow": true,
 			"fade": light.distance_fade_enabled, "begin": light.distance_fade_begin,
@@ -67,7 +68,7 @@ func set_enabled(value: bool) -> void:
 			light.distance_fade_begin = row.begin
 			light.distance_fade_length = row.length
 			light.distance_fade_shadow = row.shadow_distance
-			light.shadow_enabled = row.shadow
+			ShadowPolicy.set_shadow(light, row.shadow)
 	if value:
 		tick()
 
@@ -108,8 +109,7 @@ func tick() -> void:
 				continue
 			wanted = true
 			break
-		if light.shadow_enabled != wanted:
-			light.shadow_enabled = wanted
+		ShadowPolicy.set_shadow(light, wanted)
 
 
 func _exit_tree() -> void:

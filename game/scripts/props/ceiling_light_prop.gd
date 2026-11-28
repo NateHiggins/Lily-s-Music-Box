@@ -3,6 +3,7 @@ extends FunctionalProp
 ## The main room's ceiling bowl fixture: warm, steady, and — when the
 ## conductor asks — surging with the accents like the desk lamp's louder
 ## sibling.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 
 var light: OmniLight3D
 var bounce: OmniLight3D
@@ -63,8 +64,7 @@ func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 func set_budget(scale: float, _with_bounce: bool, with_shadow: bool) -> void:
 	_target_scale = scale
 	light.visible = scale > 0.001
-	if light.shadow_enabled != with_shadow:
-		light.shadow_enabled = with_shadow
+	ShadowPolicy.set_shadow(light, with_shadow)
 
 
 func _process(delta: float) -> void:

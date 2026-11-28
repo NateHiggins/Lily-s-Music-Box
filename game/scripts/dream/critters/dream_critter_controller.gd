@@ -354,6 +354,8 @@ func bind_companion(world: Node, observer: Node3D) -> void:
 	companion = preload("res://scripts/dream/critters/tardigrade_companion.gd").new()
 	companion.setup(world, observer)
 	mesh_instance.layers = (1 << 14) | preload("res://scripts/visuals/cel_style_presentation.gd").NATIVE_LAYER
+	# Its membranes write no depth, so the world look finds it by coverage.
+	mesh_instance.add_to_group(preload("res://scripts/visuals/cel_style_presentation.gd").SEE_THROUGH_GROUP)
 	if "camera" in observer and is_instance_valid(observer.camera):
 		observer.camera.cull_mask |= 1 << 14
 	if not enable_blender_visuals(): push_error(blender_error)

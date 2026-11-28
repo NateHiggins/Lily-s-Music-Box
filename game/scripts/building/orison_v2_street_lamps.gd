@@ -6,6 +6,7 @@ extends RefCounted
 ## two authored lights move into the new globes. New posts bring their own
 ## light (shadowless) and a post-sized collider. The geometry source itself is
 ## untouched, because the paving owner pins its hash.
+const ShadowPolicy := preload("res://scripts/rendering/shadow_policy.gd")
 const DATA := "res://data/orison_v2/exterior/street_lamps.json"
 const SCHEMA := "orison.v2.street-lamps.v1"
 
@@ -307,7 +308,7 @@ static func mount(world: Node) -> Node3D:
 		light.light_color = Color(colour[0], colour[1], colour[2])
 		light.light_energy = float(data.light.energy)
 		light.omni_range = float(data.light.range_m)
-		light.shadow_enabled = bool(lamp.shadows)
+		ShadowPolicy.set_shadow(light, bool(lamp.shadows))
 		clock.lights.append(light)
 	street.add_child(root)
 	clock.temper(data.light)
