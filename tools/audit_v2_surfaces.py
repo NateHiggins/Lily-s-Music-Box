@@ -171,6 +171,14 @@ def evaluate(data):
                 effects.append({'id':identity,'class':'sky_projection'});continue
             if shader=='res://shaders/lamp_optical_glass_haze.gdshader':
                 effects.append({'id':identity,'class':'secondary_scattering_layer'});continue
+            # Shower cone body and rising steam: soft untextured puffs drawn by the bathroom
+            # moisture owner under a water fixture. Only that shader on those two named
+            # emitters; the drops, splashes and every fixture casting stay ordinary surfaces.
+            if (shader=='res://shaders/v2_shower_mist.gdshader' and
+                draw.get('owner_script') in ('res://scripts/props/tap_prop.gd','res://scripts/props/clawfoot_bath_prop.gd') and
+                bool(draw.get('owner')) and
+                (draw['path']==draw['owner']+'/RisingSteam' or draw['path']==draw['owner']+'/WaterStream/ShowerSprayCone/ShowerMist')):
+                effects.append({'id':identity,'class':'bath_steam'});continue
             if shader=='res://shaders/projected_film.gdshader':
                 effects.append({'id':identity,'class':'projected_light'});continue
             if (material.get('name')=='M_fx_shadow' and maps.get('albedo_texture')=='res://assets/building/textures/T_fx_fx_shadow.png' and material.get('unshaded')):
