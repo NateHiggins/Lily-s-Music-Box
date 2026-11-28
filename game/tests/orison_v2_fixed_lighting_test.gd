@@ -7,7 +7,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var factory: RefCounted = world.adapter.root.get_meta("v2_native_fixed_lighting_factory")
 	factory_id = factory.get_instance_id()
 	var former: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bar_fixture_mounts.json"))
-	var former_names: Array = former.parts.filter(func(p):return str(p.name).begins_with("F01_BAR_LT_")).map(func(p):return str(p.name))
+	# The Harukiya destination retires some original bar lamp brackets itself and
+	# replaces them with its own native light supports; only the rest reach this family.
+	var harukiya: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/harukiya_destination_layout.json"))
+	var venue_retired: Array = harukiya.retire_native_parts.filter(func(p):return p.parent=="BarFixtureMounts").map(func(p):return str(p.name))
+	var venue_collars: Array = harukiya.fixture_relocations.map(func(r):return str(r.id))
+	var former_names: Array = former.parts.filter(func(p):return str(p.name).begins_with("F01_BAR_LT_") and str(p.name) not in venue_retired).map(func(p):return str(p.name))
 	check(factory.superseded_bar_mounts.size()==former_names.size(), "superseded bar mounts removed once")
 	for identity: String in factory.superseded_bar_mounts: check(identity in former_names,"only superseded light mount stock removed")
 	var remaining := 0
@@ -25,7 +30,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	for row: Dictionary in fixture.runtime.instances:
 		var identity := str(row.id)
 		var prop: LightFixtureProp = factory.installed[identity].get_ref()
-		check(prop != null and str(prop.name) == identity and prop.get_script().resource_path == "res://scripts/props/light_fixture_prop.gd", "original fixed-light authority: " + identity)
+		# Harukiya lamps keep the original actor through the venue's optics subclass.
+		var script: Script = prop.get_script() if prop != null else null
+		if script != null and identity.begins_with("F01_BAR_LT_") and script.resource_path == "res://scripts/building/harukiya_light_fixture.gd":
+			script = script.get_base_script()
+		check(prop != null and str(prop.name) == identity and script != null and script.resource_path == "res://scripts/props/light_fixture_prop.gd", "original fixed-light authority: " + identity)
 		if prop == null: continue
 		check(prop.light.shadow_reverse_cull_face, "native fixture retains corrected ceiling shadow faces: " + identity)
 		mounted_ids.append(prop.get_instance_id())
@@ -80,8 +89,14 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var direction: Vector3 = prop.global_basis * Vector3(d[0],d[1],d[2])
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+direction*.004,at-direction*.004,1))
 			var retained_face := false
-			if identity in ["F01_BAR_LT_WELL","F01_BAR_LT_TAB1","F01_BAR_LT_TAB2"]:
-				retained_face = _retained_face_contact(world,identity,at,direction)
+			if identity == "F01_BAR_LT_WELL":
+				retained_face = _face_contact(world.bar_region.get_node("RetainedBarGeometry"),["F01_OWN_SHOP_BAR_furnish_rubber_aged"],at,direction)
+			elif identity in venue_collars:
+				# The Harukiya's own stem ends in a brass lower collar at the actor.
+				retained_face = _face_contact(world.bar_region,["F01_retail_bar_destination_Destination_LightSupports_brass"],at,direction)
+			elif identity.begins_with("PASSAGE_AISLE_LT_"):
+				# The arcade pendant canopy carries the suspension above the lamp.
+				retained_face = _face_contact(world,["site_passage_aisle_pendant_canopy_"+identity.trim_prefix("PASSAGE_AISLE_LT_")],at,direction)
 			if not retained_face and (hit.is_empty() or hit.position.distance_to(at)>=.00005):
 				var nearby := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+direction*.2,at-direction*.2,1))
 				print("LIGHT CONTACT ",identity," at=",at," direction=",direction," hit=",hit," nearby=",nearby)
@@ -194,18 +209,18 @@ func _capture_light(world: OrisonV2RuntimeRoot, prop: LightFixtureProp) -> void:
 		check(prop.powered==original_power,"paired fixture capture restores original power")
 	world.player.camera.fov = camera_fov
 
-func _retained_face_contact(world: OrisonV2RuntimeRoot, identity: String, at: Vector3, direction: Vector3) -> bool:
-	# These original narrow rods/leads are visible source stock without colliders.
-	# Probe their actual triangles; never invent a collision owner to pass a ray.
-	var expected := "F01_OWN_SHOP_BAR_furnish_"+("rubber_aged" if identity=="F01_BAR_LT_WELL" else "metal")
-	for draw: MeshInstance3D in world.bar_region.get_node("RetainedBarGeometry").find_children("*","MeshInstance3D",true,false):
-		if str(draw.name)!=expected:continue
-		var faces := draw.mesh.get_faces()
-		var origin := draw.to_local(at+direction*.004)
-		var ray := draw.global_basis.inverse()*-direction
-		for i in range(0,faces.size(),3):
-			var hit: Variant = Geometry3D.ray_intersects_triangle(origin,ray,faces[i],faces[i+1],faces[i+2])
-			if hit!=null and draw.to_global(hit).distance_to(at)<.00005:
-				var normal := draw.global_basis*((faces[i+1]-faces[i]).cross(faces[i+2]-faces[i]).normalized())
-				if absf(normal.dot(direction))>.99:return true
+func _face_contact(root: Node, names: Array, at: Vector3, direction: Vector3) -> bool:
+	# Narrow retained rods, venue collars and arcade canopies are visible stock
+	# without colliders. Probe their actual triangles; never invent a collision
+	# owner to pass a ray.
+	for identity: String in names:
+		for draw: MeshInstance3D in root.find_children(identity,"MeshInstance3D",true,false):
+			var faces := draw.mesh.get_faces()
+			var origin := draw.to_local(at+direction*.004)
+			var ray := draw.global_basis.inverse()*-direction
+			for i in range(0,faces.size(),3):
+				var hit: Variant = Geometry3D.ray_intersects_triangle(origin,ray,faces[i],faces[i+1],faces[i+2])
+				if hit!=null and draw.to_global(hit).distance_to(at)<.00005:
+					var normal := draw.global_basis*((faces[i+1]-faces[i]).cross(faces[i+2]-faces[i]).normalized())
+					if absf(normal.dot(direction))>.99:return true
 	return false

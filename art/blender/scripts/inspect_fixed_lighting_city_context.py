@@ -18,9 +18,14 @@ with bpy.data.libraries.load(str(r/'art/blender/bar_ceiling_finish.blend'),link=
 for o in dst.objects:
  if o is not None and o.type=='MESH':
   bpy.context.scene.collection.objects.link(o);bpy.context.view_layer.update();trees.append(('shop_bar.gltf',o.name,BVHTree.FromPolygons([o.matrix_world@v.co for v in o.data.vertices],[tuple(f.vertices) for f in o.data.polygons])))
-contacts=[];failures=[];actors=0
+contacts=[];failures=[];actors=0;venue_owned=[]
 for row in plan['instances']:
  if row.get('domain','room')=='room':continue
+ if row.get('support_owner'):
+  # A V2 venue rebuilt this bearing (Harukiya stems/collars, arcade pendant
+  # canopies). The V1 source frame no longer holds it; the engine fabrication
+  # test probes the actual venue stock instead.
+  venue_owned.append({'id':row['id'],'variant':row['variant'],'support_owner':row['support_owner']});continue
  actors+=1;m=row['source_marker'];pose=Matrix.Translation(Vector(m['pos']))@Matrix.Rotation(math.radians(m.get('yaw_deg',0)*(1 if m['kind']=='sconce_globe' else -1)),4,'Z')
  offset=row.get('visual_offset',[0,0,0]);pose=pose@Matrix.Translation((offset[0],-offset[2],offset[1]))
  for c in fixture['contacts']:
@@ -32,6 +37,6 @@ for row in plan['instances']:
    if hit is not None and (hit-at).length<.00004 and n.dot(direction)>.99:hits.append({'source':file,'mesh':name,'error_m':(hit-at).length,'normal':list(n)})
   result={'id':row['id'],'variant':row['variant'],'point':list(at),'direction':list(direction),'support':hits};contacts.append(result)
   if not hits:failures.append(result)
-out=r/'tmp/v2-finish-review/fixed-lighting-city-context.json';out.write_text(json.dumps({'evidence_class':'INERT','actors':actors,'contacts':contacts,'failures':failures,'scope':'Retained source surface contacts; engine collision and composed review remain separate.'},indent=2)+'\n',encoding='utf-8',newline='\n')
+out=r/'tmp/v2-finish-review/fixed-lighting-city-context.json';out.write_text(json.dumps({'evidence_class':'INERT','actors':actors,'contacts':contacts,'failures':failures,'venue_owned':venue_owned,'scope':'Retained source surface contacts; engine collision and composed review remain separate.'},indent=2)+'\n',encoding='utf-8',newline='\n')
 assert not failures,failures
-print('FIXED LIGHTING CITY CONTEXT:',actors,'actors;',len(contacts),'actual exported surface bearings')
+print('FIXED LIGHTING CITY CONTEXT:',actors,'actors;',len(contacts),'actual exported surface bearings;',len(venue_owned),'venue-owned bearings checked in engine')

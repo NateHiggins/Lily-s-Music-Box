@@ -5408,12 +5408,6 @@
       "ceiling_rise": 0.16
     },
     {
-      "id": "cage_bulb_rise140",
-      "kind": "cage_bulb",
-      "source_id": "F01_BAR_LT_DARTS",
-      "ceiling_rise": 0.14
-    },
-    {
       "id": "cage_bulb_rise250",
       "kind": "cage_bulb",
       "source_id": "F01_BAR_LT_LOBBY",
@@ -5428,12 +5422,6 @@
         -0.005,
         0.005
       ]
-    },
-    {
-      "id": "cage_bulb_rise2000",
-      "kind": "cage_bulb",
-      "source_id": "F01_BAR_LT_STAIR",
-      "ceiling_rise": 2.0
     },
     {
       "id": "kitchen_linear_rise80",
@@ -5459,12 +5447,6 @@
       "source_id": "F01_BAR_LT_TAB1",
       "ceiling_rise": 0,
       "inline_feed_radius": 0.016
-    },
-    {
-      "id": "cage_bulb_rise800",
-      "kind": "cage_bulb",
-      "source_id": "F01_BAR_LT_STAGE0",
-      "ceiling_rise": 0.8
     },
     {
       "id": "sconce_globe_back80",
@@ -5513,6 +5495,19 @@
       "wall_back": 0.06,
       "form": "bath_bell",
       "mount_yaw": -1.5707963267948966
+    },
+    {
+      "id": "cage_bulb_venue_collar",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_DARTS",
+      "ceiling_rise": 0,
+      "inline_feed_radius": 0.016
+    },
+    {
+      "id": "cage_bulb_rise070",
+      "kind": "cage_bulb",
+      "source_id": "PASSAGE_AISLE_LT_00",
+      "ceiling_rise": 0.07
     }
   ],
   "instances": [
@@ -6138,7 +6133,7 @@
     },
     {
       "id": "PASSAGE_AISLE_LT_00",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6157,11 +6152,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_01",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6180,11 +6177,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_02",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6203,11 +6202,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_03",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6226,11 +6227,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_04",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6249,11 +6252,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_05",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6272,11 +6277,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_06",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6295,11 +6302,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "PASSAGE_AISLE_LT_07",
-      "variant": "cage_bulb_rise160",
+      "variant": "cage_bulb_rise070",
       "domain": "passage",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6318,11 +6327,13 @@
         "standby": 0.42,
         "exterior": true,
         "zone": "PASSAGE"
-      }
+      },
+      "fit_reason": "The arcade pendant canopy now carries the suspension; the rigid mount stops at its underside.",
+      "support_owner": "res://scripts/building/orison_v2_arcade_prepared_geometry.gd"
     },
     {
       "id": "F01_BAR_LT_DARTS",
-      "variant": "cage_bulb_rise140",
+      "variant": "cage_bulb_venue_collar",
       "domain": "bar",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6340,7 +6351,9 @@
         "navigation": false,
         "standby": 0.2,
         "exterior": true
-      }
+      },
+      "fit_reason": "Harukiya relocation supplies the complete stem, bearing plate and lower collar; the lamp hangs from that collar with no duplicate rise.",
+      "support_owner": "res://data/orison_v2/harukiya_destination_layout.json"
     },
     {
       "id": "F01_BAR_LT_LOBBY",
@@ -6387,7 +6400,7 @@
     },
     {
       "id": "F01_BAR_LT_STAIR",
-      "variant": "cage_bulb_rise2000",
+      "variant": "cage_bulb_venue_collar",
       "domain": "bar",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6405,7 +6418,9 @@
         "navigation": true,
         "standby": 0.35,
         "exterior": true
-      }
+      },
+      "fit_reason": "Harukiya relocation supplies the complete stem, bearing plate and lower collar; the lamp hangs from that collar with no duplicate rise.",
+      "support_owner": "res://data/orison_v2/harukiya_destination_layout.json"
     },
     {
       "id": "F01_BAR_LT_CAN0",
@@ -6541,7 +6556,7 @@
     },
     {
       "id": "F01_BAR_LT_STAGE0",
-      "variant": "cage_bulb_rise800",
+      "variant": "cage_bulb_venue_collar",
       "domain": "bar",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6559,11 +6574,13 @@
         "navigation": true,
         "standby": 0.3,
         "exterior": true
-      }
+      },
+      "fit_reason": "Harukiya relocation supplies the complete stem, bearing plate and lower collar; the lamp hangs from that collar with no duplicate rise.",
+      "support_owner": "res://data/orison_v2/harukiya_destination_layout.json"
     },
     {
       "id": "F01_BAR_LT_STAGE1",
-      "variant": "cage_bulb_rise800",
+      "variant": "cage_bulb_venue_collar",
       "domain": "bar",
       "source_marker": {
         "kind": "cage_bulb",
@@ -6581,7 +6598,9 @@
         "navigation": true,
         "standby": 0.3,
         "exterior": true
-      }
+      },
+      "fit_reason": "Harukiya relocation supplies the complete stem, bearing plate and lower collar; the lamp hangs from that collar with no duplicate rise.",
+      "support_owner": "res://data/orison_v2/harukiya_destination_layout.json"
     },
     {
       "id": "F01_BAR_LT_DECK0",
@@ -6697,7 +6716,14 @@
         "navigation": true,
         "standby": 0.35,
         "exterior": true
-      }
+      },
+      "visual_offset": [
+        0,
+        0,
+        -0.05
+      ],
+      "fit_reason": "The Harukiya moved the score panel off this wall; seat the backplate on the brick 50 mm behind. Original actor, circuit and photometric settings retained.",
+      "support_owner": "res://data/orison_v2/harukiya_destination_layout.json"
     },
     {
       "id": "F01_BAR_LT_WC",
@@ -7645,23 +7671,53 @@
     },
     {
       "id": "F02_LANDING_LT_SCONCE",
-      "variant": "sconce_globe_back050"
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        2.95,
+        0,
+        0
+      ],
+      "fit_reason": "The widened lift opening (2026-11-25) removed the wall behind the original anchor; seat the sconce on the pier between the lift and stair openings. Original actor and circuit retained."
     },
     {
       "id": "F03_LANDING_LT_SCONCE",
-      "variant": "sconce_globe_back050"
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        2.95,
+        0,
+        0
+      ],
+      "fit_reason": "The widened lift opening (2026-11-25) removed the wall behind the original anchor; seat the sconce on the pier between the lift and stair openings. Original actor and circuit retained."
     },
     {
       "id": "F04_LANDING_LT_SCONCE",
-      "variant": "sconce_globe_back050"
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        2.95,
+        0,
+        0
+      ],
+      "fit_reason": "The widened lift opening (2026-11-25) removed the wall behind the original anchor; seat the sconce on the pier between the lift and stair openings. Original actor and circuit retained."
     },
     {
       "id": "F05_LANDING_LT_SCONCE",
-      "variant": "sconce_globe_back050"
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        2.95,
+        0,
+        0
+      ],
+      "fit_reason": "The widened lift opening (2026-11-25) removed the wall behind the original anchor; seat the sconce on the pier between the lift and stair openings. Original actor and circuit retained."
     },
     {
       "id": "F06_LANDING_LT_SCONCE",
-      "variant": "sconce_globe_back050"
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        2.95,
+        0,
+        0
+      ],
+      "fit_reason": "The widened lift opening (2026-11-25) removed the wall behind the original anchor; seat the sconce on the pier between the lift and stair openings. Original actor and circuit retained."
     },
     {
       "id": "B1_BOILER_ROOM_LT_A",
