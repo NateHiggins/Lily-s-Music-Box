@@ -1,128 +1,128 @@
 {
- "evidence_class": "Technical rendered surface review",
- "status": "PASS",
- "reviewer": "Claude",
- "reviewed_at_utc": "2026-11-28T02:07:09Z",
- "human_played": false,
- "artistically_accepted": false,
- "native_pixel_optical_acceptance": false,
- "surface_inputs_sha256": "205f3d77a2b10874f403c53f569e54a5f4da5e0a9dc0648478cbc5de4455610f",
- "review_scope": "Claude viewed all 23 candidate frames beside main fdeb48abe packet frames (review_01..04.jpg). Technical surface review only: no play, no artistic acceptance. Two frames carry a known run-to-run indirect-light blotch noted per image. The shower spray, steam and reticle changed in this candidate are not in these 23 stations; they were reviewed separately in the candidate report.",
- "images": [
-  {
-   "file": "F02_A_MAIN.png",
-   "sha256": "6770cd43bc97ef852fc5167733cf8623cbe3a26d7428e50cf7b14c07653a0c7c",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.3279); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "F03_B_BATH_reflection_repair.png",
-   "sha256": "15959a1e18dfae5eaeb1c77d352f6c9bcffaf5b01a55edba1ef796c6bdc761c0",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.2374); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "F03_B_MAIN.png",
-   "sha256": "0d6723e4c778a9437c1d2ae5d6194fd347493ed1444b580db8d23e80fb9f941c",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.6656); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "F04_C_MAIN.png",
-   "sha256": "3d48d18572e63c6f7239949873c2734a26f66db11ee13e722d4f61d421eae8da",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 3.7465); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "F06_B_KITCHEN_reflection_repair.png",
-   "sha256": "9c41b6b0ebc15bfed6b9a3a08ba0848927f285b6752c1630472d841ca925a1d3",
-   "observation": "Same framing and materials as main. The lamp pool on the kitchen wall shows blotched indirect-light patches that main fdeb48abe does not; the same run-to-run lighting artefact was recorded in the packet before 1b809d371. No kitchen source changed in this candidate. No missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "boiler.png",
-   "sha256": "9e7b5a1bb66f1e2184ce5d6a5f6273917cc8f02e22640accd7b42742ff06b623",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.925); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "bookcase.png",
-   "sha256": "90874ba39b2020547da0db96975376f3b73c72da32f887c0cb4102798a40e5b5",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.41); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "closet_vent_bypass_services.png",
-   "sha256": "66efcbf0685769531f03f04e1b68829a541f261eb46191daf6bdb55cc609ee2f",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 5.3994); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "dumbwaiter.png",
-   "sha256": "38ba403bd41c6d7f64f15d307483ace8bb12c020ac6ada6e0f994a5356868152",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.9164); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "fuse_panel.png",
-   "sha256": "393198eceb8ffcc73b78d0946dd8e051e34c137e0e80db0bfd2bc7d61c2b08b3",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.3004); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "harukiya_judge.png",
-   "sha256": "16c7e446a672ebbeb137b7e9269548ee8385796e8a4e497c078c84c11edfc13e",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.2765); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "harukiya_lafitte_detail.png",
-   "sha256": "cca8dfab0adfb9506d8dd90920304756540398f3c704367fd3d704acd184cb7e",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1052); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "harukiya_lafitte_standing.png",
-   "sha256": "689183700d71af8355476f735046af71c85b1a2e1bf89ce8761b5240e039f240",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1692); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "mail_bank.png",
-   "sha256": "504fece85680f7f6da9d6cccf2f2d01e99ba04b406b6e39a1f803a114007c5bc",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.8033); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "radiator.png",
-   "sha256": "169c388fcf0a995384c3a741b24383a6f8cec05b6bbe85c7afc065c5431cfce1",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.9639); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "roof_drive_uv.png",
-   "sha256": "c5a418e822da671140d89d43bbdfbe20588e6ecab0de50cb3794e11bf66e4942",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 3.1621); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "roof_tank_uv.png",
-   "sha256": "3adf9520dc546bd15cf1ca4d9a0ddbc2076ed44fe49527ee6e58c03e846086ed",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.0657); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "signal_terminal.png",
-   "sha256": "847f94499f9e42917079081023a3f51e18bd2e7d67d227d6e273a2c047acedbd",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 8.3834); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "staff_closet_deep_services.png",
-   "sha256": "533a973065d2255367eb2f4779cdc8a5c086d98af3f4e536ff66d29fd33e2dc5",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 6.3182); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "tentacle_flowing_residue.png",
-   "sha256": "1c5fbc9fc302cb1ad5707ce8a3e9604e8e56c3243a4820392d57df26948688e5",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.7099); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "tentacle_installed_surfaces.png",
-   "sha256": "4fab9c6bb882f7de949de1caeb9b5eeb32214b0679731bac10ef0ba94f5f9e5b",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.3936); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "toaster_crumbs.png",
-   "sha256": "f56708c38774d7712bfe0cac6932fd13f7558d334863145edb13b4a5640f6eb0",
-   "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 5.7591); no missing, black, stretched or unmipped surface seen."
-  },
-  {
-   "file": "watch_station.png",
-   "sha256": "4d4fe4d7206b9784e9dd0c2e00c057987e6b11adbec53e398a43cd3996d3a8fb",
-   "observation": "Same framing and materials as main. A blotched warm indirect-light patch lies on the left wall that main fdeb48abe does not show; the same run-to-run lighting artefact as the kitchen frame, recorded before 1b809d371. No watch-station source changed in this candidate. No missing, black, stretched or unmipped surface seen."
-  }
- ]
+  "evidence_class": "Technical rendered surface review",
+  "status": "PASS",
+  "reviewer": "Codex",
+  "reviewed_at_utc": "2026-11-28T00:49:11Z",
+  "human_played": false,
+  "artistically_accepted": false,
+  "native_pixel_optical_acceptance": false,
+  "surface_inputs_sha256": "21fffd8ceba1a615f18bf73da9a91dc854f32304e49f5d16ba58c48572c30908",
+  "review_scope": "Claude viewed all 23 candidate frames beside main fdeb48abe packet frames (review_01..04.jpg), plus the toaster frame from Codex's 4231f7f29 run and from a fresh main checkout. Technical surface review only: no play, no artistic acceptance.",
+  "images": [
+    {
+      "file": "F02_A_MAIN.png",
+      "sha256": "32e55d445b665c8074c816276753b7af2a5cd5f166e5e5a627c2d4287181c2cb",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 3.0163); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "eb22c4f42a41d7f712a4460b991fa970279b4831656df83b1a33716268a9c57d",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.3569); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "F03_B_MAIN.png",
+      "sha256": "45f1419384824ef0a787e74cb6337a8c466dd1dcdd39a743ed86b13b4da9f1d6",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.5318); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "F04_C_MAIN.png",
+      "sha256": "4e8c2380abaaaa501c5460d1138434332dccb26385e54c46bc20c1ab8e887daf",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.3718); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "b72bb39f3e357d067e3874f53f7327c9495616489eef162dbb98276567770787",
+      "observation": "Same framing and fixtures as main; the plaster around the lamp pool carries the dark speckled residue that also came and went between runs on main (present on main before PR 614, absent after); 567 changes nothing on F06's 6B. No missing, black, stretched or unmipped surface (mean pixel delta 9.3494)."
+    },
+    {
+      "file": "boiler.png",
+      "sha256": "d125f7917abf4305fec0d301abc39a1dcf6f914140363d82d371a5de6cbb9009",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.4481); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "bookcase.png",
+      "sha256": "6883aa1441812a7ead8743d9d1a70a360ed846a295817383842b0733b878cdd0",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.8053); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "closet_vent_bypass_services.png",
+      "sha256": "8beae49e8eb4578a2815c7579ff21d1ea8d1a44c808cf2c715324ea9b379d6a0",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.9361); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "dumbwaiter.png",
+      "sha256": "82e2df1755675a871b3b3bd040a698cd18c76b69ade6e44725a277696f3b1773",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.9068); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "fuse_panel.png",
+      "sha256": "ee76328872292bd2bb154a7d79ead309609dd766c7f4ff95d09ca81bfa5beb9a",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.9795); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "harukiya_judge.png",
+      "sha256": "475c0ed50b20989e31a2de898dd644ce1e0273d768394fa79712853890eb726a",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1718); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "harukiya_lafitte_detail.png",
+      "sha256": "510a8461121d1823941bebf0fead7796e64f81d6c3890406ac13840719e0d6b2",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1169); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "harukiya_lafitte_standing.png",
+      "sha256": "c7ad02fe80ba9f759f39d4ad87844ac69fb8813bf325e671db7b731a51549363",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.1213); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "mail_bank.png",
+      "sha256": "864f9d95d9c91a935f6f1dc14bb4b6eacb78422f8f142c4fc395607ecb3e2d5f",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.4307); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "radiator.png",
+      "sha256": "f7c141ec8cd9b0f8e160c218621b4120bb4a0a795b61f5b1600fa5edeb6345ff",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.7916); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "roof_drive_uv.png",
+      "sha256": "2517032c706a53e357ed64878776d13bfc4da96c3d14f0639eccc5c3cacb9f3e",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.5328); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "ef12746b10f1ab8af95fa394b75da5da83bc8b0381877887a40eb5c5ad15d69f",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.3482); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "signal_terminal.png",
+      "sha256": "b0f06e1dca997ae2c5b11b5d3ef509f16eb9f7c84c445a4c02d41025fcc88995",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.4083); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "staff_closet_deep_services.png",
+      "sha256": "21d853ddfa231f7ae50d3d121a18a5eee259df1afe5552a50e1bae15af6bd813",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 2.834); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "tentacle_flowing_residue.png",
+      "sha256": "d2abcb0fffc2c93fdd97b2f333966ae532bee1daf62327b5502c8fa23949a8af",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 1.1996); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "tentacle_installed_surfaces.png",
+      "sha256": "35a56178bcba0bba10399415c0e4359b11f0ba3f1db97dc165ae5a843bdcadf7",
+      "observation": "Same framing, materials, UVs and lighting as main within noise (mean pixel delta 0.7193); no missing, black, stretched or unmipped surface seen."
+    },
+    {
+      "file": "toaster_crumbs.png",
+      "sha256": "5d6d3b87f306557c156b10ee786aa1c97fef74998b356b3485b62d6cc1581a99",
+      "observation": "Same framing, kettle, timber and counter as main. The metal parts (copper canisters, toaster trim, counter edge strip) read bright and cool, unlike main and Codex's own 567 run (4231f7f29). Diffuse parts are unchanged, which matches a capture taken before the 2A kitchen's room reflection probe was created (the owner keeps three probes and creates one a scan after entry); a fresh main checkout renders the warm metals. Materials and UVs present, nothing missing or unmipped (mean pixel delta 4.7072)."
+    },
+    {
+      "file": "watch_station.png",
+      "sha256": "4961f8ba72f6b068b6986b05359d863d7bf76e5b89a38e31776f01c3cab984ae",
+      "observation": "Same plate, amber indicator and framing as main; the side wall shows the same intermittent speckled residue seen on main's earlier packet. No missing, black, stretched or unmipped surface (mean pixel delta 6.6078)."
+    }
+  ]
 }

@@ -22,6 +22,19 @@ class FrontLightingProjectionTests(unittest.TestCase):
             if key not in self.source['records']:self.assertEqual(rows,new[key])
             else:self.assertEqual([r for r in rows if r['id'] not in owned],[r for r in new[key] if r['id'] not in owned])
 
+    def test_projection_retires_only_obsolete_upper_fixtures_and_ports(self):
+        layout = copy.deepcopy(self.layout)
+        lighting = copy.deepcopy(self.lights)
+        old_id = 'F03_FRONT_HALL_LT_1'
+        layout['anchors'].append({'id': old_id})
+        layout['wall_service_openings'].append({'id': 'F03_FRONT_GALLERY_FRONT_LIGHT_PORT_999'})
+        lighting['fixtures'].append({'id': old_id})
+        lighting['switches'].append({'id': 'F03_FRONT_HALL_SWITCH'})
+        new, lights = project(layout, lighting, self.source)
+        self.assertEqual((new, lights), project(self.layout, self.lights, self.source))
+        self.assertEqual(new, self.layout)
+        self.assertEqual(lights, self.lights)
+
     def test_port_extent_contains_pipe_without_cutting_other_height_bands(self):
         for port in self.source['records']['wall_service_openings']:
             bounds=port['bounds'];axis=0 if port['side'] in ['west','east'] else 2
@@ -30,9 +43,9 @@ class FrontLightingProjectionTests(unittest.TestCase):
 
     def test_single_room_circuit_has_all_fixtures_and_one_control(self):
         fixtures=self.source['lighting']['fixtures'];controls=self.source['lighting']['switches']
-        self.assertEqual(len({r['room'] for r in controls}),20)
+        self.assertEqual(len({r['room'] for r in controls}),15)
         self.assertEqual({r['room'] for r in controls},{r['room'] for r in fixtures})
-        self.assertEqual(len(controls),20);self.assertEqual(len(fixtures),35)
+        self.assertEqual(len(controls),15);self.assertEqual(len(fixtures),15)
 
     def test_openings_are_enclosed_by_their_owning_walls(self):
         rooms={room['id']:room for room in self.layout['spaces']}
@@ -69,8 +82,9 @@ class FrontLightingProjectionTests(unittest.TestCase):
         asset=(ROOT/'game/assets/props/front_lighting_supply.glb').read_bytes()
         report=json.loads((ROOT/'art/data/orison_v2/front_lighting_supply_export.json').read_text())
         data=supply_from_export(asset,report)
-        self.assertEqual(len(data['hangers']),407)
-        self.assertEqual(len({row['node'] for row in data['hangers']}),407)
+        expected_hangers=len(self.plan['supports'])
+        self.assertEqual(len(data['hangers']),expected_hangers)
+        self.assertEqual(len({row['node'] for row in data['hangers']}),expected_hangers)
         self.assertEqual(len(data['materials']),20)
         self.assertEqual(data,json.loads((ROOT/'game/data/orison_v2/front_lighting_supply.json').read_text()))
         with self.assertRaises(ValueError):supply_from_export(asset+b'changed',report)

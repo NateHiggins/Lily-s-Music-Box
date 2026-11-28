@@ -24,7 +24,8 @@ for obj in bpy.data.collections['FrontLightingCandidate'].objects:
     modifier.keep_sharp=True;modifier.weight=100
     bpy.ops.object.modifier_apply(modifier=modifier.name)
     changed.append(obj.name)
-assert len(changed)==20,len(changed)
+plan=json.loads((ROOT/'art/data/front_lighting_plan.json').read_text())
+assert len(changed)==len(plan['switches']),len(changed)
 assert geometry_digest()==before,'Normal refinement altered geometry/UVs'
 bpy.context.preferences.filepaths.save_version=0
 bpy.ops.wm.save_as_mainfile(filepath=str(native))
