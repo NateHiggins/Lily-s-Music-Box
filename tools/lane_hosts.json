@@ -1,0 +1,19 @@
+{
+	"schema": "orison.lane-hosts.v1",
+	"note": "Hosts the lane may send work to (order w8286ec452a9d, Optimus C). No addresses or secrets here: a remote host is found by its Omni machine name in Omni's own machines.json at run time. The first eligible host in this list wins, after this PC's own rules.",
+	"hosts": [
+		{
+			"name": "this-pc",
+			"local": true,
+			"runs": ["scene", "gpu", "recipe"]
+		},
+		{
+			"name": "Optimus",
+			"omni_machine": "Optimus",
+			"runs": ["recipe"],
+			"gpu": false,
+			"receipt": "optimus.cpu-precheck.v2",
+			"status_timeout_seconds": 5
+		}
+	]
+}

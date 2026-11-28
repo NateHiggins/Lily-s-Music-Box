@@ -35,6 +35,16 @@
 # An optional "environment" object scopes string values (or null to unset)
 # to that run, then restores the broker environment, including on failure.
 #
+# Hosts (order w8286ec452a9d, Optimus C). A batch entry may instead be a recipe run,
+#   {"recipe": "gate-board-static", "commit": "<40 hex>", "log": "C:/.../board.log", "host": "Optimus"?}
+# (commit defaults to this checkout's HEAD; host is optional). A batch with a recipe run asks
+# tools/lane_hosts.py where to run, by the batch's stated needs: scenes and GPU commands always stay on this PC;
+# an all-recipe batch goes to the first remote host in tools/lane_hosts.json that is ready (Omni worker up, not
+# paused, recipes deployed, commits on origin), else this PC. -TargetHost names the host instead. Each host is its
+# own lane: one job at a time, first come first served, with its own queue and holder record (lane_common.ps1);
+# this PC's mutex, census and queue are unchanged and a remote batch never takes them. The run's receipt
+# (<log>.receipt.json) names the host. A batch with no recipe run never consults the host table.
+#
 # Exit codes: run returns the runner's exit code; batch returns 0 if every
 # run exited 0, else the first non-zero exit; 73 if the lane was not free
 # within -WaitMinutes; 64 usage error.
@@ -55,7 +65,8 @@ param(
     [string]$BatchFile = "",
     [double]$WaitMinutes = 30,
     [switch]$ContinueOnFailure,
-    [switch]$Json
+    [switch]$Json,
+    [string]$TargetHost = ""
 )
 
 . (Join-Path $PSScriptRoot "lane_common.ps1")
@@ -63,6 +74,36 @@ param(
 $MUTEX_NAME = if ($env:ORISON_LANE_TEST_MUTEX) { $env:ORISON_LANE_TEST_MUTEX } else { "Global\OrisonGodotSingleInstance" }
 $EXIT_LANE_BUSY = 73
 $EXIT_USAGE = 64
+$LaneHost = "this-pc"
+
+function Set-LaneHost {
+    # Each host is its own lane: this PC keeps its mutex; a remote host gets one of its own on this PC.
+    param([string]$Name)
+    $script:LaneHost = if ($Name) { $Name } else { "this-pc" }
+    if ($script:LaneHost -ne "this-pc") {
+        $null = Get-OrisonLaneHostDir -LaneHost $script:LaneHost  # validates the name
+        $script:MUTEX_NAME = if ($env:ORISON_LANE_TEST_MUTEX) { "$($env:ORISON_LANE_TEST_MUTEX)-$($script:LaneHost)" } else { "Global\OrisonLane-$($script:LaneHost)" }
+    }
+}
+
+function Select-LaneHost {
+    # Where a batch runs. Only a batch with a recipe run (or a named -TargetHost) asks tools/lane_hosts.py.
+    param([object[]]$Runs)
+    $hasRecipe = @($Runs | Where-Object { $_.recipe }).Count -gt 0
+    if (-not $hasRecipe) {
+        if ($TargetHost -and $TargetHost -ne "this-pc") { throw "only recipe runs can go to $TargetHost" }
+        return [ordered]@{ host = "this-pc"; reasons = @() }
+    }
+    $payload = @($Runs | ForEach-Object {
+        $run = [ordered]@{}
+        foreach ($k in @("recipe", "commit", "scene", "gpu", "host", "skip")) { if ($_.ContainsKey($k) -and $null -ne $_[$k]) { $run[$k] = $_[$k] } }
+        if ($TargetHost) { $run.host = $TargetHost }
+        $run
+    })
+    $raw = ConvertTo-Json -InputObject $payload -Depth 5 -Compress | & python (Join-Path $PSScriptRoot "lane_hosts.py") choose
+    if ($LASTEXITCODE -ne 0) { throw "host choice failed (exit $LASTEXITCODE)" }
+    return ($raw | ConvertFrom-Json)
+}
 
 function Get-GodotProcesses {
     $procs = @(Get-Process -Name "Godot*" -ErrorAction SilentlyContinue)
@@ -121,8 +162,7 @@ function Test-MutexFree {
 }
 
 function Get-LaneStatus {
-    $dir = Get-OrisonLaneStateDir
-    $waitDir = Join-Path $dir "waiters"
+    $waitDir = Get-OrisonLaneWaitDir -LaneHost $LaneHost
     $waiters = @()
     if (Test-Path -LiteralPath $waitDir) {
         foreach ($f in Get-ChildItem -LiteralPath $waitDir -Filter *.json) {
@@ -130,10 +170,11 @@ function Get-LaneStatus {
             if ($w) { $waiters += $w }
         }
     }
-    $holder = Get-LaneRecord -Path (Get-OrisonLaneHolderPath)
-    $godot = @(Get-GodotProcesses)
+    $holder = Get-LaneRecord -Path (Get-OrisonLaneHolderPath -LaneHost $LaneHost)
+    $godot = if ($LaneHost -eq "this-pc") { @(Get-GodotProcesses) } else { @() }
     $mutexFree = Test-MutexFree
     [ordered]@{
+        host = $LaneHost
         lane_free = ($mutexFree -and $godot.Count -eq 0)
         mutex_free = $mutexFree
         holder = $holder
@@ -148,7 +189,7 @@ function Get-LaneStatus {
 function Write-LaneStatus {
     param($Status)
     if ($Json) { $Status | ConvertTo-Json -Depth 5; return }
-    "lane: " + $(if ($Status.lane_free) { "FREE" } else { "BUSY" })
+    "lane: " + $(if ($Status.lane_free) { "FREE" } else { "BUSY" }) + $(if ($Status.host -ne "this-pc") { " (host $($Status.host))" } else { "" })
     "  mutex: " + $(if ($Status.mutex_free) { "free" } else { "held" })
     if ($Status.holder) {
         $h = $Status.holder
@@ -169,7 +210,8 @@ function Write-LaneStatus {
 function Get-RunSummary {
     param([hashtable]$Spec)
     [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; log = [string]$Spec.log
-        windowed = [bool]$Spec.windowed; timeout = $Spec.timeout; skip = [bool]$Spec.skip }
+        windowed = [bool]$Spec.windowed; timeout = $Spec.timeout; skip = [bool]$Spec.skip
+        recipe = [string]$Spec.recipe; host = $LaneHost }
 }
 
 function Read-LaneBatch {
@@ -180,6 +222,12 @@ function Read-LaneBatch {
         $h = @{}
         foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
         if (-not $h.log) { throw "every batch entry needs a log" }
+        if ($h.recipe) {
+            if ($h.gpu -or $h.scene) { throw "a recipe run is neither a scene nor a gpu command" }
+            if ("$($h.recipe)" -notmatch '^[a-z0-9][a-z0-9-]{0,63}$') { throw "bad recipe name: $($h.recipe)" }
+            if ($h.commit -and "$($h.commit)" -notmatch '^[0-9a-f]{40}$') { throw "a recipe run's commit must be 40 hex" }
+            $h.scene = "recipe:$($h.recipe)"
+        }
         $null = Get-RunEnvironment -Spec $h
         $out += $h
     }
@@ -193,6 +241,7 @@ function Get-LanePriority {
     $s = "$Scene".Trim().Trim("'")
     if ($s.StartsWith("lora ") -or $s.StartsWith("lora:")) { return 2 }
     if ($s.StartsWith("res://") -or $s -match '^\d+ runs?$' -or $s -match 'Test|Bench' -or $s -match '--import' -or $s -eq "") { return 0 }
+    if ($s.StartsWith("recipe:")) { return 0 }  # recipes are pre-checks: tests
     return 1
 }
 
@@ -200,7 +249,7 @@ function Add-LaneRunHistory {
     # One line per finished run, so a viewer can estimate how long a job will take.
     param([hashtable]$Spec, [datetime]$Started, [int]$Exit)
     try {
-        $line = [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; windowed = [bool]$Spec.windowed
+        $line = [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; windowed = [bool]$Spec.windowed; host = $LaneHost
             worktree = (Split-Path $PSScriptRoot -Parent); started_utc = $Started.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
             seconds = [math]::Round(((Get-Date) - $Started).TotalSeconds, 1); exit = $Exit } | ConvertTo-Json -Compress
         Add-Content -LiteralPath (Join-Path (Get-OrisonLaneStateDir) "run_history.jsonl") -Value $line -Encoding utf8
@@ -215,13 +264,13 @@ function Wait-ForLane {
     # running elsewhere so a waiting broker never blocks the lane itself.
     param([double]$Minutes, [string]$What, [object[]]$Runs = @(), [string]$BatchPath = "", [string]$SinceUtc = "")
     $deadline = (Get-Date).AddMinutes($Minutes)
-    $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
+    $waitDir = Get-OrisonLaneWaitDir -LaneHost $LaneHost
     New-Item -ItemType Directory -Force -Path $waitDir | Out-Null
     $waitFile = Join-Path $waitDir "$PID.json"
     $stamp = "$waitFile.tmp"
     # Each run is listed so a queue viewer (Omni) can show and edit it; a batch rereads
     # its file when its turn comes (Read-LaneBatch), so edits made while it waits apply.
-    [ordered]@{ pid = $PID; scene = $What; worktree = (Split-Path $PSScriptRoot -Parent)
+    [ordered]@{ pid = $PID; scene = $What; worktree = (Split-Path $PSScriptRoot -Parent); host = $LaneHost
                 since_utc = $(if ($SinceUtc) { $SinceUtc } else { (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") })
                 batch_file = $BatchPath; runs = @($Runs | ForEach-Object { Get-RunSummary -Spec $_ }) } |
         ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $stamp -Encoding utf8
@@ -229,7 +278,7 @@ function Wait-ForLane {
     $announced = $false
     try {
         while ($true) {
-            $queue = @(Get-OrisonLaneQueue)
+            $queue = @(Get-OrisonLaneQueue -LaneHost $LaneHost)
             if ($queue.Count -gt 0 -and $queue[0].pid -eq $PID) {
                 $m = [System.Threading.Mutex]::new($false, $MUTEX_NAME)
                 $owned = $false
@@ -237,7 +286,8 @@ function Wait-ForLane {
                 try { $owned = $m.WaitOne([math]::Min($remaining, 1000)) }
                 catch [System.Threading.AbandonedMutexException] { $owned = $true }
                 if ($owned) {
-                    $census = if ($env:ORISON_LANE_TEST_MUTEX) { 0 } else { @(Get-Process -Name "Godot*" -ErrorAction SilentlyContinue).Count }
+                    # The Godot census is this PC's; a remote host's lane is its mutex and queue alone.
+                    $census = if ($env:ORISON_LANE_TEST_MUTEX -or $LaneHost -ne "this-pc") { 0 } else { @(Get-Process -Name "Godot*" -ErrorAction SilentlyContinue).Count }
                     if ($census -eq 0) {
                         return $m
                     }
@@ -265,7 +315,7 @@ function Wait-ForLane {
 
 function Invoke-GpuTask {
     param([hashtable]$Spec)
-    Write-OrisonLaneHolder -Runner "lane/gpu" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
+    Write-OrisonLaneHolder -Runner "lane/gpu" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent) -LaneHost $LaneHost
     $limit = if ($Spec.timeout) { [int]$Spec.timeout } else { 900 }
     $request = @{command = [string[]]$Spec.gpu; log = [string]$Spec.log; timeout = $limit}
     $raw = $request | ConvertTo-Json -Compress -EscapeHandling EscapeNonAscii |
@@ -281,8 +331,20 @@ function Invoke-GpuTask {
     return [int]$result.exit
 }
 
+function Invoke-RecipeRun {
+    # A recipe run on this lane's host: tools/lane_hosts.py runs it (remote through the host's Omni worker, or here)
+    # and writes <log>.receipt.json naming the host.
+    param([hashtable]$Spec)
+    Write-OrisonLaneHolder -Runner "lane/recipe" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent) -LaneHost $LaneHost
+    $run = [ordered]@{ recipe = [string]$Spec.recipe; log = [string]$Spec.log }
+    if ($Spec.commit) { $run.commit = [string]$Spec.commit }
+    $run | ConvertTo-Json -Compress | & python (Join-Path $PSScriptRoot "lane_hosts.py") run --host $LaneHost --wait-minutes $WaitMinutes | Out-Host
+    return $LASTEXITCODE
+}
+
 function Invoke-OneRunBody {
     param([hashtable]$Spec)
+    if ($Spec.recipe) { return Invoke-RecipeRun -Spec $Spec }
     if ($Spec.gpu) { return Invoke-GpuTask -Spec $Spec }
     $runnerName = if ($Spec.runner) { $Spec.runner } else { "serial" }
     $script = Join-Path $PSScriptRoot $(if ($runnerName -eq "long") { "run_godot_long_suite.ps1" } else { "run_godot_serial.ps1" })
@@ -293,7 +355,7 @@ function Invoke-OneRunBody {
     if ($Spec.windowed) { $params.Windowed = $true }
     if ($Spec.shot_dir) { $params.ShotDir = $Spec.shot_dir }
     if ($Spec.extra_args) { $params.ExtraArgs = [string[]]$Spec.extra_args }
-    Write-OrisonLaneHolder -Runner "lane/$runnerName" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
+    Write-OrisonLaneHolder -Runner "lane/$runnerName" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent) -LaneHost $LaneHost
     & $script @params | Out-Host
     return $LASTEXITCODE
 }
@@ -341,6 +403,7 @@ function Invoke-OneRun {
 
 switch ($Command) {
     "status" {
+        try { Set-LaneHost -Name $TargetHost } catch { Write-Error $_; exit $EXIT_USAGE }
         Write-LaneStatus (Get-LaneStatus)
         exit 0
     }
@@ -359,6 +422,12 @@ switch ($Command) {
     }
 }
 
+try {
+    $choice = Select-LaneHost -Runs $runs
+    Set-LaneHost -Name $choice.host
+}
+catch { Write-Error "LANE HOST: $_"; exit $EXIT_USAGE }
+if ($choice.reasons) { Write-Host "[LANE] host $LaneHost ($(@($choice.reasons) -join '; '))" }
 $label = if ($runs.Count -eq 1) { $runs[0].scene } else { "$($runs.Count) runs" }
 $mutex = Wait-ForLane -Minutes $WaitMinutes -What $label -Runs $runs -BatchPath $(if ($Command -eq "batch") { $BatchFile } else { "" })
 if ($null -eq $mutex) {
@@ -384,7 +453,7 @@ try {
         $began = Get-Date
         $code = Invoke-OneRun -Spec $spec
         Add-LaneRunHistory -Spec $spec -Started $began -Exit $code
-        $results += [ordered]@{ scene = $spec.scene; log = $spec.log; exit = $code }
+        $results += [ordered]@{ scene = $spec.scene; log = $spec.log; exit = $code; host = $LaneHost }
         Write-Host "[LANE] $($spec.scene) exit=$code"
         if ($code -ne 0 -and $final -eq 0) { $final = $code }
         if ($code -ne 0 -and -not $ContinueOnFailure) { break }
@@ -397,11 +466,11 @@ try {
         if ($i -lt $runs.Count - 1) {
             # Between runs, give the lane to anyone waiting who outranks this batch, then rejoin right
             # behind the first of them (ahead of lower-priority work that queued later).
-            $outranks = @(Get-OrisonLaneQueue | Where-Object { $_.pid -ne $PID -and (Get-LanePriority $_.scene) -lt $batchLevel })
+            $outranks = @(Get-OrisonLaneQueue -LaneHost $LaneHost | Where-Object { $_.pid -ne $PID -and (Get-LanePriority $_.scene) -lt $batchLevel })
             if ($outranks.Count) {
                 $first = $outranks[0]
                 Write-Host "[LANE] yielding to '$($first.scene)' (pid $($first.pid)) before $($runs.Count - $i - 1) more run(s)"
-                Clear-OrisonLaneHolder
+                Clear-OrisonLaneHolder -LaneHost $LaneHost
                 try { $mutex.ReleaseMutex() } catch {}
                 $mutex.Dispose()
                 $mutex = $null
@@ -418,7 +487,7 @@ try {
     }
 }
 finally {
-    Clear-OrisonLaneHolder
+    Clear-OrisonLaneHolder -LaneHost $LaneHost
     if ($null -ne $mutex) {
         try { $mutex.ReleaseMutex() } catch {}
         $mutex.Dispose()
