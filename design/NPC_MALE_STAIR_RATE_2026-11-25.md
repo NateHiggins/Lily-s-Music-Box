@@ -42,6 +42,11 @@ the point where each foot lands. As the ruling expected, his stride is slower an
 the back leg also stays raised behind him for longer, so the lowest foot sits higher over the treads (median 0.116 m
 against 0.081 m before).
 
+Codex's read-only review of 9c710e09e measured the same tradeoff at p90: Omar's descent sink p90 moved from
+-0.027 m to -0.088 m, with clearer gaps under the advancing foot, while the median contact slip fell from 0.248 to
+0.023 m/s. Its evidence is in **D:/ov_reports/npc_stair_rate_readonly_intake_20261125**. The change merged to main in
+PR 571.
+
 ## 3. What is left
 
 - **House walks.** OrisonV2ResidentWalkTest with the men on the house stairs, run once on Codex's clean composition.
