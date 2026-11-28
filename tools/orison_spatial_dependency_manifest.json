@@ -300244,6 +300244,96 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "89d33a6284fa8964",
+   "kind": "id_reference",
+   "token": "F04_DOOR_03",
+   "file": "game/scripts/game/prologue_director.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_hold_front_door"
+   ],
+   "lines": [
+    433
+   ],
+   "count": 1,
+   "context": [
+    "var opening := world.adapter.resolve(\"F04_DOOR_03\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8dbda500f6b4ef7f",
+   "kind": "node_path",
+   "token": "F04_DOOR_03_Leaf",
+   "file": "game/scripts/game/prologue_director.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_hold_front_door"
+   ],
+   "lines": [
+    434
+   ],
+   "count": 1,
+   "context": [
+    "var door: DoorProp=opening.get_node_or_null(\"F04_DOOR_03_Leaf\") as DoorProp if opening!=null else null"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f3f2c8c0c435ddb3",
+   "kind": "generated_name",
+   "token": "_spawn_echo",
+   "file": "game/scripts/game/signal_surface_writing.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_spawn_echo"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "\"SignalEcho%d\" % _echoes.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -8,6 +8,14 @@ var boiler: BoilerProp
 var heat_balance
 var taps: Array[TapProp] = []
 var _accum := 0.0
+## Owners that keep the plant's state still (the prologue shower lesson). The
+## plant neither burns nor gains while any owner holds it; nothing is invented.
+var _holds := {}
+
+
+func hold(owner: Object, on: bool) -> void:
+	if on:_holds[owner.get_instance_id()]=true
+	else:_holds.erase(owner.get_instance_id())
 
 
 func configure(plant: BoilerProp, balance, water_fixtures: Array[TapProp]) -> void:
@@ -21,6 +29,8 @@ func configure(plant: BoilerProp, balance, water_fixtures: Array[TapProp]) -> vo
 
 func _process(delta: float) -> void:
 	if boiler == null or not is_instance_valid(boiler):
+		return
+	if not _holds.is_empty():
 		return
 	_accum += delta
 	if _accum < 1.0:
