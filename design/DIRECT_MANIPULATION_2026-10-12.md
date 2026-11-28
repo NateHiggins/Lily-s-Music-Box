@@ -102,3 +102,83 @@ The handheld is collapsed to its actual printed first line in the bottom-right
 corner. E toggles the full instrument/message in the right third. This replaces
 E's world-interaction keyboard binding. The carried flashlight uses a stable
 supply without simulated contact chatter or impact-induced flicker.
+
+## Owner extension, 2026-11-27: one drag convention and a reading reticle
+
+Lily could not work the prologue's hot and cold valves. Her ruling, in her
+words: "when i ... grab the hot water knob and push my mouse to the right it is
+always going to turn it on and to the left off", and "consider every time there
+is an option to interact with something and give visual feedback on how to do
+so". This supersedes the earlier line that the cursor "communicates availability
+and possession, not step-by-step recipes" for the reticle only. Tutorials stay
+on the field-slip printer. The latched click-to-grab, click-to-release contract
+and RUL-018 are unchanged.
+
+**Rotary controls (dials).** A knob, valve or cock declares itself through
+**dial_grip.gd**. The hand then reads horizontal mouse travel only: right raises
+the value, left lowers it, from any camera position and wherever on the part the
+hand took hold. The owner's value must rise toward on or open. The part still
+turns about its own shaft in its physical direction. The former gesture
+projected the contact point's tangent, so the same valve reversed between the
+top and bottom arm of its cross and between sides of the fixture.
+
+**Linear and hinged controls.** These keep the projected or fixed gesture they
+already had. The reticle now draws that same projection (one function serves the
+hand and the arrow), so dragging toward the bright arrowhead always raises the
+value.
+
+**The reticle** (**target_reticle.gd**, fed by **constrained_grab.guide()**)
+is presentation only and holds no state:
+
+| State | Mark |
+|---|---|
+| idle | small hollow ring |
+| aimed, dial | arc with a head each way, the end words (OFF, ON) and a name pill |
+| aimed, slide or hinge | double arrow along the on-screen travel; a bar replaces a head at a stop |
+| aimed, loose stock | corner marks |
+| aimed, legacy prompt | click mark; the existing prompt slip names the action |
+| held | a gauge of the part's travel placed on the part, with chevrons for the way it last moved |
+| stop or refusal | ink burst at that end and a short shake |
+
+A descriptor may add **label**, **ends** (two words) and **tint**. Hot is warm
+and cold is cool. A small aimed or held part also gets an ink keyline
+(**part_outline.gd**, an overlay pass that replaces no material). Leaves, cloth
+and thin sheets are left to the reticle.
+
+**Converted so far:** every **TapProp** valve pair (the prologue bath and
+shower, lavatories, kitchen sinks). **Still on the projected gesture, with the
+generic arrow:** kitchen service stops, radiator supply wheels, stove gas
+knobs, gas cocks, the roof tank stop and the remaining small rotaries. Convert
+each with its own tests; several have receipt-bound drivers.
+
+**The mark stays on screen while the teletype is carried.** Since the physical
+paper replaced the ordinary HUD, carrying the service set hid the whole
+interaction layer, aiming dot included, so in the installed game nothing on the
+glass said what could be taken. The paper still owns every prompt word; only
+the reticle now stays. Captures and the waking shot still hide the layer.
+
+**One-click controls.** A part with two seats and nothing between them may
+declare **control: tap** with a **press** callable. One primary click works it;
+nothing is latched and no mouse travel is read. The reticle draws the click
+mark and names the state it is in now. The first is the bath's faucet and
+shower diverter (owner ruling **faucet_shower_toggle_20261127**), which was a
+12 mm slide. This is an owner-ruled exception for two-seat parts, not a return
+to click-to-toggle for parts with real travel.
+
+**Shower spray and steam (same day, owner request).** The spray was 128 drops
+thinner than a pixel. It is now thicker streaks from the rose, a soft
+untextured cone body and a crown of splashes that rides the standing water.
+The steam was one even fog box. It is now a plume over the hot water that
+banks under the ceiling and deepens downward as the room fills, then thins
+after shutoff. Flow, temperature and humidity still come from the tap and the
+moisture owner; only their picture changed. Her eye on the result is owed.
+
+Her follow-up the same day: the rose now sits 14 degrees over on its captive
+swivel (**tilt_clawfoot_rose.py**, then the ordinary bath export), and the
+**SprayOrigin** datum carries that axis, so the whole cone lands inside the
+tub. Drops leave a centre hole and three rings along each hole's own line, as
+standing jets. The supply pressure surges, shivers and knocks on a fixed
+schedule shared by every running rose; it changes only how the spray is drawn.
+
+Proof for this extension is the bench **ReticleValveBench**; it is not
+occupied-world qualification.

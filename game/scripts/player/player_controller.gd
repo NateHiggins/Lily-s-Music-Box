@@ -53,6 +53,8 @@ var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var _target_dot: Control
+var _part_outline: Node
+var _paper_prompts := false
 var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
@@ -340,6 +342,9 @@ func _build_hud() -> void:
 	_target_dot = dot
 	_grab = preload("res://scripts/player/constrained_grab.gd").new(self)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_part_outline = preload("res://scripts/player/part_outline.gd").new()
+	_part_outline.name = "PartOutline"
+	add_child(_part_outline)
 	layer.add_child(dot)
 	_prompt_panel = PanelContainer.new()
 	_prompt_panel.name = "InteractionPromptSlip"
@@ -366,7 +371,11 @@ func _build_hud() -> void:
 	pause_services.call("bind_player", self)
 
 func set_physical_display_enabled(enabled: bool) -> void:
-	if _interaction_hud: _interaction_hud.visible=not enabled
+	# The carried paper owns the words. The aiming mark stays on the glass:
+	# without it nothing on screen says what the hand can take or how it moves
+	# (owner ruling, 2026-11-27).
+	_paper_prompts=enabled
+	if _prompt_panel and enabled: _prompt_panel.visible=false
 	if telegram_hud: telegram_hud.set_physical_output(enabled)
 
 
@@ -390,8 +399,12 @@ func _update_prompt() -> void:
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
 		var feedback: Dictionary = _grab.feedback(aimed)
 		if call_locked or mouse_released or (not inspecting() and not touch_input and not pointer_captured()): feedback.state="hidden"
-		_target_dot.present(feedback.state,feedback.inspectable,
-			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false))
+		# The mark sits on the held part, and the arrow it draws is the hand's own projection.
+		var guide: Dictionary=feedback.get("guide",{}) if feedback.state!="hidden" else {}
+		var mark: Vector2=get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5
+		if _grab.active() and not inspecting() and guide.get("archetype","")!="take" and guide.has("anchor") and get_viewport().get_visible_rect().grow(-48.).has_point(guide.anchor): mark=guide.anchor
+		_target_dot.present(feedback.state,feedback.inspectable,mark,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false),guide)
+		_part_outline.present(guide.get("part"),guide.get("tint",Color(0,0,0,0)))
 		if _grab.active() or available or aimed.get("blocked",false): return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
@@ -524,6 +537,8 @@ func _process(_delta: float) -> void:
 	# Resolve after controller look, interaction and eye-height changes so the
 	# drawn target describes the camera and hand actually rendered this frame.
 	_update_prompt()
+	_target_dot.set_tap(_prompt_panel.visible and not is_instance_valid(seated_interaction))
+	if _paper_prompts: _prompt_panel.visible=false
 
 
 func _unhandled_input(event: InputEvent) -> void:

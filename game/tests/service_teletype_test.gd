@@ -66,7 +66,7 @@ func _run() -> void:
 	check(printer._gears.size()==4 and printer.focus_wheel!=null,"Blender transmission and reading wheel exported")
 	player._prompt.text="[E] TEST VALVE"
 	carrier._process(.01)
-	check("TEST VALVE" in printer.footer.text and not player._interaction_hud.visible,"interaction cue lives on physical paper without an aiming dot")
+	check("TEST VALVE" in printer.footer.text and not player._prompt_panel.visible and player._interaction_hud.visible,"interaction words live on physical paper; only the aiming mark stays on the glass")
 	printer.turn_page(1)
 	await get_tree().create_timer(9).timeout
 	await shot("03_next_page")
@@ -124,7 +124,7 @@ func _run() -> void:
 	carrier.reading=false
 	await get_tree().process_frame
 	await get_tree().process_frame
-	check(not player.telegram_hud.visible and not player._interaction_hud.visible,"lowering paper keeps all ordinary HUD overlays removed")
+	check(not player.telegram_hud.visible and not player._prompt_panel.visible,"lowering paper keeps all ordinary HUD text overlays removed")
 	device.set_radio_powered(true,false)
 	for index in range(26): carrier.print_telegram_card({"title":"COPY %02d" % index,"body":"Retained field copy."})
 	check(printer.reports.size()==24 and "COPY 02" in printer.reports[0].pages[0],"history bounded to newest 24 reports")

@@ -127,7 +127,11 @@ func run() -> void:
 		if not await operate(part.global_position+part.global_basis.x*.06,PI*.25,"hot valve" if index==0 else "cold valve"):finish();return
 		check(part.rotation.is_equal_approx(Vector3(PI*.25,0,0)),"actual end-mounted valve turns about X without inherited wall-axis rotation")
 	check(is_equal_approx(float(bath.get_flow_state().hot_opening),.5) and is_equal_approx(float(bath.get_flow_state().cold_opening),.5),"independent physical valves retain exact partial flow")
-	if not await operate(bath.diverter.global_position,0.0,"bath diverter"):finish();return
+	player.face_world_point(bath.diverter.global_position)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(player._grab.find_target().get("control")=="tap","diverter offers a one-click control")
+	await click()
+	if not check(not player._grab.active() and is_zero_approx(bath.shower_fraction),"one click sends the supply to the faucet and latches nothing"):finish();return
 	check(bath.spray_flow_amount()==0 and bath.filler.visible and not bath._stream.visible,"diverter routes actual supply to filler without shower spray")
 	await shot("bath_filler")
 	# The low stopper is reached from inside the vessel, not through its wall.
