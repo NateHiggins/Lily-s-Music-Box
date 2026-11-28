@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2806,
+  "v2_blockout": 2761,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -124086,9 +124086,9 @@
    "target_exists": true
   },
   {
-   "key": "d35f2dbbbc31cdaf",
+   "key": "b2bbb56fe2811cd3",
    "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_1",
+   "token": "F02_FRONT_GALLERY_LT_2",
    "file": "game/data/orison_v2/front_lighting_fixtures.json",
    "tier": "data",
    "subsystem": "data",
@@ -124112,139 +124112,9 @@
    "target_exists": true
   },
   {
-   "key": "b2bbb56fe2811cd3",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "056687e51a27180d",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "f7bdebacea458196",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "55b9d8a60b34eb8b",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "72595f2b7da1a25d",
    "kind": "id_reference",
    "token": "F02_FRONT_SERVICE_RETURN_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "d98598d0ba3b08fa",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_LT_1",
    "file": "game/data/orison_v2/front_lighting_fixtures.json",
    "tier": "data",
    "subsystem": "data",
@@ -124294,113 +124164,9 @@
    "target_exists": true
   },
   {
-   "key": "eb7508246dba55e5",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "e1ea9453501f69cb",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "1e5bfaf177f675c8",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "e2eed631461abaf3",
    "kind": "id_reference",
    "token": "F03_FRONT_SERVICE_RETURN_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "5c23832a85cf770f",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_LT_1",
    "file": "game/data/orison_v2/front_lighting_fixtures.json",
    "tier": "data",
    "subsystem": "data",
@@ -124450,113 +124216,9 @@
    "target_exists": true
   },
   {
-   "key": "70daa4967a963117",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "1959632957a18c5e",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "984383b8c933f5da",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "b179857d3756e01c",
    "kind": "id_reference",
    "token": "F04_FRONT_SERVICE_RETURN_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "3f5424f633cb64ef",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_LT_1",
    "file": "game/data/orison_v2/front_lighting_fixtures.json",
    "tier": "data",
    "subsystem": "data",
@@ -124606,84 +124268,6 @@
    "target_exists": true
   },
   {
-   "key": "8802ab1cecbff05a",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "7306da314faac0f6",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "30c223e37ef94df6",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "e6f7ee85b3165965",
    "kind": "id_reference",
    "token": "F05_FRONT_SERVICE_RETURN_LT_1",
@@ -124710,113 +124294,9 @@
    "target_exists": true
   },
   {
-   "key": "b5e88dea53e4441b",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "14c4ade125c327e8",
    "kind": "id_reference",
    "token": "F06_FRONT_GALLERY_LT_2",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "ec61f3bfa58a1c4d",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "743c149059ebbb51",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/front_lighting_fixtures.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "064e2f488f25505b",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL_LT_2",
    "file": "game/data/orison_v2/front_lighting_fixtures.json",
    "tier": "data",
    "subsystem": "data",
@@ -124946,7 +124426,7 @@
     0,
     0
    ],
-   "count": 63,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -124994,7 +124474,7 @@
     0,
     0
    ],
-   "count": 63,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -125041,7 +124521,7 @@
     0,
     0
    ],
-   "count": 63,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -125088,7 +124568,7 @@
     0,
     0
    ],
-   "count": 67,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -125135,7 +124615,7 @@
     0,
     0
    ],
-   "count": 67,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -125327,6 +124807,7 @@
    "subsystem": "data",
    "symbols": [
     "/rooms[0]/room",
+    "/fittings[2]/room",
     "/fittings[*]/room"
    ],
    "lines": [
@@ -125357,7 +124838,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fittings[*]/owner"
+    "/fittings[2]/owner"
    ],
    "lines": [
     0
@@ -125678,7 +125159,8 @@
    "subsystem": "data",
    "symbols": [
     "/rooms[*]/room",
-    "/fittings[*]/room"
+    "/fittings[0]/room",
+    "/fittings[1]/room"
    ],
    "lines": [
     0,
@@ -125706,7 +125188,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fittings[*]/owner"
+    "/fittings[0]/owner"
    ],
    "lines": [
     0
@@ -125732,414 +125214,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "c1d76b107636c2de",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/rooms[*]/room",
-    "/fittings[0]/room",
-    "/fittings[1]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "dbecd1875a0605a7",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_FRONT_LIGHT_PORT_22",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[0]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "8443d6b9c0de4b1e",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_FRONT_LIGHT_PORT_23",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
     "/fittings[1]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "3338426302d818dd",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/rooms[*]/room",
-    "/fittings[2]/room",
-    "/fittings[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "e1ad693b15b4b3f4",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_FRONT_LIGHT_PORT_26",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[2]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "eb132ee986d40183",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_FRONT_LIGHT_PORT_27",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "5d94b27fd4e9fbb0",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/rooms[*]/room",
-    "/fittings[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "c98e1a29b907a443",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_FRONT_LIGHT_PORT_30",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "7876fb74fa978631",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_FRONT_LIGHT_PORT_31",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "7a0c28f47a8f10d9",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/rooms[*]/room",
-    "/fittings[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "d4d41eba3f16825b",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_FRONT_LIGHT_PORT_34",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a16e555f4f1e4223",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_FRONT_LIGHT_PORT_35",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "394e30b02349a42e",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/rooms[*]/room",
-    "/fittings[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "08dcc2ccfe0477e3",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_FRONT_LIGHT_PORT_38",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "ba0d947691d7c997",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_FRONT_LIGHT_PORT_39",
-   "file": "game/data/orison_v2/front_lighting_trim.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fittings[*]/owner"
    ],
    "lines": [
     0
@@ -175718,37 +174793,9 @@
    ],
    "lines": [
     0,
-    0,
-    0,
     0
    ],
-   "count": 4,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "86b5356ae577a59c",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -175788,142 +174835,9 @@
    "target_exists": true
   },
   {
-   "key": "84fc48ceb06360f5",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "94b94d8db7590aa4",
    "kind": "id_reference",
    "token": "F02_FRONT_GALLERY_SWITCH",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/switches[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "fffd758dfe977cb9",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/room",
-    "/switches[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "b9a3c818a8922e0e",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "ddf83fb8a3b1fe18",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "e584c2967c804035",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_SWITCH",
    "file": "game/data/orison_v2/room_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -177213,37 +176127,9 @@
    ],
    "lines": [
     0,
-    0,
-    0,
     0
    ],
-   "count": 4,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "9dde843442fbe4a9",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -177283,142 +176169,9 @@
    "target_exists": true
   },
   {
-   "key": "1ca708e0d9d18435",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "72414776fbf4e386",
    "kind": "id_reference",
    "token": "F03_FRONT_GALLERY_SWITCH",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/switches[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "6cf0f11e4475bb65",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/room",
-    "/switches[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "804562807cc61631",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "f7f4cb40031ef45a",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "9876bb6e1d31b426",
-   "kind": "id_reference",
-   "token": "F03_FRONT_HALL_SWITCH",
    "file": "game/data/orison_v2/room_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -178865,37 +177618,9 @@
    ],
    "lines": [
     0,
-    0,
-    0,
     0
    ],
-   "count": 4,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "30ec89e4c9bfe2ff",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -178935,142 +177660,9 @@
    "target_exists": true
   },
   {
-   "key": "1f7d3846fc209c8d",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "cf6afe41b7b6d7ee",
    "kind": "id_reference",
    "token": "F04_FRONT_GALLERY_SWITCH",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/switches[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "4997f9fe8ff35dc1",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/room",
-    "/switches[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "aed8884860b51fc8",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "42e1ded8e681a7a0",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "b0c06592558a7514",
-   "kind": "id_reference",
-   "token": "F04_FRONT_HALL_SWITCH",
    "file": "game/data/orison_v2/room_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -181091,37 +179683,9 @@
    ],
    "lines": [
     0,
-    0,
-    0,
     0
    ],
-   "count": 4,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "2164995efc42c8dd",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -181161,142 +179725,9 @@
    "target_exists": true
   },
   {
-   "key": "a9206278bd7eb5ea",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "ab7150eadea2906c",
    "kind": "id_reference",
    "token": "F05_FRONT_GALLERY_SWITCH",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/switches[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "5a723102c366f0a4",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/room",
-    "/switches[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "6bc166060ccf3082",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "38bc159b3995626f",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "f193de25b60ce0d0",
-   "kind": "id_reference",
-   "token": "F05_FRONT_HALL_SWITCH",
    "file": "game/data/orison_v2/room_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -183344,37 +181775,9 @@
    ],
    "lines": [
     0,
-    0,
-    0,
     0
    ],
-   "count": 4,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "478e20d58de959fe",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -183414,142 +181817,9 @@
    "target_exists": true
   },
   {
-   "key": "c88dde2dea5d7708",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_LT_3",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "0c8b989cee608027",
    "kind": "id_reference",
    "token": "F06_FRONT_GALLERY_SWITCH",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/switches[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "07a3a65d1bd7f5ac",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/room",
-    "/switches[*]/room"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "2732057e9f82f48c",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL_LT_1",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "26033a2a1aa5b7ae",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL_LT_2",
-   "file": "game/data/orison_v2/room_lighting.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixtures[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "9ae3b45ff7bf6e5a",
-   "kind": "id_reference",
-   "token": "F06_FRONT_HALL_SWITCH",
    "file": "game/data/orison_v2/room_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -197730,7 +196000,7 @@
     0,
     0
    ],
-   "count": 391,
+   "count": 386,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197788,7 +196058,7 @@
     0,
     0
    ],
-   "count": 418,
+   "count": 413,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197846,7 +196116,7 @@
     0,
     0
    ],
-   "count": 431,
+   "count": 426,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197903,7 +196173,7 @@
     0,
     0
    ],
-   "count": 349,
+   "count": 344,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197960,7 +196230,7 @@
     0,
     0
    ],
-   "count": 345,
+   "count": 340,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -232976,7 +231246,7 @@
    ],
    "count": 1,
    "context": [
-    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
+    "\"F02_EAST_HALL_LT\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233004,91 +231274,7 @@
    ],
    "count": 1,
    "context": [
-    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a1ff9c6f15b9658d",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_LT_3",
-   "file": "game/scripts/building/orison_v2_room_lighting.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    10
-   ],
-   "count": 1,
-   "context": [
-    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "2d7d53c57cbf92f0",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_1",
-   "file": "game/scripts/building/orison_v2_room_lighting.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    8
-   ],
-   "count": 1,
-   "context": [
-    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "b7135190eb8e88b4",
-   "kind": "id_reference",
-   "token": "F02_FRONT_HALL_LT_2",
-   "file": "game/scripts/building/orison_v2_room_lighting.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    8
-   ],
-   "count": 1,
-   "context": [
-    "\"F02_EAST_HALL_LT\", \"F02_FRONT_HALL_LT_1\", \"F02_FRONT_HALL_LT_2\","
+    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233116,7 +231302,7 @@
    ],
    "count": 1,
    "context": [
-    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\", \"F02_FRONT_GALLERY_LT_3\","
+    "\"F02_LANDING_LT_SCONCE\", \"F02_FRONT_GALLERY_LT_2\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233226,7 +231412,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1651
+    1655
    ],
    "count": 1,
    "context": [
@@ -233256,7 +231442,7 @@
     "_redistribute_first_floor"
    ],
    "lines": [
-    1758
+    1762
    ],
    "count": 1,
    "context": [
@@ -233286,8 +231472,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1731,
-    1734
+    1735,
+    1738
    ],
    "count": 2,
    "context": [
@@ -233318,7 +231504,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    1010
+    1014
    ],
    "count": 1,
    "context": [
@@ -233528,7 +231714,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2032
+    2036
    ],
    "count": 1,
    "context": [
@@ -233589,9 +231775,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1645,
-    1648,
-    1710
+    1649,
+    1652,
+    1714
    ],
    "count": 3,
    "context": [
@@ -233623,7 +231809,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1660
+    1664
    ],
    "count": 1,
    "context": [
@@ -233653,7 +231839,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1652
+    1656
    ],
    "count": 1,
    "context": [
@@ -233683,7 +231869,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1669
+    1673
    ],
    "count": 1,
    "context": [
@@ -233713,7 +231899,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2030
+    2034
    ],
    "count": 1,
    "context": [
@@ -233773,7 +231959,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1661
+    1665
    ],
    "count": 1,
    "context": [
@@ -233833,7 +232019,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2026
+    2030
    ],
    "count": 1,
    "context": [
@@ -233863,7 +232049,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2028
+    2032
    ],
    "count": 1,
    "context": [
@@ -233893,7 +232079,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    910
+    914
    ],
    "count": 1,
    "context": [
@@ -233923,7 +232109,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2028
+    2032
    ],
    "count": 1,
    "context": [
@@ -233953,7 +232139,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2026
+    2030
    ],
    "count": 1,
    "context": [
@@ -234013,7 +232199,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    911
+    915
    ],
    "count": 1,
    "context": [
@@ -234043,7 +232229,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    911
+    915
    ],
    "count": 1,
    "context": [
@@ -234073,7 +232259,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2026
+    2030
    ],
    "count": 1,
    "context": [
@@ -234103,7 +232289,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    2026
+    2030
    ],
    "count": 1,
    "context": [
@@ -234133,7 +232319,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    910
+    914
    ],
    "count": 1,
    "context": [
@@ -234193,9 +232379,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1728,
     1732,
-    1735
+    1736,
+    1739
    ],
    "count": 3,
    "context": [
@@ -234227,7 +232413,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    698
+    702
    ],
    "count": 1,
    "context": [
@@ -234257,7 +232443,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    698
+    702
    ],
    "count": 1,
    "context": [
@@ -234287,7 +232473,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    697
+    701
    ],
    "count": 1,
    "context": [
@@ -234317,7 +232503,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    697
+    701
    ],
    "count": 1,
    "context": [
@@ -234347,7 +232533,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1636
+    1640
    ],
    "count": 1,
    "context": [
@@ -234377,7 +232563,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1637
+    1641
    ],
    "count": 1,
    "context": [
@@ -234407,7 +232593,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    698
+    702
    ],
    "count": 1,
    "context": [
@@ -234497,7 +232683,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1538
+    1542
    ],
    "count": 1,
    "context": [
@@ -234527,7 +232713,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    749
+    753
    ],
    "count": 1,
    "context": [
@@ -234558,8 +232744,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1354,
-    1523
+    1358,
+    1527
    ],
    "count": 2,
    "context": [
@@ -234590,7 +232776,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1524
+    1528
    ],
    "count": 1,
    "context": [
@@ -234770,7 +232956,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1694
+    1698
    ],
    "count": 1,
    "context": [
@@ -234800,7 +232986,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1695
+    1699
    ],
    "count": 1,
    "context": [
@@ -234830,7 +233016,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1696
+    1700
    ],
    "count": 1,
    "context": [
@@ -234860,7 +233046,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1693
+    1697
    ],
    "count": 1,
    "context": [
@@ -234921,7 +233107,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    741
+    745
    ],
    "count": 1,
    "context": [
@@ -234953,8 +233139,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1629,
-    1694
+    1633,
+    1698
    ],
    "count": 2,
    "context": [
@@ -234987,8 +233173,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1632,
-    1695
+    1636,
+    1699
    ],
    "count": 2,
    "context": [
@@ -235021,8 +233207,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1635,
-    1696
+    1639,
+    1700
    ],
    "count": 2,
    "context": [
@@ -235055,8 +233241,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1626,
-    1693
+    1630,
+    1697
    ],
    "count": 2,
    "context": [
@@ -235088,7 +233274,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    739
+    743
    ],
    "count": 1,
    "context": [
@@ -235184,7 +233370,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    746
+    750
    ],
    "count": 1,
    "context": [
@@ -235247,8 +233433,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    739,
-    1734
+    743,
+    1738
    ],
    "count": 2,
    "context": [
@@ -235279,7 +233465,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1593
+    1597
    ],
    "count": 1,
    "context": [
@@ -235309,7 +233495,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1594
+    1598
    ],
    "count": 1,
    "context": [
@@ -237519,6 +235705,402 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "17d8615a12c667b4",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6,
+    26
+   ],
+   "count": 2,
+   "context": [
+    "\"F02\": ["
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f635fa89e25d437c",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9,
+    29
+   ],
+   "count": 2,
+   "context": [
+    "\"F03\": ["
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c7201b4a29d513d9",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "\"F04\": ["
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3340b412019a1572",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    17,
+    32
+   ],
+   "count": 2,
+   "context": [
+    "\"F05\": ["
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "939a5f0341d4b19a",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    20,
+    35
+   ],
+   "count": 2,
+   "context": [
+    "\"F06\": ["
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a5ff3e73c0bb3938",
+   "kind": "id_reference",
+   "token": "2A_din_dc1",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11,
+    12,
+    18
+   ],
+   "count": 3,
+   "context": [
+    "[\"ReadingChairWest\", \"2A_din_dc1\", Vector3(-1.24, 0.0, -11.22), PI / 2],",
+    "[\"ReadingChairEast\", \"2A_din_dc1\", Vector3(0.44, 0.0, -11.22), -PI / 2],",
+    "[\"MendingChair\", \"2A_din_dc1\", Vector3(3.6, 0.0, -11.0), PI],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1e67120082fe4f4f",
+   "kind": "id_reference",
+   "token": "2A_din_t",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "[\"ReadingTable\", \"2A_din_t\", Vector3(-0.4, 0.0, -11.22), 0.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e9dcd036c5c4683c",
+   "kind": "id_reference",
+   "token": "2A_sofa",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15,
+    21
+   ],
+   "count": 2,
+   "context": [
+    "[\"LiftWaitingSettee\", \"2A_sofa\", Vector3(0.0, 0.0, -11.76), PI],",
+    "[\"RoofWaitingSettee\", \"2A_sofa\", Vector3(-3.4, 0.0, -11.76), PI],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "673993485ca55947",
+   "kind": "id_reference",
+   "token": "2B_din_t",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "[\"ParcelTable\", \"2B_din_t\", Vector3(3.8, 0.0, -11.45), 0.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c641e73a15ae2efb",
+   "kind": "id_reference",
+   "token": "2B_sewing_machine",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "[\"MendingMachine\", \"2B_sewing_machine\", Vector3(3.6, 0.0, -11.64), PI],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6b312a65af674e45",
+   "kind": "id_reference",
+   "token": "3B_partscrate",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [
+    "[\"ParcelCrate\", \"3B_partscrate\", Vector3(4.52, 0.0, -11.76), 0.12],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "80def638f1a47d0c",
+   "kind": "id_reference",
+   "token": "4B_hall_boots",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "[\"RoofBootTray\", \"4B_hall_boots\", Vector3(-1.8, 0.0, -11.78), 0.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4dad3934514ff649",
+   "kind": "id_reference",
+   "token": "5A_floorstack",
+   "file": "game/scripts/building/orison_v2_upper_front_commons.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "[\"SharedReadingStack\", \"5A_floorstack\", Vector3(-0.54, 0.74, -11.44), -0.15],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F05/furniture+v2_blockout",
    "target_exists": true
   },
   {

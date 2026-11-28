@@ -100,13 +100,17 @@ for i,support in enumerate(plan['supports']):
           and normal.z>.9,id=obj.name)
 
 levels={r['id']:r['y'] for r in json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())['levels']}
+concealed_controls = {row['control'] for row in plan['concealed_feeds']}
 for switch in plan['switches']:
     obj=bpy.data.objects[switch['id']+'_Backbox']
     p=Vector(switch['position']);p.y+=levels[switch['level']]+.087
     inward=Vector((math.sin(switch['yaw']),0,math.cos(switch['yaw'])))
     p+=inward*.012
     hit=tree(obj).ray_cast(point(p)+Vector((0,0,.020)),Vector((0,0,-1)),.05)[0]
-    check('switch-box top entry is open',hit is None,id=switch['id'])
+    if switch['id'] in concealed_controls:
+        check('concealed-feed switch-box top is solid',hit is not None,id=switch['id'])
+    else:
+        check('switch-box top entry is open',hit is None,id=switch['id'])
     # Backbox rear must actually bear on the original wall's inside face.
     vertices=[obj.matrix_world@v.co for v in obj.data.vertices]
     rear=max(Vector((v.x,v.z,-v.y)).dot(inward) for v in vertices)

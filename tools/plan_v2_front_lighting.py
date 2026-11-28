@@ -40,7 +40,7 @@ def plan(layout, electrical):
         raise ValueError('Review changed restored-front program')
     result = dict(schema_version=1, status='NATIVE_CANDIDATE_NOT_INSTALLED',
                   scope='All twenty restored-front spaces; retained switch, light, circuit and save owners.',
-                  fixtures=[], switches=[], routes=[], junctions=[], wall_ports=[], supports=[],
+                  fixtures=[], switches=[], routes=[], concealed_feeds=[], junctions=[], wall_ports=[], supports=[],
                   source_junctions=[], remaining_acceptance=[
                       'Native source-cover and lamp-canopy entry bores, seating and conductor continuity',
                       'Exact shell/riser/door/furniture collision review of candidate and bounded wall ports',
@@ -80,31 +80,33 @@ def plan(layout, electrical):
         identity, level = space['id'], space['level']
         x0, z0, x1, z1 = space['rect']
         name = identity.split('_FRONT_')[1]
-        z = (z0 + z1) / 2
-        count = 3 if name == 'GALLERY' else 2 if name == 'HALL' else 1
+        # The open upper hall and gallery share one circuit. Its wiring runs
+        # inside the ceiling and wall, leaving the public ceiling unobstructed.
+        if name == 'HALL':
+            continue
+        shared_gallery = name == 'GALLERY'
+        z = -8.35 if shared_gallery else (z0 + z1) / 2
         kind = 'cage_bulb' if name in ('WORKROOM', 'SERVICE_RETURN') else 'flush_dome'
         variant = 'cage_bulb_rise300' if kind == 'cage_bulb' else 'flush_dome'
         y = 2.62 if kind == 'cage_bulb' else 2.92
-        xs = [x0 + (x1 - x0) * (n + .5) / count for n in range(count)]
-        for n, x in enumerate(xs, 1):
-            light = identity + '_LT_' + str(n)
-            result['fixtures'].append(dict(id=light, room=identity, level=level, kind=kind,
-                variant=variant, position=[round(x, 6), y, round(z, 6)], yaw=0,
-                properties=dict(range_clamp=4.6 if count > 1 else 3.0, energy_scale=1.2),
-                canopy_seat=[round(x, 6), levels[level] + clear - .08, round(z, 6)],
-                ceiling_seat=[round(x, 6), levels[level] + clear, round(z, 6)]))
-        # A single lateral distribution per room avoids coincident overlapping
-        # home runs to individual lights; the native builder splits at every tee.
-        if abs(8.9 - min(xs)) > 1e-6:
-            route(identity + '_DISTRIBUTION', level,
-                  [[8.9, 2.95, z], [min(xs), 2.95, z]], identity)
-        for n, x in enumerate(xs, 1):
-            route(identity + '_CANOPY_' + str(n), level,
-                  [[x, 2.95, z], [x, 2.918, z]], identity, 'canopy')
+        x = round((x0 + x1) / 2, 6)
+        light = identity + ('_LT_2' if shared_gallery else '_LT_1')
+        result['fixtures'].append(dict(id=light, room=identity, level=level, kind=kind,
+            variant=variant, position=[x, y, round(z, 6)], yaw=0,
+            properties=dict(range_clamp=8.0 if shared_gallery else 3.0,
+                            energy_scale=1.6 if shared_gallery else 1.2),
+            canopy_seat=[x, levels[level] + clear - .08, round(z, 6)],
+            ceiling_seat=[x, levels[level] + clear, round(z, 6)]))
+        if shared_gallery:
+            result['fixtures'][-1]['properties']['navigation_light'] = True
+            route(identity + '_CEILING_ENTRY', level,
+                  [[x, 2.95, z], [x, 2.918, z]], identity, 'concealed_canopy')
+        else:
+            if abs(8.9 - x) > 1e-6:
+                route(identity + '_DISTRIBUTION', level, [[8.9, 2.95, z], [x, 2.95, z]], identity)
+            route(identity + '_CANOPY_1', level, [[x, 2.95, z], [x, 2.918, z]], identity, 'canopy')
         if name in ('GALLERY', 'WORKROOM'):
             position, yaw = [8.198, 1.2, -11.65], math.pi / 2
-        elif name == 'HALL':
-            position, yaw = [8.198, 1.2, -6.8], math.pi / 2
         elif name == 'SERVICE_RETURN':
             position, yaw = [8.402, 1.2, -11.65], -math.pi / 2
         elif name == 'WEST_BAY':
@@ -129,8 +131,13 @@ def plan(layout, electrical):
         sx, _, sz = position
         sx += math.sin(yaw) * .012
         sz += math.cos(yaw) * .012
-        route(identity + '_SWITCH_FEED', level,
-              [[8.9, 2.95, sz], [sx, 2.95, sz], [sx, position[1]+.08, sz]], identity, 'switch')
+        if shared_gallery:
+            result['concealed_feeds'].append(dict(
+                level=level, room=identity, fixture=light, control=identity + '_SWITCH',
+                junction=level + '_ELECTRICAL_JUNCTION'))
+        else:
+            route(identity + '_SWITCH_FEED', level,
+                  [[8.9, 2.95, sz], [sx, 2.95, sz], [sx, position[1]+.08, sz]], identity, 'switch')
 
     # Deduplicate/split all axis-aligned stock at crossings, branches and tips.
     # Native boxes own the resulting vertices: no closed pipes merely cross.
