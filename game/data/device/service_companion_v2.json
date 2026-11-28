@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "asset": "res://assets/props/service_companion_v2.glb",
-  "asset_sha256": "1c362f7a1e8535e45c012a8439a310490cda2c01680cab3d29d6f2686eee51c0",
+  "asset_sha256": "c3c26ab7c534427d964a888910def79e346e7ba7d9b6c3de4128dda1aeabb422",
   "base_data_sha256": "270b1e23788f2c4346a6c29f83c98e230bc5709b31dca02b9db6933aba586b9e",
   "finishes": {
     "CompanionSteel": {
@@ -815,5 +815,38 @@
   ],
   "keyboard_open_degrees": 90,
   "keyboard_retraction_m": 0.045,
-  "keyboard_stay_half_span_m": 0.07144
+  "keyboard_stay_half_span_m": 0.07144,
+  "arm_bay": {
+    "door": "CompanionArmDoor",
+    "stays": [
+      "CompanionArmDoorStayFore",
+      "CompanionArmDoorStayAft"
+    ],
+    "stay_pin": [
+      -0.024,
+      0.002,
+      0
+    ],
+    "stay_slot_x": -0.07869999921321869,
+    "stay_length_m": 0.05
+  },
+  "brow": {
+    "face_z": 0.079,
+    "pockets": {
+      "date": {
+        "center_x": 0.029249999999999998,
+        "bottom": 0.085,
+        "width": 0.0905,
+        "height": 0.028999999999999998,
+        "floor_z": 0.07150000000000001
+      },
+      "cell": {
+        "center_x": -0.055,
+        "bottom": 0.085,
+        "width": 0.0324,
+        "height": 0.028999999999999998,
+        "floor_z": 0.0625
+      }
+    }
+  }
 }

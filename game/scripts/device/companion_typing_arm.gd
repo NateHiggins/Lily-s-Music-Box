@@ -6,11 +6,18 @@ const DEPLOY_END:=117.0/24.0
 const RETURN_START:=319.0/24.0
 const PREOPEN_END:=15.0/24.0
 const STOWED:=415.0/24.0
+# The body's port bed drops before the rails run out and lifts after they return.
+const DOOR_OPEN:=Vector2(3.0/24.0,13.0/24.0)
+const DOOR_CLOSE:=Vector2(419.0/24.0,429.0/24.0)
 var case_time:=0.0
 var rig:Node3D
 var player:PlayerController
 var permitted:Callable
 var native:Node3D
+var bed:Node3D
+var hand:=1.0
+var _bed_pivot:=Vector3.ZERO
+var _bed_open:=Basis.IDENTITY
 var animator:AnimationPlayer
 var clip:StringName
 var assembly:Node3D
@@ -37,13 +44,16 @@ var _limits:Array=[]
 func configure(mechanism:Node3D,holder:PlayerController,permission:Callable) -> bool:
 	rig=mechanism;player=holder;permitted=permission
 	native=load("res://assets/props/companion_typing_arm.glb").instantiate() as Node3D
-	add_child(native)
+	# The stowed arm lies on the bed and turns with it; an open bed is the identity.
+	bed=Node3D.new();bed.name="ArmBed";add_child(bed);bed.add_child(native)
 	assembly=native.find_child("TypingArmAssembly",true,false)
 	if assembly==null:return false
 	var assembly_extras:Dictionary=assembly.get_meta("extras",{})
 	if not assembly_extras.has("baked_reference_scale"):return false
 	baked_scale=float(assembly_extras.baked_reference_scale)
 	if not is_equal_approx(baked_scale,.42):return false
+	hand=float(assembly_extras.get("handedness",1))
+	if absf(hand)!=1.0 or rig.arm_door==null:return false
 	# This child lives in the original native rig frame. Undo only the asset's
 	# baked reference conversion; the parent's presentation scale then applies
 	# once to both assemblies. At phone scale the imported arm's net scale is1.
@@ -98,7 +108,11 @@ func configure(mechanism:Node3D,holder:PlayerController,permission:Callable) -> 
 	for name:StringName in animator.get_animation_list():
 		if name!=&"RESET":clip=name;break
 	if clip.is_empty():return false
-	animator.play(clip);animator.pause();animator.seek(0,true)
+	animator.play(clip);animator.pause()
+	var door:Node3D=rig.arm_door
+	_bed_pivot=to_local(door.global_position)
+	_bed_open=global_basis.orthonormalized().inverse()*door.get_parent_node_3d().global_basis.orthonormalized()
+	_seek(0)
 	set_process(false)
 	return true
 
@@ -111,7 +125,6 @@ func begin(keys:Array[String]) -> bool:
 	if player!=null and not player.acquire_text_input(self):return false
 	program.assign(keys);index=0;_complete=true;_restore_keyboard=rig.keyboard_requested
 	phase="prepare";elapsed=0
-	if not keyboard_case_clear():rig.automated_keyboard(self,false)
 	set_process(true)
 	return true
 
@@ -197,25 +210,28 @@ func advance(delta:float) -> void:
 
 func _seek(seconds:float) -> void:
 	animator.seek(seconds,true)
+	rig.set_arm_door(self,smoothstep(DOOR_OPEN.x,DOOR_OPEN.y,seconds)*(1.0-smoothstep(DOOR_CLOSE.x,DOOR_CLOSE.y,seconds)))
+	var turn:Basis=global_basis.orthonormalized().inverse()*rig.arm_door.global_basis.orthonormalized()*_bed_open.inverse()
+	bed.transform=Transform3D(turn,_bed_pivot-turn*_bed_pivot)
 
+## The bay is in the port side, clear of the keyboard's travel, so it never
+## holds the keyboard back and ordinary typing leaves it shut.
 func keyboard_case_clear() -> bool:
-	return case_time>=PREOPEN_END
+	return true
 
-## The existing mechanism callback owns idle garage travel too: ordinary typing
-## must not deploy the keyboard through the closed front. No idle arm callback.
+## The existing mechanism callback closes a bed left open by an interrupted
+## cycle. No idle arm callback.
 func advance_idle_case(delta:float) -> void:
-	if active():return
-	var target:=PREOPEN_END if rig.keyboard_requested else 0.0
-	if target==0 and rig.keyboard_open>.001:return
-	var next:=move_toward(case_time,target,maxf(0,delta))
-	if next!=case_time:case_time=next;_seek(case_time)
+	if active() or case_time<=0:return
+	case_time=move_toward(case_time,0,maxf(0,delta));_seek(case_time)
 
 func _move_to(key:String,next:String) -> void:
 	var point:Vector3=native.to_local(targets[key].global_position)
 	var base:Vector3=native.to_local(shoulder.global_position)
-	var x:=point.x-base.x-tip.position.x
+	# Solve in the starboard hand the joints were proved in, then mirror the yaws.
+	var x:=hand*(point.x-base.x-tip.position.x)
 	var y:=-(point.z-base.z-tip.position.z)
-	var first:float=elbow.position.x;var second:float=wrist.position.x
+	var first:float=absf(elbow.position.x);var second:float=absf(wrist.position.x)
 	var cosine:float=(x*x+y*y-first*first-second*second)/(2*first*second)
 	if absf(cosine)>=1:
 		_complete=false;_restore_keyboard=true;_finish()
@@ -224,7 +240,7 @@ func _move_to(key:String,next:String) -> void:
 	var b:float=-acos(cosine)
 	var a:float=atan2(y,x)-atan2(second*sin(b),first+second*cos(b))
 	while a<deg_to_rad(175):a+=TAU
-	_from=Vector3(wrapf(shoulder.rotation.y,deg_to_rad(175),deg_to_rad(175)+TAU),elbow.rotation.y,wrist.rotation.y)
+	_from=Vector3(wrapf(hand*shoulder.rotation.y,deg_to_rad(175),deg_to_rad(175)+TAU),hand*elbow.rotation.y,hand*wrist.rotation.y)
 	if _from.z>0:_from.z-=TAU
 	_to=Vector3(a,b,-a-b)
 	for axis in 3:
@@ -236,9 +252,9 @@ func _move_to(key:String,next:String) -> void:
 	phase=next;elapsed=0
 
 func _set_angles(angles:Vector3) -> void:
-	shoulder.rotation=Vector3(0,angles.x,0)
-	elbow.rotation=Vector3(0,angles.y,0)
-	wrist.rotation=Vector3(0,angles.z,0)
+	shoulder.rotation=Vector3(0,hand*angles.x,0)
+	elbow.rotation=Vector3(0,hand*angles.y,0)
+	wrist.rotation=Vector3(0,hand*angles.z,0)
 
 func _finish() -> void:
 	rig.automated_key(self,"",0)

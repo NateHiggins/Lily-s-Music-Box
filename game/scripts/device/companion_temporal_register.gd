@@ -100,10 +100,27 @@ func configure(mechanism: Node3D, carrier: Node = null) -> bool:
 	mount.add_child(capacitor_mount)
 	for part_name: String in ["AccessoryChassis__porcelain_fixture", "CapacitorServicePane"]:
 		mount.find_child(part_name, true, false).reparent(capacitor_mount, false)
+	# The cell left its seat on the back for the brow, so the empty rear plate
+	# and its harness legs are put away with the lids.
+	for part_name: String in ["AccessoryChassis__brass_dull", "AccessoryChassis__fire_hardware_steel"]:
+		(mount.find_child(part_name, true, false) as Node3D).hide()
+	# Both instruments seat in the body's brow pockets, behind its face. The
+	# body records the pockets in rig metres; this accessory is phone scale.
+	var cell: Dictionary = mechanism.brow_pockets.cell
+	var date: Dictionary = mechanism.brow_pockets.date
+	var pane := capacitor_mount.find_child("CapacitorServicePane__fire_hardware_steel", true, false) as MeshInstance3D
+	if pane == null: push_error("Temporal capacitor pane missing"); return false
+	var frame := pane.mesh.get_aabb()
+	var room: Vector2 = cell.size * .42
+	var fit := minf(room.x / frame.size.x, room.y / frame.size.y) * .96
+	var centre := frame.get_center()
+	var seat: Vector3 = cell.floor * .42
+	# Turned to face the reader, so x and z reverse about the mount.
 	capacitor_mount.rotation.y = PI
-	capacitor_mount.scale = Vector3.ONE * .70
-	capacitor_mount.position = Vector3(-.029, .030, .011)
-	_door_mount.position = Vector3(.011, .037, .028)
+	capacitor_mount.scale = Vector3.ONE * fit
+	capacitor_mount.position = Vector3(seat.x + centre.x * fit, seat.y + room.y * .5 - centre.y * fit,
+		float(mechanism.brow_face_z) * .42 - .0008 + frame.position.z * fit)
+	_door_mount.position = (date.floor + Vector3(0, .0004, .0022)) * .42
 	_set_charge(0)
 	for row: String in ["Departure", "Passing", "Destination"]:
 		var anchor := native.find_child("Readout_" + row, true, false) as Node3D
@@ -145,10 +162,11 @@ func configure(mechanism: Node3D, carrier: Node = null) -> bool:
 	set_process(false)
 	return mechanism != null
 
-## Actual exported composed sweep: garage motion plus safe-stow reveal.
+## Measured sweep of this accessory seated in the brow, lids included, in rig
+## metres. The underside garage it once rode on is gone, so nothing hangs below.
 func envelope_in_rig() -> AABB:
-	var low:=Vector3(-.058,-.067900008,-.051969846)/.42
-	var high:=Vector3(.067731307,.055,.088665153)/.42
+	var low:=Vector3(-.0932,-.1034,-.1240)
+	var high:=Vector3(.0932,.1184,.1039)
 	return AABB(low,high-low)
 
 func safe_to_reveal() -> bool:

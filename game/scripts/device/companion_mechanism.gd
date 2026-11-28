@@ -8,6 +8,15 @@ const KEY_TRAVEL:=.0014
 var typing_arm:Node
 var _closed_keyboard_hold:WeakRef
 var temporal_register:Node
+var arm_door:Node3D
+var arm_door_opening:=0.0
+var brow_face_z:=0.0
+var brow_pockets:Dictionary={} # name -> {floor: Vector3 (centre x, bottom, floor z), size: Vector2}, rig metres
+var _door_closed:=Basis.IDENTITY
+var _door_stays:Array[Node3D]=[]
+var _stay_pin:=Vector3.ZERO
+var _stay_slot_x:=0.0
+var _stay_length:=0.0
 var feed_replacement_draws:Array[MeshInstance3D]=[]
 var _automatic_key:=-1
 var _automatic_depth:=0.0
@@ -171,6 +180,24 @@ func build() -> bool:
 		if rotor == null: return _fail("Lift rotor missing: " + name)
 		rotor.transform = fit * rotor.transform
 		_rotors.append(rotor)
+	# The port bay is the body's own fitting, so it is closed and whole without an arm.
+	var bay: Dictionary = data.arm_bay
+	arm_door = model.find_child(str(bay.door), true, false) as Node3D
+	if arm_door == null: return _fail("Port arm bay door missing")
+	_door_closed = arm_door.basis.orthonormalized()
+	for name: String in bay.stays:
+		var stay := model.find_child(name, true, false) as Node3D
+		if stay == null or stay.get_parent() != arm_door.get_parent(): return _fail("Arm bay stay missing: " + name)
+		_door_stays.append(stay)
+	_stay_pin = Vector3(bay.stay_pin[0], bay.stay_pin[1], bay.stay_pin[2])
+	_stay_slot_x = float(bay.stay_slot_x)
+	_stay_length = float(bay.stay_length_m)
+	var header: Dictionary = data.brow
+	brow_face_z = float(header.face_z)
+	for label: String in ["date", "cell"]:
+		var pocket: Dictionary = header.pockets[label]
+		brow_pockets[label] = {"floor": Vector3(pocket.center_x, pocket.bottom, pocket.floor_z), "size": Vector2(pocket.width, pocket.height)}
+	_pose_arm_door(0.0)
 	_latch_sound = _sound("pop", -30.0)
 	_key_sound = _sound("tick", -29.0)
 	display = preload("res://scripts/device/companion_tile_display.gd").new()
@@ -269,6 +296,25 @@ func request_keyboard(open: bool) -> void:
 func automated_keyboard(owner:Node,open:bool) -> void:
 	if owner!=typing_arm:return
 	if keyboard_requested!=open:keyboard_requested=open;_settled=false
+
+## Only the arm that rides the bed may open the bay; nothing else owns its travel.
+func set_arm_door(owner: Node, opening: float) -> void:
+	if owner != typing_arm or arm_door == null or not is_finite(opening): return
+	opening = clampf(opening, 0.0, 1.0)
+	if opening == arm_door_opening: return
+	if (opening > 0.0) != (arm_door_opening > 0.0) and _latch_sound != null: _latch_sound.play()
+	_pose_arm_door(opening)
+
+func _pose_arm_door(opening: float) -> void:
+	arm_door_opening = opening
+	arm_door.basis = _door_closed.slerp(Basis.IDENTITY, opening)
+	# Each stay is pinned to the bed; its shoe rides a vertical guide in the bay.
+	var pin: Vector3 = arm_door.transform * _stay_pin
+	var reach := _stay_slot_x - pin.x
+	var rise := sqrt(maxf(0.0, _stay_length * _stay_length - reach * reach))
+	for stay: Node3D in _door_stays:
+		stay.position = Vector3(pin.x, pin.y, stay.position.z)
+		stay.basis = Basis(Quaternion(Vector3.UP, Vector3(reach, rise, 0).normalized()))
 
 func typing_ready() -> bool:
 	return keyboard_requested and keyboard_open >= .999 and failures.is_empty()
