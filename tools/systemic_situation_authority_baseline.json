@@ -912,6 +912,18 @@
    "tier": "production",
    "disposition": "REVIEW",
    "review": "The visibility guard in the dialogue node handler stops the outgoing speaking face before presentation updates. The handler only routes speech and expression. Rehearsal evidence covers an attended conversation. This receipt makes no claim about an unloaded stage."
+  },
+  {
+   "id": "b4830f5dfb02681f",
+   "domain": "npc-knowledge",
+   "class": "DIRECT_NPC_KNOWLEDGE_WRITE",
+   "file": "game/tests/companion_conversation_test.gd",
+   "scope": "_ready",
+   "evidence": "check(after.memory.trust == 0 and after.respond(\"inspect the handsome valve\", context).line_id == \"clarify\", \"a compliment is no trust reward and cannot hijack inspecting a valve\")",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "The line reads trust (== 0) to prove a compliment earns none; it writes no NPC knowledge. The only state change is memory.restore() of the companion's own saved snapshot, which is the save round-trip under test. Retain test-tier REVIEW; no authority exemption."
   }
  ]
 }

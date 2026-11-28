@@ -106,6 +106,8 @@ func _build_visual() -> void:
 	diverter=model.find_child("BathShowerDiverter",true,false) as Node3D
 	diverter_rest=diverter.position
 	_stream=_make_stream(_datum("SprayOrigin"),1.7,.017)
+	# The rose sits tilted on its swivel; the datum's own axis is the spray's.
+	_stream.basis=(model.find_child("SprayOrigin",true,false) as Node3D).basis.orthonormalized()
 	filler=_make_stream(_datum("BathFillerMouth"),.52,.012);filler.name="BathFillerStream"
 	_water_empty_y=_datum("BasinWaterEmpty").y;_water_full_y=_datum("BasinWaterFull").y
 	_basin_water=_make_water_surface(Vector3(model.position.x,_water_empty_y,model.position.z),Vector2(1.40,.62),true)
@@ -161,17 +163,18 @@ func mount_fixture_collision() -> bool:
 	return true
 
 func diverter_grip() -> Dictionary:
-	return {"owner":self,"part":diverter,"frame":model,"kind":"slide",
-		"axis":Vector3.FORWARD,"minimum":0.0,"maximum":.012,"gesture_travel_px":180.0,
+	# One click sends the supply to the faucet or to the shower head (owner
+	# ruling faucet_shower_toggle_20261127). The knob has two seats and nothing
+	# between them, so there is no travel for a hand to hold.
+	return {"owner":self,"part":diverter,"frame":model,"kind":"slide","control":"tap",
+		"label":"WATER TO","ends":["FAUCET","SHOWER"],
+		"axis":Vector3.FORWARD,"minimum":0.0,"maximum":.012,
 		"read":func():return shower_fraction*.012,
-		"write":func(value:float):
-			if _held_valve==2:set_shower_fraction(value/.012),
-		"owns":func():return _held_valve==2,
-		"begin":func():
+		"press":func():
 			if _held_valve!=-1 or _curtain_hand.held or _plug_hand.held:return false
-			_held_valve=2;return true,
-		"end":func():
-			_held_valve=-1;set_shower_fraction(1.0 if shower_fraction>=.5 else 0.0);manipulation_changed.emit()}
+			set_shower_fraction(0.0 if shower_fraction>=.5 else 1.0)
+			manipulation_changed.emit()
+			return true}
 
 func set_shower_fraction(value:float) -> void:
 	if not is_finite(value):return

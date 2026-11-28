@@ -20,6 +20,7 @@ const LINEN := Color(0.78, 0.76, 0.68)
 const SHOWER_DUCK := Color(0.73, 0.68, 0.54)
 const MINERAL := Color(0.79, 0.76, 0.65)
 const RUST := Color(0.39, 0.18, 0.085)
+const DialGrip := preload("res://scripts/props/dial_grip.gd")
 
 ## Set from the marker before `_ready()`. `fixture` is semantic; `prop_type`
 ## remains sink/shower so the possession catalog and water graph stay stable.
@@ -897,7 +898,8 @@ func valve_grip(index: int) -> Dictionary:
 	# Both threaded stop valves unscrew counter-clockwise viewed from the cap.
 	# Wall caps face local -Z; deck-mounted caps face +Y.
 	var direction := Vector3.FORWARD if _handle_wall_mounted[index] else Vector3.UP
-	return {"owner":self,"part":_handles[index],"frame":self,"kind":"hinge",
+	# The hand's gesture is the shared dial convention: right opens, left shuts.
+	return DialGrip.apply({"owner":self,"part":_handles[index],"frame":self,"kind":"hinge",
 		"axis":direction,"minimum":0.0,"maximum":PI*.5,
 		"read":func(): return _valve_openings[index]*PI*.5,
 		"write":func(angle: float):
@@ -907,7 +909,8 @@ func valve_grip(index: int) -> Dictionary:
 			if _held_valve != -1 or (_plug_hand != null and _plug_hand.held) or (_curtain_hand != null and _curtain_hand.held): return false
 			_held_valve = index
 			return true,
-		"end":func(): _held_valve = -1;manipulation_changed.emit()}
+		"end":func(): _held_valve = -1;manipulation_changed.emit()},
+		"HOT" if index==0 else "COLD",["OFF","ON"],DialGrip.HOT if index==0 else DialGrip.COLD)
 
 func mechanism_snapshot() -> Dictionary:
 	var saved := {"hot":_valve_openings.x,"cold":_valve_openings.y}

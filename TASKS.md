@@ -1163,30 +1163,23 @@ do not treat this as cancellation of installed ecology or approved future people
   records. **TL6–TL9** (RETURN, reality inspection, impossible correspondence and
   creature recognition) remain unresolved narrative capabilities for explicit
   story-fit reconciliation, not silently completed or cancelled features.
-- **TL-VOCAL — Give the companion a learned synthetic speaking voice.** Owner
-  direction2026-10-29: begin with Speak & Spell-inspired babble and original
-  16-bit game-inspired laughs, crying, emotive whines and other reactions;
-  indirectly acquire English through interaction, mimicking any word it hears.
-  Preserve articulate physical-printer dialogue and existing narrative/input
-  owners. Learn from actual witnessed utterances, never future/offscreen text
-  or the companion's own babble; persist learning through validated campaign
-  storage. Use existing voice-volume control, bounded playback and cooldowns;
-  do not silently enable a microphone. First complete the current crossing
-  repair, then integrate and audition this voice. The crossing checkpoint is now
-  pushed. Own nonlexical prologue playback is now implemented and technically exercised; learned English and recorded-reaction integration remain open. External October29 sound
-  research and 19 source-supported finalist recordings are in
-  **C:/ov/reports/companion_sound_research_20261029/**; [report/ranked ten](C:/ov/reports/companion_sound_research_20261029/REPORT.md), [32-item rights register](C:/ov/reports/companion_sound_research_20261029/CANDIDATES.csv) and [labelled69.875-second audition reel](C:/ov/reports/companion_sound_research_20261029/AUDITION_REEL.mp4) are delivered. Original hashes/decoding were verified; listening review was NOT performed. Audition, item-specific
-  rights recheck and contextual assignments remain open, with uncertain archival
-  clips held out and the attribution-required alternative separate. Recorded reactions are a separate proposed output channel from learned speech: never learn English or story facts from the companion's own recordings. Cooldowns/event assignments in the report are proposals; preserve protected conversations, readable paper, the exact final communicated prologue line and the quiet17-second Tardi ending. The original synthetic sketch is also unaccepted. No blanket
-  legal clearance or artistic approval is implied.
-  October30 own-voice research is ingested at
-  **C:/ov/reports/friendly_mechanical_voice_research_20261030/**:
-  **RESEARCH_BRIEF.md**, twelve original designs in **VOICE_GESTURES.csv** and
-  **SOURCE_REGISTER.csv**. Owner selected original friendly LPC-style voice on2026-10-30: rounded180Hz body,8kHz ten-order all-pole core,25ms parameter targets,reconstructed48kHz; careful pauses,soft endings and self-directed correction persist as English improves. Four external audition packets are delivered (comparison,babble,learning,sentences); see the prologue ledger intake for exact paths. Start with a small offline-rendered original WAV gesture set through existing AudioPolicy/Voice ownership; do not ship Python authoring tools or audition reels. Three original prologue WAV gestures now use existing AudioPolicy/Dialogue ownership; occupied first-contact21/0,validated-reload fixture22/0 and policy52/0 pass. Final merged-tree116-gate comparison has zero regressions and unchanged17 protected paths/requirement states; full mix/listening remains open. No learned-English renderer is installed yet. Keep pronunciation,
-  heard-word provenance, semantic knowledge and current speaking permission
-  separate; exclude own speech, recordings, echoes and audition playback at
-  source. The proposed offline listening sheet remains separate from arbitrary
-  learned-word synthesis and validated persistence. No prologue timing changes.
+- **TL-VOCAL — Vantry learns spoken English during play.** The original October 30
+  LPC voice, pronunciation studies and sentence masters survive. The November 25
+  implementation times 518 witnessed words across 16 existing resident takes.
+  A nearby powered set remembers each completed word and its source. Thirteen
+  pronunciations and six authored phrases use the original voice. “Say something”
+  invites practice. A newly heard word can also slip out after a conversation.
+  The draft adds a fourteenth word, “listen.” Cal teaches it at his radio.
+  His rhythm returns in the first echo. Vantry gives the word a different
+  reading when asked what to say to someone who is hurting. Audition and
+  native checks are under **D:/ov_reports/vantry_voice_workshop_20261125/borrowed_word/**.
+  The articulate printer, protected prologue and quiet ending keep their owners.
+  The remaining cast takes need transcript and timing review before they can teach.
+  Lily's listening judgment is open. Historical recorded reactions still need
+  individual rights and context review. See **D:/ov_reports/vantry_character_20261125/**
+  for native checks and **C:/ov/asset-prototypes/companion-voice-sentences-20261030/**
+  for original masters. The separate recorded-reaction register remains at
+  **C:/ov/reports/companion_sound_research_20261029/**.
 - **MX3/MX4 — Retain actual material-ingest and rollout gaps.** Verify calibrated
   height/relief, tile scale, ORM/detail/mask authoring and still-unaccepted classes
   against the installed pipeline. Recheck old missing-map/42-height assertions;

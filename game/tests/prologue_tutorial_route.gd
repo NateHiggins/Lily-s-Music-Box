@@ -667,6 +667,15 @@ func _bath_click() -> void:
 	player._unhandled_input(click)
 	await get_tree().physics_frame
 
+func _press_diverter(tap: TapProp, wanted: float) -> bool:
+	player.face_world_point(tap.diverter.global_position)
+	await get_tree().physics_frame
+	player.face_world_point(tap.diverter.global_position)
+	await get_tree().physics_frame
+	if not _require(player._grab.find_target().get("part")==tap.diverter,"ray selects the faucet and shower diverter"):return false
+	await _bath_click()
+	return _require(not player._grab.active() and is_equal_approx(tap.shower_fraction,wanted),"one primary click flips the diverter and latches nothing: "+str(wanted))
+
 func _valve_cap(tap: TapProp, index: int) -> Vector3:
 	# The authored native caps turn about the grip's axis. A cap witness
 	# must stay out in front even after the handle has been rotated.
@@ -734,7 +743,7 @@ func _review_installed_bath() -> void:
 	await _shot("installed_tub_shower_cone")
 	player.face_world_point(tap.model.to_global(Vector3(0,2.28,.44)))
 	await _shot("installed_tub_wall_supports")
-	if not await _drag_part(tap,tap.diverter.global_position,0.0,"installed_tub_filler"):return
+	if not await _press_diverter(tap,0.0):return
 	if not _require(not sources[0].spray.emitting and tap.filler.visible and tap.spray_flow_amount()==0,"filler diversion stops GPU shower emission through authoritative flow"):return
 	player.face_world_point(tap._bath_plug.global_position)
 	await get_tree().physics_frame
@@ -762,7 +771,7 @@ func _review_installed_bath() -> void:
 		# standing within it. Restore flow through real controls, then shut off.
 		for index in 2:
 			if not await _bath_valve(tap,index,PI*.5*(.85 if index==0 else .5)):return
-		if not await _drag_part(tap,tap.diverter.global_position,.012,"exterior_shower_diversion"):return
+		if not await _press_diverter(tap,1.0):return
 		player.face_world_point(tap._stream.global_position-Vector3.UP*.7)
 		await get_tree().create_timer(.6).timeout
 		await _shot("installed_tub_shower_exterior")
