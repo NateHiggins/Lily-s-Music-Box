@@ -247,7 +247,9 @@ func advance(delta: float, reading: bool) -> void:
 	var fitted := AABB(source.position * carrier.PRESENTATION_SCALE, source.size * carrier.PRESENTATION_SCALE)
 	var rotated := AABB(relative_basis * fitted.get_endpoint(0), Vector3.ZERO)
 	for corner in range(1, 8): rotated = rotated.expand(relative_basis * fitted.get_endpoint(corner))
-	var extents := rotated.size * (1.04 if reading else 1.4)
+	# Carried margin was 1.4; Lily asked for him closer still once the tray left
+	# his hull (ruling vantry_compact_size_20261127).
+	var extents := rotated.size * (1.04 if reading else 1.15)
 	var depth := maxf(extents.y / (2.0 * slope * safe_rect.size.y),
 		extents.x / (2.0 * slope * aspect * safe_rect.size.x)) + extents.z * .5
 	depth = maxf(depth, .18)

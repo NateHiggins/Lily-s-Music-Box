@@ -95,7 +95,9 @@ func _run() -> void:
 					required = ["albedo_tex", "rough_tex", "normal_tex"]
 			for map: String in required: check(row.maps.has(map), "loaded registered PBR map " + str(draw.name) + "/" + map)
 			if material is StandardMaterial3D: check(material.normal_enabled and not material.uv1_triplanar, "native normals use authored UVs " + str(draw.name))
-	check(partitions == 63, "all retained, formed-shell and sliding-carriage material primitives are present")
+	# 63 before the compact refit; the port arm bay, its bed door and two stays,
+	# and the instrument brow add eleven material batches to the body.
+	check(partitions == 74, "all retained, formed-shell, sliding-carriage, arm-bay and brow material primitives are present")
 	var glass := rig.glazing.get_active_material(0) as StandardMaterial3D
 	check(glass != null and glass.refraction_enabled and is_equal_approx(glass.refraction_scale, .004), "reading glass retains restrained authored refraction")
 	for label: Label3D in [rig.device.teletype.ink, rig.device.teletype.heading, rig.device.teletype.footer]:

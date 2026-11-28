@@ -2679,5 +2679,45 @@
     "sail_radius_m": 0.076,
     "radial_guard_clearance_m": 0.005,
     "source_revision": "c1f8b8f2ad496d70f47036ccca690505624f0159"
+  },
+  "compact_bay": {
+    "cut_triangles": {
+      "Fixed__Steel": 271,
+      "Fixed__Brass": 192,
+      "Fixed__Paper": 109,
+      "ShellStudy__ShellSteel": 384,
+      "ShellStudy__ShellLeather": 28,
+      "ShellStudy__ShellBrass": 39,
+      "ShellStudy__StudyVelvet": 58
+    },
+    "export": {
+      "asset": "res://assets/props/service_companion_v2.glb",
+      "primitives": 74,
+      "triangles": 47291,
+      "minimum_tangent_agreement": 0.9998419335843206,
+      "status": "PASS"
+    },
+    "bay": {
+      "x": [
+        -0.095,
+        -0.0522
+      ],
+      "y": [
+        -0.0262,
+        0.0302
+      ],
+      "z": [
+        -0.0925,
+        0.066
+      ]
+    },
+    "hinge": [
+      -0.08269999921321869,
+      0.0,
+      -0.08919999748468399
+    ],
+    "door_length_m": 0.1548,
+    "sequence": "Bed drops on its sill hinge and paired stays; the arm rides out on the bed rails; reverse to stow",
+    "brow": "Header housing with date and capacitor pockets; the register and capacitor remain runtime accessories"
   }
 }

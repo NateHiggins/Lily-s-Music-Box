@@ -37,8 +37,8 @@ func _run() -> void:
 	state.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;state.ambient_light_energy=.7
 	environment.environment=state;add_child(environment)
 	var light:=DirectionalLight3D.new();light.rotation_degrees=Vector3(-30,-25,0);light.light_energy=.8;add_child(light)
-	var camera:=Camera3D.new();camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=.23
-	add_child(camera);camera.position=Vector3(.14,.08,.27);camera.look_at(Vector3(.01,-.02,.02));camera.make_current()
+	var camera:=Camera3D.new();camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=.27
+	add_child(camera);camera.position=Vector3(-.17,.09,.25);camera.look_at(Vector3(-.03,-.02,.02));camera.make_current()
 	await shot("stowed")
 	arm.key_pressed.connect(func(key:String):
 		var point:Vector3=arm.tip.global_position
@@ -51,7 +51,7 @@ func _run() -> void:
 	arm.set_process(false)
 	for frame in 50:
 		rig._advance_mechanism(1.0/120);arm.advance(1.0/120)
-	check(rig.keyboard_open==0 and arm.phase=="preopen","garage pre-opens before any keyboard travel")
+	check(rig.keyboard_open==0 and arm.phase=="preopen" and rig.arm_door_opening>0,"port bed drops before any keyboard travel")
 	var captured:=false
 	for frame in 12000:
 		rig._advance_mechanism(1.0/120);arm.advance(1.0/120)
@@ -60,16 +60,19 @@ func _run() -> void:
 		if not arm.active():break
 	check(not arm.active() and contacts.size()==43,"full43-key cycle retracts without omitted or duplicate presses")
 	check(not arm.is_processing(),"stowed arm has no idle processing")
-	check(rig.keyboard_open<=.001 and arm.case_time==0,"keyboard withdraws before garage reseats")
-	# Human keyboard uses the same mechanical interlock without starting typing.
+	check(rig.keyboard_open<=.001 and arm.case_time==0,"keyboard withdraws before the port bed lifts")
+	check(rig.arm_door_opening==0 and rig.arm_door.basis.is_equal_approx(rig._door_closed),"stowed arm leaves the bay door shut on its closed stop")
+	# The bay is in the port side, clear of the keyboard: a person typing opens
+	# the keyboard at once and the bed stays shut. (The underside garage this
+	# replaced had to open first; that interlock went with it.)
 	rig.request_keyboard(true)
 	for frame in 50:rig._advance_mechanism(1.0/120)
-	check(rig.keyboard_open==0 and not arm.active(),"ordinary typing waits for garage clearance")
+	check(rig.typing_ready() and not arm.active(),"ordinary typing opens the keyboard without the arm")
 	for frame in 70:rig._advance_mechanism(1.0/120)
-	check(rig.typing_ready(),"ordinary keyboard opens after garage clears")
+	check(rig.typing_ready() and arm.case_time==0 and rig.arm_door_opening==0,"ordinary typing leaves the port bay shut")
 	rig.request_keyboard(false)
 	for frame in 130:rig._advance_mechanism(1.0/120)
-	check(rig.keyboard_open<=.001 and arm.case_time==0,"ordinary keyboard closes then garage reseats")
+	check(rig.keyboard_open<=.001 and arm.case_time==0,"ordinary keyboard closes with the bay still shut")
 	await shot("retracted")
 	allowed=false;check(not arm.begin(keys),"protected/power permission refusal has no cycle")
 	allowed=true;check(arm.begin(keys),"next cycle can start after retraction")
