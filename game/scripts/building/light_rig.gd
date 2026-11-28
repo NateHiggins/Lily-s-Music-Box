@@ -73,6 +73,7 @@ const ACTIVE_N_MOBILE := 12
 ## Room fixtures still win inside their own room, where they are metres away
 ## and the nearest corridor dome is not.
 const NAV_WEIGHT := 0.15
+const SHADOW_FADE_FOLLOWS_RANGE := &"shadow_fade_follows_authored_range"
 ## Fixtures that belong to no single storey and so cannot be gated by one.
 ## The atrium pendants hang in a seven-floor volume; the street lamps stand
 ## outside the building altogether and are visible from every window on the
@@ -404,6 +405,8 @@ func set_fixture_tuning(fixture: Node, parameter: String, value: float) -> void:
 			tuning[parameter] = clampf(value, 1.5, 16.0)
 			if source != null:
 				source.set_param(Light3D.PARAM_RANGE, tuning[parameter])
+				if source.has_meta(SHADOW_FADE_FOLLOWS_RANGE):
+					source.distance_fade_shadow = tuning[parameter]
 		"attenuation":
 			tuning[parameter] = clampf(value, 0.8, 3.2)
 			if source != null:
